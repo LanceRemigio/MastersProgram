@@ -1,0 +1,450 @@
+\section{Lecture 6}
+\subsection{Topics}
+
+\begin{enumerate}
+    \item[(1)] The definition of Riemann-Stieltjes integral
+    \item[(2)] Refinement of partitions 
+\end{enumerate}
+
+\begin{definition}[Almost Disjoint Intervals]
+    We say that two intervals \( I  \) and \( J  \) are \textbf{almost disjoint} if either \( I \cap J  \) is empty or \(  I \cap J  \) has exactly one point.
+\end{definition}
+
+\begin{definition}[Partition]
+    A partition \( P  \) of an interval \( [a,b] \) is a finite set of points in \( [a,b] \) that includes both \( a  \) and \( b  \). We always list the points of a partition \( P = \{  {x}_{0} , {x}_{1}, {x}_{2}, \dots, {x}_{n} \}  \) in an increasing order; so, 
+    \[  a = {x}_{0} < {x}_{1}< \cdots < {x}_{n} = b.  \]
+\end{definition}
+
+\begin{remark}
+    A partition of \( P  \) of an interval \( [a,b] \) is a finite collection of almost disjoint (nonempty) compact intervals whose union is \( [a,b] \): 
+    \[  P = {I}_{1}, {I}_{2}, \dots, {I}_{n} \]
+    where
+    \[  {I}_{1} = [{x}_{0}, {x}_{1}], \ \ {I}_{2} = [{x}_{1}, {x}_{2}], \ \ \cdots \ \ {I}_{n} = [{x}_{n-1}, {x}_{n}]. \]
+    Again, we denote \( {x}_{0} = a  \) and \( {x}_{n} = b  \).
+\end{remark}
+
+\begin{definition}[Lower Sum, Upper Sum]
+    Let \( f: [a,b] \to \R  \) be bounded, \( \alpha : [a,b] \to \R  \) be increasing, and \( P = \{ {x}_{0}, {x}_{2}, \dots, {x}_{n} \}  \) be a partition of \( [a,b] \). Let \( \Delta {\alpha}_{k} = \alpha({x}_{k}) - \alpha({x}_{k-1}) \). 
+    \begin{enumerate}
+        \item[(i)] The \textbf{Lower Riemann-Stieltjes Sum} of \( f  \) with respect to the integrator \( \alpha \) for the partition \( P  \) is defined by 
+            \[  L(f, \alpha, P ) = \sum_{ k=1  }^{ n } {m}_{k} (\alpha({x}_{k}) - \alpha({x}_{k-1})) = \sum_{ k=1  }^{ n } {m}_{k} \Delta {\alpha}_{ k }. \] 
+        \item[(ii)] The upper \textbf{Riemann-Stieltjes sum} of \( f  \) with respect to the integrator \( \alpha  \) for the partition \( P  \) is defined by
+            \[  U(f, \alpha, P) = \sum_{ k=1  }^{ n } {M}_{k} (\alpha({x}_{k}) - \alpha({x}_{k-1})) = \sum_{ k=1  }^{ n } {M}_{k } \Delta {\alpha}_{k }. \]
+    \end{enumerate}
+\end{definition}
+
+\begin{definition}[Upper R.S Integral, Lower R.s Integral]
+    Let \( f: [a,b] \to \R  \) be bounded, \( \alpha: [a,b] \to \R  \) be increasing. Then 
+    \begin{enumerate}
+        \item[(i)] The \textbf{Upper R.S integral} of \( f  \) with respect to \( \alpha \) (on \( [a,b] \)) is defined by 
+            \[  U(f,\alpha) = \inf_{P \in \Pi} U(f,\alpha, P).   \]
+            Note that the set \( \{  U(f,\alpha, P) : P \in \Pi \}   \) is bounded below by \( m (\alpha(b) - \alpha(a)) \). So the infimum above is a real number. 
+        \item[(ii)] The \textbf{Lower R.S Integral} of \( f  \) with respect to \( \alpha \) (on \( [a,b] \)) is defined by
+            \[  L(f,\alpha) = \sup_{P \in \Pi} L(f,\alpha, P ). \]
+            Note that the set \( \{  L(f,\alpha, P ) : P \in \Pi \} \)
+            the lower sums is bounded above by \( M(\alpha(b) - \alpha(a)) \). So, the supremum above is a real number.
+    \end{enumerate}
+\end{definition}
+
+\begin{definition}[Riemann-Stieltjes integrable functions]
+    Let \( \alpha : [a,b] \to \R  \) be an increasing function. A function \( f: [a,b] \to \R  \) is said to be \textbf{Riemann-Stieltjes integrable} (on \( [a,b] \)) if 
+    \begin{enumerate}
+        \item[(i)] \( f \) is bounded
+        \item[(ii)] \( L(f,\alpha) = U(f,\alpha) \).
+    \end{enumerate}
+    In this case, the R.S integral of \( f  \) with respect to \( \alpha \), denoted by
+    \[ \int_{ a }^{ b }  f  \ d \alpha \ \ \text{or} \ \ \int_{ a }^{ b }  f(x)  \ d \alpha(x) \ \ \text{or} \ \ \int_{ [a,b] } f   \ d \alpha  \]
+    is the common value of \( L(f,\alpha) \) and \( U(f,\alpha) \). That is, 
+    \[  \int_{ a }^{ b }  f  \ d \alpha = L (f,\alpha) = U(f,\alpha). \]
+\end{definition}
+
+\section{Lecture 8-9-10}
+
+\begin{theorem}[Rudin 6.4]
+    Let \( f: [a,b] \to \R  \) be bounded, \( \alpha : [a,b] \to \R  \) is increasing, \( P  \) is a partition of \( [a,b] \), and \( Q  \) is a refinement of \( P  \). Then
+    \begin{enumerate}
+        \item[(1)] \( L(f,\alpha,P) \leq L(f,\alpha, Q) \)
+        \item[(2)] \( U(f,\alpha, P) \geq U(f,\alpha, Q ) \)
+    \end{enumerate}
+\end{theorem}
+\begin{proof}
+Here we will prove (1). The proof of (2) is completely analagous. We proceed via induction on \( \ell = \card (Q \setminus  P )  \) (the number of points in \( Q \setminus  P  \)). Let \( P = \{  {x}_{0}, {x}_{1}, \dots, {x}_{n} \}  \). 
+
+If \( \ell = 0  \), then \( P \subseteq  Q   \) and \( \card Q = \card P  \) implies that \( P = Q  \). Thus, \( L(f,\alpha, P) = L(f,\alpha, Q ) \).
+
+If \( \ell = 1  \), then \( Q  \) has exactly one extra point. Let's call this point \( z  \). So, \( \{ z  \}  = Q \setminus  P  \). Note that \( z \in [a,b] \) and \( P  \) is a partition of \( [a,b] \). Hence, there exists \( 1 \leq i \leq n  \) such that \( z \in ({x}_{i-1}, {x}_{i}) \). Let 
+\begin{align*}
+    {m}_{i}' &= \inf_{x \in [{x}_{i-1}, z]} f(x)  \\
+    {m}_{i}'' &= \inf_{x \in [z,{x}_{i}]} f(x)
+\end{align*}
+Recall that if \( A \subseteq  B  \), then \( \inf A \geq \inf B  \). Hence, \( {m}_{i}' \geq {m}_{i} \) and \( {m}_{i}'' \geq {m}_{i} \).
+We have 
+\begin{align*}
+    L(f,\alpha, P ) &= \sum_{ k=1  }^{ n } {m}_{k } (\alpha({x}_{k})) \\ 
+                    &= \Big[ \sum_{ k \neq i  }^{  } {m}_{k } (\alpha({x}_{k}) - \alpha({x}_{k-1})) \Big] + {m}_{i} (\alpha({x}_{i}) - \alpha(z) + \alpha(z) - \alpha({x}_{i-1})) \\
+                    &= \Big[ \sum_{ k \neq i  }^{  } {m}_{k } (\alpha({x}_{k}) - \alpha({x}_{k-1}))  \Big] +  {m}_{i}(\alpha(z) - \alpha({x}_{i-1})) + {m}_{i} (\alpha({x}_{i}) - \alpha(z) ) \\
+                    &\leq \Big[\sum_{ k \neq i  }^{  } {m}_{k } (\alpha({x}_{k}) - \alpha({x}_{k-1})) \Big] + {m}_{i}' (\alpha(z) - \alpha({x}_{i-1})) + {m}_{i}''(\alpha({x}_{i}) - \alpha(z)) \\
+                    &= L(f,\alpha, Q ).
+\end{align*} 
+So, we have \( L(f,\alpha,P) \leq L(f,\alpha,Q ) \).
+
+Now, suppose the claim is true for \( \ell = r \geq 1  \). Our goal is to show that the claim holds for \( \ell = r + 1  \). Suppose \( \card (Q \setminus  P ) = r + 1  \). Let
+\[  Q \setminus  P = \{  {z}_{1}, {z}_{2}, \dots, {z}_{r}, {z}_{r+1} \}.  \]
+Let \( \hat{Q} = P \cup \{ {z}_{1}, {z}_{2}, \dots, {z}_{r} \}  \). We have
+\[  L(f,\alpha, P) \leq L(f,\alpha, \hat{Q}) \leq L(f,\alpha, Q ) \]
+where the first inequality holds due to our induction hypothesis and the second inequality holds because \( Q \setminus  \hat{Q}  \) contains only one point. So, we have 
+\[  L(f,\alpha, P )  \leq L(f,\alpha, Q ).\]
+\end{proof}
+
+\begin{theorem}[ ]\label{Theorem 2}
+    Let \( f:[a,b] \to \R  \) be a bounded function, \( \alpha: [a,b] \to \R  \) is increasing. Let \( {P}_{1} \) and \( {P}_{2} \) are any two partition of \( [a,b] \). Then 
+    \[  L(f,\alpha, {P}_{1}) \leq U(f,\alpha, {P}_{2}). \]
+\end{theorem}
+\begin{proof}
+Let \( Q = {P}_{1} \cup {P}_{2} \) be the common refinement of \( {P}_{1} \) and \( {P}_{2} \). Applying the previous theorem, we can see that \( {P}_{1} \subseteq  {P}_{1} \cup {P}_{2} \) and \( {P}_{2} \subseteq {P}_{1} \cup {P}_{2}   \) implies
+\[  L(f,\alpha, {P}_{1}) \leq L(f,\alpha, Q ) \leq U(f,\alpha, Q ) \leq U(f,\alpha, {P}_{2}) \]
+\end{proof}
+
+For the following theorem, we will use the lemma below.
+
+\begin{lemma}
+    Suppose \( A  \) and \( B  \) are nonempty subsets of \( \R  \). If 
+    \[  \forall a \in A \ \forall b \in B \ \ a \leq b  \]
+    then \( \sup A \leq \inf B  \).
+\end{lemma}
+
+\begin{theorem}[Rudin 6.5]
+    Let \( f: [a,b] \to \R  \) be a bounded function and \( \alpha: [a,b] \to \R  \) is an increasing function. Then \( L(f,\alpha) \leq U(f,\alpha) \). 
+\end{theorem}
+\begin{proof}
+Let \( A = \{  L(f,\alpha, P) : P \in \Pi \}  \) and \( B = \{  U(f,\alpha, P) : P \in \Pi \}  \). Using the lemma above and {\hyperref[Theorem 2]{Theorem 2}}, we can see that for all \( a \in A  \) and for all \( b \in B  \), it follows that \( \sup A \leq \inf B  \); that is, \( L(f,\alpha) \leq U(f,\alpha) \).
+\end{proof}
+
+\begin{theorem}[Cauchy Criterion for Riemann-Stieltjes Integrability Rudin 6.6]\label{Rudin 6.6}
+    Let \( f: [a,b] \to \R  \) be a bounded function, \( \alpha : [a,b] \to \R  \) be an increasing function. Then
+    \[  f \in {R}_{\alpha}[a,b] \iff \forall \epsilon > 0 \ \exists {P}_{\epsilon} \in \Pi [a,b] \ \text{such that} \ U(f,\alpha, {P}_{\epsilon}) - L(f,\alpha, {P}_{\epsilon}) < \epsilon.  \]
+\end{theorem}
+\begin{proof}
+    (\( \Longleftarrow \)) Our goal is to show that \( L(f,\alpha) = U(f,\alpha) \). Note that \( L(f,\alpha) \leq U(f,\alpha) \) implies \( U(f,\alpha) - L(f,\alpha) \geq 0  \). Hence, it suffices to show that for all \( \epsilon > 0  \), 
+    \[  U(f,\alpha) - L(f,\alpha) < \epsilon. \]
+    Let \( \epsilon > 0  \) be given. By assumption, there exists \( {P}_{\epsilon} \in \Pi \) such that 
+    \[  U(f,\alpha, {P}_{\epsilon}) - L(f,\alpha, {P}_{\epsilon}) < \epsilon. \]
+    We have
+    \begin{align*}
+        U(f,\alpha) &= \inf_{P \in \Pi} U(f,\alpha,P) \leq U(f,\alpha, {P}_{\epsilon}) \\
+        L(f,\alpha) &= \sup_{P \in \Pi} L(f,\alpha,P)  \geq L(f,\alpha, {P}_{\epsilon})
+    \end{align*}
+    Using {\hyperref[Theorem 3]{Rudin 6.5}}, we can see that 
+    \[ L(f,\alpha,{P}_{\epsilon}) \leq L(f,\alpha) \leq U(f,\alpha) \leq U(f,\alpha, {P}_{\epsilon}).  \]
+    So, the interval \( [L(f,\alpha), U(f,\alpha)] \) is contained in the interval \( [L(f,\alpha, {P}_{\epsilon}), U(f,\alpha, {P}_{\epsilon})] \). Thus, 
+    \[ U(f,\alpha) - L(f,\alpha) \leq U(f,\alpha, {P}_{\epsilon}) - L(f,\alpha, {P}_{\epsilon}) < \epsilon \]
+    as desired.
+    
+    (\( \Longrightarrow \)) Our goal is to show that for any \(  \epsilon > 0  \), there exists a partition \( {P}_{\epsilon} \in \Pi \) such that 
+    \[  U(f,\alpha,{P}_{\epsilon}) - L(f,\alpha, {P}_{\epsilon}) < \epsilon.  \]
+    Note that 
+    \begin{align*}
+        U(f,\alpha)  &= \inf_{P \in \Pi} U(f,\alpha, P) \implies \exists {P}_{1} \in \Pi \ \text{such that} \ U(f,\alpha, {P}_{1}) < U(f,\alpha) + \frac{ \epsilon }{ 2 }  \\
+        L(f,\alpha) &= \sup_{P \in \Pi} L(f,\alpha,P) \implies \exists {P}_{2} \in \Pi \ \text{such that} \ L(f,\alpha) - \frac{ \epsilon }{ 2 }  < L(f,\alpha, {P}_{2})
+    \end{align*}
+    Let \( {P}_{\epsilon} = {P}_{1} \cup {P}_{2} \) (we claim that this partition can be used as the one that we were looking for).
+    \[  L(f,\alpha) - \frac{ \epsilon }{ 2 }  < L(f,\alpha, {P}_{2}) \leq L(f,\alpha, {P}_{\epsilon}) \leq U(f,\alpha,{P}_{\epsilon}) \leq U(f,\alpha, {P}_{1}) < U(f,\alpha) + \frac{ \epsilon }{ 2 }. \]
+    Thus, we have
+    \begin{align*}
+        U(f,\alpha, {P}_{\epsilon}) - L(f,\alpha, {P}_{\epsilon}) &< \Big[ \Big( U(f,\alpha) + \frac{ \epsilon }{ 2 }  \Big) - \Big(  L(f,\alpha) - \frac{ \epsilon }{ 2 }  \Big) \Big] \\
+                                                                  &= U(f,\alpha) - L(f,\alpha) + \epsilon \\
+                                                                  &= 0 + \epsilon = \epsilon
+    \end{align*}
+    as desired.
+\end{proof}
+
+\begin{theorem}[Rudin 6.7]\label{Rudin 6.7}
+    Let \( f:[a,b] \to \R  \) be a bounded function, \( \alpha:[a,b] \to \R  \) is an increasing function, fix \( \epsilon > 0  \), \( P = \{ {x}_{0}, {x}_{1}, \dots, {x}_{n} \}  \) is a partition of \( [a,b] \), and 
+    \[  U(f,\alpha, P) - L(f,\alpha, P) < \epsilon. \]
+    Then
+    \begin{enumerate}
+        \item[(1)] If \( Q  \) is any refinement of \( P  \), then \( U(f,\alpha, Q ) - L(f,\alpha, Q ) < \epsilon \).
+        \item[(2)] If for every \( 1 \leq k \leq n  \), \( {t}_{k } \) and \( {s}_{k } \) are arbitrary points in \( [{x}_{k-1}, {x}_{k}] \), then
+            \[  \sum_{ k=1  }^{ n } | f({s}_{k}) - f({t}_{k}) | \Delta {\alpha}_{k } < \epsilon. \]
+        \item[(3)] If \( f \in {R}_{\alpha}[a,b] \) and for each \( 1 \leq k \leq n  \), \( {s}_{k} \) is a point in \( [{x}_{k-1}, {x}_{k}] \), then
+            \[  \Big| \sum_{ k=1  }^{ n } f({s}_{k}) \Delta {\alpha}_{k } - \int_{ a }^{ b } f \ d \alpha \Big|  < \epsilon. \]
+    \end{enumerate}
+\end{theorem} 
+\begin{proof}
+\begin{enumerate}
+    \item[(1)] We have 
+        \[  L(f,\alpha, P) \leq L(f,\alpha, Q ) \leq U(f,\alpha, Q) \leq U(f,\alpha, P). \]
+        Therefore, 
+        \[  U(f,\alpha, Q ) - L(f,\alpha,Q) \leq U(f,\alpha, P) - U(f,\alpha, P) < \epsilon. \]
+    \item[(2)] For each \( 1 \leq k \leq n  \), we have 
+        \begin{align*}
+            {m}_{k } &\leq f({s}_{k}) \leq {M}_{k} \\
+            {m}_{k}&\leq f({t}_{k}) \leq {M}_{k} \implies - {M}_{k } \leq - f({t}_{k}) \leq - {m}_{k}.
+        \end{align*}
+        So, we have 
+        \[  {m}_{k } - {M}_{k } \leq f({s}_{k}) - f({t}_{k}) \leq {M}_{k } - {m}_{k}. \]
+        That is, 
+        \[  - ({M}_{k } - {m}_{k}) \leq f({s}_{k}) - f({t}_{k}) \leq {M}_{k } - {m}_{k}. \]
+        Therefore, 
+        \[  | f({s}_{k}) - f({t}_{k})  | \leq {M}_{k } - {m}_{k}. \]
+        Hence, we have 
+        \[ \sum_{ k=1  }^{ n } | f({s}_{k}) - f({t}_{k}) |  \Delta {\alpha}_{k } \leq \sum_{ k=1  }^{ n } ({M}_{k } - {m}_{k}) \Delta {\alpha}_{k } = U(f,\alpha, P) - L(f,\alpha,P) < \epsilon. \]
+    \item[(3)] For all \( 1 \leq k \leq n  \), we have 
+        \[  {m}_{k } \leq f({s}_{k}) \leq {M}_{k }. \]
+        So, 
+        \[  \sum_{ k=1  }^{ n } {m}_{k } \Delta {\alpha}_{k } \leq \sum_{ k=1  }^{ n } f({s}_{k}) \Delta {\alpha}_{k } \leq \sum_{ k=1  }^{ n } {M}_{k } \Delta {\alpha}_{k }. \]
+        Therefore, 
+        \[  L(f,\alpha, P) \leq \sum_{ k=1  }^{ n } f({s}_{k}) \leq U(f,\alpha,P) \tag{I} \]
+        Also, note that 
+        \[  L(f,\alpha,P) \leq \int_{ a }^{ b }  f  \ d \alpha \leq U(f,\alpha, P). \tag{II} \]
+        Hence,
+        \[  \Big| \sum_{ k=1  }^{ n } f({s}_{k}) \Delta {\alpha}_{k } - \int_{ a }^{ b }  f \ d \alpha \Big|  \leq U(f,\alpha, P) - L(f,\alpha, P) < \epsilon \]
+        as desired.
+\end{enumerate}
+\end{proof}
+
+\begin{lemma}\label{lemma 1}
+    Let \( f:[a,b] \to \R  \) be a bounded function. Let \( P = \{  {x}_{0}, {x}_{1}, \dots, {x}_{n} \}  \) be a partition of \( [a,b] \). Then 
+    \[  \forall 1 \leq k \leq n \ \ \sup_{s,t \in [{x}_{k-1}, {x}_{k}]} | f(s) -f(t) | = {M}_{k } -{m}_{k }. \]
+\end{lemma}
+\begin{proof}
+Let \( k \in \{  1, 2 , \dots, n \}  \). We need to show
+\begin{enumerate}
+    \item[(1)] \( \forall s,t \in [{x}_{k-1}, {x}_{k}] \) \( | f(s) - f(t) |  \leq {M}_{k } - {m}_{k} \).
+    \item[(2)] \( \forall \epsilon >0  \), \( \exists \hat{s} \hat{t} \in [{x}_{k-1}, {x}_{k}]  \) such that \( {M}_{k } - {m}_{k } - \epsilon < | f(\hat{s}) - f(\hat{t}) |  \). 
+\end{enumerate}
+Note that we have already shown (1) in our discussion of {\hyperref[Rudin 6.7]{Theorem 6.7}}. 
+
+Let \( \epsilon > 0  \) be given. Then we have
+\begin{align*}
+    {m}_{k } = \inf_{t \in [{x}_{k-1}, {x}_{k}]} f(t) &\implies \hat{t} \in [{x}_{k-1}, {x}_{k}] \ \text{such that} \ f(\hat{t}) < {m}_{k } + \frac{ \epsilon }{ 2 }  \\
+    {M}_{k }  = \sup_{t \in [{x}_{k-1}, {x}_{k}]} f(t) &\implies \hat{s} \in [{x}_{k-1}, {x}_{k}] \ \text{such that} \ {M}_{k }  - \frac{ \epsilon }{ 2 }  < f(\hat{s}).
+\end{align*}
+Adding the inequalities above, we get
+\[  {M}_{k } - {m}_{k } - \epsilon < f(\hat{s}) - f(\hat{t}) \leq | f(\hat{s}) - f(\hat{t}) |. \]
+\end{proof}
+
+\begin{theorem}[Rudin 6.8]\label{Rudin 6.8}
+    Let \( f:[a,b] \to \R  \) be a continuous function and \( \alpha: [a,b] \to \R  \) is an increasing function. Then \( f \in {R}_{\alpha}[a,b] \). 
+\end{theorem}
+
+\begin{proof} 
+    Since \( f: [a,b] \to \R  \) is a continuous function and \( [a,b]  \) is compact, it follows from the Extreme Value Theorem that \( f  \) is bounded on \( [a,b] \). Now, according to the Cauchy Criterion for Riemann-Stieltjes integrability, it suffices to show that 
+    \[  \forall \epsilon > 0 \ \exists P \in \Pi  \ \text{such that} \ U(f,\alpha,P) - L(f,\alpha,P) < \epsilon. \tag{*}\]
+    Let \( \epsilon > 0  \) be given. By the same reasoning that showed \( f  \) is bounded on \( [a,b] \), it follows that \( f  \) is uniformly continuous on \( [a,b] \). For the given \( \epsilon  \), there exists a \( \delta > 0  \) such that for all \( s,t \in [a,b] \):
+    \[  \text{if} \ | s - t  |  < \delta \ \text{then} \ | f(s) - f(t) | < \frac{ \epsilon }{  2 [\alpha(b) - \alpha(a) + 1 ] }. \]
+    Let \( P = \{  {x}_{0}, {x}_{1}, \dots, {x}_{n} \}  \) be any partition of \( [a,b] \) such that \( \|P\| < \delta \). We claim (*) holds for such a partition. Indeed, for all \( k \in \{  1, 2, \dots, n  \}  \) and for all \( s,t \in [{x}_{k-1}, {x}_{k}] \), if \( | s-  t  |  < \delta \), then
+    \[  | f(s) - f(t) |  < \frac{ \epsilon }{ 2 [\alpha(b) - \alpha(a) + 1 ] }. \]
+    Hence, 
+    \[  \sup_{s,t \in [{x}_{k-1}, {x}_{k}]} | f(s) - f(t) |  \leq \frac{ \epsilon }{ 2 [\alpha(b) - \alpha(a) + 1] }. \]
+    Thus, 
+    \[  {M}_{k } - {m}_{k } \leq \frac{ \epsilon }{ 2 [\alpha(b) - \alpha(a) + 1] }. \]
+    Therefore, 
+    \begin{align*}
+        U(f,\alpha,P) - L(f,\alpha,P) &= \sum_{ k=1  }^{ n } ({M}_{k } - {m}_{k}) \Delta {\alpha}_{k } \\
+                                      &\leq \sum_{ k=1  }^{ n } \frac{ \epsilon }{  2 [\alpha(b)- \alpha(a) + 1] }  \Delta {\alpha}_{k } \\
+                                      &= \frac{ \epsilon }{ 2 [\alpha(b) - \alpha(a) + 1] }  \sum_{ k=1  }^{ n } \Delta {\alpha}_{k } \\
+                                      &= \frac{ \epsilon }{ 2 [\alpha(b) - \alpha(a) + 1] }  \cdot [\alpha(b) - \alpha(a)] \\
+                                      &\leq \frac{ \epsilon }{ 2 }  \\
+                                      &< \epsilon
+    \end{align*}
+    as desired.
+
+
+\end{proof}
+
+\begin{lemma}\label{lemma 2}
+    Let \( \alpha:[a,b] \to \R  \) be an increasing and continuous function and \( \alpha(a) < \alpha(b) \). Then for each \( n \in \N \), there exists a partition \( P = \{  {x}_{0}, {x}_{1}, \dots, {x}_{n} \}  \) such that   
+    \[  \forall 1 \leq k \leq n \ \ \Delta \alpha_k = \alpha({x}_{k}) - \alpha({x}_{k-1}) = \frac{ \alpha(b) - \alpha(a) }{  n  }. \]
+\end{lemma}
+\begin{proof}
+    Let \( n \in \N \). Divide the interval \( [\alpha(a), \alpha(b)] \) into \( n  \) subintervals of equal length: \( \frac{ \alpha(b) - \alpha(a) }{ n  }  \). For each \( 1 \leq k \leq n  \), we have \( {y}_{k } \in (\alpha(a), \alpha(b)) \). Hence, the Intermediate Value Theorem implies that 
+    \[  \exists {x}_{k } \in (a,b) \ \text{such that} \ {y}_{k } = \alpha({x}_{k}). \]
+    Since \( \alpha  \) is increasing, we have 
+    \[  a = {x}_{0} < {x}_{1} < {x}_{2} < \cdots < {x}_{n} = b.   \]
+    This tells us that \( P = \{  {x}_{0},{x}_{1}, \dots, {x}_{n} \}  \) will be partition of \( [a,b] \) such that
+    \[  \forall 1 \leq k \leq n  \ \ \Delta {\alpha}_{k } = \alpha({x}_{k}) - \alpha({x}_{k-1}) = {y}_{k } - {y}_{k-1} = \frac{ \alpha(b) - \alpha(a) }{ n }. \]
+\end{proof}
+
+\begin{theorem}[Rudin 6.9]\label{Rudin 6.9}
+    Let \( \alpha: [a,b] \to \R  \) be increasing and continuous. Then 
+    \begin{enumerate}
+        \item[(1)] If \( f:[a,b] \to \R  \) is increasing, then \( f \in {R}_{\alpha}[a,b] \).
+        \item[(2)] If \( f: [a,b] \to \R  \) is increasing
+    \end{enumerate}
+\end{theorem}
+\begin{proof}
+Here we will prove (1). The proof of (2) is analogous. First, note that
+\[  \forall x \in [a,b] \ \ f(a) \leq f(x) \leq f(b)  \implies f \ \text{is bounded on} \ [a,b].\]
+If \( \alpha(a) = \alpha(b) \), then we previously proved \( f \in {R}_{\alpha}[a,b] \) and \( \int_{ a }^{ b }  f  \ d \alpha = 0  \). So, it remains to prove the claim for the case where \( \alpha(a) \neq \alpha(b) \). According to the Cauchy Criterion for integrability, in order to show that \( f \in {R}_{\alpha}[a,b]  \), it suffices to show that
+\[  \forall \epsilon > 0 \ \exists P \in \Pi \ \text{such that} \ U(f,\alpha, P) - L(f,\alpha, P) < \epsilon.  \]
+Let \( \epsilon > 0  \) be given. Choose \( n \in \N \) be large enough so that \( \frac{ \alpha(b) - \alpha(a)  }{ n  }  [f(b) - f(a)] < \epsilon \). Let \( \tilde{P} = \{  x_{0}, {x}_{1}, \dots, {x}_{n} \}  \) be a partition of \( [a,b] \) such that 
+\[  \forall 1 \leq k \leq n \ \ \Delta {\alpha}_{k} = \alpha({x}_{k}) - \alpha({x}_{k-1}) = \frac{ \alpha(b) - \alpha(a) }{  n  }. \]
+We claim that \( \tilde{P} \) can be used as the \( P  \) that we were looking for. Now, since \( f  \) is increasing, we know that for each \( 1 \leq  k \leq n  \)
+\[  {M}_{k} = \sup_{x \in [{x}_{k-1}, {x}_{k}]} f(x) = f({x}_{k}) \]
+and
+\[  {m}_{k } = \inf_{x \in [{x}_{k-1}, {x}_{k}]} f(x) = f({x}_{k-1}). \]
+Hence, we see that 
+\begin{align*}
+    U(f,\alpha, \tilde{P}) - L(f,\alpha, \tilde{P})  &= \sum_{ k=1  }^{ n } ({M}_{k } - {m}_{k}) \Delta {\alpha}_{k }  \\
+                                                     &= \frac{ \alpha(b) - \alpha(a) }{ n }  \sum_{ k=1  }^{ n } [f({x}_{k}) - f({x}_{k-1})] \\
+                                                     &= \frac{ \alpha(b) - \alpha(a) }{  n }  [f(b) - f(a)] < \epsilon
+\end{align*}
+as desired.
+\end{proof}
+
+\begin{theorem}[Rudin 6.10]\label{Rudin 6.10}
+    Let \( f: [a,b] \to \R  \) be a bounded function. Suppose that \( f  \) has only finitely many points of discontinuity  
+    \[  {y}_{1} < {y}_{2} < \cdots < {y}_{m}  \]
+    and \( \alpha:[a,b] \to \R \) is increasing and \( \alpha \) is continuous at \( {y}_{1}, {y}_{2}, \dots, {y}_{m} \). Then \( f \in {R}_{\alpha}[a,b] \).
+\end{theorem}
+\begin{proof}
+According to the Cauchy Criterion, it suffices to show that
+\[  \forall \epsilon > 0 \ \exists P \in \Pi \ \text{such that} \ U(f,\alpha,P) - L(f,\alpha,P) < \epsilon. \]
+Let \( \epsilon > 0 \) be given. Let \( \tilde{M} = \sup_{x \in [a,b]} | f(x) |  \). Let 
+\[  \hat{\epsilon} = \frac{ \epsilon }{ [\alpha(b) - \alpha(a) + 2 \tilde{M} + 1] }.  \]
+We will make the following two claims:
+\begin{enumerate}
+    \item[(1)] There exists many disjoint intervals \( [{u}_{1}, {v}_{1}] , \dots, [{u}_{m}, {v}_{m}] \) such that 
+        \begin{enumerate}
+            \item[(I)] \( \forall 1 \leq j \leq m  \) \( {y}_{j} \in [{u}_{j}, {v}_{j}] \).
+            \item[(II)] \( \forall 1 \leq j \leq m  \) if \( {y}_{j} \notin \{ a,b \}  \), then \( {y}_{j} \in ({u}_{j}, {v}_{j}) \)
+            \item[(III)] \( \forall 1 \leq j \leq m  \) \( \alpha({v}_{j}) - \alpha({u}_{j}) < \frac{ \hat{\epsilon} }{ m }  \) and so
+                \[  \sum_{ j=1  }^{ m } \alpha({v}_{j}) - \alpha({u}_{j}) < \hat{\epsilon}. \]
+        \end{enumerate}
+    \item[(2)] Let \( K = [a,b] \setminus  \bigcup_{ j=1  }^{ m  }  ({u}_{j}, {v}_{j}) \). Then \( f  \) is uniformly continuous on \( K  \).
+\end{enumerate}
+The two claims above will be proven as lemmas after the proof of this theorem. For now, we will assume that the two claims hold.
+
+By claim 2, we know there exists \( \delta > 0  \) such that for all \( s,t \in K  \) if \( | s - t  |  < \delta  \), then
+\[  | f(s) - f(t) |  < \hat{\epsilon}. \]
+Now, we form a partition \( \tilde{P}  \) of \( [a,b] \) as follows:
+\begin{enumerate}
+    \item[(i)] \( \forall 1 \leq j \leq m  \) \( {u}_{j}, {v}_{j} \in \tilde{P} \).
+    \item[(ii)] \( \forall 1 \leq j \leq m  \) no point of the segment \( ({u}_{j}, {v}_{j}) \) is in \( \tilde{P} \)
+    \item[(iii)] If \( 1 \leq k \leq m  \) is such that \( {x}_{k-1} \notin \{  {u}_{1}, \dots, {u}_{m} \}  \), then we will choose \( {x}_{k} \) such that \( {x}_{k } - {x}_{k-1} < \delta \). 
+\end{enumerate}
+We claim that this \( \tilde{P} \) can be used as the \( P  \) that we were looking for. Indeed, define the two sets
+        \[ A = \{ k : {x}_{k-1} \notin \{ {u}_{1}, \dots, {u}_{m} \}  \} \ \ \text{and} \ \  B = \{ 1, \dots, n \}  \setminus  A.   \]
+        For the case that \( k \in A  \), \( {x}_{k} - {x}_{k-1} < \delta \), so
+        for all \( s,t \in [{x}_{k-1}, {x}_{k}] \), if \( | s- t  |  < \delta \), then \( | f(s) - f(t)  | < \hat{\epsilon} \). Then taking the supremum, we have 
+        \[  \sup_{s,t \in [{x}_{k-1}, {x}_{k}]} | f(s) - f(t) |  \leq \hat{\epsilon} \]
+        and so from {\hyperref[lemma 2]{lemma 2}}, we have  
+        \[  {M}_{k } - {m}_{k } \leq \hat{\epsilon}. \]
+
+    If \( k \in B \), then
+    \[  {M}_{k } - {m}_{k } = \sup_{s,t \in [{x}_{k-1}, {x}_{k}]} | f(s) - f(t) |  \leq 2 \tilde{M}. \]
+    Therefore, 
+    \begin{align*}
+        U(f,\alpha, P) - L(f,\alpha, P) &= \sum_{ k=1  }^{ n } ({M}_{k } - {m}_{k } ) \Delta {\alpha}_{k} \\
+                                        &= \sum_{k \in A} ({M}_{k } - {m}_{k}) \Delta {\alpha}_{k } + \sum_{k \in B} ({M}_{k } - {m}_{k}) \Delta {\alpha}_{k } \\
+                                        &\leq \sum_{k \in A} \hat{\epsilon} \Delta {\alpha}_{k } + 2 \tilde{M} \sum_{k \in B} \Delta {\alpha}_{k } \\ 
+                                        &\leq \hat{\epsilon} [\alpha(b) - \alpha(a)] + 2 \tilde{M} \hat{\epsilon} \\
+                                        &= [\alpha(b) - \alpha(a) + 2 \tilde{M}] \hat{\epsilon} \\
+                                        &< \epsilon.
+    \end{align*}
+\end{proof}
+
+\begin{lemma}\label{Claim 1}
+   There exists finitely many disjoint intervals 
+   \[  [{u}_{1}, {v}_{1}], \dots, [{u}_{m}, {v}_{m}] \]
+   in \( [a,b] \) such that
+   \begin{enumerate}
+       \item[(1)] \( \forall 1 \leq j \leq m  \) \( {y}_{j} \in [{u}_{j}, {v}_{j}] \);
+        \item[(2)] \( \forall 1 \leq j \leq m  \) if \( {y}_{j} \notin \{ a,b \}  \) then \( {y}_{j} \in ({u}_{j}, {v}_{j}) \);
+        \item[(3)] \( \forall  1 \leq j \leq m  \) \( \alpha({v}_{j}) - \alpha({u}_{j}) < \frac{ \hat{\epsilon} }{ m }  \) and so 
+            \[  \sum_{ j=1  }^{ m } [\alpha({v}_{j}) - \alpha({u}_{j})] < \hat{\epsilon}. \]
+   \end{enumerate}
+\end{lemma}
+\begin{proof}
+Since for each \( 1 \leq j \leq m  \), \( \alpha \) is continuous at \( {y}_{j} \), we can choose \( {\delta}_{j} > 0  \) such that  
+\[  \text{if} \ | y  - {y}_{j} |  < {\delta}_{j} , \ \text{then} \ | \alpha(y) - \alpha({y}_{j}) | < \frac{ \hat{\epsilon} }{ 2 m }. \]
+Now, let 
+\[  \tilde{\delta} = \frac{ 1 }{ 4 }  \min \{ {\delta}_{1}, {\delta}_{2}, \dots, {\delta}_{m}, {y}_{2} - {y}_{1}, {y}_{3} - {y}_{2}, \dots, {y}_{m} - {y}_{m-1} \}. \]
+For each \( 1 \leq j \leq m  \), we define
+\begin{enumerate}
+    \item[(1)] If \( {y}_{j} \notin \{ a,b \}  \), then \( [{u}_{j}, {v}_{j}] = [{y}_{j} - \hat{\delta}, {y}_{j} + \hat{\delta}] \)
+    \item[(2)] If \( {y}_{j} = a \), then \( [{u}_{j}, {v}_{j}] = [a, a + \hat{\delta}] \)
+    \item[(3)] If \( {y}_{j} = b  \), then \( [{u}_{j}, {v}_{j}] = [b - \hat{\delta}, b ] \).
+\end{enumerate}
+Clearly, there intervals satisfy all the requirements, in particular, 
+\begin{align*}
+    \alpha({v}_{j}) - \alpha({u}_{j}) &= | \alpha({v}_{j}) - \alpha({u}_{j}) |  \\
+                                      &\leq | \alpha({v}_{j}) - \alpha({y}_{j}) | + | \alpha({y}_{j}) - \alpha({u}_{j}) |  \\
+                                      &< \frac{ \hat{\epsilon} }{ 2m }  + \frac{ \hat{\epsilon} }{ 2m }  \\
+                                      &= \frac{ \hat{\epsilon} }{ m }
+\end{align*}
+where \( | {v}_{j} - {y}_{j} | \leq \hat{\delta} < {\delta}_{j} \) and \( | {u}_{j} - {y}_{j} |  \leq \hat{\delta} < {\delta}_{j} \).
+\end{proof}
+
+\begin{lemma}[Claim 2]
+    Let \( K = [a,b] \setminus  \bigcup_{ j=1 }^{ m } ({u}_{j}, {v}_{j})  \). Then \( f \) is uniformly continuous on \( K  \).
+\end{lemma}
+\begin{proof}
+Note that \( \bigcup_{ k=1  }^{ m } ({u}_{j}, {v}_{j})   \) is open. Hence, 
+\[  K = [a,b] \setminus  \bigcup_{ j=1  }^{ m }  ({u}_{j}, {v}_{j}) = [a,b] \cap \Big[ \bigcup_{ j=1  }^{ m }  ({u}_{j}, {v}_{j}) \Big]^{c} \]
+is closed. Since \( K \subseteq  [a,b] \), \( K  \) is closed, and \( [a,b]  \) is compact, it follows from the fact that closed subsets of a compact set are compact that \( K  \) is compact. Since \( f: K \to \R  \) is continuous and \( K  \) is compact, we can conclude that \( f  \) {\hyperref[is uniformly continuous]{is uniformly continuous}} on \( K  \).
+\end{proof}
+
+\begin{remark}[Why is \( f: K \to \R  \) is continuous?]\label{is uniformly continuous}
+   We will consider four claims:
+   \begin{enumerate}
+       \item[(1)] Suppose \( f  \) is continuous at \( a \) and \( b  \). In this case by removing \( \bigcup_{ j=1  }^{ m }  ({u}_{j}, {v}_{j})  \), the discontinuities of \( f  \) will be removed.
+        \item[(2)] Since \( f  \) is discontinuous at \( a \), but continuous at \( b  \). In this case, by removing \( \bigcup_{ j=1 }^{ m } ({u}_{j},{v}_{j}) \) all discontinuities will be removed except \( a \). In this case, removing \( ({u}_{1}, {v}_{1}) \) makes \( a \) an isolated point of \( K  \). Every function is continuous at every is isolated point of its domain.
+        \item[(3)] Suppose \( f \) is continuous at \( a \) and discontinuities at \( b \).
+        \item[(4)] Suppose \( f \) is both discontinuous at \( a \) and \( b \).
+   \end{enumerate}
+   Case (3) and (4) follows similarly from case (2).
+\end{remark}
+
+\begin{theorem}[Rudin 6.11]\label{Rudin 6.11}
+    Let \( f \in {R}_{\alpha}[a,b] \), for all \( x \in [a,b] \) \( m \leq f(x) \leq M  \), \( \varphi: [m,M] \to \R  \) is continuous. Then \( h: \varphi \circ f : [a,b] \to \R  \), then \( h \in {R}_{\alpha}[a,b] \).
+\end{theorem}
+\begin{proof}
+    Firs note that a composition of bounded functions is bounded. So \( h: \varphi \circ f  \) is a bounded function on \( [a,b] \). According to the Cauchy criterion, in order to show \( h \in {R}_{\alpha}[a,b] \), it suffices to show that for all \( \epsilon > 0  \), there exists \( P \in \Pi \) such that  
+    \[  U(f,\alpha, P) - L(h,\alpha,P) < \epsilon. \]
+    Let \( \epsilon > 0  \) be given. Let \( \tilde{M} = \sup_{x \in [a,b]} | h(x) |  \). Let 
+    \[  \hat{\epsilon} = \frac{ \epsilon }{ [\alpha(b) - \alpha(a) + 2 \tilde{M} + 1] }. \] 
+    We have 
+    \begin{enumerate}
+        \item[(I)] Since \( \varphi  \) is continuous in \( [m,M] \) and \( [m,M] \) is compact, it follows that \( \varphi  \) is uniformly continuous on \( [,m,M] \). So,
+            \[ \exists 0 < \delta < \hat{\epsilon} \ \text{such that} \ \forall s,t \in [m,M] \ \text{if} | s -t  |  < \delta \ \text{then} \ | \varphi(s) - \varphi(t) | < \hat{\epsilon}. \]
+        \item[(II)] Since \( f \in {R}_{\alpha}[a,b] \), we know from the CauchyCriterion that 
+            \[ \exists \tilde{P} \in \Pi \ \text{such that} \ U(f,\alpha,\tilde{P}) - L(f,\alpha, \tilde{P}) = \sum_{ k=1  }^{ n } ({M}_{k } - {m}_{k}) \Delta {\alpha}_{k } < \delta^{2}.  \]
+    \end{enumerate}
+    We claim that this \( \tilde{P} \) can be used as the \( P  \) that we were looking for. Indeed, let for all \( 1 \leq k \leq n  \)
+    \[ {m}_{k }^{*} = \inf_{x \in [{x}_{k-1}, {x}_{k}]} h(x) \ \ \text{and} \ \ {M}_{k }^{*} = \sup_{x \in [{x}_{k-1}, {x}_{k}]} h(x). \]
+    Note that
+    \[  U(h,\alpha,\tilde{P}) - L(h,\alpha, \tilde{P}) = \sum_{ k=1  }^{ n } ({M}_{k }^{*} - {m}_{k }^{*}) \Delta {\alpha}_{k }.  \]
+    In what follows, we will show that the sum above is less than \( \epsilon \). Divide the indices \( 1, \dots, n \) in two classes, namely
+    \[  A = \{  k : {M}_{k } - {m}_{k } < \delta  \}  \ \ \text{and} \ \ B = \{  k : {M}_{k } - {m}_{k } \geq \delta \}. \]
+    We have 
+    \[  U(h,\alpha,\tilde{P}) - L(h,\alpha, \tilde{P}) = \sum_{ k=1  }^{ n } ({M}_{k }^{*} - {m}_{k }^{*}) \Delta {\alpha}_{k } = \sum_{k \in A} ({M}_{k }^{*} - {m}_{k }^{*}) \Delta {\alpha}_{k } + \sum_{k \in B} ({M}_{k}^{*} - {m}_{k }^{*}) \Delta {\alpha}_{k }. \tag{1}  \]
+    \begin{enumerate}
+        \item[(*)] If \( k \in A \), then for all \( x,y \in [{x}_{k-1}, {x}_{k}] \), we have
+            \begin{align*}
+                {M}_{k } - {m}_{k } < \delta &\implies \sup_{x,y \in [{x}_{k-1}, {x}_{k}]} | f(x) - f(y) |  \\
+                                             &\implies | f(x) - f(y) |  < \delta \\
+                                             &\implies | \varphi(f(x)) - \varphi(f(y)) |  < \hat{\epsilon} \\
+                                             &\implies | h(x) - h(y) | < \hat{\epsilon} \\
+                                             &\implies \sup_{x,y \in [{x}_{k-1}, {x}_{k}]} | h(x) - h(y) |  \leq \hat{\epsilon} \\
+                                             &\implies {M}_{k }^{*} - {m}_{k }^{*} \leq \hat{\epsilon}. \tag{2}
+            \end{align*}
+        \item[(*)] For \( k \in B \), 
+            \begin{align*}
+                \delta \sum_{k \in B} \Delta {\alpha}_{k } = \sum_{k \in B} \delta \Delta {\alpha}_{k } &\leq \sum_{k \in B} ({M}_{k } - {m}_{k}) \Delta {\alpha}_{k } \\ 
+                                                                                                        &\leq \sum_{ k=1  }^{ n }({M}_{k } -{m}_{k }) \Delta {\alpha}_{k } = U(f,\alpha, \tilde{P}) -  L(f,\alpha, \tilde{P}) < \delta^{2}. \tag{3}
+            \end{align*}
+            It follows from (1), (2), and (3) that 
+            \begin{align*}
+                \sum_{ k=1  }^{ n } ({M}_{k }^{*} - {m}_{k }^{*}) \Delta {\alpha}_{k } &= \sum_{k \in A} ({M}_{k }^{*} - {m}_{k }^{*}) \Delta {\alpha}_{k } + \sum_{k \in B} ({M}_{k }^{*} -{m}_{k }^{*}) \Delta {\alpha}_{k } \\
+                                                                                       &\leq \sum_{k \in A} \hat{\epsilon} \Delta {\alpha}_{k } + \sum_{k \in B} 2 \tilde{M} \Delta {\alpha}_{k } \\
+                                                                                       &= \hat{\epsilon} \sum_{ k=1  }^{ n } \Delta {\alpha}_{k } + 2 \tilde{M} \hat{\epsilon} \\
+                                                                                       &= \hat{\epsilon} [\alpha(b) - \alpha(a)] + 2 \tilde{M} \hat{\epsilon} \\
+                                                                                       &= [\alpha(b) - \alpha(a) + 2 \tilde{M}] \hat{\epsilon} \\
+                                                                                       &= [\alpha(b) - \alpha(a) + 2 \tilde{M}] \cdot \frac{ \epsilon }{ \alpha(b) - \alpha(a) + 2 \tilde{M} + 1  }  < \epsilon
+            \end{align*}
+            as desired.
+    \end{enumerate}
+\end{proof}
+

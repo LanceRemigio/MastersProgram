@@ -1,0 +1,44 @@
+\documentclass{report}
+\usepackage{standalone}
+\usepackage{import}
+\input{../../../../newpreamble.tex}
+
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+% \fancyhf{}
+% \fancyhead[EL]{\nouppercase\leftmark}
+% \fancyhead[OR]{\nouppercase\rightmark}
+% \fancyhead[ER,OL]{\thepage}
+
+\title{Math 230A Homework Solutions}
+\author{Lance Remigio}
+
+\begin{document}
+\maketitle 
+\tableofcontents
+
+\lhead{\rightmark}
+\chead{Math 230A}
+\rhead{\thepage}
+
+\section{Week 1}
+
+\import{hw1}{hw1.tex}
+
+\section{Week 2}
+
+\import{hw2}{hw2.tex}
+
+\section{Week 3}
+
+\import{hw3}{hw3.tex}
+
+% \chapter{Week 4}
+%
+% \import{hw4}{hw4.tex}
+
+
+
+
+
+\end{document}

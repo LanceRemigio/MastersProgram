@@ -1,0 +1,9 @@
+\babel@toc {english}{}\relax 
+\contentsline {section}{\numberline {0.1}Lecture 1}{1}{section.0.1}%
+\contentsline {subsection}{\numberline {0.1.1}Goals of Course}{1}{subsection.0.1.1}%
+\contentsline {subsection}{\numberline {0.1.2}The Structure of the Real Numbers}{1}{subsection.0.1.2}%
+\contentsline {subsection}{\numberline {0.1.3}The First Defining Property}{1}{subsection.0.1.3}%
+\contentsline {subsection}{\numberline {0.1.4}The Second Defining Property}{2}{subsection.0.1.4}%
+\contentsline {section}{\numberline {0.2}Lecture 2}{3}{section.0.2}%
+\contentsline {subsection}{\numberline {0.2.1}Supremums and Infimums}{3}{subsection.0.2.1}%
+\contentsline {subsection}{\numberline {0.2.2}Useful Facts}{3}{subsection.0.2.2}%

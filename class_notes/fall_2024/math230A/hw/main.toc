@@ -1,0 +1,6 @@
+\babel@toc {english}{}\relax 
+\contentsline {section}{\numberline {0.1}Week 1}{1}{section.0.1}%
+\contentsline {section}{\numberline {0.2}Week 2}{10}{section.0.2}%
+\contentsline {section}{\numberline {0.3}Problem 10}{14}{section.0.3}%
+\contentsline {section}{\numberline {0.4}Problem 11}{15}{section.0.4}%
+\contentsline {section}{\numberline {0.5}Week 3}{17}{section.0.5}%

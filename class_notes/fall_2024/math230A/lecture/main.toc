@@ -1,0 +1,99 @@
+\babel@toc {english}{}\relax 
+\contentsline {chapter}{\numberline {1}Week 1}{4}{chapter.1}%
+\contentsline {section}{\numberline {1.1}Lecture 1}{4}{section.1.1}%
+\contentsline {subsection}{\numberline {1.1.1}Goals of Course}{4}{subsection.1.1.1}%
+\contentsline {subsection}{\numberline {1.1.2}The Structure of the Real Numbers}{4}{subsection.1.1.2}%
+\contentsline {subsection}{\numberline {1.1.3}The First Defining Property}{4}{subsection.1.1.3}%
+\contentsline {subsection}{\numberline {1.1.4}The Second Defining Property}{5}{subsection.1.1.4}%
+\contentsline {section}{\numberline {1.2}Lecture 2}{6}{section.1.2}%
+\contentsline {subsection}{\numberline {1.2.1}Review of Least Upper Bound Property}{6}{subsection.1.2.1}%
+\contentsline {subsection}{\numberline {1.2.2}Consequences of Least Upper Bound Property}{7}{subsection.1.2.2}%
+\contentsline {chapter}{\numberline {2}Week 2}{9}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Lecture 3}{9}{section.2.1}%
+\contentsline {subsection}{\numberline {2.1.1}Topics}{9}{subsection.2.1.1}%
+\contentsline {subsection}{\numberline {2.1.2}Review, Existence of Roots}{9}{subsection.2.1.2}%
+\contentsline {subsection}{\numberline {2.1.3}Functions, Injective, and Surjective}{9}{subsection.2.1.3}%
+\contentsline {subsection}{\numberline {2.1.4}Equivalent Sets}{10}{subsection.2.1.4}%
+\contentsline {subsection}{\numberline {2.1.5}Finite, Infinite, Countable, At most countable}{12}{subsection.2.1.5}%
+\contentsline {chapter}{\numberline {3}Week 3}{13}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Lecture 4}{13}{section.3.1}%
+\contentsline {subsection}{\numberline {3.1.1}Topics}{13}{subsection.3.1.1}%
+\contentsline {subsection}{\numberline {3.1.2}Sequences}{13}{subsection.3.1.2}%
+\contentsline {subsection}{\numberline {3.1.3}Infinite subset of a countable set is countable}{13}{subsection.3.1.3}%
+\contentsline {subsection}{\numberline {3.1.4}Countable union of at most countable sets is at most countable}{15}{subsection.3.1.4}%
+\contentsline {section}{\numberline {3.2}Lecture 5}{16}{section.3.2}%
+\contentsline {subsection}{\numberline {3.2.1}Topics}{16}{subsection.3.2.1}%
+\contentsline {subsection}{\numberline {3.2.2}Summary of Last Lecture}{17}{subsection.3.2.2}%
+\contentsline {subsection}{\numberline {3.2.3}Preliminary Remarks}{18}{subsection.3.2.3}%
+\contentsline {subsection}{\numberline {3.2.4}Metric Spaces}{19}{subsection.3.2.4}%
+\contentsline {chapter}{\numberline {4}Week 4}{20}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Lecture 6}{20}{section.4.1}%
+\contentsline {subsection}{\numberline {4.1.1}A few examples of Metrics}{20}{subsection.4.1.1}%
+\contentsline {subsection}{\numberline {4.1.2}Inequalities}{23}{subsection.4.1.2}%
+\contentsline {section}{\numberline {4.2}Lecture 7}{23}{section.4.2}%
+\contentsline {subsection}{\numberline {4.2.1}Topics}{23}{subsection.4.2.1}%
+\contentsline {subsection}{\numberline {4.2.2}Inequalities}{24}{subsection.4.2.2}%
+\contentsline {subsection}{\numberline {4.2.3}Minkowski}{24}{subsection.4.2.3}%
+\contentsline {subsection}{\numberline {4.2.4}Minkowski for General p}{24}{subsection.4.2.4}%
+\contentsline {subsection}{\numberline {4.2.5}\( (x+1)^n \)}{24}{subsection.4.2.5}%
+\contentsline {subsection}{\numberline {4.2.6}\( p- \)means}{25}{subsection.4.2.6}%
+\contentsline {subsection}{\numberline {4.2.7}Jensen's Inequality}{25}{subsection.4.2.7}%
+\contentsline {subsection}{\numberline {4.2.8}Neighborhood of a point}{26}{subsection.4.2.8}%
+\contentsline {subsection}{\numberline {4.2.9}Limit Points}{26}{subsection.4.2.9}%
+\contentsline {chapter}{\numberline {5}Week 5}{31}{chapter.5}%
+\contentsline {subsection}{\numberline {5.0.1}Topics}{31}{subsection.5.0.1}%
+\contentsline {chapter}{\numberline {6}Week 6}{35}{chapter.6}%
+\contentsline {section}{\numberline {6.1}Lecture 10}{35}{section.6.1}%
+\contentsline {section}{\numberline {6.2}Lecture 11}{39}{section.6.2}%
+\contentsline {subsection}{\numberline {6.2.1}Topics}{39}{subsection.6.2.1}%
+\contentsline {chapter}{\numberline {7}Week 7}{43}{chapter.7}%
+\contentsline {section}{\numberline {7.1}Lecture 12}{43}{section.7.1}%
+\contentsline {subsection}{\numberline {7.1.1}Topics}{43}{subsection.7.1.1}%
+\contentsline {section}{\numberline {7.2}Lecture 13}{47}{section.7.2}%
+\contentsline {subsection}{\numberline {7.2.1}Topics}{47}{subsection.7.2.1}%
+\contentsline {subsection}{\numberline {7.2.2}The Cantor Set}{50}{subsection.7.2.2}%
+\contentsline {subsubsection}{Step 0:}{50}{section*.2}%
+\contentsline {subsubsection}{Step 1:}{50}{section*.3}%
+\contentsline {subsubsection}{Step 2:}{50}{section*.4}%
+\contentsline {chapter}{\numberline {8}Week 8}{52}{chapter.8}%
+\contentsline {section}{\numberline {8.1}Lecture 14}{52}{section.8.1}%
+\contentsline {subsection}{\numberline {8.1.1}Topics}{52}{subsection.8.1.1}%
+\contentsline {section}{\numberline {8.2}Lecture 15}{54}{section.8.2}%
+\contentsline {chapter}{\numberline {9}Week 9}{58}{chapter.9}%
+\contentsline {section}{\numberline {9.1}Lecture 16}{58}{section.9.1}%
+\contentsline {subsection}{\numberline {9.1.1}Topics}{58}{subsection.9.1.1}%
+\contentsline {section}{\numberline {9.2}Lecture 17}{62}{section.9.2}%
+\contentsline {subsection}{\numberline {9.2.1}Topics}{62}{subsection.9.2.1}%
+\contentsline {subsection}{\numberline {9.2.2}Extended Real Numbers}{65}{subsection.9.2.2}%
+\contentsline {chapter}{\numberline {10}Week 10}{67}{chapter.10}%
+\contentsline {section}{\numberline {10.1}Lecture 18-19}{67}{section.10.1}%
+\contentsline {subsection}{\numberline {10.1.1}Topics}{67}{subsection.10.1.1}%
+\contentsline {subsection}{\numberline {10.1.2}First Characterization of Limsup and Liminf}{67}{subsection.10.1.2}%
+\contentsline {subsection}{\numberline {10.1.3}Second Characterization of Limsup and Liminf}{67}{subsection.10.1.3}%
+\contentsline {chapter}{\numberline {11}Week 11}{73}{chapter.11}%
+\contentsline {section}{\numberline {11.1}Lecture 20-21}{73}{section.11.1}%
+\contentsline {subsection}{\numberline {11.1.1}Topics}{73}{subsection.11.1.1}%
+\contentsline {subsection}{\numberline {11.1.2}Telescoping Series}{74}{subsection.11.1.2}%
+\contentsline {subsection}{\numberline {11.1.3}Geometric Series}{75}{subsection.11.1.3}%
+\contentsline {section}{\numberline {11.2}Lecture 21-22}{79}{section.11.2}%
+\contentsline {subsection}{\numberline {11.2.1}Topics}{79}{subsection.11.2.1}%
+\contentsline {subsection}{\numberline {11.2.2}Applications of the Cauchy-Condensation Test}{80}{subsection.11.2.2}%
+\contentsline {subsection}{\numberline {11.2.3}Rearrangements}{86}{subsection.11.2.3}%
+\contentsline {chapter}{\numberline {12}Week 12}{87}{chapter.12}%
+\contentsline {section}{\numberline {12.1}Topics}{87}{section.12.1}%
+\contentsline {section}{\numberline {12.2}Limits and Continuity}{87}{section.12.2}%
+\contentsline {section}{\numberline {12.3}Limits of Functions}{87}{section.12.3}%
+\contentsline {section}{\numberline {12.4}Sequential Criterion for Limits of Functions}{89}{section.12.4}%
+\contentsline {section}{\numberline {12.5}Continuous Functions}{91}{section.12.5}%
+\contentsline {chapter}{\numberline {13}Week 13}{96}{chapter.13}%
+\contentsline {section}{\numberline {13.1}Topics}{96}{section.13.1}%
+\contentsline {section}{\numberline {13.2}Topological Continuity}{96}{section.13.2}%
+\contentsline {section}{\numberline {13.3}Continuity and Compactness}{97}{section.13.3}%
+\contentsline {section}{\numberline {13.4}Continuity and Connectedness}{98}{section.13.4}%
+\contentsline {section}{\numberline {13.5}Continuity and Inverse Maps}{100}{section.13.5}%
+\contentsline {section}{\numberline {13.6}Uniform Continuity}{100}{section.13.6}%
+\contentsline {chapter}{\numberline {14}Week 14}{104}{chapter.14}%
+\contentsline {section}{\numberline {14.1}Topics}{104}{section.14.1}%
+\contentsline {section}{\numberline {14.2}Types of Discontinuities}{104}{section.14.2}%
+\contentsline {section}{\numberline {14.3}Limits of Monotone Functions}{105}{section.14.3}%
+\contentsline {section}{\numberline {14.4}Limits Involving Infinity}{105}{section.14.4}%

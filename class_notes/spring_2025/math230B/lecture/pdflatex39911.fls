@@ -1,0 +1,4 @@
+PWD /home/lance/Documents/notes/class_notes/spring_2025/math230B/lecture
+INPUT /etc/texmf/web2c/texmf.cnf
+INPUT /usr/share/texmf/web2c/texmf.cnf
+INPUT /usr/share/texlive/texmf-dist/web2c/texmf.cnf

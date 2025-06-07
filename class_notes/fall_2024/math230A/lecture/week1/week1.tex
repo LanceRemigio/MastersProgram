@@ -1,0 +1,242 @@
+\documentclass[a4paper]{report}
+\usepackage{standalone}
+\usepackage{import}
+\input{../../../../../newpreamble.tex}
+
+\begin{document}
+\section{Lecture 1}
+
+\subsection{Goals of Course}
+\begin{itemize}
+    \item The goal of this course is to explore and generalize many of concepts that we learned in our calculus classes. 
+    \item Examples of such concepts are
+        \begin{itemize}
+            \item Limits 
+            \item Continuity
+            \item Sequence convergence 
+            \item Differentiability
+            \item Integration
+        \end{itemize}
+        and their results will all be rigorously proven and generalized. 
+\end{itemize}
+
+\subsection{The Structure of the Real Numbers}
+
+
+The set \( \R  \) is NOT just a boring collection of elements. \( \R  \) is a set equipped with four defining properties.
+
+\begin{itemize}
+    \item \( \R  \) is a \textbf{field}.
+    \item \( \R  \) is an \textbf{ordered field}. 
+    \item \( \R  \) is a unique ordered field that \textbf{least upper bound property}.
+    \item \( \R  \) contains a metric which is a notion that describes length and distance. 
+    \item \( \R  \) is a normed space and a metric space (these two are not equivalent).
+\end{itemize}
+
+
+\subsection{The First Defining Property}
+
+The set of real numbers is a field.
+
+\begin{definition}[Fields]\label{Field}
+   A field is a set \( F  \) with two operations called addition and multiplication, which satisfy the following field axioms, respectively:
+    \begin{enumerate}
+        \item[(A1)] For all \( x,y \in F  \), we have \( x + y \in F  \). 
+        \item[(A2)] For all \( x,y \in F  \), we have \( x + y = y + x  \).
+        \item[(A3)] For all \( x,y,z \in F  \), we have \( (x+y) + z = x + (y + z) \). 
+        \item[(A4)] There exists an element \( 0 \in F  \) such that for any \( x \in F  \), \(  x + 0 = x  \).
+        \item[(A5)] If \( x \in F  \), then there exists an element \( -x \in F  \) such that \( x + (-x) = 0 \).
+        \item[(M1)] For all \( x,y \in F  \), we have \( xy \in F  \). 
+        \item[(M2)] For all \( x,y \in F  \), we have \( xy = yx  \). 
+        \item[(M3)] For all \( x,y,z \in F  \), we have \( (xy)z = x(yz) \).
+        \item[(M4)] For all \( x \in F  \), there exists an element \( 1 \neq 0  \) such that \( x \cdot 1 =x  \).
+        \item[(M5)] If \( x \in F  \) and \( x \neq 0  \), then there exists an element \( \frac{  1  }{ x }  \in F  \) such that \(  x \cdot \frac{ 1 }{ x }  = 1.  \)
+        \item[(D1)] If \( x,y,z \in F  \), then \( x(y+z) = xy + xz \).
+    \end{enumerate}   
+\end{definition}
+
+\subsection{The Second Defining Property}
+
+\begin{definition}[Ordered Fields]\label{Ordered Fields}
+    An \textbf{ordered field} is a field \( F  \) equipped with a relation, \( <  \), with the following properties 
+    \begin{enumerate}
+        \item[(i)] If \( x \in F  \) and \( y \in F  \), then one and only one of the statements is true:
+            \begin{center}
+                \( x <y , \ \ x = y, \ \  y < x  \).
+            \end{center}
+        \item[(ii)](\textbf{Transitive Property}) If \( x,y,z \in F  \) and \( x < y  \) and \( y < z  \), then \( x < z  \).
+        \item[(iii)] If \( x,y, z \in F  \) and \(  y < z  \), then \( x + y < x + z  \).
+        \item[(iv)] If \( x,y \in F  \), and \( x > 0  \) and \( y > 0  \), then \( xy > 0  \).
+    \end{enumerate}
+\end{definition}
+
+\begin{remark}
+   We say that \( x  \) is positive if \( x > 0  \), and negative if \( x < 0  \). Furthermore, \( x \leq y  \) is equivalent to \( x = y  \) or \( x < y  \). 
+\end{remark}
+
+The first two defining properties alone of \( \R  \) do not uniquely specify it. For example, \( \Q  \) is another field that satisfies the first two properties of \( \R  \). 
+
+\begin{definition}[Upper Bounds]\label{Upper Bound}
+   Suppose \( F  \) is an ordered field, and \( A \subseteq F  \). If there exists \( \beta \in F  \) such that for all \( x \in A  \), \( x \leq \beta  \) for all \( x \in A  \). We call \( \beta  \) an \textbf{upper bound of \( A  \)}.
+\end{definition}
+\begin{remark}
+    We call the collection of upper bounds of \( A  \) by \( \UP(A) \). If \( \UP(A) \neq \emptyset  \), then we say that \textbf{\( A  \) is bounded above}. 
+\end{remark}
+
+Similarly, we define the lower bounds of a set.
+\begin{definition}[Lower Bounds]\label{Lower Bound}
+   Suppose \( F  \) is an ordered field, and \( A \subseteq F \). If there exists \( \alpha \in A  \) such that for all \( x \in A  \), \( x \geq \alpha  \), then \( \alpha  \) is called the \textbf{lower bound of \( A  \)}.
+\end{definition}
+\begin{remark}
+    Similarly, we denote the set of lower bounds of \( A  \) by \( \LO(A) \). We say that \( A  \) is bounded below if \( \LO(A) \neq \emptyset \).
+\end{remark}
+
+\begin{eg}
+    Suppose we have \( A = [0,1) \). We have
+    \begin{align*}
+        \UP(A) &= [1, \infty ) \\
+        \LO(A) &= (-\infty, 0].
+    \end{align*}
+\end{eg}
+
+\section{Lecture 2}
+
+\subsection{Review of Least Upper Bound Property}
+
+\begin{definition}[Supremum]
+    Suppose \( F  \) is an ordered field, and \( A \subseteq F  \). Suppose there exists \( \beta \in F  \) such that 
+    \begin{enumerate}
+        \item[(i)] \( \beta \in \UP(A) \)
+        \item[(ii)] If \( \gamma \in F  \) and \( \gamma < \beta  \), then \( \gamma \notin \UP(A) \).
+    \end{enumerate}
+    We call \( \beta  \) the \textbf{least upper bound} of \( A  \) or the \textbf{supremum} of \( A  \). We denote the supremum of \( A  \) as \( \beta = \sup A  \).
+\end{definition}
+\begin{remark}
+    When we say THE supremum, we are implicitly stating that the supremum of \( A  \) is unique. 
+\end{remark}
+
+\begin{definition}[Infimum]
+    Suppose \( F  \) is an ordered field, and \( A \subseteq F  \). Suppose there exists \( \alpha \in F  \) such that 
+    \begin{enumerate}
+        \item[(i)] \( \alpha \in \LO(A) \)
+        \item[(ii)] If \( \gamma \in F  \) and \( \gamma > \alpha  \), then \( \gamma \notin \LO(A) \).
+    \end{enumerate}
+    We call \( \alpha  \) the \textbf{greatest upper bound} of \( A  \) or the \textbf{infimum} of \( A  \), and write \( \alpha = \inf A  \).
+\end{definition}
+
+\begin{definition}[Least Upper Bound Property]
+    An ordered field \( F  \) is said to have the \textbf{least-upper-bound property} if the following is true:
+    \begin{center}
+        Every nonempty set \( A  \) in \( F  \) that is bounded above has a least upper bound in \( F  \).
+    \end{center}
+    That is, if \( A \neq \emptyset  \) and \( \UP(A) \neq \emptyset \), then \( \sup (A) \) exists.
+\end{definition}
+
+\begin{theorem}[ ]
+    There is exactly one ordered field that has the least-upper-bound bound property. The set \( \R  \) is the unique ordered field that contains \( \Q  \) as a subfield.
+\end{theorem}
+This is equivalent to saying that:
+
+\begin{itemize}
+    \item \( \R  \) is dedekind complete
+    \item \( \R  \) satisfies the Axiom of Completeness.
+\end{itemize}
+
+\begin{remark}
+   Note that \( \Q  \) being an ordered field does not immediately imply that \( \Q  \) has the LUBP.
+\end{remark}
+
+\begin{definition}[Maximums and Infimums]
+    Let \( A \subseteq \R  \).
+    \begin{itemize}
+        \item If \( \sup A \in A  \), then we call, \( \sup A  \), the \textbf{maximum of \( A  \)} and we denote this by \( \max A  \).
+        \item If \( \inf A \in A  \), we call, \( \inf A  \), the \textbf{minimum of \( A  \)} and we denote this by \( \min A  \).
+    \end{itemize}
+\end{definition}
+
+
+\begin{lemma}[Useful Fact for Supremum]\label{First Useful Fact}
+   Let \( A \subseteq \R  \). Then \( \beta = \sup A  \) if and only if   
+   \begin{enumerate}
+       \item[(i)] \( \beta \in \UP(A) \) and
+        \item[(ii)] For all \( \epsilon > 0  \), there exists \( a \in A  \) such that \(a > \beta - \epsilon \).
+   \end{enumerate}
+\end{lemma}
+\begin{remark}
+    We can restate property (ii) above as "for all \( \epsilon > 0  \), \( \beta - \epsilon \notin \UP(A) \)".
+\end{remark}
+
+\begin{lemma}[Useful Fact for Infimums]
+   Let \( A \subseteq \R  \). Then \( \alpha = \inf A  \) if and only if  
+   \begin{enumerate}
+       \item[(i)] \( \alpha \in \LO(A) \) and
+        \item[(ii)] For all \( \epsilon > 0  \), there exists \( a \in A  \) such that \( a < \alpha + \epsilon \).
+   \end{enumerate}
+\end{lemma}
+
+\begin{remark}
+    Similarly, we can restate property (ii) as "for all \( \epsilon > 0  \), \( \alpha + \epsilon \notin \LO(A) \)".
+\end{remark}
+
+\begin{theorem}[Greatest Lower Bound Property of \( \R  \)]
+    Every nonempty subset \( A  \) of \( \R  \) that is bounded below has a \textbf{greatest upper bound in \( \R  \)}.
+\end{theorem}
+
+Another way to say this is the following:
+\begin{center}
+    If \( A \neq \emptyset  \) and \( \LO(A) \neq \emptyset  \), then \( \inf A  \) exists in \( \R  \).
+\end{center}
+
+\subsection{Consequences of Least Upper Bound Property}
+
+\begin{theorem}[Archimedean Property]\label{Archimedean Property}
+    If \( x \in \R  \), \( y \in \R  \) and \( x > 0  \), then there exists \( n \in \Z^{+} \) such that \( nx > y  \).
+\end{theorem}
+\begin{proof}
+Let \( A = \{ nx : n \in \N  \}  \). Note that \( A \neq \emptyset  \) since \( 1 \cdot x \in A  \). Suppose for sake of contradiction that for all \( n \in \Z^{+} \), \( nx \leq y  \). This means that \( y  \) is an upper bound of \( A  \). Let \( \beta = \sup A  \). By the {\hyperref[First Useful Fact]{first useful fact}}, we have that for all \( \epsilon > 0  \), there exists an \( n \in \N  \) such that \( \beta - \epsilon < nx  \). Let \( \epsilon = x  \). Then we find that  
+\[  \beta < nx + \epsilon = nx + x = x(n+1) \implies \beta < x(n+1).  \]
+But this tells us that \( x(n+1) \in A  \) (\( x \in A  \) and \( n+1 \in \N\)) and that \( \beta  \) is NOT an upper bound which is a contradiction. Thus, it must be the case that \( nx > y  \) for some \( n \in \Z^{+} \).
+\end{proof}
+
+\begin{remark}
+   The well ordering property of \( \N  \) can be proven as a consequence of nonempty sets of natural numbers containing a minimum.
+\end{remark}
+
+\begin{corollary}
+  Let \( A  \) be a nonempty subset of \( \R  \) that consists of only integers.  
+  \begin{enumerate}
+      \item[(i)] If \( A  \) is bounded above, then \( \sup(A) \in A  \).
+      \item[(ii)] If \( A  \) is bounded below, then \( \inf(A) \in A  \). 
+  \end{enumerate}
+\end{corollary}
+
+\begin{theorem}[Density of \( \Q  \) in \( \R  \)]
+    Let \( x,y \in \R  \) with \( x < y  \), there exists a \( p \in \Q  \) such that \( x < p < y \). 
+\end{theorem}
+\begin{proof}
+    Our goal is to find a \( p \in \Q  \) such that  
+    \[  x < p < y \]
+    with \( p = \frac{ m }{ n }  \) for \( m \in \Z  \) and \( n \in \N  \); that is, find \( m \in \Z  \) and \( n \in \N  \) such that 
+    \[  nx < m < ny. \]
+    First, notice that \( x < y  \). This implies that \( y - x > 0  \). By the Archimedean Property, there exists \( n \in \N  \) such that
+    \[  \frac{ 1 }{ n }  < y - x \Longleftrightarrow x < y - \frac{ 1 }{ n }. \tag{1}    \]
+    Choose \( m \in \Z  \) such that \( m  \) to be the minimum element greater than \( nx  \); that is, choose \( m \in \Z  \) such that 
+    \[  m - 1 \leq nx < m. \tag{2} \]
+    Let \( A = \{ k \in \Z : k > nx  \}  \) which is nonempty by the {\hyperref[Archimedean Property]{Archimedean Property}}. Furthermore, \( nx  \) is a lower bound for \( A  \). By the Well-ordering property, \( A \) contains a minimum. Thus, \( m = \min A  \). Hence,we have  
+    \[  nx < m \implies x < \frac{ m }{ n }. \tag{3} \]
+    Using the left-hand side of (2) and the inequality found in (1), we can write
+    \begin{align*}
+        m - 1 \leq nx \Longrightarrow m \leq nx +1 &< n \Big(  y - \frac{ 1 }{ n }  \Big) + 1   \\
+                      &= ny -  1 + 1 \\
+                      &= ny.
+    \end{align*}
+    Thus, we see that 
+    \[ m < ny \tag{4}.  \]
+    With (3) and (4), we can conclude that
+    \[ x < \frac{ m }{ n }  < y  \Longleftrightarrow x < p < y.  \]
+
+\end{proof}
+
+
+
+\end{document}
