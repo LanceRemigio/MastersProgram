@@ -303,5 +303,181 @@ Applying the squeeze theorem as \( n \to \infty   \) to both sides of the inequa
                                                                                              &= {M}_{k}^{(f)}
     \end{align*}
     Thus, under the correspondence above, we have 
+    \begin{align*}
+        U(f,\alpha,P) &= U(g, \beta, Q ) \\
+        L(f,\alpha,P) &= L(g, \beta, Q )
+    \end{align*}
+    where \( H(P) = Q  \). In order to show \( g \in {R}_{\beta}[A,B] \), by the Cauchy-Criterion, it suffices to show that 
+    \[  \forall \epsilon > 0 \ \ \exists Q \in \Pi [A,B] \ \text{such that} \ U(g,\beta,Q) - L(g,\beta,Q) < \epsilon. \] 
+    Let \( \epsilon > 0  \) be given. Since \( f \in {R}_{\alpha}[a,b] \), there exists \( P \in \Pi[a,b] \) such that 
+    \[  U(f,\alpha,P) - L(f,\alpha,P) < \epsilon. \]
+    We claim that \( Q = H(P) \) can be used as the partition that we were looking for. Indeed, 
+    \[  U(g, \beta, H(P)) - L(g, \beta, H(P)) - L(g, \beta, H(P)) = U(f,\alpha,P) - L(f,\alpha,P) < \epsilon \]
+    as desired.
+    Also, 
+    \begin{align*}
+        \int_{ a }^{ b }  f  \ d \alpha &= L(f,\alpha) = \sup_{P \in \Pi [a,b]} L(f,\alpha,P) \\
+                                        &= \sup_{Q \in \Pi[a,b]} L(g,\beta,Q) \\
+                                        &= L(g,\beta) \\
+                                        &= \int_{ A }^{ B }  g  \ d \beta.
+    \end{align*}
+\end{proof}
+
+\begin{theorem}[Fundamental Theorem of Calculus I and II]
+    \textbf{(Part I)} Let \( f : [a,b] \to \R  \) be integrable and \( F: [a,b] \to \R  \) satisfies \( F'(x) = f(x) \) for all \( x \in [a,b] \). Then
+    \[  \int_{ a }^{ b }  f  \ d x = F(b) - F(a). \]
+
+    \textbf{(Part II)} Let \( g : [a,b] \to \R  \) be Riemann Integrable and \( G: [a,b] \to \R  \) is defined by \( G(x) = \displaystyle \int_{ a }^{ x }  g(t) \ dt  \). Then
+    \begin{enumerate}
+        \item[(1)] \( G  \) is (uniformly) continuous on \( [a,b] \);
+        \item[(2)] If \( g  \) is continuous at a point \( c \in [a,b] \), then \( G  \) is differentiable at the point \( c  \) and \( G'(c) = g(c) \) (In particular, if \( g:[a,b] \to \R  \) is continuous, then \( G(x) = \displaystyle \int_{ a }^{ x }  g(t) \ dt  \) is an antiderivative of \( g  \) on \( [a,b] \)).
+    \end{enumerate}
+
+
+\end{theorem}
+
+    \begin{proof}
+    \begin{enumerate}
+        \item[(I)] In what follows, we will show that 
+            \[  \forall P \in \Pi[a,b] \ \ L(f,P) \leq F(b) - f(a) \leq U(f,P). \tag{*} \]
+            Note that as a consequence of (*):
+            \begin{enumerate}
+                \item[(i)] \( F(b) - F(a) \) is an upper bound for \( \{ L(f,P) : P \in \Pi \}  \). So,
+                    \[  \sup_{P \in \Pi} L(f,P) \leq F(b) - F(a) \implies L(f) \leq F(b) - F(a). \]
+                \item[(ii)] \( F(b) - F(a)  \) is a lower bound for \( \{ U(f,P) : P \in \Pi \}  \). So, 
+                    \[  \inf_{P \in \Pi} U(f,P) \geq F(b) - F(a) \implies U(f) \geq F(b) - F(a). \]
+                    Thus, 
+                    \[  L(f) \leq F(b) - F(a) \leq U(f). \]
+                    Since \( f \in R[a,b] \), \( L(f) = U(f) = \displaystyle \int_{ a }^{ b } f   \), so 
+                    \[  \int_{ a }^{ b }  f  \leq F(b) -F(a) \leq \int_{ a }^{ b }  f.   \]
+                    Therefore, 
+                    \[  \int_{ a }^{ b } f  = F(b) - F(a) \]
+                   which is our desired result. 
+
+                   Let \( P = \{ {x}_{0}, {x}_{1}, \dots, {x}_{n} \}  \) be a partition of \( [a,b] \). Since \( F' = f  \) on \( [a,b] \), we can use the Mean Value Theorem to find a \( {t}_{k } \in ({x}_{k-1},{x}_{k}) \) such that 
+                   \[  F'({t}_{k}) = f({t}_{k}) = \frac{ f({x}_{k}) - f({x}_{k-1}) }{ {x}_{k} - {x}_{k-1} }.  \]
+                   Hence, we have 
+                   \begin{align*}
+                       F(b) - F(a) &= \sum_{ k=1  }^{ n } [F({x}_{k}) - F({x}_{k-1})] = \sum_{ k=1  }^{ n } F'({t}_{k}) ({x}_{k} - {x}_{k-1}) \\
+                                   &= \sum_{ k=1 }^{ n } f({t}_{k}) \Delta {x}_{k}.
+                   \end{align*}
+                   Therefore, it follows from
+                   \[  L(f,P) = \sum_{ k=1  }^{ n } {m}_{k } \Delta {x}_{k} \leq \sum_{ k=1  }^{ n } f({t}_{k}) \Delta {x}_{k} \leq \sum_{ k=1  }^{ n } {M}_{k} \Delta {x}_{k } = U(f,P) \]
+                   that 
+                   \[  L(f,P) \leq F(b) - F(a) \leq U(f,P). \]
+            \end{enumerate}
+        \item[(II)] 
+            \begin{enumerate}
+                \item[(i)] Our goal is to show \( G  \) is uniformly continuous on \( [a,b] \). That is, we need to show 
+                    \[  \forall \epsilon > 0 \ \exists \delta > 0 \ \text{such that} \ \forall x,y \in [a,b] \ \text{if} \ | x - y |  < \delta \ \text{then} \ | G(x) - G(y) |  < \epsilon.  \]
+                    Let \( \epsilon > 0  \) be given. Let \( x,y \in [a,b] \). If \( x \geq y  \), then 
+                    \begin{align*}
+                        | G(x) - G(y) | &= \Big| \int_{ a }^{ x }  g(t) \ dt - \int_{ a }^{ y }  g(t) \ dt  \Big| = \Big| \int_{ y }^{ x }  g(t) \ dt  \Big|  \\
+                                        &\leq \int_{ y }^{ x }  | g(t) |   \ dt \leq \int_{ y }^{ x }  R  \ dt = R(x-y) = R | x - y |
+                    \end{align*}
+                    where \( R = \sup_[t \in [a,b]] | g(t) |  \). If \( y > x  \), then
+                    \begin{align*}
+                        | G(x) - G(y)  | &= | G(y) - G(x) | =  \Big| \int_{ a }^{ y }  g(t) \ dt - \int_{ a }^{ x }  g(t) \ dt  \Big|  \\
+                                         &= \Big| \int_{ x }^{ y }  g(t) \ dt  \Big|  \leq \int_{ x }^{ y }  | g(t) |  \ dt \leq \int_{ x }^{ y } R  \ dt \\
+                                         &= R(y-x) = R| x - y   |. 
+                    \end{align*}
+                    Thus, for all \( x,y \in [a,b] \), we have 
+                    \[  | G(x) - G(y) | \leq R | x - y  |.  \]
+                    Hence, to make sure \( | G(x) - G(y) |  \) is less than \( \epsilon  \), it suffices to make \( R | x - y  |  \) less than \( \epsilon  \), that is, it is enough to ensure that \( | x - y  |  < \frac{ \epsilon }{ R  }  \). This argument shows that \( \delta = \frac{ \epsilon }{ R }  \) does the job. 
+                \item[(ii)] Now, suppose \( g  \) is continuous at \( c \in [a,b] \). Our goal is to show that \( G'(c) = g(c) \). That is, we want to show 
+                    \[  \lim_{ x \to c  }  \frac{ G(x)  - G(c) }{ x - c  }  = g(c). \]
+                    That is, our goal is to show that 
+                    \[  \forall \epsilon > 0 \ \exists \delta > 0 \ \text{such that} \ \text{if} \ 0 < | x - c  |  < \delta \ \text{(with \( x \in [a,b] \))} \ \text{then} \ \Big| \frac{ G(x) - G(c) }{ x - c  }  -  g(c) \Big|  < \epsilon. \]
+                    Let \( \epsilon > 0  \) be given. Since \( g  \) is continuous at \( c  \), for this given \( \epsilon  \), there exists \( \hat{\delta} > 0  \) such that if
+                    \[  | t - c  |  < \hat{\delta} \ \text{(with \( t \in [a,b] \))} \ \text{then} \ | g(t) - g(c) |  < \frac{ \epsilon }{ 2 }. \]
+                    We claim that this \( \hat{\delta} \) can be used as the \( \delta  \) that we were looking for. Indeed, let \( \delta = \hat{\delta} \). We will consider the following two cases:
+                    \textbf{(Case 1)} Suppose \( 0 < | x - c  |  < \hat{\delta} \), \( x \in [a,b] \), \( x > c  \). We have 
+                    \begin{align*}
+                        &\Big| \frac{ G(x) - G(c) }{  x-  c  }  - g(c) \Big| = \Big| \frac{ G(x) - G(c) - g(c) (x-c) }{ x - c  }  \Big|  \\
+                        &= \Big| \frac{ \int_{ a }^{ x  }  g(t) \ dt - \int_{ a }^{ c }  g(t) \ dt - \int_{ c }^{ x }  g(c) \ dt  }{  x - c  }  \Big|  \\
+                        &= \Big| \frac{ 1 }{ x - c  }  \Big(  \int_{ c }^{ x }  g(t) \ dt - \int_{ c }^{ x }  g(c) \ dt  \Big) \Big| \\
+                        &= \Big| \frac{ 1 }{ x - c  } \int_{ c  }^{  x  } [g(t) - g(c)] \ dt  \Big| \\
+                        &= \frac{ 1 }{ | x - c  |  }  \Big| \int_{ c }^{ x }  [g(t) - g(c)] \ dt   \Big|  \\
+                        &\leq \frac{ 1 }{ x - c  }  \int_{ c }^{ x }  | g(t) - g(c) |  \ dt \\
+                        &\leq \frac{ 1 }{ x - c  }  \int_{ c }^{ x }  \frac{ \epsilon }{ 2 }   \ dt \\
+                        &= \frac{ 1 }{ x - c  }  \frac{ \epsilon }{ 2 }  (x - c ) \\
+                        &= \frac{ \epsilon }{ 2 }  \\
+                        &< \epsilon
+                    \end{align*}
+                    as desired. On the other hand, if \( 0 < | x - c  |  < \hat{\delta} \), \( x \in [a,b] \), and \( x < c  \), then a similar argument shows our desired result.
+
+            \end{enumerate}
+    \end{enumerate}
+
+    \end{proof}
+
+\begin{theorem}[Integration by Parts]
+    Let \( u : [a,b] \to \R  \) and \( v : [a,b] \to \R  \) are differentiable and let \( u' \in R[a,b] \) and \( v' \in R[a,b] \). Then we have  
+    \begin{enumerate}
+        \item[(1)] \( uv' \in R [a,b] \)
+        \item[(2)] \( u' v \in R[a,b] \)
+        \item[(3)] \( \displaystyle  \int_{ a }^{ b }  uv'  \ dx = u(b)v(b) - u(a) v(a) - \displaystyle \int_{ a }^{ b } u' v  \ dx  \).
+    \end{enumerate}
+\end{theorem}
+
+\begin{proof}
+\begin{enumerate}
+    \item[(1)] Since \( u:[a,b] \to \R  \) is differentiable, we have \( u \in C[a,b] \). So, we have \( u \in R[a,b] \). By assumption, \( v' \in R[a,b] \) and so we can conclude that \( uv' \in R[a,b] \).
+    \item[(2)] Using the same argument above, we have \( uv' \in R[a,b] \).
+    \item[(3)] By the product rule, we have 
+        \[  (uv)' = u' v + u v'. \]
+        In particular, since \( (uv)' \) is a sum of integrable functions, it belongs to \( R[a,b] \). Now, we integrate both sides 
+        \[  \int_{ a }^{ b }  (uv)'   \ dx = \int_{ a }^{ b } u'v \ dx + \int_{ a }^{ b }  uv' \ dx. \tag{I} \]
+        According to FTC I, we have
+        \[  \int_{ a }^{ b } (uv)'  \ dx = [uv]_{x = a}^{x =b} = u(b)v(b) - u(a)v(a). \tag{II} \]
+        Hence, we have (I) and (II) imply that
+        \[  u(b)v(b) - u(a)v(a) = \int_{ a }^{ b } u'v \ dx + \int_{ a }^{ b }  u v' \ dx \]
+        which further implies that 
+        \[  \int_{ a }^{ b } uv' \ dx = u(b)v(b) - u(a)v(a) - \int_{ a }^{ b } u'v \ dx. \]
+\end{enumerate}
+\end{proof}
+
+\begin{definition}[Unit Step Function]
+    The \textbf{unit step function} \( I: \R \to \R  \) is defined by
+    \[  I(x) = 
+    \begin{cases}
+        0 &\text{if} \ x \leq 0 \\
+        1 &\text{if} x > 0 
+    \end{cases}. \]
+\end{definition}
+
+\begin{remark}
+    Note that for all \( s \in |R  \), we have 
+    \[  I(x-s) = 
+    \begin{cases}
+        0 &\text{if} \ x \leq s \\
+        1 &\text{if} x > s 
+    \end{cases}. \]
+    Also, for all \( c \neq 0  \), we have
+    \[  c I(x-s) = 
+    \begin{cases}
+        0 &\text{if} \ x \leq s \\
+        c &\text{if} \ x > s.
+    \end{cases} \]
+\end{remark}
+
+\begin{theorem}[Rudin 6.15]
+    Let \( f: [a,b] \to \R  \) be a bounded function, \( s \in (a,b) \), \( f  \) is right continuous at \( s  \), and \( \alpha(x) = I(x-s) \). Then 
+    \begin{center}
+    \( f \in {R}_{\alpha}[a,b] \) and \( \displaystyle \int_{ a }^{ b }  f  \ d \alpha  = f(s) \).
+    \end{center}
+\end{theorem}
+\begin{proof}
+see hw4
+\end{proof}
+
+\begin{theorem}[Rudin 6.16]
+    Suppose for all \( n \geq 1  \), \( {c}_{n} \geq 0  \), \( \displaystyle \sum_{ n=1  }^{ N  } {c}_{n} \) converges, \( {s}_{1} < {s}_{2} < {s}_{3} < \cdots   \) are points in \( (a,b) \), \( \alpha:[a,b] \to \R  \) is continuous. Then
+    \begin{center}
+        \( f \in {R}_{\alpha}[a,b] \) and \( \displaystyle \int_{ a }^{ b } f  \ d \alpha = \displaystyle \sum_{ n=1  }^{ \infty  } {c}_{n} f({s}_{n})  \).
+    \end{center}
+\end{theorem}
+\begin{proof}
+See hw4.
 \end{proof}
 

@@ -1,0 +1,152 @@
+\documentclass[a4paper]{article}
+\input{../../../../../newpreamble.tex}
+\title{Homework 4}
+\author{Lance Remigio}
+\begin{document}
+\maketitle
+
+\begin{problem}
+   If \( E  \) is nonempty subset of a metric space \( (X,d) \), define the distance from \( x \in X  \) to \( E  \) by 
+   \[  \dist(x,E) = \inf_{z \in E } d(x,z). \]
+   \begin{enumerate}
+       \item[(a)] Prove that \( \dist (x,E) = 0  \) if and only if \( x \in \overline{E} \).
+      \item[(b)] Prove that if \( E  \) is compact, then the infimum in the definition above is attained, that is, if \( x \in X  \) and \( E  \) is compact, then there exists \( a \in E  \) such that \( \dist (x,E ) = d(x,a) \).
+      \item[(c)] Prove that if \( x = \R^{n} \) and if \( E  \) is closed, then the in the definition above is attained, that is, if \( x \in \R^{n} \) and \( E  \) is closed, then there exists \( a \in E  \) such that \( \dist (x,E) = d(x,a) \).
+        \item[(d)] Prove that \( \dist(x,E) = \dist (x, \overline{E}) \).
+        \item[(e)] Prove that \( {d}_{E} : X \to \R  \) defined by \( {d}_{E} (x) = \dist (x,E) \) is uniformly continuous function on \( X  \), by showing that 
+            \[  | {d}_{E}(x) - {d}_{E}(y) |  \leq d(x,y) \ \ \ \forall x \in X , y \in X. \]
+   \end{enumerate} 
+\end{problem}
+
+\begin{proof}
+\begin{enumerate}
+    \item[(1-a)]  \( (\Longrightarrow)  \) Suppose \( \dist(x,E) = 0  \). Our goal is to show that \( x \in \overline{E} \); that is, we want to show that for all \( \epsilon > 0  \), 
+        \[  {N}_{\epsilon}(x) \cap E \neq \emptyset. \]
+        Let \( \epsilon > 0  \) be given. Since \( \dist(x,E) = \inf_{z \in E } d(x,z) = 0  \), there exists \( {z}_{1} \in E  \) such that 
+        \[  d(x,{z}_{1}) < \dist(x,E) + \epsilon = 0 + \epsilon = \epsilon.  \]
+        Thus, \( {z}_{1} \in {N}_{\epsilon}(x) \). Since we also have \( {z}_{1} \in E  \), it follows that \( {N}_{\epsilon}(x) \cap E \neq \emptyset \) as desired.
+
+        \( (\Longleftarrow) \) Suppose \( x \in \overline{E} \). Our goal is to show that \( \dist(x,E) = 0  \); that is, we need to show that \( \inf_{z \in E } d(x,z) = 0  \). To this end, it suffices to prove that 
+        \[  \forall z \in E \ \ d(x,z) \geq 0 \tag{i}  \]
+        and
+        \[ \forall \epsilon > 0 \ \ \exists z \in E \ \ \text{such that} \ \ d(x,z) < 0 + \epsilon \tag{ii} \]
+\end{enumerate}
+We see that (i) follows immediately because \( d  \) defines a metric on \( X  \). To show (ii), let \( \epsilon > 0  \) be given. Since \( x \in \overline{E} \), \( {N}_{\epsilon}(x) \cap E \neq \emptyset \). So, there exists \( {z}_{1} \) such that \( {z}_{1} \in E  \) and \( {z}_{1} \in {N}_{\epsilon}(x) \). Hence, \( {z}_{1} \in E  \) such that \( d(x,{z}_{1}) < \epsilon \). Note that \( {z}_{1} \) is the same \( z  \) we were looking for. This conclude the proof for the backwards direction. 
+
+\item[(1-b)] We know that if \( A \subseteq  \R   \) is a nonempty set that is bounded below, then \( \inf A \in \overline{A} \) and so there exists a sequence \( ({a}_{n})  \) in \( A  \) such that \( {a}_{n} \to \inf A  \). We have \( \dist(x,E) = \inf_{z \in E } d(x,z) \). So, there exists a sequence \( ({z}_{n}) \) in \( E  \) such that \( d(x,{z}_{n}) \to \dist(x,E) \). Now, since \( E  \) is compact, \( ({z}_{n}) \) contains a subsequence \( ({z}_{{n}_{k }}) \) that converges to a point \( a \in E  \). Thus, we have 
+    \[  {z}_{{n}_{k }} \to a \implies d(x, {z}_{{n}_{k}}) \to d(x,a) \]
+    and 
+    \[  d(x,{z}_{n}) \to \dist(x,E) \implies d(x,{z}_{{n}_{k}}) \to \dist(x,E) \]
+    imply that
+    \[  \dist(x,E) = d(x,a) \]
+    by the uniqueness of limits.
+\item[(1-c)] Recall that in \( \R^{n} \) every closed and bounded set is compact. Pick any point \( p \in E  \). Let \( r = d(x,p) \). Let \( S = \overline{{N}_{r}(x)} \cap E  \) (clearly, \( p \in S  \) and since \( S \subseteq \overline{{N}_{r}(x)}  \) and \( \dist(x,S) \leq r \)).
+
+    In what follows, we will show that \( \dist(x,S) = \dist(x,E) \).
+    \begin{remark}
+        Note that since \( S  \) is the intersection of closed sets, it is closed. Also, 
+        \[  S \subseteq  \overline{{N}_{r}(p)} = \{ z \in X : d(x,z) \leq r  \}  \subseteq  {N}_{2r}(p). \]
+        So, \( S  \) is bounded. Since \( S  \) is closed and bounded, it is compact. Thus, by (1-b), there exists \( z \in S  \) such that \( d(x,z) = \dist(x,S) \). Since \( \dist(x,S) = \dist(x,E)  \), the claim in proved.  
+    \end{remark}
+    First, note that 
+    \[  \dist(x,S) = \inf_{z \in S } d(x,z) \underbrace{\geq}_{S \subseteq E} \inf_{z \in E } d(x,z) = \dist(x,E).  \]
+    Hence, \( \dist(x,S) \geq \dist(x,E) \). From here, we just need to prove that \( \dist(x,E) \geq \dist(x,S)  \). Our goal is to show that 
+    \[  \forall z \in E \ \ d(x,z) \geq \dist(x,S). \]
+    Let \( z \in E \) be given. If \( z \in S  \), then \( d(x,z) \geq \inf_{w \in S} d(x,w) = \dist(x,S) \). If \( z \notin S = \overline{{N}_{r}(x)} \cap E  \), then since \( z \in E  \), we can conclude that \( z \notin \overline{{N}_{r}(x)} \) and so \( d(x,z) \geq r \geq \dist(x,S) \) as desired.
+        \item[(1-d)] First note that \( E \subseteq  \overline{E} \) (in genreal, if \( A \subseteq  B  \), then \( \inf A \geq \inf B  \)). So, we have 
+            \[  \dist(x,E) = \inf_{z \in E } d(x,z) \geq \inf_{z \in E } d(x,z) = \dist(x,\overline{E}). \]
+            It suffices to show that \( \dist(x,\overline{E}) \geq \dist(x,E)  \), that is,
+            \[  \inf_{z \in \overline{E}} d(x,z) \geq \dist(x,E). \]
+            That is, our goal is to show that 
+            \[  \forall z \in \overline{E} \ \ d(x,z) \geq \dist(x,E). \]
+            Let \( z \in \overline{E}  \) be given. By definition, we have 
+            \[  \forall \epsilon > 0 \ \ {N}_{\epsilon}(z) \cap E \neq \emptyset.  \]
+            Hence, there exists \( {p}_{\epsilon} \in {N}_{\epsilon}(z) \cap E  \) and so 
+            \[  \dist(x,E) \leq d(x, {p}_{\epsilon}) \leq d(x,z) + d(z,{p}_{\epsilon}) < d(x,z) + \epsilon. \]
+            That is, 
+            \[  \forall \epsilon  > 0 \ \ d(x,z) + \epsilon > \dist(x,E). \]
+            Thus, 
+            \[  d(x,z) \geq \dist(x,E). \]
+        \item[(1-e)] Recall that \( {d}_{E} : X \to \R  \) is uniformly continuous if and only if for all \( \epsilon > 0  \), there exists \( \delta > 0  \) such that for all \( x ,y \in X  \) if \( d(x,y) < \delta \), then
+            \[  | {d}_{E}(x) - {d}_{E}(y) |  < \epsilon. \tag{*} \]
+            If we prove that 
+            \[  \forall x, y \in X \ \ | {d}_{E}(x) - {d}_{E}  | \leq d(x,y), \tag{**}  \]
+            then (*) will hold by setting \( \delta = \epsilon  \) (or any positive nymber less than \( \epsilon \)). So, it suffices to show that (**) holds. Let \( x,y \in X  \) be given. We have  
+            \[  {d}_{E}(x) = \inf_{z \in E} d(x,z) \implies \forall z \in E \ \ {d}_{E}(x) \leq d(x,z).   \]
+            Then we have 
+            \[ \forall z \in E \ \ {d}_{E}(x) \leq d(x,y) + d(y,z) \]
+            which can be further rewritten into
+            \[ \forall z \in E  \ \   {d}_{E}(x) - d(x,y) \leq d(y,z). \]
+            This tells us that \( {d}_{E}(x) - d(x,y) \) is a lower bound for the set
+            \[  \{ d(y,z) : z \in E  \}.  \]
+            Hence, we have that 
+            \[  {d}_{E}(x) - d(x,y) \leq \inf_{z \in E} d(y,z) = {d}_{E}(y) \]
+            and so 
+            \[  {d}_{E}(x) - {d}_{E}(y) \leq d(x,y). \tag{1} \]
+            Switching the roles of \( x  \) and \( y  \) in the argument above, we can derive a similar result; that is,
+            \[ - ({d}_{E}(x) - {d}_{E}(y)) =   {d}_{E}(y) - {d}_{E}(x) \leq d(y,x) = d(x,y). \tag{2} \]
+            Thus, (1) and (2) imply that 
+            \[  | {d}_{E}(x) - {d}_{E}(y) |  \leq d(x,y) \]
+            which proves that \( {d}_{E} \) is a uniformly continuous function on \( X  \) as desired.
+\end{proof}
+
+\begin{problem}
+    Let \( A  \) and \( B  \) be nonempty subsets of a metric space \( (X,d) \). The distance between \( A  \) and \( B  \) is defined as follows:
+    \[  \dist(A,B)  = \inf \{  d(x,y) : x \in A , y \in B \}. \]
+    (Note that in case \( A = \{ x  \}  \), \( \dist(\{ x \}, B ) = \dist(x,B) \) which was introduced in the previous exercise.) Prove that 
+    \[  \dist(A,B) = \inf_{x \in A} \dist(x,B) = \inf_{y \in B} \dist(y,A). \]
+\end{problem}
+\begin{proof}
+Here we will prove a more general claim: 
+Let \( A  \) and \( B  \) be any two nonempty sets (not necessarily in a metric space) and let \( F: A \times B \to \R  \) be a function that is bounded below; that is, the set \( \{ F(x,y) : (x,y) \in A \times B  \}  \) is bounded below. Let 
+\begin{align*}
+    G: A \to \R &, G(x) = \inf_{y \in B} F(x,y) \\
+    H: B \to \R &, H(y) = \inf_{x \in A } F(x,y).
+\end{align*}
+Then
+\begin{enumerate}
+    \item[(1)] \( \inf_{(x,y) \in A \times B } F(x,y) = \inf_{x \in A } G(x) \);
+    \item[(2)] \( \inf_{(x,y) \in A \times B } F(x,y) = \inf_{y \in B} H(y) \).
+\end{enumerate}
+Here we will prove (1). The proof of (2) is analogous.
+Let \( L = \inf_{(x,y) \in A \times B} F(x,y) \). Our goal is to show that \( L = \inf_{x \in A } G(x) \). To this end, it suffices to show that 
+\begin{enumerate}
+    \item[(i)] \( L \leq G(x)  \) for all \( x \in A  \)
+    \item[(ii)] \( \forall \epsilon > 0  \), \( \exists x \in A  \) such that \( G(x) < L + \epsilon  \).
+\end{enumerate}
+Indeed, let \( x \in A  \). Then we have 
+\begin{align*}
+    \forall y \in B \ \ (x,y) \in A \times B &\implies \forall y \in B \ \ L \leq F(x,y) \\
+                                             &\implies  L \  \text{is a lower bounded of} \ \{ F(x,y) : y \in B \} \\
+                                             &\implies  L \leq \inf_{y \in B} F(x,y) = G(x).
+\end{align*}
+This proves (i). Now, we will show (ii). Let \( \epsilon > 0  \) be given. Then
+\[  L = \inf_{(x,y) \in A \times B } F(x,y) \implies \exists ({x}_{0}, {y}_{0}) \in A \times B \ \text{such that} \ F({x}_{0}, {y}_{0}) < L + \epsilon. \]
+Thus, we have 
+\[  G({x}_{0}) = \inf_{y \in B} F({x}_{0}, y) \leq F({x}_{0}, {y}_{0}) < L + \epsilon. \]
+From this, we can see that \( {x}_{0} \) is the same \( x  \) we were looking for.
+\end{proof}
+
+\begin{problem}
+    Let \( (X,d) \) be a metric space. Prove that if \( A  \) and \( B  \) are two nonempty disjoint sets in \( X  \) such that \( A  \) is \textbf{compact} and \( B  \) is \textbf{closed}, then \( \dist(A,B) > 0  \).
+\end{problem}
+\begin{proof}
+Assume for contradiction that \( \dist(A,B) = 0  \). We have 
+\[  0 = \dist(A,B) = \inf_{x \in A} {d}_{B}(x). \tag{See Exercise 2} \]
+In exercise 1, we proved that \( {d}_{B}: X \to \R  \) is uniformly continuous. As a consequence, \( {d}_{B} : A \to \R  \) is continuous. Since \( A  \) is compact, it follows from the Extreme Value Theorem that 
+\[  \exists a \in A \ \text{such that} \ \inf_{x \in A } {d}_{B}(x) = {d}_{B}(a). \]
+Since \( \inf_{x \in A } {d}_{B}(x) = \dist(A,B) = 0  \), we can conclude that 
+\[  {d}_{B}(a) = 0.  \] 
+It follows from part (a) of exercise 1 that \( a \in \overline{B} \). Since \( B  \) is closed, we have \( \overline{B} = B  \) and so \( a \in B  \). Thus, \( A \cap B \neq \emptyset  \) since \( a \in A  \) and \( a \in B  \) which is a contradiction!
+\end{proof}
+
+\begin{problem}
+    Let \( E  \) be a nonempty subset of \( \R^{n} \). Let \( t > 0  \) be a fixed positive number. Let \( A = \{  x \in \R^{n} :  \dist(x,E) \geq t  \}  \). Prove that 
+    \[  \circ{A} = \{ x \in \R^{n} : \dist(x,E) > t  \}. \]
+\end{problem}
+\begin{proof}
+It suffices to show the following two s
+\end{proof}
+
+
+\end{document}
