@@ -111,6 +111,122 @@ So, we have
     \end{enumerate} 
 \end{theorem}
 
+\begin{theorem}[Chain Rule]
+    Let \( {I}_{1} \subseteq  \R  \) and \( {I}_{2} \subseteq  \R   \) be two intervals, \( f: {I}_{1} \to \R  \) and \( g : {I}_{2} \to \R  \) be two functions, \( f({I}_{1}) \subseteq  {I}_{2} \), \( f \) is differentiable at \( c \in {I}_{1} \) and \( g  \) is differentiable at \( f(c) \in {I}_{2} \). Then the function \( g \circ f : {I}_{1} \to \R  \) is differentiable at \( c \in {I}_{1} \) and 
+    \[  (g \circ f)'(c) = g'(f(c)) \cdot f'(c). \]
+\end{theorem}
+First, we will prove the theorem incorrectly and then show give three criterion to prove the theorem correctly.  
 
-% \end{document}
+\begin{proof}
+Observe that 
+\begin{align*}
+    \lim_{ x \to c  }  \frac{ (g \circ f)(x) - (g \circ f)(c) }{x - c } &= \lim_{ x \to c  }  \frac{ g(f(x)) - g(f(c)) }{  x - c  }  \\
+                                                                        &= \lim_{ x \to c  }  \Big[ \frac{ g(f(x)) - g(f(c)) }{  f(x) - f(c) } \cdot \frac{ f(x) - f(c) }{  x - c   } \Big] \\
+                                                                        &= \underbrace{\Big[ \lim_{ x \to c  }  \frac{ g(f(x)) - g(f(c)) }{  f(x) - f(c) } \Big]}_{g'(f(c))} \underbrace{\Big[ \lim_{ x \to c  }  \frac{ f(x)  - f(c) }{  x - c  } \Big]}_{f'(c)} \\
+\end{align*}
+\end{proof}
+What is the problem with this proof? By the definition of a limit of a function, when you take \( \lim_{ x \to c  }  \), it is guaranteed that \( x - c \neq 0   \); however, for \( x  \) close to \( c  \) (as \( x  \) approaches to \( c  \)), \( f(x)- f(c) \) might be zero, so dividing by \( f(x) - f(c) \) is not legitimate. The following proof fixes this issue by introducing a new function \( d(f(x)) \) which is defined by
+\begin{enumerate}
+    \item[(i)] \( d(f(x)) \displaystyle \frac{ g(f(x)) - g(f(c)) }{  f(x) - f(c) }    \) when \( f(x) \neq f(c) \) 
+    \item[(ii)] \( d(f(x))  \) is defined even when \( f(x) = f(c) \)  
+    \item[(iii)] \( \displaystyle d(f(x)) \cdot \frac{ f(x) - f(c) }{  x - c  }  = \frac{ g(f(x)) - g(f(c)) }{  x - c  }   \) for all \( x \in {I}_{\kappa} \) where \( x \neq c   \).
+\end{enumerate}
+
+\begin{proof}
+Let \( d: {I}_{2} \to \R  \) be defined by 
+\[  d(y) = 
+\begin{cases}
+    \frac{ g(y) - g(f(c)) }{ y - f(c) }  &\text{if} \ y \neq f(c) \\
+    \lim_{ y \to f(c) } \frac{ g(y) - g(f(c)) }{  y - f(c) }  = g'(f(c)) &\text{if} \ y = f(c)
+\end{cases}. \]
+Note that this function satisfies the requirements in (i) and (ii) outlined above. We make the following observations: 
+\begin{enumerate}
+    \item[(1)] \( d  \) is continuous at \( f(c) \). Indeed, we can see that 
+        \[  \lim_{ y \to f(c) }  d(y) = \lim_{ y  \to  f(c) }  \frac{ g(y) - g(f(c)) }{ y - f(c) }  = d(f(c)). \]
+    \item[(2)] For all \( x \in {I}_{1} \) and \( x \neq c  \), we have 
+        \[  d(f(x)) \cdot \frac{ f(x) - f(c) }{  x -c  }  = \frac{ g(f(x)) - g(f(c))  }{  x - c  }. \tag{*}  \]
+        We will show that this holds by considering two cases; either \( f(x) \neq f(c) \) or \( f(x) = f(c) \). If \( f(x) \neq f(c) \), then
+        \[  \text{LHS} = d(f(x))\cdot \frac{ f(x) - f(c) }{ x - c  } = \frac{ g(f(x)) - g(f(c)) }{  f(x) - f(c) }  \cdot \frac{ f(x) - f(c) }{  x - c  } = \frac{ g(f(x)) - g(f(c))  }{  x - c  }  = \text{RHS}.    \]
+        Now, suppose \( f(x) = f(c) \). Then we have 
+        \begin{align*}
+            \text{LHS} &= d(f(x)) \cdot \frac{ f(x) - f(c) }{  x - c  }  = d(f(c)) \cdot \frac{ f(x) - f(c) }{ x - c  }  = g'(f(c)) \cdot \frac{ 0  }{ x -c  }  = 0  \\
+            \text{RHS} &= \frac{ g(f(x)) - g(f(c)) }{  x - c  }  = \frac{ g(f(c)) - g(f(c)) }{ x - c  }  = \frac{ 0  }{ x -c  }   =0.
+        \end{align*}
+        Thus, we see that the left hand side equals the right hand side of (*).
+\end{enumerate}
+Now, note that since \( f  \) is continuous at \( c  \) and \( d \) is continuous at \( f(c) \), their composition \( d \circ f  \) is continuous at \( c  \) and so,
+\[  \lim_{ x \to c  }  (d \circ f)(x) = (d \circ f)(c). \]
+
+\begin{align*}
+    &\lim_{ x \to c  } \frac{ (g \circ f)(x) - (g \circ f)(c) }{ x - c  } = \lim_{ x \to c  }  \frac{ g(f(x)) - g(f(c)) }{ x - c  }  \\
+                                            &= \Big[ \lim_{ x  \to c  }  (d \circ f ) (x) \Big] \cdot \Big[ \lim_{ x \to  c  }  \frac{ f(x) - f(c) }{  x - c  } \Big] \\
+                                            &= [(d \circ f)(c)] \cdot f'(c) \\
+                                            &= [d(f(c))] \cdot f'(c) \\
+                                            &= g'(f(c)) \cdot f'(c).
+\end{align*}
+\end{proof}
+
+\section{Lecture 2-4}
+
+\subsection{Topics}
+
+\begin{enumerate}
+    \item[(1)] Local Maxima and minima
+    \item[(2)] Interior Extremum Theorem (Theorem 5.8)
+    \item[(3)] Darboux's Theorem (Theorem 5.12)
+    \item[(4)] Some observations
+    \item[(5)] Rolle's Theorem
+    \item[(6)] Mean Value Theorem
+\end{enumerate}
+
+\begin{theorem}[Interior Extremum Theorem]\label{Theorem 5.8}
+    Let \( I \subseteq  \R   \) be an interval and \( f : I \to \R  \). Suppose \( c  \) is an interior point of \( I  \) and \( f  \) is differentiable at \( c  \). Then
+    \begin{enumerate}
+        \item[(1)] If \( f  \) has a local max at \( c  \), then \( f'(c)  = 0 \);
+        \item[(2)] If \( f  \) has a local min at \( c  \), then \( f'(c) = 0  \).
+    \end{enumerate}
+\end{theorem}
+
+Before we prove this theorem, we will first go over an important lemma that is used in the main proof. 
+
+\begin{lemma}
+    Suppose \( \lim_{ x \to c  }  g(x)  \) and \( \lim_{ x \to c  }  h(x) \) both exist. 
+    \begin{enumerate}
+        \item[(1)] If there exists \( \delta > 0  \) such that \( h(x) \leq g(x) \) for all \( x \in (c -  \delta, c ) \), then \( \lim_{ x \to c  }  h(x) \leq \lim_{ x \to c  }  g(x) \).
+        \item[(2)] If there exists \( \delta > 0  \) such that \( h(x) \leq g(x) \) for all \( x \in (c , c + \delta) \), then \( \lim_{ x \to c  }  h(x) \leq \lim_{ x \to c  }  g(x) \).
+    \end{enumerate}
+\end{lemma}
+\begin{proof}
+Here we will prove (1). The proof of (2) is analogous. Let \( ({a}_{n}) \) be a sequence in \( (c - \delta, c) \) such that \( {a}_{n} \to c  \). By the Sequential Criterion for limits of functions, we have \( {a}_{n} \to c  \) implies
+\( \lim_{ n \to \infty  }  g({a}_{n}) = \lim_{ x \to c  }  g(x) \) and \( \lim_{ n \to \infty \infty   } h({a}_{n}) = \lim_{ x \to c  }  h(x) \). Also, note that from the Order Limit Theorem for sequences, we can see that   
+\begin{align*}
+    \forall n \ {a}_{n} \in (c - \delta, c ) &\implies \forall n \ h({a}_{n}) \leq g({a}_{n}) \\
+                                             &\implies \lim_{ n \to \infty  }  h({a}_{n}) \leq \lim_{ n \to \infty  }  g({a}_{n}).
+\end{align*}
+Hence, we can see from these two observations that 
+\[  \lim_{ x \to c  }  h(x) \leq \lim_{ x \to c  }  g(x). \]
+\end{proof}
+
+\subsection{Proof of the Interior Extremum Theorem}
+
+\begin{proof}
+Here we will prove (1). Suppose \( f \) has a local max at \( c  \). Then
+\begin{itemize}
+    \item If \( f  \) has a local max at \( c  \), then there exists \( {\delta}_{1} > 0  \) such that for all \( x \in (c - {\delta}_{1}, c + {\delta}_{1}) \cap I  \) \( f(x) \leq f(c) \).
+    \item If \( c  \) is an interior point of \( I  \), then there exists \( {\delta}_{2} > 0  \) such that \( (c - {\delta}_{2}, c + {\delta}_{2}) \subseteq  I  \). So, if we let \( \delta = \min \{ {\delta}_{1}, {\delta}_{2} \}  \), then
+        \[  \forall x \in (c - \delta, c + \delta )  \ \ f(x) \leq f(c). \]
+\end{itemize}
+We have 
+\begin{enumerate}
+    \item[(I)] For all \( x \in (c - \delta , c ) \), we see that \( x - c < 0  \) and \( f(x) \leq f(c) \) implies that 
+        \[  \frac{ f(x) - f(c) }{ x - c  } \geq 0. \]
+        By the Order Limit Theorem for functions, we have 
+        \[  \lim_{ x \to c  }  \frac{ f(x) - f(c) }{ x - c  }  \geq \lim_{ x \to c  } 0 \implies f'(c) \geq 0.  \]
+    \item[(II)] For all \( x \in (c, c + \delta) \). Since \( x - c > 0  \) and \( f(x) \leq f(c) \), we have 
+        \[  \frac{ f(x) - f(c) }{ x - c  }  \leq 0.  \]
+        Using the Order Limit Theorem again, we have 
+        \[ \lim_{ x \to c  } \frac{ f(x) - f(c) }{  x-  c  }  \leq \lim_{ x \to c  }  0 \implies f'(c) \leq 0.   \]
+\end{enumerate}
+From (I) and (II), we can see that \( f'(c) \leq 0  \) and \( f'(c) \geq 0  \). Thus, \( f'(c) = 0  \).
+\end{proof}
 
