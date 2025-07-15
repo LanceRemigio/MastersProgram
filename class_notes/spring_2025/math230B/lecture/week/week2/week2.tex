@@ -1,0 +1,179 @@
+\section{Topics}
+
+\begin{itemize}
+    \item A Useful Theorem (Another consequence of the GMVT)
+    \item Taylor Polynomials
+    \item Taylor's Theorem with Lagrange remainder
+\end{itemize}
+
+\begin{corollary}[A corollary of GMVT]
+    Let \( I \subseteq  \R   \) be an open interval, \( {x}_{0} \in I  \), and \( n \in \N \cup \{ 0 \}  \), \( f: I \to \R  \) has \( n + 1  \) derivatives, and \( f^{(k)}({x}_{0}) = 0  \) for all \( 0 \leq k \leq n  \). Then for each point \( x \neq {x}_{0} \) in the interval \( I  \), there exists a point \( c  \) strictly between \( x  \) and \( {x}_{0} \) such that 
+    \[  f(x) = \frac{ f^{(n+1)}(c) }{ (n+1)! } (x-{x}_{0})^{n+1}. \]
+\end{corollary}
+
+\subsection{Observation 1}
+
+Let \( k \in \N  \) and let \( {x}_{0} \in \R  \) fixed. Then
+\begin{align*}
+    \frac{ d }{ dx } [(x - {x}_{0})^{k}] &= k (x - {x}_{0})^{k-1} \\
+    \frac{ d^{2} }{ d x^{2} } [(x- {x}_{0})^{k}] &= \frac{ d  }{  d x  }  [ k (x - {x}_{0})^{k-1}] = k (k - 1) (x - {x}_{0})^{k - 2} \\
+                                                 &\vdots \\
+    \frac{ d^{k }  }{  d x^{k } }  [(x - {x}_{0})^{k}] &= k (k -1)\cdots (1) (x - {x}_{0})^{k - k} = k!
+\end{align*}
+where 
+\[  \frac{ d^{j} }{  d x^{j } }  [(x - {x}_{j})^{k}] = k (k - 1) \cdots ( k - (j -1)) (x - {x}_{0})^{k - j}.   \]
+
+\subsection{Observation 2}
+\[ \frac{ d^{j} }{  d x^{j} } [(x - {x}_{0})^{k}] = 
+\begin{cases}
+    k (k-1) \cdots (k - j + 1) (x - {x}_{0})^{k - j} &\text{if} \ j < k \\
+    k! &\text{if} \ j = k \\
+    0 &\text{if} \ j > k 
+\end{cases} \]
+and
+\[ \frac{ d^{j} }{  d x^{j} } [(x - {x}_{0})^{k}] \Big|_{ x = {x}_{0}} = 
+\begin{cases}
+    0 &\text{if} \ j < k \\
+    k! &\text{if} \ j = k \\
+    0 &\text{if} j > k. 
+\end{cases} \]
+
+With these two observations, we will now prove the claim made in the corollary above. 
+
+\begin{proof}
+Here we will prove the claim for the case where \( x > {x}_{0} \). The proof for \( x < {x}_{0} \) is completely analogous. Let \( g: I \to \R  \) be defined by \( g(t) = (t - {x}_{0})^{n+1} \). Note that 
+\begin{align*}
+    g^{(k)}({x}_{0}) &= 0 \ \forall 0 \leq k \leq n \tag{for \( t \neq 0  \) \( g^{(k)(t)} \neq 0  \)} \\
+    g^{(n+1)}(t) &= (n + 1)! \ \forall t \in I. 
+\end{align*}
+Now, we apply GMVT to \( f  \) and \( g  \) on the interval \( [{x}_{0},x] \): Using the GMVT, we can find \( {x}_{1} \in ({x}_{0},x) \) such that 
+\[  \frac{ f'({x}_{1}) }{ g'({x}_{1}) }  = \frac{ f(x) - f({x}_{0}) }{  g(x) - g({x}_{0}) } \]
+and so 
+\[  \frac{ f'({x}_{1}) }{ g'({x}_{1}) } = \frac{ f(x) }{ g(x) }. \tag{I} \]
+Next, we apply GMVT to find \( f'  \) and \( g'  \) on the interval \( [{x}_{0}, {x}_{1}] \): Using the GMVT, we can find an \( {x}_{2} \in ({x}_{0}, {x}_{1}) \) such that 
+\[  \frac{ f"({x}_{2}) }{ g"({x}_{2}) }  = \frac{ f'({x}_{1}) - f'({x}_{0}) }{  g'({x}_{1}) - g'({x}_{0}) } \underbrace{=}_{f'({x}_{0})=0, g'({x}_{0}) = 0} \frac{ f'({x}_{1}) }{  g'({x}_{1}) }  \underbrace{=}_{(I)} = \frac{ f(x) }{ g(x) }.  \]
+Continuing in this manner, we will obtain \( {x}_{n+1} \in ({x}_{0}, x)  \) such that 
+\[  \frac{ f^{(n+1)}({x}_{n+1}) }{ g^{(n+1)}({x}_{n+1}) }  = \frac{ f(x) }{  g(x) } \]
+and so,
+\[  \frac{ f^{(n+1)}({x}_{n+1})  }{ (n+1)! }  = \frac{ f(x) }{  (x - {x}_{0})^{n+1} }.  \]
+Thus, 
+\[  f(x) = \frac{ f^{(n+1)}({x}_{n+1}) }{ (n+1)! } (x - {x}_{0})^{n+1} \]
+\end{proof}
+
+What are the nicest functions that we know? Which functions are easiest to work with? Polynomials! Another question that we would like to answer is:
+\begin{center}
+    Given a function \( f \), is it possible to find a "good" approximation for \( f  \) among polynomials?
+\end{center}
+
+To understand the situation a bit better, we break the questions asked above in the following three questions:
+\begin{itemize}
+    \item Does there exist a polynomial \( p(x) \) such that 
+        \begin{align*}
+            p({x}_{0}) &= f({x}_{0}) \\
+            p'({x}_{0}) &= f'({x}_{0}) \\
+                        &\vdots \\
+            p^{(n)}({x}_{0}) &= f^{(n)}({x}_{0}).
+        \end{align*}
+        That is, does there exist a polynomial \( p(x) \) that agrees with \( f  \) to order \( n  \) at \( {x}_{0} \).
+    \item If such a polynomial \( p(x) \) exists, how can we find it? 
+    \item Suppose we use \( p(x) \) as an approximation of \( f(x) \) near \( {x}_{0}  \); how good is this approximation? What can be said about the error?  
+\end{itemize}
+
+\begin{remark}
+    \begin{enumerate}
+        \item[(i)] Number of equations to be satisfied by \( p(x) \) is \( n + 1  \).
+        \item[(ii)] Also note that a polynomial in \( {\P}_{n} \) can be represented as \( {c}_{0} + {c}_{2} x + \cdots + {c}_{n} x^{n} \) (we have \( n + 1  \) coefficients).  
+    \end{enumerate}
+    From (i) and (ii), it seems reasonable to expect that we might be able to find a polynomial \( p(x) \) in \( {\P}_{n} \) that satisfies all the equations. 
+\end{remark}
+
+\subsection{Answers to Q1 and Q2}
+
+There is a \textbf{unique} polynomial in \( {\P}_{n} \) that agrees with \( f(x) \) to order \( n  \) at \( {x}_{0} \in I  \) in the sense that 
+\begin{align*}
+    p({x}_{0}) &= f({x}_{0} ) \\
+               &\vdots \\
+    p^{(n)}({x}_{0}) &= f^{(n)}({x}_{0}).
+\end{align*}
+This polynomial can be denoted by 
+\[  {T}_{n, {x}_{0}}  (x)\]
+which is the \textbf{\( n \)th Taylor Polynomial of \( f  \) centered at \( {x}_{0} \)}. Moreover, we have   
+\begin{align*}
+    {T}_{n,{x}_{0}}(x)  &= f({x}_{0}) _ f'({x}_{0}) (x - {x}_{0}) + \frac{ f''({x}_{0}) }{ 2!  } (x - {x}_{0})^{2} + \cdots + \frac{ f^{(n)({x}_{0}) } }{ n!  } (x - {x}_{0})^{n}   \\
+                        &= \sum_{ k= 0  }^{ n } \frac{ f^{(k)}({x}_{0}) }{ k !  }  (x - {x}_{0})^{k}.
+\end{align*}
+
+\subsection{Proof of our Observation}
+
+\begin{proof}
+Let \( p(x) \) be a general polynomial of degree at most \( n \):
+\[  p(x) = {c}_{0} + {c}_{1} (x - {x}_{0}) + \cdots + {c}_{n} (x - {x}_{0})^{n}. \]
+Our goal is to show that if \( p^{(\ell)}({x}_{0}) = f^{(\ell)}({x}_{0}) \), then
+\[  p(x) = \sum_{ k= 0  }^{ n } \frac{ f^{(k)}({x}_{0}) }{  k!  }  (x - {x}_{0} )^{k} \forall a \leq  \ell \leq n.  \]
+Note that \( p({x}_{0}) = {c}_{0} \). Also, for \( 1 \leq \ell \leq n  \), we have
+\begin{align*}
+    p^{(\ell)} &= \frac{ d^{\ell} }{ d x^{\ell} }  \Big[ {c}_{0} + \sum_{ k=1  }^{ n } {c}_{k } (x - {x}_{0})^{k } \Big] \\
+               &= \frac{ d^{\ell} }{ d x^{\ell} }  \Big[ \sum_{ k=1  }^{ n } {c}_{k } (x - {x}_{0})^{k} \Big] \\
+               &= \sum_{ k=1  }^{ n } {c}_{k} \frac{ d^{\ell} }{ d x^{\ell} }  [(x - {x}_{0})^{k }].
+\end{align*}
+Hence, we have 
+\[  p^{(\ell)}({x}_{0}) = \sum_{ k=1  }^{ n } {c}_{k } \frac{ d^{\ell} }{ d x^{\ell} }  [(x - {x}_{0})^{k}] \Big|_{x = {x}_{0}} = {c}_{\ell} \ell!  \ .  \]
+Therefore, 
+\[  \forall 1 \leq \ell \leq n \ \ p^{(\ell)} ({x}_{0}) = {c}_{\ell} \ell!  \ .\]
+We see that \( p \) agrees with \( f  \) to order \( n \) at \( {x}_{0} \) if and only if \( p({x}_{0}) = f({x}_{0}) \) and \( p^{(\ell)}({x}_{0}) = f^{(\ell) ({x}_{0})}  \) for all \( 1 \leq \ell \leq n  \). This is true if and only if
+\begin{align*}
+    {c}_{0} &= f({x}_{0}) \\
+    \ell ! {c}_{\ell} = f^{(\ell)}({x}_{0}) \forall 1 \leq \ell \leq n. 
+\end{align*}
+Furthermore, this is true if and only if   
+\begin{align*}
+    {c}_{0} &= f({x}_{0}) \\
+    {c}_{\ell} &= \frac{ f^{(\ell)({x}_{0})}  }{ \ell!  } \forall 1 \leq \ell \leq n. 
+\end{align*}
+That is,
+\begin{align*}
+    p(x) &= \sum_{ k=0  }^{ n } {c}_{k } (x - {x}_{0})^{k } = {c}_{0} + \sum_{ k=1  }^{ n } \frac{ f^{(k)}({x}_{0}) }{ k!  } (x - {x}_{0})^{k} \\
+         &= f({x}_{0}) + \sum_{ k=1  }^{ n } \frac{ f^{(k)}({x}_{0}) }{ k!  } (x - {x}_{0})^{k} \\
+         &= \sum_{ k= 0  }^{  n  } \frac{ f^{(k)}({x}_{0} ) }{ k!  } (x - {x}_{0})^{k}.
+\end{align*}
+\end{proof}
+
+\begin{theorem}[Taylor's Theorem with Lagrange Remainder]
+    Let \( I \subseteq  \R   \) be an open interval, \( {x}_{0} \in I  \), and \( n \in \N \cup \{ 0  \}  \). Suppose \( f: I \to \R  \) has \( n + 1  \) derivatives. Then for each point \( x \neq {x}_{0} \) in \( I  \), there is a point \( c  \) strictly between \( x  \) and \( {x}_{0} \) such that 
+    \[  f(x) = \sum_{ k=0  }^{  n } \frac{ f^{(k)}({x}_{0})  }{ n!  } (x - {x}_{0})^{k} + \frac{ f^{(n+1)}(c) }{  (n+1)! } (x - {x}_{0})^{n+1} \]
+    where 
+    \begin{align*}
+        {T}_{n,{x}_{0}}(x) &= \sum_{ k=0  }^{ n } \frac{ f^{(k)}({x}_{0}) }{ n!  }  ( x - {x}_{0})^{k} \\
+        {R}_{n,{x}_{0}}(x) &= \frac{ f^{(n+1)}(c) }{  (n+1)! }  (x - {x}_{0})^{n+1}.
+    \end{align*}
+\end{theorem}
+
+\begin{remark}
+    \begin{itemize}
+        \item Note that clearly the equality above holds at \( x = {x}_{0} \) too (for any value of \( c  \)).
+        \item Recall that for any fixed number \( R  \)
+            \[ \lim_{ n \to \infty  }  \frac{ R^{n+1} }{ (n+1)! }  = 0.   \]
+            However, \( f^{(n+1)}(c) \) may become very large.
+    \end{itemize}
+\end{remark}
+
+\subsection{Proof of Taylor's Theorem}
+\begin{proof}
+Let \( {R}_{n,{x}_{0}}(x) = f(x) - {T}_{n,{x}_{0}}(x)  \). Our goal is to show that 
+\[  {R}_{n,{x}_{0}}(x) = \frac{ f^{(n+1)}(c) }{ (n+1)! } (x - {x}_{0})^{n+1} \]
+for some \( c  \) between \( x  \) and \( {x}_{0} \). Note that 
+\begin{enumerate}
+    \item[(i)] By assumption, \( f \) contains \( n + 1  \) derivatives and \( {T}_{n,{x}_{0}}  \) is a polynomial which also contains \( n + 1  \) derivatives. Also, we have 
+        \[  {R}_{n,{x}_{0}} = f - {T}_{n,{x}_{0}}. \]
+        Thus, \( {R}_{n,{x}_{0}}  \) must have \( n + 1  \) derivatives.
+    \item[(ii)] For all \( 0 \leq k \leq n  \),
+        \[  {R}_{n, {x}_{0}}^{(k)}({x}_{0}) = f^{(k)}({x}_{0}) - {T}_{n,{x}_{0}}^{(k)}({x}_{0}) = 0. \]
+\end{enumerate}
+Using (i), (ii), and corollary 5, we can see that for each \( x \neq {x}_{0} \), we have 
+\[  R_{n,{x}_{0}}(x) = \frac{ {R}_{n,{x}_{0}}^{(n+1)}(c) }{ (n+1)! }  (x - {x}_{0})^{n+1} \tag{I} \]
+for some \( c  \) strictly between \( x  \) and \( {x}_{0} \). Now, note that 
+\[  {R}_{n,{x}_{0}}^{(n+1)}(c) = f^{(n+1)}(c) - {T}_{n,{x}_{0}}^{(n+1)}(c) = f^{(n+1)}(c). \tag{II}  \]
+Using (I) and (II), we have 
+\[  {R}_{n,{x}_{0}} = \frac{ f^{(n+1)}(c) }{ (n+1)! } (x - {x}_{0})^{n+1}.\]
+\end{proof}
+

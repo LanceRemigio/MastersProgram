@@ -1,0 +1,129 @@
+\section{Topics}
+
+\begin{itemize}
+    \item Additional remarks on the Arzela-Ascoli Theorem.
+    \item  \( (BC(E; R), {d}_{\infty }) \) is a complete metric space. 
+    \item Weierstrass Approximation Theorem
+\end{itemize}
+
+\subsection{Additional Remarks on Arzela-Ascoli}
+
+During our proof we only used the fact that the sequence \( ({f}_{n}) \) is \textbf{pointwise bounded} (not the strong assumption of uniform boundedness). So, the Arzela-Ascoli Theorem can be restated as follows:
+
+\begin{theorem}[Arzela-Ascoli]
+    Let \( (X,d) \) be a metric space, \( K \subseteq  X   \) is an infinite and compact set, \( ({f}_{n}: K \to \R )_{n \geq 1 } \) is pointwise bounded, and \( ({f}_{n}: K \to \R )_{n \geq 1} \) is equicontinuous. Then \( ({f}_{n}) \) has a uniformly convergent subsequence.
+\end{theorem}
+
+Furthermore, the assumption that \( K  \) is infinite is not needed and that the claim of the theorem still holds even if the compact set \( K  \) is finite. In this case, we can simply set \( E = K  \) and adjust the steps accordingly. 
+
+Now, let \( A \subseteq  (X,d)  \) be a nonempty set. A family \( \mathcal{F} \) of real-valued functions defined on \( A  \) is said to be \textbf{equicontinuous} on \( A  \) if 
+\[  \forall \epsilon > 0  \ \exists {\delta}_{\epsilon} \ \text{such that} \ \forall f \in \mathcal{F} \ \forall x,c \in A \ \text{if} \ d(x,c) < {\delta}_{\epsilon} \ \text{then} \ | f(x) - f(c) | < \epsilon.   \] 
+
+Let \( X \) be any infinite set of functions and equip \( X  \) with a metric \( d \). Each such metric \( d \) introduces a \textbf{mode of convergence} for sequences of functions in \( X  \). That is, the sequence \( ({f}_{n})_{n \geq 1 } \) in \( X  \) converges to \( f \in X  \) if and only if
+\[  \forall \epsilon  > 0 \ \exists N \ \text{such that} \ \forall n > N \ d({f}_{n}, f) < \epsilon.   \]
+
+\subsection{The Space of Bounded and Continuous functions is a Complete}
+
+We make the following observations:
+
+\begin{itemize}
+    \item If \( E  \) is compact, then 
+        \[ BC(E ; \R ) = C (E ; \R )  \]
+        by the Extreme Value Theorem.
+    \item Suppose \( ({f}_{n})  \) is a sequence in \( BC(E;\R) \). We see that  
+        \begin{center}
+            \( {f}_{n} \to f  \) in \( BC(E;\R) \) if and only if \( {f}_{n} \to f  \) uniformly on \( E  \).
+        \end{center}
+\end{itemize} 
+
+From this, we can further restate the Arzela-Ascoli as follows:
+
+\begin{theorem}[Restating the Arzela-Ascoli Theorem]
+    Let \( (K,d) \) be a compact metric space, \( X = C(K ; \R ) \) equipped with the \( {d}_{\infty } \) metric, \( ({f}_{n})_{n \geq 1} \) is a sequence in \( X  \), and \( ({f}_{n})_{n \geq 1}  \) is equicontinuous and pointwise bounded. Then \( ({f}_{n})_{n \geq 1 } \) has a convergent subsequence in \( X  \).
+\end{theorem}
+
+Now, we can restate a stronger version of the theorem using all of our observations.
+
+\begin{theorem}[A Stronger Version of the Arzela-Ascoli Theorem]
+    Let \( (K,d) \) be a compact metric space, \( X = C(K;\R) \) equipped with the \( {d}_{\infty } \) metric, and \( \mathcal{F} \subseteq  X  \) is a collection of functions. Then the following two statements are equivalent:
+    \begin{enumerate}
+        \item[(1)] Any sequence \( ({f}_{n})_{n \geq 1}  \) in \( \mathcal{F} \) has a convergent subsquence.
+        \item[(2)] The collection \( \mathcal{F} \) is equicontinuous and pointwise bounded.
+    \end{enumerate}
+\end{theorem}
+
+\begin{theorem}[Rudin 7.15]
+    Let \( (E,d) \) be a metric space. Let \( X = BC(E;\R) \) equipped with \( {d}_{\infty } \) metric. Then \( (X, {d}_{\infty }) \) is a complete metric space. 
+\end{theorem}
+\begin{proof}
+    Let \( ({f}_{n})_{n \geq 1}   \) be a Cauchy sequence in \( (BC(E;\R), {d}_{\infty }) \). Our goal is to show that \( ({f}_{n})_{n \geq 1} \) is convergent in \( (BC(E;\R), {d}_{\infty}) \). Since \( ({f}_{n})_{n \geq 1} \) is Cauchy, we see that for all \( \epsilon > 0  \), there exists an \( N  \) such that \( \forall n,m > N  \) such that 
+    \[  {d}_{\infty } ({f}_{n}, {f}_{m}) < \epsilon \iff \sup_{x \in E } | {f}_{n}(x) - {f}_{m}(x) |  < \epsilon. \]
+    Since \( | {f}_{n}(x) - {f}_{m}(x) |  \leq \sup_{x \in E } | {f}_{n}(x) - {f}_{m}(x) |   \) for all \( x \in E  \), we can see that for all \( n,m > N  \), \[  | {f}_{n}(x) - {f}_{m}(x)  |  < \epsilon. \] 
+    Hence, we can see that \( ({f}_{n}) \) fulfills the Cauchy Criterion for uniform convergence; that is, \( ({f}_{n}) \) converges uniformly on \( E  \).
+
+    Now, let \( f = \lim_{ n \to \infty  }  {f}_{n} \). For each \( n  \), \( {f}_{n} \) being bounded and continuous tells us that the limiting function \( f  \) must also be bounded and continuous since uniform convergence preserves both continuity and boundedness. Hence, we can see that \( f  \) must belong to \( BC(E; \R) \) and so \( (BC(E;\R)) \) must be a complete metric space.
+\end{proof}
+
+The following theorem tells us that that the space of polynomials of degree at most \( n \) over any compact interval in \( \R  \) is dense in the space of continuous functions. That is, any continuous function can be approximated by a sequence of polynomials in \( \R  \).
+
+\subsection{Weierstrass Approximation Theorem}
+
+\begin{theorem}[Rudin 7.26]\label{Rudin 7.26}
+    If \( f: [a,b] \to \R  \) is continuous, then there exists a sequence \(({p}_{n})_{n \geq 1} \) of polynomials such that \( {d}_{\infty }({p}_{n}, f) \to 0  \).
+\end{theorem}
+
+Before embarking on the proof of this essential theorem, we will give mention to a few facts that will be useful in completing this task. 
+
+\begin{definition}[Modulus of Continuity]
+    Let \( g: [a,b] \to \R  \) be a bounded function. The \textbf{modulus of continuity} of \( g  \) is defined by the following equation:
+    \[  \forall 0 < r \leq b - a \ \ {W}_{g}(r) = \sup_{x,z \in [a,b]} | g(x) - g(z) |  \]
+    with \( | x - z  |  \leq r  \).
+\end{definition}
+
+\begin{prop}[Fact 1]\label{Fact 1}
+    If \( g:[a,b] \to \R  \) is continuous, then \( w(r) \to 0  \) as \( r \to 0^{+}  \). 
+\end{prop}
+\begin{proof}
+Our goal is to show that for all \( \epsilon > 0  \), there exists \( \delta > 0  \) such that if \( 0 < r < \delta  \), then 
+\[  | w(r) - 0  |  < \epsilon; \]
+that is, we want to show that 
+\[  \forall \epsilon > 0 \ \exists \delta > 0 \ \text{such that if} \ 0 < r < \delta \ \text{then} \ \sup_{x,z \in [a,b]} | g(x) - g(z) |  < \epsilon. \]
+Let \( \epsilon > 0 \). To this end, it suffices to show that for all \( \epsilon > 0  \), there exists \( \delta > 0  \) such that if \( 0 < r < \delta  \), for all \( x,z \in [a,b] \) with \( | x - z  |  \leq r  \), we have  
+\[  |g(x) - g(z)|  < \epsilon. \]
+But this is just the direct consequence of uniform continuity of \( g  \) on \( [a,b] \). That is, for all \( \epsilon > 0  \) there exists \( \delta > 0  \) such that for all \( x,z \in [a,b] \) if \( |  x - z  |  < \delta  \), then \( | g(x) - g(z) |  < \epsilon \). 
+\end{proof}
+
+\begin{prop}[Fact 2]\label{Fact 2}
+    Let \( g:[a,b] \to \R  \) be a bounded function. Then for all \( x ,z \in [a,b] \) and for all \( 0 < r \leq b - a  \), we have 
+    \[  | g(x) - g(z) |  \leq \Big[ \frac{ | x - z  |   }{  r  }  + 1 \Big] w(r). \]
+\end{prop}
+\begin{proof}
+We will consider two cases. Namely, we will consider the case where \( |  x - z  |  \leq r  \) and \( |  x - z  |  > r  \) (assume in this case that \( x < z  \) without loss of generality). If \( |  x - z  |  \leq r  \), we have 
+\[  | g(x) - g(z) |  \leq w(r) \leq \Big[ \frac{ | x - z  |   }{  r  }  + 1  \Big]w(r).   \]
+Now, suppose \( |  x -z  |  > r  \). Let \( m \in \N  \) be such that \( x + mr \leq z < x + (m+1)r \). We have 
+\begin{align*}
+    | g(x) - g(z) | &\leq | g(x) - g(x + r)  |  + | g(x+r) - g(x + 2r) |  + \cdots + | g(x + mr) - g(z)  |   \\
+                    &\leq w(r) + w(r) + \cdots + w(r) \\
+                    &= (m + 1)w(r) \\
+                    &\leq \Big(  \frac{ | x - z  |  }{ r  }  + 1  \Big) w(r).
+\end{align*}
+Note that the last inequality holds because \( x + mr \leq z  \) implies that \( m \leq \frac{ z - x  }{ r  }  \).
+\end{proof}
+
+\subsubsection{Proof of Weierstrass Approximation Theorem}
+
+\begin{proof}
+    We will consider two cases; namely, \( [a,b] = [0,1] \) or \( [a,b] \neq [0,1] \). Starting with the first case, our goal is to construct as sequence of polynomials \( {p}_{n} \) in \( {\P}_{n} \) for which the result holds. 
+    \begin{enumerate}
+        \item[(1)] Consider \( n + 1  \) equally spread meshpoints in the interval \( [0,1] \) as follows:
+            \[  0  = {x}_{0,n} < {x}_{1,n} < \cdots < {x}_{n,n} = 1  \]
+            with \( {x}_{j,n} = \frac{ j  }{ n }  \).
+        \item[(2)] Associate with the \( j \)th meshpoint, a polynomial \( \varphi_{j,n}(x) \in {\P}_{n} \) such that 
+            \begin{enumerate}
+                \item[(I)] \( {\varphi}_{j,n}(x) \geq 0  \) for all \( x \in [0,1] \) 
+                \item[(II)] \( \displaystyle \sum_{ j = 0  }^{ n } {\varphi}_{j,n}(x) = 1  \) for all \( x \in [0,1] \)
+                \item[(III)] \( \displaystyle \sum_{ j=0  }^{ n } [x - {x}_{j,n}]^{2} {\varphi}_{j,n}(x) \leq \displaystyle \frac{ M }{ n } \) for some \( M  \) independent of \( x  \) and \( n  \).
+            \end{enumerate}
+    \end{enumerate}
+\end{proof}
+

@@ -598,6 +598,11 @@ INPUT /usr/local/Cellar/texlive/20240312_3/share/texmf-dist/fonts/tfm/jknappen/e
 INPUT /usr/local/Cellar/texlive/20240312_3/share/texmf-dist/fonts/tfm/jknappen/ec/ecrm0500.tfm
 INPUT /usr/local/Cellar/texlive/20240312_3/share/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc
 INPUT /usr/local/Cellar/texlive/20240312_3/share/texmf-dist/fonts/tfm/jknappen/ec/ecsl1000.tfm
+INPUT ./week/week2/week2.tex
+INPUT week/week2/week2.tex
+INPUT ./week/week2/week2.tex
+INPUT week/week2/week2.tex
+INPUT week/week2/week2.tex
 INPUT ./week/week4/week4.tex
 INPUT week/week4/week4.tex
 INPUT ./week/week4/week4.tex
@@ -623,6 +628,11 @@ INPUT week/week9/week9.tex
 INPUT ./week/week9/week9.tex
 INPUT week/week9/week9.tex
 INPUT week/week9/week9.tex
+INPUT ./week/week10/week10.tex
+INPUT week/week10/week10.tex
+INPUT ./week/week10/week10.tex
+INPUT week/week10/week10.tex
+INPUT week/week10/week10.tex
 INPUT main.aux
 INPUT ./main.out
 INPUT ./main.out
