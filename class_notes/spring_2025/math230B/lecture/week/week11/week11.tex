@@ -1,0 +1,92 @@
+\section{Topics}
+\begin{itemize}
+    \item Lebesgue's Criterion for Riemann integrability
+    \item Functions of bounded variation
+    \item Holder Continuous functions
+    \item Absolutely Continuous Functions
+    \item Continuity and oscillation
+\end{itemize}
+
+\subsection{Lebesgue's Criterion for Riemann Integrability}
+
+\begin{theorem}[Lebesgue's Criterion for Riemann Integrability]
+    Let \( f: [a,b] \to \R   \) is bounded and \( D  \) is the set of points in \( [a,b] \) at which \( f  \) is discontinuous. Then 
+    \[  f \in R[a,b] \iff \text{\( D  \) has Lebesgue measure zero}. \]
+\end{theorem}
+
+What do we mean by the Lebesgue measure of a set? The simple answer is that the Lebesgue measure is the length of the set. The more complicated answer is that it is a generalization of the concept of length to more general subsets of \( \R  \). For instance, we can take about the Lebesgue Measure of the set of natural numbers or the Lebesgue measure of the set of rational numbers. 
+
+\begin{definition}[Lebesgue Measure Zero]
+    Let \( A  \) be a subset of \( \R  \). We say that \( A  \) has a \textbf{Lebesgue Measure Zero} if for every \( \epsilon > 0  \) there exists a sequence \( {I}_{1}, {I}_{2}, \dots  \) of open (possibly empty) intervals such that  
+    \begin{enumerate}
+        \item[(1)] \( A \subseteq  \bigcup_{ k = 1  }^{ \infty  }  {I}_{k } \)
+        \item[(2)] \( \displaystyle \sum_{ k=1  }^{ \infty  } \mu({I}_{k}) \leq \epsilon \).
+    \end{enumerate}
+\end{definition}
+
+\begin{eg}
+    Any singleton \( A = \{ s  \}   \) has Lebesgue measure zero. We need to show that for all \( \epsilon > 0  \), there exists a sequence of open interval \( {I}_{1}, {I}_{2}, \dots  \) such that  
+    \[  \{ s  \}  \subseteq  \bigcup_{ k=1  }^{ \infty }  {I}_{k } \ \text{and} \ \sum_{ k=1  }^{ \infty  } \mu ({I}_{k}) \leq \epsilon.    \]
+    Let \( \epsilon > 0  \) be given. Let \( {I}_{1} = \Big(  s - \frac{ \epsilon }{ 2 }  , s + \frac{ \epsilon }{ 2 }  \Big) \) and for all \( k > 1  \) and \( {I}_{k } = \emptyset  \). Clearly, we have \( s \in {I}_{1} \) and so 
+    \[  \{ s  \}  \subseteq  \bigcup_{ k=1  }^{ \infty  }  {I}_{k}. \]
+    Moreover, 
+    \[  \sum_{ k=1  }^{ \infty  } \mu({I}_{k}) = \mu({I}_{1}) + \mu({I}_{2}) + \mu({I}_{3}) + \cdots = \epsilon + 0 + 0 + \cdots \leq \epsilon. \]
+\end{eg}
+
+\begin{eg}
+   Any finite set \( A = \{  {s}_{1}, \dots, {s}_{n} \}   \) has Lebesgue measure zero. We need to show that for all \( \epsilon > 0  \), there exists a sequence of open intervals \( {I}_{1}, {I}_{2}, \dots  \) such that  
+   \begin{align*}
+       A &\subseteq  \bigcup_{ k=1  }^{ \infty  }  {I}_{k}; \\
+       \sum_{ k=1  }^{ \infty  } \mu({I}_{k}) &\leq \epsilon.
+   \end{align*}
+   Let \( \epsilon > 0  \) be given. Let 
+   \[  \forall 1 \leq k \leq n \ \ {I}_{k } = \Big(  {s}_{k } - \frac{ \epsilon }{ 2^{n} }  , {s}_{k } + \frac{ \epsilon }{ 2^{k} }  \Big) \]
+   and for all \(  k > n  \), \( {I}_{k } = \emptyset \). Immediately, we have 
+   \[  \forall 1 \leq k \leq n \ \ {s}_{ k } \in {I}_{k }. \]
+   Moreover,  
+   \begin{align*}
+   \sum_{ k=1  }^{ \infty  } \mu({I}_{k}) &= \mu({I}_{1}) + \cdots + \mu({I}_{n}) + \mu({I}_{n+1}) + \mu({I}_{n+2}) + \cdots    \\
+                            &= \frac{ \epsilon }{ n }  + \cdots + \frac{ \epsilon }{ n }  + 0 + 0 + \cdots \\ 
+                            &\leq \epsilon
+   \end{align*}
+\end{eg}
+
+\begin{eg}
+    Any countable set \( A = \{  {s}_{1}, {s}_{2}, \dots  \}   \) has Lebesgue measure zero. We need to show that 
+    \[  \forall \epsilon > 0 \  \exists \ \text{open intervals} \ \{ {I}_{k} \}_{k=1}^{\infty} \ \text{such that} \ A \subseteq \bigcup_{ k=1  }^{ \infty  }  {I}_{k } \ \text{and} \ \sum_{ k=1  }^{ \infty  }\mu({I}_{k}) \leq \epsilon.   \]
+
+    Let \( \epsilon > 0 \) be given. Let \( k \in \N  \) and 
+    \[  {I}_{k} = \Big(  {s}_{k } - \frac{ 1 }{ 2^{k+1} }  , {s}_{k} + \frac{ 1  }{ 2^{k+1} }  \Big) \]
+    where \( \mu({I}_{k})  = \frac{ 1 }{ 2^{k} } \). Clearly, we have \( {s}_{k} \in {I}_{k} \) and so 
+    \[  \{ {s}_{1}, {s}_{2}, \dots  \} \subseteq  \bigcup_{ k=1  }^{ \infty  }  {I}_{k}. \]
+    Moreover, 
+    \[  \sum_{ k=1  }^{ \infty  } \mu({I}_{k}) = \sum_{ k=1  }^{ \infty  } \frac{ \epsilon }{ 2^{k} }  = \epsilon \sum_{ k=1  }^{ \infty  } \frac{ 1 }{ 2^{k} } = \epsilon \leq \epsilon. \]
+\end{eg}
+
+The next question we would like to ask is that is there a way to generalize the notion of length of an interval? In a perfect world, we want to find a function \( \mu  \) such that  
+\begin{enumerate}
+    \item[(1)] \( \mu \) can be applied to any subset of \( \R  \);
+    \item[(2)] For every \( E \subseteq \R   \), \( 0 \leq \mu(E) \leq \infty  \);
+    \item[(3)] If \( y  \) is a fixed number, then \( \mu(E + y) = \mu(E) \);
+    \item[(4)] If \( {E}_{1}, {E}_{2}, \dots  \) are pointwise disjoint sets, 
+        \[  \mu \Big(  \bigcup_{ k=1  }^{ \infty  }  {E}_{k} \Big) = \sum_{ k=1  }^{ \infty  } \mu({E}_{k}). \]
+    \item[(5)] For any interval \( I  \), \( \mu(I) = \text{length of} \ I \).
+\end{enumerate}
+Unfortunately, there exists no such function \( \mu  \) such that it satisfies all the properties listed above. However, by removing the first requirement, we can find such a \( \mu  \).
+
+\begin{remark}[Integral on a General Bounded Set]
+    Let \( A  \) be a nonempty bounded set in \( \R  \). Let \( f: A \to \R  \) be a bounded function. Define \( \tilde{f} : \R \to \R  \) as follows: 
+    \[  \tilde{f}(x) = 
+    \begin{cases}
+        f(x) & x \in A  \\
+        0 & x \notin A 
+    \end{cases} \]
+    We say that \( f  \) is integrable on \( A  \) if any of the following equivalents holds: 
+    \begin{enumerate}
+        \item[(1)] \( \tilde{f} \Big|_{[a,b]} \) is in \( R([a,b]) \) where \( a = \inf A  \) and \( b = \sup A  \).
+        \item[(2)] There exists a closed and bounded interval \( I  \) containing \( A  \) such that \( \tilde{f} \Big|_{I} \) is in \( R(I) \).
+        \item[(3)] For every closed and bounded interval \( I  \) containing \( A  \), \( \tilde{f} \Big|_{I} \) is in \( R(I) \).
+    \end{enumerate}
+    In this case, \( \int_{ A  } f   \) is defined as follows:
+    \[  \int_{ A  } f  = \int_{ I  } \tilde{f} \Big|_{I}. \tag{where \( I  \) is any closed and bounded interval} \]
+\end{remark}

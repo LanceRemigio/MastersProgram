@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1752629704.86194 "main.tex" "main.pdf" "main" 1752629717.34714 0
+["pdflatex"] 1752703591.49712 "main.tex" "main.pdf" "main" 1752703604.28562 0
   "../../../../newpreamble.tex" 1752598257.72766 7547 08b86d6b3494a25083827aaf654f5471 ""
   "/usr/local/Cellar/texlive/20240312_3/share/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc" 1710106625 2971 def0b6c1f0b107b3b936def894055589 ""
   "/usr/local/Cellar/texlive/20240312_3/share/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1710106625 2900 1537cc8184ad1792082cd229ecc269f4 ""
@@ -357,11 +357,12 @@
   "/usr/local/Cellar/texlive/20240312_3/share/texmf-dist/tex/latex/zref/zref-base.sty" 1710106625 20785 f7d1133a287929598a897c93f8f4c44b ""
   "/usr/local/Cellar/texlive/20240312_3/share/texmf-dist/web2c/texmf.cnf" 1739092516.50854 41652 e14926ab86fde7902cad99d9eeaa5ca5 ""
   "/usr/local/Cellar/texlive/20240312_3/share/texmf-var/web2c/pdftex/pdflatex.fmt" 1710106625 8221738 0fe25a98ec26b76f48bc3534ec24a62e ""
-  "main.aux" 1752629716.56966 48094 73b383224c52f774e711f0e73c565e28 "pdflatex"
-  "main.out" 1752629716.60667 4647 a601cdae1d7e5892bce42cb3961237f8 "pdflatex"
-  "main.tex" 1752599935.18097 762 1fa61785ddf3b902dd9ca12d0e17b947 ""
+  "main.aux" 1752703603.50602 50680 b1e02e03ffce87bcda60b501121af85f "pdflatex"
+  "main.out" 1752703603.54528 5123 8080cc09f1eab03be42dd64dc709ba55 "pdflatex"
+  "main.tex" 1752630392.62081 792 bb51a43fd777435adb15e0467187d8ec ""
   "week/week1/week1.tex" 1752457790.8602 25671 cbb089ea67056128b7bc842bf203ad37 ""
-  "week/week10/week10.tex" 1752629713.89427 13977 2fc6b44646a24ccf960fe76201690004 ""
+  "week/week10/week10.tex" 1752629739.01696 13977 2fc6b44646a24ccf960fe76201690004 ""
+  "week/week11/week11.tex" 1752703578.27468 6281 51336a01d3efb8b8c69a2bab659b036b ""
   "week/week2/week2.tex" 1752599895.36667 10126 470a0c9035299648b7e7eceb7946f0af ""
   "week/week4/week4.tex" 1751753211.59964 33999 307771f318c12e0658a217238787f602 ""
   "week/week5/week5.tex" 1751753211.60001 31530 eb13bab5b1954dea0875e30ca888ae75 ""

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024/Homebrew) (preloaded format=pdflatex 2025.1.26)  15 JUL 2025 18:35
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024/Homebrew) (preloaded format=pdflatex 2025.1.26)  16 JUL 2025 15:06
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -1772,7 +1772,38 @@ Package mdframed Info: mdframed works in twoside mode on input line 96.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
 (mdframed)              on input line 96.
- [63] [64]) [65] (./main.aux)
+ [63] [64]) [65] [66
+
+]
+Chapter 11.
+(./week/week11/week11.tex
+Package mdframed Info: mdframed works in twoside mode on input line 12.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 12.
+Package mdframed Info: mdframed works in twoside mode on input line 19.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 19.
+Package mdframed Info: mdframed works in twoside mode on input line 28.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 28.
+ [67]
+Package mdframed Info: mdframed works in twoside mode on input line 37.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 37.
+Package mdframed Info: mdframed works in twoside mode on input line 55.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 55.
+ [68]
+Package mdframed Info: mdframed works in twoside mode on input line 77.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 77.
+) [69] (./main.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-02-20>
@@ -1782,22 +1813,22 @@ L3 programming layer <2024-02-20>
 LaTeX Warning: There were undefined references.
 
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: A601CDAE1D7E5892BCE42CB3961237F8;4647.
+(rerunfilecheck)             Checksum: 8080CC09F1EAB03BE42DD64DC709BA55;5123.
  ) 
 Here is how much of TeX's memory you used:
- 48594 strings out of 474116
- 1150243 string characters out of 5734122
+ 48643 strings out of 474116
+ 1151269 string characters out of 5734122
  1951187 words of memory out of 5000000
- 69761 multiletter control sequences out of 15000+600000
+ 69791 multiletter control sequences out of 15000+600000
  584074 words of font info for 108 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  125i,19n,134p,893b,1296s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/Cellar/texlive/20240312_3/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/Cellar/texlive/20240312_3/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/Cellar/texlive/20240312_3/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/local/Cellar/texlive/20240312_3/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/Cellar/texlive/20240312_3/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/Cellar/texlive/20240312_3/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/local/Cellar/texlive/20240312_3/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/Cellar/texlive/20240312_3/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/Cellar/texlive/20240312_3/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/local/Cellar/texlive/20240312_3/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/Cellar/texlive/20240312_3/share/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/Cellar/texlive/20240312_3/share/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/Cellar/texlive/20240312_3/share/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb></usr/local/Cellar/texlive/20240312_3/share/texmf-dist/fonts/type1/public/cm-super/sfbx1000.pfb></usr/local/Cellar/texlive/20240312_3/share/texmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb></usr/local/Cellar/texlive/20240312_3/share/texmf-dist/fonts/type1/public/cm-super/sfbx1440.pfb></usr/local/Cellar/texlive/20240312_3/share/texmf-dist/fonts/type1/public/cm-super/sfbx2074.pfb></usr/local/Cellar/texlive/20240312_3/share/texmf-dist/fonts/type1/public/cm-super/sfbx2488.pfb></usr/local/Cellar/texlive/20240312_3/share/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb></usr/local/Cellar/texlive/20240312_3/share/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb></usr/local/Cellar/texlive/20240312_3/share/texmf-dist/fonts
 /type1/public/cm-super/sfrm1728.pfb></usr/local/Cellar/texlive/20240312_3/share/texmf-dist/fonts/type1/public/cm-super/sfsl1000.pfb></usr/local/Cellar/texlive/20240312_3/share/texmf-dist/fonts/type1/public/cm-super/sfss1000.pfb></usr/local/Cellar/texlive/20240312_3/share/texmf-dist/fonts/type1/public/cm-super/sfsx1000.pfb>
-Output written on main.pdf (65 pages, 522910 bytes).
+Output written on main.pdf (69 pages, 533458 bytes).
 PDF statistics:
- 826 PDF objects out of 1000 (max. 8388607)
- 702 compressed objects within 8 object streams
- 290 named destinations out of 1000 (max. 500000)
- 321 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 864 PDF objects out of 1000 (max. 8388607)
+ 736 compressed objects within 8 object streams
+ 304 named destinations out of 1000 (max. 500000)
+ 345 words of extra memory for PDF output out of 10000 (max. 10000000)
 

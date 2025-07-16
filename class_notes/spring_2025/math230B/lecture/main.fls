@@ -633,6 +633,11 @@ INPUT week/week10/week10.tex
 INPUT ./week/week10/week10.tex
 INPUT week/week10/week10.tex
 INPUT week/week10/week10.tex
+INPUT ./week/week11/week11.tex
+INPUT week/week11/week11.tex
+INPUT ./week/week11/week11.tex
+INPUT week/week11/week11.tex
+INPUT week/week11/week11.tex
 INPUT main.aux
 INPUT ./main.out
 INPUT ./main.out
