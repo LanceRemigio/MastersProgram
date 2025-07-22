@@ -90,3 +90,305 @@ Unfortunately, there exists no such function \( \mu  \) such that it satisfies a
     In this case, \( \int_{ A  } f   \) is defined as follows:
     \[  \int_{ A  } f  = \int_{ I  } \tilde{f} \Big|_{I}. \tag{where \( I  \) is any closed and bounded interval} \]
 \end{remark}
+
+\begin{definition}[Total Variation]
+    Suppose \( f:[a,b] \to \R  \) and \( P = \{ {x}_{0}, {x}_{1}, \dots, {x}_{n} \}  \) is a partition of \( [a,b] \). Let 
+    \[  \sigma(f,P) = \sum_{ k=1  }^{ n } | f({x}_{k}) - f({x}_{k-1}) |  \]
+    and let 
+    \[  {V}_{a}^{b} f = \sup_{P \in \Pi [a,b]} \sigma(f,P) \]
+    be the \textbf{Total Variation of \( f  \) on \( [a,b] \)}. If \( f : [a,b] \to \R  \) is such that \( {V}_{a}^{b} f < \infty   \), then we say \( f  \) is of \textbf{Bounded Variation} and we denote the set of these functions as 
+    \[  BV ([a,b]) = \{ f:[a,b] \to \R : {V}_{a}^{b} f < \infty  \}. \]
+\end{definition}
+
+\begin{remark}[\( P \subseteq  \implies \sigma(f,P) \leq \sigma(P,Q) \) ]
+    If \( Q  \) is a refinement of \( P \), then \( \sigma(f,P) \leq \sigma(f,Q) \). This can be easily proved by induction on \( | Q \setminus  P  |  \). For example, if \( Q  \) has only \textbf{one} extra point \( z  \), then \( z \in [a,b] \) implies that there exists \( i \in \{ 1,2, \dots, n  \}  \) such that \( {x}_{i-1 } < z < {x}_{i} \). Assuming \( 1 < i < n  \) (the same argument works when \( i = 1  \) or \( i = n  \)), we have   
+    \begin{align*}
+        \sigma(f,P) &= | f({x}_{1}) - f({x}_{0}) |  + \cdots + | f({x}_{i}) - f({x}_{i-1}) |  + \cdots + | f({x}_{n}) - f({x}_{n-1}) |  \\
+        \sigma(f,Q) &= | f({x}_{1}) - f({x}_{0}) |  + \cdots + | f(z ) - f({x}_{i-1}) |  + | f({x}_{i}) - f(z)  |  + \cdots + | f({x}_{n}) - f(n-1) | 
+    \end{align*}
+    Note that 
+    \[  | f({x}_{i})- f({x}_{i-1}) | \leq | f(z) - f({x}_{i-1}) |  + | f({x}_{i}) - f(z) |  \]
+    via the triangle inequality.
+\end{remark}
+
+\begin{remark}
+    If \( f: [a,b] \to \R  \) is of bounded variation, then \( f  \) is bounded. Indeed,  
+    \[  \forall x \in [a,b] \ \ | f(x) |  \leq | f(a) |  + {V}_{a}^{b} f. \]
+    The reason is as follows:
+    \begin{enumerate}
+        \item[(*)] If \( x = a  \), then \( | f(a) |  \leq | f(a) |  + {V}_{a}^{b} f  \).
+        \item[(*)] If \( x = b  \), consider the partition \( p = \{  a, b  \}  \) of \( [a,b] \). We have 
+            \begin{align*}
+                \sigma(f,P) \leq {V}_{a}^{b} f &\implies | f(b) - f(a) |  \leq {V}_{a}^{b} f \\
+                                               &\implies | f(b) |  - | f(a) |  \leq {V}_{a}^{b} f \\
+                                               &\implies | f(b) |  \leq | f(a) |  + {V}_{a}^{b} f.
+            \end{align*}
+        \item[(*)] If \( a < x < b  \), then consider the partition \( P = \{  a,x,b \}  \) of \( [a,b] \). We have  
+            \begin{align*}
+                \sigma(f,P) \leq {V}_{a}^{b} f &\implies | f(x) - f(a) |  + | f(b) - f(x) |  \leq {V}_{a}^{b} f  \\
+                                               &\implies | f(x) - f(a) |  \leq {V}_{a}^{b} f \\
+                                               &\implies | f(x) |  - | f(a) |  \leq {V}_{a}^{b} f \\
+                                               &\implies | f(x) |  \leq | f(a) |  + {V}_{a}^{b} f. 
+            \end{align*}
+    \end{enumerate}
+\end{remark}
+
+\begin{theorem}[Theorem 1]
+    \begin{enumerate}
+        \item[(i)] If \( f: [a,b] \to \R  \) is increasing, then \( f \in BV ([a,b]) \) and  
+            \[  {V}_{a}^{b} f = | f(b) - f(a) |. \]
+        \item[(ii)] If \( f: [a,b] \to \R  \) is decreasing, then \( f \in BV([a,b]) \) and 
+            \[  {V}_{a}^{b} f = | f(b) - f(a) |. \]
+    \end{enumerate}
+\end{theorem}
+\begin{proof}
+    Here we will prove (i). For any partition \( P = \{  {x}_{0}, {x}_{1}, \dots, {x}_{n} \}  \) of \( [a,b] \), we have (since \( f  \) is increasing) 
+    \begin{align*}
+        \sigma(f,P) &= \sum_{ k=1  }^{ n } | f({x}_{k}) - f({x}_{k-1}) | = \sum_{ k=1  }^{ n } | f({x}_{k}) - f({x}_{k-1}) |   \\
+                    &= f({x}_{n}) - f({x}_{0}) \\
+                    &= f(b) - f(a).
+    \end{align*}
+    So, 
+    \[  \forall P \in \Pi[a,b] \ \ \sigma(f,P) = f(b) - f(a). \]
+    Therefore, 
+    \begin{align*}
+        {V}_{a}^{b} f = \sup_{P \in \Pi[a,b]} \sigma(f,P) &= \sup \{ f(b) - f(a) \}  \\
+                                                          &= f(b) - f(a) \\
+                                                          &= | f(b) - f(a) |.
+    \end{align*}
+\end{proof}
+
+\begin{theorem}[Lipschitz Continuous Functions are Bounded Variations (Theorem 2)]
+    If \( f: [a,b] \to \R  \) is Lipschitz continuous, then \( f \in BV([a,b]) \). 
+\end{theorem}
+\begin{proof}
+    Suppose \( f  \) is Lipschitz continuous. Then there exists \( M > 0  \) such that for all \( x,y \in [a,b] \), 
+    \[  | f(x) - f(y) |  \leq M |  x -y  |. \]
+    Let \( P = \{ {x}_{0}, {x}_{1}, \dots, {x}_{n} \}  \) be any partition of \( [a,b] \). Then
+    \begin{align*}
+        \sigma(f,P) &= \sum_{ k=1  }^{ n } | f({x}_{k}) - f({x}_{k-1}) |  \\
+                    &\leq \sum_{ k=1  }^{ n } M | {x}_{k } - {x}_{k-1} | \\
+                    &= M \sum_{ k=1  }^{ n } | {x}_{k} - {x}_{k-1} |  \\
+                    &= M \sum_{ k=1  }^{ n } ({x}_{k} - {x}_{k-1}) \\
+                    &= M ({x}_{n} - {x}_{0}) \\
+                    &= M(b-a).
+    \end{align*}
+    Thus, for all \(  P \in \Pi[a,b] \), 
+    \[  \sigma(f,P) \leq M(b-a). \]
+    Therefore, 
+    \[  {V}_{a}^{b} f = \sup_{P \in \Pi[a,b]} \sigma(f,P) \leq M (b-a). \]
+\end{proof}
+
+\begin{eg}
+    Let \( f:[0,1] \to \R  \), \[ f(x) = 
+    \begin{cases}
+        x^{2} \sin \frac{ 1 }{ x }  &\text{if} \ x \neq 0 \\
+        0 &\text{if} \ x = 0. 
+    \end{cases} \] 
+    We claim that \( f \) is a bounded variation. It suffices to show that \( f  \) is Lipschitz by using the previous theorem. We have 
+    \begin{align*}
+        f'(x) &= 
+        \begin{cases}
+            2x \sin \frac{ 1 }{ x }  - \cos \frac{ 1 }{ x }  &\text{if} \ x \neq 0 \\
+            0 &\text{if} \ x = 0. 
+        \end{cases} \\
+    \end{align*}
+    Thus, for all \( 0 < x \leq 1  \), we have 
+    \begin{align*}
+       | f'(x) |  &= \Big| 2x \sin \frac{ 1 }{ x }  - \cos \frac{ 1 }{ x }  \Big|    \\
+                  &\leq 2 |  x  | \Big| \sin \frac{ 1 }{ x }  \Big|  + \Big| \cos \frac{ 1 }{ x }  \Big| \\
+                  &\leq 2 + 1 = 3.
+    \end{align*}
+    Also, at \( x = 0  \), \( | f'(0) | = | 0  |  \leq 3 \). So, 
+    \[  \forall x \in [0,1] \ \ | f'(x) |  \leq 3. \]
+    It follows from the Mean Value Theorem that \( f:[0,1] \to \R  \) is Lipschitz (Exercise 4a HW1). Thus, \( f \in BV([0,1]) \).
+\end{eg}
+
+\begin{theorem}[Algebraic Properties of BV Functions (Theorem 3)]
+    Assume \( f,g \in BV([a,b]) \), \(  c \in (a,b) \), and \( \lambda \in \R  \). Then
+    \begin{enumerate}
+        \item[(i)] \( f + g \in BV([a,b]) \) and
+            \[  {V}_{a}^{b} (f + g) \leq {V}_{a}^{b} f + {V}_{a}^{b} g.  \]
+        \item[(ii)] \( \lambda f \in BV([a,b]) \) and \( {V}_{a}^{b}(\lambda f) = | \lambda  |  {V}_{a}^{b} f  \)
+        \item[(iii)] \( f \in BV([a,c]) \) and \( f \in BV([c,b])  \) and  
+            \[  {V}_{a}^{b} f = {V}_{a}^{c} f + {V}_{c}^{b} f. \]
+    \end{enumerate}
+\end{theorem}
+
+Properties (i) through (iii) tells us that \( BV([a,b]) \) forms a vector space.
+
+\begin{theorem}[Bounded Variations are the difference of two increasing functions]
+    The following statements are equivalent:
+    \begin{enumerate}
+        \item[(1)] \( f \in BV([a,b]) \)
+        \item[(2)] There exists two increasing functions \( \alpha : [a,b] \to \R  \) and \( \beta : [a,b]  \to \R \) such that \( f = \alpha - \beta \).
+    \end{enumerate}
+\end{theorem}
+\begin{proof}
+\( (2) \implies (1) \) Direct consequence of Theorem 1 and Theorem 3.
+
+\( (1) \implies (2) \) Define \( \alpha: [a,b] \to \R  \) by \( \alpha(x) = {V}_{a}^{x} f  \) where \( \alpha(a)  = 0  \) and \( \alpha(b) = {V}_{a}^{b} f  \) and define \( \beta : [a,b] \to \R  \) by \( \beta = \alpha - f  \). In what follows, we will prove that \( \alpha \) and \( \beta \) are increasing. Suppose \( a \leq x < y \leq b  \). We have 
+\begin{enumerate}
+    \item[(*)] \( \alpha(y) = {V}_{a}^{y} f \underbrace{=}_{\text{Thm 3}} {V}_{a}^{x} f + {V}_{x}^{y} f \geq {V}_{a}^{x} f = \alpha(x).  \)
+    \item[(*)] \begin{align*}
+            \beta(y) - \beta(x) &= [\alpha(y) - f(y)] - [\alpha(x) - f(x)] \\
+                                &= [\alpha(y) - \alpha(x)] - [f(y) - f(x)] \\
+                                &= {V}_{x}^{y} f - [f(y) - f(x)] \geq 0. 
+        \end{align*}
+        Indeed, consider the partition \( P= \{  x,y  \}   \) of \( \{ x,y \}  \). Then we have  
+        \begin{align*}
+            \sigma(f,P) \leq {V}_{x}^{y} f &\implies | f(y) - f(x) |  \leq {V}_{x}^{y} f  \\
+                                           &\implies f(y) - f(x) \leq {V}_{x}^{y} f. 
+        \end{align*} 
+\end{enumerate}
+\end{proof}
+
+\begin{definition}[Riemann Stiejtes Integral]
+    Let \( f:[a,b] \to \R  \) be bounded and let \( g: [a,b] \to \R  \) be a function of bounded variation with \( g = \alpha - \beta \) where \( \alpha \) and \( \beta \) are the increasing functions introduced in the proof of Theorem 4. We define the Riemann Stiejtes of \( f  \) with respect to \( g  \) on \( [a,b] \) as follows:
+    \[  \int_{ a }^{ b }  f  \ dg = \int_{ a }^{ b }  f  \ d \alpha - \int_{ a }^{ b }  f  \ d \beta \]
+    provided that both integrals on the right hand side above exist.
+\end{definition}
+
+\begin{theorem}[Riesz Theorem]
+    Let \( X = C([a,b], \R ) \) equipped with \( {d}_{\infty } \) metric. Let \( L : X \to \R  \) be a continuous linear function. Then there exists \( \alpha \in BV ([a,b]) \) such that 
+    \[  L(f) = \int_{ a }^{ b } f(x) \ dx \ \ \forall f \in X. \]
+\end{theorem}
+
+\begin{remark}[Refining the Notion of Uniform Continuity]
+    \begin{enumerate}
+        \item[(*)] Roughly speaking, the notion of uniform continuity of \( f:[a,b] \to \R  \) can be thought of in the following way: For \( x  \) close enough to \( y \), the size of \( | f(x) - f(y) |  \) can be controlled by the size of \( | x - y  |  \) (independently of \( x  \) and \( y \)).
+        \item[(*)] How can we make this notion of continuity more refined or stronger?
+        \item[(*)] One way to do this is to jump to differentiability!
+    \end{enumerate}
+\end{remark}
+
+\begin{remark}[Uniform Continuity in terms of differentiability]
+   \begin{enumerate}
+       \item[(*)] However, there are other things we can consider before jumping to differentiability. In particular, we can ask to what degree \( | f(x) - f(y) |  \) is controlled by \( | x - y  | \). How fast does \( f(y) \) approach \( f(x) \) as \( y  \) approaches \( x  \)?
+        \item[(*)] for a constant function \( f  \), the fastest \( f(y) \) can approach \( f(x) \) is proportional to \( | x - y  |^{2} \). In fact, it can be shown that if \( | f(x) - f(y) |  \leq M |  x - y  |^{\theta} \) for some \( \theta > 1  \), then \( f  \) must be a constant function!
+   \end{enumerate} 
+\end{remark}
+
+\begin{definition}[Holer Continuous functions Lipschitz continuous functions]
+    Let \( 0 < \theta \leq 1  \). A function \( f: [a,b] \to \R  \) is said to be \textbf{Holder continuous with exponent \( \theta \)} if there exists a number \( M > 0  \) such that 
+    \[  \forall x ,y \in [a,b] \ \ | f(x) - f(y) |  \leq M |  x-  y  |^{\theta}. \]
+\end{definition}
+
+\begin{enumerate}
+    \item[(*)] Note that for a fixed \( \theta  \), the smaller the \( M  \), the better continuity.
+    \item[(*)] For Holder continuous functions with exponent \( \theta = 1  \) are called Lipschitz continuous.    
+    \item[(*)] Any Holder continuous function is uniformly continuous.
+    \item[(*)] \( C^{0,\theta} ([a,b] ; \R ) = \{ f: [a,b] \to \R : \text{\( f  \) is Holder Continuous with exponent \( \theta \)} \}  \). We can equip the above vector space of functions with the following norm: 
+        \[  \|f \|_{C^{0,\theta}} = \sup_{x \in [a,b]} | f(x) | + \sup_{x \neq y } |f(x) - f(y)| \] 
+        where 
+        \[  d(f,g) = \|f - g\|_{C^{0,\theta}}. \]
+\end{enumerate}
+
+\begin{remark}
+    Let \( \mathcal{F} \) be a collection of function in \( C^{0,\theta}([a,b]; \R) \). If \( \mathcal{F} \) is bounded in this metric space, then 
+    \begin{enumerate}
+        \item[(1)] \( \mathcal{F} \) is uniformly bounded
+        \item[(2)] \( \mathcal{F} \) is equicontinuous.
+    \end{enumerate}
+    So, every sequence in \( \mathcal{F} \) has a uniformly convergent subsequence.
+\end{remark}
+
+\begin{remark}[The Case Where \( \theta >  1  \)]
+    Suppose there exists \( M > 0  \) and \( \theta > 1  \) such that 
+    \[  \forall x,y \in [a,b] \ \ | f(x) - f(y) |  \leq M | x- y  |^{\theta}.  \]
+    Then 
+    \[  \forall x,y \in [a,b], x \neq y \ \ 0 \leq \Big| \frac{ f(x) - f(y) }{ x - y  }  \Big|  \leq M |  x -y  |^{\theta - 1}.  \]
+    Therefore, 
+    \[  \forall x \in [a,b] \ \ \lim_{ y \to x }  \Big| \frac{ f(x) - f(y) }{ x - y  }  \Big|  = 0.   \]
+    Thus, 
+    \[  \forall x \in [a,b] \ \ f'(x ) = 0.  \]
+    This tells us that \( f  \) is constant on \( [a,b] \).
+\end{remark}
+
+\begin{definition}[Absolutely Continuous Functions]
+    A function \( f:[a,b] \to \R  \) is said to be \textbf{absolutely continuous} if for every \( \epsilon > 0  \), there exists \( \delta > 0  \) such that for every collection of pairwise disjoint intervals \( \{ ({c}_{k }, {d}_{k}) : 1 \leq k \leq n  \}  \) from \( [a,b] \) with 
+    \[  \sum_{ k=1  }^{ n } ({d}_{k} - {c}_{k}) < \delta \]
+    we have 
+    \[  \sum_{ k=1  }^{ n } | f({d}_{k}) - f({c}_{k}) |  < \epsilon. \]
+\end{definition}
+
+Why should we care about absolute continuity? For one, we have the following fact:
+
+The statements below are equivalent
+\begin{enumerate}
+    \item[(1)] \( f : [a,b] \to \R  \) is absolutely continuous
+    \item[(2)] \( f  \) is diffrentiable everywhere on \( [a,b] \) except at with respect to a set of measure zero and 
+        \[  \forall x \in [a,b] \ \ f(x) - f(a) = \int_{ a }^{ x }  f'(t) \ dt. \]
+\end{enumerate}
+
+\begin{theorem}[Lipschitz versus absolutely continuous versus uniformly continuous]
+   Lipschitz continuous implies absolutely continuous implies uniformly continuous.  
+\end{theorem}
+
+\begin{eg}
+    \begin{enumerate}
+        \item[(1)] Let \( f : [0,1] \to \R  \) be defined by \( f(x) = \sqrt{ x  }  \). We see that \( f  \) is absolutely continuous, but not Lipschitz continuous.
+        \item[(2)] The \textbf{cantor function} \( C : [0,1] \to \R  \) is uniformly continuous, but not absolutely continuous.
+     \end{enumerate}
+\end{eg}
+
+\begin{definition}[Oscillation of a Function]
+    Let \( (X,d) \) and \( (Y,\tilde{d}) \) be metric spaces and \( f: X \to Y  \). For any \( r > 0  \) and any \( x \in X  \), we define the \textbf{oscillation of \( f  \) on the set \( {N}_{r}(x) \)} as 
+    \[  \text{osc}(f, x, r) = \sup \{ \tilde{d}(f({x}_{1}), f({x}_{2}) : {x}_{1}, {x}_{2} \in {N}_{r}(x)) \}.  \]
+
+    We define the \textbf{oscillation of \( f  \) at \( x  \)} as 
+    \[  \text{osc}(f,x) = \lim_{ r \to  0^{+} }  \text{osc}(f,x,r) = \inf_{r > 0 } \text{osc}(f,x,r). \]
+    \[   \]
+\end{definition}
+
+\begin{remark}
+    In the first definition above, if \( 0 < {r}_{1} < {r}_{2} \), then 
+    \[  \text{osc}(f,x,{r}_{1}) \leq \text{osc}(f,x,{r}_{2}). \]
+\end{remark}
+
+\begin{eg}
+    Let \( f:[-1,1] \to \R  \) be defined by 
+    \[  f(x) = 
+    \begin{cases}
+        1 &\text{if} \ -1 \leq x < 0 \\ 
+        3 &\text{if} \ 0 \leq x \leq 1 
+    \end{cases}. \]
+    Let's study the oscillation at \( x = 0  \). We have 
+    \begin{align*}
+        \text{osc}(f,0,r) &=  \sup_{{x}_{2},{x}_{1} \in {N}_{r}(0) } | f({x}_{2}) - f({x}_{1}) | \\
+                          &= |  3 - 1  |  = 2.
+    \end{align*}
+\end{eg}
+
+\begin{theorem}[ ]
+    Let \( (X,d) \) and \( (Y, \tilde{d}) \) be two metric spaces, \( f: X \to Y  \), and \( x \in X  \). Then we have
+    \begin{center}
+        \( f  \) is continuous at \( x  \) if and only if \( \text{osc}(f,x) = 0 \).
+    \end{center}
+\end{theorem}
+\begin{proof}
+\( (\Longrightarrow) \) It suffices to show that 
+\[  \forall \epsilon > 0 \ \ \text{osc}(f,x) \leq \epsilon. \]
+Let \( \epsilon > 0  \) be given. Since \( f  \) is continuous at \( x  \), there exists \( \delta > 0  \) such that  
+\[  \forall y \in {N}_{\delta}(x) \ \ \tilde{d}(f(x), f(y)) < \frac{ \epsilon }{ 2 }. \]
+Thus, for any \( {x}_{1} \) and \( {x}_{2}  \) in \( {N}_{\delta}(x)  \), we have 
+\begin{align*}
+    \tilde{d}(f({x}_{1}), f({x}_{2})) &\leq \tilde{d(f({x}_{1}), f(x)} ) + \tilde{d}(f(x), f({x}_{2})) \\
+                                      &< \frac{ \epsilon }{ 2 }  + \frac{ \epsilon }{ 2 }  = \epsilon.
+\end{align*}
+Therefore, 
+\[  \text{osc}(f,x,\delta) = \sup_{{x}_{1}, {x}_{2} \in {N}_{\delta}(x)} \tilde{d}(f({x}_{1}), f({x}_{2})) \leq \epsilon. \]
+Finally, we have 
+\[  \text{osc}(f,x) = \inf_{r > 0} \text{osc}(f,x,r) \leq \text{osc}(f,x,\delta) \leq \epsilon \]
+as desired.
+
+\( (\Longleftarrow) \) Suppose \( \text{osc}(f,x) = 0  \). Our goal is to show that 
+\[  \forall \epsilon > 0 \ \exists \delta > 0 \ \text{such that} \ \forall y \in {N}_{\delta}(x) \ \tilde{d}(f(x) , f(y)) < \epsilon. \tag{*} \]
+Let \( \epsilon > 0  \). For the given \( \epsilon  \), we can find a \( \hat{\delta} > 0  \) such that  
+\[  \forall 0 < r < \hat{\delta} \ \ \text{osc}(f,x,r) < \epsilon. \]
+Thus, 
+\[  \sup_{{x}_{1}, {x}_{2} \in {N}_{r}(x)} \tilde{d}(f({x}_{1}, f({x}_{2})))  < \epsilon. \]
+Therefore,  
+\[  \forall y \in {N}_{r}(x) \ \ \tilde{d} (f(y) , f(x)) < \epsilon \]
+Hence, any positive number less than \( \hat{\delta}  \) can be used as the \( \delta  \) that we were looking for.
+\end{proof}
