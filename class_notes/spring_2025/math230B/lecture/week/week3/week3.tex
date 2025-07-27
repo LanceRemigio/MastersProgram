@@ -1,0 +1,280 @@
+\section{Lecture 4}
+
+\begin{theorem}[Rolle's Theorem]
+    Let \( f: [a,b] \to \R  \) be continuous, let \( f  \) be differentiable on \( (a,b) \), and \( f(a) = f(b) \). Then there exists a point \( c \in (a,b) \) such that \( f'(c) = 0  \). 
+\end{theorem}
+
+\begin{proof}
+    It suffices to show that there exists a point \( c \in (a,b)  \) for which \( f  \) has a local max or a local min. Since \( f  \) is continuous on \( [a,b] \) and \( [a,b]  \) is compact, we see that \( f  \) must attain its max and min on \( [a,b] \). Thus, we may consider two cases; namely, both \( \max f  \) and \( \min f  \) occur at the endpoints and or they occur in the interior of \( [a,b] \). Considering the first case, we see that from the fact that \( f(a) = f(b) \) that   
+    \[  \max_{a \leq x \leq b } f(x) = \min_{a \leq x \leq b } f(x). \]
+    Hence, \( f \) must be constant on \( [a,b] \) and so, 
+    \[  \forall  x \in [a,b] \ \ f'(x) = 0.  \]
+    In this case, we can choose \( c  \) to be any point we like in \( (a,b) \).  
+
+    Now, assume the second case. Using the Interior Extremum Theorem, we have \( f'(c) = 0  \) and this concludes the proof.  
+\end{proof}
+
+\begin{theorem}[Mean Value Theorem]
+    Let \( f: [a,b] \to \R  \) be a continuous function and \( f  \) is differentiable in \( (a,b) \). Then there exists a \( c \in (a,b)  \) such that 
+    \[  f'(c) = \frac{ f(b) - f(a) }{  b - a  }. \]
+\end{theorem}
+\begin{proof}
+    Let \( g:[a,b] \to \R  \) be defined by
+    \[  g(x) = f(x) - \frac{ f(b) - f(a)  }{  b - a  }  x.  \]
+    By the Algebraic Continuity Theorem, \( g  \) must be continuous on \( [a,b] \). Also, the Algebraic Differentiability Theorem implies that \( g  \) is differentiable on \( (a,b) \). Then we have  
+    \[  g(a) = f(a) - \frac{ f(b) - f(a) }{  b -a  } = \frac{ b f(a) - a f(a) + a f(a)  }{  b - a  }  = \frac{ bf(a) - a f(b)  }{  b - a  }  \]
+    and 
+    \[  g(b) = f(b) - \frac{ f(b) - f(a) }{ b - a  } b = \frac{ b f(a) - a f(b) - b f(b) + b f(a) }{  b -a   }  = \frac{ b f(a) - a f(b)  }{  b -a  }. \]
+    Using Rolle's Theorem, it follows that 
+    \[  \exists c \in (a,b) \ \ g'(c) = 0.  \]
+    Note that 
+    \[  g'(x) = f'(x) - \frac{ f(b) - f(a) }{ b - a  }. \]
+    Thus, 
+    \[  g'(c) = 0  \iff f'(c) - \frac{ f(b) - f(a) }{  b -a  }  = 0  \iff f'(c) = \frac{ f(b) -f(a)  }{ b - a  }. \]
+\end{proof}  
+
+\begin{theorem}[Generalized Mean Value Theorem]
+    Let \( f: [a,b] \to \R  \) and \( g : [a,b] \to \R  \) are continuous functions and suppose \( f  \) and \( g  \) are differentiable in \( (a,b) \). Then there exists a point \( c \in (a,b) \) such that 
+    \[  f'(c) [g(b) - g(a)] = g'(c) [f(b) - f(a)]. \]
+\end{theorem}
+\begin{proof}
+    \textbf{See proof in hw1.}
+\end{proof}
+
+\begin{remark}
+    Note that, if \( g'  \) is never zero in \( (a,b) \), then we may rewrite the claim of GMVT as follows:
+    \[  \exists c \in (a,b) \ \ \text{such that} \ \frac{ f'(c) }{  g'(c) } =  \frac{ f(b) - f(a) }{  g(b) - g(a) }. \]
+\end{remark}
+
+\begin{corollary}[Corollary 1]
+    Let \( I \subseteq  \R   \) be an interval, \( f : I \to \R  \) be diffferentiable, and \( f'(x) = 0  \) for all \( x \in I  \). Then \( f  \) is a constant function on \( I  \), that is, there exists \( k \in \R  \) such that for all \( x \in I  \), \( f(x) = k  \). 
+\end{corollary}
+
+\begin{proof}
+    Let \( x,y \in I  \) with \( x , y  \). It suffices to show that \( f(x) = f(y) \). To this end, we will apply the MVT to \( f  \) on the interval \( [x,y] \). By the Mean Value Theorem, there exists a \( c \in (x,y) \) such that 
+    \[  f'(c) = \frac{ f(y) - f(x)  }{  y - x  }. \]
+    Since \( f'(x) = 0  \) for all \( x \in I  \), we have \( f'(c) = 0  \) and so
+    \begin{align*}
+        0 = \frac{ f(y) - f(x) }{  y - x  }  &\implies 0 = f(y) - f(x)   \\
+                                             &\implies f(y) = f(x).
+    \end{align*}
+\end{proof}
+
+\begin{corollary}
+    Let \( I \subseteq  \R   \) is an interval, \( f: I \to \R  \) and \( g: I \to \R  \) are differentiable, and \( f'(x) = g'(x) \) for all \( x \in I  \). Then there exists \( k \in \R  \) such that for all \( x \in I  \), \( f(x) = g(x) + k  \).
+\end{corollary}
+
+\begin{proof}
+Let \( h = f - g  \). We have 
+\[  \forall x \in I \ \ h'(x) = (f - g )'(x) = f'(x) - g'(x) = 0.  \]
+Using Corollary 1, we have  
+\[  \exists k \in \R \ \text{such that} \ \forall x \in I \ h(x) = k.  \]
+Hence, we have 
+\[  \exists k \in \R \  \text{such that} \ \forall x \in I \ f(x) - g(x) = k  \]
+and so \( f(x) = g(x) + k  \) as desired.
+\end{proof}
+
+\begin{theorem}[Parts (a) and (c)]
+   Let \( I \subseteq \R   \) is an interval and suppose \( f : I \to \R  \) is differentiable. Then 
+   \begin{enumerate}
+       \item[(1)] \( f  \) is increasing on \( I  \) if and only if \( \forall c \in I  \) \( f'(c) \geq 0  \).
+        \item[(2)] \( f  \) is decreasing on \( I  \) if and only if \( c \in I   \) \( f'(c) \leq 0  \).
+   \end{enumerate}
+\end{theorem}
+\begin{proof}
+Here we will prove (1). The proof of (2) is similar. 
+\( (\Longrightarrow) \) Let \( f  \) be increasing on \( I  \). Let \( c \in I  \). Note that for all \( x \in I  \) with \( x \neq c  \). Then we have 
+\[  \frac{ f(x) - f(c) }{ x - c  }  \geq 0.  \]
+Indeed, we can see that if \( x > c  \), then \( x - c > 0  \) and \( f(x) \geq f(c) \). Thus, we have that 
+\[  \frac{ f(x) - f(c) }{ x - c  }  \geq 0.  \]
+If \( x < c  \), then \( x - c < 0  \) and \( f(x) \leq f(c) \). Then 
+\[  \frac{ f(x) - f(c) }{ x -c  }  \geq 0. \]
+It follows from the Order Limit Theorem that 
+\[  \lim_{ x \to c  }  \frac{ f(x) - f(c) }{  x-  c  }  \geq \lim_{ x \to c  }  0  = 0. \]
+Hence, \( f'(c) \geq 0 \) as desired.
+
+\( \Longleftarrow \) Suppose for all \( c \in I  \), \( f'(c) \geq 0  \). To show that \( f  \) is increasing on \( I  \), we need to show that for all \( {x}_{1}, {x}_{2} \in I   \) with \( {x}_{1} < {x}_{2} \). It suffices to show that \( f({x}_{1}) \leq f({x}_{2}) \). To this end, we will apply the Mean Value Theorem to the function \( f  \) on \( [{x}_{1}, {x}_{2}] \). That is, there exists a \( c \in ({x}_{1}, {x}_{2}) \) such that 
+\[  f'(c) = \frac{ f({x}_{2})- f({x}_{1}) }{  {x}_{2} - {x}_{1} }. \]
+Thus, 
+\[  f({x}_{2}) - f({x}_{1}) = f'(c) ({x}_{2} - {x}_{1}). \]
+Since \( f'(c) \geq 0  \) and \( {x}_{2} - {x}_{1} \geq 0  \), we can see that 
+\[  f({x}_{2}) \geq f({x}_{1}) \]
+as desired.
+\end{proof}
+
+\begin{theorem}[L'Hopital's Rule]
+    Let \( I \subseteq  \R   \) be an interval, \( a \in I  \), and \( f: I \to \R  \) and \( g: I \to \R  \) are continuous functions. Suppose \( f  \) and \( g  \) are differentiable at all points in \( I \setminus  \{  a  \}  \) with \( f(a) = g(a) = 0  \) and 
+    \[  \lim_{ x \to a }  \frac{ f'(x) }{ g'(x) }  = L \in \R.  \]
+    Then 
+    \[  \lim_{ x \to a }  \frac{ f(x) }{ g(x) }  = L. \]
+\end{theorem}
+\begin{proof}
+Our goal is to show that 
+\[  \forall \epsilon > 0 \ \exists \delta > 0 \ \text{such that if} \ 0 < | x - c  | < \delta \ \text{with (\( x \in I \)) then} \ \Big| \frac{ f(x) }{  g(x) }  - L  \Big|  < \epsilon. \tag{*} \]
+Let \( \epsilon > 0  \) be given. Since, by assumption,  
+\[  \lim_{ x \to a }  \frac{ f'(x) }{  g'(x) }  = L,  \]
+for the given \( \epsilon > 0  \), there exists \( \hat{\delta} > 0 \) such that if \( 0 < |  x - a  |  < \hat{\delta} \) (with \( x \in I  \), then
+\[  \Big| \frac{ f'(x) }{ g'(x) }  - L  \Big| < \epsilon. \]
+We claim that this \( \hat{\delta} \) works as the \( \delta  \) we were looking for. Indeed, if we let \( \delta = \hat{\delta} \), then (*) will hold. The reason is as follows: suppose \( x \in I  \) and \(  0 < |  x - a  |  < \delta \). In what follows, we will show that  
+\[  \Big| \frac{ f(x) }{ g(x) }  - L  \Big|  < \epsilon. \]
+We may consider the following cases:
+\begin{enumerate}
+    \item[(1)] (\( x > a  \)) (that is, \( x \in I  \) and \( x \in (a, a + \hat{\delta}) \)). We apply the Generalized Mean Value Theorem to \( f  \) and \( g  \) on the interval \( [a,x] \). That is,  
+        \[  \exists c \in (a,x) \ \text{such that} \ \frac{ f'(c) }{ g'(c) }  = \frac{ f(x) - f(a) }{  g(x) - g(a) }. \]
+        Since \( f(a) = g(a) = 0  \), we can conclude that 
+        \[  \frac{ f'(c) }{  g'(c) }  = \frac{ f(x) }{ g(x) }. \]
+        It follows that 
+        \[  \Big| \frac{ f(x) }{  g(x) }  - L  \Big|  = \Big| \frac{ f'(c) }{ g'(c) }  - L  \Big| < \epsilon. \]
+        Note that the latter inequality is true because \( 0 < |  c - a  |  \leq |  x - a  |  < \hat{\delta} \).
+    \item[(2)] (\( x < a  \)) (that is, \( x \in I  \) and \( x \in (a - \hat{\delta} , a ) \)) We apply the Generalized Mean Value Theorem to \( f  \) and \( g  \) on \( [x,a] \). That is, there exists \( c \in (x,a) \) such that  
+        \[  \frac{ f'(c) }{  g'(c) }  = \frac{ f(a) - f(x) }{  g(a) - g)x }  \]
+        and so,
+        \[  \frac{ f'(c) }{ g'(c) }  = \frac{ f(x) }{ g(x) }. \]
+        It follows that 
+        \[  \Big| \frac{ f(x) }{ g(x) }  - L  \Big|  = \Big| \frac{ f'(c) }{ g'(c) }  - L  \Big|  < \epsilon. \]
+        Note that the latter inequality is true because \( 0 < |  c- a  |  \leq |  x - a  |  < \hat{\delta}. \)
+
+\end{enumerate}
+\end{proof}
+
+\section{Lecture 5}
+
+\subsection{Topics}
+
+\begin{itemize}
+    \item A Useful Theorem (Another consequence of the GMVT)
+    \item Taylor Polynomials
+    \item Taylor's Theorem with Lagrange remainder
+\end{itemize}
+
+\begin{corollary}[A corollary of GMVT]
+    Let \( I \subseteq  \R   \) be an open interval, \( {x}_{0} \in I  \), and \( n \in \N \cup \{ 0 \}  \), \( f: I \to \R  \) has \( n + 1  \) derivatives, and \( f^{(k)}({x}_{0}) = 0  \) for all \( 0 \leq k \leq n  \). Then for each point \( x \neq {x}_{0} \) in the interval \( I  \), there exists a point \( c  \) strictly between \( x  \) and \( {x}_{0} \) such that 
+    \[  f(x) = \frac{ f^{(n+1)}(c) }{ (n+1)! } (x-{x}_{0})^{n+1}. \]
+\end{corollary}
+
+\subsection{Observation 1}
+
+Let \( k \in \N  \) and let \( {x}_{0} \in \R  \) fixed. Then
+\begin{align*}
+    \frac{ d }{ dx } [(x - {x}_{0})^{k}] &= k (x - {x}_{0})^{k-1} \\
+    \frac{ d^{2} }{ d x^{2} } [(x- {x}_{0})^{k}] &= \frac{ d  }{  d x  }  [ k (x - {x}_{0})^{k-1}] = k (k - 1) (x - {x}_{0})^{k - 2} \\
+                                                 &\vdots \\
+    \frac{ d^{k }  }{  d x^{k } }  [(x - {x}_{0})^{k}] &= k (k -1)\cdots (1) (x - {x}_{0})^{k - k} = k!
+\end{align*}
+where 
+\[  \frac{ d^{j} }{  d x^{j } }  [(x - {x}_{j})^{k}] = k (k - 1) \cdots ( k - (j -1)) (x - {x}_{0})^{k - j}.   \]
+
+\subsection{Observation 2}
+\[ \frac{ d^{j} }{  d x^{j} } [(x - {x}_{0})^{k}] = 
+\begin{cases}
+    k (k-1) \cdots (k - j + 1) (x - {x}_{0})^{k - j} &\text{if} \ j < k \\
+    k! &\text{if} \ j = k \\
+    0 &\text{if} \ j > k 
+\end{cases} \]
+and
+\[ \frac{ d^{j} }{  d x^{j} } [(x - {x}_{0})^{k}] \Big|_{ x = {x}_{0}} = 
+\begin{cases}
+    0 &\text{if} \ j < k \\
+    k! &\text{if} \ j = k \\
+    0 &\text{if} j > k. 
+\end{cases} \]
+
+With these two observations, we will now prove the claim made in the corollary above. 
+
+\begin{proof}
+Here we will prove the claim for the case where \( x > {x}_{0} \). The proof for \( x < {x}_{0} \) is completely analogous. Let \( g: I \to \R  \) be defined by \( g(t) = (t - {x}_{0})^{n+1} \). Note that 
+\begin{align*}
+    g^{(k)}({x}_{0}) &= 0 \ \forall 0 \leq k \leq n \tag{for \( t \neq 0  \) \( g^{(k)(t)} \neq 0  \)} \\
+    g^{(n+1)}(t) &= (n + 1)! \ \forall t \in I. 
+\end{align*}
+Now, we apply GMVT to \( f  \) and \( g  \) on the interval \( [{x}_{0},x] \): Using the GMVT, we can find \( {x}_{1} \in ({x}_{0},x) \) such that 
+\[  \frac{ f'({x}_{1}) }{ g'({x}_{1}) }  = \frac{ f(x) - f({x}_{0}) }{  g(x) - g({x}_{0}) } \]
+and so 
+\[  \frac{ f'({x}_{1}) }{ g'({x}_{1}) } = \frac{ f(x) }{ g(x) }. \tag{I} \]
+Next, we apply GMVT to find \( f'  \) and \( g'  \) on the interval \( [{x}_{0}, {x}_{1}] \): Using the GMVT, we can find an \( {x}_{2} \in ({x}_{0}, {x}_{1}) \) such that 
+\[  \frac{ f"({x}_{2}) }{ g"({x}_{2}) }  = \frac{ f'({x}_{1}) - f'({x}_{0}) }{  g'({x}_{1}) - g'({x}_{0}) } \underbrace{=}_{f'({x}_{0})=0, g'({x}_{0}) = 0} \frac{ f'({x}_{1}) }{  g'({x}_{1}) }  \underbrace{=}_{(I)} = \frac{ f(x) }{ g(x) }.  \]
+Continuing in this manner, we will obtain \( {x}_{n+1} \in ({x}_{0}, x)  \) such that 
+\[  \frac{ f^{(n+1)}({x}_{n+1}) }{ g^{(n+1)}({x}_{n+1}) }  = \frac{ f(x) }{  g(x) } \]
+and so,
+\[  \frac{ f^{(n+1)}({x}_{n+1})  }{ (n+1)! }  = \frac{ f(x) }{  (x - {x}_{0})^{n+1} }.  \]
+Thus, 
+\[  f(x) = \frac{ f^{(n+1)}({x}_{n+1}) }{ (n+1)! } (x - {x}_{0})^{n+1} \]
+\end{proof}
+
+What are the nicest functions that we know? Which functions are easiest to work with? Polynomials! Another question that we would like to answer is:
+\begin{center}
+    Given a function \( f \), is it possible to find a "good" approximation for \( f  \) among polynomials?
+\end{center}
+
+To understand the situation a bit better, we break the questions asked above in the following three questions:
+\begin{itemize}
+    \item Does there exist a polynomial \( p(x) \) such that 
+        \begin{align*}
+            p({x}_{0}) &= f({x}_{0}) \\
+            p'({x}_{0}) &= f'({x}_{0}) \\
+                        &\vdots \\
+            p^{(n)}({x}_{0}) &= f^{(n)}({x}_{0}).
+        \end{align*}
+        That is, does there exist a polynomial \( p(x) \) that agrees with \( f  \) to order \( n  \) at \( {x}_{0} \).
+    \item If such a polynomial \( p(x) \) exists, how can we find it? 
+    \item Suppose we use \( p(x) \) as an approximation of \( f(x) \) near \( {x}_{0}  \); how good is this approximation? What can be said about the error?  
+\end{itemize}
+
+\begin{remark}
+    \begin{enumerate}
+        \item[(i)] Number of equations to be satisfied by \( p(x) \) is \( n + 1  \).
+        \item[(ii)] Also note that a polynomial in \( {\P}_{n} \) can be represented as \( {c}_{0} + {c}_{2} x + \cdots + {c}_{n} x^{n} \) (we have \( n + 1  \) coefficients).  
+    \end{enumerate}
+    From (i) and (ii), it seems reasonable to expect that we might be able to find a polynomial \( p(x) \) in \( {\P}_{n} \) that satisfies all the equations. 
+\end{remark}
+
+\subsection{Answers to Q1 and Q2}
+
+There is a \textbf{unique} polynomial in \( {\P}_{n} \) that agrees with \( f(x) \) to order \( n  \) at \( {x}_{0} \in I  \) in the sense that 
+\begin{align*}
+    p({x}_{0}) &= f({x}_{0} ) \\
+               &\vdots \\
+    p^{(n)}({x}_{0}) &= f^{(n)}({x}_{0}).
+\end{align*}
+This polynomial can be denoted by 
+\[  {T}_{n, {x}_{0}}  (x)\]
+which is the \textbf{\( n \)th Taylor Polynomial of \( f  \) centered at \( {x}_{0} \)}. Moreover, we have   
+\begin{align*}
+    {T}_{n,{x}_{0}}(x)  &= f({x}_{0}) _ f'({x}_{0}) (x - {x}_{0}) + \frac{ f''({x}_{0}) }{ 2!  } (x - {x}_{0})^{2} + \cdots + \frac{ f^{(n)({x}_{0}) } }{ n!  } (x - {x}_{0})^{n}   \\
+                        &= \sum_{ k= 0  }^{ n } \frac{ f^{(k)}({x}_{0}) }{ k !  }  (x - {x}_{0})^{k}.
+\end{align*}
+
+\subsection{Proof of our Observation}
+
+\begin{proof}
+Let \( p(x) \) be a general polynomial of degree at most \( n \):
+\[  p(x) = {c}_{0} + {c}_{1} (x - {x}_{0}) + \cdots + {c}_{n} (x - {x}_{0})^{n}. \]
+Our goal is to show that if \( p^{(\ell)}({x}_{0}) = f^{(\ell)}({x}_{0}) \), then
+\[  p(x) = \sum_{ k= 0  }^{ n } \frac{ f^{(k)}({x}_{0}) }{  k!  }  (x - {x}_{0} )^{k} \forall a \leq  \ell \leq n.  \]
+Note that \( p({x}_{0}) = {c}_{0} \). Also, for \( 1 \leq \ell \leq n  \), we have
+\begin{align*}
+    p^{(\ell)} &= \frac{ d^{\ell} }{ d x^{\ell} }  \Big[ {c}_{0} + \sum_{ k=1  }^{ n } {c}_{k } (x - {x}_{0})^{k } \Big] \\
+               &= \frac{ d^{\ell} }{ d x^{\ell} }  \Big[ \sum_{ k=1  }^{ n } {c}_{k } (x - {x}_{0})^{k} \Big] \\
+               &= \sum_{ k=1  }^{ n } {c}_{k} \frac{ d^{\ell} }{ d x^{\ell} }  [(x - {x}_{0})^{k }].
+\end{align*}
+Hence, we have 
+\[  p^{(\ell)}({x}_{0}) = \sum_{ k=1  }^{ n } {c}_{k } \frac{ d^{\ell} }{ d x^{\ell} }  [(x - {x}_{0})^{k}] \Big|_{x = {x}_{0}} = {c}_{\ell} \ell!  \ .  \]
+Therefore, 
+\[  \forall 1 \leq \ell \leq n \ \ p^{(\ell)} ({x}_{0}) = {c}_{\ell} \ell!  \ .\]
+We see that \( p \) agrees with \( f  \) to order \( n \) at \( {x}_{0} \) if and only if \( p({x}_{0}) = f({x}_{0}) \) and \( p^{(\ell)}({x}_{0}) = f^{(\ell) ({x}_{0})}  \) for all \( 1 \leq \ell \leq n  \). This is true if and only if
+\begin{align*}
+    {c}_{0} &= f({x}_{0}) \\
+    \ell ! {c}_{\ell} = f^{(\ell)}({x}_{0}) \forall 1 \leq \ell \leq n. 
+\end{align*}
+Furthermore, this is true if and only if   
+\begin{align*}
+    {c}_{0} &= f({x}_{0}) \\
+    {c}_{\ell} &= \frac{ f^{(\ell)({x}_{0})}  }{ \ell!  } \forall 1 \leq \ell \leq n. 
+\end{align*}
+That is,
+\begin{align*}
+    p(x) &= \sum_{ k=0  }^{ n } {c}_{k } (x - {x}_{0})^{k } = {c}_{0} + \sum_{ k=1  }^{ n } \frac{ f^{(k)}({x}_{0}) }{ k!  } (x - {x}_{0})^{k} \\
+         &= f({x}_{0}) + \sum_{ k=1  }^{ n } \frac{ f^{(k)}({x}_{0}) }{ k!  } (x - {x}_{0})^{k} \\
+         &= \sum_{ k= 0  }^{  n  } \frac{ f^{(k)}({x}_{0} ) }{ k!  } (x - {x}_{0})^{k}.
+\end{align*}
+\end{proof}

@@ -1,7 +1,3 @@
-% \documentclass[a4paper]{article}
-% \input{../../../../../../newpreamble.tex}
-% \begin{document}
-
 \section{Lecture 1}
 
 \subsection{Topics}
@@ -11,6 +7,16 @@
     \item Continuity and Differentiability
     \item Differentiability Rules
 \end{itemize}
+
+\subsection{The Derivative}
+
+We will also discuss several useful theorems, including: 
+
+\begin{enumerate}
+    \item[(*)] Darboux's Theorem
+    \item[(*)] Mean Value Theorem
+    \item[(*)] L'Hopital's Rule
+\end{enumerate}
 
 \begin{definition}[Differentiability]
     \begin{enumerate}
@@ -23,6 +29,7 @@
     \end{enumerate}
 \end{definition}
 
+
 \begin{remark}
     The following are equivalent characterizations of the differentiability:
     \begin{align*}
@@ -32,6 +39,42 @@
                   &\iff \lim_{ h \to 0 }  \frac{ f(c+h) - f(c) }{  h  }  = L 
     \end{align*}
 \end{remark}
+
+\begin{eg}
+    Let \( I \subseteq  \R   \) be an interval and \( f: I \to \R  \) be given by \( f(x) = x^{2} \). Prove that \( f  \) is differentiable on \( I  \) and find the derivative. 
+
+    For all \( c \in I  \), 
+    \begin{align*} 
+        \lim_{ x \to c  }  \frac{ f(x) - f(c) }{ x - c  } = \lim_{ x \to c  }  \frac{ x^{2} - c^{2} }{  x - c  }  &= \lim_{ x \to c  }  \frac{ (x - c ) (x + c) }{  x - c  }  =  x + c  \\
+                                                                                                                  &= \lim_{ x \to c } (x + c) = 2c
+    \end{align*}
+    So, for all \( c \in I  \) \( f'(c) = 2c  \). Hence, \( f': I \to \R  \) and so \( f'(x) = 2x  \) for all \( x \in  I \).
+\end{eg}
+
+In this example, we used the continuity of the polynomial \( x + c  \) to get the final equality. Next, we prove a more general result.
+
+\begin{eg}
+    Let \( I \subseteq  \R  \) be an interval and \( f: I \to \R  \) be given by \( f(x) = x^{n} \), where \( n \in \N  \), \( n \geq 3  \). Prove that \( f  \) is differentiable on \( I  \) and find the derivative.   
+    \begin{align*}
+        \lim_{ x \to c  }  \frac{ f(x) - f(c) }{ x - c  }  &= \lim_{ x \to c  }  \frac{ x^{n} - c^{n}  }{  x - c  }  = \lim_{ x \to c  }  \frac{ (x - c ) (x^{n-1} + c x^{n-2 } + \cdots + c^{n-1}) }{  x  -c  }  \\
+                                                           &= \lim_{ x \to c  }  [x^{n-1} + c x^{n-2 } + \cdots  + c^{n-1} ] \\
+                                                           &= c^{n-1 } + c^{n-1} + \cdots + c^{n-1} \\
+                                                           &= n c^{n-1}.
+    \end{align*}
+    So, for all \( c \in I  \), \( f'(c) = n c^{n-1} \). Hence, \( f': I \to \R  \) where \( f'(x) = n x^{n-1 } \).
+\end{eg}
+
+\begin{eg}[Continuity does NOT imply differentiability]
+Prove that \( f: \R \to \R  \), \( f(x) = | x  |  \) is NOT differentiable at \( c = 0  \). Indeed, we just need to show that the limit
+\[  \lim_{ x \to 0  }  \frac{ f(x) - f(0) }{ x - 0  }   \]
+does not exist. Note that 
+\[  \frac{ f(x) - f(0) }{ x - 0 }  = \frac{ | x  |  - | 0  |  }{ x - 0  } = \frac{ | x  |  }{ x  }. \]
+Let \( g(x) = \frac{ | x  |  }{ x  }  \). Our goal is to show that \( \lim_{ x \to 0  } g(x) \) does NOT exist. By the sequential criterion for limits of functions, it suffices to find two sequences \( ({a}_{n}) \) and \( ({b}_{n}) \) in \( \R \setminus  \{  0  \}  \) such that \( {a}_{n} \to 0  \) and \( {b}_{n} \to 0  \) but \( \lim_{ n \to \infty  }  g({a}_{n}) \neq \lim_{ n \to \infty  }  g({b}_{n}) \). Let \( {a}_{n}= \frac{ -1  }{ n }  \) and \( {b}_{n} = \frac{ 1 }{ n }  \). Clearly, \( {a}_{n} \to 0  \) and \( {b}_{n} \to 0  \). Hence, 
+\[  \lim_{ n \to \infty  }  g({a}_{n}) = \lim_{ n \to \infty  }  \frac{ | {a}_{n} |  }{ {a}_{n} }  = \lim_{ n \to \infty  }  \frac{ | \frac{ -1 }{ n }  |  }{ \frac{ -1 }{ n }  } = 1  \]
+and
+\[  \lim_{ n \to \infty  }  g({b}_{n}) = \lim_{ n \to \infty  }  \frac{ | {b}_{n} |   }{ {b}_{n}  } = 1.  \]
+\end{eg}
+
 
 \begin{theorem}[Differentiability Implies Continuous]
     Let \( I \subseteq  \R  \), \( c \in I  \), and \( f: I \to \R  \) is differentiable at \( c  \). Then \( f \) is continuous at \( c  \).
@@ -111,276 +154,4 @@ So, we have
     \end{enumerate} 
 \end{theorem}
 
-\begin{theorem}[Chain Rule]
-    Let \( {I}_{1} \subseteq  \R  \) and \( {I}_{2} \subseteq  \R   \) be two intervals, \( f: {I}_{1} \to \R  \) and \( g : {I}_{2} \to \R  \) be two functions, \( f({I}_{1}) \subseteq  {I}_{2} \), \( f \) is differentiable at \( c \in {I}_{1} \) and \( g  \) is differentiable at \( f(c) \in {I}_{2} \). Then the function \( g \circ f : {I}_{1} \to \R  \) is differentiable at \( c \in {I}_{1} \) and 
-    \[  (g \circ f)'(c) = g'(f(c)) \cdot f'(c). \]
-\end{theorem}
-First, we will prove the theorem incorrectly and then show give three criterion to prove the theorem correctly.  
-
-\begin{proof}
-Observe that 
-\begin{align*}
-    \lim_{ x \to c  }  \frac{ (g \circ f)(x) - (g \circ f)(c) }{x - c } &= \lim_{ x \to c  }  \frac{ g(f(x)) - g(f(c)) }{  x - c  }  \\
-                                                                        &= \lim_{ x \to c  }  \Big[ \frac{ g(f(x)) - g(f(c)) }{  f(x) - f(c) } \cdot \frac{ f(x) - f(c) }{  x - c   } \Big] \\
-                                                                        &= \underbrace{\Big[ \lim_{ x \to c  }  \frac{ g(f(x)) - g(f(c)) }{  f(x) - f(c) } \Big]}_{g'(f(c))} \underbrace{\Big[ \lim_{ x \to c  }  \frac{ f(x)  - f(c) }{  x - c  } \Big]}_{f'(c)} \\
-\end{align*}
-\end{proof}
-What is the problem with this proof? By the definition of a limit of a function, when you take \( \lim_{ x \to c  }  \), it is guaranteed that \( x - c \neq 0   \); however, for \( x  \) close to \( c  \) (as \( x  \) approaches to \( c  \)), \( f(x)- f(c) \) might be zero, so dividing by \( f(x) - f(c) \) is not legitimate. The following proof fixes this issue by introducing a new function \( d(f(x)) \) which is defined by
-\begin{enumerate}
-    \item[(i)] \( d(f(x)) \displaystyle \frac{ g(f(x)) - g(f(c)) }{  f(x) - f(c) }    \) when \( f(x) \neq f(c) \) 
-    \item[(ii)] \( d(f(x))  \) is defined even when \( f(x) = f(c) \)  
-    \item[(iii)] \( \displaystyle d(f(x)) \cdot \frac{ f(x) - f(c) }{  x - c  }  = \frac{ g(f(x)) - g(f(c)) }{  x - c  }   \) for all \( x \in {I}_{\kappa} \) where \( x \neq c   \).
-\end{enumerate}
-
-\begin{proof}
-Let \( d: {I}_{2} \to \R  \) be defined by 
-\[  d(y) = 
-\begin{cases}
-    \frac{ g(y) - g(f(c)) }{ y - f(c) }  &\text{if} \ y \neq f(c) \\
-    \lim_{ y \to f(c) } \frac{ g(y) - g(f(c)) }{  y - f(c) }  = g'(f(c)) &\text{if} \ y = f(c)
-\end{cases}. \]
-Note that this function satisfies the requirements in (i) and (ii) outlined above. We make the following observations: 
-\begin{enumerate}
-    \item[(1)] \( d  \) is continuous at \( f(c) \). Indeed, we can see that 
-        \[  \lim_{ y \to f(c) }  d(y) = \lim_{ y  \to  f(c) }  \frac{ g(y) - g(f(c)) }{ y - f(c) }  = d(f(c)). \]
-    \item[(2)] For all \( x \in {I}_{1} \) and \( x \neq c  \), we have 
-        \[  d(f(x)) \cdot \frac{ f(x) - f(c) }{  x -c  }  = \frac{ g(f(x)) - g(f(c))  }{  x - c  }. \tag{*}  \]
-        We will show that this holds by considering two cases; either \( f(x) \neq f(c) \) or \( f(x) = f(c) \). If \( f(x) \neq f(c) \), then
-        \[  \text{LHS} = d(f(x))\cdot \frac{ f(x) - f(c) }{ x - c  } = \frac{ g(f(x)) - g(f(c)) }{  f(x) - f(c) }  \cdot \frac{ f(x) - f(c) }{  x - c  } = \frac{ g(f(x)) - g(f(c))  }{  x - c  }  = \text{RHS}.    \]
-        Now, suppose \( f(x) = f(c) \). Then we have 
-        \begin{align*}
-            \text{LHS} &= d(f(x)) \cdot \frac{ f(x) - f(c) }{  x - c  }  = d(f(c)) \cdot \frac{ f(x) - f(c) }{ x - c  }  = g'(f(c)) \cdot \frac{ 0  }{ x -c  }  = 0  \\
-            \text{RHS} &= \frac{ g(f(x)) - g(f(c)) }{  x - c  }  = \frac{ g(f(c)) - g(f(c)) }{ x - c  }  = \frac{ 0  }{ x -c  }   =0.
-        \end{align*}
-        Thus, we see that the left hand side equals the right hand side of (*).
-\end{enumerate}
-Now, note that since \( f  \) is continuous at \( c  \) and \( d \) is continuous at \( f(c) \), their composition \( d \circ f  \) is continuous at \( c  \) and so,
-\[  \lim_{ x \to c  }  (d \circ f)(x) = (d \circ f)(c). \]
-
-\begin{align*}
-    &\lim_{ x \to c  } \frac{ (g \circ f)(x) - (g \circ f)(c) }{ x - c  } = \lim_{ x \to c  }  \frac{ g(f(x)) - g(f(c)) }{ x - c  }  \\
-                                            &= \Big[ \lim_{ x  \to c  }  (d \circ f ) (x) \Big] \cdot \Big[ \lim_{ x \to  c  }  \frac{ f(x) - f(c) }{  x - c  } \Big] \\
-                                            &= [(d \circ f)(c)] \cdot f'(c) \\
-                                            &= [d(f(c))] \cdot f'(c) \\
-                                            &= g'(f(c)) \cdot f'(c).
-\end{align*}
-\end{proof}
-
-\section{Lecture 2-4}
-
-\subsection{Topics}
-
-\begin{enumerate}
-    \item[(1)] Local Maxima and minima
-    \item[(2)] Interior Extremum Theorem (Theorem 5.8)
-    \item[(3)] Darboux's Theorem (Theorem 5.12)
-    \item[(4)] Some observations
-    \item[(5)] Rolle's Theorem
-    \item[(6)] Mean Value Theorem
-\end{enumerate}
-
-\begin{theorem}[Interior Extremum Theorem]\label{Theorem 5.8}
-    Let \( I \subseteq  \R   \) be an interval and \( f : I \to \R  \). Suppose \( c  \) is an interior point of \( I  \) and \( f  \) is differentiable at \( c  \). Then
-    \begin{enumerate}
-        \item[(1)] If \( f  \) has a local max at \( c  \), then \( f'(c)  = 0 \);
-        \item[(2)] If \( f  \) has a local min at \( c  \), then \( f'(c) = 0  \).
-    \end{enumerate}
-\end{theorem}
-
-Before we prove this theorem, we will first go over an important lemma that is used in the main proof. 
-
-\begin{lemma}
-    Suppose \( \lim_{ x \to c  }  g(x)  \) and \( \lim_{ x \to c  }  h(x) \) both exist. 
-    \begin{enumerate}
-        \item[(1)] If there exists \( \delta > 0  \) such that \( h(x) \leq g(x) \) for all \( x \in (c -  \delta, c ) \), then \( \lim_{ x \to c  }  h(x) \leq \lim_{ x \to c  }  g(x) \).
-        \item[(2)] If there exists \( \delta > 0  \) such that \( h(x) \leq g(x) \) for all \( x \in (c , c + \delta) \), then \( \lim_{ x \to c  }  h(x) \leq \lim_{ x \to c  }  g(x) \).
-    \end{enumerate}
-\end{lemma}
-\begin{proof}
-Here we will prove (1). The proof of (2) is analogous. Let \( ({a}_{n}) \) be a sequence in \( (c - \delta, c) \) such that \( {a}_{n} \to c  \). By the Sequential Criterion for limits of functions, we have \( {a}_{n} \to c  \) implies
-\( \lim_{ n \to \infty  }  g({a}_{n}) = \lim_{ x \to c  }  g(x) \) and \( \lim_{ n \to \infty \infty   } h({a}_{n}) = \lim_{ x \to c  }  h(x) \). Also, note that from the Order Limit Theorem for sequences, we can see that   
-\begin{align*}
-    \forall n \ {a}_{n} \in (c - \delta, c ) &\implies \forall n \ h({a}_{n}) \leq g({a}_{n}) \\
-                                             &\implies \lim_{ n \to \infty  }  h({a}_{n}) \leq \lim_{ n \to \infty  }  g({a}_{n}).
-\end{align*}
-Hence, we can see from these two observations that 
-\[  \lim_{ x \to c  }  h(x) \leq \lim_{ x \to c  }  g(x). \]
-\end{proof}
-
-\subsection{Proof of the Interior Extremum Theorem}
-
-\begin{proof}
-Here we will prove (1). Suppose \( f \) has a local max at \( c  \). Then
-\begin{itemize}
-    \item If \( f  \) has a local max at \( c  \), then there exists \( {\delta}_{1} > 0  \) such that for all \( x \in (c - {\delta}_{1}, c + {\delta}_{1}) \cap I  \) \( f(x) \leq f(c) \).
-    \item If \( c  \) is an interior point of \( I  \), then there exists \( {\delta}_{2} > 0  \) such that \( (c - {\delta}_{2}, c + {\delta}_{2}) \subseteq  I  \). So, if we let \( \delta = \min \{ {\delta}_{1}, {\delta}_{2} \}  \), then
-        \[  \forall x \in (c - \delta, c + \delta )  \ \ f(x) \leq f(c). \]
-\end{itemize}
-We have 
-\begin{enumerate}
-    \item[(I)] For all \( x \in (c - \delta , c ) \), we see that \( x - c < 0  \) and \( f(x) \leq f(c) \) implies that 
-        \[  \frac{ f(x) - f(c) }{ x - c  } \geq 0. \]
-        By the Order Limit Theorem for functions, we have 
-        \[  \lim_{ x \to c  }  \frac{ f(x) - f(c) }{ x - c  }  \geq \lim_{ x \to c  } 0 \implies f'(c) \geq 0.  \]
-    \item[(II)] For all \( x \in (c, c + \delta) \). Since \( x - c > 0  \) and \( f(x) \leq f(c) \), we have 
-        \[  \frac{ f(x) - f(c) }{ x - c  }  \leq 0.  \]
-        Using the Order Limit Theorem again, we have 
-        \[ \lim_{ x \to c  } \frac{ f(x) - f(c) }{  x-  c  }  \leq \lim_{ x \to c  }  0 \implies f'(c) \leq 0.   \]
-\end{enumerate}
-From (I) and (II), we can see that \( f'(c) \leq 0  \) and \( f'(c) \geq 0  \). Thus, \( f'(c) = 0  \).
-\end{proof}
-
-\begin{theorem}[Darboux's Theorem]
-    Let \( f: [a,b] \to \R  \) be differentiable and \( f'(a) < f'(b) \) (or \( f'(b) < f'(a) \)). Let \( \alpha \in \R  \) be such that \( f'(a) < \alpha < f'(b)  \) (or \( f'(b) < \alpha < f'(a) \)). Then there exists \( c \in (a,b) \) such that \( f'(c) = \alpha \).
-\end{theorem}
-\begin{proof}
-    Let \( g:[a,b] \to \R  \) be defined by \( g(x) = f(x) - \alpha x  \). It follows from the Algebraic Differentiability Theorem that \( g  \) is differentiable on \( [a,b] \) and so it is continuous on \( [a,b] \). It suffices to show that there is a point \( c \in (a,b) \) such that \( g'(c) = 0 \). To this end, it is enough to show that there exists a point \( c \in (a,b) \) at which \( g  \) has a local min. Since \( g  \) is continuous on \( [a,b] \) and \( [a,b]  \) is compact, \( g  \) attains its minimum on \( [a,b] \). Let \( \hat{c} \) be a point at which \( g  \) attains a minimum. IN what follows we will show that \( \hat{c} \in (a,b) \) and so it can be used as the same \( c  \) that we were looking for. Note that  
-    \begin{align*}
-        g'(a) = f'(a) - \alpha &<  0 \\
-        g'(b) = f'(b) - \alpha > 0. 
-    \end{align*}
-    We make two claims; namely, \( \hat{c} \neq a  \) (\( \hat{c}  \) cannot be the left-endpoint of \( [a,b] \)) and \( \hat{c} \neq b  \) (the right-endpoint of \( [a,b] \)). Suppose for contradiction that \( \hat{c}= a  \). Then for all \( x \in [a,b] \) \( g(x) \geq g(a) \). So, for all \( x \in (a,b) \), we have \( g(x) - g(a) \geq 0  \) and \( x - a > 0  \). Thus, for all \( x \in (a,b) \)
-    \[  \frac{ g(x) - g(a) }{ x - a  }  \geq 0.  \]
-    Thus, 
-    \[  \lim_{ x \to a }  \geq \frac{ g(x) - g(a) }{  x - a  }  \geq 0 \implies \lim_{ x \to a  }  0.   \]
-    That is, \( g'(a) \geq 0  \). This contradicts the fact that \( g'(a) < 0 \) and this proves the first claim.
-    A similar argument shows that \( g'(b) \leq 0  \), contradicting the fact that \( g'(b) > 0  \).
-\end{proof}
-
-\begin{theorem}[Rolle's Theorem]
-    Let \( f: [a,b] \to \R  \) be continuous, let \( f  \) be differentiable on \( (a,b) \), and \( f(a) = f(b) \). Then there exists a point \( c \in (a,b) \) such that \( f'(c) = 0  \). 
-\end{theorem}
-
-\begin{proof}
-    It suffices to show that there exists a point \( c \in (a,b)  \) for which \( f  \) has a local max or a local min. Since \( f  \) is continuous on \( [a,b] \) and \( [a,b]  \) is compact, we see that \( f  \) must attain its max and min on \( [a,b] \). Thus, we may consider two cases; namely, both \( \max f  \) and \( \min f  \) occur at the endpoints and or they occur in the interior of \( [a,b] \). Considering the first case, we see that from the fact that \( f(a) = f(b) \) that   
-    \[  \max_{a \leq x \leq b } f(x) = \min_{a \leq x \leq b } f(x). \]
-    Hence, \( f \) must be constant on \( [a,b] \) and so, 
-    \[  \forall  x \in [a,b] \ \ f'(x) = 0.  \]
-    In this case, we can choose \( c  \) to be any point we like in \( (a,b) \).  
-
-    Now, assume the second case. Using the Interior Extremum Theorem, we have \( f'(c) = 0  \) and this concludes the proof.  
-\end{proof}
-
-\begin{theorem}[Mean Value Theorem]
-    Let \( f: [a,b] \to \R  \) be a continuous function and \( f  \) is differentiable in \( (a,b) \). Then there exists a \( c \in (a,b)  \) such that 
-    \[  f'(c) = \frac{ f(b) - f(a) }{  b - a  }. \]
-\end{theorem}
-\begin{proof}
-    Let \( g:[a,b] \to \R  \) be defined by
-    \[  g(x) = f(x) - \frac{ f(b) - f(a)  }{  b - a  }  x.  \]
-    By the Algebraic Continuity Theorem, \( g  \) must be continuous on \( [a,b] \). Also, the Algebraic Differentiability Theorem implies that \( g  \) is differentiable on \( (a,b) \). Then we have  
-    \[  g(a) = f(a) - \frac{ f(b) - f(a) }{  b -a  } = \frac{ b f(a) - a f(a) + a f(a)  }{  b - a  }  = \frac{ bf(a) - a f(b)  }{  b - a  }  \]
-    and 
-    \[  g(b) = f(b) - \frac{ f(b) - f(a) }{ b - a  } b = \frac{ b f(a) - a f(b) - b f(b) + b f(a) }{  b -a   }  = \frac{ b f(a) - a f(b)  }{  b -a  }. \]
-    Using Rolle's Theorem, it follows that 
-    \[  \exists c \in (a,b) \ \ g'(c) = 0.  \]
-    Note that 
-    \[  g'(x) = f'(x) - \frac{ f(b) - f(a) }{ b - a  }. \]
-    Thus, 
-    \[  g'(c) = 0  \iff f'(c) - \frac{ f(b) - f(a) }{  b -a  }  = 0  \iff f'(c) = \frac{ f(b) -f(a)  }{ b - a  }. \]
-\end{proof}  
-
-\begin{theorem}[Generalized Mean Value Theorem]
-    Let \( f: [a,b] \to \R  \) and \( g : [a,b] \to \R  \) are continuous functions and suppose \( f  \) and \( g  \) are differentiable in \( (a,b) \). Then there exists a point \( c \in (a,b) \) such that 
-    \[  f'(c) [g(b) - g(a)] = g'(c) [f(b) - f(a)]. \]
-\end{theorem}
-\begin{proof}
-    \textbf{See proof in hw1.}
-\end{proof}
-
-\begin{remark}
-    Note that, if \( g'  \) is never zero in \( (a,b) \), then we may rewrite the claim of GMVT as follows:
-    \[  \exists c \in (a,b) \ \ \text{such that} \ \frac{ f'(c) }{  g'(c) } =  \frac{ f(b) - f(a) }{  g(b) - g(a) }. \]
-\end{remark}
-
-\begin{corollary}[Corollary 1]
-    Let \( I \subseteq  \R   \) be an interval, \( f : I \to \R  \) be diffferentiable, and \( f'(x) = 0  \) for all \( x \in I  \). Then \( f  \) is a constant function on \( I  \), that is, there exists \( k \in \R  \) such that for all \( x \in I  \), \( f(x) = k  \). 
-\end{corollary}
-
-\begin{proof}
-    Let \( x,y \in I  \) with \( x , y  \). It suffices to show that \( f(x) = f(y) \). To this end, we will apply the MVT to \( f  \) on the interval \( [x,y] \). By the Mean Value Theorem, there exists a \( c \in (x,y) \) such that 
-    \[  f'(c) = \frac{ f(y) - f(x)  }{  y - x  }. \]
-    Since \( f'(x) = 0  \) for all \( x \in I  \), we have \( f'(c) = 0  \) and so
-    \begin{align*}
-        0 = \frac{ f(y) - f(x) }{  y - x  }  &\implies 0 = f(y) - f(x)   \\
-                                             &\implies f(y) = f(x).
-    \end{align*}
-\end{proof}
-
-\begin{corollary}
-    Let \( I \subseteq  \R   \) is an interval, \( f: I \to \R  \) and \( g: I \to \R  \) are differentiable, and \( f'(x) = g'(x) \) for all \( x \in I  \). Then there exists \( k \in \R  \) such that for all \( x \in I  \), \( f(x) = g(x) + k  \).
-\end{corollary}
-
-\begin{proof}
-Let \( h = f - g  \). We have 
-\[  \forall x \in I \ \ h'(x) = (f - g )'(x) = f'(x) - g'(x) = 0.  \]
-Using Corollary 1, we have  
-\[  \exists k \in \R \ \text{such that} \ \forall x \in I \ h(x) = k.  \]
-Hence, we have 
-\[  \exists k \in \R \  \text{such that} \ \forall x \in I \ f(x) - g(x) = k  \]
-and so \( f(x) = g(x) + k  \) as desired.
-\end{proof}
-
-\begin{theorem}[Parts (a) and (c)]
-   Let \( I \subseteq \R   \) is an interval and suppose \( f : I \to \R  \) is differentiable. Then 
-   \begin{enumerate}
-       \item[(1)] \( f  \) is increasing on \( I  \) if and only if \( \forall c \in I  \) \( f'(c) \geq 0  \).
-        \item[(2)] \( f  \) is decreasing on \( I  \) if and only if \( c \in I   \) \( f'(c) \leq 0  \).
-   \end{enumerate}
-\end{theorem}
-\begin{proof}
-Here we will prove (1). The proof of (2) is similar. 
-\( (\Longrightarrow) \) Let \( f  \) be increasing on \( I  \). Let \( c \in I  \). Note that for all \( x \in I  \) with \( x \neq c  \). Then we have 
-\[  \frac{ f(x) - f(c) }{ x - c  }  \geq 0.  \]
-Indeed, we can see that if \( x > c  \), then \( x - c > 0  \) and \( f(x) \geq f(c) \). Thus, we have that 
-\[  \frac{ f(x) - f(c) }{ x - c  }  \geq 0.  \]
-If \( x < c  \), then \( x - c < 0  \) and \( f(x) \leq f(c) \). Then 
-\[  \frac{ f(x) - f(c) }{ x -c  }  \geq 0. \]
-It follows from the Order Limit Theorem that 
-\[  \lim_{ x \to c  }  \frac{ f(x) - f(c) }{  x-  c  }  \geq \lim_{ x \to c  }  0  = 0. \]
-Hence, \( f'(c) \geq 0 \) as desired.
-
-\( \Longleftarrow \) Suppose for all \( c \in I  \), \( f'(c) \geq 0  \). To show that \( f  \) is increasing on \( I  \), we need to show that for all \( {x}_{1}, {x}_{2} \in I   \) with \( {x}_{1} < {x}_{2} \). It suffices to show that \( f({x}_{1}) \leq f({x}_{2}) \). To this end, we will apply the Mean Value Theorem to the function \( f  \) on \( [{x}_{1}, {x}_{2}] \). That is, there exists a \( c \in ({x}_{1}, {x}_{2}) \) such that 
-\[  f'(c) = \frac{ f({x}_{2})- f({x}_{1}) }{  {x}_{2} - {x}_{1} }. \]
-Thus, 
-\[  f({x}_{2}) - f({x}_{1}) = f'(c) ({x}_{2} - {x}_{1}). \]
-Since \( f'(c) \geq 0  \) and \( {x}_{2} - {x}_{1} \geq 0  \), we can see that 
-\[  f({x}_{2}) \geq f({x}_{1}) \]
-as desired.
-\end{proof}
-
-\begin{theorem}[L'Hopital's Rule]
-    Let \( I \subseteq  \R   \) be an interval, \( a \in I  \), and \( f: I \to \R  \) and \( g: I \to \R  \) are continuous functions. Suppose \( f  \) and \( g  \) are differentiable at all points in \( I \setminus  \{  a  \}  \) with \( f(a) = g(a) = 0  \) and 
-    \[  \lim_{ x \to a }  \frac{ f'(x) }{ g'(x) }  = L \in \R.  \]
-    Then 
-    \[  \lim_{ x \to a }  \frac{ f(x) }{ g(x) }  = L. \]
-\end{theorem}
-\begin{proof}
-Our goal is to show that 
-\[  \forall \epsilon > 0 \ \exists \delta > 0 \ \text{such that if} \ 0 < | x - c  | < \delta \ \text{with (\( x \in I \)) then} \ \Big| \frac{ f(x) }{  g(x) }  - L  \Big|  < \epsilon. \tag{*} \]
-Let \( \epsilon > 0  \) be given. Since, by assumption,  
-\[  \lim_{ x \to a }  \frac{ f'(x) }{  g'(x) }  = L,  \]
-for the given \( \epsilon > 0  \), there exists \( \hat{\delta} > 0 \) such that if \( 0 < |  x - a  |  < \hat{\delta} \) (with \( x \in I  \), then
-\[  \Big| \frac{ f'(x) }{ g'(x) }  - L  \Big| < \epsilon. \]
-We claim that this \( \hat{\delta} \) works as the \( \delta  \) we were looking for. Indeed, if we let \( \delta = \hat{\delta} \), then (*) will hold. The reason is as follows: suppose \( x \in I  \) and \(  0 < |  x - a  |  < \delta \). In what follows, we will show that  
-\[  \Big| \frac{ f(x) }{ g(x) }  - L  \Big|  < \epsilon. \]
-We may consider the following cases:
-\begin{enumerate}
-    \item[(1)] (\( x > a  \)) (that is, \( x \in I  \) and \( x \in (a, a + \hat{\delta}) \)). We apply the Generalized Mean Value Theorem to \( f  \) and \( g  \) on the interval \( [a,x] \). That is,  
-        \[  \exists c \in (a,x) \ \text{such that} \ \frac{ f'(c) }{ g'(c) }  = \frac{ f(x) - f(a) }{  g(x) - g(a) }. \]
-        Since \( f(a) = g(a) = 0  \), we can conclude that 
-        \[  \frac{ f'(c) }{  g'(c) }  = \frac{ f(x) }{ g(x) }. \]
-        It follows that 
-        \[  \Big| \frac{ f(x) }{  g(x) }  - L  \Big|  = \Big| \frac{ f'(c) }{ g'(c) }  - L  \Big| < \epsilon. \]
-        Note that the latter inequality is true because \( 0 < |  c - a  |  \leq |  x - a  |  < \hat{\delta} \).
-    \item[(2)] (\( x < a  \)) (that is, \( x \in I  \) and \( x \in (a - \hat{\delta} , a ) \)) We apply the Generalized Mean Value Theorem to \( f  \) and \( g  \) on \( [x,a] \). That is, there exists \( c \in (x,a) \) such that  
-        \[  \frac{ f'(c) }{  g'(c) }  = \frac{ f(a) - f(x) }{  g(a) - g)x }  \]
-        and so,
-        \[  \frac{ f'(c) }{ g'(c) }  = \frac{ f(x) }{ g(x) }. \]
-        It follows that 
-        \[  \Big| \frac{ f(x) }{ g(x) }  - L  \Big|  = \Big| \frac{ f'(c) }{ g'(c) }  - L  \Big|  < \epsilon. \]
-        Note that the latter inequality is true because \( 0 < |  c- a  |  \leq |  x - a  |  < \hat{\delta}. \)
-
-\end{enumerate}
-\end{proof}
 

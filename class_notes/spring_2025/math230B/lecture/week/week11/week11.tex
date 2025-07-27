@@ -1,443 +1,62 @@
-\section{Topics}
+\section{Lecture 19}
+
+\subsection{Topics}
+
 \begin{itemize}
-    \item Lebesgue's Criterion for Riemann integrability
-    \item Functions of bounded variation
-    \item Holder Continuous functions
-    \item Absolutely Continuous Functions
-    \item Continuity and oscillation
+    \item Series of functions
+    \item Cauchy Criterion for Uniform Convergence of Series
+    \item Weiertstrass M-Test
 \end{itemize}
 
-\subsection{Lebesgue's Criterion for Riemann Integrability}
-
-\begin{theorem}[Lebesgue's Criterion for Riemann Integrability]
-    Let \( f: [a,b] \to \R   \) is bounded and \( D  \) is the set of points in \( [a,b] \) at which \( f  \) is discontinuous. Then 
-    \[  f \in R[a,b] \iff \text{\( D  \) has Lebesgue measure zero}. \]
-\end{theorem}
-
-What do we mean by the Lebesgue measure of a set? The simple answer is that the Lebesgue measure is the length of the set. The more complicated answer is that it is a generalization of the concept of length to more general subsets of \( \R  \). For instance, we can take about the Lebesgue Measure of the set of natural numbers or the Lebesgue measure of the set of rational numbers. 
-
-\begin{definition}[Lebesgue Measure Zero]
-    Let \( A  \) be a subset of \( \R  \). We say that \( A  \) has a \textbf{Lebesgue Measure Zero} if for every \( \epsilon > 0  \) there exists a sequence \( {I}_{1}, {I}_{2}, \dots  \) of open (possibly empty) intervals such that  
-    \begin{enumerate}
-        \item[(1)] \( A \subseteq  \bigcup_{ k = 1  }^{ \infty  }  {I}_{k } \)
-        \item[(2)] \( \displaystyle \sum_{ k=1  }^{ \infty  } \mu({I}_{k}) \leq \epsilon \).
-    \end{enumerate}
-\end{definition}
-
-\begin{eg}
-    Any singleton \( A = \{ s  \}   \) has Lebesgue measure zero. We need to show that for all \( \epsilon > 0  \), there exists a sequence of open interval \( {I}_{1}, {I}_{2}, \dots  \) such that  
-    \[  \{ s  \}  \subseteq  \bigcup_{ k=1  }^{ \infty }  {I}_{k } \ \text{and} \ \sum_{ k=1  }^{ \infty  } \mu ({I}_{k}) \leq \epsilon.    \]
-    Let \( \epsilon > 0  \) be given. Let \( {I}_{1} = \Big(  s - \frac{ \epsilon }{ 2 }  , s + \frac{ \epsilon }{ 2 }  \Big) \) and for all \( k > 1  \) and \( {I}_{k } = \emptyset  \). Clearly, we have \( s \in {I}_{1} \) and so 
-    \[  \{ s  \}  \subseteq  \bigcup_{ k=1  }^{ \infty  }  {I}_{k}. \]
-    Moreover, 
-    \[  \sum_{ k=1  }^{ \infty  } \mu({I}_{k}) = \mu({I}_{1}) + \mu({I}_{2}) + \mu({I}_{3}) + \cdots = \epsilon + 0 + 0 + \cdots \leq \epsilon. \]
-\end{eg}
-
-\begin{eg}
-   Any finite set \( A = \{  {s}_{1}, \dots, {s}_{n} \}   \) has Lebesgue measure zero. We need to show that for all \( \epsilon > 0  \), there exists a sequence of open intervals \( {I}_{1}, {I}_{2}, \dots  \) such that  
-   \begin{align*}
-       A &\subseteq  \bigcup_{ k=1  }^{ \infty  }  {I}_{k}; \\
-       \sum_{ k=1  }^{ \infty  } \mu({I}_{k}) &\leq \epsilon.
-   \end{align*}
-   Let \( \epsilon > 0  \) be given. Let 
-   \[  \forall 1 \leq k \leq n \ \ {I}_{k } = \Big(  {s}_{k } - \frac{ \epsilon }{ 2^{n} }  , {s}_{k } + \frac{ \epsilon }{ 2^{k} }  \Big) \]
-   and for all \(  k > n  \), \( {I}_{k } = \emptyset \). Immediately, we have 
-   \[  \forall 1 \leq k \leq n \ \ {s}_{ k } \in {I}_{k }. \]
-   Moreover,  
-   \begin{align*}
-   \sum_{ k=1  }^{ \infty  } \mu({I}_{k}) &= \mu({I}_{1}) + \cdots + \mu({I}_{n}) + \mu({I}_{n+1}) + \mu({I}_{n+2}) + \cdots    \\
-                            &= \frac{ \epsilon }{ n }  + \cdots + \frac{ \epsilon }{ n }  + 0 + 0 + \cdots \\ 
-                            &\leq \epsilon
-   \end{align*}
-\end{eg}
-
-\begin{eg}
-    Any countable set \( A = \{  {s}_{1}, {s}_{2}, \dots  \}   \) has Lebesgue measure zero. We need to show that 
-    \[  \forall \epsilon > 0 \  \exists \ \text{open intervals} \ \{ {I}_{k} \}_{k=1}^{\infty} \ \text{such that} \ A \subseteq \bigcup_{ k=1  }^{ \infty  }  {I}_{k } \ \text{and} \ \sum_{ k=1  }^{ \infty  }\mu({I}_{k}) \leq \epsilon.   \]
-
-    Let \( \epsilon > 0 \) be given. Let \( k \in \N  \) and 
-    \[  {I}_{k} = \Big(  {s}_{k } - \frac{ 1 }{ 2^{k+1} }  , {s}_{k} + \frac{ 1  }{ 2^{k+1} }  \Big) \]
-    where \( \mu({I}_{k})  = \frac{ 1 }{ 2^{k} } \). Clearly, we have \( {s}_{k} \in {I}_{k} \) and so 
-    \[  \{ {s}_{1}, {s}_{2}, \dots  \} \subseteq  \bigcup_{ k=1  }^{ \infty  }  {I}_{k}. \]
-    Moreover, 
-    \[  \sum_{ k=1  }^{ \infty  } \mu({I}_{k}) = \sum_{ k=1  }^{ \infty  } \frac{ \epsilon }{ 2^{k} }  = \epsilon \sum_{ k=1  }^{ \infty  } \frac{ 1 }{ 2^{k} } = \epsilon \leq \epsilon. \]
-\end{eg}
-
-The next question we would like to ask is that is there a way to generalize the notion of length of an interval? In a perfect world, we want to find a function \( \mu  \) such that  
-\begin{enumerate}
-    \item[(1)] \( \mu \) can be applied to any subset of \( \R  \);
-    \item[(2)] For every \( E \subseteq \R   \), \( 0 \leq \mu(E) \leq \infty  \);
-    \item[(3)] If \( y  \) is a fixed number, then \( \mu(E + y) = \mu(E) \);
-    \item[(4)] If \( {E}_{1}, {E}_{2}, \dots  \) are pointwise disjoint sets, 
-        \[  \mu \Big(  \bigcup_{ k=1  }^{ \infty  }  {E}_{k} \Big) = \sum_{ k=1  }^{ \infty  } \mu({E}_{k}). \]
-    \item[(5)] For any interval \( I  \), \( \mu(I) = \text{length of} \ I \).
-\end{enumerate}
-Unfortunately, there exists no such function \( \mu  \) such that it satisfies all the properties listed above. However, by removing the first requirement, we can find such a \( \mu  \).
-
-\begin{remark}[Integral on a General Bounded Set]
-    Let \( A  \) be a nonempty bounded set in \( \R  \). Let \( f: A \to \R  \) be a bounded function. Define \( \tilde{f} : \R \to \R  \) as follows: 
-    \[  \tilde{f}(x) = 
-    \begin{cases}
-        f(x) & x \in A  \\
-        0 & x \notin A 
-    \end{cases} \]
-    We say that \( f  \) is integrable on \( A  \) if any of the following equivalents holds: 
-    \begin{enumerate}
-        \item[(1)] \( \tilde{f} \Big|_{[a,b]} \) is in \( R([a,b]) \) where \( a = \inf A  \) and \( b = \sup A  \).
-        \item[(2)] There exists a closed and bounded interval \( I  \) containing \( A  \) such that \( \tilde{f} \Big|_{I} \) is in \( R(I) \).
-        \item[(3)] For every closed and bounded interval \( I  \) containing \( A  \), \( \tilde{f} \Big|_{I} \) is in \( R(I) \).
-    \end{enumerate}
-    In this case, \( \int_{ A  } f   \) is defined as follows:
-    \[  \int_{ A  } f  = \int_{ I  } \tilde{f} \Big|_{I}. \tag{where \( I  \) is any closed and bounded interval} \]
-\end{remark}
-
-\begin{definition}[Total Variation]
-    Suppose \( f:[a,b] \to \R  \) and \( P = \{ {x}_{0}, {x}_{1}, \dots, {x}_{n} \}  \) is a partition of \( [a,b] \). Let 
-    \[  \sigma(f,P) = \sum_{ k=1  }^{ n } | f({x}_{k}) - f({x}_{k-1}) |  \]
-    and let 
-    \[  {V}_{a}^{b} f = \sup_{P \in \Pi [a,b]} \sigma(f,P) \]
-    be the \textbf{Total Variation of \( f  \) on \( [a,b] \)}. If \( f : [a,b] \to \R  \) is such that \( {V}_{a}^{b} f < \infty   \), then we say \( f  \) is of \textbf{Bounded Variation} and we denote the set of these functions as 
-    \[  BV ([a,b]) = \{ f:[a,b] \to \R : {V}_{a}^{b} f < \infty  \}. \]
-\end{definition}
-
-\begin{remark}[\( P \subseteq  \implies \sigma(f,P) \leq \sigma(P,Q) \) ]
-    If \( Q  \) is a refinement of \( P \), then \( \sigma(f,P) \leq \sigma(f,Q) \). This can be easily proved by induction on \( | Q \setminus  P  |  \). For example, if \( Q  \) has only \textbf{one} extra point \( z  \), then \( z \in [a,b] \) implies that there exists \( i \in \{ 1,2, \dots, n  \}  \) such that \( {x}_{i-1 } < z < {x}_{i} \). Assuming \( 1 < i < n  \) (the same argument works when \( i = 1  \) or \( i = n  \)), we have   
-    \begin{align*}
-        \sigma(f,P) &= | f({x}_{1}) - f({x}_{0}) |  + \cdots + | f({x}_{i}) - f({x}_{i-1}) |  + \cdots + | f({x}_{n}) - f({x}_{n-1}) |  \\
-        \sigma(f,Q) &= | f({x}_{1}) - f({x}_{0}) |  + \cdots + | f(z ) - f({x}_{i-1}) |  + | f({x}_{i}) - f(z)  |  + \cdots + | f({x}_{n}) - f(n-1) | 
-    \end{align*}
-    Note that 
-    \[  | f({x}_{i})- f({x}_{i-1}) | \leq | f(z) - f({x}_{i-1}) |  + | f({x}_{i}) - f(z) |  \]
-    via the triangle inequality.
-\end{remark}
-
-\begin{remark}
-    If \( f: [a,b] \to \R  \) is of bounded variation, then \( f  \) is bounded. Indeed,  
-    \[  \forall x \in [a,b] \ \ | f(x) |  \leq | f(a) |  + {V}_{a}^{b} f. \]
-    The reason is as follows:
-    \begin{enumerate}
-        \item[(*)] If \( x = a  \), then \( | f(a) |  \leq | f(a) |  + {V}_{a}^{b} f  \).
-        \item[(*)] If \( x = b  \), consider the partition \( p = \{  a, b  \}  \) of \( [a,b] \). We have 
-            \begin{align*}
-                \sigma(f,P) \leq {V}_{a}^{b} f &\implies | f(b) - f(a) |  \leq {V}_{a}^{b} f \\
-                                               &\implies | f(b) |  - | f(a) |  \leq {V}_{a}^{b} f \\
-                                               &\implies | f(b) |  \leq | f(a) |  + {V}_{a}^{b} f.
-            \end{align*}
-        \item[(*)] If \( a < x < b  \), then consider the partition \( P = \{  a,x,b \}  \) of \( [a,b] \). We have  
-            \begin{align*}
-                \sigma(f,P) \leq {V}_{a}^{b} f &\implies | f(x) - f(a) |  + | f(b) - f(x) |  \leq {V}_{a}^{b} f  \\
-                                               &\implies | f(x) - f(a) |  \leq {V}_{a}^{b} f \\
-                                               &\implies | f(x) |  - | f(a) |  \leq {V}_{a}^{b} f \\
-                                               &\implies | f(x) |  \leq | f(a) |  + {V}_{a}^{b} f. 
-            \end{align*}
-    \end{enumerate}
-\end{remark}
-
-\begin{theorem}[Theorem 1]
-    \begin{enumerate}
-        \item[(i)] If \( f: [a,b] \to \R  \) is increasing, then \( f \in BV ([a,b]) \) and  
-            \[  {V}_{a}^{b} f = | f(b) - f(a) |. \]
-        \item[(ii)] If \( f: [a,b] \to \R  \) is decreasing, then \( f \in BV([a,b]) \) and 
-            \[  {V}_{a}^{b} f = | f(b) - f(a) |. \]
-    \end{enumerate}
+\begin{theorem}[Term-by-Term Continuity Theorem]
+Let \( A \subseteq  (X,d)  \) be nonempty. Suppose for all \( n \in \N \) \( {f}_{n} : A \to \R  \) is a sequence of continuous functions, and \( \sum_{ n=1  }^{ \infty  } {f}_{n} \) converges uniformly to \( f: A \to \R  \). Then \( f: A \to \R  \) is continuous.    
 \end{theorem}
 \begin{proof}
-    Here we will prove (i). For any partition \( P = \{  {x}_{0}, {x}_{1}, \dots, {x}_{n} \}  \) of \( [a,b] \), we have (since \( f  \) is increasing) 
-    \begin{align*}
-        \sigma(f,P) &= \sum_{ k=1  }^{ n } | f({x}_{k}) - f({x}_{k-1}) | = \sum_{ k=1  }^{ n } | f({x}_{k}) - f({x}_{k-1}) |   \\
-                    &= f({x}_{n}) - f({x}_{0}) \\
-                    &= f(b) - f(a).
-    \end{align*}
-    So, 
-    \[  \forall P \in \Pi[a,b] \ \ \sigma(f,P) = f(b) - f(a). \]
-    Therefore, 
-    \begin{align*}
-        {V}_{a}^{b} f = \sup_{P \in \Pi[a,b]} \sigma(f,P) &= \sup \{ f(b) - f(a) \}  \\
-                                                          &= f(b) - f(a) \\
-                                                          &= | f(b) - f(a) |.
-    \end{align*}
+Applying the corresponding theorem for sequences of functions to the sequence of partial sums \( {s}_{m} = {f}_{1} + \cdots + {f}_{n} \). That is, 
+\[  \sum_{ n=1  }^{ \infty  } {f}_{n} = f \implies {s}_{m} \to f \ \text{uniformly} \implies f \ \text{is continuous} \]
+since \( {s}_{m}  \) is continuous.
 \end{proof}
 
-\begin{theorem}[Lipschitz Continuous Functions are Bounded Variations (Theorem 2)]
-    If \( f: [a,b] \to \R  \) is Lipschitz continuous, then \( f \in BV([a,b]) \). 
+\begin{theorem}[Term-by-Term Differentiability Theorem]
+    Assume for each \( n \in \N  \), \( {f}_{n} : [a,b] \to \R  \) is a sequence of differentiable functions, \( \sum_{ n=1  }^{ \infty  } {f}_{n} = f  \) pointwise on \( [a,b] \), and \( \sum_{ n=1  }^{ \infty  } {f}_{n}'  \) converges uniformly on \( [a,b] \). Then
+    \( f  \) is differentiable on \( [a,b] \) and 
+    \[  \Big(  \sum_{ n=1  }^{ \infty  } {f}_{n} \Big)' = \sum_{ n=1  }^{ \infty  } {f}_{n}'. \]
 \end{theorem}
 \begin{proof}
-    Suppose \( f  \) is Lipschitz continuous. Then there exists \( M > 0  \) such that for all \( x,y \in [a,b] \), 
-    \[  | f(x) - f(y) |  \leq M |  x -y  |. \]
-    Let \( P = \{ {x}_{0}, {x}_{1}, \dots, {x}_{n} \}  \) be any partition of \( [a,b] \). Then
-    \begin{align*}
-        \sigma(f,P) &= \sum_{ k=1  }^{ n } | f({x}_{k}) - f({x}_{k-1}) |  \\
-                    &\leq \sum_{ k=1  }^{ n } M | {x}_{k } - {x}_{k-1} | \\
-                    &= M \sum_{ k=1  }^{ n } | {x}_{k} - {x}_{k-1} |  \\
-                    &= M \sum_{ k=1  }^{ n } ({x}_{k} - {x}_{k-1}) \\
-                    &= M ({x}_{n} - {x}_{0}) \\
-                    &= M(b-a).
-    \end{align*}
-    Thus, for all \(  P \in \Pi[a,b] \), 
-    \[  \sigma(f,P) \leq M(b-a). \]
-    Therefore, 
-    \[  {V}_{a}^{b} f = \sup_{P \in \Pi[a,b]} \sigma(f,P) \leq M (b-a). \]
+Apply the corresponding theorem for sequences of functions to the sequence of partial sums \( {s}_{m} = {f}_{1} + \cdots + {f}_{m} \).
 \end{proof}
 
-\begin{eg}
-    Let \( f:[0,1] \to \R  \), \[ f(x) = 
-    \begin{cases}
-        x^{2} \sin \frac{ 1 }{ x }  &\text{if} \ x \neq 0 \\
-        0 &\text{if} \ x = 0. 
-    \end{cases} \] 
-    We claim that \( f \) is a bounded variation. It suffices to show that \( f  \) is Lipschitz by using the previous theorem. We have 
-    \begin{align*}
-        f'(x) &= 
-        \begin{cases}
-            2x \sin \frac{ 1 }{ x }  - \cos \frac{ 1 }{ x }  &\text{if} \ x \neq 0 \\
-            0 &\text{if} \ x = 0. 
-        \end{cases} \\
-    \end{align*}
-    Thus, for all \( 0 < x \leq 1  \), we have 
-    \begin{align*}
-       | f'(x) |  &= \Big| 2x \sin \frac{ 1 }{ x }  - \cos \frac{ 1 }{ x }  \Big|    \\
-                  &\leq 2 |  x  | \Big| \sin \frac{ 1 }{ x }  \Big|  + \Big| \cos \frac{ 1 }{ x }  \Big| \\
-                  &\leq 2 + 1 = 3.
-    \end{align*}
-    Also, at \( x = 0  \), \( | f'(0) | = | 0  |  \leq 3 \). So, 
-    \[  \forall x \in [0,1] \ \ | f'(x) |  \leq 3. \]
-    It follows from the Mean Value Theorem that \( f:[0,1] \to \R  \) is Lipschitz (Exercise 4a HW1). Thus, \( f \in BV([0,1]) \).
-\end{eg}
-
-\begin{theorem}[Algebraic Properties of BV Functions (Theorem 3)]
-    Assume \( f,g \in BV([a,b]) \), \(  c \in (a,b) \), and \( \lambda \in \R  \). Then
-    \begin{enumerate}
-        \item[(i)] \( f + g \in BV([a,b]) \) and
-            \[  {V}_{a}^{b} (f + g) \leq {V}_{a}^{b} f + {V}_{a}^{b} g.  \]
-        \item[(ii)] \( \lambda f \in BV([a,b]) \) and \( {V}_{a}^{b}(\lambda f) = | \lambda  |  {V}_{a}^{b} f  \)
-        \item[(iii)] \( f \in BV([a,c]) \) and \( f \in BV([c,b])  \) and  
-            \[  {V}_{a}^{b} f = {V}_{a}^{c} f + {V}_{c}^{b} f. \]
-    \end{enumerate}
-\end{theorem}
-
-Properties (i) through (iii) tells us that \( BV([a,b]) \) forms a vector space.
-
-\begin{theorem}[Bounded Variations are the difference of two increasing functions]
-    The following statements are equivalent:
-    \begin{enumerate}
-        \item[(1)] \( f \in BV([a,b]) \)
-        \item[(2)] There exists two increasing functions \( \alpha : [a,b] \to \R  \) and \( \beta : [a,b]  \to \R \) such that \( f = \alpha - \beta \).
-    \end{enumerate}
+\begin{theorem}[Term-by-Term Integrability]
+    Let \( \alpha: [a,b] \to \R  \) is an increasing function, for each \( n \geq 1  \), \( {f}_{n} \in {R}_{\alpha}[a,b] \), and \( \sum_{ n=1  }^{ \infty  } {f}_{n} \) converges uniformly to \( f: [a,b] \to \R   \). Then 
+    \[  f \in {R}_{\alpha}[a,b] \ \ \text{and} \ \ \int_{ a }^{ b }  \sum_{ n=1  }^{ \infty  } {f}_{n} \ d \alpha = \sum_{ n=1  }^{ \infty  } \int_{ a }^{ b }  {f}_{n} \ d \alpha. \]
 \end{theorem}
 \begin{proof}
-\( (2) \implies (1) \) Direct consequence of Theorem 1 and Theorem 3.
-
-\( (1) \implies (2) \) Define \( \alpha: [a,b] \to \R  \) by \( \alpha(x) = {V}_{a}^{x} f  \) where \( \alpha(a)  = 0  \) and \( \alpha(b) = {V}_{a}^{b} f  \) and define \( \beta : [a,b] \to \R  \) by \( \beta = \alpha - f  \). In what follows, we will prove that \( \alpha \) and \( \beta \) are increasing. Suppose \( a \leq x < y \leq b  \). We have 
-\begin{enumerate}
-    \item[(*)] \( \alpha(y) = {V}_{a}^{y} f \underbrace{=}_{\text{Thm 3}} {V}_{a}^{x} f + {V}_{x}^{y} f \geq {V}_{a}^{x} f = \alpha(x).  \)
-    \item[(*)] \begin{align*}
-            \beta(y) - \beta(x) &= [\alpha(y) - f(y)] - [\alpha(x) - f(x)] \\
-                                &= [\alpha(y) - \alpha(x)] - [f(y) - f(x)] \\
-                                &= {V}_{x}^{y} f - [f(y) - f(x)] \geq 0. 
-        \end{align*}
-        Indeed, consider the partition \( P= \{  x,y  \}   \) of \( \{ x,y \}  \). Then we have  
-        \begin{align*}
-            \sigma(f,P) \leq {V}_{x}^{y} f &\implies | f(y) - f(x) |  \leq {V}_{x}^{y} f  \\
-                                           &\implies f(y) - f(x) \leq {V}_{x}^{y} f. 
-        \end{align*} 
-\end{enumerate}
+Apply the corresponding theorem for sequences of functions to the sequence of partial sums \( {s}_{m} = {f}_{1} + \cdots + {f}_{m} \).
 \end{proof}
 
-\begin{definition}[Riemann Stiejtes Integral]
-    Let \( f:[a,b] \to \R  \) be bounded and let \( g: [a,b] \to \R  \) be a function of bounded variation with \( g = \alpha - \beta \) where \( \alpha \) and \( \beta \) are the increasing functions introduced in the proof of Theorem 4. We define the Riemann Stiejtes of \( f  \) with respect to \( g  \) on \( [a,b] \) as follows:
-    \[  \int_{ a }^{ b }  f  \ dg = \int_{ a }^{ b }  f  \ d \alpha - \int_{ a }^{ b }  f  \ d \beta \]
-    provided that both integrals on the right hand side above exist.
-\end{definition}
-
-\begin{theorem}[Riesz Theorem]
-    Let \( X = C([a,b], \R ) \) equipped with \( {d}_{\infty } \) metric. Let \( L : X \to \R  \) be a continuous linear function. Then there exists \( \alpha \in BV ([a,b]) \) such that 
-    \[  L(f) = \int_{ a }^{ b } f(x) \ dx \ \ \forall f \in X. \]
-\end{theorem}
-
-\begin{remark}[Refining the Notion of Uniform Continuity]
-    \begin{enumerate}
-        \item[(*)] Roughly speaking, the notion of uniform continuity of \( f:[a,b] \to \R  \) can be thought of in the following way: For \( x  \) close enough to \( y \), the size of \( | f(x) - f(y) |  \) can be controlled by the size of \( | x - y  |  \) (independently of \( x  \) and \( y \)).
-        \item[(*)] How can we make this notion of continuity more refined or stronger?
-        \item[(*)] One way to do this is to jump to differentiability!
-    \end{enumerate}
-\end{remark}
-
-\begin{remark}[Uniform Continuity in terms of differentiability]
-   \begin{enumerate}
-       \item[(*)] However, there are other things we can consider before jumping to differentiability. In particular, we can ask to what degree \( | f(x) - f(y) |  \) is controlled by \( | x - y  | \). How fast does \( f(y) \) approach \( f(x) \) as \( y  \) approaches \( x  \)?
-        \item[(*)] for a constant function \( f  \), the fastest \( f(y) \) can approach \( f(x) \) is proportional to \( | x - y  |^{2} \). In fact, it can be shown that if \( | f(x) - f(y) |  \leq M |  x - y  |^{\theta} \) for some \( \theta > 1  \), then \( f  \) must be a constant function!
-   \end{enumerate} 
-\end{remark}
-
-\begin{definition}[Holer Continuous functions Lipschitz continuous functions]
-    Let \( 0 < \theta \leq 1  \). A function \( f: [a,b] \to \R  \) is said to be \textbf{Holder continuous with exponent \( \theta \)} if there exists a number \( M > 0  \) such that 
-    \[  \forall x ,y \in [a,b] \ \ | f(x) - f(y) |  \leq M |  x-  y  |^{\theta}. \]
-\end{definition}
-
-\begin{enumerate}
-    \item[(*)] Note that for a fixed \( \theta  \), the smaller the \( M  \), the better continuity.
-    \item[(*)] For Holder continuous functions with exponent \( \theta = 1  \) are called Lipschitz continuous.    
-    \item[(*)] Any Holder continuous function is uniformly continuous.
-    \item[(*)] \( C^{0,\theta} ([a,b] ; \R ) = \{ f: [a,b] \to \R : \text{\( f  \) is Holder Continuous with exponent \( \theta \)} \}  \). We can equip the above vector space of functions with the following norm: 
-        \[  \|f \|_{C^{0,\theta}} = \sup_{x \in [a,b]} | f(x) | + \sup_{x \neq y } |f(x) - f(y)| \] 
-        where 
-        \[  d(f,g) = \|f - g\|_{C^{0,\theta}}. \]
-\end{enumerate}
-
-\begin{remark}
-    Let \( \mathcal{F} \) be a collection of function in \( C^{0,\theta}([a,b]; \R) \). If \( \mathcal{F} \) is bounded in this metric space, then 
-    \begin{enumerate}
-        \item[(1)] \( \mathcal{F} \) is uniformly bounded
-        \item[(2)] \( \mathcal{F} \) is equicontinuous.
-    \end{enumerate}
-    So, every sequence in \( \mathcal{F} \) has a uniformly convergent subsequence.
-\end{remark}
-
-\begin{remark}[The Case Where \( \theta >  1  \)]
-    Suppose there exists \( M > 0  \) and \( \theta > 1  \) such that 
-    \[  \forall x,y \in [a,b] \ \ | f(x) - f(y) |  \leq M | x- y  |^{\theta}.  \]
-    Then 
-    \[  \forall x,y \in [a,b], x \neq y \ \ 0 \leq \Big| \frac{ f(x) - f(y) }{ x - y  }  \Big|  \leq M |  x -y  |^{\theta - 1}.  \]
-    Therefore, 
-    \[  \forall x \in [a,b] \ \ \lim_{ y \to x }  \Big| \frac{ f(x) - f(y) }{ x - y  }  \Big|  = 0.   \]
-    Thus, 
-    \[  \forall x \in [a,b] \ \ f'(x ) = 0.  \]
-    This tells us that \( f  \) is constant on \( [a,b] \).
-\end{remark}
-
-\begin{definition}[Absolutely Continuous Functions]
-    A function \( f:[a,b] \to \R  \) is said to be \textbf{absolutely continuous} if for every \( \epsilon > 0  \), there exists \( \delta > 0  \) such that for every collection of pairwise disjoint intervals \( \{ ({c}_{k }, {d}_{k}) : 1 \leq k \leq n  \}  \) from \( [a,b] \) with 
-    \[  \sum_{ k=1  }^{ n } ({d}_{k} - {c}_{k}) < \delta \]
-    we have 
-    \[  \sum_{ k=1  }^{ n } | f({d}_{k}) - f({c}_{k}) |  < \epsilon. \]
-\end{definition}
-
-Why should we care about absolute continuity? For one, we have the following fact:
-
-The statements below are equivalent
-\begin{enumerate}
-    \item[(1)] \( f : [a,b] \to \R  \) is absolutely continuous
-    \item[(2)] \( f  \) is diffrentiable everywhere on \( [a,b] \) except at with respect to a set of measure zero and 
-        \[  \forall x \in [a,b] \ \ f(x) - f(a) = \int_{ a }^{ x }  f'(t) \ dt. \]
-\end{enumerate}
-
-\begin{theorem}[Lipschitz versus absolutely continuous versus uniformly continuous]
-   Lipschitz continuous implies absolutely continuous implies uniformly continuous.  
-\end{theorem}
-
-\begin{eg}
-    \begin{enumerate}
-        \item[(1)] Let \( f : [0,1] \to \R  \) be defined by \( f(x) = \sqrt{ x  }  \). We see that \( f  \) is absolutely continuous, but not Lipschitz continuous.
-        \item[(2)] The \textbf{cantor function} \( C : [0,1] \to \R  \) is uniformly continuous, but not absolutely continuous.
-     \end{enumerate}
-\end{eg}
-
-\begin{definition}[Oscillation of a Function]
-    Let \( (X,d) \) and \( (Y,\tilde{d}) \) be metric spaces and \( f: X \to Y  \). For any \( r > 0  \) and any \( x \in X  \), we define the \textbf{oscillation of \( f  \) on the set \( {N}_{r}(x) \)} as 
-    \[  \text{osc}(f, x, r) = \sup \{ \tilde{d}(f({x}_{1}), f({x}_{2}) : {x}_{1}, {x}_{2} \in {N}_{r}(x)) \}.  \]
-
-    We define the \textbf{oscillation of \( f  \) at \( x  \)} as 
-    \[  \text{osc}(f,x) = \lim_{ r \to  0^{+} }  \text{osc}(f,x,r) = \inf_{r > 0 } \text{osc}(f,x,r). \]
-    \[   \]
-\end{definition}
-
-\begin{remark}
-    In the first definition above, if \( 0 < {r}_{1} < {r}_{2} \), then 
-    \[  \text{osc}(f,x,{r}_{1}) \leq \text{osc}(f,x,{r}_{2}). \]
-\end{remark}
-
-\begin{eg}
-    Let \( f:[-1,1] \to \R  \) be defined by 
-    \[  f(x) = 
-    \begin{cases}
-        1 &\text{if} \ -1 \leq x < 0 \\ 
-        3 &\text{if} \ 0 \leq x \leq 1 
-    \end{cases}. \]
-    Let's study the oscillation at \( x = 0  \). We have 
-    \begin{align*}
-        \text{osc}(f,0,r) &=  \sup_{{x}_{2},{x}_{1} \in {N}_{r}(0) } | f({x}_{2}) - f({x}_{1}) | \\
-                          &= |  3 - 1  |  = 2.
-    \end{align*}
-\end{eg}
-
-\begin{theorem}[ ]
-    Let \( (X,d) \) and \( (Y, \tilde{d}) \) be two metric spaces, \( f: X \to Y  \), and \( x \in X  \). Then we have
+\begin{theorem}[Cauchy Criterion for Uniform Convergence of Series of Functions]
+    Let \( A  \) be a nonempty set and suppose for each \( k \in \N  \), \( {f}_{k } : A \to \R  \). Then
     \begin{center}
-        \( f  \) is continuous at \( x  \) if and only if \( \text{osc}(f,x) = 0 \).
+        \( \displaystyle \sum_{ k=1  }^{ \infty  } {f}_{k } \) converges uniformly if and only if for all \(  \epsilon > 0  \), there exists an \( N  \) such that for all \( n > m > N  \) and for all \( x \in A  \), \( \displaystyle \Big| \sum_{ k=1  }^{ n } {f}_{k } (x) \Big| < \epsilon \).
     \end{center}
 \end{theorem}
-\begin{proof}
-\( (\Longrightarrow) \) It suffices to show that 
-\[  \forall \epsilon > 0 \ \ \text{osc}(f,x) \leq \epsilon. \]
-Let \( \epsilon > 0  \) be given. Since \( f  \) is continuous at \( x  \), there exists \( \delta > 0  \) such that  
-\[  \forall y \in {N}_{\delta}(x) \ \ \tilde{d}(f(x), f(y)) < \frac{ \epsilon }{ 2 }. \]
-Thus, for any \( {x}_{1} \) and \( {x}_{2}  \) in \( {N}_{\delta}(x)  \), we have 
-\begin{align*}
-    \tilde{d}(f({x}_{1}), f({x}_{2})) &\leq \tilde{d(f({x}_{1}), f(x)} ) + \tilde{d}(f(x), f({x}_{2})) \\
-                                      &< \frac{ \epsilon }{ 2 }  + \frac{ \epsilon }{ 2 }  = \epsilon.
-\end{align*}
-Therefore, 
-\[  \text{osc}(f,x,\delta) = \sup_{{x}_{1}, {x}_{2} \in {N}_{\delta}(x)} \tilde{d}(f({x}_{1}), f({x}_{2})) \leq \epsilon. \]
-Finally, we have 
-\[  \text{osc}(f,x) = \inf_{r > 0} \text{osc}(f,x,r) \leq \text{osc}(f,x,\delta) \leq \epsilon \]
-as desired.
 
-\( (\Longleftarrow) \) Suppose \( \text{osc}(f,x) = 0  \). Our goal is to show that 
-\[  \forall \epsilon > 0 \ \exists \delta > 0 \ \text{such that} \ \forall y \in {N}_{\delta}(x) \ \tilde{d}(f(x) , f(y)) < \epsilon. \tag{*} \]
-Let \( \epsilon > 0  \). For the given \( \epsilon  \), we can find a \( \hat{\delta} > 0  \) such that  
-\[  \forall 0 < r < \hat{\delta} \ \ \text{osc}(f,x,r) < \epsilon. \]
-Thus, 
-\[  \sup_{{x}_{1}, {x}_{2} \in {N}_{r}(x)} \tilde{d}(f({x}_{1}, f({x}_{2})))  < \epsilon. \]
-Therefore,  
-\[  \forall y \in {N}_{r}(x) \ \ \tilde{d} (f(y) , f(x)) < \epsilon \]
-Hence, any positive number less than \( \hat{\delta}  \) can be used as the \( \delta  \) that we were looking for.
-\end{proof}
-
-\begin{theorem}[ ]
-    Let \( (X,d) \) and \( (Y,\tilde{d}) \) be two metric spaces, \( f : X \to Y  \), and \( \gamma > 0  \) is a fixed number. Then the set \( {D}_{\gamma} = \{  x \in X : \text{osc}(f,x) \geq \gamma \}  \).
+\begin{theorem}[Weierstrass M-Test]
+    Let \( A  \) be a nonempty set, for all \( n \in \N  \) \( {f}_{n} : A \to \R  \), for all \(  n \in \N  \), there exists \( {M}_{n} \) such that for all \( x \in A  \), \( | {f}_{n}(x) |  \leq {M}_{n} \), and \( \displaystyle \sum_{ n=1  }^{ \infty  } {M}_{n}  \) converges. Then 
+    \[  \sum_{ n=1  }^{ \infty  } {f}_{n} \ \ \text{converges uniformly on} \ A.  \]
 \end{theorem}
 \begin{proof}
-    It suffices to show that \( {D}_{\gamma}^{c} = \{  x \in X : \text{osc}(f,x) < \gamma \}  \) is open. Let \( x \in {D}_{\gamma}^{c} \) (we will show that \( x  \) is an interior point). Hence, by definition, \( \text{osc}(f,x) < \gamma \). In what follows, we will prove that \( {N}_{\frac{ \hat{r} }{ 2  } }(x) \subseteq {D}_{\gamma}^{c}  \) (and so \( x  \) is an interior point). Suppose \( z \in {N}_{\frac{ \hat{r} }{ 2 } }(x) \). Then \( {N}_{\frac{ \hat{r} }{ 2 } }(z) \subseteq  {N}_{\hat{r}}(x) \). Thus,    
-    \[  \text{osc}(f,z,\frac{ \hat{r} }{ 2 } ) \leq \text{osc}(f,x,\hat{r}) < \gamma. \]
-    Therefore, 
-    \[  \text{osc}(f,z) = \inf_{r > 0 } \text{osc}(f,z,r) \leq \text{osc}(f,z,\frac{ \hat{r} }{ 2 } ) < \gamma. \]
-    hence, \( z \in {D}_{\gamma}^{c} \).
+    According to the Cauchy Criterion for uniform convergence of series of functions, it suffices to show that for all \( \epsilon > 0  \), there exists \( N  \) such that for all \( n > m > N  \)  and for all \( x \in A  \)
+    \[  \Big| \sum_{ k=m+1  }^{ n  } {f}_{k } (x) \Big|  < \epsilon. \tag{*} \]
+    Let \( \epsilon > 0 \).
+    Note, by assumption, \( \displaystyle \sum_{ n=1  }^{ \infty  } {M}_{n} \) converges. Thus, for our given \( \epsilon  \), there exists \( \hat{N} \) such that 
+    \[  \forall m > m > \hat{N} \ \ \Big| \sum_{ k = m + 1  }^{ n } {M}_{k }  \Big|  < \epsilon. \]
+    We claim that we can use this \( \hat{N} \) as the \( N  \) that we were looking for. Indeed, if we let \( N = \hat{N} \), then (*) will hold because for all \( n > m > \hat{N} \) and for all \( x \in A  \)
+    \[ \Big| \sum_{ k= m+1 }^{  n  } {f}_{k }(x) \Big|  \leq \sum_{ k = m + 1  }^{ n } | {f}_{k }(x) | \leq \sum_{ k= m + 1  }^{ n } {M}_{k } < \epsilon  \]
+    as desired.
 \end{proof}
 
-\begin{remark}
-    Suppose \( f: (X,d) \to (Y,\tilde{d}) \). For each \( n \in \N \), let 
-    \[  {A}_{n} = \Big\{  x \in X : \text{osc}(f,x) \geq \frac{ 1 }{ n }  \Big\}.  \]
-    Let \( D = \text{the set of points at which \( f  \) is continuous} \). Then 
-    \[  D = \bigcup_{ n =1  }^{ \infty  }  {A}_{n}. \]
-    Indeed, \( x \in D  \) implies \( \text{osc}(f,x) > 0  \) and so there exists \(N  \) such that \( \text{osc}(f,x) > \frac{ 1 }{ N }  \). Thus, \( x \in {A}_{N} \) and so \( x \in \bigcup_{ n=1  }^{ \infty  }  {A}_{n} \). On the other hand, if \( x \in \bigcup_{ n=1  }^{ \infty  }  {A}_{n} \), then there exists an \( N  \) such that \( x \in {A}_{N} \). Thus, \( \text{osc}(f,x) \geq \frac{ 1 }{ N }  \) and so \( \text{osc}(f,x) \neq 0  \). Thus, \( f \in D  \).
-\end{remark}
 
-\begin{definition}[Sets of First Category]
-    Let \( (X,d) \) be a metric space.  
-    \begin{enumerate}
-        \item[(*)] A set \( A \subseteq  X   \) is said to be \textbf{nowhere dense} if \( (\overline{A})^{\circ} = \emptyset \). 
-        \item[(*)] A set \( A \subseteq X  \) is said to be of \textbf{First Category in \( X  \)} if it can be written as a countable union of nowhere dense sets.
-        \item[(*)] A set \( A \subseteq  X   \) is said to be of \textbf{Second Category of \( X  \)} if it is NOT of first category. 
-    \end{enumerate}
-\end{definition}
 
-\begin{theorem}[ ]
-    Let \( (X,d) \) and \( (Y,\tilde{d}) \) be two metric spaces. Suppose \( E  \) is dense in \( X  \). If \( f: X \to Y  \) is a function that is continuous at each point of \( E  \), then the set of points at which \( f  \) is discontinuous is of \textbf{first category} in \( X  \).
-\end{theorem}
-\begin{proof}
-    Let \( D = \text{the set of discontinuities of} f  \) and for all \( n \geq 1  \) 
-    \[  {A}_{n} = \{  x \in X : \text{osc}(f,x) \geq \frac{1  }{ n } \}. \]
-    As we proved, 
-    \[  D = \bigcup_{ n=1  }^{ \infty  }  {A}_{n}. \]
-    It remains to show that each \( {A}_{n} \) is nowhere dense, that is, we need to show that \( (\overline{{A}_{n}})^{\circ} = \emptyset \). Since each \( {A}_{n} \) is closed (Theorem 2), we need to show \( {A}_{n}^{\circ} = \emptyset \). Assume for contradiction that \( {A}_{n}^{\circ} \neq \emptyset \). Since \( {A}_{n}^{\circ}  \) is a nonempty open set and \( E  \) is dense in \( X  \), we have (by exercise 12, hw4) 
-    \begin{align*}
-         &E \cap {A}_{n}^{\circ} \neq \emptyset \\
-         &\implies E \cap {A}_{n} \neq \emptyset \\
-         &\implies \exists  p \  \text{such that} \ p \in E \ \text{and} \ p \in {A}_{n}.
-    \end{align*}
 
-\end{proof}
 
-\begin{remark}
-    There is no function \( f: \R \to \R  \) such that \( f  \) is continuous at every rational number and discontinuous at every irrational number. Indeed, because \( \Q  \) is dense in \( \R  \), if \( f  \) is continuous on \( \Q  \), then the set of discontinuities of \( f  \) must be of first category. But the set of irrational numbers is of second category. 
-\end{remark}

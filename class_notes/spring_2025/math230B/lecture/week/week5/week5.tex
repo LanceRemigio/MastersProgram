@@ -1,483 +1,222 @@
-\section{Lectures 11-12}
+\section{Lecture 8}
 
-\subsection{Plan}
-
-\begin{enumerate}
-    \item[(1)] Sequential Criterion for integrability;
-    \item[(2)] Algebraic properties of R.S integral;
-    \item[(3)] Order properties of R.S integrals;
-    \item[(4)] Mean Value Theorem and Generalized Mean Value Theorem for integrals;
-    \item[(5)] Additivity for R.S integrals.
-\end{enumerate}
-
-\begin{theorem}[Sequential Criterion for R.S Integrability]
-    Let \( f: [a,b] \to \R  \) be a bounded function and \( \alpha: [a,b] \to \R  \) is an increasing function. Then
+\begin{theorem}[Rudin 6.4]
+    Let \( f: [a,b] \to \R  \) be bounded, \( \alpha : [a,b] \to \R  \) is increasing, \( P  \) is a partition of \( [a,b] \), and \( Q  \) is a refinement of \( P  \). Then
     \begin{enumerate}
-        \item[(1)] If \( f \in {R}_{\alpha}[a,b]  \), then there exists a sequence of partitions \( ({P}_{n})_{n \geq 1}  \) in \( \Pi [a,b] \) such that \( \lim_{ n \to \infty  }  [U(f,\alpha, {P}_{n}) - L(f,\alpha, {P}_{n}) ] = 0  \).
-        \item[(2)] If there exists a sequence of partitions \( ({P}_{n})_{n \geq 1} \) in \( \Pi [a,b] \) such that \( \lim_{ n \to \infty  } [U(f,\alpha, {P}_{n}) - L(f,\alpha, {P}_{n})] = 0  \), then \( f \in {R}_{\alpha}[a,b] \), and 
-            \[  \int_{ a }^{ b }  f  \ d \alpha = \lim_{ n \to \infty k U(f,\alpha, {P}_{n}) }  = \lim_{ n \to \infty  }  L(f,\alpha, {P}_{n}).  \]
+        \item[(1)] \( L(f,\alpha,P) \leq L(f,\alpha, Q) \)
+        \item[(2)] \( U(f,\alpha, P) \geq U(f,\alpha, Q ) \)
     \end{enumerate}
 \end{theorem}
 \begin{proof}
-\begin{enumerate}
-    \item[(1)] Using the Cauchy Criterion, we see that \( f \in {R}_{\alpha}[a,b] \) if and only if for all \( \epsilon > 0  \), there exists \( {P}_{\epsilon} \in \Pi [a,b] \) such that 
-        \[  U(f,\alpha,{P}_{\epsilon}) - L(f,\alpha, {P}_{\epsilon})  < \epsilon. \]
-        In particular, we can inductively construct a sequence of partitions \( ({P}_{n})_{n \geq 1 } \) in the following way: for all \( n \in \N \), let \( \epsilon = \frac{ 1 }{ n }  \). Then there exists \( {P}_{n} \in \Pi  \) such that  
-        \[   0 \leq U(f,\alpha, {P}_{n}) - L(f,\alpha, {P}_{n}) < \frac{ 1 }{ n }.  \]
-       From the squeeze theorem, it follows that  
-       \[  \lim_{ n \to \infty  } [U(f,\alpha, {P}_{n}) - L(f,\alpha, {P}_{n})] = 0.  \]
-    \item[(2)] According to Cauchy Criterion, it suffices to show that 
-        \[  \forall \epsilon > 0 \ \exists P \in \Pi [a,b] \ \text{such that} \ U(f,\alpha,P) - L(f,\alpha,P) < \epsilon. \]
-        Since \( \lim_{ n \to \infty  } [U(f,\alpha, {P}_{n}) - L(f,\alpha, {P}_{n})] = 0  \), there exists an \( N \in \N \) such that 
-        \[  \forall n > N \ \ U(f,\alpha,{P}_{n}) - L(f,\alpha,{P}_{n}) < \epsilon. \]
-        In particular, \( {P}_{N+1} \) can be used as the \( P  \) that we were looking for. It remains to show that 
-        \[  \int_{ a }^{ b }  f  \ d \alpha = \lim_{ n \to \infty  }  U(f,\alpha,{P}_{n}) = \lim_{ n \to \infty  }  L(f,\alpha, {P}_{n}). \]
-        We have for all \( n \geq 1  \), 
-        \[  0 \leq U(f,\alpha,{P}_{n}) - U(f,\alpha) \leq U(f,\alpha, {P}_{n}) - L(f,\alpha) \leq U(f,\alpha, {P}_{n}) - L(f,\alpha, {P}_{n}). \]
-        Using the squeeze theorem on the inequality above, we have 
-        \[  \lim_{ n \to \infty  } [L(f,\alpha) - L(f,\alpha,{P}_{n})] = 0.  \]
-        So, 
-        \[  \lim_{ n \to \infty  } L(f,\alpha,{P}_{n}) = L(f,\alpha) = \int_{ a }^{ b }  f  \ d \alpha. \]
-\end{enumerate}
+Here we will prove (1). The proof of (2) is completely analagous. We proceed via induction on \( \ell = \card (Q \setminus  P )  \) (the number of points in \( Q \setminus  P  \)). Let \( P = \{  {x}_{0}, {x}_{1}, \dots, {x}_{n} \}  \). 
+
+If \( \ell = 0  \), then \( P \subseteq  Q   \) and \( \card Q = \card P  \) implies that \( P = Q  \). Thus, \( L(f,\alpha, P) = L(f,\alpha, Q ) \).
+
+If \( \ell = 1  \), then \( Q  \) has exactly one extra point. Let's call this point \( z  \). So, \( \{ z  \}  = Q \setminus  P  \). Note that \( z \in [a,b] \) and \( P  \) is a partition of \( [a,b] \). Hence, there exists \( 1 \leq i \leq n  \) such that \( z \in ({x}_{i-1}, {x}_{i}) \). Let 
+\begin{align*}
+    {m}_{i}' &= \inf_{x \in [{x}_{i-1}, z]} f(x)  \\
+    {m}_{i}'' &= \inf_{x \in [z,{x}_{i}]} f(x)
+\end{align*}
+Recall that if \( A \subseteq  B  \), then \( \inf A \geq \inf B  \). Hence, \( {m}_{i}' \geq {m}_{i} \) and \( {m}_{i}'' \geq {m}_{i} \).
+We have 
+\begin{align*}
+    L(f,\alpha, P ) &= \sum_{ k=1  }^{ n } {m}_{k } (\alpha({x}_{k})) \\ 
+                    &= \Big[ \sum_{ k \neq i  }^{  } {m}_{k } (\alpha({x}_{k}) - \alpha({x}_{k-1})) \Big] + {m}_{i} (\alpha({x}_{i}) - \alpha(z) + \alpha(z) - \alpha({x}_{i-1})) \\
+                    &= \Big[ \sum_{ k \neq i  }^{  } {m}_{k } (\alpha({x}_{k}) - \alpha({x}_{k-1}))  \Big] +  {m}_{i}(\alpha(z) - \alpha({x}_{i-1})) + {m}_{i} (\alpha({x}_{i}) - \alpha(z) ) \\
+                    &\leq \Big[\sum_{ k \neq i  }^{  } {m}_{k } (\alpha({x}_{k}) - \alpha({x}_{k-1})) \Big] + {m}_{i}' (\alpha(z) - \alpha({x}_{i-1})) + {m}_{i}''(\alpha({x}_{i}) - \alpha(z)) \\
+                    &= L(f,\alpha, Q ).
+\end{align*} 
+So, we have \( L(f,\alpha,P) \leq L(f,\alpha,Q ) \).
+
+Now, suppose the claim is true for \( \ell = r \geq 1  \). Our goal is to show that the claim holds for \( \ell = r + 1  \). Suppose \( \card (Q \setminus  P ) = r + 1  \). Let
+\[  Q \setminus  P = \{  {z}_{1}, {z}_{2}, \dots, {z}_{r}, {z}_{r+1} \}.  \]
+Let \( \hat{Q} = P \cup \{ {z}_{1}, {z}_{2}, \dots, {z}_{r} \}  \). We have
+\[  L(f,\alpha, P) \leq L(f,\alpha, \hat{Q}) \leq L(f,\alpha, Q ) \]
+where the first inequality holds due to our induction hypothesis and the second inequality holds because \( Q \setminus  \hat{Q}  \) contains only one point. So, we have 
+\[  L(f,\alpha, P )  \leq L(f,\alpha, Q ).\]
 \end{proof}
 
-\begin{theorem}[Algebraic Properties of R.S Integral]
-    Assume \( f,g \in {R}_{\alpha}[a,b] \). Then
-    \begin{enumerate}
-        \item[(i)] \( \forall k \in \R  \), \( kf \in {R}_{\alpha}[a,b] \) with \[ \int_{ a }^{ b }  kf  \ d \alpha = k \int_{ a }^{ b }  f  \ d \alpha \];
-        \item[(ii)] \( f + g \in {R}_{\alpha}[a,b] \) with 
-            \[  \int_{ a }^{ b }  f + g  \ d \alpha = \int_{ a }^{ b }  f  \ d \alpha  + \int_{ a }^{ b }  g  \ d \alpha. \]
-        \item[(iii-1)]  \( f^{2} \in {R}_{\alpha}[a,b] \);
-        \item[(iii-2)] \( fg \in {R}_{\alpha}[a,b] \);
-        \item[(iv-1)] if \( g \neq 0  \) on \( [a,b] \) and \( \frac{ 1 }{ g }  \) is bounded on \( [a,b] \), then \( \frac{ 1 }{ g }  \in {R}_{\alpha}[a,b] \);
-        \item[(iv-2)] if \( g \neq 0  \) on \( [a,b] \) and \( \frac{ 1 }{ g }   \) is bounded on \( [a,b] \), then \( \frac{ 1 }{ g }  \in {R}_{\alpha}[a,b] \).
-    \end{enumerate}
-\end{theorem}
-
-\begin{lemma}[lemma 3]\label{lemma 3}
-   Let \( A  \) be a subset of \( \R  \) and \( f,g : A \in \R  \) be two bounded functions. Then 
-   \begin{enumerate}
-       \item[(i)] \( \sup_{A} (f+g) \leq \sup_{A} f + \sup_{A} g \);
-       \item[(ii)] \( \inf_{A} (f+g) \geq \inf_{A} f + \inf_{A} g  \);
-       \item[(iii-1)] \( \forall k \geq 0  \), \( \sup_{A} (kf) = k \sup_{A} f \);
-       \item[(iii-2)] \(  \forall k \geq 0  \) \( \inf_{A} kf = k \inf_{A} f \);
-       \item[(iv-1)] \( \forall k < 0  \) \( \sup_{A} kf = k \inf_{A} f \); 
-       \item[(iv-2)] \( \forall k < 0  \) \( \inf_{A} kf = k \sup_{A} f \);
-       \item[(v)] \( \sup_{x,y \in A}| f(x) - f(y) | = \sup_{A} f - \inf_{A} f \);
-        \item[(vi)] If there exists a constant \( k > 0  \) such that 
-            \[  \forall z,w \in A \ \ | f(z) - f(w)  | \leq k | g(z) - g(w) |,  \]
-            then
-            \[  \sup_{A} f - \inf_{A} f \leq k [\sup_{A} g - \inf_{A}  g].  \]
-   \end{enumerate}  
-\end{lemma}
-
-\begin{lemma}[lemma 4]\label{lemma 4}
-    Let \( f,g: [a,b] \to \R  \) be two bounded functions, \( \alpha: [a,b] \to \R  \) is an increasing function, and \( P \in \Pi[a,b] \). Then
-    \begin{enumerate}
-        \item[(i)] \( U(f + g,\alpha, P) \leq U(f,\alpha,P) + U(g,\alpha,P) \);
-        \item[(ii)] \( L(f+g, \alpha, P) \geq L(f,\alpha,P) + U(g,\alpha, P) \);
-        \item[(iii-1)] \( \forall k \geq 0  \) \( U(kf, \alpha, P) = k U(f,\alpha,P) \)
-        \item[(iii-2)] \( \forall k \geq 0  \), \( L(kf,\alpha,P) = k L(f,\alpha,P) \);
-        \item[(iv-1)] \( \forall k < 0  \) \( U(f,\alpha,P) = k L(f,\alpha,P) \)
-        \item[(iv-2)] \( \forall k < 0  \) \( L(kf,\alpha, P) = k U(f,\alpha,P) \).
-    \end{enumerate}
-\end{lemma}
-
-\begin{theorem}[Order Properties of R.S Integral]
-    Assume \( f,g \in {R}_{\alpha}[a,b] \). Then
-    \begin{enumerate}
-        \item[(i)] If \( m \leq f(x) \leq M  \) for all \( x\in [a,b] \), then 
-            \[  m (\alpha(b) - \alpha(a)) \leq \int_{ a }^{ b }  f  \ d \alpha \leq M(\alpha(b) - \alpha(a)). \]
-        \item[(ii)] If \( f \leq g  \) on \( [a,b] \), then
-            \[  \int_{ a }^{ b }  f  \ d \alpha \leq \int_{ a }^{ b } g   \ d \alpha. \]
-    \end{enumerate}
+\begin{theorem}[ ]\label{Theorem 2}
+    Let \( f:[a,b] \to \R  \) be a bounded function, \( \alpha: [a,b] \to \R  \) is increasing. Let \( {P}_{1} \) and \( {P}_{2} \) are any two partition of \( [a,b] \). Then 
+    \[  L(f,\alpha, {P}_{1}) \leq U(f,\alpha, {P}_{2}). \]
 \end{theorem}
 \begin{proof}
-\begin{enumerate}
-    \item[(i)] Note that for any \( P \in \Pi[a,b] \), we have 
-        \begin{align*}
-            \int_{ a }^{ b }  f  \ d \alpha &= L(f,\alpha) \geq L(f,\alpha,P) \\
-            \int_{ a }^{ b }  f \ d \alpha &= U(f,\alpha) \leq U(f,\alpha,P).
-        \end{align*}
-        In particular, for the partition \( P = \{ a,b \}  \), we have 
-        \begin{align*}
-            \int_{ a }^{ b }  f  \ d \alpha &\geq L(f,\alpha, P) = \Big(  \inf_{x \in [a,b]} f(x) \Big) (\alpha(b) - \alpha(a)) \geq m (\alpha(b) - \alpha(a)) \tag{1} \\
-            \int_{ a }^{ b }  f  \ d \alpha &\leq U(f,\alpha,P) = \Big(  \sup_{x \in [a,b]} f(x) \Big) (\alpha(b) - \alpha(a)) \leq M (\alpha(b) - \alpha(a)). \tag{2}
-        \end{align*}
-        Using (1) and (2), we obtain our desired result.
-    \item[(ii)] Let \( h = g - f  \). We have \( h \geq 0  \), so, by part (i), we have
-        \[  0 (\alpha(b) - \alpha(a)) \leq \int_{ a }^{ b }  h  \ d \alpha. \]
-        Therefore, 
-        \begin{align*}
-            0 \leq \int_{ a }^{ b } h \ d \alpha &= \int_{ a }^{ b } g - f  \ d \alpha = \int_{ a }^{ b }  g  \ d \alpha - \int_{ a }^{ b }  f  \ d \alpha \\
-                                                 &\implies \int_{ a }^{ b } f  \ d \alpha \leq \int_{ a }^{ b }  g  \ d \alpha.
-        \end{align*}
-\end{enumerate}
+Let \( Q = {P}_{1} \cup {P}_{2} \) be the common refinement of \( {P}_{1} \) and \( {P}_{2} \). Applying the previous theorem, we can see that \( {P}_{1} \subseteq  {P}_{1} \cup {P}_{2} \) and \( {P}_{2} \subseteq {P}_{1} \cup {P}_{2}   \) implies
+\[  L(f,\alpha, {P}_{1}) \leq L(f,\alpha, Q ) \leq U(f,\alpha, Q ) \leq U(f,\alpha, {P}_{2}) \]
 \end{proof}
 
-\begin{theorem}[Triangle Inequality of Integrals]
-    Assume \( f \in {R}_{\alpha}[a,b] \). Then
-    \begin{enumerate}
-        \item[(i)] \( | f |  \in {R}_{\alpha}[a,b] \);
-        \item[(ii)] \( \displaystyle \Big| \int_{ a }^{ b }  f  \ d \alpha \Big|  \leq \int_{ a }^{ b }  | f |  \ d \alpha \).
-    \end{enumerate}
-\end{theorem}
-\begin{proof}
-\begin{enumerate}
-    \item[(i)] Define \( \varphi: \R \to \R  \) by \( \varphi(x) = | x  |  \) which is clearly continuous on \( \R  \). Since \( f \in {R}_{\alpha}[a,b] \), it follows from {\hyperref[Rudin 6.11]{Rudin 6.11}} that \( \varphi \circ f \in {R}_{\alpha}[a,b] \). Hence, we have \( | f |  \in {R}_{\alpha}[a,b]  \).  
-    \item[(ii)] Recall that 
-        \[  | t  |  \leq s \iff - s \leq t \leq s.  \]
-        So, our goal is to show that 
-        \[ - \int_{ a }^{ b }  | f  |  \ d \alpha \leq \int_{ a }^{ b }  f  \ d \alpha \leq \int_{ a }^{ b }  | f  |  \ d \alpha. \]
-        Also, we have 
-        \[ - | f(x) |  \leq f(x) \leq | f(x) |  \ \ \forall x \in [a,b].  \]
-        So, 
-        \[  -\int_{ a }^{ b }  | f(x) |  \ d \alpha \leq \int_{ a }^{ b }  f(x) \ d \alpha \leq \int_{ a }^{ b }  | f(x) |  \ d \alpha \]
-        as desired.
-\end{enumerate}
-\end{proof}
-
-\begin{theorem}[Mean Value Theorem for Integrals]
-    Let \( f:[a,b] \to \R  \) be a continuous function, \( \alpha:[a,b] \to \R  \) is an increasing function and \( \alpha(a) \neq \alpha(b) \). Then there exists \( c \in [a,b] \) such that 
-    \[  f(c) = \frac{ 1 }{  \alpha(b) - \alpha(a) }   \int_{ a }^{ b }  f  \ d \alpha. \]
-\end{theorem}
-\begin{proof}
-    Since \( f  \) is continuous on \( [a,b] \) and \( [a,b] \) is a compact interval in \( \R  \), it follows from the Extreme Value Theorem that \( f  \) attains its max and min on \( [a,b] \). Let 
-    \[  m = \min_{x \in [a,b]} f(x) \ \ \text{and} \ \ M = \max_{x \in [a,b}] f(x). \]
-    We have, for all \( x \in [a,b] \), \( m \leq f(x) \leq M  \). Thus, 
-    \[  m(\alpha(b) - \alpha(a)) \leq \int_{ a }^{ b }  f(x) \ d \alpha \leq M(\alpha(b) - \alpha(a)).\]
-    Hence, 
-    \[  m \leq \frac{ 1 }{  \alpha(b) - \alpha(a)  }  \int_{ a }^{ b }  f  \ d \alpha \leq M.  \]
-    Using the Intermediate Value Theorem, we see from the assumption that \( f  \) being continuous on \( [a,b]  \) that
-    \[  \exists c \in [a,b] \ \text{such that} \ f(c) = \frac{ 1 }{ \alpha(b) - \alpha(a) } \int_{ a }^{ b }  f \ d \alpha. \]
-\end{proof}
-
-\begin{theorem}[Generalized Mean Value Theorme for Integrals]
-    Let \( f:[a,b] \to \R  \) be continuous, \( \alpha:[a,b] \to \R  \) is increasing, and \( g \in {R}_{\alpha}[a,b]  \) and either \( g \geq 0  \) on \( [a,b] \) or \( g \leq 0  \) on \( [a,b] \). Then
-    \[  \exists c \in [a,b] \ \text{such that} \ \int_{ a }^{ b }  fg  \ d \alpha = f(c) \int_{ a }^{ b }  g  \ d \alpha. \]
-\end{theorem}
-
-\begin{theorem}[Additivity for R.S Integrals]
-    Let \( f:[a,b]  \to \R \) be continuous, \( \alpha:[a,b] \to \R  \) is increasing, \( c \in (a,b) \). Then
-    \[  f \in {R}_{\alpha}[a,b] \iff (f \in {R}_{\alpha}[a,c] \ \text{and} \ f \in {R}_{\alpha}[c,b]). \]
-    In this case, we have 
-    \[  \int_{ a }^{ b }  f  \ d \alpha = \int_{ a }^{ c }  f  \ d \alpha + \int_{ c }^{ b  }  f \ d \alpha. \]
-\end{theorem}
-
-\section{Lectures 13-14}
-
-\subsection{Topics}
-
-\begin{itemize}
-    \item Theorem: For "nice" \( \alpha \) we have \( \displaystyle \int_{ a }^{ b }  f  \ d \alpha  = \int_{ a }^{ b }  f(x) \alpha'(x) \ dx \);
-    \item Theorem (change of variable)
-    \item The Fundamental Theorem of Calculus
-    \item Integration By Parts
-    \item Unit step function, representing sums by R.S integrals
-\end{itemize}
+For the following theorem, we will use the lemma below.
 
 \begin{lemma}
-    Let \( f: [a,b] \to \R  \) be a bounded function, \( \alpha: [a,b] \to \R  \) is an increasing function, \( P = \{ {x}_{0}, {x}_{2}, \dots, {x}_{n} \}  \) is a partition of \( [a,b] \) and \( R \in \R  \). Then  
-    \begin{enumerate}
-        \item[(1)] If for all tags \( ({s}_{k })_{1 \leq k \leq n }  \) of \( P  \), we have \( \sum_{ k=1  }^{ n } f({s}_{k}) \Delta {\alpha}_{k } \leq R  \), then \( U(f,\alpha,P) \leq R  \).
-        \item[(2)] If for all tags \( ({s}_{k})_{1 \leq k \leq n } \) of \( P  \), we have \( R \leq \sum_{ k=1  }^{ n } f({s}_{k}) \Delta {\alpha}_{k } \), then \( R \leq L(f,\alpha, P) \).
-    \end{enumerate}
+    Suppose \( A  \) and \( B  \) are nonempty subsets of \( \R  \). If 
+    \[  \forall a \in A \ \forall b \in B \ \ a \leq b  \]
+    then \( \sup A \leq \inf B  \).
 \end{lemma}
 
-\begin{proof}
-\begin{enumerate}
-    \item[(1)] If \(  \alpha \) is constant, then 
-        \[  \sum_{ k=1  }^{ n } f({s}_{k}) \Delta {\alpha}_{k } = 0   \]
-        which implies 
-        \[  U(f,\alpha,P) = \sum_{ k=1  }^{ n } {M}_{k } \Delta {\alpha}_{k } = 0. \]
-        So, we may assume that \( \alpha(a) \neq \alpha(b) \). It is suffices to show that 
-        \[  \forall \epsilon > 0  \ \ U(f,\alpha, P) \leq R + \epsilon. \]
-        Let \( \epsilon > 0  \) be given. For each \( k \in \{ 1, \dots, n \}  \), we have
-        \[  {M}_{k } = \sup_{x \in [{x}_{k-1}, {x}_{k}]} f(x) \implies \exists {s}_{k } \in [{x}_{k-1}, {x}_{k}] \ \text{such that} \ {M}_{k }  - \frac{ \epsilon }{  \alpha(b) - \alpha(a) } < f({s}_{k}). \]
-        We have
-        \begin{align*}
-            U(f,\alpha,P) &- \sum_{ k=1  }^{ n } {M}_{k } \Delta  {\alpha}_{k } < \sum_{ k=1  }^{ n } \Big[f({s}_{k}) + \frac{ \epsilon }{  \alpha(b) - \alpha(a) } \Big] \Delta {\alpha}_{k } \\
-                          &= \sum_{ k=1  }^{ n } f({s}_{k}) \Delta {\alpha}_{k } + \frac{ \epsilon }{  \alpha(b) - \alpha(a) }  \sum_{ k=1 }^{ n  } \Delta {\alpha}_{k }  \\
-                          &\leq R + \epsilon
-        \end{align*}
-        as desired.
-    \item[(2)] Completely analogous to (1).
-\end{enumerate}
-\end{proof}
-
-\begin{theorem}[Rudin 6.17]\label{Rudin 6.17}
-    Let \( f:[a,b] \to \R  \) be a bounded function, \( \alpha: [a,b] \to \R  \) be an increasing function, and \( \alpha' \in R[a,b] \). Then
-    \[  f \in {R}_{\alpha}[a,b] \iff f \alpha' \in R[a,b] \]
-    and in this case, 
-    \[  \int_{ a }^{ b } f  \ d \alpha = \int_{ a }^{ b }  f(x) \alpha'(x) \ dx. \]
+\begin{theorem}[Rudin 6.5]
+    Let \( f: [a,b] \to \R  \) be a bounded function and \( \alpha: [a,b] \to \R  \) is an increasing function. Then \( L(f,\alpha) \leq U(f,\alpha) \). 
 \end{theorem}
 \begin{proof}
-It suffices to show that 
-\begin{align*}
-    U(f,\alpha) &= U(f \alpha'), \\
-    L(f,\alpha) &= L(f \alpha')
-\end{align*}
-Indeed, if we prove (*), then
-\begin{align*}
-    f \in {R}_{\alpha}[a,b] &\iff U(f,\alpha) = L(f,\alpha)  \\
-                            &\iff U(f \alpha') = L(f \alpha') \\
-                            &\iff f \alpha' \in R[a,b].
-\end{align*}
-Moreover, (*) would imply that
-\[  \int_{ a }^{ b }  f  \ d \alpha = U(f,\alpha) = U(f \alpha') = \int_{ a }^{ b }  f(x) \alpha'(x)  \ dx.  \]
-In what follows, we will prove \( U(f,\alpha) = U(f \alpha') \). The proof of \( L(f,\alpha) = L(f \alpha') \) is analogous. Let \( P = \{ {x}_{0}, {x}_{1}, \dots , {x}_{n} \}  \) be any partition of \( [a,b] \). Let \( ({s}_{k})  \) be any tag of \( P  \). 
-Note that by the Mean Value Theorem, we can find a \( {t}_{k} \in ({x}_{k-1}, {x}_{k}) \) for all \( 1 \leq k \leq n  \) such that
-\begin{align*}
-    \Delta {\alpha}_{k } &= \alpha({x}_{k}) - \alpha({x}_{k-1}) \\
-                         &= \alpha'({t}_{k}) ({x}_{k} - {x}_{k-1}).
-\end{align*}
-We have
-\begin{align*}
-    &\Big| \sum_{ k=1  }^{ n } f({s}_{k}) \Delta {\alpha}_{k } - \sum_{ k=1  }^{ n } f({s}_{k}) \alpha'({s}_{k}) \Delta {x}_{k} \Big|   \\
-    &= \Big| \sum_{ k=1  }^{ n } f({s}_{k}) \alpha'({t}_{k}) \Delta {x}_{k} - \sum_{ k=1  }^{ n } f({s}_{k}) [\alpha'({t}_{k}) - \alpha'({s}_{k})] \Delta {x}_{k} \Big| \\
-    &\leq \sum_{ k=1  }^{ n } | f({s}_{k}) | | \alpha'({t}_{k}) - \alpha'({s}_{k}) |  \Delta {x}_{k} \\
-    &\leq \hat{M} \sum_{ k=1  }^{ n } | \alpha'({t}_{k}) - \alpha'({s}_{k}) | \Delta {x}_{k} \tag{\( \hat{M} = \sup_{x \in [a,b]} | f(x) |  \)} \\
-    &\leq \hat{M} \sum_{ k=1  }^{ n } [\sup_{{I}_{k}} \alpha' - \inf_{{I}_{k}} \alpha'] \Delta {x}_{k} \tag{lemma 1} \\
-    &= \hat{M} [U(\alpha',P) - L(\alpha',P)].
-\end{align*}
-Hence, we have
-\[ \Big| \sum_{ k=1  }^{ n } f({s}_{k}) \Delta {\alpha}_{k } - \sum_{ k=1  }^{ n } f({s}_{k}) \alpha'({s}_{k}) \Delta {x}_{k} \Big| \leq \hat{M} [U(\alpha',P) - L(\alpha', P)]. \]
-Therefore, 
-\begin{align*}
-    \sum_{ k=1  }^{ n } f({s}_{k}) \Delta {\alpha}_{k } &\leq \sum_{ k=1  }^{ n } f({s}_{k}) \alpha'({s}_{k}) \Delta {x}_{k} + \hat{M} [U(\alpha', P) - L(\alpha',P)] \\
-                                                        &\leq U(f\alpha', P) + \hat{M} [U(\alpha',P) - L(\alpha',P)]. \tag{1}
-\end{align*}
-By Lemma 5, we have
-\[  U(f \alpha', P) \leq U(f,\alpha, P) + \hat{M} [U(\alpha',P) - L(\alpha',P)]. \tag{3} \]
-It follows from (1) and (2) that
-\[  | U(f,\alpha,P) - U(f \alpha', P)   |  \leq \hat{M} [U(\alpha',P) - L(\alpha', P )]. \]
-Note that 
-\begin{align*}
-    U(f,\alpha) = \inf_{P \in \Pi} U(f,\alpha,P) &\implies \exists ({P}_{n}^{(1)}) \subseteq  \Pi \ \text{such that} \  \\
-    U(f \alpha') = \inf_{P \in \Pi} U(f \alpha', P) &\implies \exists ({P}_{n}^{(2)}) \subseteq \Pi \ \text{such that} \ \lim_{ n \to \infty  }  U(f \alpha', {P}_{n}^{(2)}) = U(f \alpha'). \tag{2}
-\end{align*}
-
-Since \( \alpha' \in R[a,b] \), there exists \( ({P}_{n}^{(3)}) \subseteq \Pi  \) such that 
-\[  \lim_{ n \to \infty } [U(\alpha', {P}_{n}^{(3)}) - L(\alpha', {P}_{n}^{(3)})]  = 0.   \]
-Now, for each \( n \in \N \), let \( {P}_{n} = {P}_{n}^{(1)} \cup {P}_{n}^{(2)} \cup {P}_{n}^{(3)} \). We have
-\begin{align*}
-    &\forall n \geq 1 \ \  U(f,\alpha) \leq U(f,\alpha,{P}_{n}) \leq U(f,\alpha, {P}_{n}^{(1)}) \implies \lim_{ n \to \infty  } U(f,\alpha, {P}_{n})  = U(f,\alpha) \tag{4} \\
-    &\forall n \geq 1 \ \ U(f \alpha') \leq U(f \alpha' , {P}_{n}) \leq U(f \alpha' , {P}_{n}^{2}) \implies \lim_{ n \to \infty  }  U(f \alpha', {P}_{n}) = U(f \alpha'). \tag{5}
-\end{align*}
-Since \( {P}_{n} \) is a refinement of \( {P}_{n}^{(3)} \), we have
-\begin{align*}
-     &0 \leq [U(\alpha', {P}_{n}) - L(\alpha',{P}_{n})] \leq U(\alpha' , {P}_{n}^{(3)} - L(\alpha' {P}_{n}^{(3)})) \\
-     &\implies \lim_{ n \to \infty  } U(\alpha', {P}_{n}) - L(\alpha', {P}_{n}) = 0. \tag{6} 
-\end{align*}
-It follows from (3) that
-\[  \forall n \geq 1 \ \ 0 \leq U(f,\alpha, {P}_{n}) - U(f \alpha' , {P}_{n}) \leq \hat{M} [U(\alpha', {P}_{n}) - L(\alpha', {P}_{n})] \]
-Applying the squeeze theorem as \( n \to \infty   \) to both sides of the inequality above, we have
-\begin{align*}
-&\lim_{ n \to \infty   } | U(f,\alpha, {P}_{n}) - U(f \alpha' , {P}_{n}) |  = 0   \\
-&\implies \Big| \lim_{ n \to \infty  }  (U(f,\alpha, {P}_{n}) - U(f \alpha', {P}_{n})) \Big| = 0 \\
-&\implies | U(f,\alpha) - U(f \alpha') |  = 0 \\
-&\implies U(f,\alpha) - U(f \alpha') = 0 \\
-&\implies U(f,\alpha) = U(f \alpha')
-\end{align*}
+Let \( A = \{  L(f,\alpha, P) : P \in \Pi \}  \) and \( B = \{  U(f,\alpha, P) : P \in \Pi \}  \). Using the lemma above and {\hyperref[Theorem 2]{Theorem 2}}, we can see that for all \( a \in A  \) and for all \( b \in B  \), it follows that \( \sup A \leq \inf B  \); that is, \( L(f,\alpha) \leq U(f,\alpha) \).
 \end{proof}
 
-\begin{theorem}[Rudin 6.19; Change of Variable]
-    Let \( f \in {R}_{\alpha}[a,b]  \) and \( \varphi : [A,B] \to [a,b] \) be an onto and strictly increasing function. If we let \( g = f \circ \varphi  \) and \( \beta = \alpha \circ \varphi  \), then
-    \[  g \in {R}_{\beta}[A,B] \ \ \text{and} \ \ \int_{ a }^{ b }  f  \ d \alpha = \int_{ A  }^{  B  }  g  \ d \beta. \]
+\begin{theorem}[Cauchy Criterion for Riemann-Stieltjes Integrability Rudin 6.6]\label{Rudin 6.6}
+    Let \( f: [a,b] \to \R  \) be a bounded function, \( \alpha : [a,b] \to \R  \) be an increasing function. Then
+    \[  f \in {R}_{\alpha}[a,b] \iff \forall \epsilon > 0 \ \exists {P}_{\epsilon} \in \Pi [a,b] \ \text{such that} \ U(f,\alpha, {P}_{\epsilon}) - L(f,\alpha, {P}_{\epsilon}) < \epsilon.  \]
 \end{theorem}
 \begin{proof}
-    Since \( \alpha:[a,b] \to \R  \) is increasing and \( \varphi : [A,B] \to [a,b]  \) is an increasing, we see that 
-    \(  \beta = \alpha \circ \varphi  \)
-    is also increasing on \( [A,B] \). Also, note that, there is a one-to-one correspondence between \( \Pi [a,b] \) and \( \Pi [A,B] \):
-    \[  H: \Pi [a,b] \to \Pi [A,B] \]
-    where \( P = \{ {x}_{0}, {x}_{1}, \dots, {x}_{n} \}  \) corresponding to \( [a,b] \) gets mapped to \( Q = \{ {y}_{0}, {y}_{1}, \dots, {y}_{n} \}  \) corresponding to \( [A,B] \). Under this 1-1 correspondence, we have
+    (\( \Longleftarrow \)) Our goal is to show that \( L(f,\alpha) = U(f,\alpha) \). Note that \( L(f,\alpha) \leq U(f,\alpha) \) implies \( U(f,\alpha) - L(f,\alpha) \geq 0  \). Hence, it suffices to show that for all \( \epsilon > 0  \), 
+    \[  U(f,\alpha) - L(f,\alpha) < \epsilon. \]
+    Let \( \epsilon > 0  \) be given. By assumption, there exists \( {P}_{\epsilon} \in \Pi \) such that 
+    \[  U(f,\alpha, {P}_{\epsilon}) - L(f,\alpha, {P}_{\epsilon}) < \epsilon. \]
+    We have
     \begin{align*}
-        \forall 1 \leq k \leq n \ \ \varphi([{y}_{k-1}, {y}_{k}]) = [{x}_{k-1}, {x}_{k}].
+        U(f,\alpha) &= \inf_{P \in \Pi} U(f,\alpha,P) \leq U(f,\alpha, {P}_{\epsilon}) \\
+        L(f,\alpha) &= \sup_{P \in \Pi} L(f,\alpha,P)  \geq L(f,\alpha, {P}_{\epsilon})
     \end{align*}
-    and
-    \[  \forall 1 \leq k \leq n \ \ \Delta {\beta}_{k } = \beta({y}_{k}) - \beta({y}_{k-1}) = \alpha(\varphi({y}_{k})) - \alpha(\varphi({y}_{k-1})) = \alpha({x}_{k}) - \alpha({x}_{k-1}) = \Delta {\alpha}_{k }. \]
-    and
-    \begin{align*}
-        \forall 1 \leq k \leq n  \ \ {M}_{k }^{(g)} = \sup_{y \in [{y}_{k-1}, {y}_{k}]} g(y) &= \sup_{y \in [{y}_{k-1}, {y}_{k}]} f \circ \varphi (y) \\
-                                                                                             &= \sup_{x \in [{x}_{k-1}, {x}_{k}]} f(x) \\
-                                                                                             &= {M}_{k}^{(f)}
-    \end{align*}
-    Thus, under the correspondence above, we have 
-    \begin{align*}
-        U(f,\alpha,P) &= U(g, \beta, Q ) \\
-        L(f,\alpha,P) &= L(g, \beta, Q )
-    \end{align*}
-    where \( H(P) = Q  \). In order to show \( g \in {R}_{\beta}[A,B] \), by the Cauchy-Criterion, it suffices to show that 
-    \[  \forall \epsilon > 0 \ \ \exists Q \in \Pi [A,B] \ \text{such that} \ U(g,\beta,Q) - L(g,\beta,Q) < \epsilon. \] 
-    Let \( \epsilon > 0  \) be given. Since \( f \in {R}_{\alpha}[a,b] \), there exists \( P \in \Pi[a,b] \) such that 
-    \[  U(f,\alpha,P) - L(f,\alpha,P) < \epsilon. \]
-    We claim that \( Q = H(P) \) can be used as the partition that we were looking for. Indeed, 
-    \[  U(g, \beta, H(P)) - L(g, \beta, H(P)) - L(g, \beta, H(P)) = U(f,\alpha,P) - L(f,\alpha,P) < \epsilon \]
+    Using {\hyperref[Theorem 3]{Rudin 6.5}}, we can see that 
+    \[ L(f,\alpha,{P}_{\epsilon}) \leq L(f,\alpha) \leq U(f,\alpha) \leq U(f,\alpha, {P}_{\epsilon}).  \]
+    So, the interval \( [L(f,\alpha), U(f,\alpha)] \) is contained in the interval \( [L(f,\alpha, {P}_{\epsilon}), U(f,\alpha, {P}_{\epsilon})] \). Thus, 
+    \[ U(f,\alpha) - L(f,\alpha) \leq U(f,\alpha, {P}_{\epsilon}) - L(f,\alpha, {P}_{\epsilon}) < \epsilon \]
     as desired.
-    Also, 
+    
+    (\( \Longrightarrow \)) Our goal is to show that for any \(  \epsilon > 0  \), there exists a partition \( {P}_{\epsilon} \in \Pi \) such that 
+    \[  U(f,\alpha,{P}_{\epsilon}) - L(f,\alpha, {P}_{\epsilon}) < \epsilon.  \]
+    Note that 
     \begin{align*}
-        \int_{ a }^{ b }  f  \ d \alpha &= L(f,\alpha) = \sup_{P \in \Pi [a,b]} L(f,\alpha,P) \\
-                                        &= \sup_{Q \in \Pi[a,b]} L(g,\beta,Q) \\
-                                        &= L(g,\beta) \\
-                                        &= \int_{ A }^{ B }  g  \ d \beta.
+        U(f,\alpha)  &= \inf_{P \in \Pi} U(f,\alpha, P) \implies \exists {P}_{1} \in \Pi \ \text{such that} \ U(f,\alpha, {P}_{1}) < U(f,\alpha) + \frac{ \epsilon }{ 2 }  \\
+        L(f,\alpha) &= \sup_{P \in \Pi} L(f,\alpha,P) \implies \exists {P}_{2} \in \Pi \ \text{such that} \ L(f,\alpha) - \frac{ \epsilon }{ 2 }  < L(f,\alpha, {P}_{2})
     \end{align*}
+    Let \( {P}_{\epsilon} = {P}_{1} \cup {P}_{2} \) (we claim that this partition can be used as the one that we were looking for).
+    \[  L(f,\alpha) - \frac{ \epsilon }{ 2 }  < L(f,\alpha, {P}_{2}) \leq L(f,\alpha, {P}_{\epsilon}) \leq U(f,\alpha,{P}_{\epsilon}) \leq U(f,\alpha, {P}_{1}) < U(f,\alpha) + \frac{ \epsilon }{ 2 }. \]
+    Thus, we have
+    \begin{align*}
+        U(f,\alpha, {P}_{\epsilon}) - L(f,\alpha, {P}_{\epsilon}) &< \Big[ \Big( U(f,\alpha) + \frac{ \epsilon }{ 2 }  \Big) - \Big(  L(f,\alpha) - \frac{ \epsilon }{ 2 }  \Big) \Big] \\
+                                                                  &= U(f,\alpha) - L(f,\alpha) + \epsilon \\
+                                                                  &= 0 + \epsilon = \epsilon
+    \end{align*}
+    as desired.
 \end{proof}
 
-\begin{theorem}[Fundamental Theorem of Calculus I and II]
-    \textbf{(Part I)} Let \( f : [a,b] \to \R  \) be integrable and \( F: [a,b] \to \R  \) satisfies \( F'(x) = f(x) \) for all \( x \in [a,b] \). Then
-    \[  \int_{ a }^{ b }  f  \ d x = F(b) - F(a). \]
-
-    \textbf{(Part II)} Let \( g : [a,b] \to \R  \) be Riemann Integrable and \( G: [a,b] \to \R  \) is defined by \( G(x) = \displaystyle \int_{ a }^{ x }  g(t) \ dt  \). Then
+\begin{theorem}[Rudin 6.7]\label{Rudin 6.7}
+    Let \( f:[a,b] \to \R  \) be a bounded function, \( \alpha:[a,b] \to \R  \) is an increasing function, fix \( \epsilon > 0  \), \( P = \{ {x}_{0}, {x}_{1}, \dots, {x}_{n} \}  \) is a partition of \( [a,b] \), and 
+    \[  U(f,\alpha, P) - L(f,\alpha, P) < \epsilon. \]
+    Then
     \begin{enumerate}
-        \item[(1)] \( G  \) is (uniformly) continuous on \( [a,b] \);
-        \item[(2)] If \( g  \) is continuous at a point \( c \in [a,b] \), then \( G  \) is differentiable at the point \( c  \) and \( G'(c) = g(c) \) (In particular, if \( g:[a,b] \to \R  \) is continuous, then \( G(x) = \displaystyle \int_{ a }^{ x }  g(t) \ dt  \) is an antiderivative of \( g  \) on \( [a,b] \)).
+        \item[(1)] If \( Q  \) is any refinement of \( P  \), then \( U(f,\alpha, Q ) - L(f,\alpha, Q ) < \epsilon \).
+        \item[(2)] If for every \( 1 \leq k \leq n  \), \( {t}_{k } \) and \( {s}_{k } \) are arbitrary points in \( [{x}_{k-1}, {x}_{k}] \), then
+            \[  \sum_{ k=1  }^{ n } | f({s}_{k}) - f({t}_{k}) | \Delta {\alpha}_{k } < \epsilon. \]
+        \item[(3)] If \( f \in {R}_{\alpha}[a,b] \) and for each \( 1 \leq k \leq n  \), \( {s}_{k} \) is a point in \( [{x}_{k-1}, {x}_{k}] \), then
+            \[  \Big| \sum_{ k=1  }^{ n } f({s}_{k}) \Delta {\alpha}_{k } - \int_{ a }^{ b } f \ d \alpha \Big|  < \epsilon. \]
     \end{enumerate}
-
-
-\end{theorem}
-
-    \begin{proof}
-    \begin{enumerate}
-        \item[(I)] In what follows, we will show that 
-            \[  \forall P \in \Pi[a,b] \ \ L(f,P) \leq F(b) - f(a) \leq U(f,P). \tag{*} \]
-            Note that as a consequence of (*):
-            \begin{enumerate}
-                \item[(i)] \( F(b) - F(a) \) is an upper bound for \( \{ L(f,P) : P \in \Pi \}  \). So,
-                    \[  \sup_{P \in \Pi} L(f,P) \leq F(b) - F(a) \implies L(f) \leq F(b) - F(a). \]
-                \item[(ii)] \( F(b) - F(a)  \) is a lower bound for \( \{ U(f,P) : P \in \Pi \}  \). So, 
-                    \[  \inf_{P \in \Pi} U(f,P) \geq F(b) - F(a) \implies U(f) \geq F(b) - F(a). \]
-                    Thus, 
-                    \[  L(f) \leq F(b) - F(a) \leq U(f). \]
-                    Since \( f \in R[a,b] \), \( L(f) = U(f) = \displaystyle \int_{ a }^{ b } f   \), so 
-                    \[  \int_{ a }^{ b }  f  \leq F(b) -F(a) \leq \int_{ a }^{ b }  f.   \]
-                    Therefore, 
-                    \[  \int_{ a }^{ b } f  = F(b) - F(a) \]
-                   which is our desired result. 
-
-                   Let \( P = \{ {x}_{0}, {x}_{1}, \dots, {x}_{n} \}  \) be a partition of \( [a,b] \). Since \( F' = f  \) on \( [a,b] \), we can use the Mean Value Theorem to find a \( {t}_{k } \in ({x}_{k-1},{x}_{k}) \) such that 
-                   \[  F'({t}_{k}) = f({t}_{k}) = \frac{ f({x}_{k}) - f({x}_{k-1}) }{ {x}_{k} - {x}_{k-1} }.  \]
-                   Hence, we have 
-                   \begin{align*}
-                       F(b) - F(a) &= \sum_{ k=1  }^{ n } [F({x}_{k}) - F({x}_{k-1})] = \sum_{ k=1  }^{ n } F'({t}_{k}) ({x}_{k} - {x}_{k-1}) \\
-                                   &= \sum_{ k=1 }^{ n } f({t}_{k}) \Delta {x}_{k}.
-                   \end{align*}
-                   Therefore, it follows from
-                   \[  L(f,P) = \sum_{ k=1  }^{ n } {m}_{k } \Delta {x}_{k} \leq \sum_{ k=1  }^{ n } f({t}_{k}) \Delta {x}_{k} \leq \sum_{ k=1  }^{ n } {M}_{k} \Delta {x}_{k } = U(f,P) \]
-                   that 
-                   \[  L(f,P) \leq F(b) - F(a) \leq U(f,P). \]
-            \end{enumerate}
-        \item[(II)] 
-            \begin{enumerate}
-                \item[(i)] Our goal is to show \( G  \) is uniformly continuous on \( [a,b] \). That is, we need to show 
-                    \[  \forall \epsilon > 0 \ \exists \delta > 0 \ \text{such that} \ \forall x,y \in [a,b] \ \text{if} \ | x - y |  < \delta \ \text{then} \ | G(x) - G(y) |  < \epsilon.  \]
-                    Let \( \epsilon > 0  \) be given. Let \( x,y \in [a,b] \). If \( x \geq y  \), then 
-                    \begin{align*}
-                        | G(x) - G(y) | &= \Big| \int_{ a }^{ x }  g(t) \ dt - \int_{ a }^{ y }  g(t) \ dt  \Big| = \Big| \int_{ y }^{ x }  g(t) \ dt  \Big|  \\
-                                        &\leq \int_{ y }^{ x }  | g(t) |   \ dt \leq \int_{ y }^{ x }  R  \ dt = R(x-y) = R | x - y |
-                    \end{align*}
-                    where \( R = \sup_[t \in [a,b]] | g(t) |  \). If \( y > x  \), then
-                    \begin{align*}
-                        | G(x) - G(y)  | &= | G(y) - G(x) | =  \Big| \int_{ a }^{ y }  g(t) \ dt - \int_{ a }^{ x }  g(t) \ dt  \Big|  \\
-                                         &= \Big| \int_{ x }^{ y }  g(t) \ dt  \Big|  \leq \int_{ x }^{ y }  | g(t) |  \ dt \leq \int_{ x }^{ y } R  \ dt \\
-                                         &= R(y-x) = R| x - y   |. 
-                    \end{align*}
-                    Thus, for all \( x,y \in [a,b] \), we have 
-                    \[  | G(x) - G(y) | \leq R | x - y  |.  \]
-                    Hence, to make sure \( | G(x) - G(y) |  \) is less than \( \epsilon  \), it suffices to make \( R | x - y  |  \) less than \( \epsilon  \), that is, it is enough to ensure that \( | x - y  |  < \frac{ \epsilon }{ R  }  \). This argument shows that \( \delta = \frac{ \epsilon }{ R }  \) does the job. 
-                \item[(ii)] Now, suppose \( g  \) is continuous at \( c \in [a,b] \). Our goal is to show that \( G'(c) = g(c) \). That is, we want to show 
-                    \[  \lim_{ x \to c  }  \frac{ G(x)  - G(c) }{ x - c  }  = g(c). \]
-                    That is, our goal is to show that 
-                    \[  \forall \epsilon > 0 \ \exists \delta > 0 \ \text{such that} \ \text{if} \ 0 < | x - c  |  < \delta \ \text{(with \( x \in [a,b] \))} \ \text{then} \ \Big| \frac{ G(x) - G(c) }{ x - c  }  -  g(c) \Big|  < \epsilon. \]
-                    Let \( \epsilon > 0  \) be given. Since \( g  \) is continuous at \( c  \), for this given \( \epsilon  \), there exists \( \hat{\delta} > 0  \) such that if
-                    \[  | t - c  |  < \hat{\delta} \ \text{(with \( t \in [a,b] \))} \ \text{then} \ | g(t) - g(c) |  < \frac{ \epsilon }{ 2 }. \]
-                    We claim that this \( \hat{\delta} \) can be used as the \( \delta  \) that we were looking for. Indeed, let \( \delta = \hat{\delta} \). We will consider the following two cases:
-                    \textbf{(Case 1)} Suppose \( 0 < | x - c  |  < \hat{\delta} \), \( x \in [a,b] \), \( x > c  \). We have 
-                    \begin{align*}
-                        &\Big| \frac{ G(x) - G(c) }{  x-  c  }  - g(c) \Big| = \Big| \frac{ G(x) - G(c) - g(c) (x-c) }{ x - c  }  \Big|  \\
-                        &= \Big| \frac{ \int_{ a }^{ x  }  g(t) \ dt - \int_{ a }^{ c }  g(t) \ dt - \int_{ c }^{ x }  g(c) \ dt  }{  x - c  }  \Big|  \\
-                        &= \Big| \frac{ 1 }{ x - c  }  \Big(  \int_{ c }^{ x }  g(t) \ dt - \int_{ c }^{ x }  g(c) \ dt  \Big) \Big| \\
-                        &= \Big| \frac{ 1 }{ x - c  } \int_{ c  }^{  x  } [g(t) - g(c)] \ dt  \Big| \\
-                        &= \frac{ 1 }{ | x - c  |  }  \Big| \int_{ c }^{ x }  [g(t) - g(c)] \ dt   \Big|  \\
-                        &\leq \frac{ 1 }{ x - c  }  \int_{ c }^{ x }  | g(t) - g(c) |  \ dt \\
-                        &\leq \frac{ 1 }{ x - c  }  \int_{ c }^{ x }  \frac{ \epsilon }{ 2 }   \ dt \\
-                        &= \frac{ 1 }{ x - c  }  \frac{ \epsilon }{ 2 }  (x - c ) \\
-                        &= \frac{ \epsilon }{ 2 }  \\
-                        &< \epsilon
-                    \end{align*}
-                    as desired. On the other hand, if \( 0 < | x - c  |  < \hat{\delta} \), \( x \in [a,b] \), and \( x < c  \), then a similar argument shows our desired result.
-
-            \end{enumerate}
-    \end{enumerate}
-
-    \end{proof}
-
-\begin{theorem}[Integration by Parts]
-    Let \( u : [a,b] \to \R  \) and \( v : [a,b] \to \R  \) are differentiable and let \( u' \in R[a,b] \) and \( v' \in R[a,b] \). Then we have  
-    \begin{enumerate}
-        \item[(1)] \( uv' \in R [a,b] \)
-        \item[(2)] \( u' v \in R[a,b] \)
-        \item[(3)] \( \displaystyle  \int_{ a }^{ b }  uv'  \ dx = u(b)v(b) - u(a) v(a) - \displaystyle \int_{ a }^{ b } u' v  \ dx  \).
-    \end{enumerate}
-\end{theorem}
-
+\end{theorem} 
 \begin{proof}
 \begin{enumerate}
-    \item[(1)] Since \( u:[a,b] \to \R  \) is differentiable, we have \( u \in C[a,b] \). So, we have \( u \in R[a,b] \). By assumption, \( v' \in R[a,b] \) and so we can conclude that \( uv' \in R[a,b] \).
-    \item[(2)] Using the same argument above, we have \( uv' \in R[a,b] \).
-    \item[(3)] By the product rule, we have 
-        \[  (uv)' = u' v + u v'. \]
-        In particular, since \( (uv)' \) is a sum of integrable functions, it belongs to \( R[a,b] \). Now, we integrate both sides 
-        \[  \int_{ a }^{ b }  (uv)'   \ dx = \int_{ a }^{ b } u'v \ dx + \int_{ a }^{ b }  uv' \ dx. \tag{I} \]
-        According to FTC I, we have
-        \[  \int_{ a }^{ b } (uv)'  \ dx = [uv]_{x = a}^{x =b} = u(b)v(b) - u(a)v(a). \tag{II} \]
-        Hence, we have (I) and (II) imply that
-        \[  u(b)v(b) - u(a)v(a) = \int_{ a }^{ b } u'v \ dx + \int_{ a }^{ b }  u v' \ dx \]
-        which further implies that 
-        \[  \int_{ a }^{ b } uv' \ dx = u(b)v(b) - u(a)v(a) - \int_{ a }^{ b } u'v \ dx. \]
+    \item[(1)] We have 
+        \[  L(f,\alpha, P) \leq L(f,\alpha, Q ) \leq U(f,\alpha, Q) \leq U(f,\alpha, P). \]
+        Therefore, 
+        \[  U(f,\alpha, Q ) - L(f,\alpha,Q) \leq U(f,\alpha, P) - U(f,\alpha, P) < \epsilon. \]
+    \item[(2)] For each \( 1 \leq k \leq n  \), we have 
+        \begin{align*}
+            {m}_{k } &\leq f({s}_{k}) \leq {M}_{k} \\
+            {m}_{k}&\leq f({t}_{k}) \leq {M}_{k} \implies - {M}_{k } \leq - f({t}_{k}) \leq - {m}_{k}.
+        \end{align*}
+        So, we have 
+        \[  {m}_{k } - {M}_{k } \leq f({s}_{k}) - f({t}_{k}) \leq {M}_{k } - {m}_{k}. \]
+        That is, 
+        \[  - ({M}_{k } - {m}_{k}) \leq f({s}_{k}) - f({t}_{k}) \leq {M}_{k } - {m}_{k}. \]
+        Therefore, 
+        \[  | f({s}_{k}) - f({t}_{k})  | \leq {M}_{k } - {m}_{k}. \]
+        Hence, we have 
+        \[ \sum_{ k=1  }^{ n } | f({s}_{k}) - f({t}_{k}) |  \Delta {\alpha}_{k } \leq \sum_{ k=1  }^{ n } ({M}_{k } - {m}_{k}) \Delta {\alpha}_{k } = U(f,\alpha, P) - L(f,\alpha,P) < \epsilon. \]
+    \item[(3)] For all \( 1 \leq k \leq n  \), we have 
+        \[  {m}_{k } \leq f({s}_{k}) \leq {M}_{k }. \]
+        So, 
+        \[  \sum_{ k=1  }^{ n } {m}_{k } \Delta {\alpha}_{k } \leq \sum_{ k=1  }^{ n } f({s}_{k}) \Delta {\alpha}_{k } \leq \sum_{ k=1  }^{ n } {M}_{k } \Delta {\alpha}_{k }. \]
+        Therefore, 
+        \[  L(f,\alpha, P) \leq \sum_{ k=1  }^{ n } f({s}_{k}) \leq U(f,\alpha,P) \tag{I} \]
+        Also, note that 
+        \[  L(f,\alpha,P) \leq \int_{ a }^{ b }  f  \ d \alpha \leq U(f,\alpha, P). \tag{II} \]
+        Hence,
+        \[  \Big| \sum_{ k=1  }^{ n } f({s}_{k}) \Delta {\alpha}_{k } - \int_{ a }^{ b }  f \ d \alpha \Big|  \leq U(f,\alpha, P) - L(f,\alpha, P) < \epsilon \]
+        as desired.
 \end{enumerate}
 \end{proof}
 
-\begin{definition}[Unit Step Function]
-    The \textbf{unit step function} \( I: \R \to \R  \) is defined by
-    \[  I(x) = 
-    \begin{cases}
-        0 &\text{if} \ x \leq 0 \\
-        1 &\text{if} x > 0 
-    \end{cases}. \]
-\end{definition}
 
-\begin{remark}
-    Note that for all \( s \in |R  \), we have 
-    \[  I(x-s) = 
-    \begin{cases}
-        0 &\text{if} \ x \leq s \\
-        1 &\text{if} x > s 
-    \end{cases}. \]
-    Also, for all \( c \neq 0  \), we have
-    \[  c I(x-s) = 
-    \begin{cases}
-        0 &\text{if} \ x \leq s \\
-        c &\text{if} \ x > s.
-    \end{cases} \]
-\end{remark}
 
-\begin{theorem}[Rudin 6.15]
-    Let \( f: [a,b] \to \R  \) be a bounded function, \( s \in (a,b) \), \( f  \) is right continuous at \( s  \), and \( \alpha(x) = I(x-s) \). Then 
-    \begin{center}
-    \( f \in {R}_{\alpha}[a,b] \) and \( \displaystyle \int_{ a }^{ b }  f  \ d \alpha  = f(s) \).
-    \end{center}
-\end{theorem}
+
+
+
+%end of lecture 8
+
+\section{Lecture 9}
+
+\begin{lemma}\label{lemma 1}
+    Let \( f:[a,b] \to \R  \) be a bounded function. Let \( P = \{  {x}_{0}, {x}_{1}, \dots, {x}_{n} \}  \) be a partition of \( [a,b] \). Then 
+    \[  \forall 1 \leq k \leq n \ \ \sup_{s,t \in [{x}_{k-1}, {x}_{k}]} | f(s) -f(t) | = {M}_{k } -{m}_{k }. \]
+\end{lemma}
 \begin{proof}
-see hw4
+Let \( k \in \{  1, 2 , \dots, n \}  \). We need to show
+\begin{enumerate}
+    \item[(1)] \( \forall s,t \in [{x}_{k-1}, {x}_{k}] \) \( | f(s) - f(t) |  \leq {M}_{k } - {m}_{k} \).
+    \item[(2)] \( \forall \epsilon >0  \), \( \exists \hat{s} \hat{t} \in [{x}_{k-1}, {x}_{k}]  \) such that \( {M}_{k } - {m}_{k } - \epsilon < | f(\hat{s}) - f(\hat{t}) |  \). 
+\end{enumerate}
+Note that we have already shown (1) in our discussion of {\hyperref[Rudin 6.7]{Theorem 6.7}}. 
+
+Let \( \epsilon > 0  \) be given. Then we have
+\begin{align*}
+    {m}_{k } = \inf_{t \in [{x}_{k-1}, {x}_{k}]} f(t) &\implies \hat{t} \in [{x}_{k-1}, {x}_{k}] \ \text{such that} \ f(\hat{t}) < {m}_{k } + \frac{ \epsilon }{ 2 }  \\
+    {M}_{k }  = \sup_{t \in [{x}_{k-1}, {x}_{k}]} f(t) &\implies \hat{s} \in [{x}_{k-1}, {x}_{k}] \ \text{such that} \ {M}_{k }  - \frac{ \epsilon }{ 2 }  < f(\hat{s}).
+\end{align*}
+Adding the inequalities above, we get
+\[  {M}_{k } - {m}_{k } - \epsilon < f(\hat{s}) - f(\hat{t}) \leq | f(\hat{s}) - f(\hat{t}) |. \]
 \end{proof}
 
-\begin{theorem}[Rudin 6.16]
-    Suppose for all \( n \geq 1  \), \( {c}_{n} \geq 0  \), \( \displaystyle \sum_{ n=1  }^{ N  } {c}_{n} \) converges, \( {s}_{1} < {s}_{2} < {s}_{3} < \cdots   \) are points in \( (a,b) \), \( \alpha:[a,b] \to \R  \) is continuous. Then
-    \begin{center}
-        \( f \in {R}_{\alpha}[a,b] \) and \( \displaystyle \int_{ a }^{ b } f  \ d \alpha = \displaystyle \sum_{ n=1  }^{ \infty  } {c}_{n} f({s}_{n})  \).
-    \end{center}
+\begin{theorem}[Rudin 6.8]\label{Rudin 6.8}
+    Let \( f:[a,b] \to \R  \) be a continuous function and \( \alpha: [a,b] \to \R  \) is an increasing function. Then \( f \in {R}_{\alpha}[a,b] \). 
 \end{theorem}
-\begin{proof}
-See hw4.
+
+\begin{proof} 
+    Since \( f: [a,b] \to \R  \) is a continuous function and \( [a,b]  \) is compact, it follows from the Extreme Value Theorem that \( f  \) is bounded on \( [a,b] \). Now, according to the Cauchy Criterion for Riemann-Stieltjes integrability, it suffices to show that 
+    \[  \forall \epsilon > 0 \ \exists P \in \Pi  \ \text{such that} \ U(f,\alpha,P) - L(f,\alpha,P) < \epsilon. \tag{*}\]
+    Let \( \epsilon > 0  \) be given. By the same reasoning that showed \( f  \) is bounded on \( [a,b] \), it follows that \( f  \) is uniformly continuous on \( [a,b] \). For the given \( \epsilon  \), there exists a \( \delta > 0  \) such that for all \( s,t \in [a,b] \):
+    \[  \text{if} \ | s - t  |  < \delta \ \text{then} \ | f(s) - f(t) | < \frac{ \epsilon }{  2 [\alpha(b) - \alpha(a) + 1 ] }. \]
+    Let \( P = \{  {x}_{0}, {x}_{1}, \dots, {x}_{n} \}  \) be any partition of \( [a,b] \) such that \( \|P\| < \delta \). We claim (*) holds for such a partition. Indeed, for all \( k \in \{  1, 2, \dots, n  \}  \) and for all \( s,t \in [{x}_{k-1}, {x}_{k}] \), if \( | s-  t  |  < \delta \), then
+    \[  | f(s) - f(t) |  < \frac{ \epsilon }{ 2 [\alpha(b) - \alpha(a) + 1 ] }. \]
+    Hence, 
+    \[  \sup_{s,t \in [{x}_{k-1}, {x}_{k}]} | f(s) - f(t) |  \leq \frac{ \epsilon }{ 2 [\alpha(b) - \alpha(a) + 1] }. \]
+    Thus, 
+    \[  {M}_{k } - {m}_{k } \leq \frac{ \epsilon }{ 2 [\alpha(b) - \alpha(a) + 1] }. \]
+    Therefore, 
+    \begin{align*}
+        U(f,\alpha,P) - L(f,\alpha,P) &= \sum_{ k=1  }^{ n } ({M}_{k } - {m}_{k}) \Delta {\alpha}_{k } \\
+                                      &\leq \sum_{ k=1  }^{ n } \frac{ \epsilon }{  2 [\alpha(b)- \alpha(a) + 1] }  \Delta {\alpha}_{k } \\
+                                      &= \frac{ \epsilon }{ 2 [\alpha(b) - \alpha(a) + 1] }  \sum_{ k=1  }^{ n } \Delta {\alpha}_{k } \\
+                                      &= \frac{ \epsilon }{ 2 [\alpha(b) - \alpha(a) + 1] }  \cdot [\alpha(b) - \alpha(a)] \\
+                                      &\leq \frac{ \epsilon }{ 2 }  \\
+                                      &< \epsilon
+    \end{align*}
+    as desired.
+
+
 \end{proof}
+
+\begin{lemma}\label{lemma 2}
+    Let \( \alpha:[a,b] \to \R  \) be an increasing and continuous function and \( \alpha(a) < \alpha(b) \). Then for each \( n \in \N \), there exists a partition \( P = \{  {x}_{0}, {x}_{1}, \dots, {x}_{n} \}  \) such that   
+    \[  \forall 1 \leq k \leq n \ \ \Delta \alpha_k = \alpha({x}_{k}) - \alpha({x}_{k-1}) = \frac{ \alpha(b) - \alpha(a) }{  n  }. \]
+\end{lemma}
+\begin{proof}
+    Let \( n \in \N \). Divide the interval \( [\alpha(a), \alpha(b)] \) into \( n  \) subintervals of equal length: \( \frac{ \alpha(b) - \alpha(a) }{ n  }  \). For each \( 1 \leq k \leq n  \), we have \( {y}_{k } \in (\alpha(a), \alpha(b)) \). Hence, the Intermediate Value Theorem implies that 
+    \[  \exists {x}_{k } \in (a,b) \ \text{such that} \ {y}_{k } = \alpha({x}_{k}). \]
+    Since \( \alpha  \) is increasing, we have 
+    \[  a = {x}_{0} < {x}_{1} < {x}_{2} < \cdots < {x}_{n} = b.   \]
+    This tells us that \( P = \{  {x}_{0},{x}_{1}, \dots, {x}_{n} \}  \) will be partition of \( [a,b] \) such that
+    \[  \forall 1 \leq k \leq n  \ \ \Delta {\alpha}_{k } = \alpha({x}_{k}) - \alpha({x}_{k-1}) = {y}_{k } - {y}_{k-1} = \frac{ \alpha(b) - \alpha(a) }{ n }. \]
+\end{proof}
+
+%end of lecture 9
+
+
+
 

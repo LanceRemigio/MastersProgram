@@ -1,184 +1,87 @@
-\section{Lectures 17-18}
+\section{Lecture 12}
 
-\subsection{Plan}
+\begin{lemma}[lemma 3]\label{lemma 3}
+   Let \( A  \) be a subset of \( \R  \) and \( f,g : A \in \R  \) be two bounded functions. Then 
+   \begin{enumerate}
+       \item[(i)] \( \sup_{A} (f+g) \leq \sup_{A} f + \sup_{A} g \);
+       \item[(ii)] \( \inf_{A} (f+g) \geq \inf_{A} f + \inf_{A} g  \);
+       \item[(iii-1)] \( \forall k \geq 0  \), \( \sup_{A} (kf) = k \sup_{A} f \);
+       \item[(iii-2)] \(  \forall k \geq 0  \) \( \inf_{A} kf = k \inf_{A} f \);
+       \item[(iv-1)] \( \forall k < 0  \) \( \sup_{A} kf = k \inf_{A} f \); 
+       \item[(iv-2)] \( \forall k < 0  \) \( \inf_{A} kf = k \sup_{A} f \);
+       \item[(v)] \( \sup_{x,y \in A}| f(x) - f(y) | = \sup_{A} f - \inf_{A} f \);
+        \item[(vi)] If there exists a constant \( k > 0  \) such that 
+            \[  \forall z,w \in A \ \ | f(z) - f(w)  | \leq k | g(z) - g(w) |,  \]
+            then
+            \[  \sup_{A} f - \inf_{A} f \leq k [\sup_{A} g - \inf_{A}  g].  \]
+   \end{enumerate}  
+\end{lemma}
 
-\begin{itemize}
-    \item Series of functions
-    \item Cauchy Criterion for Uniform Convergence of Series
-    \item Weiertstrass M-Test
-\end{itemize}
-
-\begin{theorem}[Term-by-Term Continuity Theorem]
-Let \( A \subseteq  (X,d)  \) be nonempty. Suppose for all \( n \in \N \) \( {f}_{n} : A \to \R  \) is a sequence of continuous functions, and \( \sum_{ n=1  }^{ \infty  } {f}_{n} \) converges uniformly to \( f: A \to \R  \). Then \( f: A \to \R  \) is continuous.    
-\end{theorem}
-\begin{proof}
-Applying the corresponding theorem for sequences of functions to the sequence of partial sums \( {s}_{m} = {f}_{1} + \cdots + {f}_{n} \). That is, 
-\[  \sum_{ n=1  }^{ \infty  } {f}_{n} = f \implies {s}_{m} \to f \ \text{uniformly} \implies f \ \text{is continuous} \]
-since \( {s}_{m}  \) is continuous.
-\end{proof}
-
-\begin{theorem}[Term-by-Term Differentiability Theorem]
-    Assume for each \( n \in \N  \), \( {f}_{n} : [a,b] \to \R  \) is a sequence of differentiable functions, \( \sum_{ n=1  }^{ \infty  } {f}_{n} = f  \) pointwise on \( [a,b] \), and \( \sum_{ n=1  }^{ \infty  } {f}_{n}'  \) converges uniformly on \( [a,b] \). Then
-    \( f  \) is differentiable on \( [a,b] \) and 
-    \[  \Big(  \sum_{ n=1  }^{ \infty  } {f}_{n} \Big)' = \sum_{ n=1  }^{ \infty  } {f}_{n}'. \]
-\end{theorem}
-\begin{proof}
-Apply the corresponding theorem for sequences of functions to the sequence of partial sums \( {s}_{m} = {f}_{1} + \cdots + {f}_{m} \).
-\end{proof}
-
-\begin{theorem}[Term-by-Term Integrability]
-    Let \( \alpha: [a,b] \to \R  \) is an increasing function, for each \( n \geq 1  \), \( {f}_{n} \in {R}_{\alpha}[a,b] \), and \( \sum_{ n=1  }^{ \infty  } {f}_{n} \) converges uniformly to \( f: [a,b] \to \R   \). Then 
-    \[  f \in {R}_{\alpha}[a,b] \ \ \text{and} \ \ \int_{ a }^{ b }  \sum_{ n=1  }^{ \infty  } {f}_{n} \ d \alpha = \sum_{ n=1  }^{ \infty  } \int_{ a }^{ b }  {f}_{n} \ d \alpha. \]
-\end{theorem}
-\begin{proof}
-Apply the corresponding theorem for sequences of functions to the sequence of partial sums \( {s}_{m} = {f}_{1} + \cdots + {f}_{m} \).
-\end{proof}
-
-\begin{theorem}[Cauchy Criterion for Uniform Convergence of Series of Functions]
-    Let \( A  \) be a nonempty set and suppose for each \( k \in \N  \), \( {f}_{k } : A \to \R  \). Then
-    \begin{center}
-        \( \displaystyle \sum_{ k=1  }^{ \infty  } {f}_{k } \) converges uniformly if and only if for all \(  \epsilon > 0  \), there exists an \( N  \) such that for all \( n > m > N  \) and for all \( x \in A  \), \( \displaystyle \Big| \sum_{ k=1  }^{ n } {f}_{k } (x) \Big| < \epsilon \).
-    \end{center}
-\end{theorem}
-
-\begin{theorem}[Weierstrass M-Test]
-    Let \( A  \) be a nonempty set, for all \( n \in \N  \) \( {f}_{n} : A \to \R  \), for all \(  n \in \N  \), there exists \( {M}_{n} \) such that for all \( x \in A  \), \( | {f}_{n}(x) |  \leq {M}_{n} \), and \( \displaystyle \sum_{ n=1  }^{ \infty  } {M}_{n}  \) converges. Then 
-    \[  \sum_{ n=1  }^{ \infty  } {f}_{n} \ \ \text{converges uniformly on} \ A.  \]
-\end{theorem}
-\begin{proof}
-    According to the Cauchy Criterion for uniform convergence of series of functions, it suffices to show that for all \( \epsilon > 0  \), there exists \( N  \) such that for all \( n > m > N  \)  and for all \( x \in A  \)
-    \[  \Big| \sum_{ k=m+1  }^{ n  } {f}_{k } (x) \Big|  < \epsilon. \tag{*} \]
-    Let \( \epsilon > 0 \).
-    Note, by assumption, \( \displaystyle \sum_{ n=1  }^{ \infty  } {M}_{n} \) converges. Thus, for our given \( \epsilon  \), there exists \( \hat{N} \) such that 
-    \[  \forall m > m > \hat{N} \ \ \Big| \sum_{ k = m + 1  }^{ n } {M}_{k }  \Big|  < \epsilon. \]
-    We claim that we can use this \( \hat{N} \) as the \( N  \) that we were looking for. Indeed, if we let \( N = \hat{N} \), then (*) will hold because for all \( n > m > \hat{N} \) and for all \( x \in A  \)
-    \[ \Big| \sum_{ k= m+1 }^{  n  } {f}_{k }(x) \Big|  \leq \sum_{ k = m + 1  }^{ n } | {f}_{k }(x) | \leq \sum_{ k= m + 1  }^{ n } {M}_{k } < \epsilon  \]
-    as desired.
-\end{proof}
-
-\section{Lectures 20-21}
-
-\subsection{Plan}
-
-\begin{enumerate}
-    \item[(1)] Dini's Theorem
-\end{enumerate}
-
-\begin{theorem}[Rudin 7.13]
-    Let \( (X,d) \) be a metric space, let \( K \subseteq  X   \) be a compact set, and suppose for each \( n \in \N  \), \( {f}_{n} : K \to \R  \) is continuous. Assume further that \( {f}_{n} \to f  \) pointwise on \( K  \) where \( f : K \to \R  \) is continuous, and that for all \( n \in \N  \), \( {f}_{n+1} \leq {f}_{n} \). Then \( {f}_{n} \to f  \) uniformly on \( K  \). 
-\end{theorem}
-
-\begin{proof}
-Let \( \epsilon > 0 \) be given. Our goal is to show, there exists \( N  \) such that for all \( n > N  \) and for all \(  \in K  \), we have 
-\[  | {f}_{n}(x) - f(x) < \epsilon. |  \]
-For each \( n \in \N  \), let \( {g}_{n} = {f}_{n} - f  \). So, our goal is to show that there exists an \( N  \) such that 
-\[  \forall n > N \ \forall x \in K \ | {g}_{n}(x) |  < \epsilon. \]
-First, we observe that for all \( {g}_{n} \geq 0  \). Indeed, we see that for each \( x \in K  \), \( ({f}_{n}(x))_{n \geq 1 } \) is a decreasing sequence of real numbers that converges to \( f(x) \). It follows from the Monotone Convergence Theorem that \( f(x) = \inf_{n \in \N} {f}_{n}(x) \). Thus, for all \( n \in \N  \), we have
-\[  f(x) \leq {f}_{n}(x). \]
-Therefore, for all \( n \in \N  \), \( {g}_{n} \geq  0  \). To get our desired result, all we need to show is that there exists an \( N  \) such that for all \( n > N  \) and for all \( x \in K  \), \( {g}_{n}(x) < \epsilon \). We can reframe our desired conclusion in the following way: 
-\[  \exists N \in \N \ \text{such that} \ \forall n > N \ \ \{ x \in K : {g}_{n}(x) \geq \epsilon  \}  = \emptyset. \tag{*} \] Let \( {K}_{n} = {g}_{n}^{-1}([\epsilon, \infty ]) \) for each \( n \in \N  \). Our goal is to show that for all \(  n > N  \), \( {K}_{n} = \emptyset \). Observe further that for each \( n \in \N  \), \( {K}_{n} \) is a compact set. Indeed, we see that for each \( n \in \N  \), \( {g}_{n} : K \to \R  \) is continuous and \( [\epsilon, \infty) \) is a closed set in \( \R  \). From this, we can see that \( {K}_{n} = {g}_{n}^{-1}([\epsilon,\infty) )  \) is closed in \( K  \) because preimages of closed sets under a continuous map is closed. Thus, we can see that each \( {K}_{n} \) must be compact because \( K  \) is compact, \( {K}_{n} \subseteq  K \)  and \( {K}_{n}  \) is closed. 
-
-For our third observation, we see that \( {K}_{n+1} \subseteq  {K}_{n} \) for all \( n \in \N  \). Indeed, we see that for every \( x \in {K}_{n+1} \), 
-\[  {g}_{n+1}(x) \geq \epsilon \underbrace{\implies}_{{g}_{n+1} \leq {g}_{n}} {g}_{n}(x) \geq \epsilon \implies x \in {K}_{n}. \]
-This tells us that to show (*), it is enough to find an \( N \in \N  \) such that \( {K}_{N} = \emptyset \). Assume for contradiction that for all \( n \in \N  \), \( {K}_{n} \neq \emptyset \). Because
-\begin{itemize}
-    \item \( {K}_{n+1} \subseteq {K}_{n} \) for all \( n \in \N \);
-    \item \( \forall n  \), \( {K}_{n}  \) is compact;
-    \item \( \forall n \in \N {K}_{n} \neq \emptyset \);
-\end{itemize}
-we can see, by the Nested Compact Interval Property that
-\[ \bigcap_{ n =1  }^{ \infty   }  {K}_{n} \neq \emptyset.  \]
-Therefore, there exists \( x \in \bigcap_{ n = 1  }^{ \infty  } {K}_{n} \), that is, there exists an \( x \in K   \) such that 
-\[  \forall n \in \N \ \ {g}_{n}(x) \geq \epsilon. \]
-This contradicts the fact that \( {g}_{n}(x) \to 0  \) (Indeed, we can see that this is the case because \( {f}_{n} \to f  \) is pointwise and so \( {g}_{n} =  {f}_{n} - f \to 0   \) pointwise).
-\end{proof}
-
-\begin{theorem}[The Arzela-Ascoli Theorem]
-    Let \( (X,d) \) be a metric space, \( K \subseteq  X  \) where \( K  \) is infinite and compact, and \( ({f}_{n} : K \to \R )_{n \geq 1} \) is uniformly bounded, and \( ({f}_{n} : K \to \R )_{n \geq 1} \) is equicontinuous. Then \( ({f}_{n}) \) has a uniformly convergent subsequence. 
-\end{theorem}
-
-Before proving this remarkable theorem, we would like to go over some key terms defined within the statement above so that we may understand the context better. Below, we note the key differences between continuity and uniformly continuity. First, consider the definitions between the two terms.
-
-\begin{definition}[Continuity]
+\begin{lemma}[lemma 4]\label{lemma 4}
+    Let \( f,g: [a,b] \to \R  \) be two bounded functions, \( \alpha: [a,b] \to \R  \) is an increasing function, and \( P \in \Pi[a,b] \). Then
     \begin{enumerate}
-        \item[(i)] We say that \( f: A \to \R \) where \( A \subseteq (X,d)  \) is continuous if for all \( c \in A  \), for all \( \epsilon > 0  \), there exists a \( \delta > 0  \) such that for all \( x \in A  \) if \( d(x,c) < \delta \), then
-            \[  | f(x) - f(c) |  < \epsilon. \]
-        \item[(ii)] We say that \( f: A \to \R  \) is uniformly continuous if for all \( \epsilon > 0  \), there exists \( \delta > 0  \) such that for all \( x ,y \in A  \) if \( d(x,y) < \delta \), then 
-            \[  | f(x) - f(y) | < \epsilon. \]
+        \item[(i)] \( U(f + g,\alpha, P) \leq U(f,\alpha,P) + U(g,\alpha,P) \);
+        \item[(ii)] \( L(f+g, \alpha, P) \geq L(f,\alpha,P) + U(g,\alpha, P) \);
+        \item[(iii-1)] \( \forall k \geq 0  \) \( U(kf, \alpha, P) = k U(f,\alpha,P) \)
+        \item[(iii-2)] \( \forall k \geq 0  \), \( L(kf,\alpha,P) = k L(f,\alpha,P) \);
+        \item[(iv-1)] \( \forall k < 0  \) \( U(f,\alpha,P) = k L(f,\alpha,P) \)
+        \item[(iv-2)] \( \forall k < 0  \) \( L(kf,\alpha, P) = k U(f,\alpha,P) \).
     \end{enumerate}
-\end{definition} 
+\end{lemma}
 
-\begin{definition}[Equicontinuous Sequence of Functions]
-    Let \( A \subseteq (X,d) \). A sequence of functions \( ({f}_{n} : A \to \R)_{n \geq 1} \) is said to be \textbf{equicontinuous} if 
-    \[  \forall \epsilon > 0 \ \exists \delta > 0 \ \text{such that} \ \forall n \in \N \ \forall x,c \in A \ \text{if} \ d(x,c) < \delta \ \text{,then} \ | {f}_{n}(x) - {f}_{n}(c) |  < \epsilon. \]
-\end{definition}
-
-We will now outline the key main steps taken to prove the Arzela-Ascoli theorem. 
-
-\begin{enumerate}
-\item[(1)] We let \( E  \) be countable dense subset of \( K   \). We will use the assumption that \( ({f}_{n}) \) is uniformly bounded to show that there exists a subsequence \( ({f}_{{n}_{k }}) \) of \( ({f}_{n}) \) that converges at each point of \( E  \). To simplify the notation, we let \( {g}_{k } = {f}_{{n}_{k }} \). The main proof technique for this step is to use Cantor's diagonal process. 
-\item[(2)] We will use the assumption that \( ({f}_{n}) \) is equicontinuous to prove that the sequence \( ({g}_{k}) \), which we constructed in step 1 above is uniformly convergent on the entire \(  K  \). For this step, the idea is to prove that \( ({g}_{k}) \) satisfies the {\hyperref[Cauchy Criterion for Uniform Convergence]{Cauchy Criterion for Uniform Convergence}}; that is, we will need to show that 
-    \[  \forall \epsilon > 0 \ \exists N \ \text{such that} \ \forall m,n > N \ \forall x \in K \ | {g}_{m}(x) - {g}_{n}(x) | < \epsilon. \]
-    Note that for each \( x \in K  \) and \( r \in E  \), we have 
-    \[  | {g}_{m}(x) - {g}_{n}(x) | \leq | {g}_{m}(x) - {g}_{m}(r) | + | {g}_{m}(r) - {g}_{n}(r)  |  + | {g}_{n}(r) - {g}_{n}(x) |. \]
-    The first term and third term on the right-hand side of the inequality above can be made small by using the equicontinuity of \( ({g}_{k}) \). The middle term can be made small using the assumption that \( ({g}_{k}) \) converges at \( r \in E  \) and so \( ({g}_{k }(r)) \) is a Cauchy sequence of real numbers.
-\end{enumerate}
-
-\subsection*{Proof of Step 2}
-
-\begin{proof}
-    Suppose \( ({g}_{k})_{k \geq 1} \) is equicontinuous, for each \( r \in E  \), the sequence of numbers \( ({g}_{k }(r)) _{k \geq 1}\) converges, and \( E  \) is a countable dense subset of \(  K  \). Then \( ({g}_{k})_{k \geq 1} \) converges uniformly on \( K  \).  
-    
-    To this end, let \( \epsilon > 0 \) be given. Our goal is to show to find an \( N  \) such that 
-    \[  \forall m,n > N \ \forall x \in K \ | {g}_{m}(x) - {g}_{n}(x)  | < \epsilon. \tag{*} \]
-    Note that 
+\begin{theorem}[Order Properties of R.S Integral]
+    Assume \( f,g \in {R}_{\alpha}[a,b] \). Then
     \begin{enumerate}
-        \item[(i)] \( ({g}_{k})_{k \geq 1} \) is equicontinuous, so for the given \( \epsilon > 0  \), there exists \( \delta > 0  \) such that 
-            \[  \forall k \in \N \ \forall x,c \in K \ \text{if} \ d(x,c) < \delta \ | {g}_{k}(x) - {g}_{k }(c)  | < \frac{ \epsilon }{ 3 }. \]
-        \item[(ii)] For each \( r \in E  \), the sequence of numbers \( ({g}_{k } (r))_{k \geq 1} \) is convergent so it is Cauchy. Hence, 
-            \[  \forall c \in E  \ \ \exists {N}_{r} \ \text{such that} \ \forall m,n > {N}_{r} \ | {g}_{m}(r) - {g}_{n}(r) | < \frac{ \epsilon }{ 3 }. \]
-            Notice that (since \( E  \) is dense in \(  K \)), we have
-            \[  K \subseteq  \bigcup_{ r \in E  }^{  }  {B}_{\delta}(r) \]
-            where \( {B}_{\delta}(r) \) is an open ball of radius \( \delta  \) centered at \( r  \). So, \( \{ {B}_{\delta}(r) \}_{r \in E } \) is an open cover of \( K  \). Since \( K  \) is compact, this open cover has a finite subcover, that is, there exists \( {r}_{1}, \dots, {r}_{\ell} \in E  \) such that  
-            \[  K \subseteq  [{B}_{\delta}({r}_{1}) \cup \cdots \cup {B}_{\delta}({r}_{\ell})]; \]
-            that is, every point in \( K  \) is within \( \delta  \) of at least one of \( {r}_{1}, \dots, {r}_{\ell} \). We claim that \( \max \{ {N}_{{r}_{1}} , \dots, {N}_{{r}_{\ell}} \}  \) can be used as the \( N  \) we were looking for. Indeed, if we let \( N = \max \{  {N}_{{r}_{1}}, \dots, {N}_{{r}_{\ell}} \}  \), then (*) will hold. The reason is as follows:
-
-            Suppose \( m,n > N  \) and \( x \in K  \). Since \( x \in K  \), there exists \( i \in \{ 1, \dots, \ell  \}  \) such that \( x \in {B}_{\delta}({r}_{i}) \). We have 
+        \item[(i)] If \( m \leq f(x) \leq M  \) for all \( x\in [a,b] \), then 
+            \[  m (\alpha(b) - \alpha(a)) \leq \int_{ a }^{ b }  f  \ d \alpha \leq M(\alpha(b) - \alpha(a)). \]
+        \item[(ii)] If \( f \leq g  \) on \( [a,b] \), then
+            \[  \int_{ a }^{ b }  f  \ d \alpha \leq \int_{ a }^{ b } g   \ d \alpha. \]
+    \end{enumerate}
+\end{theorem}
+\begin{proof}
+\begin{enumerate}
+    \item[(i)] Note that for any \( P \in \Pi[a,b] \), we have 
         \begin{align*}
-            | {g}_{m}(x) - {g}_{n}(x) | &= | {g}_{m}(x) - {g}_{m}({r}_{i}) + {g}_{m}({r}_{i}) - {g}_{n}({r}_{i}) + {g}_{n}({r}_{i}) - {g}_{n}(x) |   \\
-                                        &\leq | {g}_{m}(x) - {g}_{m}({r}_{i}) |  + | {g}_{m}({r}_{i}) - {g}_{n}({r}_{i}) |  + | {g}_{n}({r}_{i}) - {g}_{n}(x) | \\ 
-                                        &< \frac{ \epsilon }{ 3 }  + \frac{ \epsilon }{ 3 }  + \frac{ \epsilon }{ 3 } = \epsilon
+            \int_{ a }^{ b }  f  \ d \alpha &= L(f,\alpha) \geq L(f,\alpha,P) \\
+            \int_{ a }^{ b }  f \ d \alpha &= U(f,\alpha) \leq U(f,\alpha,P).
         \end{align*}
-        as desired.
+        In particular, for the partition \( P = \{ a,b \}  \), we have 
+        \begin{align*}
+            \int_{ a }^{ b }  f  \ d \alpha &\geq L(f,\alpha, P) = \Big(  \inf_{x \in [a,b]} f(x) \Big) (\alpha(b) - \alpha(a)) \geq m (\alpha(b) - \alpha(a)) \tag{1} \\
+            \int_{ a }^{ b }  f  \ d \alpha &\leq U(f,\alpha,P) = \Big(  \sup_{x \in [a,b]} f(x) \Big) (\alpha(b) - \alpha(a)) \leq M (\alpha(b) - \alpha(a)). \tag{2}
+        \end{align*}
+        Using (1) and (2), we obtain our desired result.
+    \item[(ii)] Let \( h = g - f  \). We have \( h \geq 0  \), so, by part (i), we have
+        \[  0 (\alpha(b) - \alpha(a)) \leq \int_{ a }^{ b }  h  \ d \alpha. \]
+        Therefore, 
+        \begin{align*}
+            0 \leq \int_{ a }^{ b } h \ d \alpha &= \int_{ a }^{ b } g - f  \ d \alpha = \int_{ a }^{ b }  g  \ d \alpha - \int_{ a }^{ b }  f  \ d \alpha \\
+                                                 &\implies \int_{ a }^{ b } f  \ d \alpha \leq \int_{ a }^{ b }  g  \ d \alpha.
+        \end{align*}
+\end{enumerate}
+\end{proof}
+
+\begin{theorem}[Triangle Inequality of Integrals]
+    Assume \( f \in {R}_{\alpha}[a,b] \). Then
+    \begin{enumerate}
+        \item[(i)] \( | f |  \in {R}_{\alpha}[a,b] \);
+        \item[(ii)] \( \displaystyle \Big| \int_{ a }^{ b }  f  \ d \alpha \Big|  \leq \int_{ a }^{ b }  | f |  \ d \alpha \).
     \end{enumerate}
-\end{proof}
-
-\subsection*{Proof of Step 1}
-
+\end{theorem}
 \begin{proof}
-In what follows, we will prove a more general statement:
-\begin{center}
-    Let \( E = \{ {x}_{i} : i \in \N  \}  \) is some countable subset of \( K  \) and \( ({f}_{n} : K \to \R )_{n \geq 1} \) is pointwise bounded. Then \( ({f}_{n}) \) has a subsequence that converges at each point \( r \in E  \). 
-\end{center}
-\begin{itemize}
-    \item The sequence of real numbers \( ({f}_{n}({x}_{1}))_{n \geq 1} \) is bounded. Using the Bolzano-Weierstrass theorem, it has a subsequence \( ({f}_{{n}_{k }}({x}_{1}))_{k \geq 1} \) that converges. To emphasize that this subsequence is generated by considering the values of \( {x}_{1} \), we will use the notation \( {f}_{1,k} = {f}_{{n}_{k }} \). 
-    \item The sequence of real numbers \( ({f}_{1,k}({x}_{2}))_{k \geq 1} \) is bounded. Hence, the Bolzano-Weierstrass theorem implies that it has a convergent subsequence \( {f}_{2,k}({x}_{2})_{k \geq 1} \). 
-    \item The sequence of real number \( ({f}_{2,k}({x}_{3}))_{k \geq 1} \). In general, for every \( m > 2  \), the sequence \( ({f}_{m-1,k})_{k \geq 1} \) has a subsequence \( ({f}_{m,k })_{k \geq 1} \) such that \( ({f}_{m,k}({x}_{m})_{k \geq 1}) \) converges. In this way, we will obtain the following table of functions:
-    \begin{align*}
-        &{f}_{1,1}  \ \ \  {f}_{1,2} \ \ \   {f}_{1,3} \ \ \   {f}_{1,4} \dots  \\
-        &{f}_{2,1} \  \ \   {f}_{2,2} \ \ \   {f}_{2,3} \ \ \  {f}_{2,4} \dots  \\
-        &{f}_{3,1} \  \ \  {f}_{3,2} \ \ \   {f}_{3,3} \ \ \   {f}_{3,4} \dots  \\
-        &\vdots \\
-        &{f}_{m,1} \ \ \   {f}_{m,2} \ \ \   {f}_{m,3} \ \ \   {f}_{m,4} \dots  \\
-        &\vdots
-    \end{align*}
-\end{itemize}
-Now, consider the diagonal sequence \( {f}_{1,1} , {f}_{2,2}, {f}_{3,3}, \dots \). Let \( {g}_{k } = {f}_{k,k} \) for each \( k \in \N  \). We claim that \( ({g}_{k })_{k \geq 1} \) converges at \( {x}_{i} \) for all \( i \in \N  \). Indeed, let \( i \in \N  \). Note that 
-\[  {g}_{i+1}, {g}_{i+2}, {g}_{i+3}, \dots  \]
-is a subsequence of \( {f}_{i,1}, {f}_{i,2}, {f}_{i,3}, \dots \). By construction,  
-\[  {f}_{i,1}({x}_{i}), {f}_{i,2}({x}_{i}), {f}_{i,3}({x}_{i}), \dots \]
-converges. Since \( {g}_{i+1}({x}_{i}), {g}_{i+2}({x}_{i}), {g}_{i+3}({x}_{i}), \dots  \) is a subsequence of the sequence above, it also converges. Thus,   
-\[  {g}_{1}({x}_{i}), {g}_{2}({x}_{i}), \dots, {g}_{i}({x}_{i}) , {g}_{i+1}({x}_{i}) , {g}_{i+2}({x}_{i}), {g}_{i+3}({x}_{i}) , \dots  \]
-also converges.
+\begin{enumerate}
+    \item[(i)] Define \( \varphi: \R \to \R  \) by \( \varphi(x) = | x  |  \) which is clearly continuous on \( \R  \). Since \( f \in {R}_{\alpha}[a,b] \), it follows from {\hyperref[Rudin 6.11]{Rudin 6.11}} that \( \varphi \circ f \in {R}_{\alpha}[a,b] \). Hence, we have \( | f |  \in {R}_{\alpha}[a,b]  \).  
+    \item[(ii)] Recall that 
+        \[  | t  |  \leq s \iff - s \leq t \leq s.  \]
+        So, our goal is to show that 
+        \[ - \int_{ a }^{ b }  | f  |  \ d \alpha \leq \int_{ a }^{ b }  f  \ d \alpha \leq \int_{ a }^{ b }  | f  |  \ d \alpha. \]
+        Also, we have 
+        \[ - | f(x) |  \leq f(x) \leq | f(x) |  \ \ \forall x \in [a,b].  \]
+        So, 
+        \[  -\int_{ a }^{ b }  | f(x) |  \ d \alpha \leq \int_{ a }^{ b }  f(x) \ d \alpha \leq \int_{ a }^{ b }  | f(x) |  \ d \alpha \]
+        as desired.
+\end{enumerate}
 \end{proof}
+
+
 

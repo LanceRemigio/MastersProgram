@@ -1,0 +1,256 @@
+\section{Lecture 24}
+
+\begin{itemize}
+    \item Lebesgue's Criterion for Riemann integrability
+    \item Functions of bounded variation
+    \item Holder Continuous functions
+    \item Absolutely Continuous Functions
+    \item Continuity and oscillation
+\end{itemize}
+
+\subsection{Lebesgue's Criterion for Riemann Integrability}
+
+\begin{theorem}[Lebesgue's Criterion for Riemann Integrability]
+    Let \( f: [a,b] \to \R   \) is bounded and \( D  \) is the set of points in \( [a,b] \) at which \( f  \) is discontinuous. Then 
+    \[  f \in R[a,b] \iff \text{\( D  \) has Lebesgue measure zero}. \]
+\end{theorem}
+
+What do we mean by the Lebesgue measure of a set? The simple answer is that the Lebesgue measure is the length of the set. The more complicated answer is that it is a generalization of the concept of length to more general subsets of \( \R  \). For instance, we can take about the Lebesgue Measure of the set of natural numbers or the Lebesgue measure of the set of rational numbers. 
+
+\begin{definition}[Lebesgue Measure Zero]
+    Let \( A  \) be a subset of \( \R  \). We say that \( A  \) has a \textbf{Lebesgue Measure Zero} if for every \( \epsilon > 0  \) there exists a sequence \( {I}_{1}, {I}_{2}, \dots  \) of open (possibly empty) intervals such that  
+    \begin{enumerate}
+        \item[(1)] \( A \subseteq  \bigcup_{ k = 1  }^{ \infty  }  {I}_{k } \)
+        \item[(2)] \( \displaystyle \sum_{ k=1  }^{ \infty  } \mu({I}_{k}) \leq \epsilon \).
+    \end{enumerate}
+\end{definition}
+
+\begin{eg}
+    Any singleton \( A = \{ s  \}   \) has Lebesgue measure zero. We need to show that for all \( \epsilon > 0  \), there exists a sequence of open interval \( {I}_{1}, {I}_{2}, \dots  \) such that  
+    \[  \{ s  \}  \subseteq  \bigcup_{ k=1  }^{ \infty }  {I}_{k } \ \text{and} \ \sum_{ k=1  }^{ \infty  } \mu ({I}_{k}) \leq \epsilon.    \]
+    Let \( \epsilon > 0  \) be given. Let \( {I}_{1} = \Big(  s - \frac{ \epsilon }{ 2 }  , s + \frac{ \epsilon }{ 2 }  \Big) \) and for all \( k > 1  \) and \( {I}_{k } = \emptyset  \). Clearly, we have \( s \in {I}_{1} \) and so 
+    \[  \{ s  \}  \subseteq  \bigcup_{ k=1  }^{ \infty  }  {I}_{k}. \]
+    Moreover, 
+    \[  \sum_{ k=1  }^{ \infty  } \mu({I}_{k}) = \mu({I}_{1}) + \mu({I}_{2}) + \mu({I}_{3}) + \cdots = \epsilon + 0 + 0 + \cdots \leq \epsilon. \]
+\end{eg}
+
+\begin{eg}
+   Any finite set \( A = \{  {s}_{1}, \dots, {s}_{n} \}   \) has Lebesgue measure zero. We need to show that for all \( \epsilon > 0  \), there exists a sequence of open intervals \( {I}_{1}, {I}_{2}, \dots  \) such that  
+   \begin{align*}
+       A &\subseteq  \bigcup_{ k=1  }^{ \infty  }  {I}_{k}; \\
+       \sum_{ k=1  }^{ \infty  } \mu({I}_{k}) &\leq \epsilon.
+   \end{align*}
+   Let \( \epsilon > 0  \) be given. Let 
+   \[  \forall 1 \leq k \leq n \ \ {I}_{k } = \Big(  {s}_{k } - \frac{ \epsilon }{ 2^{n} }  , {s}_{k } + \frac{ \epsilon }{ 2^{k} }  \Big) \]
+   and for all \(  k > n  \), \( {I}_{k } = \emptyset \). Immediately, we have 
+   \[  \forall 1 \leq k \leq n \ \ {s}_{ k } \in {I}_{k }. \]
+   Moreover,  
+   \begin{align*}
+   \sum_{ k=1  }^{ \infty  } \mu({I}_{k}) &= \mu({I}_{1}) + \cdots + \mu({I}_{n}) + \mu({I}_{n+1}) + \mu({I}_{n+2}) + \cdots    \\
+                            &= \frac{ \epsilon }{ n }  + \cdots + \frac{ \epsilon }{ n }  + 0 + 0 + \cdots \\ 
+                            &\leq \epsilon
+   \end{align*}
+\end{eg}
+
+\begin{eg}
+    Any countable set \( A = \{  {s}_{1}, {s}_{2}, \dots  \}   \) has Lebesgue measure zero. We need to show that 
+    \[  \forall \epsilon > 0 \  \exists \ \text{open intervals} \ \{ {I}_{k} \}_{k=1}^{\infty} \ \text{such that} \ A \subseteq \bigcup_{ k=1  }^{ \infty  }  {I}_{k } \ \text{and} \ \sum_{ k=1  }^{ \infty  }\mu({I}_{k}) \leq \epsilon.   \]
+
+    Let \( \epsilon > 0 \) be given. Let \( k \in \N  \) and 
+    \[  {I}_{k} = \Big(  {s}_{k } - \frac{ 1 }{ 2^{k+1} }  , {s}_{k} + \frac{ 1  }{ 2^{k+1} }  \Big) \]
+    where \( \mu({I}_{k})  = \frac{ 1 }{ 2^{k} } \). Clearly, we have \( {s}_{k} \in {I}_{k} \) and so 
+    \[  \{ {s}_{1}, {s}_{2}, \dots  \} \subseteq  \bigcup_{ k=1  }^{ \infty  }  {I}_{k}. \]
+    Moreover, 
+    \[  \sum_{ k=1  }^{ \infty  } \mu({I}_{k}) = \sum_{ k=1  }^{ \infty  } \frac{ \epsilon }{ 2^{k} }  = \epsilon \sum_{ k=1  }^{ \infty  } \frac{ 1 }{ 2^{k} } = \epsilon \leq \epsilon. \]
+\end{eg}
+
+The next question we would like to ask is that is there a way to generalize the notion of length of an interval? In a perfect world, we want to find a function \( \mu  \) such that  
+\begin{enumerate}
+    \item[(1)] \( \mu \) can be applied to any subset of \( \R  \);
+    \item[(2)] For every \( E \subseteq \R   \), \( 0 \leq \mu(E) \leq \infty  \);
+    \item[(3)] If \( y  \) is a fixed number, then \( \mu(E + y) = \mu(E) \);
+    \item[(4)] If \( {E}_{1}, {E}_{2}, \dots  \) are pointwise disjoint sets, 
+        \[  \mu \Big(  \bigcup_{ k=1  }^{ \infty  }  {E}_{k} \Big) = \sum_{ k=1  }^{ \infty  } \mu({E}_{k}). \]
+    \item[(5)] For any interval \( I  \), \( \mu(I) = \text{length of} \ I \).
+\end{enumerate}
+Unfortunately, there exists no such function \( \mu  \) such that it satisfies all the properties listed above. However, by removing the first requirement, we can find such a \( \mu  \).
+
+\begin{remark}[Integral on a General Bounded Set]
+    Let \( A  \) be a nonempty bounded set in \( \R  \). Let \( f: A \to \R  \) be a bounded function. Define \( \tilde{f} : \R \to \R  \) as follows: 
+    \[  \tilde{f}(x) = 
+    \begin{cases}
+        f(x) & x \in A  \\
+        0 & x \notin A 
+    \end{cases} \]
+    We say that \( f  \) is integrable on \( A  \) if any of the following equivalents holds: 
+    \begin{enumerate}
+        \item[(1)] \( \tilde{f} \Big|_{[a,b]} \) is in \( R([a,b]) \) where \( a = \inf A  \) and \( b = \sup A  \).
+        \item[(2)] There exists a closed and bounded interval \( I  \) containing \( A  \) such that \( \tilde{f} \Big|_{I} \) is in \( R(I) \).
+        \item[(3)] For every closed and bounded interval \( I  \) containing \( A  \), \( \tilde{f} \Big|_{I} \) is in \( R(I) \).
+    \end{enumerate}
+    In this case, \( \int_{ A  } f   \) is defined as follows:
+    \[  \int_{ A  } f  = \int_{ I  } \tilde{f} \Big|_{I}. \tag{where \( I  \) is any closed and bounded interval} \]
+\end{remark}
+
+\begin{definition}[Total Variation]
+    Suppose \( f:[a,b] \to \R  \) and \( P = \{ {x}_{0}, {x}_{1}, \dots, {x}_{n} \}  \) is a partition of \( [a,b] \). Let 
+    \[  \sigma(f,P) = \sum_{ k=1  }^{ n } | f({x}_{k}) - f({x}_{k-1}) |  \]
+    and let 
+    \[  {V}_{a}^{b} f = \sup_{P \in \Pi [a,b]} \sigma(f,P) \]
+    be the \textbf{Total Variation of \( f  \) on \( [a,b] \)}. If \( f : [a,b] \to \R  \) is such that \( {V}_{a}^{b} f < \infty   \), then we say \( f  \) is of \textbf{Bounded Variation} and we denote the set of these functions as 
+    \[  BV ([a,b]) = \{ f:[a,b] \to \R : {V}_{a}^{b} f < \infty  \}. \]
+\end{definition}
+
+% end of lecture 24
+
+\section{Lecture 25}
+
+\begin{remark}[\( P \subseteq  \implies \sigma(f,P) \leq \sigma(P,Q) \) ]
+    If \( Q  \) is a refinement of \( P \), then \( \sigma(f,P) \leq \sigma(f,Q) \). This can be easily proved by induction on \( | Q \setminus  P  |  \). For example, if \( Q  \) has only \textbf{one} extra point \( z  \), then \( z \in [a,b] \) implies that there exists \( i \in \{ 1,2, \dots, n  \}  \) such that \( {x}_{i-1 } < z < {x}_{i} \). Assuming \( 1 < i < n  \) (the same argument works when \( i = 1  \) or \( i = n  \)), we have   
+    \begin{align*}
+        \sigma(f,P) &= | f({x}_{1}) - f({x}_{0}) |  + \cdots + | f({x}_{i}) - f({x}_{i-1}) |  + \cdots + | f({x}_{n}) - f({x}_{n-1}) |  \\
+        \sigma(f,Q) &= | f({x}_{1}) - f({x}_{0}) |  + \cdots + | f(z ) - f({x}_{i-1}) |  + | f({x}_{i}) - f(z)  |  + \cdots + | f({x}_{n}) - f(n-1) | 
+    \end{align*}
+    Note that 
+    \[  | f({x}_{i})- f({x}_{i-1}) | \leq | f(z) - f({x}_{i-1}) |  + | f({x}_{i}) - f(z) |  \]
+    via the triangle inequality.
+\end{remark}
+
+\begin{remark}
+    If \( f: [a,b] \to \R  \) is of bounded variation, then \( f  \) is bounded. Indeed,  
+    \[  \forall x \in [a,b] \ \ | f(x) |  \leq | f(a) |  + {V}_{a}^{b} f. \]
+    The reason is as follows:
+    \begin{enumerate}
+        \item[(*)] If \( x = a  \), then \( | f(a) |  \leq | f(a) |  + {V}_{a}^{b} f  \).
+        \item[(*)] If \( x = b  \), consider the partition \( p = \{  a, b  \}  \) of \( [a,b] \). We have 
+            \begin{align*}
+                \sigma(f,P) \leq {V}_{a}^{b} f &\implies | f(b) - f(a) |  \leq {V}_{a}^{b} f \\
+                                               &\implies | f(b) |  - | f(a) |  \leq {V}_{a}^{b} f \\
+                                               &\implies | f(b) |  \leq | f(a) |  + {V}_{a}^{b} f.
+            \end{align*}
+        \item[(*)] If \( a < x < b  \), then consider the partition \( P = \{  a,x,b \}  \) of \( [a,b] \). We have  
+            \begin{align*}
+                \sigma(f,P) \leq {V}_{a}^{b} f &\implies | f(x) - f(a) |  + | f(b) - f(x) |  \leq {V}_{a}^{b} f  \\
+                                               &\implies | f(x) - f(a) |  \leq {V}_{a}^{b} f \\
+                                               &\implies | f(x) |  - | f(a) |  \leq {V}_{a}^{b} f \\
+                                               &\implies | f(x) |  \leq | f(a) |  + {V}_{a}^{b} f. 
+            \end{align*}
+    \end{enumerate}
+\end{remark}
+
+\begin{theorem}[Theorem 1]
+    \begin{enumerate}
+        \item[(i)] If \( f: [a,b] \to \R  \) is increasing, then \( f \in BV ([a,b]) \) and  
+            \[  {V}_{a}^{b} f = | f(b) - f(a) |. \]
+        \item[(ii)] If \( f: [a,b] \to \R  \) is decreasing, then \( f \in BV([a,b]) \) and 
+            \[  {V}_{a}^{b} f = | f(b) - f(a) |. \]
+    \end{enumerate}
+\end{theorem}
+\begin{proof}
+    Here we will prove (i). For any partition \( P = \{  {x}_{0}, {x}_{1}, \dots, {x}_{n} \}  \) of \( [a,b] \), we have (since \( f  \) is increasing) 
+    \begin{align*}
+        \sigma(f,P) &= \sum_{ k=1  }^{ n } | f({x}_{k}) - f({x}_{k-1}) | = \sum_{ k=1  }^{ n } | f({x}_{k}) - f({x}_{k-1}) |   \\
+                    &= f({x}_{n}) - f({x}_{0}) \\
+                    &= f(b) - f(a).
+    \end{align*}
+    So, 
+    \[  \forall P \in \Pi[a,b] \ \ \sigma(f,P) = f(b) - f(a). \]
+    Therefore, 
+    \begin{align*}
+        {V}_{a}^{b} f = \sup_{P \in \Pi[a,b]} \sigma(f,P) &= \sup \{ f(b) - f(a) \}  \\
+                                                          &= f(b) - f(a) \\
+                                                          &= | f(b) - f(a) |.
+    \end{align*}
+\end{proof}
+
+\begin{theorem}[Lipschitz Continuous Functions are Bounded Variations (Theorem 2)]
+    If \( f: [a,b] \to \R  \) is Lipschitz continuous, then \( f \in BV([a,b]) \). 
+\end{theorem}
+\begin{proof}
+    Suppose \( f  \) is Lipschitz continuous. Then there exists \( M > 0  \) such that for all \( x,y \in [a,b] \), 
+    \[  | f(x) - f(y) |  \leq M |  x -y  |. \]
+    Let \( P = \{ {x}_{0}, {x}_{1}, \dots, {x}_{n} \}  \) be any partition of \( [a,b] \). Then
+    \begin{align*}
+        \sigma(f,P) &= \sum_{ k=1  }^{ n } | f({x}_{k}) - f({x}_{k-1}) |  \\
+                    &\leq \sum_{ k=1  }^{ n } M | {x}_{k } - {x}_{k-1} | \\
+                    &= M \sum_{ k=1  }^{ n } | {x}_{k} - {x}_{k-1} |  \\
+                    &= M \sum_{ k=1  }^{ n } ({x}_{k} - {x}_{k-1}) \\
+                    &= M ({x}_{n} - {x}_{0}) \\
+                    &= M(b-a).
+    \end{align*}
+    Thus, for all \(  P \in \Pi[a,b] \), 
+    \[  \sigma(f,P) \leq M(b-a). \]
+    Therefore, 
+    \[  {V}_{a}^{b} f = \sup_{P \in \Pi[a,b]} \sigma(f,P) \leq M (b-a). \]
+\end{proof}
+
+\begin{eg}
+    Let \( f:[0,1] \to \R  \), \[ f(x) = 
+    \begin{cases}
+        x^{2} \sin \frac{ 1 }{ x }  &\text{if} \ x \neq 0 \\
+        0 &\text{if} \ x = 0. 
+    \end{cases} \] 
+    We claim that \( f \) is a bounded variation. It suffices to show that \( f  \) is Lipschitz by using the previous theorem. We have 
+    \begin{align*}
+        f'(x) &= 
+        \begin{cases}
+            2x \sin \frac{ 1 }{ x }  - \cos \frac{ 1 }{ x }  &\text{if} \ x \neq 0 \\
+            0 &\text{if} \ x = 0. 
+        \end{cases} \\
+    \end{align*}
+    Thus, for all \( 0 < x \leq 1  \), we have 
+    \begin{align*}
+       | f'(x) |  &= \Big| 2x \sin \frac{ 1 }{ x }  - \cos \frac{ 1 }{ x }  \Big|    \\
+                  &\leq 2 |  x  | \Big| \sin \frac{ 1 }{ x }  \Big|  + \Big| \cos \frac{ 1 }{ x }  \Big| \\
+                  &\leq 2 + 1 = 3.
+    \end{align*}
+    Also, at \( x = 0  \), \( | f'(0) | = | 0  |  \leq 3 \). So, 
+    \[  \forall x \in [0,1] \ \ | f'(x) |  \leq 3. \]
+    It follows from the Mean Value Theorem that \( f:[0,1] \to \R  \) is Lipschitz (Exercise 4a HW1). Thus, \( f \in BV([0,1]) \).
+\end{eg}
+
+\begin{theorem}[Algebraic Properties of BV Functions (Theorem 3)]
+    Assume \( f,g \in BV([a,b]) \), \(  c \in (a,b) \), and \( \lambda \in \R  \). Then
+    \begin{enumerate}
+        \item[(i)] \( f + g \in BV([a,b]) \) and
+            \[  {V}_{a}^{b} (f + g) \leq {V}_{a}^{b} f + {V}_{a}^{b} g.  \]
+        \item[(ii)] \( \lambda f \in BV([a,b]) \) and \( {V}_{a}^{b}(\lambda f) = | \lambda  |  {V}_{a}^{b} f  \)
+        \item[(iii)] \( f \in BV([a,c]) \) and \( f \in BV([c,b])  \) and  
+            \[  {V}_{a}^{b} f = {V}_{a}^{c} f + {V}_{c}^{b} f. \]
+    \end{enumerate}
+\end{theorem}
+
+Properties (i) through (iii) tells us that \( BV([a,b]) \) forms a vector space.
+
+\begin{theorem}[Bounded Variations are the difference of two increasing functions]
+    The following statements are equivalent:
+    \begin{enumerate}
+        \item[(1)] \( f \in BV([a,b]) \)
+        \item[(2)] There exists two increasing functions \( \alpha : [a,b] \to \R  \) and \( \beta : [a,b]  \to \R \) such that \( f = \alpha - \beta \).
+    \end{enumerate}
+\end{theorem}
+\begin{proof}
+\( (2) \implies (1) \) Direct consequence of Theorem 1 and Theorem 3.
+
+\( (1) \implies (2) \) Define \( \alpha: [a,b] \to \R  \) by \( \alpha(x) = {V}_{a}^{x} f  \) where \( \alpha(a)  = 0  \) and \( \alpha(b) = {V}_{a}^{b} f  \) and define \( \beta : [a,b] \to \R  \) by \( \beta = \alpha - f  \). In what follows, we will prove that \( \alpha \) and \( \beta \) are increasing. Suppose \( a \leq x < y \leq b  \). We have 
+\begin{enumerate}
+    \item[(*)] \( \alpha(y) = {V}_{a}^{y} f \underbrace{=}_{\text{Thm 3}} {V}_{a}^{x} f + {V}_{x}^{y} f \geq {V}_{a}^{x} f = \alpha(x).  \)
+    \item[(*)] \begin{align*}
+            \beta(y) - \beta(x) &= [\alpha(y) - f(y)] - [\alpha(x) - f(x)] \\
+                                &= [\alpha(y) - \alpha(x)] - [f(y) - f(x)] \\
+                                &= {V}_{x}^{y} f - [f(y) - f(x)] \geq 0. 
+        \end{align*}
+        Indeed, consider the partition \( P= \{  x,y  \}   \) of \( \{ x,y \}  \). Then we have  
+        \begin{align*}
+            \sigma(f,P) \leq {V}_{x}^{y} f &\implies | f(y) - f(x) |  \leq {V}_{x}^{y} f  \\
+                                           &\implies f(y) - f(x) \leq {V}_{x}^{y} f. 
+        \end{align*} 
+\end{enumerate}
+\end{proof}
+
+\begin{definition}[Riemann Stiejtes Integral]
+    Let \( f:[a,b] \to \R  \) be bounded and let \( g: [a,b] \to \R  \) be a function of bounded variation with \( g = \alpha - \beta \) where \( \alpha \) and \( \beta \) are the increasing functions introduced in the proof of Theorem 4. We define the Riemann Stiejtes of \( f  \) with respect to \( g  \) on \( [a,b] \) as follows:
+    \[  \int_{ a }^{ b }  f  \ dg = \int_{ a }^{ b }  f  \ d \alpha - \int_{ a }^{ b }  f  \ d \beta \]
+    provided that both integrals on the right hand side above exist.
+\end{definition}
+

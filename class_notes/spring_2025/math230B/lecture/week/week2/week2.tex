@@ -1,142 +1,148 @@
-\section{Topics}
 
-\begin{itemize}
-    \item A Useful Theorem (Another consequence of the GMVT)
-    \item Taylor Polynomials
-    \item Taylor's Theorem with Lagrange remainder
-\end{itemize}
+\section{Lecture 2}
 
-\begin{corollary}[A corollary of GMVT]
-    Let \( I \subseteq  \R   \) be an open interval, \( {x}_{0} \in I  \), and \( n \in \N \cup \{ 0 \}  \), \( f: I \to \R  \) has \( n + 1  \) derivatives, and \( f^{(k)}({x}_{0}) = 0  \) for all \( 0 \leq k \leq n  \). Then for each point \( x \neq {x}_{0} \) in the interval \( I  \), there exists a point \( c  \) strictly between \( x  \) and \( {x}_{0} \) such that 
-    \[  f(x) = \frac{ f^{(n+1)}(c) }{ (n+1)! } (x-{x}_{0})^{n+1}. \]
-\end{corollary}
-
-\subsection{Observation 1}
-
-Let \( k \in \N  \) and let \( {x}_{0} \in \R  \) fixed. Then
-\begin{align*}
-    \frac{ d }{ dx } [(x - {x}_{0})^{k}] &= k (x - {x}_{0})^{k-1} \\
-    \frac{ d^{2} }{ d x^{2} } [(x- {x}_{0})^{k}] &= \frac{ d  }{  d x  }  [ k (x - {x}_{0})^{k-1}] = k (k - 1) (x - {x}_{0})^{k - 2} \\
-                                                 &\vdots \\
-    \frac{ d^{k }  }{  d x^{k } }  [(x - {x}_{0})^{k}] &= k (k -1)\cdots (1) (x - {x}_{0})^{k - k} = k!
-\end{align*}
-where 
-\[  \frac{ d^{j} }{  d x^{j } }  [(x - {x}_{j})^{k}] = k (k - 1) \cdots ( k - (j -1)) (x - {x}_{0})^{k - j}.   \]
-
-\subsection{Observation 2}
-\[ \frac{ d^{j} }{  d x^{j} } [(x - {x}_{0})^{k}] = 
-\begin{cases}
-    k (k-1) \cdots (k - j + 1) (x - {x}_{0})^{k - j} &\text{if} \ j < k \\
-    k! &\text{if} \ j = k \\
-    0 &\text{if} \ j > k 
-\end{cases} \]
-and
-\[ \frac{ d^{j} }{  d x^{j} } [(x - {x}_{0})^{k}] \Big|_{ x = {x}_{0}} = 
-\begin{cases}
-    0 &\text{if} \ j < k \\
-    k! &\text{if} \ j = k \\
-    0 &\text{if} j > k. 
-\end{cases} \]
-
-With these two observations, we will now prove the claim made in the corollary above. 
+\begin{theorem}[Chain Rule]
+    Let \( {I}_{1} \subseteq  \R  \) and \( {I}_{2} \subseteq  \R   \) be two intervals, \( f: {I}_{1} \to \R  \) and \( g : {I}_{2} \to \R  \) be two functions, \( f({I}_{1}) \subseteq  {I}_{2} \), \( f \) is differentiable at \( c \in {I}_{1} \) and \( g  \) is differentiable at \( f(c) \in {I}_{2} \). Then the function \( g \circ f : {I}_{1} \to \R  \) is differentiable at \( c \in {I}_{1} \) and 
+    \[  (g \circ f)'(c) = g'(f(c)) \cdot f'(c). \]
+\end{theorem}
+First, we will prove the theorem incorrectly and then show give three criterion to prove the theorem correctly.  
 
 \begin{proof}
-Here we will prove the claim for the case where \( x > {x}_{0} \). The proof for \( x < {x}_{0} \) is completely analogous. Let \( g: I \to \R  \) be defined by \( g(t) = (t - {x}_{0})^{n+1} \). Note that 
+Observe that 
 \begin{align*}
-    g^{(k)}({x}_{0}) &= 0 \ \forall 0 \leq k \leq n \tag{for \( t \neq 0  \) \( g^{(k)(t)} \neq 0  \)} \\
-    g^{(n+1)}(t) &= (n + 1)! \ \forall t \in I. 
+    \lim_{ x \to c  }  \frac{ (g \circ f)(x) - (g \circ f)(c) }{x - c } &= \lim_{ x \to c  }  \frac{ g(f(x)) - g(f(c)) }{  x - c  }  \\
+                                                                        &= \lim_{ x \to c  }  \Big[ \frac{ g(f(x)) - g(f(c)) }{  f(x) - f(c) } \cdot \frac{ f(x) - f(c) }{  x - c   } \Big] \\
+                                                                        &= \underbrace{\Big[ \lim_{ x \to c  }  \frac{ g(f(x)) - g(f(c)) }{  f(x) - f(c) } \Big]}_{g'(f(c))} \underbrace{\Big[ \lim_{ x \to c  }  \frac{ f(x)  - f(c) }{  x - c  } \Big]}_{f'(c)} \\
 \end{align*}
-Now, we apply GMVT to \( f  \) and \( g  \) on the interval \( [{x}_{0},x] \): Using the GMVT, we can find \( {x}_{1} \in ({x}_{0},x) \) such that 
-\[  \frac{ f'({x}_{1}) }{ g'({x}_{1}) }  = \frac{ f(x) - f({x}_{0}) }{  g(x) - g({x}_{0}) } \]
-and so 
-\[  \frac{ f'({x}_{1}) }{ g'({x}_{1}) } = \frac{ f(x) }{ g(x) }. \tag{I} \]
-Next, we apply GMVT to find \( f'  \) and \( g'  \) on the interval \( [{x}_{0}, {x}_{1}] \): Using the GMVT, we can find an \( {x}_{2} \in ({x}_{0}, {x}_{1}) \) such that 
-\[  \frac{ f"({x}_{2}) }{ g"({x}_{2}) }  = \frac{ f'({x}_{1}) - f'({x}_{0}) }{  g'({x}_{1}) - g'({x}_{0}) } \underbrace{=}_{f'({x}_{0})=0, g'({x}_{0}) = 0} \frac{ f'({x}_{1}) }{  g'({x}_{1}) }  \underbrace{=}_{(I)} = \frac{ f(x) }{ g(x) }.  \]
-Continuing in this manner, we will obtain \( {x}_{n+1} \in ({x}_{0}, x)  \) such that 
-\[  \frac{ f^{(n+1)}({x}_{n+1}) }{ g^{(n+1)}({x}_{n+1}) }  = \frac{ f(x) }{  g(x) } \]
-and so,
-\[  \frac{ f^{(n+1)}({x}_{n+1})  }{ (n+1)! }  = \frac{ f(x) }{  (x - {x}_{0})^{n+1} }.  \]
-Thus, 
-\[  f(x) = \frac{ f^{(n+1)}({x}_{n+1}) }{ (n+1)! } (x - {x}_{0})^{n+1} \]
 \end{proof}
+What is the problem with this proof? By the definition of a limit of a function, when you take \( \lim_{ x \to c  }  \), it is guaranteed that \( x - c \neq 0   \); however, for \( x  \) close to \( c  \) (as \( x  \) approaches to \( c  \)), \( f(x)- f(c) \) might be zero, so dividing by \( f(x) - f(c) \) is not legitimate. The following proof fixes this issue by introducing a new function \( d(f(x)) \) which is defined by
+\begin{enumerate}
+    \item[(i)] \( d(f(x)) \displaystyle \frac{ g(f(x)) - g(f(c)) }{  f(x) - f(c) }    \) when \( f(x) \neq f(c) \) 
+    \item[(ii)] \( d(f(x))  \) is defined even when \( f(x) = f(c) \)  
+    \item[(iii)] \( \displaystyle d(f(x)) \cdot \frac{ f(x) - f(c) }{  x - c  }  = \frac{ g(f(x)) - g(f(c)) }{  x - c  }   \) for all \( x \in {I}_{\kappa} \) where \( x \neq c   \).
+\end{enumerate}
 
-What are the nicest functions that we know? Which functions are easiest to work with? Polynomials! Another question that we would like to answer is:
-\begin{center}
-    Given a function \( f \), is it possible to find a "good" approximation for \( f  \) among polynomials?
-\end{center}
-
-To understand the situation a bit better, we break the questions asked above in the following three questions:
-\begin{itemize}
-    \item Does there exist a polynomial \( p(x) \) such that 
+\begin{proof}
+Let \( d: {I}_{2} \to \R  \) be defined by 
+\[  d(y) = 
+\begin{cases}
+    \frac{ g(y) - g(f(c)) }{ y - f(c) }  &\text{if} \ y \neq f(c) \\
+    \lim_{ y \to f(c) } \frac{ g(y) - g(f(c)) }{  y - f(c) }  = g'(f(c)) &\text{if} \ y = f(c)
+\end{cases}. \]
+Note that this function satisfies the requirements in (i) and (ii) outlined above. We make the following observations: 
+\begin{enumerate}
+    \item[(1)] \( d  \) is continuous at \( f(c) \). Indeed, we can see that 
+        \[  \lim_{ y \to f(c) }  d(y) = \lim_{ y  \to  f(c) }  \frac{ g(y) - g(f(c)) }{ y - f(c) }  = d(f(c)). \]
+    \item[(2)] For all \( x \in {I}_{1} \) and \( x \neq c  \), we have 
+        \[  d(f(x)) \cdot \frac{ f(x) - f(c) }{  x -c  }  = \frac{ g(f(x)) - g(f(c))  }{  x - c  }. \tag{*}  \]
+        We will show that this holds by considering two cases; either \( f(x) \neq f(c) \) or \( f(x) = f(c) \). If \( f(x) \neq f(c) \), then
+        \[  \text{LHS} = d(f(x))\cdot \frac{ f(x) - f(c) }{ x - c  } = \frac{ g(f(x)) - g(f(c)) }{  f(x) - f(c) }  \cdot \frac{ f(x) - f(c) }{  x - c  } = \frac{ g(f(x)) - g(f(c))  }{  x - c  }  = \text{RHS}.    \]
+        Now, suppose \( f(x) = f(c) \). Then we have 
         \begin{align*}
-            p({x}_{0}) &= f({x}_{0}) \\
-            p'({x}_{0}) &= f'({x}_{0}) \\
-                        &\vdots \\
-            p^{(n)}({x}_{0}) &= f^{(n)}({x}_{0}).
+            \text{LHS} &= d(f(x)) \cdot \frac{ f(x) - f(c) }{  x - c  }  = d(f(c)) \cdot \frac{ f(x) - f(c) }{ x - c  }  = g'(f(c)) \cdot \frac{ 0  }{ x -c  }  = 0  \\
+            \text{RHS} &= \frac{ g(f(x)) - g(f(c)) }{  x - c  }  = \frac{ g(f(c)) - g(f(c)) }{ x - c  }  = \frac{ 0  }{ x -c  }   =0.
         \end{align*}
-        That is, does there exist a polynomial \( p(x) \) that agrees with \( f  \) to order \( n  \) at \( {x}_{0} \).
-    \item If such a polynomial \( p(x) \) exists, how can we find it? 
-    \item Suppose we use \( p(x) \) as an approximation of \( f(x) \) near \( {x}_{0}  \); how good is this approximation? What can be said about the error?  
-\end{itemize}
+        Thus, we see that the left hand side equals the right hand side of (*).
+\end{enumerate}
+Now, note that since \( f  \) is continuous at \( c  \) and \( d \) is continuous at \( f(c) \), their composition \( d \circ f  \) is continuous at \( c  \) and so,
+\[  \lim_{ x \to c  }  (d \circ f)(x) = (d \circ f)(c). \]
 
-\begin{remark}
-    \begin{enumerate}
-        \item[(i)] Number of equations to be satisfied by \( p(x) \) is \( n + 1  \).
-        \item[(ii)] Also note that a polynomial in \( {\P}_{n} \) can be represented as \( {c}_{0} + {c}_{2} x + \cdots + {c}_{n} x^{n} \) (we have \( n + 1  \) coefficients).  
-    \end{enumerate}
-    From (i) and (ii), it seems reasonable to expect that we might be able to find a polynomial \( p(x) \) in \( {\P}_{n} \) that satisfies all the equations. 
-\end{remark}
-
-\subsection{Answers to Q1 and Q2}
-
-There is a \textbf{unique} polynomial in \( {\P}_{n} \) that agrees with \( f(x) \) to order \( n  \) at \( {x}_{0} \in I  \) in the sense that 
 \begin{align*}
-    p({x}_{0}) &= f({x}_{0} ) \\
-               &\vdots \\
-    p^{(n)}({x}_{0}) &= f^{(n)}({x}_{0}).
-\end{align*}
-This polynomial can be denoted by 
-\[  {T}_{n, {x}_{0}}  (x)\]
-which is the \textbf{\( n \)th Taylor Polynomial of \( f  \) centered at \( {x}_{0} \)}. Moreover, we have   
-\begin{align*}
-    {T}_{n,{x}_{0}}(x)  &= f({x}_{0}) _ f'({x}_{0}) (x - {x}_{0}) + \frac{ f''({x}_{0}) }{ 2!  } (x - {x}_{0})^{2} + \cdots + \frac{ f^{(n)({x}_{0}) } }{ n!  } (x - {x}_{0})^{n}   \\
-                        &= \sum_{ k= 0  }^{ n } \frac{ f^{(k)}({x}_{0}) }{ k !  }  (x - {x}_{0})^{k}.
-\end{align*}
-
-\subsection{Proof of our Observation}
-
-\begin{proof}
-Let \( p(x) \) be a general polynomial of degree at most \( n \):
-\[  p(x) = {c}_{0} + {c}_{1} (x - {x}_{0}) + \cdots + {c}_{n} (x - {x}_{0})^{n}. \]
-Our goal is to show that if \( p^{(\ell)}({x}_{0}) = f^{(\ell)}({x}_{0}) \), then
-\[  p(x) = \sum_{ k= 0  }^{ n } \frac{ f^{(k)}({x}_{0}) }{  k!  }  (x - {x}_{0} )^{k} \forall a \leq  \ell \leq n.  \]
-Note that \( p({x}_{0}) = {c}_{0} \). Also, for \( 1 \leq \ell \leq n  \), we have
-\begin{align*}
-    p^{(\ell)} &= \frac{ d^{\ell} }{ d x^{\ell} }  \Big[ {c}_{0} + \sum_{ k=1  }^{ n } {c}_{k } (x - {x}_{0})^{k } \Big] \\
-               &= \frac{ d^{\ell} }{ d x^{\ell} }  \Big[ \sum_{ k=1  }^{ n } {c}_{k } (x - {x}_{0})^{k} \Big] \\
-               &= \sum_{ k=1  }^{ n } {c}_{k} \frac{ d^{\ell} }{ d x^{\ell} }  [(x - {x}_{0})^{k }].
-\end{align*}
-Hence, we have 
-\[  p^{(\ell)}({x}_{0}) = \sum_{ k=1  }^{ n } {c}_{k } \frac{ d^{\ell} }{ d x^{\ell} }  [(x - {x}_{0})^{k}] \Big|_{x = {x}_{0}} = {c}_{\ell} \ell!  \ .  \]
-Therefore, 
-\[  \forall 1 \leq \ell \leq n \ \ p^{(\ell)} ({x}_{0}) = {c}_{\ell} \ell!  \ .\]
-We see that \( p \) agrees with \( f  \) to order \( n \) at \( {x}_{0} \) if and only if \( p({x}_{0}) = f({x}_{0}) \) and \( p^{(\ell)}({x}_{0}) = f^{(\ell) ({x}_{0})}  \) for all \( 1 \leq \ell \leq n  \). This is true if and only if
-\begin{align*}
-    {c}_{0} &= f({x}_{0}) \\
-    \ell ! {c}_{\ell} = f^{(\ell)}({x}_{0}) \forall 1 \leq \ell \leq n. 
-\end{align*}
-Furthermore, this is true if and only if   
-\begin{align*}
-    {c}_{0} &= f({x}_{0}) \\
-    {c}_{\ell} &= \frac{ f^{(\ell)({x}_{0})}  }{ \ell!  } \forall 1 \leq \ell \leq n. 
-\end{align*}
-That is,
-\begin{align*}
-    p(x) &= \sum_{ k=0  }^{ n } {c}_{k } (x - {x}_{0})^{k } = {c}_{0} + \sum_{ k=1  }^{ n } \frac{ f^{(k)}({x}_{0}) }{ k!  } (x - {x}_{0})^{k} \\
-         &= f({x}_{0}) + \sum_{ k=1  }^{ n } \frac{ f^{(k)}({x}_{0}) }{ k!  } (x - {x}_{0})^{k} \\
-         &= \sum_{ k= 0  }^{  n  } \frac{ f^{(k)}({x}_{0} ) }{ k!  } (x - {x}_{0})^{k}.
+    &\lim_{ x \to c  } \frac{ (g \circ f)(x) - (g \circ f)(c) }{ x - c  } = \lim_{ x \to c  }  \frac{ g(f(x)) - g(f(c)) }{ x - c  }  \\
+                                            &= \Big[ \lim_{ x  \to c  }  (d \circ f ) (x) \Big] \cdot \Big[ \lim_{ x \to  c  }  \frac{ f(x) - f(c) }{  x - c  } \Big] \\
+                                            &= [(d \circ f)(c)] \cdot f'(c) \\
+                                            &= [d(f(c))] \cdot f'(c) \\
+                                            &= g'(f(c)) \cdot f'(c).
 \end{align*}
 \end{proof}
+
+\section{Lecture 3}
+
+\subsection{Topics}
+
+\begin{enumerate}
+    \item[(1)] Local Maxima and minima
+    \item[(2)] Interior Extremum Theorem (Theorem 5.8)
+    \item[(3)] Darboux's Theorem (Theorem 5.12)
+    \item[(4)] Some observations
+    \item[(5)] Rolle's Theorem
+    \item[(6)] Mean Value Theorem
+\end{enumerate}
+
+\begin{theorem}[Interior Extremum Theorem]\label{Theorem 5.8}
+    Let \( I \subseteq  \R   \) be an interval and \( f : I \to \R  \). Suppose \( c  \) is an interior point of \( I  \) and \( f  \) is differentiable at \( c  \). Then
+    \begin{enumerate}
+        \item[(1)] If \( f  \) has a local max at \( c  \), then \( f'(c)  = 0 \);
+        \item[(2)] If \( f  \) has a local min at \( c  \), then \( f'(c) = 0  \).
+    \end{enumerate}
+\end{theorem}
+
+Before we prove this theorem, we will first go over an important lemma that is used in the main proof. 
+
+\begin{lemma}
+    Suppose \( \lim_{ x \to c  }  g(x)  \) and \( \lim_{ x \to c  }  h(x) \) both exist. 
+    \begin{enumerate}
+        \item[(1)] If there exists \( \delta > 0  \) such that \( h(x) \leq g(x) \) for all \( x \in (c -  \delta, c ) \), then \( \lim_{ x \to c  }  h(x) \leq \lim_{ x \to c  }  g(x) \).
+        \item[(2)] If there exists \( \delta > 0  \) such that \( h(x) \leq g(x) \) for all \( x \in (c , c + \delta) \), then \( \lim_{ x \to c  }  h(x) \leq \lim_{ x \to c  }  g(x) \).
+    \end{enumerate}
+\end{lemma}
+\begin{proof}
+Here we will prove (1). The proof of (2) is analogous. Let \( ({a}_{n}) \) be a sequence in \( (c - \delta, c) \) such that \( {a}_{n} \to c  \). By the Sequential Criterion for limits of functions, we have \( {a}_{n} \to c  \) implies
+\( \lim_{ n \to \infty  }  g({a}_{n}) = \lim_{ x \to c  }  g(x) \) and \( \lim_{ n \to \infty \infty   } h({a}_{n}) = \lim_{ x \to c  }  h(x) \). Also, note that from the Order Limit Theorem for sequences, we can see that   
+\begin{align*}
+    \forall n \ {a}_{n} \in (c - \delta, c ) &\implies \forall n \ h({a}_{n}) \leq g({a}_{n}) \\
+                                             &\implies \lim_{ n \to \infty  }  h({a}_{n}) \leq \lim_{ n \to \infty  }  g({a}_{n}).
+\end{align*}
+Hence, we can see from these two observations that 
+\[  \lim_{ x \to c  }  h(x) \leq \lim_{ x \to c  }  g(x). \]
+\end{proof}
+
+\subsection{Proof of the Interior Extremum Theorem}
+
+\begin{proof}
+Here we will prove (1). Suppose \( f \) has a local max at \( c  \). Then
+\begin{itemize}
+    \item If \( f  \) has a local max at \( c  \), then there exists \( {\delta}_{1} > 0  \) such that for all \( x \in (c - {\delta}_{1}, c + {\delta}_{1}) \cap I  \) \( f(x) \leq f(c) \).
+    \item If \( c  \) is an interior point of \( I  \), then there exists \( {\delta}_{2} > 0  \) such that \( (c - {\delta}_{2}, c + {\delta}_{2}) \subseteq  I  \). So, if we let \( \delta = \min \{ {\delta}_{1}, {\delta}_{2} \}  \), then
+        \[  \forall x \in (c - \delta, c + \delta )  \ \ f(x) \leq f(c). \]
+\end{itemize}
+We have 
+\begin{enumerate}
+    \item[(I)] For all \( x \in (c - \delta , c ) \), we see that \( x - c < 0  \) and \( f(x) \leq f(c) \) implies that 
+        \[  \frac{ f(x) - f(c) }{ x - c  } \geq 0. \]
+        By the Order Limit Theorem for functions, we have 
+        \[  \lim_{ x \to c  }  \frac{ f(x) - f(c) }{ x - c  }  \geq \lim_{ x \to c  } 0 \implies f'(c) \geq 0.  \]
+    \item[(II)] For all \( x \in (c, c + \delta) \). Since \( x - c > 0  \) and \( f(x) \leq f(c) \), we have 
+        \[  \frac{ f(x) - f(c) }{ x - c  }  \leq 0.  \]
+        Using the Order Limit Theorem again, we have 
+        \[ \lim_{ x \to c  } \frac{ f(x) - f(c) }{  x-  c  }  \leq \lim_{ x \to c  }  0 \implies f'(c) \leq 0.   \]
+\end{enumerate}
+From (I) and (II), we can see that \( f'(c) \leq 0  \) and \( f'(c) \geq 0  \). Thus, \( f'(c) = 0  \).
+\end{proof}
+
+\begin{theorem}[Darboux's Theorem]
+    Let \( f: [a,b] \to \R  \) be differentiable and \( f'(a) < f'(b) \) (or \( f'(b) < f'(a) \)). Let \( \alpha \in \R  \) be such that \( f'(a) < \alpha < f'(b)  \) (or \( f'(b) < \alpha < f'(a) \)). Then there exists \( c \in (a,b) \) such that \( f'(c) = \alpha \).
+\end{theorem}
+\begin{proof}
+    Let \( g:[a,b] \to \R  \) be defined by \( g(x) = f(x) - \alpha x  \). It follows from the Algebraic Differentiability Theorem that \( g  \) is differentiable on \( [a,b] \) and so it is continuous on \( [a,b] \). It suffices to show that there is a point \( c \in (a,b) \) such that \( g'(c) = 0 \). To this end, it is enough to show that there exists a point \( c \in (a,b) \) at which \( g  \) has a local min. Since \( g  \) is continuous on \( [a,b] \) and \( [a,b]  \) is compact, \( g  \) attains its minimum on \( [a,b] \). Let \( \hat{c} \) be a point at which \( g  \) attains a minimum. IN what follows we will show that \( \hat{c} \in (a,b) \) and so it can be used as the same \( c  \) that we were looking for. Note that  
+    \begin{align*}
+        g'(a) = f'(a) - \alpha &<  0 \\
+        g'(b) = f'(b) - \alpha > 0. 
+    \end{align*}
+    We make two claims; namely, \( \hat{c} \neq a  \) (\( \hat{c}  \) cannot be the left-endpoint of \( [a,b] \)) and \( \hat{c} \neq b  \) (the right-endpoint of \( [a,b] \)). Suppose for contradiction that \( \hat{c}= a  \). Then for all \( x \in [a,b] \) \( g(x) \geq g(a) \). So, for all \( x \in (a,b) \), we have \( g(x) - g(a) \geq 0  \) and \( x - a > 0  \). Thus, for all \( x \in (a,b) \)
+    \[  \frac{ g(x) - g(a) }{ x - a  }  \geq 0.  \]
+    Thus, 
+    \[  \lim_{ x \to a }  \geq \frac{ g(x) - g(a) }{  x - a  }  \geq 0 \implies \lim_{ x \to a  }  0.   \]
+    That is, \( g'(a) \geq 0  \). This contradicts the fact that \( g'(a) < 0 \) and this proves the first claim.
+    A similar argument shows that \( g'(b) \leq 0  \), contradicting the fact that \( g'(b) > 0  \).
+\end{proof}
+
+
+% end of week 2
+
+
+% end of lecture 4
+
 
 \begin{theorem}[Taylor's Theorem with Lagrange Remainder]
     Let \( I \subseteq  \R   \) be an open interval, \( {x}_{0} \in I  \), and \( n \in \N \cup \{ 0  \}  \). Suppose \( f: I \to \R  \) has \( n + 1  \) derivatives. Then for each point \( x \neq {x}_{0} \) in \( I  \), there is a point \( c  \) strictly between \( x  \) and \( {x}_{0} \) such that 
