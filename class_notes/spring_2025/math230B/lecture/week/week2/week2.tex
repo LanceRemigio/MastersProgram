@@ -1,7 +1,6 @@
-
 \section{Lecture 2}
 
-\begin{theorem}[Chain Rule]
+\begin{theorem}[Chain Rule]\label{Chain Rule}
     Let \( {I}_{1} \subseteq  \R  \) and \( {I}_{2} \subseteq  \R   \) be two intervals, \( f: {I}_{1} \to \R  \) and \( g : {I}_{2} \to \R  \) be two functions, \( f({I}_{1}) \subseteq  {I}_{2} \), \( f \) is differentiable at \( c \in {I}_{1} \) and \( g  \) is differentiable at \( f(c) \in {I}_{2} \). Then the function \( g \circ f : {I}_{1} \to \R  \) is differentiable at \( c \in {I}_{1} \) and 
     \[  (g \circ f)'(c) = g'(f(c)) \cdot f'(c). \]
 \end{theorem}
@@ -120,7 +119,7 @@ We have
 From (I) and (II), we can see that \( f'(c) \leq 0  \) and \( f'(c) \geq 0  \). Thus, \( f'(c) = 0  \).
 \end{proof}
 
-\begin{theorem}[Darboux's Theorem]
+\begin{theorem}[Darboux's Theorem]\label{Darboux's Theorem}
     Let \( f: [a,b] \to \R  \) be differentiable and \( f'(a) < f'(b) \) (or \( f'(b) < f'(a) \)). Let \( \alpha \in \R  \) be such that \( f'(a) < \alpha < f'(b)  \) (or \( f'(b) < \alpha < f'(a) \)). Then there exists \( c \in (a,b) \) such that \( f'(c) = \alpha \).
 \end{theorem}
 \begin{proof}
@@ -144,7 +143,7 @@ From (I) and (II), we can see that \( f'(c) \leq 0  \) and \( f'(c) \geq 0  \). 
 % end of lecture 4
 
 
-\begin{theorem}[Taylor's Theorem with Lagrange Remainder]
+\begin{theorem}[Taylor's Theorem with Lagrange Remainder]\label{Taylor's Theorem with Lagrange Remainder}
     Let \( I \subseteq  \R   \) be an open interval, \( {x}_{0} \in I  \), and \( n \in \N \cup \{ 0  \}  \). Suppose \( f: I \to \R  \) has \( n + 1  \) derivatives. Then for each point \( x \neq {x}_{0} \) in \( I  \), there is a point \( c  \) strictly between \( x  \) and \( {x}_{0} \) such that 
     \[  f(x) = \sum_{ k=0  }^{  n } \frac{ f^{(k)}({x}_{0})  }{ n!  } (x - {x}_{0})^{k} + \frac{ f^{(n+1)}(c) }{  (n+1)! } (x - {x}_{0})^{n+1} \]
     where 

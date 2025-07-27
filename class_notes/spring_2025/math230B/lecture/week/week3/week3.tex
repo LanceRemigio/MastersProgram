@@ -1,6 +1,6 @@
 \section{Lecture 4}
 
-\begin{theorem}[Rolle's Theorem]
+\begin{theorem}[Rolle's Theorem]\label{Rolle's Theorem}
     Let \( f: [a,b] \to \R  \) be continuous, let \( f  \) be differentiable on \( (a,b) \), and \( f(a) = f(b) \). Then there exists a point \( c \in (a,b) \) such that \( f'(c) = 0  \). 
 \end{theorem}
 
@@ -14,7 +14,7 @@
     Now, assume the second case. Using the Interior Extremum Theorem, we have \( f'(c) = 0  \) and this concludes the proof.  
 \end{proof}
 
-\begin{theorem}[Mean Value Theorem]
+\begin{theorem}[Mean Value Theorem]\label{Mean Value Theorem}
     Let \( f: [a,b] \to \R  \) be a continuous function and \( f  \) is differentiable in \( (a,b) \). Then there exists a \( c \in (a,b)  \) such that 
     \[  f'(c) = \frac{ f(b) - f(a) }{  b - a  }. \]
 \end{theorem}
@@ -33,7 +33,7 @@
     \[  g'(c) = 0  \iff f'(c) - \frac{ f(b) - f(a) }{  b -a  }  = 0  \iff f'(c) = \frac{ f(b) -f(a)  }{ b - a  }. \]
 \end{proof}  
 
-\begin{theorem}[Generalized Mean Value Theorem]
+\begin{theorem}[Generalized Mean Value Theorem]\label{Generalized Mean Value Theorem}
     Let \( f: [a,b] \to \R  \) and \( g : [a,b] \to \R  \) are continuous functions and suppose \( f  \) and \( g  \) are differentiable in \( (a,b) \). Then there exists a point \( c \in (a,b) \) such that 
     \[  f'(c) [g(b) - g(a)] = g'(c) [f(b) - f(a)]. \]
 \end{theorem}
@@ -46,7 +46,7 @@
     \[  \exists c \in (a,b) \ \ \text{such that} \ \frac{ f'(c) }{  g'(c) } =  \frac{ f(b) - f(a) }{  g(b) - g(a) }. \]
 \end{remark}
 
-\begin{corollary}[Corollary 1]
+\begin{corollary}[Corollary 1]\label{Corollary 1}
     Let \( I \subseteq  \R   \) be an interval, \( f : I \to \R  \) be diffferentiable, and \( f'(x) = 0  \) for all \( x \in I  \). Then \( f  \) is a constant function on \( I  \), that is, there exists \( k \in \R  \) such that for all \( x \in I  \), \( f(x) = k  \). 
 \end{corollary}
 
@@ -142,17 +142,20 @@ We may consider the following cases:
 \subsection{Topics}
 
 \begin{itemize}
-    \item A Useful Theorem (Another consequence of the GMVT)
-    \item Taylor Polynomials
-    \item Taylor's Theorem with Lagrange remainder
+    \item {\hyperref[A Useful Theorem]{A Useful Theorem}} (Another consequence of the GMVT)
+    \item {\hyperref[Taylor Polynomials]{Taylor Polynomials}}
+    \item {\hyperref[Taylor's Theorem with Lagrange remainder]{Taylor's Theorem with Lagrange remainder}}  
 \end{itemize}
+
+\subsection{A Useful Theorem}\label{A Useful Theorem}
+
 
 \begin{corollary}[A corollary of GMVT]
     Let \( I \subseteq  \R   \) be an open interval, \( {x}_{0} \in I  \), and \( n \in \N \cup \{ 0 \}  \), \( f: I \to \R  \) has \( n + 1  \) derivatives, and \( f^{(k)}({x}_{0}) = 0  \) for all \( 0 \leq k \leq n  \). Then for each point \( x \neq {x}_{0} \) in the interval \( I  \), there exists a point \( c  \) strictly between \( x  \) and \( {x}_{0} \) such that 
     \[  f(x) = \frac{ f^{(n+1)}(c) }{ (n+1)! } (x-{x}_{0})^{n+1}. \]
 \end{corollary}
 
-\subsection{Observation 1}
+\subsubsection{Observation 1}
 
 Let \( k \in \N  \) and let \( {x}_{0} \in \R  \) fixed. Then
 \begin{align*}
@@ -164,7 +167,7 @@ Let \( k \in \N  \) and let \( {x}_{0} \in \R  \) fixed. Then
 where 
 \[  \frac{ d^{j} }{  d x^{j } }  [(x - {x}_{j})^{k}] = k (k - 1) \cdots ( k - (j -1)) (x - {x}_{0})^{k - j}.   \]
 
-\subsection{Observation 2}
+\subsubsection{Observation 2}
 \[ \frac{ d^{j} }{  d x^{j} } [(x - {x}_{0})^{k}] = 
 \begin{cases}
     k (k-1) \cdots (k - j + 1) (x - {x}_{0})^{k - j} &\text{if} \ j < k \\
@@ -228,7 +231,9 @@ To understand the situation a bit better, we break the questions asked above in 
     From (i) and (ii), it seems reasonable to expect that we might be able to find a polynomial \( p(x) \) in \( {\P}_{n} \) that satisfies all the equations. 
 \end{remark}
 
-\subsection{Answers to Q1 and Q2}
+\subsection{Taylor Polynomials}\label{Taylor Polynomials}
+
+\subsubsection{Answers to Q1 and Q2}
 
 There is a \textbf{unique} polynomial in \( {\P}_{n} \) that agrees with \( f(x) \) to order \( n  \) at \( {x}_{0} \in I  \) in the sense that 
 \begin{align*}
@@ -244,7 +249,7 @@ which is the \textbf{\( n \)th Taylor Polynomial of \( f  \) centered at \( {x}_
                         &= \sum_{ k= 0  }^{ n } \frac{ f^{(k)}({x}_{0}) }{ k !  }  (x - {x}_{0})^{k}.
 \end{align*}
 
-\subsection{Proof of our Observation}
+\subsubsection{Proof of our Observation}
 
 \begin{proof}
 Let \( p(x) \) be a general polynomial of degree at most \( n \):

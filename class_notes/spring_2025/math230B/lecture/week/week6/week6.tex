@@ -191,20 +191,21 @@ is closed. Since \( K \subseteq  [a,b] \), \( K  \) is closed, and \( [a,b]  \) 
 
 \subsection{Plan}
 
-\begin{enumerate}
-    \item[(1)] Sequential Criterion for integrability;
-    \item[(2)] Algebraic properties of R.S integral;
-    \item[(3)] Order properties of R.S integrals;
-    \item[(4)] Mean Value Theorem and Generalized Mean Value Theorem for integrals;
-    \item[(5)] Additivity for R.S integrals.
-\end{enumerate}
+\begin{itemize}
+    \item {\hyperref[Sequential Criterion for integrability]{Sequential Criterion for integrability}};
+    \item {\hyperref[Algebraic properties of R.S integral]{Algebraic properties of R.S integral}};
+    \item {\hyperref[Order properties of R.S integrals]{Order properties of R.S integrals}};
+    \item {\hyperref[Mean Value Theorem and Generalized Mean Value Theorem for integrals]{Mean Value Theorem and Generalized Mean Value Theorem for integrals}};
+    \item {\hyperref[Additivity for R.S integrals]{Additivity for R.S integrals}}.
+\end{itemize}
 
-\begin{theorem}[Sequential Criterion for R.S Integrability]
+\begin{theorem}[Sequential Criterion for R.S Integrability]\label{Sequential Criterion for integrability}
     Let \( f: [a,b] \to \R  \) be a bounded function and \( \alpha: [a,b] \to \R  \) is an increasing function. Then
     \begin{enumerate}
-        \item[(1)] If \( f \in {R}_{\alpha}[a,b]  \), then there exists a sequence of partitions \( ({P}_{n})_{n \geq 1}  \) in \( \Pi [a,b] \) such that \( \lim_{ n \to \infty  }  [U(f,\alpha, {P}_{n}) - L(f,\alpha, {P}_{n}) ] = 0  \).
-        \item[(2)] If there exists a sequence of partitions \( ({P}_{n})_{n \geq 1} \) in \( \Pi [a,b] \) such that \( \lim_{ n \to \infty  } [U(f,\alpha, {P}_{n}) - L(f,\alpha, {P}_{n})] = 0  \), then \( f \in {R}_{\alpha}[a,b] \), and 
-            \[  \int_{ a }^{ b }  f  \ d \alpha = \lim_{ n \to \infty k U(f,\alpha, {P}_{n}) }  = \lim_{ n \to \infty  }  L(f,\alpha, {P}_{n}).  \]
+        \item[(1)] If \( f \in {R}_{\alpha}[a,b]  \), then there exists a sequence of partitions \( ({P}_{n})_{n \geq 1}  \) in \( \Pi [a,b] \) such that 
+            \[ \lim_{ n \to \infty  }  [U(f,\alpha, {P}_{n}) - L(f,\alpha, {P}_{n}) ] = 0.  \]
+        \item[(2)] If there exists a sequence of partitions \( ({P}_{n})_{n \geq 1} \) in \( \Pi [a,b] \) such that \[ \lim_{ n \to \infty  } [U(f,\alpha, {P}_{n}) - L(f,\alpha, {P}_{n})] = 0,  \] then \( f \in {R}_{\alpha}[a,b] \), and 
+            \[  \int_{ a }^{ b }  f  \ d \alpha = \lim_{ n \to \infty  } k U(f,\alpha, {P}_{n}) = \lim_{ n \to \infty  }  L(f,\alpha, {P}_{n}).  \]
     \end{enumerate}
 \end{theorem}
 \begin{proof}
@@ -230,7 +231,7 @@ is closed. Since \( K \subseteq  [a,b] \), \( K  \) is closed, and \( [a,b]  \) 
 \end{enumerate}
 \end{proof}
 
-\begin{theorem}[Algebraic Properties of R.S Integral]
+\begin{theorem}[Algebraic Properties of R.S Integral]\label{Algebraic properties of R.S integral}
     Assume \( f,g \in {R}_{\alpha}[a,b] \). Then
     \begin{enumerate}
         \item[(i)] \( \forall k \in \R  \), \( kf \in {R}_{\alpha}[a,b] \) with \[ \int_{ a }^{ b }  kf  \ d \alpha = k \int_{ a }^{ b }  f  \ d \alpha \];

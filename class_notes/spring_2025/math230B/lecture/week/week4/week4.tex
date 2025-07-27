@@ -1,6 +1,6 @@
 \section{Lecture 6}
 
-\begin{theorem}[Taylor's Theorem with Lagrange Remainder]
+\begin{theorem}[Taylor's Theorem with Lagrange Remainder]\label{Taylor's Theorem with Lagrange remainder}
     Let \( I \subseteq  \R   \) be an open interval, \( {x}_{0} \in I  \), and \( n \in \N \cup \{ 0  \}  \). Suppose \( f: I \to \R  \) has \( n + 1  \) derivatives. Then for each point \( x \neq {x}_{0} \) in \( I  \), there is a point \( c  \) strictly between \( x  \) and \( {x}_{0} \) such that 
     \[  f(x) = \sum_{ k=0  }^{  n } \frac{ f^{(k)}({x}_{0})  }{ n!  } (x - {x}_{0})^{k} + \frac{ f^{(n+1)}(c) }{  (n+1)! } (x - {x}_{0})^{n+1} \]
     where 
@@ -43,10 +43,10 @@ Using (I) and (II), we have
 
 \subsection{Topics}
 
-\begin{enumerate}
-    \item[(1)] The definition of Riemann-Stieltjes integral
-    \item[(2)] Refinement of partitions 
-\end{enumerate}
+\begin{itemize}
+    \item {\hyperref[Refinement of Partitions]{Refinement of Partitions}}
+    \item {\hyperref[The definition of Riemann-Stieltjes integral]{The definition of Riemann-Stieltjes integral}}
+\end{itemize}
 
 \begin{definition}[Almost Disjoint Intervals]
     We say that two intervals \( I  \) and \( J  \) are \textbf{almost disjoint} if either \( I \cap J  \) is empty or \(  I \cap J  \) has exactly one point.
@@ -65,7 +65,7 @@ Using (I) and (II), we have
     Again, we denote \( {x}_{0} = a  \) and \( {x}_{n} = b  \).
 \end{remark}
 
-\begin{definition}[Refinement of a Partition]
+\begin{definition}[Refinement of a Partition]\label{Refinement of Partitions}
     A partition \( Q = \{ {z}_{0}, {z}_{1}, \dots, {z}_{n} \}   \) of \( [a,b] \) is a \textbf{refinement} of a partition \( P = \{ {x}_{0}, {x}_{1}, \dots, {x}_{n} \}  \) of \( [a,b] \) if \( P \subseteq   Q  \), that is, if \( Q  \) contains all points of \( P  \).
 \end{definition}
 
@@ -92,7 +92,7 @@ Using (I) and (II), we have
     \end{enumerate}
 \end{definition}
 
-\begin{definition}[Riemann-Stieltjes integrable functions]
+\begin{definition}[Riemann-Stieltjes integrable functions]\label{The definition of Riemann-Stieltjes integral}
     Let \( \alpha : [a,b] \to \R  \) be an increasing function. A function \( f: [a,b] \to \R  \) is said to be \textbf{Riemann-Stieltjes integrable} (on \( [a,b] \)) if 
     \begin{enumerate}
         \item[(i)] \( f \) is bounded
@@ -104,7 +104,6 @@ Using (I) and (II), we have
     \[  \int_{ a }^{ b }  f  \ d \alpha = L (f,\alpha) = U(f,\alpha). \]
 \end{definition}
 
-\section{Lecture 8-9-10}
 
 
 
