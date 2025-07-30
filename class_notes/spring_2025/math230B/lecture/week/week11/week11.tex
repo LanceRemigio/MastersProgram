@@ -1,6 +1,6 @@
-\section{Lecture 19}
+\subsection{Lecture 19}
 
-\subsection{Topics}
+\subsubsection{Topics}
 
 \begin{itemize}
     \item Series of functions
@@ -8,7 +8,30 @@
     \item Weiertstrass M-Test
 \end{itemize}
 
-\begin{theorem}[Term-by-Term Continuity Theorem]
+
+\begin{definition}[Infinite Series of Funtions]\label{Infinite Series of Functions}
+    Let \( ({f}_{n} : A \to \R )_{n \geq 1} \) be a sequence of functions on a nonempty set \( A  \). 
+    \begin{enumerate}
+        \item[(*)] An expression of the form \( \sum_{ n=1  }^{ \infty  } {f}_{n} = {f}_{1} + {f}_{2} + {f}_{3} + \cdots  \) is called an \textbf{infinite series of functions}.
+        \item[(*)] The functions \( {f}_{1}, {f}_{2}, \dots \) are the terms of the series. 
+        \item[(*)] The corresponding  sequence of partial sums is definitely 
+            \[  {s}_{m} = \text{(finite) sum of the first \( m  \) terms of the series} \]
+            that is, 
+            \begin{align*}
+                {s}_{1}(x) &= {f}_{1}(x) \\
+                {s}_{2}(x) &= {f}_{1}(x) + {f}_{2}(x) \\
+                {s}_{3}(x) &= {f}_{1}(x) + {f}_{2}(x) + {f}_{3}(x) \\
+                           &\vdots \\
+                {s}_{m}(x) &= {f}_{1}(x) + \cdots + {f}_{m}(x) \\
+                           &\vdots 
+            \end{align*}
+        \item[(*)] We say that the series \textbf{converges pointwise} on \( A  \) to \( f: A \to \R  \) (and we write \( \sum_{ n=1  }^{ \infty  } {f}_{n} = f  \) pointwise) if \( \lim_{ m \to \infty  }  {s}_{m} = f  \) pointwise on \( A \).
+        \item[(*)] We say that the series \textbf{converges uniformly} on \( A  \) to \( f: A \to \R  \) (and we write \( \sum_{ n=1  }^{ \infty  } {f}_{n} = f  \) uniformly) if \( {s}_{m} \to f  \) uniformly on \( A  \). 
+    \end{enumerate}
+\end{definition}
+
+
+\begin{theorem}[Term-by-Term Continuity Theorem]\label{Term-by-Term Continuity Theorem}
 Let \( A \subseteq  (X,d)  \) be nonempty. Suppose for all \( n \in \N \) \( {f}_{n} : A \to \R  \) is a sequence of continuous functions, and \( \sum_{ n=1  }^{ \infty  } {f}_{n} \) converges uniformly to \( f: A \to \R  \). Then \( f: A \to \R  \) is continuous.    
 \end{theorem}
 \begin{proof}
@@ -17,7 +40,7 @@ Applying the corresponding theorem for sequences of functions to the sequence of
 since \( {s}_{m}  \) is continuous.
 \end{proof}
 
-\begin{theorem}[Term-by-Term Differentiability Theorem]
+\begin{theorem}[Term-by-Term Differentiability Theorem]\label{Term-by-Term Differentiability Theorem}
     Assume for each \( n \in \N  \), \( {f}_{n} : [a,b] \to \R  \) is a sequence of differentiable functions, \( \sum_{ n=1  }^{ \infty  } {f}_{n} = f  \) pointwise on \( [a,b] \), and \( \sum_{ n=1  }^{ \infty  } {f}_{n}'  \) converges uniformly on \( [a,b] \). Then
     \( f  \) is differentiable on \( [a,b] \) and 
     \[  \Big(  \sum_{ n=1  }^{ \infty  } {f}_{n} \Big)' = \sum_{ n=1  }^{ \infty  } {f}_{n}'. \]
@@ -26,7 +49,7 @@ since \( {s}_{m}  \) is continuous.
 Apply the corresponding theorem for sequences of functions to the sequence of partial sums \( {s}_{m} = {f}_{1} + \cdots + {f}_{m} \).
 \end{proof}
 
-\begin{theorem}[Term-by-Term Integrability]
+\begin{theorem}[Term-by-Term Integrability]\label{Term-by-Term Integrability}
     Let \( \alpha: [a,b] \to \R  \) is an increasing function, for each \( n \geq 1  \), \( {f}_{n} \in {R}_{\alpha}[a,b] \), and \( \sum_{ n=1  }^{ \infty  } {f}_{n} \) converges uniformly to \( f: [a,b] \to \R   \). Then 
     \[  f \in {R}_{\alpha}[a,b] \ \ \text{and} \ \ \int_{ a }^{ b }  \sum_{ n=1  }^{ \infty  } {f}_{n} \ d \alpha = \sum_{ n=1  }^{ \infty  } \int_{ a }^{ b }  {f}_{n} \ d \alpha. \]
 \end{theorem}
@@ -34,14 +57,14 @@ Apply the corresponding theorem for sequences of functions to the sequence of pa
 Apply the corresponding theorem for sequences of functions to the sequence of partial sums \( {s}_{m} = {f}_{1} + \cdots + {f}_{m} \).
 \end{proof}
 
-\begin{theorem}[Cauchy Criterion for Uniform Convergence of Series of Functions]
+\begin{theorem}[Cauchy Criterion for Uniform Convergence of Series of Functions]\label{Cauchy Criterion for Uniform Convergence of Series of Functions}
     Let \( A  \) be a nonempty set and suppose for each \( k \in \N  \), \( {f}_{k } : A \to \R  \). Then
     \begin{center}
         \( \displaystyle \sum_{ k=1  }^{ \infty  } {f}_{k } \) converges uniformly if and only if for all \(  \epsilon > 0  \), there exists an \( N  \) such that for all \( n > m > N  \) and for all \( x \in A  \), \( \displaystyle \Big| \sum_{ k=1  }^{ n } {f}_{k } (x) \Big| < \epsilon \).
     \end{center}
 \end{theorem}
 
-\begin{theorem}[Weierstrass M-Test]
+\begin{theorem}[Weierstrass M-Test]\label{Weierstrass M-Test}
     Let \( A  \) be a nonempty set, for all \( n \in \N  \) \( {f}_{n} : A \to \R  \), for all \(  n \in \N  \), there exists \( {M}_{n} \) such that for all \( x \in A  \), \( | {f}_{n}(x) |  \leq {M}_{n} \), and \( \displaystyle \sum_{ n=1  }^{ \infty  } {M}_{n}  \) converges. Then 
     \[  \sum_{ n=1  }^{ \infty  } {f}_{n} \ \ \text{converges uniformly on} \ A.  \]
 \end{theorem}

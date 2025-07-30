@@ -1,22 +1,23 @@
-\section{Lecture 17}
+\subsection{Lecture 17}
 
-\section{Plan}
+\subsubsection{Plan}
 
 \begin{itemize}
-    \item Uniform convergence
-    \item Uniform convergence and boundedness
-    \item Uniform convergence and continuity
-    \item Cauchy criterion for uniform convergence
-    \item Uniform convergence and differentiability
-    \item Uniform Convergence and integrability
+    \item {\hyperref[Uniform Convergence]{Uniform Convergence}} 
+    \item {\hyperref[Uniform convergence and boundedness]{Uniform convergence and boundedness}} 
+    \item {\hyperref[Uniform convergence and continuity]{Uniform convergence and continuity}} 
+    \item {\hyperref[Cauchy criterion for uniform convergence]{Cauchy criterion for uniform convergence}} 
+    \item {\hyperref[Uniform convergence and differentiability]{Uniform convergence and differentiability}}  
+    \item {\hyperref[Uniform Convergence and integrability]{Uniform Convergence and integrability}}  
 \end{itemize}
 
-\begin{definition}[Uniform Convergence]
+
+\begin{definition}[Uniform Convergence]\label{Uniform Convergence}
     We say (\( {f}_{n} : A \to \R  \)) \textbf{converges uniformly} to \( f: A \to \R  \) if 
     \[  \forall \epsilon > 0 \ \exists {N}_{\epsilon} \ \text{such that} \ \forall n > {N}_{\epsilon} \ \forall x \in A \ | {f}_{n}(x) - f(c) |  < \epsilon. \]
 \end{definition}
 
-\begin{theorem}[Uniform Convergence Preserves Boundedness]
+\begin{theorem}[Uniform Convergence Preserves Boundedness]\label{Uniform convergence and boundedness}
     Let \( A \neq \emptyset  \), for each \( n \in \N \), \( {f}_{n}: A \to \R  \) is bounded, and \( {f}_{n} \to f  \) uniformly on \( A  \). Then \( f : A \to \R  \) is bounded.
 \end{theorem}
 
@@ -52,7 +53,7 @@ It follows from (1) and (2) that
 Clearly, we can use \( 1  + {\hat{M}}_{N+1} \) as the same \( M  \) we were looking for.
  \end{proof}
 
- \begin{theorem}[Rudin 7.12]
+ \begin{theorem}[(Rudin 7.12) Uniform Convergence Preserves Continuity]\label{Uniform convergence and continuity}
      Let \( A \subseteq  (X,d)  \) and \( x \in A  \). Suppose for all \( n \in \N  \), \( {f}_{n}: A \to \R  \) is continuous at \( c  \) and \( {f}_{n} \to f  \) uniformly on \( A  \). Then \( f: A \to \R  \) is continuous at \( c  \).
  \end{theorem}
  \begin{proof}
@@ -75,7 +76,7 @@ Clearly, we can use \( 1  + {\hat{M}}_{N+1} \) as the same \( M  \) we were look
 % end of lecture 17
 
 
-\section{Lecture 18}
+\subsection{Lecture 18}
 
  \begin{remark}[A Useful Observation]\label{Useful Observation}
     Let \( ({a}_{n}) \) be a sequence of real numbers. Suppose \( {a}_{n} \to a  \) in \( \R  \). Suppose there exists \( N \) such that  
@@ -88,7 +89,7 @@ Clearly, we can use \( 1  + {\hat{M}}_{N+1} \) as the same \( M  \) we were look
 
  We will use the remark above to prov the following theorem: 
 
- \begin{theorem}[Cauchy Criterion for Uniform Convergence]\label{Cauchy Criterion for Uniform Convergence}
+ \begin{theorem}[Cauchy Criterion for Uniform Convergence]\label{Cauchy Criterion for uniform convergence}
      Let \( A \neq \emptyset  \) and suppose for each \( n \in \N  \), \( {f}_{n}: A \to \R  \) is a sequence of functions. Then \( ({f}_{n})_{n \geq 1 } \) converges uniformly on \( A  \) if and only if for all \( \epsilon > 0 \), there exists \( N  \) such that for all \( m,n > N  \) and for all \( x \in A  \), \( | {f}_{n}(x) - {f}_{m}(x) |  < \epsilon. \)
  \end{theorem}
  \begin{proof}
@@ -117,7 +118,7 @@ So, by taking the limit as \( m \to \infty   \) (using the {\hyperref[Useful Obs
 as desired.
 \end{proof}
 
-\begin{theorem}[Rudin 7.17]
+\begin{theorem}[Rudin 7.17 Uniform Convergence Preserves Differentiability]\label{Uniform convergence and differentiability}
     Suppose for each \( n \in \N \), \( {f}_{n} : [a,b] \to \R  \) is a sequence of differentiable functions and \( {f}_{n} \to f  \) pointwise. Assume that \( {f}_{n}'  \) converges uniformly to a function \( g  \) on \( [a,b] \). Then \( f \) is differentiable to a function \( g  \) on \( [a,b] \).
 \end{theorem}
 
@@ -149,7 +150,7 @@ as desired.
     as desired.
 \end{proof}
 
-\begin{lemma}[lemma 1]
+\begin{lemma}[lemma 1]\label{lemma 1}
     Let \( A  \) be nonempty. Let \( f: A \to \R  \). Suppose \( ({f}_{n}: A \to \R ) \) is a sequence of functions. The following statements are equivalent:
     \begin{enumerate}
         \item[(1)] \( {f}_{n} \to f  \) uniformly on \( A  \);
@@ -157,14 +158,14 @@ as desired.
     \end{enumerate}
 \end{lemma}
 
-\begin{lemma}[lemma 2]
+\begin{lemma}[lemma 2]\label{lemma 2}
     Let \( \alpha: [a,b] \to \R  \) is increasing, \( f: [a,b] \to \R  \) and \( g: [a,b] \to \R  \) are bounded, and \( f \leq g  \). Then     
     \begin{center}
         \( L(f,\alpha) \leq L(g, \alpha) \) and \( U(f,\alpha) \leq U(g,\alpha) \).
     \end{center}
 \end{lemma}
 
-\begin{theorem}[Rudin 7.16]
+\begin{theorem}[Rudin 7.16]\label{Uniform Convergence and integrability}
     Let \( \alpha: [a,b] \to \R  \) is increasing, for each \( n \in \N  \) \( {f}_{n} \in {R}_{\alpha} [a,b] \) , and \( {f}_{n} \to f  \) uniformly on \( [a,b] \). Then \( f \in {R}_{\alpha}[a,b] \) and 
     \[  \int_{ a }^{ b } f  \ d \alpha = \lim_{ n \to \infty  }  \int_{ a }^{ b } {f}_{n}  \ d \alpha. \]
 \end{theorem}

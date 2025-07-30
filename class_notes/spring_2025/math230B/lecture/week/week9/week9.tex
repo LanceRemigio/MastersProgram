@@ -1,6 +1,6 @@
-\section{Lecture 15}
+\subsection{Lecture 15}
 
-\begin{theorem}[Integration by Parts]
+\begin{theorem}[Integration by Parts]\label{Integration by Parts}
     Let \( u : [a,b] \to \R  \) and \( v : [a,b] \to \R  \) are differentiable and let \( u' \in R[a,b] \) and \( v' \in R[a,b] \). Then we have  
     \begin{enumerate}
         \item[(1)] \( uv' \in R [a,b] \)
@@ -26,7 +26,7 @@
 \end{enumerate}
 \end{proof}
 
-\begin{definition}[Unit Step Function]
+\begin{definition}[Unit Step Function]\label{Unit Step Function}
     The \textbf{unit step function} \( I: \R \to \R  \) is defined by
     \[  I(x) = 
     \begin{cases}
@@ -50,24 +50,24 @@
     \end{cases} \]
 \end{remark}
 
-\begin{theorem}[Rudin 6.15]
+\begin{theorem}[Rudin 6.15]\label{Rudin 6.15}
     Let \( f: [a,b] \to \R  \) be a bounded function, \( s \in (a,b) \), \( f  \) is right continuous at \( s  \), and \( \alpha(x) = I(x-s) \). Then 
     \begin{center}
     \( f \in {R}_{\alpha}[a,b] \) and \( \displaystyle \int_{ a }^{ b }  f  \ d \alpha  = f(s) \).
     \end{center}
 \end{theorem}
 \begin{proof}
-see hw4
+    \textbf{See hw4}
 \end{proof}
 
-\begin{theorem}[Rudin 6.16]
+\begin{theorem}[Rudin 6.16]\label{Rudin 6.16}
     Suppose for all \( n \geq 1  \), \( {c}_{n} \geq 0  \), \( \displaystyle \sum_{ n=1  }^{ N  } {c}_{n} \) converges, \( {s}_{1} < {s}_{2} < {s}_{3} < \cdots   \) are points in \( (a,b) \), \( \alpha:[a,b] \to \R  \) is continuous. Then
     \begin{center}
         \( f \in {R}_{\alpha}[a,b] \) and \( \displaystyle \int_{ a }^{ b } f  \ d \alpha = \displaystyle \sum_{ n=1  }^{ \infty  } {c}_{n} f({s}_{n})  \).
     \end{center}
 \end{theorem}
 \begin{proof}
-See hw4.
+    \textbf{See hw4}
 \end{proof}
 
 

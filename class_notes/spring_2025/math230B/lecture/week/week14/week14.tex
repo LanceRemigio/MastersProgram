@@ -1,23 +1,23 @@
-\section{Lecture 24}
+\subsection{Lecture 24}
 
 \begin{itemize}
-    \item Lebesgue's Criterion for Riemann integrability
-    \item Functions of bounded variation
-    \item Holder Continuous functions
-    \item Absolutely Continuous Functions
-    \item Continuity and oscillation
+    \item {\hyperref[Lebesgue's Criterion for Riemann Integrability]{Lebesgue's Criterion for Riemann Integrability}} 
+        \begin{itemize}
+            \item {\hyperref[Lebesgue Measure Zero]{Lebesgue Measure Zero}} 
+        \end{itemize}
+    \item {\hyperref[Functions of bounded variation]{Functions of bounded variation}}  
 \end{itemize}
 
-\subsection{Lebesgue's Criterion for Riemann Integrability}
+\subsubsection{Lebesgue's Criterion for Riemann Integrability}
 
-\begin{theorem}[Lebesgue's Criterion for Riemann Integrability]
+\begin{theorem}[Lebesgue's Criterion for Riemann Integrability]\label{Lebesgue's Criterion for Riemann Integrability}
     Let \( f: [a,b] \to \R   \) is bounded and \( D  \) is the set of points in \( [a,b] \) at which \( f  \) is discontinuous. Then 
     \[  f \in R[a,b] \iff \text{\( D  \) has Lebesgue measure zero}. \]
 \end{theorem}
 
 What do we mean by the Lebesgue measure of a set? The simple answer is that the Lebesgue measure is the length of the set. The more complicated answer is that it is a generalization of the concept of length to more general subsets of \( \R  \). For instance, we can take about the Lebesgue Measure of the set of natural numbers or the Lebesgue measure of the set of rational numbers. 
 
-\begin{definition}[Lebesgue Measure Zero]
+\begin{definition}[Lebesgue Measure Zero]\label{Lebesgue Measure Zero}
     Let \( A  \) be a subset of \( \R  \). We say that \( A  \) has a \textbf{Lebesgue Measure Zero} if for every \( \epsilon > 0  \) there exists a sequence \( {I}_{1}, {I}_{2}, \dots  \) of open (possibly empty) intervals such that  
     \begin{enumerate}
         \item[(1)] \( A \subseteq  \bigcup_{ k = 1  }^{ \infty  }  {I}_{k } \)
@@ -92,7 +92,7 @@ Unfortunately, there exists no such function \( \mu  \) such that it satisfies a
     \[  \int_{ A  } f  = \int_{ I  } \tilde{f} \Big|_{I}. \tag{where \( I  \) is any closed and bounded interval} \]
 \end{remark}
 
-\begin{definition}[Total Variation]
+\begin{definition}[Total Variation]\label{Functions of bounded variation}
     Suppose \( f:[a,b] \to \R  \) and \( P = \{ {x}_{0}, {x}_{1}, \dots, {x}_{n} \}  \) is a partition of \( [a,b] \). Let 
     \[  \sigma(f,P) = \sum_{ k=1  }^{ n } | f({x}_{k}) - f({x}_{k-1}) |  \]
     and let 
@@ -103,7 +103,15 @@ Unfortunately, there exists no such function \( \mu  \) such that it satisfies a
 
 % end of lecture 24
 
-\section{Lecture 25}
+\subsection{Lecture 25}
+
+\begin{itemize}
+    \item Properties of Bounded Variations.
+    \item Holder Continuous functions
+    \item Absolutely Continuous Functions
+    \item Continuity and oscillation
+\end{itemize}
+
 
 \begin{remark}[\( P \subseteq  \implies \sigma(f,P) \leq \sigma(P,Q) \) ]
     If \( Q  \) is a refinement of \( P \), then \( \sigma(f,P) \leq \sigma(f,Q) \). This can be easily proved by induction on \( | Q \setminus  P  |  \). For example, if \( Q  \) has only \textbf{one} extra point \( z  \), then \( z \in [a,b] \) implies that there exists \( i \in \{ 1,2, \dots, n  \}  \) such that \( {x}_{i-1 } < z < {x}_{i} \). Assuming \( 1 < i < n  \) (the same argument works when \( i = 1  \) or \( i = n  \)), we have   

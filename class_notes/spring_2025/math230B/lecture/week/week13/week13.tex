@@ -1,15 +1,15 @@
-\section{Lecture 22}
+\subsection{Lecture 22}
 
-\section{Topics}
+\subsubsection{Topics}
 
 \begin{itemize}
-    \item Additional remarks on the Arzela-Ascoli Theorem.
-    \item  \( (BC(E; R), {d}_{\infty }) \) is a complete metric space. 
+    \item {\hyperref[Additional remarks on the Arzela-Ascoli Theorem]{Additional remarks on the Arzela-Ascoli Theorem}} 
+    \item  \( (BC(E; R), {d}_{\infty }) \) is a complete metric space ({\hyperref[The space of bounded continuous functions]{The space of bounded continuous functions}}). 
     \item A continuous nowhere differentiable function.
-    \item Weierstrass Approximation Theorem
+    \item {\hyperref[Weierstrass Approximation Theorem]{Weierstrass Approximation Theorem}}  
 \end{itemize}
 
-\subsection{Additional Remarks on Arzela-Ascoli}
+\subsubsection{Additional Remarks on Arzela-Ascoli}\label{Additional remarks on the Arzela-Ascoli Theorem}
 
 During our proof we only used the fact that the sequence \( ({f}_{n}) \) is \textbf{pointwise bounded} (not the strong assumption of uniform boundedness). So, the Arzela-Ascoli Theorem can be restated as follows:
 
@@ -25,7 +25,7 @@ Now, let \( A \subseteq  (X,d)  \) be a nonempty set. A family \( \mathcal{F} \)
 Let \( X \) be any infinite set of functions and equip \( X  \) with a metric \( d \). Each such metric \( d \) introduces a \textbf{mode of convergence} for sequences of functions in \( X  \). That is, the sequence \( ({f}_{n})_{n \geq 1 } \) in \( X  \) converges to \( f \in X  \) if and only if
 \[  \forall \epsilon  > 0 \ \exists N \ \text{such that} \ \forall n > N \ d({f}_{n}, f) < \epsilon.   \]
 
-\subsection{The Space of Bounded and Continuous functions is a Complete}
+\subsubsection{The Space of Bounded and Continuous functions is a Complete}
 
 We make the following observations:
 
@@ -69,7 +69,7 @@ Now, we can restate a stronger version of the theorem using all of our observati
 
 The following theorem tells us that that the space of polynomials of degree at most \( n \) over any compact interval in \( \R  \) is dense in the space of continuous functions. That is, any continuous function can be approximated by a sequence of polynomials in \( \R  \).
 
-\subsection{Weierstrass Approximation Theorem}
+\subsubsection{Weierstrass Approximation Theorem}\label{Weierstrass Approximation Theorem}
 
 \begin{theorem}[Rudin 7.26]\label{Rudin 7.26}
     If \( f: [a,b] \to \R  \) is continuous, then there exists a sequence \(({p}_{n})_{n \geq 1} \) of polynomials such that \( {d}_{\infty }({p}_{n}, f) \to 0  \).
@@ -99,7 +99,7 @@ But this is just the direct consequence of uniform continuity of \( g  \) on \( 
 
 % end of lecture 22
 
-\section{Lecture 23}
+\subsection{Lecture 23}
 
 \begin{prop}[Fact 2]\label{Fact 2}
     Let \( g:[a,b] \to \R  \) be a bounded function. Then for all \( x ,z \in [a,b] \) and for all \( 0 < r \leq b - a  \), we have 
