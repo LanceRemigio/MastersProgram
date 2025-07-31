@@ -121,12 +121,12 @@ Note that the last inequality holds because \( x + mr \leq z  \) implies that \(
 \subsubsection{Proof of Weierstrass Approximation Theorem}
 
 \begin{proof}
-    We will consider two cases; namely, \( [a,b] = [0,1] \) or \( [a,b] \neq [0,1] \). Starting with the first case, our goal is to construct as sequence of polynomials \( {p}_{n} \) in \( {\P}_{n} \) for which the result holds. 
+    We will consider two cases; namely, \( [a,b] = [0,1] \) or \( [a,b] \neq [0,1] \). Starting with the first case, our goal is to construct as sequence of polynomials \( {p}_{n} \) in \( {\mathcal{P}}_{n} \) for which the result holds. 
     \begin{enumerate}
         \item[(1)] Consider \( n + 1  \) equally spread meshpoints in the interval \( [0,1] \) as follows:
             \[  0  = {x}_{0,n} < {x}_{1,n} < \cdots < {x}_{n,n} = 1  \]
             with \( {x}_{j,n} = \frac{ j  }{ n }  \).
-        \item[(2)] Associate with the \( j \)th meshpoint, a polynomial \( \varphi_{j,n}(x) \in {\P}_{n} \) such that 
+        \item[(2)] Associate with the \( j \)th meshpoint, a polynomial \( \varphi_{j,n}(x) \in {\mathcal{P}}_{n} \) such that 
             \begin{enumerate}
                 \item[(I)] \( {\varphi}_{j,n}(x) \geq 0  \) for all \( x \in [0,1] \) 
                 \item[(II)] \( \displaystyle \sum_{ j = 0  }^{ n } {\varphi}_{j,n}(x) = 1  \) for all \( x \in [0,1] \)
@@ -136,7 +136,7 @@ Note that the last inequality holds because \( x + mr \leq z  \) implies that \(
     \end{enumerate}
     Now, we make two claims; namely, 
     \begin{itemize}
-        \item There exists polynomials \( {\varphi}_{0,n}(x), \dots, {\varphi}_{n,n}(x) \) in \( {\P}_{n} \) that satisfy properties (I) to (III). Indeed, in Homework 7, you will show that the functions
+        \item There exists polynomials \( {\varphi}_{0,n}(x), \dots, {\varphi}_{n,n}(x) \) in \( {\mathcal{P}}_{n} \) that satisfy properties (I) to (III). Indeed, in Homework 7, you will show that the functions
             \[ {\varphi}_{j,n}(x) = \begin{pmatrix} n \\ j  \end{pmatrix}  x^{j} (1 - x )^{n-j}  \]
             satisfy properties (I) to (III).
         \item \( {d}_{\infty}(f, {p}_{n}) \to 0  \) as \( n \to \infty   \). 
@@ -156,7 +156,7 @@ Note that the last inequality holds because \( x + mr \leq z  \) implies that \(
     \end{align*}
     Since each \( {\varphi}_{j,n} \) is greater than or equal to zero, we may write
     \begin{align*}
-        \sum_{ j = 0   }^{ n } | x - {x}_{j,n} | {\varphi}_{j,n}(x)  &= \sum_{ j=0  }^{  | x - {x}_{j,n} |  } {\varphi}_{j,n}^{1/2}(x) {\varphi}_{j,n}^{1/2}(x)  \\
+        \sum_{ j = 0   }^{ n } | x - {x}_{j,n} | {\varphi}_{j,n}(x)  &= \sum_{ j=0  }^{n}   | x - {x}_{j,n} |   {\varphi}_{j,n}^{1/2}(x) {\varphi}_{j,n}^{1/2}(x)  \\
                                                                      &\leq \Big[\sum_{ j=0  }^{ n } | x - {x}_{j,n} |^{2}  {\varphi}_{j,n}(x) \Big]^{1/2} \Big[ \sum_{ j= 0  }^{ n } {\varphi}_{j,n}(x)  \Big]^{1/2} \\
                                                                      &= \sqrt{ \sum_{ j=0  }^{ n } | x - {x}_{j,n} |^{2} {\varphi}_{j,n}(x) }  \\
                                                                      &\leq \sqrt{ \frac{ M }{ n }  }.
