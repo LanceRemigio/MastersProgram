@@ -1,5 +1,11 @@
 \subsection{Lecture 26}
 
+\begin{itemize}
+    \item {\hyperref[Holder Continuous functions]{Holder Continuous functions}} 
+    \item {\hyperref[Absolutely Continuous Functions]{Absolutely Continuous Functions}}  
+    \item {\hyperref[Continuity and oscillation]{Continuity and oscillation}} 
+\end{itemize}
+
 \begin{theorem}[Riesz Theorem]
     Let \( X = C([a,b], \R ) \) equipped with \( {d}_{\infty } \) metric. Let \( L : X \to \R  \) be a continuous linear function. Then there exists \( \alpha \in BV ([a,b]) \) such that 
     \[  L(f) = \int_{ a }^{ b } f(x) \ dx \ \ \forall f \in X. \]
@@ -20,7 +26,7 @@
    \end{enumerate} 
 \end{remark}
 
-\begin{definition}[Holder Continuous functions Lipschitz continuous functions]
+\begin{definition}[Holder Continuous functions Lipschitz Continuous Functions]\label{Holder Continous functions}
     Let \( 0 < \theta \leq 1  \). A function \( f: [a,b] \to \R  \) is said to be \textbf{Holder continuous with exponent \( \theta \)} if there exists a number \( M > 0  \) such that 
     \[  \forall x ,y \in [a,b] \ \ | f(x) - f(y) |  \leq M |  x-  y  |^{\theta}. \]
 \end{definition}
@@ -56,7 +62,7 @@
     This tells us that \( f  \) is constant on \( [a,b] \).
 \end{remark}
 
-\begin{definition}[Absolutely Continuous Functions]
+\begin{definition}[Absolutely Continuous Functions]\label{Absolutely Continuous Functions}
     A function \( f:[a,b] \to \R  \) is said to be \textbf{absolutely continuous} if for every \( \epsilon > 0  \), there exists \( \delta > 0  \) such that for every collection of pairwise disjoint intervals \( \{ ({c}_{k }, {d}_{k}) : 1 \leq k \leq n  \}  \) from \( [a,b] \) with 
     \[  \sum_{ k=1  }^{ n } ({d}_{k} - {c}_{k}) < \delta \]
     we have 
@@ -82,6 +88,8 @@ The statements below are equivalent
         \item[(2)] The \textbf{cantor function} \( C : [0,1] \to \R  \) is uniformly continuous, but not absolutely continuous.
      \end{enumerate}
 \end{eg}
+
+\subsubsection{Continuity and oscillation}\label{Continuity and oscillation}
 
 \begin{definition}[Oscillation of a Function]
     Let \( (X,d) \) and \( (Y,\tilde{d}) \) be metric spaces and \( f: X \to Y  \). For any \( r > 0  \) and any \( x \in X  \), we define the \textbf{oscillation of \( f  \) on the set \( {N}_{r}(x) \)} as 
@@ -158,7 +166,7 @@ Hence, any positive number less than \( \hat{\delta}  \) can be used as the \( \
 \begin{remark}
     Suppose \( f: (X,d) \to (Y,\tilde{d}) \). For each \( n \in \N \), let 
     \[  {A}_{n} = \Big\{  x \in X : \text{osc}(f,x) \geq \frac{ 1 }{ n }  \Big\}.  \]
-    Let \( D = \text{the set of points at which \( f  \) is continuous} \). Then 
+    Let \( D = \{ \text{the set of points at which \( f  \) is continuous} \}  \). Then 
     \[  D = \bigcup_{ n =1  }^{ \infty  }  {A}_{n}. \]
     Indeed, \( x \in D  \) implies \( \text{osc}(f,x) > 0  \) and so there exists \(N  \) such that \( \text{osc}(f,x) > \frac{ 1 }{ N }  \). Thus, \( x \in {A}_{N} \) and so \( x \in \bigcup_{ n=1  }^{ \infty  }  {A}_{n} \). On the other hand, if \( x \in \bigcup_{ n=1  }^{ \infty  }  {A}_{n} \), then there exists an \( N  \) such that \( x \in {A}_{N} \). Thus, \( \text{osc}(f,x) \geq \frac{ 1 }{ N }  \) and so \( \text{osc}(f,x) \neq 0  \). Thus, \( f \in D  \).
 \end{remark}
@@ -176,7 +184,7 @@ Hence, any positive number less than \( \hat{\delta}  \) can be used as the \( \
     Let \( (X,d) \) and \( (Y,\tilde{d}) \) be two metric spaces. Suppose \( E  \) is dense in \( X  \). If \( f: X \to Y  \) is a function that is continuous at each point of \( E  \), then the set of points at which \( f  \) is discontinuous is of \textbf{first category} in \( X  \).
 \end{theorem}
 \begin{proof}
-    Let \( D = \text{the set of discontinuities of} f  \) and for all \( n \geq 1  \) 
+    Let \( D = \{ \text{the set of discontinuities of} f \}  \) and for all \( n \geq 1  \) 
     \[  {A}_{n} = \{  x \in X : \text{osc}(f,x) \geq \frac{1  }{ n } \}. \]
     As we proved, 
     \[  D = \bigcup_{ n=1  }^{ \infty  }  {A}_{n}. \]
