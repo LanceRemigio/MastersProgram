@@ -55,6 +55,11 @@ Now, note that since \( f  \) is continuous at \( c  \) and \( d \) is continuou
 \end{align*}
 \end{proof}
 
+\begin{center}
+    \textit{End of Lecture 2} 
+\end{center}
+
+
 \subsection{Lecture 3}
 
 \subsubsection{Topics}
@@ -126,7 +131,7 @@ From (I) and (II), we can see that \( f'(c) \leq 0  \) and \( f'(c) \geq 0  \). 
     Let \( g:[a,b] \to \R  \) be defined by \( g(x) = f(x) - \alpha x  \). It follows from the Algebraic Differentiability Theorem that \( g  \) is differentiable on \( [a,b] \) and so it is continuous on \( [a,b] \). It suffices to show that there is a point \( c \in (a,b) \) such that \( g'(c) = 0 \). To this end, it is enough to show that there exists a point \( c \in (a,b) \) at which \( g  \) has a local min. Since \( g  \) is continuous on \( [a,b] \) and \( [a,b]  \) is compact, \( g  \) attains its minimum on \( [a,b] \). Let \( \hat{c} \) be a point at which \( g  \) attains a minimum. IN what follows we will show that \( \hat{c} \in (a,b) \) and so it can be used as the same \( c  \) that we were looking for. Note that  
     \begin{align*}
         g'(a) = f'(a) - \alpha &<  0 \\
-        g'(b) = f'(b) - \alpha > 0. 
+        g'(b) = f'(b) - \alpha &> 0. 
     \end{align*}
     We make two claims; namely, \( \hat{c} \neq a  \) (\( \hat{c}  \) cannot be the left-endpoint of \( [a,b] \)) and \( \hat{c} \neq b  \) (the right-endpoint of \( [a,b] \)). Suppose for contradiction that \( \hat{c}= a  \). Then for all \( x \in [a,b] \) \( g(x) \geq g(a) \). So, for all \( x \in (a,b) \), we have \( g(x) - g(a) \geq 0  \) and \( x - a > 0  \). Thus, for all \( x \in (a,b) \)
     \[  \frac{ g(x) - g(a) }{ x - a  }  \geq 0.  \]
@@ -139,46 +144,10 @@ From (I) and (II), we can see that \( f'(c) \leq 0  \) and \( f'(c) \geq 0  \). 
 
 % end of week 2
 
+\begin{center}
+    \textit{End of Lecture 3} 
+\end{center}
 
-% end of lecture 4
+% end of lecture 3
 
-
-\begin{theorem}[Taylor's Theorem with Lagrange Remainder]\label{Taylor's Theorem with Lagrange Remainder}
-    Let \( I \subseteq  \R   \) be an open interval, \( {x}_{0} \in I  \), and \( n \in \N \cup \{ 0  \}  \). Suppose \( f: I \to \R  \) has \( n + 1  \) derivatives. Then for each point \( x \neq {x}_{0} \) in \( I  \), there is a point \( c  \) strictly between \( x  \) and \( {x}_{0} \) such that 
-    \[  f(x) = \sum_{ k=0  }^{  n } \frac{ f^{(k)}({x}_{0})  }{ n!  } (x - {x}_{0})^{k} + \frac{ f^{(n+1)}(c) }{  (n+1)! } (x - {x}_{0})^{n+1} \]
-    where 
-    \begin{align*}
-        {T}_{n,{x}_{0}}(x) &= \sum_{ k=0  }^{ n } \frac{ f^{(k)}({x}_{0}) }{ n!  }  ( x - {x}_{0})^{k} \\
-        {R}_{n,{x}_{0}}(x) &= \frac{ f^{(n+1)}(c) }{  (n+1)! }  (x - {x}_{0})^{n+1}.
-    \end{align*}
-\end{theorem}
-
-\begin{remark}
-    \begin{itemize}
-        \item Note that clearly the equality above holds at \( x = {x}_{0} \) too (for any value of \( c  \)).
-        \item Recall that for any fixed number \( R  \)
-            \[ \lim_{ n \to \infty  }  \frac{ R^{n+1} }{ (n+1)! }  = 0.   \]
-            However, \( f^{(n+1)}(c) \) may become very large.
-    \end{itemize}
-\end{remark}
-
-\subsubsection{Proof of Taylor's Theorem}
-\begin{proof}
-Let \( {R}_{n,{x}_{0}}(x) = f(x) - {T}_{n,{x}_{0}}(x)  \). Our goal is to show that 
-\[  {R}_{n,{x}_{0}}(x) = \frac{ f^{(n+1)}(c) }{ (n+1)! } (x - {x}_{0})^{n+1} \]
-for some \( c  \) between \( x  \) and \( {x}_{0} \). Note that 
-\begin{enumerate}
-    \item[(i)] By assumption, \( f \) contains \( n + 1  \) derivatives and \( {T}_{n,{x}_{0}}  \) is a polynomial which also contains \( n + 1  \) derivatives. Also, we have 
-        \[  {R}_{n,{x}_{0}} = f - {T}_{n,{x}_{0}}. \]
-        Thus, \( {R}_{n,{x}_{0}}  \) must have \( n + 1  \) derivatives.
-    \item[(ii)] For all \( 0 \leq k \leq n  \),
-        \[  {R}_{n, {x}_{0}}^{(k)}({x}_{0}) = f^{(k)}({x}_{0}) - {T}_{n,{x}_{0}}^{(k)}({x}_{0}) = 0. \]
-\end{enumerate}
-Using (i), (ii), and corollary 5, we can see that for each \( x \neq {x}_{0} \), we have 
-\[  R_{n,{x}_{0}}(x) = \frac{ {R}_{n,{x}_{0}}^{(n+1)}(c) }{ (n+1)! }  (x - {x}_{0})^{n+1} \tag{I} \]
-for some \( c  \) strictly between \( x  \) and \( {x}_{0} \). Now, note that 
-\[  {R}_{n,{x}_{0}}^{(n+1)}(c) = f^{(n+1)}(c) - {T}_{n,{x}_{0}}^{(n+1)}(c) = f^{(n+1)}(c). \tag{II}  \]
-Using (I) and (II), we have 
-\[  {R}_{n,{x}_{0}} = \frac{ f^{(n+1)}(c) }{ (n+1)! } (x - {x}_{0})^{n+1}.\]
-\end{proof}
 

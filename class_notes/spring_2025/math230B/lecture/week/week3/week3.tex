@@ -102,7 +102,7 @@ It follows from the Order Limit Theorem that
 \[  \lim_{ x \to c  }  \frac{ f(x) - f(c) }{  x-  c  }  \geq \lim_{ x \to c  }  0  = 0. \]
 Hence, \( f'(c) \geq 0 \) as desired.
 
-\( \Longleftarrow \) Suppose for all \( c \in I  \), \( f'(c) \geq 0  \). To show that \( f  \) is increasing on \( I  \), we need to show that for all \( {x}_{1}, {x}_{2} \in I   \) with \( {x}_{1} < {x}_{2} \). It suffices to show that \( f({x}_{1}) \leq f({x}_{2}) \). To this end, we will apply the Mean Value Theorem to the function \( f  \) on \( [{x}_{1}, {x}_{2}] \). That is, there exists a \( c \in ({x}_{1}, {x}_{2}) \) such that 
+\( (\Longleftarrow) \) Suppose for all \( c \in I  \), \( f'(c) \geq 0  \). To show that \( f  \) is increasing on \( I  \), we need to show that for all \( {x}_{1}, {x}_{2} \in I   \) with \( {x}_{1} < {x}_{2} \). It suffices to show that \( f({x}_{1}) \leq f({x}_{2}) \). To this end, we will apply the Mean Value Theorem to the function \( f  \) on \( [{x}_{1}, {x}_{2}] \). That is, there exists a \( c \in ({x}_{1}, {x}_{2}) \) such that 
 \[  f'(c) = \frac{ f({x}_{2})- f({x}_{1}) }{  {x}_{2} - {x}_{1} }. \]
 Thus, 
 \[  f({x}_{2}) - f({x}_{1}) = f'(c) ({x}_{2} - {x}_{1}). \]
@@ -145,6 +145,10 @@ We may consider the following cases:
 
 \end{enumerate}
 \end{proof}
+
+\begin{center}
+    \textit{End of Lecture 4} 
+\end{center}
 
 \subsection{Lecture 5}
 
@@ -292,3 +296,48 @@ That is,
          &= \sum_{ k= 0  }^{  n  } \frac{ f^{(k)}({x}_{0} ) }{ k!  } (x - {x}_{0})^{k}.
 \end{align*}
 \end{proof}
+
+\begin{theorem}[Taylor's Theorem with Lagrange Remainder]\label{Taylor's Theorem with Lagrange Remainder}
+    Let \( I \subseteq  \R   \) be an open interval, \( {x}_{0} \in I  \), and \( n \in \N \cup \{ 0  \}  \). Suppose \( f: I \to \R  \) has \( n + 1  \) derivatives. Then for each point \( x \neq {x}_{0} \) in \( I  \), there is a point \( c  \) strictly between \( x  \) and \( {x}_{0} \) such that 
+    \[  f(x) = \sum_{ k=0  }^{  n } \frac{ f^{(k)}({x}_{0})  }{ n!  } (x - {x}_{0})^{k} + \frac{ f^{(n+1)}(c) }{  (n+1)! } (x - {x}_{0})^{n+1} \]
+    where 
+    \begin{align*}
+        {T}_{n,{x}_{0}}(x) &= \sum_{ k=0  }^{ n } \frac{ f^{(k)}({x}_{0}) }{ n!  }  ( x - {x}_{0})^{k} \\
+        {R}_{n,{x}_{0}}(x) &= \frac{ f^{(n+1)}(c) }{  (n+1)! }  (x - {x}_{0})^{n+1}.
+    \end{align*}
+\end{theorem}
+
+\begin{remark}
+    \begin{itemize}
+        \item Note that clearly the equality above holds at \( x = {x}_{0} \) too (for any value of \( c  \)).
+        \item Recall that for any fixed number \( R  \)
+            \[ \lim_{ n \to \infty  }  \frac{ R^{n+1} }{ (n+1)! }  = 0.   \]
+            However, \( f^{(n+1)}(c) \) may become very large.
+    \end{itemize}
+\end{remark}
+
+\subsubsection{Proof of Taylor's Theorem}
+\begin{proof}
+Let \( {R}_{n,{x}_{0}}(x) = f(x) - {T}_{n,{x}_{0}}(x)  \). Our goal is to show that 
+\[  {R}_{n,{x}_{0}}(x) = \frac{ f^{(n+1)}(c) }{ (n+1)! } (x - {x}_{0})^{n+1} \]
+for some \( c  \) between \( x  \) and \( {x}_{0} \). Note that 
+\begin{enumerate}
+    \item[(i)] By assumption, \( f \) contains \( n + 1  \) derivatives and \( {T}_{n,{x}_{0}}  \) is a polynomial which also contains \( n + 1  \) derivatives. Also, we have 
+        \[  {R}_{n,{x}_{0}} = f - {T}_{n,{x}_{0}}. \]
+        Thus, \( {R}_{n,{x}_{0}}  \) must have \( n + 1  \) derivatives.
+    \item[(ii)] For all \( 0 \leq k \leq n  \),
+        \[  {R}_{n, {x}_{0}}^{(k)}({x}_{0}) = f^{(k)}({x}_{0}) - {T}_{n,{x}_{0}}^{(k)}({x}_{0}) = 0. \]
+\end{enumerate}
+Using (i), (ii), and corollary 5, we can see that for each \( x \neq {x}_{0} \), we have 
+\[  R_{n,{x}_{0}}(x) = \frac{ {R}_{n,{x}_{0}}^{(n+1)}(c) }{ (n+1)! }  (x - {x}_{0})^{n+1} \tag{I} \]
+for some \( c  \) strictly between \( x  \) and \( {x}_{0} \). Now, note that 
+\[  {R}_{n,{x}_{0}}^{(n+1)}(c) = f^{(n+1)}(c) - {T}_{n,{x}_{0}}^{(n+1)}(c) = f^{(n+1)}(c). \tag{II}  \]
+Using (I) and (II), we have 
+\[  {R}_{n,{x}_{0}} = \frac{ f^{(n+1)}(c) }{ (n+1)! } (x - {x}_{0})^{n+1}.\]
+\end{proof}
+
+
+\begin{center}
+    \textit{End of Lecture 5} 
+\end{center}
+
