@@ -1,0 +1,135 @@
+\subsection{Nonexistence of Extension of Length to All Subsets of \( \R  \)}
+
+\begin{prop}[Nonexistence of Extension of Length to All Subsets of \( \R  \)]
+    There does not exist a function \( \mu  \) with all the following properties:
+    \begin{enumerate}
+        \item[(a)] \( \mu \) is a function from the set of subsets of \( \R  \) to \( [0,\infty ] \),
+        \item[(b)] \( \mu(I) = \ell(I) \) for every open interval \( I  \) of \( \R  \),
+        \item[(c)] \( \mu \Big(  \displaystyle \bigcup_{ k=1  }^{ n }  {A}_{k} \Big) = \sum_{ k=1  }^{ \infty  } \mu({A}_{k}) \) for every disjoint sequence \( {A}_{1}, {A}_{2}, \dots  \) of subsets of \( \R  \),
+        \item[(d)] \( \mu(t + A ) = \mu(A) \) for every \( A \subseteq  \R  \) and every \( t \in \R  \).
+    \end{enumerate}
+\end{prop}
+
+\subsection{\( \sigma \)-Algebra}
+
+\begin{definition}[\( \sigma \)-Algebra]
+    Suppose \( X  \) is a set and \( \mathcal{S} \) is a set of subsets of \( X  \). Then \( \mathcal{S} \) is called a \( \sigma \)-algebra on \( X  \) if the following three conditions are satisfied: 
+    \begin{itemize}
+        \item \( \emptyset \in \mathcal{S} \);
+        \item if \( E \in S  \), then \( X \setminus  E \in \mathcal{S} \);
+        \item if \( {E}_{1}, {E}_{2}, \dots  \) is a sequence of elements of \( \mathcal{S} \), then \( \bigcup_{ k = 1  }^{ \infty  }  {E}_{k} \in S  \).
+    \end{itemize}
+\end{definition}
+
+\begin{prop}[\( \sigma \)-algebras are Closed Under Countable Intersection]
+    Suppose \( \mathcal{S} \) is a \( \sigma \)-algebra on a set \( X  \). Then
+    \begin{enumerate}
+        \item[(a)] \( X \in \mathcal{S} \);
+        \item[(b)] if \( D,E \in \mathcal{S} \), then \( D \cup E \in \mathcal{S} \) and \( D \cap E \in \mathcal{S} \) and \( D \setminus  E \in \mathcal{S} \);
+        \item[(c)] if \( {E}_{1}, {E}_{2}, \dots  \) is a sequence of elements of \( \mathcal{S} \), then \( \bigcap_{  k = 1  }^{ \infty  }  {E}_{k} \in \mathcal{S} \).
+    \end{enumerate}
+\end{prop}
+
+\begin{definition}[Measureable Space; Measurable Set]
+    \begin{itemize}
+        \item A \textbf{measurable space} is an ordered pair \( (X,\mathcal{S}) \), where \( X  \) is a set and \( \mathcal{S} \) is a \( \sigma \)-algebra on \( X  \).
+        \item An element of \( S  \) is called an \textbf{\( \mathcal{S} \)-measurable set}, or just a \textbf{measurable set} if \( \mathcal{S} \) is clear from the context.
+    \end{itemize}
+\end{definition}
+
+\subsection{Borel Subsets of \( \R  \)}
+
+\begin{prop}[Smallest \( \sigma \)-algebra containing a collection of subsets]
+    Suppose \( X  \) is a set and \( \mathcal{A} \) is a set of subsets of \( X  \). Then the intersection of all \( \sigma \)-algbras on \( X  \) that contain \( \mathcal{A} \) is a \( \sigma \)-algebra on \( X  \).
+\end{prop}
+
+\begin{definition}[Borel Set]
+    The smallest \( \sigma \)-algebra on \( \R  \) containing all open susbets of \( \R  \) is called the collection of \textbf{Borel subsets of \( \R  \)}. An element of this \( \sigma \)-algebra is called a \textbf{Borel set}.
+\end{definition}
+
+\begin{definition}[Inverse Image; \( f^{-1}(A) \)]
+   If \( f: X \to Y  \) is a function and \( A \subset Y  \), then the set \( f^{-1}(A) \) is defined by 
+   \[  f^{-1}(A) = \{  x \in X : f(x) \in A  \}. \]
+\end{definition}
+
+\begin{prop}[Algebra of Inverse Images]
+    Suppose \( f: X \to Y  \) is a function. Then
+    \begin{enumerate}
+        \item[(a)] \(  f^{-1}(Y \setminus  A ) = X \setminus  f^{-1}(A) \) for every \( A \subset Y  \);
+        \item[(b)] \( f^{-1}(\bigcup_{ A \in \mathcal{A} }^{  } A ) = \bigcup_{ A \in \mathcal{A} }^{  } f^{-1}(A)   \) for every \( \mathcal{A}  \) of subsets of \( Y  \);
+        \item[(c)] \( f^{-1} (\bigcup_{A \in \mathcal{A} }^{  }  A ) = \bigcap_{  A \in \mathcal{A} }^{  }  f^{-1}(A) \) for every \( \mathcal{A}  \) of subsets of \( Y  \).
+    \end{enumerate}
+\end{prop} 
+
+\begin{prop}[Inverse Image of a Composition]
+    Suppose \( f: X \to Y  \) and \( g : Y \to W  \) are functions. Then 
+    \[  (g \circ f)^{-1}(A) =  f^{-1}(g^{-1}(A))  \ \ \forall A \subset W. \]
+\end{prop}
+
+\subsection{Measurable Functions}
+
+\begin{prop}[Condition for Measurable Function]
+    Suppose \( (X,\mathcal{S}) \) is a measurable space and \( f: X \to \R  \) is a function such that 
+    \[  f^{-1}((a,\infty )) \in \mathcal{S} \ \ \forall a \in \R.  \]
+    Then \( f  \) is an \( \mathcal{S} \)-measurable function.
+\end{prop}
+
+\begin{definition}[Borel Measurable Function]
+    Suppose \( X \subset \R  \). A function \( f: X \to \R  \) is called \textbf{Borel measurable} if \( f^{-1}(B) \) is a Borel set for every \( B \subset \R \). 
+\end{definition}
+
+\begin{prop}[Every Continuous Function is Borel Measurable]
+    Every continuous real-valued function defined on a Borel subset of \( \R  \) is a Borel measurable function.
+\end{prop}
+
+\begin{definition}[Increasing Function]
+    Suppose \( X \subset \R   \) and \( f: X \to \R  \) is a function. 
+    \begin{itemize}
+        \item \( f  \) is called \textbf{increasing} if \( f(x) \leq f(y) \) for all \( x,y \in X  \) with \( x < y  \).
+        \item \( f  \) is called \textbf{strictly increasing} if \( f(x) < f(y) \) for all \( x,y \in X  \) with \( x < y \).
+    \end{itemize}
+\end{definition}
+
+\begin{prop}[Every Increasing Function is Borel Measurable]
+    Every increasing function defined on a Borel subset of \( \R  \) is a Borel measurable function.
+\end{prop}
+
+\begin{prop}[Composition of Measurable Functions]
+    Suppose \( (X,\mathcal{S}) \) is a measurable space and \( f: X \to \R  \) is an \( \mathcal{S} \)-measurable function. Suppose \( g  \) is a real-valued Borel measurable function defined on a subset of \( \R  \) that includes the range of \( f  \). Then \( g \circ f : X \to \R  \) is an \( \mathcal{S} \)-measurable function.
+\end{prop}
+
+\begin{prop}[Algebraic Operations with Measurable Functions]
+    Suppose \( (X,\mathcal{S}) \) is a measurable space and \( f,g : X \to \R  \) are \( \mathcal{S} \)-measurable. Then
+    \begin{enumerate}
+        \item[(a)] \( f + g , f - g  \), and \( fg  \) are \( \mathcal{S} \)-measurable functions;
+        \item[(b)] if \( g(x) \neq 0  \) for all \( x \in X  \), then \( \frac{ f }{ g  }  \) is an \( \mathcal{S}  \)-measurable function.
+    \end{enumerate}
+\end{prop}
+
+\begin{prop}[Limit of \( \mathcal{S} \)-measurable Functions]
+    Suppose \( (X,\mathcal{S}) \) is a measurable space and \( {f}_{1}, {f}_{2}, \dots  \) is a sequence of \( \mathcal{S} \)-measurable functions from \( X  \) to \( \R  \). Suppose \( \lim_{ k  \to \infty  }  {f}_{k }(x) \) exists for each \( x \in X  \). Define \( f: X \to \R  \) by
+    \[  f(x) = \lim_{ k  \to  \infty  }  {f}_{k }(x). \]
+    Then \( f  \) is an \( \mathcal{S} \)-measurable function.
+\end{prop}
+
+\begin{definition}[Borel Subsets]
+    A subset of \( [- \infty, \infty] \) is called a \textbf{Borel set} if its intersection with \( \R  \) is a Borel set. 
+\end{definition}
+
+\begin{definition}[Measurable Function]
+    Suppose \( (X,\mathcal{S}) \) is a measurable space. A function \( f: X \to [-\infty, \infty  ] \) is called \( \mathcal{S} \)-measurable if \( f^{-1}(B) \in \mathcal{S} \) for every Borel set \( B \subset [-\infty ,\infty ] \).
+\end{definition}
+
+\begin{prop}[Condition for Measurable Function]
+    Suppose \( (X,\mathcal{S}) \) is a measurable space and \( f: X \to [-\infty,\infty ] \) is a function such that 
+    \[  f^{-1}((a,\infty]) \in \mathcal{S} \ \ \forall a \in \R. \]
+    Then \( f  \) is an \( \mathcal{S} \)-measurable function.
+\end{prop}
+
+\begin{prop}[Infimum and Supremum of a Sequence of \( \mathcal{S} \)-measurable Functions]
+    Suppose \( (X,\mathcal{S}) \) is a measurable space and \( {f}_{1}, {f}_{2}, \dots  \) is a sequence of \( \mathcal{S} \)-measurable functions from \( X  \) to \( [-\infty , \infty ] \). Define \( g,h : X \to [-\infty ,\infty] \) by
+    \begin{center}
+        \( g(x) = \inf_{k \in \Z^{+}} {f}_{k}(x) \) and \( h(x) = \sup_{k \in \Z^{+}} {f}_{k }(x) \).
+    \end{center}
+    Then \( g  \) and \( h  \) are \( \mathcal{S}  \)-measurable functions.
+\end{prop}

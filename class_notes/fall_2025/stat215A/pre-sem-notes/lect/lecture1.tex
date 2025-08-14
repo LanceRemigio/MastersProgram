@@ -1,0 +1,101 @@
+\begin{definition}[Indicator Function]
+    Given a set \( A \subseteq \Omega \), we define the indicator function \( {I}_{A}: \Omega \to \R  \) as 
+    \[ {I}_{A}(W) = 
+    \begin{cases}
+        1 &\text{if} \ w \in A \\
+        0 &\text{otherwise} 
+    \end{cases}  \]
+\end{definition}
+
+\begin{eg}
+   For any set \( A \subseteq C   \), \( {I}_{A}= 1 - {I}_{A^{c}}  \). 
+\end{eg}
+    \begin{proof}
+   Let \( A  \) be any set. Let \( x \in A  \). Then \( x \notin A^{c} \) and so \( {I}_{A}(x) = 1  \) and \( {I}_{A^{c}}(x) = 0  \). Thus, 
+   \[  {I}_{A} = 1 = 1 - 0 = 1 - {I}_{A^{c}}(x).  \]
+   Let \( y \in A^{c} \). Then \( y \notin A  \). Then \( {I}_{A^{c}} = 1  \), and \( {I}_{A}(y ) = 0  \). Hence, 
+   \[  {I}_{A} = 0 = 1 - 1 = 1 - {I}_{A^{c}}(y). \]
+   \end{proof}
+An alternative proof to the above result goes something like:
+
+\begin{align*}
+    (1 - {I}_{A^{c}}) &= 
+    \begin{cases}
+        1 - 1 &\text{if} \ w \in A^{c} \\
+        1 - 0 &\text{if} w \notin A^{c}
+    \end{cases} \\
+                      &= 
+                      \begin{cases}
+                          0 &\text{if} \ w \notin A  \\
+                          1 &\text{if} \ w \in A
+                      \end{cases} \\
+                     &= {I}_{A}.
+\end{align*}
+
+\begin{eg}
+   If \( A \subseteq  B  \), then \( {I}_{A} \subseteq {I}_{B} \). 
+\end{eg}
+   \begin{proof}
+   If \( w \in A  \), then \( w \in B  \) and so \( {I}_{a}(w) = 1  \) and \( {I}_{B}(w) = 1  \). Thus, \( {I}_{A}(w) \leq {I}_{B}(w) \). If there exists \( w \in B \cap A^{c} \), then \( {I}_{A}(w) = 0   \) and \( {I}_{B}(w) = 1  \). Thus, we have \( {I}_{A}(w) \leq {I}_{B}(w)  \). If there exists \( w \in \Omega \cap B^{c} \), then \( {I}_{A}(w) = 0  \) and \( {I}_{B}(w) = 0  \). Then \( {I}_{A}(w) \leq {I}_{B}(w) \).
+   \end{proof}
+
+\begin{definition}[ ]
+    For a sequence of sets \( {A}_{n} \), \( n \in \N  \), we define
+    \begin{align*}
+        \inf_{k \geq n } {A}_{k } &= \bigcap_{ k= n  }^{ \infty  }  {A}_{k}  \\
+        \sup_{k \geq n} {A}_{k} &= \bigcup_{ k= n  }^{ \infty  }  {A}_{k} \\
+        \lim_{ n \to \infty  } \inf {A}_{k} &= \bigcup_{ n \in \N }^{  } \inf_{k \geq n} {A}_{k} = \bigcup_{ n \in \N  }^{  } \bigcap_{ k = n  }^{ \infty  }  {A}_{k} \\
+        \lim_{ n \to \infty  }  \sup {A}_{k} &= \bigcap_{ n \in \N }^{  } \sup_{k \geq n} {A}_{k} = \bigcap_{  n \in \N  }^{  }  \bigcup_{ k= n }^{ \infty  }  {A}_{k}.
+    \end{align*}
+\end{definition}
+
+For \( \lim \inf  \), we have a set of nondecreasing sets. On the other hand, for \( \lim \sup  \), we have a set of nonincreasing sets. 
+
+\begin{prop}[De Morgan's Laws for \( \lim \sup  \) and \( \lim \inf \)]
+   \begin{align*}
+        (\lim_{ n \to \infty  }  \inf {A}_{k})^{c} &= \lim_{ n \to \infty  }  \sup {A}_{n}^{c} \\
+   \end{align*} 
+\end{prop}
+\begin{proof}
+We have 
+\begin{align*}
+    (\lim_{ n \to \infty  } \inf_{k \geq n}  {A}_{n})^{c} &= \Big(  \bigcup_{ n \in \N  }^{  }  \bigcap_{ k = n  }^{ \infty  }  {A}_{k} \Big)^{c} \\
+                                                          &= \bigcap_{  n \in \N  }^{  }  \Big(  \bigcup_{ k = n  }^{ \infty  }  {A}_{k} \Big)^{c} \\
+                                                          &= \bigcap_{ k \in \N  }^{  } \bigcup_{ k = n  }^{ \infty  }  {A}_{k}^{c}.
+\end{align*}
+\end{proof}
+
+\begin{definition}[ ]
+    If \( \lim_{ n \to \infty  } \inf  {A}_{n} = \lim_{ n \to \infty  }  \sup {A}_{n} \), then we define the limit of \( {A}_{n}  \) as 
+    \[  \lim_{ n \to \infty  }  {A}_{n}. \tag{*} \]
+\end{definition}
+
+\begin{eg}
+    Let \( {A}_{k} = \Big[ 0, \frac{ k  }{  k + 1  } \Big] \) for all \( k \in \N \). Then \( \lim_{ n \to \infty  }  \inf {A}_{k} = [0,1) \) and \( \lim_{ n \to \infty   }  \sup {A}_{k} = [0,1) \), so \( {A}_{k} \to [0,1) \) as \( n \to \infty  \).
+\end{eg}
+
+\begin{prop}[ ]
+   Let \( {A}_{n} \) for \( n \in \N  \) be a sequence of subsets in \( \Omega  \). Then 
+   \begin{align*}
+       \lim_{ n \to \infty  }  \sup {A}_{n} &= \{ w \in \Omega : \sum_{ n \in \N } {I}_{{A}_{n}}(w) = \infty   \}  \\
+       \lim_{ n \to \infty  }  \inf {A}_{n} &= \{ w \in \Omega : \sum_{ n \in \N  }^{  } {I}_{{A}_{n}} (w) < \infty \}.
+   \end{align*}
+\end{prop}
+
+Roughly speaking, the \( \lim \sup  \) is the set of \( w \in \Omega  \) that appear infinitely often, and \( \lim \inf  \) is the set \( w \in \Omega  \) that appear except for finitely many times.
+
+\begin{proof}
+We will prove the first equation. The second uses a similar argument. Let \( w \in \bigcap_{ n \in \N  }^{  }  \bigcup_{ k = n  }^{ \infty  }  {A}_{k}  \). Then 
+\[  w \in \bigcup_{ k = n  }^{ \infty  }  {A}_{k} \ \ \forall n \in \N. \]
+Indeed, for \( w \in \bigcap_{  n \in \N  }^{  }  \bigcup_{ k = n  }^{ \infty  }  {A}_{k} = \lim_{ n \to \infty  }  \sup {A}_{n}  \). Then there exists \( {k}_{1} \in \N  \) such that \( w \in {A}_{{k}_{1}} \). Similarly, 
+\[  w \in \bigcup_{ k = {k}_{1} + 1  }^{ \infty  } {A}_{{k}_{1}} \implies \ \exists {k}_{1} \in \N \ \text{such that} \ w \in {A}_{{k}_{1}}. \] 
+Also, 
+\[  w \in \bigcup_{ k = {k}_{2} + 1  }^{  \infty  }  {A}_{{k}_{1}}  \implies \exists {k}_{3} > {k }_{2} \ \text{such that} \ w \in {A}_{{k}_{3}}. \]
+We can continue this process inductively to get 
+\begin{align*}
+    {I}_{{A}_{n}} &= 1  
+\end{align*}
+for all \( n \in \N \). Hence, 
+\[  \sum_{ i=1  }^{ \infty  } {I}_{{A}_{{k }_{i}}}(w) = \infty.  \]
+Thus, we see that \( w \in \lim_{ n \to \infty  }  \sup {A}_{n} \).
+\end{proof} 

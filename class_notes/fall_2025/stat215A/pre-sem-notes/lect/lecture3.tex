@@ -1,0 +1,16 @@
+\begin{prop}
+    Let \( \{  {G}_{i} \}_{1 \leq i \leq n }\) be a collection of open sets. Then \( \bigcap_{  i = 1  }^{ n  }  {G}_{i} \) is an open set.
+\end{prop}
+
+\begin{proof}
+Our goal is to show that there exists a \( \delta > 0  \) such that 
+\[  {B}_{\delta}(x) \subseteq \bigcap_{  i =1  }^{ n }  {G}_{i} \]
+for all \( x \in \bigcap_{  i = 1  }^{ n } {G}_{i}  \).
+Let \( x \in \bigcap_{  i = 1  }^{ n  }  {G}_{i} \). Then for all \( 1 \leq i \leq n  \), \( x \in {G}_{i} \). Then for all \( 1 1 \leq i \leq n  \), (because \( {G}_{i} \) is an open set), there exists a \( \delta_i > 0  \) such that \( {B}_{{\delta}_{i}}(x) \subseteq  {G}_{i} \). Take
+\[  \hat{\delta} = \frac{ 1 }{ 2 } \min \{ {\delta}_{i} : 1 \leq i \leq n  \}. \]
+It can be seen immediately that this \( \delta  \) is the same \( \delta  \) we were looking for. Indeed, for all \( y \in {B}_{\delta}(x) \), we have 
+\[  d(x,y) < \delta < {\delta}_{i} \ \ \forall 1 \leq i \leq n.  \]
+Hence, \( y \in {B}_{{\delta}_{i}} \) for all \( 1 \leq i \leq n  \).
+\end{proof}
+
+

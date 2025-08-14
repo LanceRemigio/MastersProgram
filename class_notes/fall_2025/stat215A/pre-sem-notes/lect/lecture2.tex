@@ -1,0 +1,54 @@
+
+\begin{prop}
+    If \( {A}_{1} \subseteq {A}_{2} \subseteq {A}_{3} \subseteq  \dots  \), then \( \lim_{ n \to \infty  }  {A}_{n} = \bigcup_{ n \in \N  }^{  }  {A}_{n} \).
+\end{prop}
+
+\begin{proof}
+    Note that
+    \begin{align*}
+        \bigcap_{  k \geq 1  }^{  }  {A}_{k } &= {A}_{1} \cap {A}_{2} \cap  \dots = {A}_{1}  \\
+        \bigcap_{  k \geq 2  }^{  }  {A}_{k} &= {A}_{2} \cap {A}_{3} \cap \dots = {A}_{2} \\
+                                              &\vdots \\
+        \bigcap_{ k \geq n  }^{} {A}_{k} &= {A}_{n} \cap {A}_{n+1} \cap \dots = {A}_{n}  
+    \end{align*}
+    Thus, we see that 
+    \[  \lim_{ n \to \infty  }  \inf {A}_{n} = \bigcup_{ n \in \N  }^{  }  {A}_{n}. \]
+    Similarly, we have
+    \begin{align*}
+        \bigcup_{ k \geq 1  }^{  }  {A}_{k } &= {A}_{1} \cup {A}_{2} \cup \dots = \bigcup_{ n \in \N  }^{   }  {A}_{n} \\
+        \bigcup_{ k \geq 2  }^{  } {A}_{k} &=  {A}_{2} \cup {A}_{3} \cup \dots = \bigcup_{ n \in \N  }^{  }  {A}_{n} \\
+                            &\vdots \\
+        \bigcup_{ k \geq n  }^{   }  {A}_{k} &= {A}_{n} \cup {A}_{n+1} \cup \dots = \bigcup_{ n \in \N }^{  }  {A}_{n}  
+    \end{align*}
+    and so, we have
+    \[ \lim_{ n \to \infty  } \sup {A}_{n} = \bigcup_{ n \in \N  }^{   }  {A}_{n}.  \]
+    This tells us that 
+    \[  \lim_{ n \to \infty  }  {A}_{n} = \bigcup_{ n \in \N  }^{  }  {A}_{n}. \]
+\end{proof}
+
+\begin{corollary}
+    Let \( \{ {A}_{n} \}_{n \in \N} \) be a sequence (of sets). Then \( {B}_{n} = \bigcup_{ k \geq n  }^{  }  {A}_{n} \) and \( {C}_{n} = \bigcap_{  k \geq n  }^{  }  {A}_{n} \) are monotone, and \( \lim_{ n \to \infty  } \inf  {A}_{n} = \lim_{ n \to \infty  }  \inf_{k \geq n } {A}_{n} \) and \( \lim_{ n \to \infty  } \sup {A}_{n} = \lim_{ n \to \infty } \sup_{ k \geq n } {A}_{n}    \)
+\end{corollary}
+
+\begin{proof}
+\end{proof}
+
+\begin{prop}
+    Let \( {G}_{1} \) and \( {G}_{2} \) be open sets. Then \( {G}_{1} \cap {G}_{2} \) is an open set.
+\end{prop}
+\begin{proof}
+    Let \( x \in {G}_{1} \cap {G}_{2} \). Our goal is to show that \( {B}_{{r}_{x}} \subseteq {G}_{1} \cap {G}_{2} \); that is, 
+    \[  {G}_{1} \cap {G}_{2} = \bigcup_{ x \in {G}_{1} \cap {G}_{2} }^{  }  {B}_{{r}_{x}}(x). \]
+    Since \( x \in {G}_{1} \) and \( {G}_{1} = \bigcup_{  \alpha \in \Lambda }^{  } {B}_{{r}_{\alpha}} ({x}_{\alpha})  \), we have 
+    \[  {B}_{{r}_{1}}({x}_{1}) \subseteq  {G}_{1}. \]
+    Here \( {r}_{1}  \) can be found because \( {G}_{1} \) is an open set.
+    Similarly, \( x \in {G}_{2} \) and \( {G}_{2} = \bigcup_{ \beta \in \Lambda }^{  }  {B}_{{r}_{\beta}} ({x}_{\beta}) \) implies that \( x \in {B}_{{r}_{2}}({x}_{2}) \subseteq {G}_{2} \). Like \( {G}_{1} \), \( {r}_{2}  \) can be found because \( {G}_{2} \) is an open set. Now, take \( {r}_{x} = \min \{ {r}_{1} - d({x}_{1}, x) , {r}_{2} - d({x}_{2}, x) \}  \). Let \( y \in {B}_{{r}_{x}}(x) \). Then 
+    \[ d(x,y) < {r}_{x} < {r}_{1} - d({x}_{1}, x) < {r}_{1} \tag{1}\]
+    and
+    \[  d(x,y) < {r}_{x} < {r}_{2} - d({x}_{2}, x) < {r}_{2} \tag{2} \]
+    Now, (1) and (2) imply that \( y \in {G}_{1} \cap {G}_{2} \) (because \( {B}_{{r}_{2}}({x}_{2}) \subseteq  {G}_{2} \) and \( {B}_{{r}_{1}}({x}_{1}) \subseteq  {G}_{1}  \)). Hence, \( {G}_{1} \cap {G}_{2}  \) is an open set.
+\end{proof}
+
+
+
+
