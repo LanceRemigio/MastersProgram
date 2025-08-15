@@ -12,3 +12,6 @@
 \contentsline {section}{\numberline {3}Section 2C}{5}{section.3}%
 \contentsline {subsection}{\numberline {3.1}Definition of Measures}{5}{subsection.3.1}%
 \contentsline {subsection}{\numberline {3.2}Properties of Measures}{5}{subsection.3.2}%
+\contentsline {section}{\numberline {4}Section 2D}{6}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Additivity of Outer Measure on Borel Sets}{6}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}Lebesgue Measurable Sets}{7}{subsection.4.2}%

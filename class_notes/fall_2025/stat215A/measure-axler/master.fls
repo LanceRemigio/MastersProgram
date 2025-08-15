@@ -609,6 +609,11 @@ INPUT section/sec2c.tex
 INPUT ./section/sec2c.tex
 INPUT section/sec2c.tex
 INPUT section/sec2c.tex
+INPUT ./section/sec2d.tex
+INPUT section/sec2d.tex
+INPUT ./section/sec2d.tex
+INPUT section/sec2d.tex
+INPUT section/sec2d.tex
 INPUT master.aux
 INPUT ./master.out
 INPUT ./master.out

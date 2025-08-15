@@ -1,0 +1,63 @@
+\subsection{Additivity of Outer Measure on Borel Sets}
+
+\begin{prop}[Additivity of Outer Measure if One of the Sets is Open]
+   Suppose \( A  \) and \( G  \) are disjoint subsets of \( \R  \) and \( G  \) is open. Then 
+   \[ | A \cup G  | = | A  |  + | G |.   \]
+\end{prop}
+
+\begin{prop}[Additivity of Outer Measure if One of the Sets is Closed]
+    Suppose \( A  \) and \( F  \) are disjoint subsets of \( \R  \) and \( F  \) is closed. Then
+    \[  | A \cup F  |  = | A  |  + | F |. \]
+\end{prop}
+
+\begin{prop}[Approximation of Borel Sets from Below by Closed Sets]
+    Suppose \( B \subset \R  \) is a Borel set. Then for every \( \epsilon > 0  \), there exists a closed set \( F \subset  B   \) such that \( | B \setminus  F   | < \epsilon \).
+\end{prop}
+
+\begin{prop}[Additivity of Outer Measure if One of the Sets is a Borel Set]
+   Suppose \( A  \) and \( B  \) are disjoint subsets of \( \R  \) and \( B  \) is a Borel set. Then 
+   \[  | A \cup B  |  = | A  |  + | B  |. \]
+\end{prop}
+
+\begin{prop}[Existence of a subset of \( \R  \) is not a Borel set]
+   There exists a set \( B \subset \R  \) such that \( | B  |  < \infty   \) and \( B  \) is not a Borel set. 
+\end{prop}
+
+\begin{prop}[Outer Measure is a Measure on Borel Sets]
+    Outer measure is a measure on \( (\R, \mathcal{B})  \), where \( \mathcal{B}  \) is the \( \sigma \)-algebra on Borel subsets of \( \R  \).
+\end{prop}
+
+\begin{definition}[Lebesuge Measure]
+    \textbf{Lebesgue Measure} is the measure on \( (\R, \mathcal{B}) \), where \( \mathcal{B} \) is the \( \sigma \)-algebra of Borel subsets of \( \R  \), that assigns to each Borel set its outer measure.
+\end{definition}
+
+\subsection{Lebesgue Measurable Sets}
+
+\begin{definition}[Lebesgue Measurable Set]
+    A set \( A \subset \R  \) is called \textbf{Lebesgue Measurable} if there exists a Borel set \( B \subset A  \) such that \( | A \setminus  B   | = 0  \).
+\end{definition}
+
+\begin{prop}[Equivalence for being a Lebesgue measurable set]
+   Suppose \( A \subset \R  \). Then the following are equivalent: 
+   \begin{enumerate}
+       \item[(a)] \( A  \) is Lebesgue measurable.
+       \item[(b)] For each \( \epsilon > 0  \), there exists a closed set \( F \subset A  \) with \( | A \setminus  F  < \epsilon |  \). 
+        \item[(c)] There exist closed sets \( {F}_{1}, {F}_{2}, \dots  \) contained in \( A  \) such that 
+            \[  \Big| A \setminus \bigcup_{ k=1  }^{ \infty  }  {F}_{k}   \Big| = 0. \]
+        \item[(d)] There exists a Borel set \( B \subset A  \) such that \( | A \setminus  B   |  = 0 \).
+        \item[(e)] For each \( \epsilon > 0  \), there exists an open set \( G \supset A  \) such that \( | G \setminus  A  | < \epsilon. \)
+        \item[(f)] There exist open sets \( {G}_{1}, {G}_{2}, \dots  \) containing \( A  \) such that \[ \Big| \Big(  \bigcup_{ k=1  }^{ \infty  }  {G}_{k} \Big)\setminus  A  \Big| = 0.  \]
+        \item[(g)] There exists a Borel set \( B \supset A  \) such that \( | B \setminus  A   |= 0 \).
+   \end{enumerate}
+\end{prop}
+
+\begin{prop}[Outer Measure is a measure on Lebesgue Measurable sets]
+    \begin{enumerate}
+        \item[(a)] The set \( \mathcal{L} \) of Lebesgue measurable subsets of \( \R  \) is a \( \sigma \)-algebra on \( \R  \).
+        \item[(b)] Outer measure is a measure on \( (\R , \mathcal{L}) \).
+    \end{enumerate}
+\end{prop}
+
+\begin{definition}[Lebesgue Measure]
+    \textbf{Lebesgue Measure} is the measure on \( (\R , \mathcal{L}) \), where \( \mathcal{L} \) is the \( \sigma \)-algebra of Lebsegue measurable subsets of \( \R  \), that assigns to each Lebesgue measurable set its outer measure.
+\end{definition}

@@ -1,7 +1,41 @@
 \subsection{Definition of Measures}
 
+\begin{definition}[Measure]
+    Suppose \( X  \) is a set and \( \mathcal{S} \) is a \( \sigma \)-algebra on \( X  \). A \textbf{measure} on \( (X,\mathcal{S}) \) is a function \( \mu : \mathcal{S} \to [0,\infty ] \) such that \( \mu(\emptyset) = 0  \) and  
+    \[  \mu \Big(  \bigcup_{ k = 1  }^{ \infty  }  {E}_{k} \Big) = \sum_{ k=1  }^{ \infty  } \mu({E}_{k}) \]
+    for every disjoint sequence \( {E}_{1}, {E}_{2}, \dots  \) of sets in \( \mathcal{S} \).
+\end{definition}
 
-
-
+\begin{definition}[Measure Space]
+    A \textbf{Measure Space} is an ordered triple \( (X, \mathcal{S}, \mu) \), where \( X  \) is a set, \( \mathcal{S} \) is a \( \sigma- \)algebra on \( X  \), and \( \mu  \) is a measure on \( (X,\mathcal{S}) \).
+\end{definition}
 
 \subsection{Properties of Measures}
+
+\begin{prop}[Measure Preserves Order; Measure of a Set Difference]
+    Suppose \( (X,\mathcal{S}, \mu)  \) is a measure space and \( D,E \in \mathcal{S} \) are such that \( D \subset E  \). Then
+    \begin{enumerate}
+        \item[(a)] \( \mu(D) \leq \mu(E) \);
+        \item[(b)] \( \mu(E \setminus  D ) = \mu(E) - \mu(D) \) provided that \( \mu(D) < \infty  \).
+    \end{enumerate}
+\end{prop}
+
+\begin{prop}[Countable Subadditivity]
+    Suppose \( (X,\mathcal{S}, \mu) \) is a measure space and \( {E}_{1}, {E}_{2}, \dots \in \mathcal{S}  \). Then
+    \[  \mu \Big(  \bigcup_{ k=1  }^{ \infty  }  {E}_{k} \Big) \leq \sum_{ k=1  }^{ \infty  } \mu({E}_{k}). \]
+\end{prop}
+
+\begin{prop}[Measure of an Increasing Union]
+    Suppose \( (X,\mathcal{S}, \mu) \) is a measure space and \( {E}_{1} \subset {E}_{2} \subset \cdots \) is an increasing sequence of sets in \( \mathcal{S} \). Then 
+    \[  \mu \Big(  \bigcup_{ k=1  }^{ \infty  }  {E}_{k} \Big) = \lim_{ k  \to  \infty  }  \mu({E}_{k}). \]
+\end{prop}
+
+\begin{prop}[Measure of a Decreasing Intersection]
+    Suppose \( (X,\mathcal{S}, \mu) \) is a measure space and \( {E}_{1} \supset {E}_{2} \supset \cdots \) is a decreasing sequence of sets in \( \mathcal{S} \), with \( \mu({E}_{1}) < \infty  \). Then
+    \[  \mu \Big(  \bigcap_{ k =1  }^{ \infty  }  {E}_{k} \Big) = \lim_{ k  \to  \infty  }  \mu({E}_{k}). \]
+\end{prop}
+
+\begin{prop}[Measure of Union]
+    Suppose \( (X,\mathcal{S}, \mu)  \) is a measure space and \( D,E \in \mathcal{S} \) with \( \mu(D \cap E) < \infty  \). Then 
+    \[  \mu(D \cup E) = \mu(D) + \mu(E) - \mu(D \cap E). \]
+\end{prop}
