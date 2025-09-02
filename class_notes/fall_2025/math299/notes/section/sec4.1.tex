@@ -1,0 +1,82 @@
+\subsection{Partially Ordered Sets}
+
+
+\begin{definition}[Partially Ordered Set, Chain]
+   A \textbf{partially ordered set} is a set \( M  \) on which there is defined a \textbf{partial ordering}, that is, a binary relation which is written \( \leq  \) and satisfies the conditions
+    \begin{enumerate}
+        \item[(PO1)] \( a \leq a  \) for every \( a \in M  \) (Reflexivity)
+        \item[(P02)] If \( a \leq b  \) and \( b \leq a  \), then \( a = b  \). (Antisymmetry)
+        \item[(PO3)] If \( a \leq b  \) and \( b \leq c  \), then \( a \leq c  \) (Transitivity)
+    \end{enumerate}
+\end{definition}
+
+\begin{itemize}
+    \item The term "partially" means that there may exists elements \( a  \) and \( b  \) such that neither \( a \leq b  \) nor \( b \leq a  \). When this is the case, we call the set \( M  \) to be \textbf{incomparable}.
+    \item On the other hand, we say that \( a  \) and \( b  \) are \textbf{comparable} if they satisfy \( a \leq b  \) or \( b \leq a  \) (or both).
+\end{itemize}
+
+\begin{definition}[Totally Ordered Set/Chain]
+   We call a set \( M  \) to be \textbf{totally ordered} or \textbf{chain} if it is a partially ordered set such that every two elements of the set are comparable.
+\end{definition}
+
+\begin{definition}[Upper Bound]
+    An \textbf{upper bound} of a subset \( W  \) of a partially ordered set \( M  \) is an element \( u \in M  \) such that 
+    \[  x \leq u \ \ \forall x \in W.  \]
+\end{definition}
+
+\begin{itemize}
+    \item Another way to think about a chain is that it does not contain any elements that are incomparable. 
+    \item Note that the depending on the properties of \( M  \) and \( W  \), the existence of such an element may or may not exist.
+\end{itemize}
+
+\begin{definition}[Maximal Element]
+    We call a number \( m \in M  \) a \textbf{maximal element} of \( M  \) if 
+    \[  m \leq x \  \implies \ m = x.  \]
+\end{definition}
+
+Similarly, \( M  \) may or may not have maximal elements and that they need not be an upper bound.
+
+\begin{theorem}[Zorn's Lemma]\label{Zorn's Lemma}
+    Let \( M \neq \emptyset \) be a partially ordered set. Suppose that every chain \( C \subseteq  M  \) has an upper bound. Then \( M  \) has at least one maximal element.
+\end{theorem}
+
+The above is to be taken as an axiom.
+
+\subsection{Applications}
+
+\begin{theorem}[Existence of a Hamel Basis]
+   Every vector space \( X \neq \{  0  \}  \) contains a Hamel basis. 
+\end{theorem}
+
+\begin{proof}
+    Let \( M  \) be the set of all linearly independent subsets of \( X  \). Since \( X \neq \{ 0  \}  \), there exists an element \( x \neq 0  \) and \( \{  x  \}  \in M  \) such that \( M \neq \emptyset \). Set inclusion defines a partial ordering on \( M  \). Every chain \( C \subseteq  M  \) has an upper bound, namely, the union of all subsets of \( X  \) which are elements of \( C  \). By {\hyperref[Zorn's Lemma]{Zorn's Lemma}}, \( M  \) contains a maximal element \( B  \). 
+
+    Now, we will show that \( B  \) is a Hamel Basis for \( X  \). Let \( Y = \text{span}B  \). Then \( Y  \) is a subspace of \( X  \), and \( Y = X  \) since otherwise \( B \cup \{ z  \}   \) where \( z \in X  \) and \( z \notin Y  \), would be a linearly independent set containing \( B  \) as a proper subset, contrary to the maximality of \( B  \).
+\end{proof}
+
+Before we go over the second example pertaining to Orthonormal sets, we recall some terms used within the proof. 
+
+\begin{definition}[Total Orthonormal Sets]
+    A \textbf{total set} (or \textbf{fundamental set}) in a normed space \( X  \) is a subset \( M \subseteq  X   \) whose span is \textbf{dense} in \( X  \). Accordingly, an orthonormal set (or sequence or family) in an inner product space \( X  \) which is total in \( X  \) is called a \textbf{total orthonormal set} (or a sequence or family, respectively) in \( X  \). 
+\end{definition}
+
+
+\begin{definition}[Total Orthonormal Set]
+    In every Hilbert space \( H \neq \{  0  \}  \), there exists a total orthonormal set.
+\end{definition}
+
+\begin{theorem}[Totality (Theorem 3.6-2)]
+   Let \( M  \) be a subset of an inner product space \( X  \). Then: 
+   \begin{enumerate}
+       \item[(a)] If \( M  \) is total in \( X  \), then there does not exist a nonzero \( x \in X  \) which is orthogonal to every element of \( M  \); briefly,   
+           \[  x \perp M \ \implies \ x = 0.  \]
+        \item[(b)] If \( X  \) is complete, that condition is also sufficient for the totality of \( M \) in \( X  \).
+   \end{enumerate}
+\end{theorem}
+
+\begin{proof}
+Let \( M  \) be the set of all orthonormal subsets of \( H  \). Since \( H \neq \{  0  \}  \), it contains an element \( x \neq 0  \), and an orthonormal subset of \( H  \) is \( \{  y  \}  \), where \( y = \|x\|^{-1} x  \). Thus, \( M \neq \emptyset \) and that set inclusion defines a partial ordering on \( M  \). Every chain \( C \subseteq  M   \) has an upper bound, namely, the union of all subsets of \( X  \) which are elements of \( C  \). By {\hyperref[Zorn's Lemma]{Zorn's Lemma}}, \( M  \) contains a maximal element \( F  \). 
+
+We will show that \( F \) is total in \( H  \). Suppose for sake of contradiction that \( F  \) is NOT total. Then using Theorem 3.6-2 (see book for details), there exists a nonzero \( z \in H  \) such that \( z \perp F  \). Hence, \( {F}_{1} = F \cup \{ e  \}  \), where \( e = \|z\|^{-1} z  \) is orthonormal, and \( F  \) is a proper subset of \( {F}_{1} \). This contradicts the maximality of \( F  \). 
+\end{proof}
+

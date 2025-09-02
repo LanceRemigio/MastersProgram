@@ -5,75 +5,75 @@
 \contentsline {subsubsection}{\numberline {1.1.2}The Derivative}{3}{subsubsection.1.1.2}%
 \contentsline {subsubsection}{\numberline {1.1.3}Continuity and Differentiability}{4}{subsubsection.1.1.3}%
 \contentsline {subsubsection}{\numberline {1.1.4}Differentiability Rules}{5}{subsubsection.1.1.4}%
-\contentsline {section}{\numberline {2}Week 2}{6}{section.2}%
-\contentsline {subsection}{\numberline {2.1}Lecture 2}{6}{subsection.2.1}%
+\contentsline {section}{\numberline {2}Week 2}{5}{section.2}%
+\contentsline {subsection}{\numberline {2.1}Lecture 2}{5}{subsection.2.1}%
 \contentsline {subsection}{\numberline {2.2}Lecture 3}{7}{subsection.2.2}%
 \contentsline {subsubsection}{\numberline {2.2.1}Topics}{7}{subsubsection.2.2.1}%
 \contentsline {subsubsection}{\numberline {2.2.2}Proof of the Interior Extremum Theorem}{8}{subsubsection.2.2.2}%
 \contentsline {section}{\numberline {3}Week 3}{9}{section.3}%
 \contentsline {subsection}{\numberline {3.1}Lecture 4}{9}{subsection.3.1}%
 \contentsline {subsubsection}{\numberline {3.1.1}Plan}{9}{subsubsection.3.1.1}%
-\contentsline {subsection}{\numberline {3.2}Lecture 5}{13}{subsection.3.2}%
-\contentsline {subsubsection}{\numberline {3.2.1}Topics}{13}{subsubsection.3.2.1}%
-\contentsline {subsubsection}{\numberline {3.2.2}A Useful Theorem}{13}{subsubsection.3.2.2}%
-\contentsline {subsubsection}{\numberline {3.2.3}Observation 1}{13}{subsubsection.3.2.3}%
-\contentsline {subsubsection}{\numberline {3.2.4}Observation 2}{13}{subsubsection.3.2.4}%
+\contentsline {subsection}{\numberline {3.2}Lecture 5}{12}{subsection.3.2}%
+\contentsline {subsubsection}{\numberline {3.2.1}Topics}{12}{subsubsection.3.2.1}%
+\contentsline {subsubsection}{\numberline {3.2.2}A Useful Theorem}{12}{subsubsection.3.2.2}%
+\contentsline {subsubsection}{\numberline {3.2.3}Observation 1}{12}{subsubsection.3.2.3}%
+\contentsline {subsubsection}{\numberline {3.2.4}Observation 2}{12}{subsubsection.3.2.4}%
 \contentsline {subsubsection}{\numberline {3.2.5}Taylor Polynomials}{14}{subsubsection.3.2.5}%
 \contentsline {subsubsection}{\numberline {3.2.6}Answers to Q1 and Q2}{14}{subsubsection.3.2.6}%
-\contentsline {subsubsection}{\numberline {3.2.7}Proof of our Observation}{15}{subsubsection.3.2.7}%
-\contentsline {subsubsection}{\numberline {3.2.8}Proof of Taylor's Theorem}{16}{subsubsection.3.2.8}%
-\contentsline {section}{\numberline {4}Week 4}{17}{section.4}%
-\contentsline {subsection}{\numberline {4.1}Lecture 6}{17}{subsection.4.1}%
-\contentsline {subsubsection}{\numberline {4.1.1}Proof of Taylor's Theorem}{17}{subsubsection.4.1.1}%
-\contentsline {subsection}{\numberline {4.2}Lecture 7}{18}{subsection.4.2}%
-\contentsline {subsubsection}{\numberline {4.2.1}Topics}{18}{subsubsection.4.2.1}%
-\contentsline {section}{\numberline {5}Week 5}{19}{section.5}%
-\contentsline {subsection}{\numberline {5.1}Lecture 8}{19}{subsection.5.1}%
-\contentsline {subsubsection}{\numberline {5.1.1}Plan}{19}{subsubsection.5.1.1}%
-\contentsline {subsubsection}{\numberline {5.1.2}Properties of Riemann-Stieltjes Integrals}{19}{subsubsection.5.1.2}%
-\contentsline {subsection}{\numberline {5.2}Lecture 9}{22}{subsection.5.2}%
-\contentsline {subsubsection}{\numberline {5.2.1}Plan}{22}{subsubsection.5.2.1}%
-\contentsline {section}{\numberline {6}Week 6}{24}{section.6}%
-\contentsline {subsection}{\numberline {6.1}Lecture 10}{24}{subsection.6.1}%
-\contentsline {subsubsection}{\numberline {6.1.1}Plan}{24}{subsubsection.6.1.1}%
-\contentsline {subsection}{\numberline {6.2}Lecture 11}{27}{subsection.6.2}%
-\contentsline {subsection}{\numberline {6.3}Plan}{29}{subsection.6.3}%
-\contentsline {section}{\numberline {7}Week 7}{30}{section.7}%
-\contentsline {subsection}{\numberline {7.1}Lecture 12}{30}{subsection.7.1}%
-\contentsline {section}{\numberline {8}Week 8}{32}{section.8}%
-\contentsline {subsection}{\numberline {8.1}Lecture 13}{32}{subsection.8.1}%
-\contentsline {subsubsection}{\numberline {8.1.1}Mean Value Theorem and Generalized Mean Value Theorem for integrals}{32}{subsubsection.8.1.1}%
-\contentsline {subsubsection}{\numberline {8.1.2}Topics}{33}{subsubsection.8.1.2}%
-\contentsline {subsection}{\numberline {8.2}Lecture 14}{36}{subsection.8.2}%
-\contentsline {section}{\numberline {9}Week 9}{39}{section.9}%
-\contentsline {subsection}{\numberline {9.1}Lecture 15}{39}{subsection.9.1}%
-\contentsline {section}{\numberline {10}Week 10}{40}{section.10}%
-\contentsline {subsection}{\numberline {10.1}Lecture 17}{40}{subsection.10.1}%
-\contentsline {subsubsection}{\numberline {10.1.1}Plan}{40}{subsubsection.10.1.1}%
-\contentsline {subsection}{\numberline {10.2}Lecture 18}{42}{subsection.10.2}%
-\contentsline {section}{\numberline {11}Week 11}{45}{section.11}%
-\contentsline {subsection}{\numberline {11.1}Lecture 19}{45}{subsection.11.1}%
-\contentsline {subsubsection}{\numberline {11.1.1}Topics}{45}{subsubsection.11.1.1}%
-\contentsline {section}{\numberline {12}Week 12}{47}{section.12}%
-\contentsline {subsection}{\numberline {12.1}Lecture 20}{47}{subsection.12.1}%
-\contentsline {subsubsection}{\numberline {12.1.1}Plan}{47}{subsubsection.12.1.1}%
-\contentsline {subsection}{\numberline {12.2}Lecture 21}{49}{subsection.12.2}%
-\contentsline {subsubsection}{\numberline {12.2.1}Proof the Arzela-Ascoli Theorem}{49}{subsubsection.12.2.1}%
-\contentsline {subsubsection}{\numberline {12.2.2}Proof of Step 2}{49}{subsubsection.12.2.2}%
-\contentsline {subsubsection}{\numberline {12.2.3}Proof of Step 1}{50}{subsubsection.12.2.3}%
-\contentsline {section}{\numberline {13}Week 13}{51}{section.13}%
-\contentsline {subsection}{\numberline {13.1}Lecture 22}{51}{subsection.13.1}%
-\contentsline {subsubsection}{\numberline {13.1.1}Topics}{51}{subsubsection.13.1.1}%
-\contentsline {subsubsection}{\numberline {13.1.2}Additional Remarks on Arzela-Ascoli}{51}{subsubsection.13.1.2}%
-\contentsline {subsubsection}{\numberline {13.1.3}The Space of Bounded and Continuous functions is a Complete}{51}{subsubsection.13.1.3}%
-\contentsline {subsubsection}{\numberline {13.1.4}Weierstrass Approximation Theorem}{52}{subsubsection.13.1.4}%
-\contentsline {subsection}{\numberline {13.2}Lecture 23}{53}{subsection.13.2}%
-\contentsline {subsubsection}{\numberline {13.2.1}Proof of Weierstrass Approximation Theorem}{53}{subsubsection.13.2.1}%
-\contentsline {section}{\numberline {14}Week 14}{55}{section.14}%
-\contentsline {subsection}{\numberline {14.1}Lecture 24}{55}{subsection.14.1}%
-\contentsline {subsubsection}{\numberline {14.1.1}Lebesgue's Criterion for Riemann Integrability}{55}{subsubsection.14.1.1}%
-\contentsline {subsection}{\numberline {14.2}Lecture 25}{58}{subsection.14.2}%
-\contentsline {subsubsection}{\numberline {14.2.1}Properties of Bounded Variations}{58}{subsubsection.14.2.1}%
-\contentsline {section}{\numberline {15}Week 15}{61}{section.15}%
-\contentsline {subsection}{\numberline {15.1}Lecture 26}{61}{subsection.15.1}%
-\contentsline {subsubsection}{\numberline {15.1.1}Continuity and oscillation}{63}{subsubsection.15.1.1}%
+\contentsline {subsubsection}{\numberline {3.2.7}Proof of our Observation}{14}{subsubsection.3.2.7}%
+\contentsline {subsubsection}{\numberline {3.2.8}Proof of Taylor's Theorem}{15}{subsubsection.3.2.8}%
+\contentsline {section}{\numberline {4}Week 4}{16}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Lecture 6}{16}{subsection.4.1}%
+\contentsline {subsubsection}{\numberline {4.1.1}Proof of Taylor's Theorem}{16}{subsubsection.4.1.1}%
+\contentsline {subsection}{\numberline {4.2}Lecture 7}{17}{subsection.4.2}%
+\contentsline {subsubsection}{\numberline {4.2.1}Topics}{17}{subsubsection.4.2.1}%
+\contentsline {section}{\numberline {5}Week 5}{18}{section.5}%
+\contentsline {subsection}{\numberline {5.1}Lecture 8}{18}{subsection.5.1}%
+\contentsline {subsubsection}{\numberline {5.1.1}Plan}{18}{subsubsection.5.1.1}%
+\contentsline {subsubsection}{\numberline {5.1.2}Properties of Riemann-Stieltjes Integrals}{18}{subsubsection.5.1.2}%
+\contentsline {subsection}{\numberline {5.2}Lecture 9}{21}{subsection.5.2}%
+\contentsline {subsubsection}{\numberline {5.2.1}Plan}{21}{subsubsection.5.2.1}%
+\contentsline {section}{\numberline {6}Week 6}{23}{section.6}%
+\contentsline {subsection}{\numberline {6.1}Lecture 10}{23}{subsection.6.1}%
+\contentsline {subsubsection}{\numberline {6.1.1}Plan}{23}{subsubsection.6.1.1}%
+\contentsline {subsection}{\numberline {6.2}Lecture 11}{26}{subsection.6.2}%
+\contentsline {subsection}{\numberline {6.3}Plan}{27}{subsection.6.3}%
+\contentsline {section}{\numberline {7}Week 7}{28}{section.7}%
+\contentsline {subsection}{\numberline {7.1}Lecture 12}{28}{subsection.7.1}%
+\contentsline {section}{\numberline {8}Week 8}{30}{section.8}%
+\contentsline {subsection}{\numberline {8.1}Lecture 13}{30}{subsection.8.1}%
+\contentsline {subsubsection}{\numberline {8.1.1}Mean Value Theorem and Generalized Mean Value Theorem for integrals}{30}{subsubsection.8.1.1}%
+\contentsline {subsubsection}{\numberline {8.1.2}Topics}{31}{subsubsection.8.1.2}%
+\contentsline {subsection}{\numberline {8.2}Lecture 14}{33}{subsection.8.2}%
+\contentsline {section}{\numberline {9}Week 9}{36}{section.9}%
+\contentsline {subsection}{\numberline {9.1}Lecture 15}{36}{subsection.9.1}%
+\contentsline {section}{\numberline {10}Week 10}{38}{section.10}%
+\contentsline {subsection}{\numberline {10.1}Lecture 17}{38}{subsection.10.1}%
+\contentsline {subsubsection}{\numberline {10.1.1}Plan}{38}{subsubsection.10.1.1}%
+\contentsline {subsection}{\numberline {10.2}Lecture 18}{39}{subsection.10.2}%
+\contentsline {section}{\numberline {11}Week 11}{42}{section.11}%
+\contentsline {subsection}{\numberline {11.1}Lecture 19}{42}{subsection.11.1}%
+\contentsline {subsubsection}{\numberline {11.1.1}Topics}{42}{subsubsection.11.1.1}%
+\contentsline {section}{\numberline {12}Week 12}{44}{section.12}%
+\contentsline {subsection}{\numberline {12.1}Lecture 20}{44}{subsection.12.1}%
+\contentsline {subsubsection}{\numberline {12.1.1}Plan}{44}{subsubsection.12.1.1}%
+\contentsline {subsection}{\numberline {12.2}Lecture 21}{45}{subsection.12.2}%
+\contentsline {subsubsection}{\numberline {12.2.1}Proof the Arzela-Ascoli Theorem}{46}{subsubsection.12.2.1}%
+\contentsline {subsubsection}{\numberline {12.2.2}Proof of Step 2}{46}{subsubsection.12.2.2}%
+\contentsline {subsubsection}{\numberline {12.2.3}Proof of Step 1}{47}{subsubsection.12.2.3}%
+\contentsline {section}{\numberline {13}Week 13}{47}{section.13}%
+\contentsline {subsection}{\numberline {13.1}Lecture 22}{47}{subsection.13.1}%
+\contentsline {subsubsection}{\numberline {13.1.1}Topics}{47}{subsubsection.13.1.1}%
+\contentsline {subsubsection}{\numberline {13.1.2}Additional Remarks on Arzela-Ascoli}{48}{subsubsection.13.1.2}%
+\contentsline {subsubsection}{\numberline {13.1.3}The Space of Bounded and Continuous functions is a Complete}{48}{subsubsection.13.1.3}%
+\contentsline {subsubsection}{\numberline {13.1.4}Weierstrass Approximation Theorem}{49}{subsubsection.13.1.4}%
+\contentsline {subsection}{\numberline {13.2}Lecture 23}{49}{subsection.13.2}%
+\contentsline {subsubsection}{\numberline {13.2.1}Proof of Weierstrass Approximation Theorem}{50}{subsubsection.13.2.1}%
+\contentsline {section}{\numberline {14}Week 14}{52}{section.14}%
+\contentsline {subsection}{\numberline {14.1}Lecture 24}{52}{subsection.14.1}%
+\contentsline {subsubsection}{\numberline {14.1.1}Lebesgue's Criterion for Riemann Integrability}{52}{subsubsection.14.1.1}%
+\contentsline {subsection}{\numberline {14.2}Lecture 25}{54}{subsection.14.2}%
+\contentsline {subsubsection}{\numberline {14.2.1}Properties of Bounded Variations}{54}{subsubsection.14.2.1}%
+\contentsline {section}{\numberline {15}Week 15}{57}{section.15}%
+\contentsline {subsection}{\numberline {15.1}Lecture 26}{57}{subsection.15.1}%
+\contentsline {subsubsection}{\numberline {15.1.1}Continuity and oscillation}{58}{subsubsection.15.1.1}%

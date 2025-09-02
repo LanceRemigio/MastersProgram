@@ -1,0 +1,43 @@
+\begin{definition}[Outer Measure]
+   Let \( P  \) be a probability measure on an algebra \( \xi \). Define an \textbf{outer measure} \( P^{*}(A) = \inf \sum_{ n \in \N }^{  } P({A}_{n}) \) where \( A \subseteq  \bigcup_{  }^{  }  {A}_{n} \). 
+\end{definition}
+
+\begin{prop}
+    The outer probability \( P^{*} \) of a probability measure \( P  \) has the following properties:
+    \begin{enumerate}
+        \item[(1)] \( P^{*}(\emptyset) = 0   \)
+        \item[(2)] \( P^{*}(A) \geq 0  \)
+        \item[(3)] \( A \subseteq B \implies P^{*}(A) \leq P^{*}(B) \) (monotonicity)
+        \item[(4)] \( P^{*}(\bigcup_{ n \in \N }^{  }  {A}_{n}) \leq \sum_{ n  }^{  } P^{*}({A}_{n}) \) (subcountable additivity)
+    \end{enumerate}
+\end{prop}
+
+\begin{proof}
+\begin{enumerate}
+    \item[(1)] Note that \( P^{*}(\emptyset) = \inf \sum_{ n }^{  } P({A}_{n}) \) where \( \emptyset \subseteq \bigcup_{ n \in \N }^{  }  {A}_{n} \). Because \( \emptyset \subseteq \emptyset \) implies that \( \emptyset  \) is a cover of itself, and \( P(\emptyset) = 0  \), and so \( P^{*}(\emptyset)  = 0 \). 
+    \item[(2)] Since \( P \) is a nonnegative function, \( P^{*}(a) = \inf P(A) \geq 0  \). 
+    \item[(3)] Let \( A \subseteq B \). Then any cover of \( B  \) is also a cover of \( A  \), so \( P^{*}(A) \leq P^{*}(B) = \inf \sum_{  }^{  } P({A}_{c})  \).
+    \item[(4)] \( (\Longleftarrow) \) Let \( {A}_{n} \) where \( n \in \N \) is a sequence of sets of \( \Omega \). For each \( {A}_{n} \), let \( \epsilon > 0  \) and for \( \frac{ \epsilon }{ 2^{n} }  \), obtain a cover \( \bigcup_{ k \in \N  }^{  }  {B}_{k}^{n} \) such that 
+        \[  \sum_{ n  }^{  } P({B}_{k}^{n}) \leq P^{*}({A}_{n}) + \frac{ \epsilon }{ 2^{n} }. \]
+        Otherwise, if no such cover exists, then \( P^{*}({A}_{n}) \neq \inf \sum_{ n  }^{  } P({A}_{n}) \).
+
+        \( (\Longrightarrow) \) We have 
+        \[  \bigcup_{ n \in \N }^{}  {A}_{n}  \subseteq  \bigcup_{ n \in \N }^{   } \Big( \bigcup_{ k \in \N }^{  }  {B}_{k}^{n}  \Big).   \]
+        From the monotonicity property (3) of \( P^{*} \), we have 
+        \[ P^{*}\Big(\bigcup_{ n \in \N }^{  } {A}_{n} \Big) \leq P^{*} \Big(  \bigcup_{ n \in \N }^{  }  \Big(  \bigcup_{ k \in \N }^{  }  {B}_{k}^{n} \Big) \Big). \tag{*}  \]
+        However, 
+        \[  \bigcup_{ n \in \N }^{  }  \Big(  \bigcup_{ k \in \N }^{  }  {B}_{k}^{n} \Big) \] is a particular cover of \( \bigcup_{ n \in \N }^{  }  {A}_{n} \). Hence, 
+        \[  P^{*} \Big(  \bigcup_{ n \in \N }^{   } {A}_{n} \Big) \leq \sum_{ n \in \N }^{  } P \Big(  \bigcup_{ k \in \N }^{  }  {B}_{k}^{n} \Big). \tag{**} \]
+        Also, since \( \bigcup_{ k \in \N }^{  }  {B}_{k}^{n} \) is a particular cover of \( {A}_{n} \), so 
+        \[  P^{*}\Big(  \bigcup_{ n \in \N }^{  } {A}_{n} \Big) \leq \sum_{ n \in \N }^{  } \sum_{ k \in \N }^{  } P({B}_{k}^{n}). \]
+\end{enumerate}
+\end{proof}
+
+\begin{center}
+    \textit{End of Lecture 4-4-24} 
+\end{center}
+
+
+
+
+

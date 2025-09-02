@@ -1,0 +1,58 @@
+\subsection{Plan}
+
+
+\subsection{Learning Objectives}
+
+\begin{itemize}
+    \item Basics of Metric Spaces
+    \item Discuss topological aspects of metric spaces
+\end{itemize}
+
+\subsection{Metric Spaces}
+
+On \( \R  \), we have the usual notion of distance between two real numbers \( x  \) and \( y  \) defined by the function \( d(x,y) = | x - y  |  \). We learned that this function \( d: \R \times \R \to \R  \) enjoys certain properties:
+\begin{enumerate}
+    \item[(i)] \( d(x,y) = 0  \) if and only if \( x = y  \); (Nondegeneracy)
+    \item[(ii)] \( d(x,y) = d(y,x) \) for all \( x,y \in \R  \); (Symmetricity)
+    \item[(iii)] \( d(x,y) \leq d(x,z) + d(z,y) \) for all \( x,y,z \in \R  \). (Triangle Inequality)
+\end{enumerate}
+
+We would like to extend this idea and define a notion of distance in a general situation by using these properties.
+
+\begin{definition}[Metric]
+    Let \( X  \) be a non-empty set. A metric \( d  \) on \( X  \) is a function \( d: X \times X \to \R  \) such that 
+    \begin{enumerate}
+        \item[(i)] \( d(x,y) = 0  \) if and only if \( x \) and \( y  \) are equal;
+        \item[(ii)] \( d(x,y) = d(y,x) \) for all \( x,y \in X  \);
+        \item[(iii)] \( d(x,z) \leq d(x,y) + d(y,z) \) for all \( x,y, z \in X  \).
+    \end{enumerate}
+\end{definition}
+
+\begin{eg}
+   Assume that \( d  \) is a metric on \( X  \). Show that \( d(x,y) \geq 0  \) for all \( x,y \in X  \). 
+\end{eg}
+
+\begin{eg}
+   Let \( X  = \{ a,b \}   \). Is it possible to define a metric on \( X  \)? \textbf{Yes} with the discrete metric.
+\end{eg}
+
+\begin{definition}[Metric Spaces]
+    A \textbf{metric space} is a pair \( (X,d)  \) where \( X  \) is a non-empty set and \( d  \) is a metric on \( X  \).
+\end{definition}
+
+\begin{eg}
+    \begin{enumerate}
+        \item[(i)] Let \( X  \) be a non-empty set. Define \( d: X \times X \to \R  \) by 
+            \[  d(x,y) = 
+            \begin{cases}
+                1 &\text{if} \ x \neq y  \\
+                0 &\text{if} \ x = y 
+            \end{cases}. \]
+            Then \( d  \) is a metric on \( X  \) (called the \textbf{discrete metric}) and \( (X,d) \) is a metric space.
+        \item[(ii)] 
+    \end{enumerate}
+\end{eg}
+
+
+
+

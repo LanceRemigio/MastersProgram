@@ -607,6 +607,11 @@ INPUT lect/lecture3.tex
 INPUT ./lect/lecture3.tex
 INPUT lect/lecture3.tex
 INPUT lect/lecture3.tex
+INPUT ./lect/lect4-4-24.tex
+INPUT lect/lect4-4-24.tex
+INPUT ./lect/lect4-4-24.tex
+INPUT lect/lect4-4-24.tex
+INPUT lect/lect4-4-24.tex
 INPUT main.aux
 INPUT ./main.out
 INPUT ./main.out

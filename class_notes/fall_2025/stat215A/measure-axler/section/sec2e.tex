@@ -1,0 +1,67 @@
+\subsection{Pointwise and Uniform Convergence}
+
+\begin{definition}[Pointwise Convergence; Uniform Convergence]
+    Suppose \( X  \) is a set, \( {f}_{1}, {f}_{2}, \dots  \) is a sequence of functions from \( X  \) to \( \R  \), and \( f  \) is a function from \( X  \) to \( \R  \).
+    \begin{itemize}
+        \item The sequence \( {f}_{1}, {f}_{2}, \dots  \) converges pointwise on \( X  \) to \( f  \) if 
+            \[  \lim_{ k  \to  \infty  }  {f}_{k }(x) = f(x)  \]
+            for each \( x \in X  \). That is, for each \( x \in X  \) and every \( \epsilon > 0  \), there exists an \( n \in \Z^{+} \) such that \( | {f}_{k }(x) - f(x) |  < \epsilon \) for all \( k \geq n  \).
+        \item The sequence \( {f}_{1}, {f}_{2}, \dots  \) \textbf{converges uniformly} on \( X  \) to \( f  \) if for every \( \epsilon > 0  \), there exists an \( n \in \Z^{+} \) such that 
+            \[ | {f}_{k}(x) - f(x) |  < \epsilon \ \ \forall k \geq n \ \text{and} \ \forall x \in X. \]
+    \end{itemize}
+\end{definition}
+
+\begin{prop}[Uniform Limit of Continuous Functions is Continuous]
+    Suppose \( B \subset \R  \) and \( {f}_{1}, {f}_{2}, \dots  \) is a sequence of functions from \( B \) to \( \R  \) that converges uniformly on \( B  \) to a function \( f : B \to \R  \). Suppose \( b \in B  \) and \( {f}_{k} \) is continuous at \( b  \) for each \( k \in \Z^{+} \). Then \( f  \) is continuous at \( b \).
+\end{prop}
+
+\subsection{Egorov's Theorem}
+
+\begin{prop}[Egorov's Theorem]
+    Suppose \( (X,\mathcal{S}, \mu) \) is a measure space with \( \mu(x) < \infty  \). Suppose \( {f}_{1}, {f}_{2}, \dots  \) is a sequence of \( \mathcal{S} \)-measurable functions from \( X \to \R  \) that converges pointwise on \( X  \) to a function \( f: X \to \R  \). Then for every \( \epsilon > 0  \), there exists a set \( E \in \mathcal{S} \) such that \( \mu (X \setminus  E ) < \epsilon  \) and \( {f}_{1}, {f}_{2}, \dots  \) converges uniformly to \( f  \) on \( E  \). 
+\end{prop}
+
+\subsection{Approximation by Simple Functions}
+
+\begin{definition}[Simple Function]
+    A function is called \textbf{simple} if it takes on only finitely many values.
+\end{definition}
+
+\begin{prop}[Approximation by Simple Functions]
+    Suppose \( (X,\mathcal{S}) \) is a measure space and \( f: X \to [-\infty ,\infty ] \) is \( \mathcal{S} \)- measurable. Then there exists a sequence \( {f}_{1}, {f}_{2}, \dots  \) of functions from \( X  \) to \( \R  \) such that 
+    \begin{enumerate}
+        \item[(a)] each \( {f}_{k} \) is a simple \( \mathcal{S} \)-measurable function;
+        \item[(b)] \( | {f}_{k}(x) |  \leq | {f}_{k+1}(x) |  \leq | f(x) |  \) for all \( k \in \Z^{+} \) and all \( x \in X  \);
+        \item[(c)] \( \lim_{ k  \to  \infty  }  {f}_{k }(x) = f(x)  \) for every \( x \in X  \);
+        \item[(d)] \( {f}_{1}, {f}_{2}, \dots  \) converges uniformly on \( X  \) to \( f  \) if \( f  \) is bounded.
+    \end{enumerate}
+\end{prop}
+
+\subsection{Luzin's Theorem}
+
+\begin{prop}[Luzin's Theorem]
+    Suppose \( g: \R \to \R  \) is a Borel measurable function. Then for every \( \epsilon > 0  \), there exists a closed set \( F \subseteq  \R   \) such that \( | \R \setminus  F   |  < \epsilon \) and \( g |_{F} \) is a continuous function on \( F  \). 
+\end{prop}
+
+\begin{prop}[Continuous Extensions of Continuous Functions]
+    \begin{itemize}
+        \item Every continuous function on a closed subset of \( \R  \) can be extended to a continuous function on all of \( \R  \).
+        \item More precisely, if \( F \subset \R  \) is closed and \( g : F \to \R  \) is continuous, then there exists a continuous functino \( h: \R \to \R  \) such that \( h |_{F} = g \). 
+    \end{itemize}
+\end{prop}
+
+\begin{prop}[Luzin's theorem; Second Version]
+    Suppose \( E \subseteq \R   \) and \( g: E \to \R  \) is a Borel measurable function. Then for every \( \epsilon > 0  \), there exists a closed set \( F \subseteq E  \) and continuous function \( h : \R \to \R  \) such that \( | E \setminus  F   |  < \epsilon \) and \( h |_{F} = g |_{F} \).
+\end{prop}
+
+\subsection{Lebesgue Measurable Functions}
+
+\begin{definition}[Lebesgue Measurable Functions]
+    A function \( f: A \to \R  \), where \( A \subseteq  \R  \), is called \textbf{Lebesgue Measurable} if \( f^{-1}(B) \) is a Lebesgue measurable set for every Borel set \( B \subseteq \R  \).
+\end{definition}
+
+\begin{prop}[Every Lebsegue Measurable Function is Almost Borel Measurable]
+    Suppose \( f: \R \to \R  \) is a Lebesgue measurable function. Then there exists a Borel measurable function \( g: \R \to \R  \) such that 
+    \[  | \{ x \in \R : g(x) \neq f(x) \}  | = 0. \]
+\end{prop}
+

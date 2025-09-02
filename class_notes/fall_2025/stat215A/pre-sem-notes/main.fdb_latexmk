@@ -1,6 +1,6 @@
 # Fdb version 4
-["pdflatex"] 1755177968.09203 "main.tex" "main.pdf" "main" 1755177977.19138 0
-  "../../../../newpreamble.tex" 1754036057.86905 7547 08b86d6b3494a25083827aaf654f5471 ""
+["pdflatex"] 1755624544.8971 "main.tex" "main.pdf" "main" 1755624550.83679 0
+  "../../../../newpreamble.tex" 1755577743.61219 7553 29b5042f666f312d13e815da6d3f02b4 ""
   "/usr/local/Cellar/texlive/20240312_3/share/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc" 1710106625 2971 def0b6c1f0b107b3b936def894055589 ""
   "/usr/local/Cellar/texlive/20240312_3/share/texmf-dist/fonts/map/fontname/texfonts.map" 1710106625 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/local/Cellar/texlive/20240312_3/share/texmf-dist/fonts/map/pdftex/updmap/pdftex.map" 1710106625 5472554 f7861620179a71a79d4bd86251f559d0 ""
@@ -349,13 +349,14 @@
   "/usr/local/Cellar/texlive/20240312_3/share/texmf-dist/tex/latex/zref/zref-base.sty" 1710106625 20785 f7d1133a287929598a897c93f8f4c44b ""
   "/usr/local/Cellar/texlive/20240312_3/share/texmf-dist/web2c/texmf.cnf" 1739092516.50854 41652 e14926ab86fde7902cad99d9eeaa5ca5 ""
   "/usr/local/Cellar/texlive/20240312_3/share/texmf-var/web2c/pdftex/pdflatex.fmt" 1710106625 8221738 0fe25a98ec26b76f48bc3534ec24a62e ""
+  "lect/lect4-4-24.tex" 1755624544.79915 2939 a0cd0e8c520f395a67cafcebe6b396c2 ""
   "lect/lecture1.tex" 1755114028.61195 5431 4c333be63b59621182812b801dab7211 ""
   "lect/lecture2.tex" 1755177374.12087 3258 e21cdefbe1067595713a187cecf6be80 ""
   "lect/lecture3.tex" 1755177977.18792 1045 b88a8287c56678e4fbf841ee89261996 ""
-  "main.aux" 1755177976.71242 4744 c6e0b9373ab46bd0e1906192475ba865 "pdflatex"
-  "main.out" 1755177976.71484 273 dfb90a8208d891d592d2463b41c09c1b "pdflatex"
-  "main.tex" 1755177340.26959 561 f24d8785e948ec6b2c2284e26cc3bb31 ""
-  "main.toc" 1755177976.71536 225 0dd52b2c1a9025737d04201539200873 "pdflatex"
+  "main.aux" 1755624550.23731 4880 6357041483ac519def2a4768cfb13d18 "pdflatex"
+  "main.out" 1755624550.23856 389 ba00db4e6d8983518c9513b1a9340997 "pdflatex"
+  "main.tex" 1755624064.67557 620 f2a8c11311a28041644bcfa31ae43a4d ""
+  "main.toc" 1755624550.23898 295 c440c36bba39be81d9723cf1117236eb "pdflatex"
   (generated)
   "main.aux"
   "main.log"

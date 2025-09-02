@@ -1,0 +1,70 @@
+\subsection{What is the Hahn-Banach Theorem?}
+
+\begin{itemize}
+    \item It is an extension theorem for linear functionals in normed spaces (in a real vector space).
+    \item It guarantees the abundance of bounded linear functionals on a normed space. 
+    \item It characterizes the extent to which values of a linear functional can be pre-assigned. 
+\end{itemize}
+
+Roughly speaking, when we talk about extending an object, we usually refer to preserving desired properties from one space to another. More specifically, the object of interest in the Hahn-Banach theorem is a linear functional \( f  \) that is defined on a subspace \( Z  \) of a vector space \( X  \) and satisfies a certain boundedness property which will be represented in terms of a \textbf{sublinear functional}. 
+
+\begin{definition}[Sublinear Functional]
+    We say that \( p  \) defined on a vector space \( X  \) is a \textbf{sublinear functional} if 
+    \begin{enumerate}
+        \item[(1)] \( p(x + y) \leq p(x) + p(y) \) for all \( x,y \in X  \); that is, \( p  \) is \textbf{subadditive} \\
+        \item[(2)] \( p(\alpha x ) = \alpha p(x) \) for all \( \alpha \geq 0  \) in \( \R  \) and \( x \in X  \); that is, \( p  \) is \textbf{positive-homogeneous}.
+    \end{enumerate}
+\end{definition}
+
+\begin{itemize}
+    \item We assume that the functional \( f  \) to be extended is majorized (to be bounded) by a functional \( p  \) (that is defined on \( X  \)) that satisfies the above properties. 
+    \item We will extend \( f  \) to a functional \( \tilde{f} \) which will retain the boundedness properties that \( f  \) has on \( X  \) instead of the subset of \( X  \). 
+    \item This version of the theorem will assume that \( X  \) will be a real vector space.
+\end{itemize}
+
+\begin{theorem}[Hahn-Banach Theorem (Extension of linear functionals)]
+Let \( X  \) be real vector space and \( p  \) a sublinear functional on \( X  \). Furthermore, let \( f  \) be a linear functional which is defined on a subspace \( Z  \) of \( X  \) and satisfies   
+\[  f(x) \leq p(x) \ \ \forall x \in Z.  \]
+Then \( f  \) has a linear extension \( \tilde{f} \) from \( Z  \) to \( X  \) satisfying 
+\[  \tilde{f}(x) \leq p(x) \ \ \forall x \in X; \tag{*} \]
+that is, \( \tilde{f} \) is a linear functional on \( X  \), satisfies (*) on \( X  \) and \( \tilde{f}(x) = f(x) \) for every \( x \in Z  \).
+\end{theorem}
+
+\begin{proof}
+We will proceed using the following steps below:
+\begin{enumerate}
+    \item[(a)] The set \( E  \) of all linear extensions of \( g  \) of \( f  \) satisfying \( g(x) \leq p(x)  \) on their domain \( D(g) \) can be partially ordered and Zorn's lemma yields a maximal element of \( \tilde{f}  \) of \( E  \).
+    \item[(b)] \( \tilde{f} \) is defined on the entire space \( X  \). 
+    \item[(c)] An auxiliary relation which was used in (b). 
+\end{enumerate}
+
+To start, we will prove (a). Let \( E  \) be the set of all linear extensions \( g \) of \( f  \) for which 
+\[  g(x) \leq p(x) \ \ \forall x \in D(g). \]
+Note that \( E \neq \emptyset  \) since \( f \in E  \) by assumption. On \( E  \) we can define a partial ordering by \( g \leq h  \) meaning \( h  \) is an extension of \( g \), that is, by definition, \( D(h) \supseteq D(g) \) and \( h(x) = g(x) \) for every \( x \in D(g) \). For any chain \( C \subseteq  E  \), we now define \( \hat{g} \) by
+\[  \hat{g}(x) = g(x) \ \ \text{if} \ x \in D(g) \tag{\( g \in C  \)} \]
+where it can be proven relatively easily that \( \hat{g}  \) is a linear functional with the domain being 
+\[  D(\hat{g}) = \bigcup_{ g \in C  }^{  }  D(g) \]
+which is a vector space since \( C  \) is a chain. The definition of \( \hat{g} \) is well-defined. Indeed, for \( x \in D({g}_{1}) \cap D({g}_{2}) \) with \( {g}_{1}, {g}_{2} \in C  \), we have \( {g}_{1}(x) = {g}_{2}(x) \) since \( C  \) is a chain so that \( {g}_{1} \leq {g}_{2} \) or \( {g}_{2} \leq {g}_{1} \). Clearly, \( g \leq \hat{g} \) for all \( g \in C  \). Hence, \( \hat{g} \) is an upper bound of \( C  \). Since \( C \subseteq  E  \) was arbitrary, it follows from Zorn's lemma that \( E  \) contains a maximal element \( \tilde{f} \). By the definition of \( E  \), this is a linear extension of \( f  \) which satisfies
+\[  \tilde{f}(x) \leq p(x) \ \ \tag{\( x \in D(\tilde{f}) \)}. \]
+
+Now, we will show that \( D(\tilde{f}) \) is all of \( X  \). Suppose for contradiction that \( D(\tilde{f}) \neq X  \). Then we can choose a \( {y}_{1} \in X \setminus  D(\tilde{f}) \) and consider the subspace \( {Y}_{1} = \text{span}(D(\tilde{f}) \cap \{ {y}_{1} \} ) \). Note that \( {y}_{1} \neq 0  \) since \( 0 \in D(\tilde{f}) \). Any \( x \in {Y}_{1} \) can be written as  
+\[  x = y + \alpha {y}_{1}. \tag{\( y \in D(\tilde{f}) \)}. \]
+Note that this representation is unique. Indeed, \( y + \alpha {y}_{1} = \tilde{y} + \beta {y}_{1} \) with \( \tilde{y} \in D(\tilde{f}) \) implies that 
+\[  y - \tilde{y} = (\beta - \alpha) {y}_{1}. \]
+Since \( {y}_{1} \notin D(\tilde{f}) \), the only solution to the equation above is for \( y - \tilde{y} = 0  \) and \(  \beta - \alpha = 0  \). This tells us now that our representation is unique.
+
+    A functional \( {g}_{1} \) on \( {Y}_{1} \) is defined by 
+    \[  {g}_{1}(y + \alpha {y}_{1}) = \tilde{f}(y) + \alpha c \]
+    where \( c  \) is any real constant. It is not difficult to see that \( {g}_{1}  \) is linear. Furthermore, for \( \alpha = 0  \), we have \( {g}_{1}(y) = \tilde{f}(y) \). Hence, \( {g}_{1} \) is a proper extension of \( \tilde{f} \), that is, an extension such that \( D(\tilde{f}) \) is a proper subset of \( D({g}_{1}) \). Thus, proving that \( {g}_{1} \in E  \) by showing that \( {g}_{1}(x) \leq p(x) \) for all \( x \in D({g}_{1}) \) will contradict the maximality of \( \tilde{f} \) and so the fact that \( D(\tilde{f}) = X  \) must be true.
+
+    Indeed, we must show that this is the case for a suitable \( c  \) that satisfies the above desired result. We consider any \( y  \) and \( z  \) in \( D(\tilde{f}) \). We have 
+    \begin{align*}
+        \tilde{f}(y) - \tilde{f}(z) = \tilde{f}(y- z) &\leq p(y-z)  \\
+                                                      &= p(y + {y}_{1} - {y}_{1} - z ) \\
+                                                      &\leq p(y + {y}_{1}) + p(-{y}_{1} - z).
+    \end{align*}
+    Taking the last term to the left and the term \( \tilde{f}(y) \) to the right, we have 
+    \[  - p(- {y}_{1} - z ) - \tilde{f}(z) \leq p(y + {y}_{1}) - \tilde{f}(y), \]
+    where \( {y}_{1} \) is fixed. 
+
+\end{proof}
