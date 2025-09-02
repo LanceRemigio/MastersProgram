@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1756838140.22176 "hw1.tex" "hw1.pdf" "hw1" 1756838146.78839 0
+["pdflatex"] 1756848744.64774 "hw1.tex" "hw1.pdf" "hw1" 1756848753.43938 0
   "../../../../newpreamble.tex" 1756519445.71893 7547 08b86d6b3494a25083827aaf654f5471 ""
   "/usr/local/Cellar/texlive/20240312_3/share/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc" 1710106625 2971 def0b6c1f0b107b3b936def894055589 ""
   "/usr/local/Cellar/texlive/20240312_3/share/texmf-dist/fonts/map/fontname/texfonts.map" 1710106625 3524 cb3e574dea2d1052e39280babc910dc8 ""
@@ -9,7 +9,6 @@
   "/usr/local/Cellar/texlive/20240312_3/share/texmf-dist/fonts/tfm/jknappen/ec/ecrm1000.tfm" 1710106625 3584 adb004a0c8e7c46ee66cad73671f37b4 ""
   "/usr/local/Cellar/texlive/20240312_3/share/texmf-dist/fonts/tfm/jknappen/ec/ecrm1200.tfm" 1710106625 3584 f80ddd985bd00e29e9a6047ebd9d4781 ""
   "/usr/local/Cellar/texlive/20240312_3/share/texmf-dist/fonts/tfm/jknappen/ec/ecrm1728.tfm" 1710106625 3584 3c76ccb63eda935a68ba65ba9da29f1a ""
-  "/usr/local/Cellar/texlive/20240312_3/share/texmf-dist/fonts/tfm/jknappen/ec/ecsl1000.tfm" 1710106625 3584 bf02fd9e8bc8c375f218c700cabb9a92 ""
   "/usr/local/Cellar/texlive/20240312_3/share/texmf-dist/fonts/tfm/jknappen/ec/ecss1000.tfm" 1710106625 3584 ab55608ad377891510479d34d90acc46 ""
   "/usr/local/Cellar/texlive/20240312_3/share/texmf-dist/fonts/tfm/jknappen/ec/ecsx1000.tfm" 1710106625 3584 d90cef44d3336212c1284055d79d7513 ""
   "/usr/local/Cellar/texlive/20240312_3/share/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy5.tfm" 1710106625 1120 1e8878807317373affa7f7bba4cf2f6a ""
@@ -335,9 +334,9 @@
   "/usr/local/Cellar/texlive/20240312_3/share/texmf-dist/tex/latex/zref/zref-base.sty" 1710106625 20785 f7d1133a287929598a897c93f8f4c44b ""
   "/usr/local/Cellar/texlive/20240312_3/share/texmf-dist/web2c/texmf.cnf" 1739092516.50854 41652 e14926ab86fde7902cad99d9eeaa5ca5 ""
   "/usr/local/Cellar/texlive/20240312_3/share/texmf-var/web2c/pdftex/pdflatex.fmt" 1710106625 8221738 0fe25a98ec26b76f48bc3534ec24a62e ""
-  "hw1.aux" 1756838146.3151 2298 889645e6b4fe67b73ea12b5b8d45bcc9 "pdflatex"
-  "hw1.out" 1756838145.572 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
-  "hw1.tex" 1756511102.17913 16865 35eff61eeaa90cf0db2b0c95391a3e2b ""
+  "hw1.aux" 1756848752.95623 2298 889645e6b4fe67b73ea12b5b8d45bcc9 "pdflatex"
+  "hw1.out" 1756848752.20588 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
+  "hw1.tex" 1756848744.28993 16944 e82ea7c5690b2db1908d201703b49da0 ""
   (generated)
   "hw1.aux"
   "hw1.log"

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024/Homebrew) (preloaded format=pdflatex 2025.1.26)  2 SEP 2025 11:35
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024/Homebrew) (preloaded format=pdflatex 2025.1.26)  2 SEP 2025 14:32
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -1117,24 +1117,24 @@ Package: transparent-nometadata 2022-10-27 v1.5 Transparency via pdfTeX's color 
 ))) (./hw1.aux)
 \openout1 = `hw1.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 8.
-LaTeX Font Info:    ... okay on input line 8.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 8.
-LaTeX Font Info:    ... okay on input line 8.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 8.
-LaTeX Font Info:    ... okay on input line 8.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 8.
-LaTeX Font Info:    ... okay on input line 8.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 8.
-LaTeX Font Info:    ... okay on input line 8.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 8.
-LaTeX Font Info:    ... okay on input line 8.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 8.
-LaTeX Font Info:    ... okay on input line 8.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 8.
-LaTeX Font Info:    ... okay on input line 8.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 8.
-LaTeX Font Info:    ... okay on input line 8.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 10.
+LaTeX Font Info:    ... okay on input line 10.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 10.
+LaTeX Font Info:    ... okay on input line 10.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 10.
+LaTeX Font Info:    ... okay on input line 10.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 10.
+LaTeX Font Info:    ... okay on input line 10.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 10.
+LaTeX Font Info:    ... okay on input line 10.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 10.
+LaTeX Font Info:    ... okay on input line 10.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 10.
+LaTeX Font Info:    ... okay on input line 10.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 10.
+LaTeX Font Info:    ... okay on input line 10.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 10.
+LaTeX Font Info:    ... okay on input line 10.
  (/usr/local/Cellar/texlive/20240312_3/share/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count386
@@ -1154,7 +1154,7 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 48
  (/usr/local/Cellar/texlive/20240312_3/share/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 ))
-Package hyperref Info: Link coloring OFF on input line 8.
+Package hyperref Info: Link coloring OFF on input line 10.
  (./hw1.out) (./hw1.out)
 \@outlinefile=\write4
 \openout4 = `hw1.out'.
@@ -1199,7 +1199,7 @@ Package caption Info: End \AtBeginDocument code.
 (/usr/local/Cellar/texlive/20240312_3/share/texmf-dist/tex/latex/translations/translations-basic-dictionary-english.trsl
 File: translations-basic-dictionary-english.trsl (english translation file `translations-basic-dictionary')
 )
-Package translations Info: loading dictionary `translations-basic-dictionary' for `english'. on input line 8.
+Package translations Info: loading dictionary `translations-basic-dictionary' for `english'. on input line 10.
 
 Package pgfplots notification 'compat/show suggested version=true': you might benefit from \pgfplotsset{compat=1.18} (current compat level: 1.13).
 
@@ -1212,32 +1212,32 @@ Package: lscape 2020/05/28 v3.02 Landscape Pages (DPC)
 )
 Package pdflscape Info: Auto-detected driver: pdftex on input line 81.
 ))
-LaTeX Font Info:    Trying to load font information for U+msa on input line 10.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 12.
  (/usr/local/Cellar/texlive/20240312_3/share/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 10.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 12.
  (/usr/local/Cellar/texlive/20240312_3/share/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-LaTeX Font Info:    Trying to load font information for U+rsfs on input line 10.
+LaTeX Font Info:    Trying to load font information for U+rsfs on input line 12.
  (/usr/local/Cellar/texlive/20240312_3/share/texmf-dist/tex/latex/jknapltx/ursfs.fd
 File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
 )
-LaTeX Font Info:    Trying to load font information for U+stmry on input line 10.
+LaTeX Font Info:    Trying to load font information for U+stmry on input line 12.
  (/usr/local/Cellar/texlive/20240312_3/share/texmf-dist/tex/latex/stmaryrd/Ustmry.fd)
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 11.
-LaTeX Font Info:    Trying to load font information for T1+cmss on input line 11.
+(mdframed)              on input line 15.
+LaTeX Font Info:    Trying to load font information for T1+cmss on input line 15.
  (/usr/local/Cellar/texlive/20240312_3/share/texmf-dist/tex/latex/base/t1cmss.fd
 File: t1cmss.fd 2023/04/13 v2.5m Standard LaTeX font definitions
 )
-Package hyperref Info: bookmark level for unknown prop defaults to 0 on input line 11.
+Package hyperref Info: bookmark level for unknown prop defaults to 0 on input line 15.
  [1
 
 {/usr/local/Cellar/texlive/20240312_3/share/texmf-dist/fonts/map/pdftex/updmap/pdftex.map}{/usr/local/Cellar/texlive/20240312_3/share/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}] [2]
-Package hyperref Info: bookmark level for unknown replacementproof defaults to 0 on input line 86.
+Package hyperref Info: bookmark level for unknown replacementproof defaults to 0 on input line 90.
  [3] [4] (./hw1.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
@@ -1247,15 +1247,15 @@ Package rerunfilecheck Info: File `hw1.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 47794 strings out of 474116
- 1134145 string characters out of 5734122
+ 47792 strings out of 474116
+ 1134123 string characters out of 5734122
  1952187 words of memory out of 5000000
- 69255 multiletter control sequences out of 15000+600000
- 578338 words of font info for 100 fonts, out of 8000000 for 9000
+ 69254 multiletter control sequences out of 15000+600000
+ 577519 words of font info for 99 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  125i,11n,134p,861b,1063s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/Cellar/texlive/20240312_3/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/Cellar/texlive/20240312_3/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/Cellar/texlive/20240312_3/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/Cellar/texlive/20240312_3/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/Cellar/texlive/20240312_3/share/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/Cellar/texlive/20240312_3/share/texmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb></usr/local/Cellar/texlive/20240312_3/share/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb></usr/local/Cellar/texlive/20240312_3/share/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb></usr/local/Cellar/texlive/20240312_3/share/texmf-dist/fonts/type1/public/cm-super/sfrm1728.pfb></usr/local/Cellar/texlive/20240312_3/share/texmf-dist/fonts/type1/public/cm-super/sfss1000.pfb></usr/local/Cellar/texlive/20240312_3/share/texmf-dist/fonts/type1/public/cm-super/sfsx1000.pfb>
-Output written on hw1.pdf (4 pages, 138650 bytes).
+Output written on hw1.pdf (4 pages, 138986 bytes).
 PDF statistics:
  136 PDF objects out of 1000 (max. 8388607)
  106 compressed objects within 2 object streams

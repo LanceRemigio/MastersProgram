@@ -581,7 +581,6 @@ INPUT /usr/local/Cellar/texlive/20240312_3/share/texmf-dist/fonts/tfm/public/stm
 INPUT /usr/local/Cellar/texlive/20240312_3/share/texmf-dist/fonts/tfm/jknappen/ec/ecbx1200.tfm
 INPUT /usr/local/Cellar/texlive/20240312_3/share/texmf-dist/fonts/map/pdftex/updmap/pdftex.map
 INPUT /usr/local/Cellar/texlive/20240312_3/share/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc
-INPUT /usr/local/Cellar/texlive/20240312_3/share/texmf-dist/fonts/tfm/jknappen/ec/ecsl1000.tfm
 INPUT hw1.aux
 INPUT ./hw1.out
 INPUT ./hw1.out
