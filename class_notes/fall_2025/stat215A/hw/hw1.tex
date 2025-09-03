@@ -11,6 +11,7 @@
 \maketitle   
 
 \lhead{Lance Remigio}
+\chead{Homework 1}
 \rhead{\thepage}
 \begin{prop}[A.1.1]
    For all sets \( A, B , C \subseteq \Omega \). 
@@ -38,26 +39,37 @@
 \subsection*{Part (1)}
 
 \begin{enumerate}
-    \item[(i)] Our goal is to show that \( A \cup B = B \cup A  \). It suffices to show the following two containments:
+    \item[(i)]  \( A \cup B = B \cup A  \)
+        \begin{proof}
+        Our goal is to show that \( A \cup B = B \cup A  \). It suffices to show the following two containments:
         \[  A \cup B \subseteq  B \cup A \tag{*}  \]
         and
         \[  B \cup A \subseteq  A \cup B. \tag{**} \]
         We will first show (*). Let \( x \in A \cup B  \) be arbitrary. Then either \( x \in A  \), \( x \in B  \), or in both. If \( x \in A  \), then \( x \in B \cup A  \). If \( x \in B  \), then \( x \in B \cup A  \). If \( x  \) is in both \( A  \) and \( B  \), then \( x \in B \cup A  \). Hence, in all three cases, \( x \in B \cup A  \) and so \( A \cup B \subseteq  B \cup A  \), satisfying (*). To show (**), let \( x \in B \cup A  \) be arbitrary. Then either \( x \in B  \), \( x \in A  \), or \( x  \) is in both \( A  \) and \( B  \). If \( x \in B  \), then \( x \in B \cup A  \) by definition. If \( x \in A   \), then \( x \in A \cup  B \). If \( x  \) is in both \( A  \) and \( B  \), then \( x \in A \cup B \). Thus, in all three cases, \( x \in A \cup B \).
 
-    \item[(ii)] Our goal is to show that \( A \cap B = B \cap A  \). It suffices to show the following two containments:
+        \end{proof}
+    \item[(ii)] \( A \cap B = B \cap A  \)
+        \begin{proof}
+        Our goal is to show that \( A \cap B = B \cap A  \). It suffices to show the following two containments:
         \[ A \cap B \subseteq  B \cap A  \tag{*}  \]
         and
         \[  B \cap A \subseteq  A \cap B. \tag{**}  \]
         To show (*), let \( x \in A \cap B  \) be arbitrary. Then this holds if and only if \( x \in A  \) and \( x \in B \). That is, \( x \in B  \) and \( x \in A  \). Thus, \( x \in B \cap A   \). Hence, \( A \cap B \subseteq B \cap A  \), proving (*). Let \( x \in B \cap A  \) be arbitrary. Then both \( x \in B  \) and \( x \in A  \). Thus, \( x \in A  \) and \( x \in B  \). Therefore, \( x \in A \cap B  \) and so \(  B \cap A \subseteq  A \cap B  \), proving (**). From (*) and (**), we get \( A \cap B = B \cap A \).
-    \item[(iii)] Our goal is to show that \( A \cap (B \cap C) = (A \cap B) \cap C  \). We will show the following two containments:
+        \end{proof}
+    \item[(iii)] \( (A \cup B) \cup C = A \cup (B \cup C ) \)
+        \begin{proof}
+      Our goal is to show that \( A \cup (B \cup C) = (A \cup B) \cup C  \). We will show the following two containments:
         \[  A \cup (B \cup C) \subseteq  (A \cup B) \cup C \tag{*} \]
         and
         \[  (A \cup B) \cup C \subseteq A \cup (B \cup C). \tag{**} \]
-        To show (*), let \( x \in A \cup (B \cup C) \) be arbitrary. Then either \( x \in A  \), \( x \in B \cup C  \), or in both. If \( x \in A  \), then \( x \in A \cup B \). Hence, \( x \in (A \cup B) \cup C  \), by definition. If \( x \in B \cup C  \), then either \( x \in B  \), \( x \in C  \), or \( x \in B \cup C  \). If \( x \in B  \), then \( x \in A \cup B  \) and thus, \( x \in (A \cup B) \cup C  \). If \( x \in C  \), then \( x \in (A \cup B) \cup C  \) by definition. If \( x  \) is in both, then immediately \( x \in (A \cup B) \cup C  \). Now, if \( x \in A  \) and \( x \in B \cup C  \), then we also have \( x \in (A \cup B) \cup C  \). Thus, we have \( A \cup (B \cup C ) \subseteq (A \cup B) \cup C  \).
+        To show (*), let \( x \in A \cup (B \cup C) \) be arbitrary. Then either \( x \in A  \), \( x \in B \cup C  \), or in both. If \( x \in A  \), then \( x \in A \cup B \) since \( A  \) is one of the sets in the union \( A \cup B \). Hence, \( x \in (A \cup B) \cup C  \), by the same reasoning (that is, \( A \cup B  \) is contained in one of the sets in the union \( (A \cup B) \cup C   \)). If \( x \in B \cup C  \), then either \( x \in B  \), \( x \in C  \), or \( x \in B \cap C  \). If \( x \in B  \), then \( x \in A \cup B  \) since \( B  \) is contained in \( A \cup B \). Thus, \( x \in (A \cup B) \cup C  \) since \( A \cup B  \) is contained in \( (A \cup B) \cup C  \). If \( x \in C  \), then \( x \in (A \cup B) \cup C  \) because \( C  \) is contained in \( (A \cup B) \cup C  \). If \( x  \) is in both, then immediately \( x \in (A \cup B) \cup C  \) (since we only need \( x  \) to be in at least one of the sets). Now, if \( x \in A  \) and \( x \in B \cup C  \), then we have \(x \in A  \) and \( x \in B  \) or \( x \in C  \). If \( x \in B  \), then since \( x \in A  \), we have \( x \in A \cup B \). Since \( A \cup B  \) is contained in \( (A \cup B) \cup C  \), we also have \( x \in (A \cup B) \cup C  \). Similarly, if \( x \in C  \), then \( x \in (A \cup B) \cup C  \) because \( C   \) is contained in the union \( (A \cup B) \cup C  \). Thus, we conclude that \( A \cup (B \cup C ) \subseteq (A \cup B) \cup C  \).
 
-        To show (**), let \( x \in (A \cup B) \cup C  \) be arbitrary. Then either \( x \in A \cup B \), \( x \in C  \) or both. If \( x \in A \cup B \), then either \( x \in A    \) or \( x \in B \). If \( x \in A  \), then \( x \in A \cup (B \cup C ) \). If \( x \in B \), then \( x \in B \cup C  \). So, \( x \in A \cup (B \cup C) \). Now, if \( x \in C  \), then \( x \in B \cup C  \). By definition, this tells us that \( x \in A \cup (B \cup C ) \). If \( x  \) is in both, then immediately we have \( x \in A \cup (B \cup C ) \) (since it is in all of them and we only require \( x  \) to be in one of them at least). Thus, we have \( (A \cup B) \cup C \subseteq A \cup (B \cup C ) \).
+        To show (**), let \( x \in (A \cup B) \cup C  \) be arbitrary. Then either \( x \in A \cup B \), \( x \in C  \) or both. If \( x \in A \cup B \), then either \( x \in A    \) or \( x \in B \) or both. If \( x \in A  \), then \( x \in A \cup (B \cup C ) \) since \( A  \) is contained in the union \( A \cup (B \cup C ) \). If \( x \in B \), then \( x \in B \cup C  \) since \( B  \) is contained in the union \( B \cup C  \). Since \( B \cup C  \) is contained in the union \( A \cup (B \cup C )  \), \( x \in A \cup (B \cup C) \). Now, if \( x \in C  \), then \( x \in B \cup C  \). By definition, this tells us that \( x \in A \cup (B \cup C ) \) by the same reasoning as before. If \( x  \) is in both, then we have \( x \in A \cup (B \cup C ) \) (since it is in all of them and we only require \( x  \) to be in one of them at least). Thus, we have \( (A \cup B) \cup C \subseteq A \cup (B \cup C ) \).
+        \end{proof}
     
-    \item[(iv)] Our goal is to show that \( (A \cap B) \cap C  = A \cap (A \cap C) \). We will show the following two containments:
+    \item[(iv)] \( (A \cap B) \cap C  = A \cap (B \cap C) \)
+        \begin{proof}
+        Our goal is to show that \( (A \cap B) \cap C  = A \cap (A \cap C) \). We will show the following two containments:
         \[  (A \cap B) \cap C \subseteq  A \cap (B \cap C) \tag{*} \]
         and
         \[  A \cap (B \cap C) \subseteq  (A \cap B) \cap C.  \tag{**} \]
@@ -65,67 +77,93 @@
 
         To show (**), let \( x \in A \cap (B \cap C)  \) be arbitrary. Then \( x \in A  \) and \( x \in B \cap C \). Thus, \( x \in A  \), \( x \in B  \), and \( x \in C  \). Now, \( x \in A \cap B  \) and \( x \in C  \) and so \( x \in (A \cap B) \cap C  \), by definition. Therefore, \( A \cap (B \cap C) \subseteq  (A \cap B) \cap C  \), proving (**). Thus, (*) and (**) implies that \( (A \cap B) \cap C = A \cap (B \cap C) \).
        
-    \item[(v)] Our goal is to show that \( A \cap (B \cup C) = (A \cap B) \cup (A \cup C) \). We will show the following two containments:   
+
+        \end{proof}    
+    \item[(v)] \( A \cap (B \cup C) = (A \cap B) \cup (A \cup C ) \)
+        \begin{proof}
+        Our goal is to show that \( A \cap (B \cup C) = (A \cap B) \cup (A \cup C) \). We will show the following two containments:   
         \[  A \cap (B \cup C ) \subseteq  (A \cap B) \cup (A \cap C) \tag{*} \]
         and
         \[  (A \cap B) \cup (A \cap C) \subseteq A \cap (B \cup C). \tag{**} \]
-        Starting with (*), let \( x \in A \cap (B \cup C) \) be arbitrary. Then \( x \in A  \) and \( x \in B \cup C \). Since \( x \in B \cup C  \), then either \( x \in B  \) or \( x \in C \). Now, if \( x \in B \), then since \( x \in A  \) as well, we have \( x \in A \cap B \). But now \( x  \) lies in at least one of the sets in the union \( (A \cap B) \cup (A \cap C) \). Hence, \( x \in (A \cap B) \cup (A \cap C) \) and so \( A \cap (B \cup C) \subseteq  (A \cap B) \cup (A \cap C) \). Likewise, if \( x \in C  \), then since \( x \in A  \) as well, we have \( x \in A \cap C  \). By definition of union, \( x \in (A \cap  B) \cup (B \cup C) \). Thus, \( A \cap (B \cup C) \subseteq (A \cap B) \cup (A \cap C)  \), proving (*).
+        Starting with (*), let \( x \in A \cap (B \cup C) \) be arbitrary. Then \( x \in A  \) and \( x \in B \cup C \). Since \( x \in B \cup C  \), then either \( x \in B  \) or \( x \in C \) or both. Now, if \( x \in B \), then since \( x \in A  \) as well, we have \( x \in A \cap B \). But now \( x  \) lies in at least one of the sets in the union \( (A \cap B) \cup (A \cap C) \). Hence, \( x \in (A \cap B) \cup (A \cap C) \) and so \( A \cap (B \cup C) \subseteq  (A \cap B) \cup (A \cap C) \). Likewise, if \( x \in C  \), then since \( x \in A  \) as well, we have \( x \in A \cap C  \). By definition of union, \( x \in (A \cap  B) \cup (A \cap C) \). Thus, \( A \cap (B \cup C) \subseteq (A \cap B) \cup (A \cap C)  \). Now, if it is in both then \( x \in B  \) and \( x \in C  \). Hence, \( x \in A  \) implies \( x \in A \cap B  \) and \( x \in A \cap C  \), and so we have \( x \in (A \cap B) \cup (A \cap C) \). Thus, we have   
+        \[  A \cap (B \cup C ) \subseteq  (A \cap B) \cup (A \cap C ), \]
+        proving (*).
 
-        With (**), let \( x \in (A \cap B) \cup (A \cap C) \). Then either \( x \in A \cap B \) or \( x \in A \cap C  \) or both. If \( x \in A \cap B \), then \( x \in A  \) and \( x \in B  \). Since \( x \in B \), it must lie in \( B \cup C  \) because it is contained in at least one of the sets within that union. Thus, we have \( x \in A  \) and \( x \in B \cup C  \) and so \( x \in A \cap (B \cup C) \). Therefore, \( (A \cap B) \cup (A \cap C) \subseteq A \cap (B \cup C) \). If \( x \in A \cap C \), then \( x \in A  \) and \( x \in C  \). Since \( x \in C  \), it follows that \( x \in B \cup C  \) by the same reasoning as before. So, \( x \in A  \) and \( x \in B \cup C  \). Then \( x \in A \cap (B \cup C) \) and so \( (A \cap B) \cup (A \cap C) \subseteq A \cap (B \cup C) \), proving (**).
+        With (**), let \( x \in (A \cap B) \cup (A \cap C) \). Then either \( x \in A \cap B \) or \( x \in A \cap C  \) or both. If \( x \in A \cap B \), then \( x \in A  \) and \( x \in B  \). Since \( x \in B \), it must lie in \( B \cup C  \) because it is contained in at least one of the sets within that union. Thus, we have \( x \in A  \) and \( x \in B \cup C  \) and so \( x \in A \cap (B \cup C) \). Therefore, \( (A \cap B) \cup (A \cap C) \subseteq A \cap (B \cup C) \). If \( x \in A \cap C \), then \( x \in A  \) and \( x \in C  \). Since \( x \in C  \), it follows that \( x \in B \cup C  \) by the same reasoning as before. So, \( x \in A  \) and \( x \in B \cup C  \). Then \( x \in A \cap (B \cup C) \) and so, \( x \in (A \cap B) \cup (A \cap C) \). Thus, \( (A \cap B) \cup (A \cap C) \subseteq A \cap (B \cup C) \), proving (**).
 
         From (*) and (**), we have our desired result. 
-    \item[(vi)] Our goal is to show that \( A \cup (B \cap C) = (A \cup B) \cap (A \cup C) \). It suffices to show the following two containments:
+        \end{proof}
+    \item[(vi)] \( A \cup (B \cap C) = (A \cap B) \cup (A \cap C)  \)
+        \begin{proof}
+        Our goal is to show that \( A \cup (B \cap C) = (A \cup B) \cap (A \cup C) \). It suffices to show the following two containments:
         \[  A \cup  (B \cap C) \subseteq (A \cup B) \cap (B \cup C) \tag{*} \]
         and
         \[  (A \cup B) \cap (B \cup C) \subseteq  A \cup (B \cap C). \tag{**} \]
-        Starting with (*), let \( x \in A \cup (B \cap C) \) be arbitrary. Then \( x \in A  \) or \( x \in B \cap C \). If \(x \in A  \), then \( x \in A \cup B \) because \( x  \) is contained in at least one of the sets in \( A \cup B  \) (of course, it is \( A  \)). But we also have that \( x \in A \cup C  \) by the same reasoning. Hence, \( x \in A \cup B  \) and \( x \in A \cup C  \). So, \( x \in (A \cup B) \cap (A \cup C) \) and so \( A \cup (B \cap C) \subseteq (A \cup B) \cap (B \cup C)  \), proving (*).
-
-       With (**), let \( x \in (A \cup B) \cap (B \cup C) \) be arbitrary. Then \( x \in A \cup B \) and \( x \in A \cup C  \). Then \( x \in A  \) or \( x \in B \) or \( x  \) is in both and \( x \in A  \) or \( x \in C \) or \( x  \) is in both.   
+        Starting with (*), let \( x \in A \cup (B \cap C) \) be arbitrary. Then \( x \in A  \) or \( x \in B \cap C \) or both. If \(x \in A  \), then \( x \in A \cup B \) because \( x  \) is contained in at least one of the sets in \( A \cup B  \) (of course, it is \( A  \)). But we also have that \( x \in A \cup C  \) by the same reasoning. Hence, \( x \in A \cup B  \) and \( x \in A \cup C  \). So, \( x \in (A \cup B) \cap (A \cup C) \) and so \( A \cup (B \cap C) \subseteq (A \cup B) \cap (B \cup C)  \). If \( x \in B \cap C \), then \( x \in B  \) and \( x \in C  \). Since \( x \in B  \), then \( x \in A \cup B  \) since \( B  \) is contained in the union \( A \cup B  \). Since \( x \in C  \), then \( x \in A \cup C  \). Thus, \( x \in (A \cup B) \cap (A \cup C) \) and so 
+        \[  A \cup (B \cap C) \subseteq  (A \cup B) \cap (A \cup C). \]
+        Now, if \( x \in A  \) and \( x \in B \cap C \). Then \( x \in A  \) and \( x \in B  \) and \( x \in C  \). Since \( x \in A  \) and \( x \in B  \), we have \( x \in A \cup B  \). Since \( x \in A  \) and \( x \in C  \), then \( x \in A \cup C  \). Thus, \( x \in ( A \cup B) \cap (A \cup C ) \) and so 
+        \[  A \cup (B \cap C) \subseteq  (A \cup B) \cap (A \cup C ), \]
+        thereby proving (*).
+ 
+        With (**), let \( x \in (A \cup B) \cap (B \cup C) \) be arbitrary. Then \( x \in A \cup B \) and \( x \in A \cup C  \). Now, we have \( x \in A  \) or \( x \in B  \) (or both) and \( x \in A  \) or \( x \in C  \) (or both). Then \( x \in A  \) or \( x \in B  \) and \( x \in C  \). Thus, \( x \in A  \) or \( x \in B \cap C  \). Therefore, \( x \in A \cup (B \cap C) \). If \( x \in A \cap B \) and \( x \in A \cap C  \), then \( x \in A  \) and \( x \in B  \) and \( x \in C  \). Thus, \( x \in A  \) and \( x \in B \cap C  \) and so \( x \in A \cap (B \cap C ) \)      
+        \end{proof}
 \end{enumerate}
 
-
-\subsection*{Part (3)}
+\subsection*{Part (3)} Prove that \( \emptyset \subseteq  A  \).
 
 \begin{proof}
-    Our goal is to show that \( \emptyset \subseteq  A  \). Let \( x \in \emptyset \) be arbitrary. Since \( x \in A  \) is a vacuously true statement (by definition of the emptyset), it follows that \( \emptyset \subseteq  A  \).
-\end{proof}
-
+        Our goal is to show that \( \emptyset \subseteq  A  \). Let \( x \in \emptyset \) be arbitrary. Clearly, this is false by definition of the empty set \( \emptyset  \) and so \( x \in A  \) is a vacuously true statement. Hence, it follows that \( \emptyset \subseteq  A  \).
+    \end{proof}
 
 \subsection*{Part (2)}
 
+\begin{enumerate}
+    \item[(i)] \( (A^{c})^{c} = A \)
+    \begin{proof}
+        Our goal is to show that 
+        \[ (A^{c})^{c} \subseteq A \tag{1}  \] and 
+        \[ (A^{c})^{c} \supseteq A \tag{2}. \]
+
+        Let \( x \in (A^{c})^{c} \) be arbitrary. Since \( A^{c} = \Omega \setminus  A  \), we have  
+        \[  (A^{c})^{c} =  \Omega \setminus  A^{c}. \]
+        Hence, \( x \in \Omega \), but \( x \notin A^{c} \). However, \( x \notin A^{c} \) implies that \( x \notin \Omega \) or \( x \in A  \). Note that the former yields a contradiction because \( x \in \Omega  \) from an earlier statement. Thus, it must be the case that \( x \in A \). Hence, \( (A^{c})^{c} \subseteq  A   \).
+
+        For the containment in (2), assume for contradiction that \( A \not\subseteq (A^{c})^{c} \). Hence, there exists an \( x \in A  \) such that \( x \notin (A^{c})^{c} \). By definition of complement with respect to \( \Omega \), we have \( (A^{c})^{c} = \Omega \setminus  A^{c} \). Since \( x \notin (A^{c})^{c} \), then either \( x \notin \Omega \) or \( x \in A^{c}  \). If \( x \notin \Omega \), then we have a contradiction because we assumed that \( x \in A  \) earlier. If \( x \in A^{c} = \Omega \setminus  A  \), then we are also saying that \( x \in \Omega \) but \( x \notin A  \) which contradicts our earlier assumption that \( x \in A  \). Hence, we must have that \( A \subseteq  (A^{c})^{c} \).
+    \end{proof}
+    \item[(ii)] \( \emptyset^{c} = \Omega \)
+    \begin{proof}
+    Our goal is to show that \( \emptyset^{c} = \Omega \). We will show the following two containments:
+    \[  \emptyset^{c} \subseteq    \Omega \tag{*}  \]
+    and
+    \[  \Omega \subseteq  \emptyset^{c}. \tag{**} \]
+    Starting with (*), let \( x \in \emptyset^{c} \) be arbitrary. Since \( \emptyset \subseteq  \Omega  \), we have \( x \in \Omega \setminus  \emptyset \). Hence, \( x \in \Omega  \) but \( x \notin \emptyset \). Thus, \( \emptyset^{c} \subseteq  \Omega  \), proving (*).
+    \end{proof}
+    \item[(iii)] \( \Omega^{c} = \emptyset \) \textbf{Come back to this proof}
 \begin{proof}
-    Our goal is to show that 
-    \[ (A^{c})^{c} \subseteq A \tag{1}  \] and 
-    \[ (A^{c})^{c} \supseteq A \tag{2}. \]
+    Note that, by part (3), \( \emptyset \subseteq  \Omega^{c} \). To get the equality, it suffices to show that \( \Omega^{c} \subseteq  \emptyset \). Suppose for contradiction that there exists an \( x \in \Omega^{c} \) such that \( x \notin \emptyset \). Thus, \( x \in \emptyset^{c } = \Omega \) (because we have that \( \emptyset \subseteq  \Omega \)) and so \( x \in \Omega \) which contradicts our assumption that \( x \in \Omega^{c} \). 
+\end{proof}
+\end{enumerate}
 
-    Let \( x \in (A^{c})^{c} \) be arbitrary. Since \( A^{c} = \Omega \setminus  A  \), we have  
-    \[  (A^{c})^{c} =  \Omega \setminus  A^{c}. \]
-    Hence, \( x \in \Omega \), but \( x \notin A^{c} \). However, \( x \notin A^{c} \) implies that \( x \notin \Omega \) or \( x \in A  \). Note that the former yields a contradiction because \( x \in \Omega  \) from an earlier statement. Thus, it must be the case that \( x \in A \). Hence, \( (A^{c})^{c} \subseteq  A   \).
+\( A \subseteq B  \implies A^{c} = B \setminus  A \) and so for \( \Omega \subseteq \Omega   \), then \( \Omega^{c} = \Omega \setminus  \Omega \)
 
-    For the containment in (2), assume for contradiction that \( A \not\subseteq (A^{c})^{c} \). Hence, there exists an \( x \in A  \) such that \( x \notin (A^{c})^{c} \). By definition of complement with respect to \( \Omega \), we have \( (A^{c})^{c} = \Omega \setminus  A^{c} \). Since \( x \notin (A^{c})^{c} \), then either \( x \notin \Omega \) or \( x \in A^{c}  \). If \( x \notin \Omega \), then we have a contradiction because we assumed that \( x \in A  \) earlier. If \( x \in A^{c} = \Omega \setminus  A  \), then we are also saying that \( x \in \Omega \) but \( x \notin A  \) which contradicts our earlier assumption that \( x \in A  \). Hence, we must have that \( A \subseteq  (A^{c})^{c} \).
+
+
+
+\subsection*{Part (4)}  Prove that \( A \subseteq  A  \).
+
+\begin{proof}
+    Let \( x \in A  \) be arbitrary. Note that \( x \in A  \) because otherwise \( x \notin A = \Omega \setminus  A  \) which would mean that \( x \in \Omega  \) but \( x \notin A  \) would contradict our assumption that \( x \in A  \). Hence, \( A \subseteq  A  \).
 \end{proof}
 
-\begin{proof}
-Our goal is to show that \( \emptyset^{c} = \Omega \). Note that the complement of \( \emptyset  \) with respect to \( \Omega \) is \( \emptyset^{c} = \Omega \setminus  \emptyset = \Omega \). Hence, \( \emptyset^{c} = \Omega \).
-\end{proof}
+\subsection*{Part (5)} If \( A \subseteq  B  \) and \( B \subseteq  C  \), then \( A \subseteq  C  \).
 
 \begin{proof}
-    Note that, from part (3), we have \( \emptyset \subseteq \Omega^{c} \). Let \( x \in \Omega^{c} \). Then \( x \in \Omega \setminus \Omega \). Hence, \( x \in \Omega \), but \( x \notin \Omega  \). This tells us that \( x \in \emptyset \). Hence, we conclude that \( \Omega^{c} = \emptyset \).
-\end{proof}
-
-\subsection*{Part (4)}
-
-\begin{proof}
-Let \( x \in A  \) be arbitrary. Since \( A \subseteq \Omega  \) and \( \Omega \neq \emptyset \), we have that \( x \in A  \). Hence, \( A \subseteq A  \).
-\end{proof}
-
-\subsection*{Part (5)}
-
-\begin{proof}
-    Suppose \( A \subseteq  B  \) and \( B \subseteq  C  \). Our goal is to show that \( A \subseteq  C  \); that is, for all \( x \in A  \), \( x \in C  \). To this end, let \( x \in A  \). Since \( A \subseteq B  \), we have \( x \in B \). Since \( B \subseteq C  \), we have \( x \in C  \). Thus, \( A \subseteq  C  \).
+    Suppose \( A \subseteq  B  \) and \( B \subseteq  C  \). Our goal is to show that \( A \subseteq  C  \); that is, for all \( x \in A  \), \( x \in C  \). To this end, let \( x \in A  \) be arbitrary. Since \( A \subseteq B  \), we have \( x \in B \). Since \( B \subseteq C  \), we have \( x \in C  \). Thus, \( A \subseteq  C  \).
 \end{proof}
 
 \subsection*{Part (6)}
+
+\( A \subseteq  B   \) if and only if \( B^{c} \subseteq  A^{c} \).
 
 \begin{proof}
 \( (\Longrightarrow) \) Suppose \( A \subseteq  B  \). Our goal is to show that \( B^{c} \subseteq A^{c} \). Suppose for contradiction that \( B^{c} \not\subseteq A^{c} \). Then there exists an \( x \in B^{c} \) such that \( x \notin A^{c}  \). Since \( x \notin A^{c}  \), it follows that \( x \in (A^{c})^{c} \). But from part (2), we have \( (A^{c})^{c} =A  \). Thus, \( x \in A  \). Since \( A \subseteq B \), we have \( x \in B \) which is a contradiction.
@@ -135,6 +173,8 @@ Let \( x \in A  \) be arbitrary. Since \( A \subseteq \Omega  \) and \( \Omega \
 
 \subsection*{Part (7)}
 
+Prove that \( A \cup A = A = A \cap A  \).
+
 \begin{proof}
 Our goal is to show that \( A \cup A = A = A \cap A  \). First, we will show that \( A \cup A = A  \). We will show the following containments; \( A \cup A \subseteq A  \) and \( A \subseteq  A \cup A  \). Starting with the first containment, let \( x \in A \cup A  \) be arbitrary. Then \( x \in A  \) or \( x \in A  \) or \( x  \) in both. In either case, \( x \in A  \) and so \( A \cup A \subseteq A  \) because \( A \subseteq  A  \) in part (4). If \( x  \) is in both, then \( x \in A  \) by using the same fact. Hence, \( A \cup A \subseteq  A  \). For the second containment, let \( x \in A  \) be arbitrary. Immediately, \( x \in A  \) or \( x \in A  \) since \( A \subseteq  A  \) and \( x  \) lies in all the sets in the union \( A \cup A  \). Thus, \( x \in A \cup A  \). Hence, \( A \cup A = A  \).   
 
@@ -142,6 +182,8 @@ Second, we will show that \( A \cap A = A  \). Let \( x \in A \cap A  \) be arbi
 \end{proof}
 
 \subsection*{Part (8)}
+
+Prove that \( A \cup \Omega = \Omega \) and \( A \cap \Omega = A   \).
 
 \begin{proof}
 Our goal is to show that \( A \cup \Omega = \Omega \) and \( A \cap \Omega = A  \). Starting with the first equation, it suffices to show that 
@@ -157,11 +199,11 @@ by part (4). Thus, \( A \cup \Omega \subseteq  \Omega \).
 
 For (2), let \( x \in \Omega \) be arbitrary. Since \( \Omega \subseteq \Omega \), it follows that \( x  \) is contained in the union \( A \cup \Omega \) containing \( \Omega \). Hence, \( x \in A \cup \Omega \) and so \( A \subseteq A \cup \Omega \).
 
-Now, we will show \( A \cap \Omega = A  \). We will first show \( A \cap \Omega \subseteq  A  \). Let \( x \in A \cap \Omega \). Then \( x \in A  \) and \( x \in \Omega \). Since \( x \in A  \), we have \( A \cap \Omega \subseteq  A  \). Let \( x \in A  \) be arbitrary. Since \( A \subseteq  \Omega \), we have \( x \in \Omega \). Since \( x \in A  \) and \( x \in \Omega \), we have \( x \in A \cap \Omega \). Thus, \( A \subseteq  A \cap \Omega \). 
+Now, we will show \( A \cap \Omega = A  \). We will first show \( A \cap \Omega \subseteq  A  \). Let \( x \in A \cap \Omega \) be arbitrary. Then \( x \in A  \) and \( x \in \Omega \). Since \( x \in A  \), we have \( A \cap \Omega \subseteq  A  \). Let \( x \in A  \) be arbitrary. Since \( A \subseteq  \Omega \), we have \( x \in \Omega \). Since \( x \in A  \) and \( x \in \Omega \), we have \( x \in A \cap \Omega \). Thus, \( A \subseteq  A \cap \Omega \). 
 \end{proof}
 
 \subsection*{Part (9)}
-
+Prove that \( A \cup \emptyset = A  \) and \( A \cap \emptyset = \emptyset \).
 \begin{proof}
 Our goal is to show the following two equations:
 \[  A \cup \emptyset = A \tag{1} \]

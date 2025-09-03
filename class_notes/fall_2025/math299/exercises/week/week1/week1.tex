@@ -1,0 +1,81 @@
+\subsection{Zorn's Lemma}
+
+\begin{problem}[4.1.2]
+    Let \( X  \) be the set of all real-valued functions on \( X  \) on the interval \( [0,1] \), and let \( x \leqq y  \) to mean that \( x(t) \leq y(t) \) for all \( t \in [0,1] \). Show that this defines a partial ordering. Is it total ordering? Does \( X  \) have a maximal elements? 
+\end{problem}
+\begin{proof}
+    Define \( F = \{  \text{all real-valued functions on the interval} \ [0,1] \}  \). First, we show reflexivity. Let \( x \in F  \). Then for all \( t \in [0,1] \), \( x(t) \leq x(t) \). Hence, \( x \leqq x   \) and so \( F  \) contains the reflexive property. For antisymmetry, suppose \( x \leqq y  \) and \( y \leqq x  \). Then for all \( t \in [0,1] \), we have \( x(t) \leq y(t) \) and \( y(t) \leq x(t) \). Then \( x(t) = y(t)  \) (using the partial ordering of the real numbers) for all \( t \in [0,1] \). Then \( x = y  \) and so antisymmetry is satisfied. For transitivity, suppose \( x \leqq y  \) and \( y \leqq z  \). Then \( x(t) \leq y(t) \) and \( y(t) \leq z(t) \) for all \( t \in [0,1] \). Then \( x(t) \leq z(t) \) for all \( t \in [0,1] \) using the transitivity of the real numbers. Hence, \( x \leqq z  \) and so transitivity is satisfied.
+
+    \( F  \) is totally ordered, but has no maximal elements.
+\end{proof}
+
+\begin{problem}[4.1.5]
+   Prove that a finite partially ordered set \( A  \) has at least one maximal element. 
+\end{problem}
+\begin{proof}
+
+\end{proof}
+
+\subsection{Hahn-Banach Theorem}
+
+\begin{problem}[Existence of a Sublinear Functional]
+    Show that a sublinear functionnal \( p  \) satisfies \( p(0) = 0  \) and \( p(-x) \geq  -p(x)  \).
+\end{problem}
+\begin{proof}
+Define \( P : X \to \R  \) by 
+\[  p(x) = \|x\| \]
+where \( X  \) is some vector space. Then for \( x = 0  \), we have 
+\[  p(0) = \|0\| = 0.  \]
+Note that for all \( x \in X  \), we have 
+\[  p(-x) = \|-x\| = | -1 | \|x\| = 1 \cdot \|x\| = \|x\| > 0  \]
+and \( p(-x) = p(x) \). Now, note that for all \( x \in X  \)
+\[  -\|x \| \leq \|x\| \iff -p(x) \leq p(x) = p(-x). \]
+Thus, for all \( x \in X  \), \( p(-x) \geq -p(x) \).
+\end{proof}
+
+\begin{problem}[Convex Set]
+    If \( p  \) is a sublinear functional on a vector space \( X  \), show that \( M = \{ x : p(x) \leq \gamma , \gamma > 0 \ \text{fixed}  \}  \), is a convex set.
+\end{problem}
+\begin{proof}
+Assume that \( p  \) is a sublinear functional on a vector space \( X  \). Let \( W = \{  v  = \alpha y + (1 - \alpha) z : 0 \leq \alpha \leq 1  \}  \). Our goal is to show that \( W \subseteq  M   \). To this end, let \( v \in W  \) be arbitrary. Then for some \( y,z \in M  \), we have \( v = \alpha y + (1- \alpha) z  \) where \( \alpha \in \R  \). Since \( y,z \in M  \), we have \( p(y) \leq \gamma \) and \( p(z) \leq \gamma \) where \( \gamma > 0   \) is fixed. Our goal is to show that \( p(v) \leq \gamma \) for fixed \( \gamma \). Using the sublinearity of \( p  \), we get that 
+\begin{align*}
+    p(v) &= p(\alpha y  + (1 - \alpha)z) \\
+         &\leq p(\alpha y ) + p((1- \alpha) z) \\
+         &= |\alpha| p(y) + |(1-\alpha)| p(z) \\
+         &= \alpha p(y) + (1- \alpha) p(z) \tag{\( 0 \leq \alpha \leq 1\)}  \\
+         &\leq \alpha \gamma + (1- \alpha) \gamma \\ 
+         &= \gamma. 
+\end{align*}
+Hence, we conclude that \( W \subseteq  M  \) since \( v  \) was an arbitrary element and so \( M  \) is a convex set. 
+\end{proof}
+
+\begin{problem}
+    Let \( p  \) be a sublinear functinoal on a real vector space \( X  \). Let \( f  \) be defined on \( Z = \{  x \in X : x = \alpha {x}_{0} , \ \alpha \in \R  \}  \) by \( f(x) = \alpha p({x}_{0}) \) with fixed \( {x}_{0} \in X  \). Show that \( f  \) is a linear functional on \( Z  \) satisfying \( f(x) \leq p(x) \). 
+\end{problem}
+\begin{proof}
+First, we will show that \( f  \) is a linear functional on \( Z  \). Let \( u, v \in Z  \). Then  \( u = {\alpha}_{1} {x}_{0} \) and \( v = {\alpha}_{2} {x}_{0} \) for \( {\alpha}_{1}, {\alpha}_{2} \in \R  \). Let \( \delta \in \R  \). Observe that  
+\[ f(x) = \alpha p({x}_{0}) = p (\alpha {x}_{0}).  \]
+Using this observation, we have 
+\begin{align*}
+    \delta f(u) + f(v) &= \delta {\alpha}_{1} p({x}_{0}) + {\alpha}_{2} p({x}_{0}) \\
+                       &= (\delta {\alpha}_{1} + {\alpha}_{2}) p({x}_{0}) \\
+                       &= p ( \delta {\alpha}_{1} {x}_{0} + {\alpha}_{2} {x}_{0}) \\
+                       &= p(\delta u + v ) \\
+                       &= f(\delta u + v).
+\end{align*}
+Hence, \( f  \) is a linear functional. Using our observation again, we can also see that for \( \alpha > 0 \), \( f(x) = p(x) \) and so \( f(x) \leq p(x) \) for all \( x \in Z  \). Clearly, the inequality holds if \( \alpha = 0  \). Now, suppose \( \alpha < 0  \). Then 
+\[  f(x) = \alpha p({x}_{0}) = | \alpha | p({x}_{0}) = p (| \alpha | {x}_{0}) = p(x) \]
+and so \( f(x) \leq p(x) \) for all \( x \in Z  \).
+\end{proof}
+
+\begin{problem}
+    If \( p  \) is a sublinear on a real vector space \( X  \), show that there exists a linear functional \( \tilde{f} \) on \( X  \) such that  
+    \[  -p(-x) \leq \tilde{f}(x) \leq p(x). \]
+\end{problem}
+\begin{proof}
+    Define \( Z  \) as in the set in the previous problem and define \( f(x) = \alpha p({x}_{0}) \) with fixed \( {x}_{0} \in X  \). Using the same problem, we proved that \( f  \) defines linear functional such that \( f(x) \leq p(x) \) for all \( x \in Z \). Since \( Z \subseteq X  \), we can find an extension (via the Hahn-Banach Theorem) \( \tilde{f} \) that is also a linear functional from \( Z  \) to \( X  \) satisfying \( \tilde{f}(x) \leq p(x) \) for all \( x \in X  \). All we need to show now is \( -p(-x) \leq \tilde{f}(x) \). Since the bound in the previous statement holds for all \( x \in X  \), we have   
+    \[   - \tilde{f}(x) = \tilde{f}(-x) \leq p(-x). \]
+    Multiplying through by a negative, we now have 
+    \[  \tilde{f}(x) \geq - p(-x) \]
+    which completes our proof.
+\end{proof}
