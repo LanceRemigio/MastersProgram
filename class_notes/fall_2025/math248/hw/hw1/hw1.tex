@@ -1,0 +1,227 @@
+\documentclass[a4paper]{article}
+\input{../../../../../newpreamble.tex}
+\title{Bold Problem Homework 1}
+\author{Lance Remigio}
+\begin{document}
+\maketitle
+
+Let \( \|\cdot\| \) be the standard norm defined on \( \R^{n} \) (Euclidean norm).
+
+\begin{definition}[Inner Product]
+    Let \( V  \) be a vector space over a field \( F  \). An \textbf{inner product} on \( V  \) is a function that assigns, to every ordered pair of vectors \( x  \) and \( y  \) in \( V \), a scalar in \( F  \), denoted by \( \langle x , y \rangle \) such that for all \( x,y,z \in V  \) and all \( c \in F \) the following hold:
+    \begin{enumerate}
+        \item[(a)] \( \langle x + y  , y  \rangle = \langle x , y \rangle + \langle z  , y \rangle \)
+        \item[(b)] \( \langle cx , y \rangle = c \langle x  , y \rangle \).
+        \item[(c)] \( \overline{\langle x , y \rangle} = \langle y , x \rangle \) where the bar denotes complex conjugation 
+        \item[(d)] \( \langle x , x \rangle > 0  \) if \( x \neq 0  \).
+    \end{enumerate}
+\end{definition}
+
+\begin{lemma}[Parallelogram Law]
+   Let \( V  \) be an inner product space. For all \( x,y \in V  \),  
+   \[  \|x + y\|^{2} + \|x - y\|^{2} = 2 \|x\|^{2} + 2 \|y\|^{2}. \]
+\end{lemma}
+
+\begin{proof}
+Let \( x,y \in V  \). Using the definition of norm and properties of inner product, we get that
+\begin{align*}
+    \|x + y\|^{2} + \|x - y\|^{2} &= \langle x + y  ,  x + y  \rangle + \langle x -y  , x - y  \rangle \\
+                                  &= \langle x + y  , x  \rangle + \langle x + y  , y \rangle + \langle x - y  , x  \rangle + \langle x - y  , -y  \rangle \\
+                                  &= \langle x  , x \rangle + \langle y , x \rangle + \langle x  , y \rangle + \langle y  , y \rangle + \langle x  , x \rangle - \langle y , x \rangle \\
+                                  &+ - \langle x , y \rangle + \langle y , y \rangle \\
+                                  &= 2 \langle x , x \rangle + 2 \langle y , y \rangle \\
+                                  &= 2 \|x\|^{2} + 2 \|y\|^{2}.
+\end{align*}
+Thus, we obtain
+\[  \|x + y \|^{2} + \|x - y\|^{2} = 2 \|x\|^{2} + 2 \|y\|^{2}. \]
+\end{proof}
+
+\begin{lemma}
+    Let \( \|\cdot\| \) be an norm on a real vector space \( V  \) satisfying the Parallelogram law given in the lemma above. Then  
+    \[  \langle x , y \rangle = \frac{ 1 }{ 4 } [ \|x + y\|^{2} - \|x - y\|^{2}]  \]
+    defines an inner product on \( V  \) such that \( \|x\|^{2} = \langle x , x \rangle \) for all \( x \in V  \).
+\end{lemma}
+
+\begin{enumerate}
+    \item[(a)] Prove \( \langle x , 2y \rangle  = 2 \langle x , y \rangle \) for all \( x,y \in V  \). 
+        \begin{proof}
+        Let \( x,y \in V  \). Then
+        \begin{align*}
+            \langle x , 2y \rangle &= \frac{ 1 }{ 4 } \Big[ \|x + 2y\|^{2} - \|x - 2y\|^{2} \Big].  \\
+        \end{align*}
+        Observe that the expression inside the brackets of the equation above can be written as, using the parallelogram law, 
+        \begin{align*}
+            \|x + 2y\|^{2} - \|x - 2y\|^{2} &= \| (x+y) + y\|^{2} - \| (x-y) - y\|^{2} \\
+                                            &=  \| (x+y) + y\|^{2} + \| (x+y) - y\|^{2}  \\ 
+                                            &- (\|(x+y) - y\|^{2} + \| (x-y) - y\|^{2}) \\
+                                            &=  2 \|x + y\|^{2} + 2 \|y\|^{2} - (2 \|x -y\|^{2} + 2 \|y\|^{2}) \\
+                                            &= 2 (\|x + y\|^{2} - \|x -y\|^{2}).
+        \end{align*}
+        This tells us that 
+        \begin{align*}
+            \langle x , 2y \rangle &= 2 \cdot \frac{ 1 }{ 4 } [\|x + y\|^{2} - \|x -y\|^{2}] = 2 \langle x  , y \rangle   \\
+        \end{align*}
+        which is our desired result.
+        \end{proof}
+    \item[(b)] Prove \( \langle x + u  ,  y  \rangle = \langle x  , y \rangle + \langle u , y \rangle  \) for all \( x ,u,y \in V  \).
+        \begin{proof}
+        Let \( x,y, u \in V  \). Observe that the parallelogram law can be written as 
+        \[  \frac{ 1 }{ 2 } \Big[ \|x  + y\|^{2} + \|x - y \|^{2} \Big] = \|x\|^{2} + \|y\|^{2}. \]
+        Observe the sum
+        \begin{align*}
+            \langle x , y \rangle + \langle u , y \rangle &= \frac{ 1 }{ 4 }  \Big[ \|x  +y\|^{2} - \|x -y\|^{2} \Big] + \frac{ 1 }{ 4 }  \Big[ \| u + y\|^{2} - \|u -y\|^{2}\Big].
+        \end{align*}
+        The first term can be written further as
+        \begin{align*}
+            \frac{ 1 }{ 4 }  \Big[ \|x + y\|^{2} - \|x-y\|^{2} \Big] &= \frac{ 1 }{ 4 }  \Big[ \frac{ 1 }{ 2 }  [ \|(x+y) + u\|^{2} + \|(x+y) - u\|^{2} ] \\
+                                                                     &- \frac{ 1 }{ 2 }  [ \|(x-y) + u\|^{2} + \|(x-y) - u\|^{2}] \Big] \\
+                                &= \frac{ 1 }{ 4 }  \Big[ \frac{ 1 }{ 2 }  [ \|(x+u) + y\|^{2} + \|(x+y) - u\|^{2} ] \\
+                                                                     &- \frac{ 1 }{ 2 }  [ \|(x+u) - y\|^{2} + \|(x-y) - u\|^{2}] \Big].
+        \end{align*}
+        Likewise, the second term can be written as 
+        \begin{align*}
+            \frac{ 1  }{ 4  } \Big[ \|u +y\|^{2} - \|u - y\|^{2} \Big] &=   \frac{ 1 }{ 4 }  \Big[ \frac{ 1 }{ 2 }  [ \|(u+y) + x\|^{2} + \|(u+y) -x \|^{2}   ] \\
+                                                                       &- \frac{ 1 }{ 2 }  [ \|(u-y) + x \|^{2} + \|(u-y) - x\|^{2}] \Big] \\
+                                                                       &=   \frac{ 1 }{ 4 }  \Big[ \frac{ 1 }{ 2 }  [ \|(u+x) + y\|^{2} + \|(x-y) - u \|^{2}   ] \\
+                                                                       &- \frac{ 1 }{ 2 }  [ \|(x+u) - y \|^{2} + \|(x+y) - u\|^{2}] \Big].
+        \end{align*}
+        As a whole, we have
+        \begin{align*}
+            \langle x  , y \rangle + \langle u , y \rangle &= \frac{ 1 }{ 4 } \Big[ \| (x+u) + y \|^{2} - \|(x+u) - y\|^{2} \Big] \\
+            &= \langle x + u  , y \rangle.
+        \end{align*}
+        \end{proof}
+    \item[(c)] Prove \( \langle nx , y \rangle = n \langle x  , y \rangle  \) for every positive integer \( n  \) and every \( x,y \in V  \). 
+        \begin{proof}
+        Let \( x ,y \in V  \). Let us proceed via induction to show the result. Note that the base case is trivial; that is, if \( n = 1  \), then we have \( \langle x , y \rangle = \langle x , y \rangle \). Suppose that the result holds for all positive integers less than \( n  \). Then observe that \( \langle (n-1)x , y \rangle = (n-1) \langle x , y \rangle \). Using part (b), we can write
+        \begin{align*}
+            \langle nx , y \rangle = \langle (  (n-1) + 1  ) x , y \rangle &= \langle (n-1) x , y \rangle + \langle x , y \rangle   \\
+                                                                           &= (n-1) \langle x , y \rangle + \langle x , y \rangle \\ 
+                                                                           &= ((n-1) + 1) \langle x , y \rangle \\
+                                                                           &= n \langle x , y \rangle.
+        \end{align*}
+        Thus, we see that \( \langle nx , y \rangle = n \langle x , y \rangle \) which is our desired result.
+        \end{proof}
+    \item[(d)] Prove \( m \langle \frac{ 1 }{ m }  x  , y \rangle = \langle x , y \rangle \) for every positive integer \( m  \) and every \( x,y \in V  \).
+        \begin{proof}
+        Let \( x,y \in V \) and let \( m  \) be any positive integer. Then set \( z = \frac{ 1 }{ m }  x  \). By using part (c), we can write
+        \begin{align*}
+            m \Big\langle \frac{ 1 }{ m }  x  , y \Big\rangle &= m \Big\langle z  , y \Big\rangle \\
+                                                      &= \langle mz , y \rangle \\
+                                                      &= \Big\langle m \cdot \frac{ 1 }{ m }  x  , y \Big\rangle = \langle x  , y \rangle.
+        \end{align*}
+        Thus, we have 
+        \[  m \Big\langle  \frac{ 1 }{ m }  x  , y \Big\rangle = \langle x , y \rangle. \]
+        \end{proof}
+    \item[(e)] Prove \( \langle rx , y \rangle = r \langle x , y \rangle \) for every rational number \( r  \) and every \( x,y \in V  \).
+        \begin{proof}
+        Let \( x,y \in V  \) and let \( r \in \Q  \). Observe that, by definition of rational numbers, we have \( r =  p/q  \) with \( p,q \in \Z  \) and \( q \neq 0  \). Then we write
+        \begin{align*}
+            \langle rx , y \rangle &= \Big\langle \frac{ p }{ q } \cdot  x   , y \Big\rangle \\
+                                   &= p \Big\langle \frac{ 1 }{ q }  x   , y  \Big\rangle \tag{Part (c)} \\
+                                   &= \frac{ p }{ q }  \langle x , y \rangle \tag{Part (d)} \\
+                                   &= r \langle x , y \rangle.
+        \end{align*}
+        Thus, we have that \( \langle rx , y \rangle = r \langle x , y \rangle \).
+        \end{proof}
+    \item[(f)] Prove \( |  \langle x , y \rangle |  \leq \|x\|\|y\| \) for every \( x,y \in V  \).  
+        \begin{proof}
+        Let \( x,y \in V  \). Using the triangle inequality for norms, we must have
+        \begin{align*}
+            | \langle x , y \rangle | &= \frac{ 1 }{ 4 }  \Big[ \|x + y\|^{2} - \|x - y\|^{2} \Big] \\
+                                      &\leq \frac{ 1 }{ 4 }  \Big[ (\|x\| + \|y\|)^{2} - \|x - y\|\Big] \\
+                                      &= \frac{ 1 }{ 4 }  \Big[ 2 \|x \| \|y\| - (\|x -y\|^{2} - \|x\|^{2} - \|y\|^{2})\Big] \\
+                                      &\leq \|x\| \|y\|.  
+        \end{align*}
+        Thus, we have that \( | \langle x , y \rangle  |  \leq \|x \| \|y\|  \).
+        \end{proof}
+    \item[(g)] Prove that for every \( c \in \R  \), every rational number \( r  \), and every \( x,y \in V  \),
+        \[ | c \langle x , y \rangle - \langle cx , y \rangle | = | (c-r)\langle x , y \rangle - \langle (c-r)x ,y  \rangle | \leq 2 | c - r  |  \|x\| \|y\|.   \]
+        \begin{proof}
+        Let \( c \in \R  \), \( r \in \Q  \), and \( x,y \in V  \). Using part (e), we can write
+        \begin{align*}
+        | c \langle x , y \rangle - \langle cx , y \rangle | &= | c \langle x , y \rangle - r \langle x , y \rangle + r \langle x , y \rangle  - \langle cx , y \rangle |   \\
+                                                             &= | (c-r)\langle x , y \rangle  + \langle (r-c)x , y \rangle | \\ 
+                                                             &= | (c-r) \langle x , y \rangle - \langle (c -r)x , y \rangle |.
+    \end{align*}
+    Working with the second equality, we can use the triangle inequality to write
+    \begin{align*}
+    | (c-r) \langle x , y \rangle + \langle (r-c)x , y \rangle | &\leq | (c-r) \langle x , y \rangle  | + | \langle (r-c)x , y \rangle |   \\  
+                                                                 &= | c-r  | | \langle x , y \rangle | + | \langle (r-c)x , y \rangle | \\ 
+                                                                 &\leq | c-r | \|x\|\|y\| + \|(r-c)x\| \|y\| \\ 
+                                                                 &= | c-r  | \|x\| \|y\| + | c-r  | \|x\| \|y\|  \\
+                                                                 &= 2 | c-r  | \|x\| \|y\|.
+\end{align*}
+Hence, we conclude that
+        \[ | c \langle x , y \rangle - \langle cx , y \rangle | = | (c-r)\langle x , y \rangle - \langle (c-r)x ,y  \rangle | \leq 2 | c - r  |  \|x\| \|y\|.   \]
+        \end{proof}
+    \item[(h)] Use the fact that for any \( c \in \R  \), \( | c -r  |  \) can be made arbitrarily small, where \( r  \) varies over the set of rational numbers, to establish item (b) of the definition of inner product.
+        \begin{proof}
+        Let \( x,y \in V  \) be non-zero. Let \( c \in \R  \) and let \( \epsilon > 0  \). Suppose that
+        \[  | c - r  |  < \frac{ \epsilon  }{ 2 \|x \| \|y\| }. \]
+        Then we have
+        \[  | c \langle x  , y \rangle - \langle cx , y \rangle |  \leq 2 | c - r  |  \| x \| \|y\| < \epsilon     \]
+        which is our desired result.
+        \end{proof}
+\end{enumerate}
+
+
+
+\begin{problem}
+    Suppose \( h: \R^{n} \to \R^{n}  \) is an isometry and \( h(0) = 0  \). Then \( h  \) preserves distances and inner products on \( \R^{n} \). 
+\end{problem}
+\begin{proof}
+Since \( h : \R^{n} \to \R^{n} \) is an isometry, we see that distance in \( \R^{n} \) is preserved; that is, the distance function \( d: \R^{n} \times \R^{n} \to \R  \) defined by 
+    \[  d(x,y) = \|x - y\| \]
+    for all \( x,y \in \R^{n} \) where \( \|\cdot\| \) is a norm on defined on \( \R^{n} \) and satisfies the following property:
+    \[  d(h(x), h(y) = d(x,y). \]
+   In particular, since the norm on \( \R^{n} \) 
+\end{proof}
+
+\begin{problem}
+   Suppose \( h: \R^{n} \to \R^{n} \) is an isometry and \( h(0) = 0  \). Prove that \( h  \) is necessarily a linear transformation.
+\end{problem}
+\begin{proof}
+    Our goal is to show that \( h  \) is a linear transformation; that is, for all \( x,y \in \R^{n} \), we have 
+\[  h(x+y) = h(x) + h(y) \]
+and for all \( \alpha \in \R  \), we have 
+\[  h(\alpha x) = \alpha h(x). \]
+It suffices to show that for all \( x,y \in \R^{n} \)
+\[  \|h(x+y) - h(x) - h(y)\| = 0 \tag{1}  \]
+and for all \( \alpha \in \R \), 
+\[  \|h(\alpha x) - \alpha h(x) \| = 0. \tag{2}  \]
+
+First, we prove (1). Let \( x,y \in \R^{n} \) be arbitrary. We have 
+\begin{align*}
+    &\|h(x+y) - h(x) - h(y)\|^{2} = \langle h(x+y) - h(x) - h(y) , h(x+y) - h(x) - h(y) \rangle \\
+                                 &= \langle h(x+y)  , h(x+y) - h(x) - h(y) \rangle 
+                                 - \langle h(x) , h(x+y) - h(x) - h(y) \rangle \\ 
+                                 &- \langle h(x)  , h(x+y) - h(x) - h(y) \rangle 
+                                 - \langle h(y) , h(x+y) - h(x) - h(y) \rangle \\
+                                 &= \langle h(x+y) ,  h(x+y) \rangle - \langle h(x+y) , h(x) \rangle - \langle h(x+y) , h(y) \rangle \\ 
+                                 &- \langle h(x) , h(x+y) \rangle + \langle h(x) , h(x) \rangle + \langle h(x) , h(y)  \rangle - \langle h(y) , h(x+y) \rangle + \langle h(y) , h(x) \rangle + \langle h(y) , h(y) \rangle  \\   
+                                 &= \langle x + y , x + y \rangle - \langle x + y  , x  \rangle - \langle x + y  , y \rangle - \langle x  ,  x +y \rangle + \langle x , x \rangle + \langle x , y \rangle - \langle y , x + y  \rangle + \langle y , x \rangle + \langle y , y \rangle \\ 
+                                 &= \langle x , x \rangle + \langle x , y \rangle + \langle y , x \rangle + \langle y , y \rangle - \langle x , x \rangle - \langle y , x \rangle - \langle x , y \rangle - \langle y , y \rangle - \langle x , x \rangle - \langle x , y \rangle + \langle x , x \rangle + \langle x , y \rangle  \\
+                                 &- \langle y , x \rangle - \langle y , y \rangle + \langle y , x \rangle + \langle y , y \rangle \\
+                                 &= 0. 
+\end{align*}
+Hence, we have 
+\[ \|h(x+y) - h(x) - h(y)\|^{2} = 0 \iff \|h(x+y) - h(x) - h(y)\| = 0. \]
+Since \( \|\cdot\| \) is a norm, we conclude that \( h(x+y) = h(x) + h(y) \). Similarly, let \( x \in \R^{n} \) and \( \alpha \in \R  \). Then 
+\begin{align*}
+    \|h(\alpha x ) - \alpha h(x) \|^{2} &= \langle h(\alpha x) - \alpha h(x) , h(\alpha x) - \alpha h(x) \rangle \\
+                                        &= \langle h(\alpha x)  , h(\alpha x) \rangle - \langle h(\alpha x) , \alpha h(x) \rangle - (\langle \alpha h(x) ,  h(\alpha x) \rangle - \langle \alpha h(x) , \alpha h(x) \rangle) \\
+                                        &= \langle h(\alpha x) , h(\alpha x) \rangle - \alpha \langle  h(\alpha x ) , h(x) \rangle - \alpha \langle  h(x) , h(\alpha x) \rangle + \alpha^{2} \langle h(x) , h(x) \rangle \\
+                                        &= \langle \alpha x  ,  \alpha x  \rangle - \alpha \langle \alpha x  ,  x  \rangle - \alpha \langle x  ,  \alpha x  \rangle + \alpha^{2} \langle x , x \rangle \\
+                                        &= 2\alpha^{2} \langle x , x \rangle - 2 \alpha^{2} \langle x , x \rangle \\ 
+                                        &= 0. 
+\end{align*}
+Then we have 
+\[  \|h(\alpha x) - \alpha h(x)\|^{2} = 0 \iff \|h(\alpha x ) - \alpha h(x)\| = 0.  \]
+Hence, \( h(\alpha x) = \alpha h(x) \). Thus, (1) and (2) imply that \( h  \) is a linear transformation.
+\end{proof}
+
+
+
+\end{document}
+

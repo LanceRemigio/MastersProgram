@@ -13,5 +13,22 @@
 
 \import{week}{week1/week1.tex}
 
+Since \( h: \R^{n} \to \R^{n}  \) is an isometry, we know from definition that 
+\[  d(h(x), h(y)) = d(x,y) \]
+for all \( x,y \in \R^{n} \). In particular, since the norm on \( \R^{n} \) induces the distance function defined by
+\[  d(x,y) = \|x - y\| \]
+we also have that the norm is preserved. Indeed, we have for all \( x,y \in \R^{n} \),
+\[  \|h(x) - h(y)\| = d(h(x), h(y)) = d(x,y) = \|x-y\|. \]
+Since \( h(0) = 0  \) (by assumption), it is the case that the norm is also preserved. Indeed, for all \( x\in \R^{n} \)
+, we have 
+\[  \|h(x)\| = \|h(x) - h(0)\| = \|x - 0\|  = \|x\|.\]
+The fact that the norm is preserved, it also tells us that the inner product \( \langle \cdot , \cdot \rangle \) on \( \R^{n} \) is preserved. That is, if for all \( x \in \R^{n} \) and \( \langle \cdot , \cdot \rangle = \|\cdot\|^{2}  \), then we have 
+\begin{align*}
+    \langle h(x), h(x) \rangle &= \|h(x) \|^{2} \\
+                                              &= \|x\|^{2} \\
+                                              & \langle x  ,x \rangle.
+\end{align*}
+ 
+
 \end{document}
 
