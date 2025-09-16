@@ -2,10 +2,18 @@
 \input{../../../../../newpreamble.tex}
 \title{Bold Problem Homework 1}
 \author{Lance Remigio}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+
 \begin{document}
 \maketitle
+\chead{Math 248}
+\rhead{\thepage}
+\lhead{Lance Remigio}
 
-Let \( \|\cdot\| \) be the standard norm defined on \( \R^{n} \) (Euclidean norm).
+Let \( \|\cdot\| \) be the standard norm defined on \( V =  \R^{n} \) (Euclidean norm). That is, 
+\[  \|x\| =  \Big(  \sum_{ i=1  }^{ n } {x}_{i}^{2} \Big)^{1/2} \]
+where \( x = ({x}_{1}, {x}_{2}, \dots, {x}_{n}) \in \R^{n} \).
 
 \begin{definition}[Inner Product]
     Let \( V  \) be a vector space over a field \( F  \). An \textbf{inner product} on \( V  \) is a function that assigns, to every ordered pair of vectors \( x  \) and \( y  \) in \( V \), a scalar in \( F  \), denoted by \( \langle x , y \rangle \) such that for all \( x,y,z \in V  \) and all \( c \in F \) the following hold:
@@ -23,17 +31,13 @@ Let \( \|\cdot\| \) be the standard norm defined on \( \R^{n} \) (Euclidean norm
 \end{lemma}
 
 \begin{proof}
-Let \( x,y \in V  \). Using the definition of norm and properties of inner product, we get that
+Let \( x,y \in V  \). Then we have 
 \begin{align*}
-    \|x + y\|^{2} + \|x - y\|^{2} &= \langle x + y  ,  x + y  \rangle + \langle x -y  , x - y  \rangle \\
-                                  &= \langle x + y  , x  \rangle + \langle x + y  , y \rangle + \langle x - y  , x  \rangle + \langle x - y  , -y  \rangle \\
-                                  &= \langle x  , x \rangle + \langle y , x \rangle + \langle x  , y \rangle + \langle y  , y \rangle + \langle x  , x \rangle - \langle y , x \rangle \\
-                                  &+ - \langle x , y \rangle + \langle y , y \rangle \\
-                                  &= 2 \langle x , x \rangle + 2 \langle y , y \rangle \\
-                                  &= 2 \|x\|^{2} + 2 \|y\|^{2}.
+    \|x + y\|^{2} + \|x - y\|^{2} &= \sum_{ i=1  }^{ n } ({x}_{i} + {y}_{i})^{2} + \sum_{ i=1  }^{ n } ({x}_{i} - {y}_{i})^{2}  \\
+                                  &= \sum_{ i=1  }^{ n } ({x}_{i}^{2} + 2 {x}_{i} {y}_{i} + {y}_{i}^{2}) + \sum_{ i=1  }^{ n } ({x}_{i}^{2} - 2 {x}_{i}{y}_{i} + {y}_{i}^{2}) \\
+                                  &= 2\sum_{ i=1  }^{ n } {x}_{i}^{2} + 2\sum_{ i=1  }^{ n } {y}_{i}^{2} \\
+                                  &= 2 \|x\|^{2}  + 2 \|y\|^{2}.
 \end{align*}
-Thus, we obtain
-\[  \|x + y \|^{2} + \|x - y\|^{2} = 2 \|x\|^{2} + 2 \|y\|^{2}. \]
 \end{proof}
 
 \begin{lemma}
@@ -165,6 +169,13 @@ Hence, we conclude that
         \end{proof}
 \end{enumerate}
 
+\subsection*{Proof of \( \langle \cdot , \cdot \rangle \) is an inner product}
+
+\begin{proof}
+Note that property (b) from above implies linearity in the first component of the inner product and property (g) implies that \( c \langle x  , y \rangle = \langle cx  ,  y  \rangle \) for all \( c \in \R  \) implies the scaling property of the first component is satisfied. Also, \( \langle x  , x \rangle > 0  \) for all \( x \in \R^{n} \) because 
+\[  \langle x , x \rangle = \frac{ 1 }{ 4 } \Big(  \|2x \|^{2} - \|x - x\|^{2} \Big) = \|x\|^{2} > 0.   \]
+Also, \( \langle x , y \rangle = \overline{\langle x , y \rangle } \) because \( \langle x  , y \rangle  \) is a real number.
+\end{proof}
 
 
 \begin{problem}
@@ -175,7 +186,19 @@ Since \( h : \R^{n} \to \R^{n} \) is an isometry, we see that distance in \( \R^
     \[  d(x,y) = \|x - y\| \]
     for all \( x,y \in \R^{n} \) where \( \|\cdot\| \) is a norm on defined on \( \R^{n} \) and satisfies the following property:
     \[  d(h(x), h(y) = d(x,y). \]
-   In particular, since the norm on \( \R^{n} \) 
+   In particular, in terms of the \( \|\cdot\| \) on \( \R^{n} \), we have for all \( x,y \in \R^{n} \)
+   \[ \|h(x) - h(y)\| = d(h(x),d(y)) = d(x,y) = \|x - y \|.  \]
+   Since we can recover the norm (proven above) \( \langle \cdot , \cdot \rangle \) defined by
+   \[  \langle x , y \rangle = \frac{ 1 }{ 4 }  \Big(  \|x + y\|^{2}  - \|x - y\|^{2} \Big). \]
+   Then \( h  \) also preserves this inner product because for all \( x,y \in \R^{n} \), we have 
+   \begin{align*}
+       \langle h(x) , h(y)  \rangle &= \frac{ 1 }{ 4 }  \Big(  \|h(x)  + h(y) \|^{2} - \|h(x) - h(y)\|^{2} \Big) \\
+                                    &= \frac{ 1 }{ 4 }  \Big(  2 \|h(x)\|^{2} + 2 \|h(y)\|^{2} - 2 \|h(x) - h(y)\|^{2} \Big) \\
+                                    &= \frac{ 1 }{ 4 }  (2 \|x\|^{2} + 2 \|y\|^{2} - 2 \|x - y\|^{2}) \\
+                                    &= \frac{ 1 }{ 4 }  \Big(  \|x + y \|^{2} - \|x - y\|^{2} \Big) \\
+                                    &= \langle x , y \rangle 
+   \end{align*}
+   and we are done.
 \end{proof}
 
 \begin{problem}
