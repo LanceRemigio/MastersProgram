@@ -1,0 +1,107 @@
+\section{Week 6}
+
+\subsection{Cyclic}
+
+\begin{prop}[8]
+    If \( \mathcal{A} \) is any collection of subgroups of a group \( G  \), then \( \bigcap_{ H \in \mathcal{A} }^{  }  H  \) is a subgroup of \( G  \). 
+\end{prop}
+\begin{proof}
+This can be shown pretty easily.
+\end{proof}
+
+\begin{definition}[The Generating Set of a Group]
+    If \( A  \) is any subset of the group \( G  \) define
+    \[  \langle A  \rangle = \bigcap_{  A \subseteq  H , H \leq G   }^{  }  H \]
+    where \( A  \) is called the \textbf{generating set}.
+\end{definition}
+
+Notice that in the notation of the above proposition, we have 
+\[  \mathcal{A} = \{ H \leq G : A \subseteq  H  \}.  \]
+Notice that \( \mathcal{A} \neq \emptyset \) as \( G  \) is an element of \( \mathcal{A} \) since \( G \leq G  \) and \( A \subseteq  G  \).  
+
+\begin{prop}[ ]
+    \( \langle A \rangle \) is the unique minimal element of \( \mathcal{A} \).
+\end{prop}
+\begin{proof}
+    Since \( A \subseteq H   \) for all \( H \in \mathcal{A} \), \( A \subseteq  \langle A  \rangle \). Then \( \langle A  \rangle \in \mathcal{A} \). Let \( K \in \mathcal{A} \). Note that 
+    \[ \bigcap_{ H \in \mathcal{A} }^{  } H \leq K.  \]
+    That is, \( \langle A  \rangle \leq K  \). Hence, \( \langle A  \rangle \) is the minimal element with respect to inclusion. 
+\end{proof}
+
+When \( A  \) is finite, that is, 
+\[  A = \{  {\alpha}_{1}, {\alpha}_{2}, \dots, {\alpha}_{n} \} \ \text{for some} \ n \in \N,  \]
+we write
+\[  \langle A   \rangle  = \langle  {a}_{1}, {a}_{2}, \dots, {a}_{n} \rangle. \]
+
+This is a more concrete version of the previous set \( \langle A  \rangle = \bigcap_{  H \leq G , K \subseteq  H  }^{   }  H  \). Define the following set 
+\[  \overline{A} = \{  {a}_{1}^{{\epsilon}_{1}}  {a}_{2}^{{\epsilon}_{2}} {a}_{3}^{{\epsilon}_{3}} \dots {a}_{n}^{{\epsilon}_{n}} : n \in \N , {\epsilon}_{i} = \pm 1 \ \forall i \}. \]
+If \( A = \emptyset  \), define \( \overline{A} = \{ 1  \}  \).
+
+\begin{prop}
+    \( \langle A  \rangle = \overline{A} \)
+\end{prop}
+
+\subsection{Quotient Groups and Homomorphisms}
+
+Let \( G  \) be a group and \( N \leq G  \). Define a relation on \( G  \) by 
+\[  a \sim b \iff a^{-1} b \in N.  \]
+It is straightforward to prove that this defines an equivalence on relation on \( G  \). For \( a \in G  \), the equivalence class of \( a  \) is 
+\begin{align*}
+    \{ b \in G : a \sim b \} &= \{  b \in G : a^{-1} b \in N  \}  \\
+                             &= \{  b \in G : a^{-1} b = n  \ \ \text{for some} \ n \in N  \} \\
+                             &= \{  b \in G : b = an \ \text{for some} \ n \in N \}  \\
+                             &= \{ an : n \in N \} \\
+                             &:= aN.
+\end{align*}
+
+\begin{definition}[Cosets]
+    Suppose \( N \leq G  \) where \( G  \) is a group and \( g \in G  \). Let 
+    \begin{align*}
+        gN &= \{  g n : n \in N \}  \\
+        Ng &= \{  ng : n \in N  \}
+    \end{align*}
+    be called a \textbf{left coset} and \textbf{right coset} of \( N  \) in \( G  \), respectively. Any element of a coset is called a \textbf{representative} of a coset.
+\end{definition}
+
+We will denote the set of all left cosets of \( N  \) (or right cosets) in \( G  \) by \( G / N  \) (read as \( G  \) mod \( N  \)).
+
+\begin{prop}[4]
+   Let \( N \leq G  \) be a group and \( G / N  \) forms a partition of \( G  \). For all \( a,b \in G  \), \( a N = b N  \) if and only if \( a^{-1} b \in N  \). In particular, \( aN = b N  \) if and only if \( a \) and \( b  \) are representatives of the same coset.
+\end{prop}
+\begin{proof}
+Since we have recognized left cosets as equivalence classes induced by an equivalence relation, they form a partition, that is, 
+\[  G = \bigcup_{ g \in G  }^{   }  g N  \]
+and \( {g}_{1} N = {g}_{2} N  \) if and only if \( {g}_{1} N \cap {g}_{2} N \neq \emptyset \) for all \( {g}_{1}, {g}_{2} \in G  \). 
+
+(\( \Longrightarrow \)) Suppose \( a^{-1}b \in N  \), then 
+\[  a^{-1} b = n  \ \text{for some} \ n \in N.  \]
+It follows that \( b = an \in a N  \). Since \( N  \) is a subgroup, \( 1 \in N  \). Hence, \( b \cdot 1 \in bN  \). It follows that 
+\[  aN \cap bN \neq \emptyset \implies aN = bN. \]
+
+(\( \Longleftarrow \)) Suppose that \( aN = bN  \). Then \( an = b  \) for some \( n \in N  \). Hence, \( n = a^{-1} b \in N  \). We have 
+\begin{align*}
+    an = bn &\iff a^{-1}b \in N \\
+            &\iff b \in aN \ \text{and} \ a \in a N \\
+            &\iff a \ \text{and} \ b \ \text{are representatives of} \ aN \ \text{(or \( bN \))}.
+\end{align*}
+\end{proof}
+
+\begin{prop}[5]
+    \begin{enumerate}
+        \item[(1)] The operation on \( G / N  \) described by \( aN \cdot bN = (ab) N  \) for all \( a,b \in G  \) is well defined if and only if \( g n g^{-1} \in N  \) for all \( g \in G  \) and \( n \in N  \). 
+        \item[(2)] If the operation above is well-defined, then \( G / N  \) forms a group, where \( 1 N  \) is the identity and \( (gN)^{-1} = g^{-1}N \).
+    \end{enumerate}
+\end{prop}
+\begin{proof}
+    (\( \Longleftarrow \)) (We will show that the operation defined above is well-defined)  To show that the operation is well-defined, we need to show that 
+    \[  (ab)N = ({a}_{1}{b}_{1})N. \]
+    Suppose that \( g n g^{-1} \in N  \) for all \( g \in G  \) and \( n \in N  \). Let \( a, {a}_{1} \in aN  \) and \( b, {b}_{1} \in bN \). Then \( {a}_{1} = an   \) and \( {b}_{1} = b m \) for some \( n,m \in N \). To get our result, we need to show that \( {a}_{1} {b}_{1} \in (ab)N \) if and only if \( ({a}_{1}{b}_{1})N = (ab)N \). 
+
+    Now, we will prove the former. Indeed, we have 
+    \begin{align*}
+        {a}_{1}{b}_{1} &= (an)(bm) \\
+                       &= a(b b^{-1}) n b m \\
+                       &= ab (b^{-1} n b) m \tag{\(b^{-1} n (b^{-1})^{-1} \in N)\)}.
+    \end{align*}
+    Hence, it follows that \( {a}_{1} {b}_{1} = (ab) {n}_{1} m \) where \( {n}_{1} \in N \) and \( {n}_{1} = b^{-1} n (b^{-1})^{-1} \).
+\end{proof}

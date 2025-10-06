@@ -1,0 +1,224 @@
+\section{Week 6}
+
+\begin{eg}[Special Orthogonal Group]
+   Note that  
+   \begin{align*}
+       \text{SO}(n) = \{  A \in M(n,\R) : A^{T}A = I \ \text{and} \ \text{det}A > 0  \} \\  
+       &= \{ A \in M(n,\R) : A^{T}A = I \ \text{and} \ \text{det}A = 1   \}   
+    \end{align*}
+
+    We will prove that \( \text{SO}(n)  \) is a subgroup of \( \text{O}(n) \). 
+    \begin{itemize}
+        \item Note that \( \text{SO}(n)  \) is closed under multiplication. Indeed, suppose \( A  \) and \( B  \) are in \( \text{SO}(n) \). Our goal is to show that \( AB \in \text{SO}(n) \). Then we have  
+            \[  A,B \in \text{SO}(n)  \implies A,B \in \text{O}(n) \implies AB \in \text{O}(n).\]
+            Since \( A,B  \in \text{SO}(n) \), it follows that \( \text{det}A = 1   \) and \( \text{det}B = 1  \). Hence, 
+            \[  \text{det}AB = (\text{det}A) (\text{det}B ) = 1 \cdot 1 = 1. \]
+        \item Also observe that \( \text{SO}(n)  \) contains the inverse of each of its elements. Indeed, if \( A \in \text{SO}(n) \), then 
+            \[  A \in \text{SO}(n) \implies A \in \text{O}(n) \implies A^{-1} \in \text{O}(n). \tag{1} \]
+            Furthermore, 
+            \[ A \in \text{SO}(n) \implies \text{det}A = 1 \implies \text{det} A^{-1} = \frac{ 1 }{ 1 }  = 1 \implies A^{-1} \in \text{SO}(n) \tag{2}  \]
+
+    \end{itemize}
+\end{eg}
+
+
+
+
+\begin{definition}[Bilinear Form]
+    A function \( B: \R^{n} \times \R^{n} \to \R  \) is said to be a \textbf{bilinear form} on \( \R^{n} \) if it satisfies the following condition:
+    \begin{enumerate}
+        \item[(1)] \( \forall x,y,z \in \R^{n} \) \( B(x+y,z) = B(x,z) + B(y,z) \)
+        \item[(2)] \( \forall c \in \R  \) and \( \forall x,y \in \R^{n} \) \( B(cx,y) = c B(x,y) \)
+        \item[(3)] \( \forall x,y,z \in \R^{n} \) \( B(x, y + z) = B(x,y) + B(x,z) \)
+        \item[(4)] \( \forall c \in \R  \) \( \forall x,y \in \R^{n} \) \( B(x,cy) = c b(x,y) \)
+    \end{enumerate}
+\end{definition}
+
+Moreover, 
+\begin{itemize}
+    \item The bilinear form \( B  \) is said to be \textbf{symmetric} if 
+        \[  \forall  x ,y \in \R^{n} \ \  B(x,y) = B(y,x). \]
+    \item The bilinear form \( B  \) is said to be \textbf{skew-symmetric} if 
+        \[  \forall x,y \in \R^{n} \ \  B(x,y) = - B(y,x). \]
+    \item The bilinear form \( B  \) is said to be \textbf{non-degenerate} if the following statement is true
+        \[  B(x,y) = 0 \ \  \forall y \in \R^{n} \implies x = 0.  \]
+    \item A symmetric bilinear form \( B  \) is said to be \textbf{positive definite} if 
+        \[  B(x,x) > 0 \ \ \forall x \neq 0.  \]
+\end{itemize}
+
+\begin{eg}[Standard Inner Product on \( \R^n \)]
+   The standard inner product in \( \R^{n} \) 
+   \[  \langle x , y \rangle = \sum_{ i=1  }^{ n } {x}_{i} {y}_{i} \]
+   is a symmetric positive definite bilinear form on \( \R^{n} \).
+
+   For example, let's verify condition (1) for bilinearity:
+   \begin{align*}
+       \langle x + y  , z  \rangle &= \sum_{ i=1  }^{ n } [ ({x}_{i}  + {y}_{i}) {z}_{i} ]  \\
+                                   &= \sum_{ i=1  }^{ n } [{x}_{i} {z}_{i} + {y}_{i} {z}_{i} ] \\
+                                   &= \sum_{ i=1  }^{ n } {x}_{i} {z}_{i} +  \sum_{ i=1  }^{ n } {y}_{i} {z}_{i} \\
+                                   &= \langle x , z  \rangle + \langle y , z \rangle.
+   \end{align*}
+   I leave you to check the other conditions yourself.
+
+   In general, a symmetric positive definite bilinear form on a real vector space \( V  \), by definition, is called an \textbf{inner product} on \( V  \). 
+\end{eg}
+
+\begin{eg}[Standard Symplectic Form on \( \R^n \)]
+   Define \( w + \R^{2n} \times \R^{2n} \to \R  \) as follows:
+   \[  \forall x,y \in \R^{2n} \ \ w(x,y) = \sum_{ j=1  }^{ n } {x}_{j} {y}_{n+j} - {x}_{n+j} {y}_{j}. \]
+   For example, 
+   \begin{align*}
+       n = 1 &\implies w(x,y) = {x}_{1} {y}_{2} + {x}_{2} {y}_{1} \\
+       n = 2 &\implies w(x,y) = ({x}_{1} {y}_{3} - {x}_{3} {y}_{1}) + ({x}_{2} {y}_{4} - {x}_{4} {y}_{2}) \\
+             &\vdots 
+   \end{align*}
+\end{eg}
+
+If we let \( \Omega = \begin{pmatrix} {O}_{n \times n}  & {I}_{n \times n } \\ - {I}_{n \times n } & {O}_{n \times n } \end{pmatrix}  \), then we can write the standard symplectic form in the following way:
+\[  w(x,y) = \langle x ,  \Omega y \rangle \]
+where \( \langle  ,  \rangle  \) is the standard inner product in \( \R^{2n} \). 
+
+\begin{prop}[Preserving the standard symplectic form on \(\R^{2n}\)]
+   Suppose \( A \in M(2n, \R) \). We say that \( A  \) preserves the standard symplectic form on \( \R^{2n} \) if and only if \( A^{T} \Omega A = \Omega \). 
+\end{prop}
+\begin{proof}
+    We say that \( A \in M(2n, \R )  \) preserves the standard symplectic form on \( \R^{2n} \) if and only if 
+    \begin{align*}
+    \forall x,y \in \R^{2n} \ \ w(Ax, Ay) = w(x,y) &\iff \langle Ax , \Omega (Ay) \rangle = \langle x , \Omega y \rangle \\ 
+                                                   &\iff \langle x  ,  A^{T} \Omega A y \rangle = \langle x ,  \Omega y \rangle \\
+                                                   &\iff  \forall y \in \R^{2n} A^{T} \Omega A y  = \Omega y \\
+                                                   &\iff A^{T} \Omega A = \Omega.
+\end{align*}
+\end{proof}
+
+\begin{prop}
+   If \( A^{T} \Omega A = \Omega  \), then \( A  \) is invertible. 
+\end{prop}
+
+\begin{proof}
+Suppose \( A^{T} \Omega A = \Omega  \), then we have 
+\begin{align*}
+    &\text{det}(A^{T} \Omega ) A = \text{det}(A)  \\
+    &\implies \text{det}(A^{T}) \text{det}(\Omega) \text{det}(A) = \text{det}(\Omega) \\
+    &\implies (\text{det}(A))^{2} (\text{det}(\Omega)) = \text{det}(\Omega) \\
+    &\implies (\text{det}(A))^{2} = 1  \\
+    &\implies \text{det}(A) = \pm 1  \\
+    &\implies A \ \text{is invertible}. 
+\end{align*}
+\end{proof}
+
+\begin{prop}
+   \( A^{T} \Omega A = \Omega  \) if and only if \( - \Omega A^{T} \Omega = A^{-1} \) where \( A  \) is invertible.  
+\end{prop}
+\begin{proof}
+We have 
+\begin{align*}
+    - \Omega A^{T} \Omega = A^{-1} &\underbrace{\iff}_{\text{left multiply by \( \Omega^{-1} \)}} - A^{T} \Omega = \Omega^{-1} A^{-1} \\ 
+                                   &\underbrace{\iff}_{\text{right multiply by \( A  \)}} - A^{T} \Omega  A = \Omega^{-1}    \\
+                                   &\underbrace{\iff}_{\Omega^{-1} = - \Omega} - A^{T} \Omega A = \Omega \\
+                                   &\iff A^{T} \Omega A = \Omega.
+\end{align*}
+\end{proof}
+
+\begin{eg}[Real Symplectic Group]
+    \( \text{Sp}(2n, \R) = \{ A \in M(2n, \R) : A^{T} \Omega A = \Omega  \}  \) is a subgroup of \( \text{GL}(2n, \R) \).
+\end{eg}
+\begin{proof}
+We just proved that every matrix in \(\text{SP}(2n, \R)\) is invertible. So, 
+\[  \text{SP}(2n, \R) \subseteq  \text{GL}(2n, \R). \]
+
+\begin{itemize}
+    \item We prove that \( \text{SP}(2n, \R) \) is closed under multiplication. Suppose \( A,B \in \text{SP}(2n, \R)  \).    We have  
+        \begin{align*}
+            (AB)^{T} \Omega (AB) &= B^{T} (A^{T} \Omega A) B    \\
+                                 &= B^{T} \Omega B  \\
+                                 &= \Omega.
+        \end{align*}
+        Hence, we have \( AB \in \text{SP}(2n, \R) \).
+    \item \(\text{SP}(2n, \R)\) contains the inverse of each of its elements. Suppose \( A \in \text{SP}(2n, \R) \). We have 
+        \begin{align*}
+            A^{T} \Omega A = A &\implies (A^{T})^{-1} \Omega A = (A^{T})^{-1} \Omega  \\
+                               &\implies  \Omega = (A^{T})^{-1} \Omega A^{-1} \\
+                               &\implies \Omega = (A^{-1})^{T} \Omega A^{-1} \\
+                               &\implies A^{-1} \in \text{SP}(2n, \R)
+        \end{align*}
+\end{itemize}
+From the above, we can see that \( \text{SP}(2n, \R) \) is a subgroup of \(\text{GL}(2n, \R)\). Now, we will prove that \( \text{SP}(2n, \R) \) is a Lie subgroup of \(\text{GL}(2n, \R)\). Define the map
+\[  G: \text{GL}(2n, \R) \subseteq \R^{4 n^{2}} \to M(2n, \R) \cong \R^{4 n^{2}} \ \text{by} \ A \mapsto A^{T} \Omega A - \Omega. \]
+Clearly, \( \text{SP}(2n, \R) = F^{-1}(\{ 0 \} ) \). It can be shown that 
+\[  \forall A \in \text{GL}(2n, \R) \ \ DF(A) \ \text{has rank } \frac{ 4n^{2} - 2n  }{  2  } = 2 n^{2} -n.  \] 
+Hence, \( \text{SP}(2n, \R) \) is an embedded submanifold of \( \text{GL}(2n, \R) \) with dimension \( 4 n^{2} - (2 n^{2} - n) = 2 n^{2} + n  \). Thus, \( \text{SP}(2n, \R) \) is a Lie subgroup of \( \text{GL}(2n, \R)\).
+\end{proof}
+
+\begin{definition}[Homomorphisms, Isomorphisms, Automorphisms]
+    Let \( G  \) and \( H  \) be two groups.
+    \begin{itemize}
+        \item A function \( \varphi : G \to H  \) is said to be a \textbf{homomorphism} if it preserves group multiplication  
+            \[  \forall {g}_{1}, {g}_{2} \in G \ \ \varphi({g}_{1} {g}_{2}) = \varphi ({g}_{1} ) \varphi({g}_{2}). \]
+        \item A bijective homomorphism is called an \textbf{isomorphism}. If there is an Isomorphism between \( G  \) and \( G  \), we say \( G  \) and \( H  \) are isomorphic, and we write \( G \cong H  \). 
+        \item An \textbf{endomorphism} of \( G  \) is a homomorphism from \( G \) to itself.
+        \item An \textbf{automorphism} of \( G  \) is an isomorphism from \( G \) to itself.
+    \end{itemize}
+\end{definition}
+
+\begin{definition}[Lie Group Homomorphism]
+    Let \( G  \) and \( H  \) be two Lie groups.
+    \begin{itemize}
+        \item A function \( f: G \to H  \) is said to be a \textbf{Lie group homomorphism} if 
+            \begin{enumerate}
+                \item[(i)] \( f  \) is a group homomorphism 
+                \item[(ii)] \( f  \) is smooth
+            \end{enumerate}
+        \item A function \( f: G \to H \) is said to be a \textbf{Lie group isomorphism} if 
+            \begin{enumerate}
+                \item[(i)] \( f  \) is a group isomorphism 
+                \item[(ii)] \( f  \) is smooth 
+                \item[(iii)] \( f^{-1}  \) is smooth
+            \end{enumerate}
+            If \( f  \) is smooth and its inverse is smooth, then \( f  \) is a diffeomorphism.
+    \end{itemize}
+\end{definition}
+
+\begin{eg}[The Determinant is a Lie Group Homomorphism]
+   The determinant \( \text{det} : \text{GL}(n, \R) \to \R^{*} \) is a Lie Group Homomorphism: 
+   \begin{enumerate}
+       \item[(i)] \( \forall A,B \in \text{GL}(n, \R)  \), we have \( \text{det}(AB) = \text{det}(A) \text{det}(B) \). Hence, \( \text{det}  \) is a group homomorphism.
+        \item[(ii)] \( \text{det} A   \) is a polynomial in terms of the entries of \( A  \) and so differentiable. Hence, the \( \text{det}  \) is smooth. 
+   \end{enumerate}
+   Similarly, the \( \text{det} GL(n, \C) \to \C^{*} \) is a Lie Group Homomorphism.
+\end{eg}
+
+\begin{eg}[Left Translation/right translation]
+   Let \( G  \) be a Lie Group and let \( g \in G  \). The \textbf{left translation by \( g  \)} is the map
+   \[  {L}_{g} : G \to G \ \ h \mapsto gh. \]
+   The \textbf{right translation by \( g \)} is the map
+   \[  R_{g}: G \to G \ \ h \mapsto hg. \]
+\end{eg}
+
+Notice that \( {L}_{g}  \) is a composition of smooth maps and so it is smooth:
+\[  G \to G \times G \to G  \ \ h \mapsto (g,h) \mapsto gh. \]
+Starting from left to right, we see that the first mapping is smooth because
+\begin{itemize}
+    \item Fact 1: \( F = ({F}_{1}, {F}_{2}) \) is smooth if and only if \( {F}_{1}  \) and \( {F}_{2} \) are smooth.
+    \item Fact 2: \( h \mapsto g  \) is a constant function implies that it is smooth.
+    \item Fact 3: \( h \mapsto h  \) is the identity which is also smooth.
+\end{itemize}
+The second mapping \( G \times G \to G \) is smooth because multiplication in \( G  \) is smooth since \( G  \) is a Lie group.
+
+In fact, \( {L}_{g} : G \to G  \) is a diffeomorphism because the inverse \( {L}_{g}  \) is \( {L}_{g^{-1}} \):
+\[  \forall h \ \ {L}_{g^{-1}} \circ {L}_{g} (h) = g^{-1}(gh) = h.  \]
+Unfortunately, \( {L}_{g} \) in general is NOT a group homomorphism; that is, in general
+\[  {L}_{g}({h}_{1} {h}_{2}) \neq {L}_{g}({h}_{1}) {L}_{g}({h}_{2}). \]
+Similarly, the right translation map also satisfies the properties above but is NOT a group homomorphism.
+
+\begin{eg}[Conjugation by \( g \in G  \)]
+   Let \( G  \) be a Lie group and let \( g \in G  \). The conjugation by \( g  \) is the map: 
+   \[  {C}_{g} : G \to G \ \ h \mapsto g h g^{-1}. \]
+   Note that \( {C}_{g} \) is a diffeomorphism because it is a composition of diffeomorphisms:
+   \[  {C}_{g} = {L}_{g} \circ {R}_{g^{-1}}.  \]
+   In fact, \( {C}_{g}^{-1} = {C}_{g^{-1}} \). Also, note that 
+   \[  \forall {h}_{1}, {h}_{2} \in G \ \ {C}_{g}({h}_{1}{h}_{2}) = g ({h}_{1}{h}_{2})g^{-1} = (g {h}_{1} g^{-1})(g {h}_{2} g^{-1}) = {C}_{g}({h}_{1}) {C}_{g}({h}_{2}). \]
+   Hence, \( {C}_{g} : G \to G  \) is a Lie group isomorphism (i.e a Lie group automorphism).
+\end{eg}
+
+

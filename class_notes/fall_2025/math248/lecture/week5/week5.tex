@@ -1,0 +1,16 @@
+\begin{eg}[\( SL(n,\F) \)]
+    Suppose \( \F = \R  \) (or \( \C  \)). We claim that \[ \text{SL}(n,\F ) = \{ A \in \text{GL}(n, \F) : \text{det} A = 1   \}  \]  
+    is a Lie subgroup of \( \text{GL}(n, \F) \).
+
+    Indeed, we have that 
+    \begin{itemize}
+        \item \( \text{SL}(n, \F) \) is closed under multiplication, indeed, if \( A,B \in \text{SL}(n, \F) \), then
+            \[ \text{det}(AB) = (\text{det} A ) (\text{det} B) = 1 \cdot 1  = 1.   \]
+            So, \( AB  \) is invertible and \( \text{det}(AB) = 1  \). This implies that 
+            \[  AB \in SL(n,\F). \]
+        \item \( SL(n,\F) \) contains the inverse of each of its elements. Indeed, suppose \( A \in SL(n,\F) \), then \( A  \) is invertible and 
+            \[  \text{det}(A^{-1}) = \frac{ 1 }{ \text{det}A }  = \frac{ 1 }{ 1 }  = 1. \]
+            So, \( A^{-1} \in \text{SL}(n, \F) \).
+    \end{itemize}
+    From the above, we can conclude that \( \text{SL}(n, \F) \) is a subgroup of \( \text{GL}(n, \F)\).
+\end{eg}

@@ -1,0 +1,28 @@
+\section{Group Actions}
+
+\begin{definition}[Group Actions]
+    A \textbf{group action} of a group \( G  \) on a set \( A  \) is a map \( G \times G \to A  \) (written \( g \cdot a  \) for all \( g \in G  \) and \(  a \in A  \)) satisfying the following properties:
+    \begin{enumerate}
+        \item[(1)] \( {g}_{1} \cdot ({g}_{2} \cdot a) = ({g}_{1} {g}_{2}) \cdot a  \) for all \( {g}_{1}, {g}_{2} \in G  \) and \( a \in A  \);
+    \item[(2)] \( 1 \cdot a = a  \) for all \( a \in A \).
+    \end{enumerate}
+\end{definition}
+
+\begin{eg}[Group Actions]
+   \begin{enumerate}
+       \item[(1)] The additive group \( \R  \) that acts on \( \R^{2} \) by \( r \cdot (x,y) = (x + ry, y) \). 
+        \item[(2)] Let \( G  \) be any group and let \( A = G  \). The map \( g \cdot a : G \times A \to G  \) defined by
+            \[  g \cdot a = g a g^{-1} \ \forall g, a \in G  \]
+            satisfy the axioms of a group action.
+   \end{enumerate} 
+\end{eg}
+
+\subsection{Permutation Representation of a Group Action}
+
+Let the group \( G \) act on the set \( A  \). For each fixed \( g \in G  \), the map \( {\sigma}_{g} : A \to A  \) is a  
+\begin{enumerate}
+    \item[(1)] Permutation for each fixed \( g \in G  \) and
+    \item[(2)] The map from \( G \) to \( {S}_{A} \) defined by \( g \mapsto {\sigma}_{g}  \) is a homomorphism; that is, the map \( \varphi : G \to {S}_{A} \) is any homomorphism from a group \( G  \) to a symmetric group \( {S}_{A} \) defined by
+        \[  g \cdot a = \varphi(g)(a). \]
+\end{enumerate}
+

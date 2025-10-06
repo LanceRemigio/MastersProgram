@@ -2,3 +2,4 @@
 \contentsline {section}{\numberline {1}Week 1}{1}{section.1}%
 \contentsline {subsection}{\numberline {1.1}Zorn's Lemma}{1}{subsection.1.1}%
 \contentsline {subsection}{\numberline {1.2}Hahn-Banach Theorem}{1}{subsection.1.2}%
+\contentsline {section}{\numberline {2}Week 7: Reflexive Spaces}{3}{section.2}%

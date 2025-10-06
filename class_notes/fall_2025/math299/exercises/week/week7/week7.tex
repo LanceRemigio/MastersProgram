@@ -1,0 +1,101 @@
+\section{Week 7: Reflexive Spaces}
+
+\begin{theorem}[Dual Space (2.10-4)]\label{2.10-4}
+   The dual space \( X' \) of a normed space \( X  \) is a Banach Space (whether or not \( X  \) is). 
+\end{theorem}
+
+\begin{prop}[ ]
+   The dual space of \( \R^{n} \) is \( \R^{n} \).
+\end{prop}
+
+Recall the definition of Algebraic Reflexivity of a vector space \( X  \) that was introduced in section 2.8.
+
+\begin{definition}[Algebraic Reflexivity]
+   A vector space \( X  \) is said to be \textbf{algebraic reflexive} if the canonical mapping \( C : X \to X^{**} \) is surjective. 
+\end{definition}
+
+\begin{itemize}
+    \item Here we see that \( X^{**} \) is the second algebraic dual space of \( X  \) and the mapping \( C  \) is defined by \( x \mapsto {g}_{x} \) where 
+        \[  {g}_{x}(f) = f(x). \ \  \tag{(1) \ \( (f \in X^{*}) \)}; \]
+        that is, for any \( x \in X  \) the image is the linear functional \( {g}_{x} \) defined by the above.
+    \item If \( X  \) is finite-dimensional, then \( X  \) is algebraic reflexive.
+\end{itemize}
+
+Consider a normed space \( X  \) and its dual space \( X' \) (the space of all bounded linear functionals). Observe that \( (X')' \) is the \textbf{second dual space} of \( X  \) (or \textbf{bidual space} of \( X  \)). We define a similar mapping to the above statement, by setting
+\[  {g}_{x}(f) = f(x) \ \ \tag{(2), \ \( (f \in X') \)}. \]
+The only difference here is that \( f  \) is now bounded and so \( {g}_{x}  \) is bounded. 
+
+\begin{lemma}[Norm of \( g_x \)]
+For every fixed \( x  \) in a normed space \( X  \), the functional \( {g}_{x} \) defined above is a bounded linear functional on \( X' \), so that \( {g}_{x} \in X'' \), and has the norm      
+\[  \|{g}_{x}\| = \|x\|.  \tag{3}\]
+\end{lemma}
+\begin{proof}
+It is easy to see that \( {g}_{x} \) is linear, and (3) follows from (2) and corollary 4.3-4; that is,
+\[  \|{g}_{x}\| = \sup_{\substack{f \in X' \\ f \neq 0}} \frac{ | {g}_{x}(f) |  }{ \|f\| }  = \sup_{\substack{f \in X' \\ f \neq 0 }} \frac{ |f(x)|  }{  \|f \| }  = \|x \|. \tag{4} \]
+\end{proof}
+
+\begin{itemize}
+    \item This lemma tells us that for every \( x \in X  \), there corresponds a unique bounded linear functional \( {g}_{x} \in X'' \) given by (2) which defines the \textbf{canonical mapping} of \( X  \) into \( X'' \):
+        \begin{align*}
+            C: X &\longrightarrow X'' \tag{5} \\
+                x &\longmapsto {g}_{x}
+        \end{align*}
+    \item This map is linear and injective and preserves the norm; that is, in terms of mapping the domain to its range, it will be an isomorphism of normed spaces.
+\end{itemize}
+
+\begin{lemma}[Canonical Mapping]\label{Canonical Mapping Lemma}
+   The canonical mapping \( C  \) given by (5) is an isomorphism of the normed space \( X  \) onto the normed space \( \R(C) \), the range of \( C  \). 
+\end{lemma}
+\begin{proof}
+We can see easily see the linearity of \( C  \). Indeed, we have
+\[  {g}_{\alpha x +  \beta y}(f) = f(\alpha x + \beta y) = \alpha f(x)  + \beta f(y) = \alpha {g}_{x}(f) + \beta {g}_{y}(f). \]
+In particular, we have \( {g}_{x} - {g}_{y} = {g}_{x -y} \). Thus, we obtain 
+\[  \|{g}_{x} - {g}_{y} \| = \|{g}_{x-y}\| = \|x - y\|. \]
+This tells us that \( C  \) is an isometry and so it must preserve the norm. Because isometries are injective, \( C  \) is also injective. This can be directly seen from the above formula. Indeed, for any \( x \neq y  \), we have \( {g}_{x} \neq {g}_{y} \) by axiom (N2) in section 2.2. Since we are considering maps from \( X  \) to the range of \( C  \), it follows that \( C  \) is also surjective. Thus, \( C  \) must be bijective.
+\end{proof}
+
+\begin{definition}[Embeddable]
+    We say that a set \( X  \) is \textbf{embeddable} in a normed space \( Z  \) if \( X  \) is isomorphic with a subspace of \( Z  \).
+\end{definition}
+
+\begin{itemize}
+    \item From our {\hyperref[Canonical Mapping Lemma]{Canonical Mapping Lemma}}, we can see that \( X  \) is embeddable in \( X'' \) since the range of \( C  \) is a subspace of \( X'' \) and it is isomorphic to \( X  \). 
+    \item The mapping \( C  \) is called the \textbf{canonical embedding} in this case.
+    \item In general, the range of \( C  \) will be a proper subspace of \( X'' \). 
+    \item If the range of \( C  \) happens to be a surjection, then we will call it a different name which will be defined below.
+\end{itemize}
+
+\begin{definition}[Reflexivity]
+    A normed space \( X  \) is said to be \textbf{reflexive} if 
+    \[  \mathcal{R}(C) = X'' \]
+    where \( C : X \to X'' \) is the canonical mapping given by (5) and (2).
+\end{definition}
+
+\begin{itemize}
+    \item If \( X  \) is reflexive, it is isomorphic (and hence isometric) with \( X'' \) by {\hyperref[Canonical Mapping Lemma]{Lemma 4.6-2}}.  
+    \item However, the converse does not hold.
+    \item Completeness does not necessarily imply reflexivity.
+    \item However, the converse does hold which will be outlined below.
+\end{itemize}
+
+\begin{theorem}[Completeness]
+    If a normed space \( X  \) is reflexive, it is complete (hence a Banach space).
+\end{theorem}
+\begin{proof}
+    Since \( X'' \) is the dual space of \( X' \), it is complete by {\hyperref[2.10-4]{Theorem 2.10-4}}. Reflexivity of \( X  \) means that \( \mathcal{R}(C) = X''\). Completeness of \( X  \) now follows from that of \( X'' \) by {\hyperref[Canonical Mapping Lemma]{Lemma 4.6-2}}.  
+\end{proof}
+
+\begin{itemize}
+    \item An example of a reflexive space is \( \R^{n} \) which follows from example 2.10-5.
+    \item For finite dimensions, every linear functional on a general normed space \( X  \) is bounded and so \( X' = X^{*} \) which implies further that 
+\end{itemize}
+
+\begin{theorem}[Finite Dimension]
+    Every finite-dimensional normed space is reflexive.
+\end{theorem}
+
+\begin{itemize}
+    \item \( l^{p} \) with \( 1 < p < + \infty  \) is reflexive.
+    \item \( L^{p}[a,b]  \) with \( 1 < p < + \infty  \) is reflexive.
+    \item Non-examples are \( C[a,b] \), \( l^{1} \), \( L^{1}[a,b] \), \( l^{\infty } \) and the subspaces \( c  \) and \( {c}_{0}  \) of \( l^{\infty } \) where \( c  \) is the space of all convergent sequence of scalars and \( {c}_{0} \) is the space of all sequences of scalars converging to zero.
+\end{itemize}

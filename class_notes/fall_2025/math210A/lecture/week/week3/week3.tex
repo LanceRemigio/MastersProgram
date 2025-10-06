@@ -1,0 +1,64 @@
+\section{Section 2.1: Subgroups}
+
+\begin{definition}[Subgroup]
+   Let \( G  \) be a group. The subset \( G  \) of \( G  \) is a \textbf{subgroup} of \( G  \) if \( H \neq \emptyset  \) and \( H  \) is closed under products and inverses; that is, for all \( x, y \in H  \) implies \( x^{-1} \in H  \) and \( x y \in H  \). If \( H  \) is a subgroup of \( G  \), we shall write \( H \leq G  \). 
+\end{definition}    
+
+\begin{definition}[The Subgroup Criterion]
+   A subset \( H  \) of a group \( G  \) is a subgroup if and only if  
+   \begin{enumerate}
+       \item[(1)] \( H \neq \emptyset \), and
+       \item[(2)] For all \( x,y \in H  \), \( x y^{-1} \in H  \).
+   \end{enumerate}
+\end{definition}
+
+
+\section{Section 2.2: Centralizers, Normalizers, Stabilizers, and Kernels}
+
+\subsection{Centralizers, Centers, and Normalizers}
+
+\begin{definition}[Centralizer]
+   Define \( {C}_{G}(A) = \{ g \in G : g a g^{-1} = a \ \forall a \in A  \}  \). This subset of \( G  \) is called the \textbf{centralizer} of \( A  \) in \( G  \). Since \( g a g^{-1} = a  \) if and only if \( ga = ag  \), \( {C}_{G}(A) \) is the set of elements of \( G  \) which commute with every element of \( A  \).
+\end{definition}
+
+\begin{definition}[Center]
+    Define \( Z(G) = \{  g \in G : gx = xg \ \forall x \in G  \}  \), the set of elements commuting with all elements of \( G  \). This subset of \( G  \) is called the \textbf{center} of \( G  \).
+\end{definition}
+
+
+
+\begin{definition}[Normalizer]
+    Define \( g A g^{-1} = \{ g a g^{-1} : a \in A \}  \). Define the \textbf{normalizer} of \( A  \) in \( G  \) to be the set \( {N}_{G}(A) = \{ g \in G : g A g^{-1} = A  \}  \).
+\end{definition}
+
+\begin{itemize}
+    \item If \( G \) is abelian if and only if \( Z(G) = G  \).
+    \item \( G  \) is abelian if and only if \( {C}_{G}(A) = {N}_{G}(A) \) for any subset \( A  \) of \( G  \).
+\end{itemize}
+
+\subsection{Stabilizers and Kernels of Group Actions}
+
+In many cases, we can make our task of proving certain subsets of a group by making it about a problem about whether that subset is equal to either its stabilizer or kernel of a group action. The three main sets mentioned above are just special cases of group actions acting on either a fixed element of some set \( S  \) or keeping all the elements of \( S  \) fixed.
+
+
+\begin{definition}[Stablizer]
+   If \( G  \) is a group acting on a set \( S  \) and \( s  \) is some fixed element of \( S  \), the \textbf{stabilizer} of \( s  \) in \( G  \) is the set  
+   \[  {G}_{s} = \{  g \in G : g \cdot s = s  \}. \]
+\end{definition}
+
+\begin{definition}[Kernel]
+   Let \( G  \) be a group acting on a set \( S  \). Then the \textbf{kernel} of the action of \( G  \) on \( S  \) is the set
+   \[  \{ g \in G : g \cdot s = s \ \forall s \in S   \}.  \]
+\end{definition}
+
+Let \( S = \mathcal{P}(G) \) (the power set of \( G  \)) (the collection of all subsets of \( G  \), and let \( G  \) act on \( S  \) by \textit{conjugation}), that is, for each \( g \in G  \) and each \( B \subseteq  G  \) let
+\begin{center}
+\(  g : B \to g B g^{-1} \) where \( g B g^{-1} = \{  g b g^{-1} : b \in B  \}  \).
+\end{center}
+This action gives us the stabilizer of \( A  \) in \( G  \); that is,
+\begin{align*}
+    {N}_{G}(A) &= \{ g \in G : g A g^{-1} = A  \}  \\
+               &= \{ g \in G : g \cdot A = A  \} \\
+               &= {G}_{A} 
+\end{align*}
+which is clearly a subgroup of \( G  \).
