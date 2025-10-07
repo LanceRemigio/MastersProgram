@@ -8,6 +8,13 @@
    The dual space of \( \R^{n} \) is \( \R^{n} \).
 \end{prop}
 
+\begin{theorem}[3.8-1]\label{Riesz Representation}
+    Every bounded linear functional \( f  \) on a Hilbert space \( H  \) can be represented in terms of the inner product , namely, 
+    \[  f(x) = \langle x  ,  z  \rangle \]
+    where \( z  \) depends on \( f  \), is uniquely determined by \( f  \) and has norm
+    \[  \|z \| = \|f \|. \]
+\end{theorem}
+
 Recall the definition of Algebraic Reflexivity of a vector space \( X  \) that was introduced in section 2.8.
 
 \begin{definition}[Algebraic Reflexivity]
@@ -99,3 +106,29 @@ This tells us that \( C  \) is an isometry and so it must preserve the norm. Bec
     \item \( L^{p}[a,b]  \) with \( 1 < p < + \infty  \) is reflexive.
     \item Non-examples are \( C[a,b] \), \( l^{1} \), \( L^{1}[a,b] \), \( l^{\infty } \) and the subspaces \( c  \) and \( {c}_{0}  \) of \( l^{\infty } \) where \( c  \) is the space of all convergent sequence of scalars and \( {c}_{0} \) is the space of all sequences of scalars converging to zero.
 \end{itemize}
+
+\begin{theorem}[Hilbert Space]
+   Every Hilbert Space \( H  \) is reflexive. 
+\end{theorem}
+
+\begin{proof}
+Our goal is to show that the canonical mapping \( C : H \to H'' \) is surjective by showing that for every \( g \in H'' \), there exists an \( x \in H  \) such that \( g = C x  \). Define \( A : H' \to H  \) by \( Af = z  \), where \( z  \) is given the {\hyperref[Riesz Representation]{Riesz Representation}} \( f(x) = \langle x , z  \rangle  \). From this, we see that \( A  \) is bijective and isometric. Note that \( A  \) is conjugate linear, as we see from (16) from section 4.5. Now, \( H' \) is complete by {\hyperref[2.10-4]{2.10-4}} and a Hilbert space with inner product defined by
+\[  \langle {f}_{1}  ,  {f}_{2} \rangle_1 = \langle A {f}_{2} ,  A {f}_{1} \rangle. \]
+It can be easily shown that \( \langle  ,  \rangle_1  \) is an inner product on \( H  \).
+
+Let \( g \in H'' \) be arbitrary. Let its Riesz Representation be 
+\[  g(f) = \langle f , {f}_{0} \rangle_1 = \langle A {f}_{0} ,  A f \rangle. \]
+We now remember that \( f(x) = \langle x  , z  \rangle  \) where \( z = A f  \). Writing \( A {f}_{0} = x  \), we have 
+\[  \langle A {f}_{0}  ,  A f  \rangle = \langle x  , z  \rangle = f(x). \]
+Hence, we have \( g(f) = f(x) \) and so \( g = C x  \) by definition of \( C  \). Hence, \( C  \) is surjective and so \( H  \) must be reflexive.
+\end{proof}
+
+\begin{itemize}
+    \item Separability of the dual of a normed space implies separability of \( X  \) (note the converse is not generally true).
+    \item  If a normed space \( X  \) is reflexive, then \( X'' \) is isomorphic with \( X  \) by {\hyperref[4.6-2]{4.6-2}}, and so \( X  \) implies separability of \( X'' \). Thus, the dual space \( X' \) must also be separable.
+    \item \textit{A separable normed space \( X  \) with a nonseparable dual space \( X' \) cannot be reflexive.} 
+\end{itemize}
+
+\begin{eg}[\( l^1  \) is not reflexive]
+    Note that \( l^1  \) is separable by 1.3-10, but the dual of \( l^1  \) which is \( l^{\infty } \) is not via 2.10-6 and 1.3-9.
+\end{eg}
