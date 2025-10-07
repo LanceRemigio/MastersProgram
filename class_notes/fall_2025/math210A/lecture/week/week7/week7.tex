@@ -1,0 +1,94 @@
+\section{Week 7}
+
+Last time we constructed cosets from an equivalence relation and we looked at the set of all left cosets of subgroup \( H  \) of a group \( G  \), denoted by
+\[  G / H = \{ gH : g \in G  \}.  \]
+We showed that the operation on \( G / H  \) defined by
+\[  (aH)(bH) = (ab) H \]
+is well-defined when \( g h g^{-1} \in H  \) for all \( g \in G  \) and for all \( h \in H  \). This makes \( G  / H  \) a group. We will prove that this operation is associative, the rest is left to the reader. 
+
+Let \( N \leq G  \) a group where "coset multiplication" is well-defined. Let \( aN, bN , cN \in G / N  \) \( (a,b,c \in G) \). Then 
+\begin{align*}
+    aN (bN cN) &= aN((bc)N) \\
+               &= (a(bc)) N \\
+               &= ((ab)c) N \\
+               &= ((ab)N) cN \\
+               &= (aN bN) cN.
+\end{align*}
+
+Show that \( 1N  \) is the identity of \( G / N   \) and show that 
+\[  (aN)^{-1} = a^{-1}N \ \ \forall aN \in G / N.  \]
+
+Indeed, \( 1 N  \) is the identity of \( G /N  \) because  
+\[ g N =   (1_G g) N  =  (1_G N) \cdot (g N )    \]
+and 
+\[  g N = (g 1_G) N = (1_G N) \cdot (gN ). \]
+Now, we have that since \( g \in G  \) and \( g^{-1} \in G  \), it follows that 
+\[  {1}_{G} N = (g g^{-1})N = (g N) \cdot (g^{-1} N ) \]
+and 
+\[ {1}_{G} N = (g^{-1} g) N = (g^{-1} N ) \cdot (g N).  \]
+
+This tells us that \( G /N  \) is a group where \( N  \) has the nice property of being "normal". This will be expanded in the following definition:
+
+\begin{definition}[Normal Subgroups of \( G \)]
+   A subgroup \( N  \) of \( G  \) is called \textbf{normal} in \( G  \) if every element of \( g  \) normalizes \( N  \). That is, \( N  \) is normal in \( G  \) if 
+   \[  g N g^{-1} = N \ \ \forall g \in G.  \]
+   If \( N  \) is a normal subgroup of \( G  \), then we write \( N \trianglelefteq G . \)
+\end{definition}
+
+\begin{theorem}[6]
+    Let \( N  \) be a subgroup of \( G  \). The following are equivalent
+    \begin{enumerate}
+        \item[(1)] \( N \trianglelefteq G  \)
+        \item[(2)] \( {N}_{G}(N) = G  \) 
+        \item[(3)] \( g N = N g  \) for all \( g \in G  \)
+        \item[(4)] The operation coset multiplication is well-defined.
+        \item[(5)] \( g N g^{-1} \subset N  \) for all \( g \in G  \).
+    \end{enumerate}
+\end{theorem}
+
+Why does (5) only need containment? It is because you can construct a bijective map between \( g N g^{-1}  \) and \( N  \).
+
+\begin{eg}[Checking if \( \langle s \rangle  \) is normal in \( D_16 \)]
+   We need to examine \( g s g^{-1} \) for an arbitrary \( g \in D_16 \). Note that  
+   \[  {D}_{16} = \{  1, r , \dots, r^{7}, s , sr, \dots, s r^{2} \}. \]
+   Letting \( g = s^{i} r^{j} \) where \( i \in \{  0 , 1  \}  \) and \( j \in \{  0 , 1,2, \dots, 7 \}  \). Then we have 
+   \begin{align*}
+       gs g^{-1} &= (s^{i} r^{j}) s (s^{i} r^{j})^{-1} \tag{\( s^{i} = s^{-i} \)} \\
+                 &= s^{i} r^{j} s r^{-j} s^{i} 
+   \end{align*}
+   Note that when \( i = 0  \), we have 
+   \begin{align*}
+       g s g^{-1} &= r^{j} s r^{-j} \\ 
+                  &= r^{j} r^{j} s \\
+                  &= r^{2j} s.
+   \end{align*}
+   When \( j = 1  \), this gives us \( g s g^{-1} = r^{2}s  \). But note that \( r^{2} s  \notin  \langle s \rangle \) because otherwise \( r^{2} \) is either the identity or \( s  \) which \( r^{2} \) is neither of these two which is a contradiction. Hence, \( g s g^{-1} \) cannot be in \( \langle s \rangle  \) and so it cannot be a normal subgroup of \( D_16 \).
+\end{eg}
+
+\begin{theorem}[Big!]
+    A subgroup \( N \) of a group \( G  \) is normal if and only if it is the kernel of some homomorphism.
+\end{theorem}
+\begin{proof}
+\( (\Longrightarrow) \) Suppose \( N \trianglelefteq G  \). Let's define the mapping \( \pi : G \to G /N  \) by \( \pi (g) = g N  \) for all \( g \in G  \). Notice that since \( N  \) is a normal subgroup of \( G  \), this map is well-defined. Let \( {g}_{1}, {g}_{2} \in G  \). Then 
+\[  \pi({g}_{1} {g}_{2}) = ({g}_{1} {g}_{2}) N = ({g}_{1}N) ({g}_{2} N ) = \pi({g}_{1}) \pi({g}_{2}). \]
+Hence, \( \pi  \) is a homomorphism. It remains to show that \( \text{ker}(\pi) = N  \). Indeed, we have that 
+\begin{align*}
+    \text{ker}(\pi) &= \{  g \in G : \pi(g) = 1N \}  \\
+                    &= \{ g \in G : g N = 1 N  \}  \\
+                    &= \{ g \in G : g \in 1N \}  \\
+                    &= \{ g \in G : g \in N  \}  \\
+                    &= N. 
+\end{align*}
+Hence, \( \text{ker}(\pi) = N  \).
+
+\end{proof}
+
+\begin{definition}[Natural Projection]
+    Let \( N  \) be normal in \( G  \). The homomorphism \( \pi  \) from the previous theorem is called the \textbf{natural projection} (homomorphism) of \( G  \) onto \( G / N  \). If \( \overline{G} \leq G / N  \), the complete pre-image of \( \overline{H} \) is \( \pi^{-1}(\overline{H}) \).
+\end{definition}
+
+\begin{remark}
+    If \( \overline{H} \subseteq  G / N  \), then \( N \leq \pi^{-1}(\overline{H}) \) since 
+    \[  1 N \in \overline{H} \implies N = \text{ker}(\pi) = \pi^{-1}(1N) \subseteq  \pi^{-1}(\overline{H}). \]
+\end{remark}
+
