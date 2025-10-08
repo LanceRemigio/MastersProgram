@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1759849610.01839 "main.tex" "main.pdf" "main" 1759849619.39071 0
+["pdflatex"] 1759934029.67909 "main.tex" "main.pdf" "main" 1759934039.16851 0
   "../../../../newpreamble.tex" 1756519445.71893 7547 08b86d6b3494a25083827aaf654f5471 ""
   "/usr/local/Cellar/texlive/20240312_3/share/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc" 1710106625 2971 def0b6c1f0b107b3b936def894055589 ""
   "/usr/local/Cellar/texlive/20240312_3/share/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1710106625 2900 1537cc8184ad1792082cd229ecc269f4 ""
@@ -350,12 +350,12 @@
   "/usr/local/Cellar/texlive/20240312_3/share/texmf-dist/tex/latex/zref/zref-base.sty" 1710106625 20785 f7d1133a287929598a897c93f8f4c44b ""
   "/usr/local/Cellar/texlive/20240312_3/share/texmf-dist/web2c/texmf.cnf" 1739092516.50854 41652 e14926ab86fde7902cad99d9eeaa5ca5 ""
   "/usr/local/Cellar/texlive/20240312_3/share/texmf-var/web2c/pdftex/pdflatex.fmt" 1710106625 8221738 0fe25a98ec26b76f48bc3534ec24a62e ""
-  "main.aux" 1759849618.74434 6919 6d5fe2cd8ceee05142074d9c89646d95 "pdflatex"
-  "main.out" 1759849618.764 523 04de92338cc9b571e7de56a8ea18d437 "pdflatex"
+  "main.aux" 1759934038.51726 7830 fd310b891f1f58d82751a116208dbc1d "pdflatex"
+  "main.out" 1759934038.53741 523 04de92338cc9b571e7de56a8ea18d437 "pdflatex"
   "main.tex" 1759702630.58699 313 d7998c3dd05a851ab6b8d4c8474ccb99 ""
-  "main.toc" 1759849618.7652 335 842ec55fd910178f5106222f6a5140e1 "pdflatex"
+  "main.toc" 1759934038.53858 335 842ec55fd910178f5106222f6a5140e1 "pdflatex"
   "week/week1/week1.tex" 1756911061.27581 5935 6f6f25357664023632c104878274bbcf ""
-  "week/week7/week7.tex" 1759849599.04414 8682 711e32877da02a36dc6c84132804fabd ""
+  "week/week7/week7.tex" 1759934023.61958 13068 dcb015abf49dbfea0b776a30f68aeae4 ""
   (generated)
   "main.aux"
   "main.log"

@@ -1,10 +1,10 @@
 \section{Week 7}
 
-Last time we constructed cosets from an equivalence relation and we looked at the set of all left cosets of subgroup \( H  \) of a group \( G  \), denoted by
-\[  G / H = \{ gH : g \in G  \}.  \]
+Last time we constructed cosets from an equivalence relation and looked at the set of all left cosets of subgroup \( N  \) of a group \( G  \), denoted by
+\[  G / N = \{ gN : g \in G  \}.  \]
 We showed that the operation on \( G / H  \) defined by
-\[  (aH)(bH) = (ab) H \]
-is well-defined when \( g h g^{-1} \in H  \) for all \( g \in G  \) and for all \( h \in H  \). This makes \( G  / H  \) a group. We will prove that this operation is associative, the rest is left to the reader. 
+\[  (aH)(bH) = (ab) N \]
+is well-defined when \( g n g^{-1} \in H  \) for all \( g \in G  \) and for all \( h \in N  \). This makes \( G  / N  \) a group. We will prove that this operation is associative, the rest is left to the reader. 
 
 Let \( N \leq G  \) a group where "coset multiplication" is well-defined. Let \( aN, bN , cN \in G / N  \) \( (a,b,c \in G) \). Then 
 \begin{align*}
@@ -15,10 +15,10 @@ Let \( N \leq G  \) a group where "coset multiplication" is well-defined. Let \(
                &= (aN bN) cN.
 \end{align*}
 
-Show that \( 1N  \) is the identity of \( G / N   \) and show that 
+Similarly, we can show that \( 1N  \) is the identity of \( G / N   \) and show that 
 \[  (aN)^{-1} = a^{-1}N \ \ \forall aN \in G / N.  \]
 
-Indeed, \( 1 N  \) is the identity of \( G /N  \) because  
+Indeed, for every \( g N \in G / N \) 
 \[ g N =   (1_G g) N  =  (1_G N) \cdot (g N )    \]
 and 
 \[  g N = (g 1_G) N = (1_G N) \cdot (gN ). \]
@@ -49,8 +49,8 @@ This tells us that \( G /N  \) is a group where \( N  \) has the nice property o
 Why does (5) only need containment? It is because you can construct a bijective map between \( g N g^{-1}  \) and \( N  \).
 
 \begin{eg}[Checking if \( \langle s \rangle  \) is normal in \( D_16 \)]
-   We need to examine \( g s g^{-1} \) for an arbitrary \( g \in D_16 \). Note that  
-   \[  {D}_{16} = \{  1, r , \dots, r^{7}, s , sr, \dots, s r^{2} \}. \]
+    We need to examine \( g s g^{-1} \) for an arbitrary \( g \in D_{16} \). Note that  
+   \[  {D}_{16} = \{  1, r , \dots, r^{7}, s , sr, \dots, s r^{7} \}. \]
    Letting \( g = s^{i} r^{j} \) where \( i \in \{  0 , 1  \}  \) and \( j \in \{  0 , 1,2, \dots, 7 \}  \). Then we have 
    \begin{align*}
        gs g^{-1} &= (s^{i} r^{j}) s (s^{i} r^{j})^{-1} \tag{\( s^{i} = s^{-i} \)} \\
@@ -81,6 +81,7 @@ Hence, \( \pi  \) is a homomorphism. It remains to show that \( \text{ker}(\pi) 
 \end{align*}
 Hence, \( \text{ker}(\pi) = N  \).
 
+\( (\Longleftarrow) \) This direction will be on homework.
 \end{proof}
 
 \begin{definition}[Natural Projection]

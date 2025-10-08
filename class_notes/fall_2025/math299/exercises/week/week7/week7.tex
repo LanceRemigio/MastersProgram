@@ -132,3 +132,50 @@ Hence, we have \( g(f) = f(x) \) and so \( g = C x  \) by definition of \( C  \)
 \begin{eg}[\( l^1  \) is not reflexive]
     Note that \( l^1  \) is separable by 1.3-10, but the dual of \( l^1  \) which is \( l^{\infty } \) is not via 2.10-6 and 1.3-9.
 \end{eg}
+
+\begin{lemma}[Existence of a Functional]\label{4.6-7}
+   Let \( Y  \) be a proper closed subspace of a normed space \( X  \). Let \( {x}_{0} \in X \setminus  Y  \) be arbitrary and  
+   \[  \delta = \inf_{\tilde{y} \in Y } \|\tilde{y} - {x}_{0}\| \tag{6} \]
+   the distance from \( {x}_{0}  \) to \( Y  \). Then there exists an \( \tilde{f} \in X' \) such that 
+   \[  \|\tilde{f}\| = 1 \hspace{5mm} \tilde{f}(y) = 0 \ \text{for all \( y \in Y \)}, \hspace{5mm} \tilde{f}({x}_{0}) = \delta. \tag{7} \]
+\end{lemma}
+\begin{proof}
+Consider the subspace \( Z \subset X  \) spanned by \( Y  \) and \( {x}_{0} \) and define a bounded linear function \( f  \) on \( Z  \) by 
+\[  f(z) = f(y + \alpha {x}_{0}) = \alpha \delta. \tag{\( y \in Y \)} \]
+where \( z \in Z = \text{span}(Y \cup \{  {x}_{0} \} ) \) has a unique representation
+\[  z = y + \alpha {x}_{0} \hspace{10mm}  y \in Y. \tag{8}\]
+It is relatively easy to see that \( f  \) is linear. Furthermore, because \( Y  \) is a closed set and \( \delta > 0 \), we have \( f \neq 0  \). We may consider a few cases for \( \alpha  \). If \( \alpha = 0  \), then 
+\[ f(y) = f(y + 0 {x}_{0}) = 0 \cdot \delta = 0.   \]
+If \( \alpha = 1  \) and \( y = 0  \), then we have \( f({x}_{0}) = \delta \). Now we show that \( f  \) is bounded. If \( \alpha = 0  \), then \( f(z) = 0  \). If \( \alpha \neq 0  \), then since \( Y  \) is a subspace of \( X  \), we know that \( - (1/ \alpha) y \in Y  \). Using (6), we obtain the following inequality
+\begin{align*}
+    | f(z)  |  = | \alpha | \delta &= | \alpha | \inf_{\tilde{y} \in Y} \|\tilde{y} - {x}_{0}\| \\
+                                   &\leq | \alpha |  \| - \frac{ 1 }{ \alpha } y - {x}_{0} \| \\
+                                   &= \|y + \alpha {x}_{0} \|,
+\end{align*}
+that is, \( | f(z)  | \leq \|z \|  \). Thus, we see that \( f  \) is bounded and so 
+\[  \frac{ | f(z) |  }{ \|z\| }  \leq 1  \implies \|f\| \leq 1.  \]
+Next we show that \( \|f\| \geq 1   \). Using the definition of the infimum, \( Y \) contains a sequence \( ({y}_{n}) \) such that \( \|{y}_{n} - {x}_{0}\| \to \delta \). Let \( {z}_{n} = {y}_{n} - {x}_{0} \). Then we have \( f({z}_{n}) = - \delta  \) by (8) with \( \alpha = -1  \). Also 
+\[  \|f\| = \sup_{\substack{z \in Z \\ z \neq 0}} \frac{ | f(z) |  }{ \|z \| }  \geq \frac{ | f({z}_{n}) |  }{ \|{z}_{n}\| }  = \frac{ \delta }{ \|{z}_{n}\| } \underset{n \to \infty}{\longrightarrow} \frac{ \delta }{ \delta } = 1. \]
+Hence, \( \|f\| \geq 1  \) and so we conclude that \( \|f\| = 1  \). Using the Hahn-Banach theorem for normed spaces we can extend \( f  \) to \( X  \) while preserving its norm.
+\end{proof}
+
+\begin{theorem}[Separability]
+    If the dual space \( X' \) of a normed space \( X  \) is separable, then \( X  \) itself is separable.
+\end{theorem}
+\begin{proof}
+We assume that \( X'  \) is separable. Then the unit sphere 
+\[  U' = \{  f : \|f\| = 1  \}  \subseteq X' \]
+also contains a countable dense subset, say, \( ({f}_{n}) \). Since \( {f}_{n} \in U' \), we have  
+\[  \|{f}_{n}\| = \sup_{\|x\| = 1} \|{f}_{n}(x)\| = 1.  \]
+By the definition of the supremum, we can find points \( {x}_{n} \in X  \) of norm \( 1  \) such that 
+\[  \|{f}_{n}({x}_{n})\| \geq \frac{ 1 }{ 2 }. \]
+Let \( Y  \) be the closure of \( \text{span}(\{ {x}_{n} \} ) \). Then \( Y \) is separable because \( Y  \) has a countable dense subset, namely, the set of all linear combinations of \( {x}_{n} \)'s with coefficients whose real and imaginary parts are rational.
+
+Our goal is to show that \( Y = X  \). Suppose \( Y \neq X  \). Then, since \( Y  \) is closed, by {\hyperref[4.6-7]{lemma 4.6-7}} there exists an \( \tilde{f} \in X' \) with \( \|\tilde{f}\| = 1   \) and \( \tilde{f}(y) = 0  \) for all \( y \in Y \). Since \( {x}_{n} \in Y \), we have \( \tilde{f}({x}_{n}) =0  \) and for all \( n  \),   
+\begin{align*}
+    \frac{ 1 }{ 2 }  \leq | {f}_{n}({x}_{n}) |  &= | {f}_{n}({x}_{n}) - \tilde{f}({x}_{n}) |  \\
+                                                &= | ({f}_{n} - \tilde{f})({x}_{n}) |   \\
+                                                &\leq \|{f}_{n} - f\| \|{x}_{n}\|
+\end{align*}
+where \( \|{x}_{n}\| = 1  \). Hence, \( \|{f}_{n} - f \| \geq \frac{ 1 }{ 2 }  \), but this contradicts the assumption that \( ({f}_{n}) \) is dense in \( U' \) because \( \tilde{f}  \) is itself in \( U' \) where \( \|\tilde{f}\| = 1  \).
+\end{proof}
