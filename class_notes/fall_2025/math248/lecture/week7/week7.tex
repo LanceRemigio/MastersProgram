@@ -1,0 +1,171 @@
+\section{Week 7}
+
+\subsection{Kernel and Image}
+
+\begin{definition}[Kernel and Image]
+    Let \( G  \) and \( H  \) be two groups. Let \( f : G \to H  \) be a homomorphism. 
+
+    \begin{itemize}
+        \item  The \textbf{kernel} of \( f  \) is the set 
+            \[  \text{ker}f = \{ g \in G : f(g) = {1}_{H} \}  = f^{-1}(\{ {1}_{H} \} ) \subseteq  G. \]
+        \item The \textbf{image} of \( f  \) is 
+            \[  \text{Im}f = \{ f(g) : g \in G  \} = f(G) \subseteq  H.  \]
+    \end{itemize}
+\end{definition}
+
+Both of these sets are subgroups of \(  G  \) and \( H  \), respectively.
+
+\begin{eg}
+    Consider the determinant \( \text{det} : \text{GL}(n, \R ) \to \R^{*}  \) is a homomorphism. Thus,    
+    \[  \text{ker}(\text{det}) = \{  A \in \text{GL}(n, \R ) : \text{det} A = 1  \}  = \text{SL}(n,\R). \]
+\end{eg}
+
+\begin{remark}[Topology]
+   If \( X  \) and \( Y  \) are two topological spaces, we may consider them to be the same if there exists a function \( f : X \to Y  \) such that   
+   \begin{enumerate}
+           \item[(1)] \( f  \) is bijective 
+            \item[(2)] \( f  \) is continuous
+        \item[(3)] \( f^{-1} \) is continuous
+   \end{enumerate}
+
+   In the context of manifold theory, if \( M  \) and \( N  \) are two manifolds, we may consider them to be the same if there exists \( f : M \to N  \) such that 
+   \begin{enumerate}
+       \item[(1)]\( f  \) is bijective
+       \item[(2)] \( f  \) is smooth 
+       \item[(3)] \( f^{-1} \) is smooth 
+   \end{enumerate}
+
+   In the context of group theory, if \( G  \) and \( H  \) are two groups, we may consider them to be the same if 
+   \begin{enumerate}
+       \item[(1)] \( f  \) is bijective
+        \item[(2)] \( f  \) is a homomorphism
+   \end{enumerate}
+   The last remark gives us an explanation of why (ii) is important.
+\end{remark}
+
+\begin{remark}[Fact from Linear Algebra]\label{Fact from Linear Algebra}
+    Suppose \( A  \) and \( B  \) are two \( n \times n  \) matrices and \( A  \) is invertible. Then 
+\[  \text{rank}(AB) = \text{rank}(B) \ \ \ \text{rank}(BA) = \text{rank}(B). \]
+\end{remark}
+
+\begin{theorem}[Kernel of a Lie Group Homomorphism]
+   Let \( G  \) and \( H  \) be Lie groups. Let \( f : G \to H  \) be a Lie group homomorphism. Then 
+   \begin{enumerate}
+       \item[(i)] The rank of the derivative of \( f  \) is constant for all points in \( G  \); that is, there exists \( k \in \N  \) such that for all \( x \in G  \), \( D f (x) = k   \).
+        \item[(ii)] \( \text{ker}(f) \) is an embedded submanifold of \( G  \) of dimension \( \text{dim}(G) - k  \) (and so it is a Lie subgroup of \( G \)) 
+        \item[(iii)] \( \text{Im}(f)  \) can be equipped with a smooth structure that makes it a Lie subgroup of \( H  \).
+   \end{enumerate}
+\end{theorem}
+\begin{proof}
+    Note that (ii) is a direct consequence of (i) and Fact 2 from many weeks ago. Here we will prove (i). It suffices to show that for all \( x \in G  \), \( \text{rank}(Df(x)) = \text{rank}(Df(e)) \) where \( e = {1}_{G} \). For all \( a,x \in G  \), we have 
+    \begin{align*}
+        f(x) = f(aa^{-1} x) &= f(a) \cdot f(a^{-1}x) \\
+                            &= ({L}_{f(a) } \circ f \circ L_{a^{-1}} )(x).
+    \end{align*}
+    By the chain rule, 
+    \begin{align*}
+        Df(x) &= D {L}_{f(a)}(f(a^{-1}x)) \cdot D f (a^{-1} x ) \cdot D{L}_{a^{-1}}(x). 
+    \end{align*}
+    Since \( {L}_{f(a)}  \) and \( {L}_{a^{-1}} \) are diffeomorphisms, \( D {L}_{f(a)} \) and \( D {L}_{a^{-1}} \) are invertible at any point. From a {\hyperref[Fact from Linear Algebra]{fact}}  in linear algebra, for all \( x , a \in G  \) 
+    \[  \text{rank}(Df(x)) = \text{rank}(Df(a^{-1}x)). \]
+    In particular, if we set \( a = x  \), we get
+    \[  \text{rank}(Df(x))  = \text{rank}(Df(e))\]
+    which is our desired result.
+\end{proof}
+
+\begin{remark}
+    Suppose \( G  \) is a diffeomorphism. We have 
+    \begin{align*}
+        &(G^{-1} \circ G )(x) = x  
+        \implies D G^{-1}(G(x)) DG(x) = I
+    \end{align*}
+    Hence, \( DG(x) \) is invertible.
+\end{remark}
+
+\begin{definition}[Subgroups and cosets (very important!)]
+    Let \( G  \) be a group. Given a subgroup \( H  \) of \( G  \) and \( g \in G  \), the \textbf{left coset} of \( H  \) determined by \( g  \) is the set 
+    \[  gH = \{  g h : h \in H  \}. \]
+    The \textbf{right coset} of \( H  \) determined by \( g  \) is the set
+    \[  Hg = \{  h g : h \in H  \}. \]
+    Note that \( H  \) itself is a coset for \( g = {1}_{G} \). 
+\end{definition}
+
+You need a subgroup and an element to talk about a coset.
+
+\begin{eg}[\( G = (\R^2, +) , H = \text{y-axis}  \) Very important!]
+    Observe that \( H = \{  (0,y) : y \in \R  \}   \) is a subgroup of \( G = (\R^{2}, + ) \). Let's determine the left cosets of \( H  \).  For all \( (a,b) \in \R^{2} \), we have 
+    \begin{align*}
+        (a,b) + H &= \{  (a,b ) + (0,y) : y \in \R  \}  = \{  (a,0+y) : y \in \R  \}  \\
+                  &= \{  (a,y) : y \in \R  \}.
+    \end{align*}
+    This represents the vertical line at \( x = a  \). So, in this example, \( G  \) decomposes into disjoint cosets. Roughly speaking, the plane is the union of parallel lines. This organizes the mess that is \( \R^{2} \) into more manageable chunks to understand. Is this by accident? NO!
+
+    Note that two distinct \( g \in G  \) can give us the same coset (or vertical line in our example). That is, consider the equivalent cosets
+    \[  (1,0) + H = (1,1) + H  = \ \text{vertical line at \( x = a  \)}. \]
+\end{eg}
+
+\begin{theorem}[ ]
+    Let \( G  \) be a group and \( H  \) be a subgroup of \( G  \). 
+    \begin{enumerate}
+        \item[(i)] \( G = \displaystyle \bigcup_{  g \in G  }^{  }  g H  \)
+        \item[(ii)] Suppose \( {g}_{1}, {g}_{2} \in G  \). Then either \( {g}_{1} H = {g}_{2} H  \) or \( {g}_{1} H \cap {g}_{2} H = \emptyset \).
+        \item[(iii)] \( {g}_{1}H = {g}_{2} H  \) if and only if \( {g}_{1}^{-1} {g}_{2} \in H \).
+    \end{enumerate}
+\end{theorem}
+\begin{proof}
+\begin{enumerate}
+    \item[(i)] For all \( g \in G  \), clearly \( gH \subseteq  G  \) since \( gH  \) is a subgroup of \( G  \). Therefore, 
+        \[  \bigcup_{ g \in G  }^{  }  g H \subseteq  G.  \]
+        Suppose \( g' \in G  \). Since \( 1 \in H  \), we have \( g' 1 \in g' H  \). Thus, \( g' \in g' H  \subseteq  \bigcup_{  g \in G  }^{  }  g H \). So, \( G \subseteq  \bigcup_{  g \in G   }^{   }  gH  \). Hence,  
+        \[  G = \bigcup_{  g \in G  }^{  }  gH. \]
+    \item[(ii)] It suffices to show that if \( {g}_{1} H \cap {g}_{2} H \neq \emptyset \), then \( {g}_{1}H = {g}_{2} H  \). Suppose \( g \in {g}_{1} H \cap {g}_{2} H  \). Thus, 
+        \[  g  = {g}_{1} {h}_{1} = {g}_{2} {h}_{2} \ \text{for some \( {g}_{1}  \) and \( {g}_{2} \) in \( H \)}. \]
+        We have 
+        \begin{align*}
+            {g}_{1} = {g}_{2} {h}_{2} {h}_{1}^{-1} &\implies {g}_{1} H = {g}_{2} {h}_{2} {h}_{1}^{-1} H  \\
+                                                   &\implies {g}_{1}H = {g}_{2}({h}_{2} {h}_{1}^{-1} H ) \\
+                                                   &\implies {g}_{1}H = {g}_{2} H. 
+        \end{align*}
+    \item[(iii)]  \( (\Longleftarrow) \) Suppose \( {g}_{1}^{-1} {g}_{2} \in H  \). Our goal is to show that \( {g}_{1} H = {g}_{2} H  \). By (ii), it suffices to show that \( {g}_{1} H \cap {g}_{2} H   \neq \emptyset\). We have 
+        \begin{align*}
+            {g}_{1}^{-1} {g}_{2} \in H &\implies {g}_{1}({g}_{1}^{-1} {g}_{2}) \in {g}_{1} H   \\
+                                       &\implies {g}_{2} \in {g}_{1} H.
+        \end{align*}
+        Similarly, we have \( {g}_{2} \in {g}_{2} H  \). Thus, \( {g}_{2} \in {g}_{1} H \cap {g}_{2} H  \). So, we have \( {g}_{1} H \cap {g}_{2} H \neq \emptyset \).
+
+        \( (\Longrightarrow)  \) Assume \( {g}_{1} H = {g}_{2} H  \). We claim that \( {g}_{1}^{-1} {g}_{2} \in H  \).  
+        \begin{align*}
+            {g}_{1} H = {g}_{2} H &\implies {g}_{2} \in {g}_{1} H   \\
+                                  &\implies {g}_{2} = {g}_{1} h \ \ \text{for some \( h \in  H \)} \\
+                                  &\implies  {g}_{1}^{-1} {g}_{2}  =  h  \ \ \text{for some \( h \in H  \)} \\
+                                  &\implies  {g}_{1}^{-1} {g}_{2} \in H. 
+        \end{align*}
+\end{enumerate}
+
+
+
+\end{proof}
+
+\begin{theorem}[Congruence modulo \( H  \)]
+   Let \( G \) be a group and \( H  \) be a subgroup. Define the relation \textbf{congruence modulo \( H \)} on \( G  \) as follows:
+   \[  {g}_{1} \sim {g}_{2} \iff {g}_{1}^{-1} {g}_{2} \in H. \]
+   Then the above relation is an equivalence relation , and its equivalence classes are precisely the left cosets of \( H  \).
+\end{theorem}
+
+\begin{remark}
+   \begin{itemize}
+       \item When we look at a gourp \( G  \), one very natural perspective is to view it as a disjoint union of cosets of a subgroup \( H  \).
+        \item This viewpoint organizes the elements of \( G  \) and often makes it easier to extract information about the structure of the group.
+        \item In a way, the collection of cosets is simpler and more manageable than the group itself.
+   \end{itemize} 
+\end{remark}
+
+\begin{remark}
+    \begin{itemize}
+        \item It is tempting to try to make this collection of cosets into a gourp, using the natural operation 
+            \[  ({g}_{1}H) ({g}_{2}H) := ({g}_{1} {g}_{2}) H.  \]
+        However, this does not always work; in general, the operation may be ill-defined.
+    \item The question is as follows: \textit{Under what conditions is the above operation well-defined?}
+    \end{itemize}
+\end{remark}
+

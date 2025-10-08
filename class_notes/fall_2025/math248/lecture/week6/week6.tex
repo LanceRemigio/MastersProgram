@@ -17,8 +17,36 @@
             \[  A \in \text{SO}(n) \implies A \in \text{O}(n) \implies A^{-1} \in \text{O}(n). \tag{1} \]
             Furthermore, 
             \[ A \in \text{SO}(n) \implies \text{det}A = 1 \implies \text{det} A^{-1} = \frac{ 1 }{ 1 }  = 1 \implies A^{-1} \in \text{SO}(n) \tag{2}  \]
-
     \end{itemize}
+
+    From (1) and (2), we can see that \( \text{SO}(n) \) is a subgroup of \( \text{O}(n) \). Now, we need to find out whether \( \text{SO}(n)  \) is a Lie subgroup of \( \text{O}(n) \). Note that \( \text{SO}(n) = \text{O}(n) \cap \text{det}^{-1}(0, \infty )  \) where \( (0,\infty ) \) is an open set, \( \text{det}  \) is a continuous function, and the preimage of an open set will be open in \( M(n,\R) \). Hence, \( \text{SO}(n) \) will be open in \( \text{O}(n) \). Thus, \( \text{SO}(n) \) is an embedded submanifold of \( \text{O}(n)  \) with dimension \( \frac{ n^{2} - n  }{  2  }  \). Thus, \( \text{SO}(n)  \) is a Lie subgroup of \( \text{O}(n) \) with dimension \( \frac{ n^{2} - n  }{  2  }  \).
+\end{eg}
+
+\begin{eg}[Special Unitary Group]
+   Recall that  
+   \[  \text{SU}(n) = \{  A \in M(n, \C) : A^{*}A = I \ \text{and} \ \text{det} A = 1  \}. \]
+   We will show that the above is also a subgroup of \( \text{U}(n) \). Clearly, we can see that \( \text{SU}(n) \subseteq  \text{U}(n) \).
+   \begin{itemize}
+       \item \( \text{SU}(n)  \) is closed under multiplication. Indeed, suppose \( A  \) and \( B  \) are in \( \text{SU}(n) \). Then observe that 
+           \[ A,B \in \text{SU}(n) \implies A, B \in \text{U}(n) \implies AB \in \text{U}(n) \tag{1}  \]
+           and
+           \begin{align*}
+               A,B \in \text{SU}(n) &\implies \text{det}A = 1 \ \text{and} \ \text{det}B = 1   \\
+                                    &\implies \text{det}AB = 1  \\
+                                    &\implies AB \in \text{SU}(n).
+           \end{align*}
+        \item Also, \( \text{SU}(n)  \) contains the inverse of each of its elements. Suppose \( A \in \text{SU}(n) \). Then
+            \[  A \in \text{SU}(n) \implies A \in \text{U}(n) \implies A^{-1} \in \text{U}(n) \tag{3} \]
+            and
+            \[  A \in \text{SU}(n) \implies \text{det}A = 1 \implies \text{det}A^{-1} = \frac{ 1 }{ \text{det}A  }  = \frac{ 1 }{ 1 }  = 1 \tag{4}  \]
+            Now, (3) and (4) imply that \( A^{-1} \in \text{SU}(n) \).
+   \end{itemize}
+   Now, we need to find out if \( \text{SU}(n)  \) a Lie subgroup of \( \text{U}(n) \)? Of course! Let \( F: \text{U}(n) \to \R  \) be defined as follows:
+   \[  F(A) = \varphi. \]
+   where we previously proved that if \( A \in \text{U}(n)  \), then \( | \text{det} A  |  = 1  \). So, there exists an angle \( \varphi \in (-\pi, \pi] \) such that \( \text{det} A = e^{i \varphi} \).
+   It can be shown that 
+   \[  \forall A \in \text{U}(n) \ \ \text{rank} DF(A) = 1.  \]
+   Thus, \( \text{SU}(n) = F^{-1}(0)  \) is an \( n^{2} - 1  \) dimensional embedded submanifold of \( \text{U}(n) \). Therefore, \( \text{SU}(n) \) is a Lie subgroup of \( \text{U}(n) \) with dimension \( n^{2} - 1  \).
 \end{eg}
 
 
