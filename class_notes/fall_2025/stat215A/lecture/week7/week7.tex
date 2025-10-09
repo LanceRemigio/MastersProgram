@@ -1,0 +1,98 @@
+\section{Week 7}
+
+\subsection{Monday}
+
+\subsection{Wednesday}
+
+Recall that \( \Omega \) and \( \mathcal{C} \) where \( \mathcal{C} \) is a set of sets and \( U  \) is a simply just a set.
+
+\begin{prop}
+    \( \sigma(\mathcal{C} \cap U) = \sigma(\mathcal{C}) \cap U \)
+\end{prop}
+\begin{proof}
+
+\( (\supseteq) \) Define the set 
+\[  \mathcal{G} = \{  A : A \cap U \in \sigma(\mathcal{C} \cap U)  \}.  \]
+Last time we showed that 
+\begin{enumerate}
+    \item[(1)] \( \Omega \in \mathcal{G} \)
+    \item[(2)] for every \( A \in \mathcal{G} \), \( A^{c} \in \mathcal{G} \).
+\end{enumerate}
+Now we will show that for a sequence of sets \( {A}_{n} \in \mathcal{G} \) for all \( n \in \N  \), their union is contained in the set.
+Let \( {A}_{n} \) where \( n \in \N \) is a sequence of sets in \( \mathcal{G} \). Our goal is to show that  
+\[  \bigcup_{ n \in \N  }^{  }  {A}_{n} \in \mathcal{G} \]
+that is,
+\[  \bigcup_{ n \in \N }^{  }  {A}_{n} \cap U  \in \sigma(\mathcal{C} \cap U). \]
+Since \( {A}_{n} \in \mathcal{G} \), we have 
+\[  {A}_{n} \cap U  \in \sigma(\mathcal{C} \cap U) \ \ \forall n \in \N. \]
+Since \( \mathcal{C} \cap U \) is a sigma algebra, we have that
+\[  \bigcup_{ n \in \N }^{   }  ({A}_{n} \cap U  )  \in \sigma(\mathcal{C} \cap U).  \]
+But this tells us that 
+\[  \bigcup_{ n \in \N }^{  }  {A}_{n} \cap U  \in \sigma(\mathcal{C} \cap U) \implies \bigcup_{ n \in \N  }^{  }  {A}_{n} \cup U  \in \sigma(\mathcal{C} \cap U). \]
+Hence, \( \bigcup_{ n \in \N }^{  }  {A}_{n} \in \sigma(\mathcal{C} \cap U). \)
+\end{proof}
+
+\begin{prop}
+    \( \sigma(\mathcal{C}) \cap U \subseteq  \sigma(\mathcal{C} \cap U). \) 
+\end{prop}
+\begin{proof}
+Note that \( \mathcal{C} \subseteq  \mathcal{G} \). Indeed, if \( A \in \mathcal{C} \), then \( A \cap U \in \mathcal{C} \cap U \subseteq  \sigma(\mathcal{C} \cap U)\). Also, \( \sigma(\mathcal{C}) \subseteq \mathcal{G}   \) because \( \mathcal{C} \subseteq  G  \), we have 
+\[  \sigma(\mathcal{C}) \subseteq  \sigma(G) = \mathcal{G}.  \]
+To show finally that \( \sigma(\mathcal{C}) \cap U \subseteq  \sigma(\mathcal{C} \cap U) \). Let \( B \in \sigma(\mathcal{C}) \cap U  \). Hence, \( B = A \cap U  \) for some \( A \in \sigma{\mathcal{C}} \). Since \( \sigma(\mathcal{C}) \subseteq  \mathcal{G} \), \( A \cap U \in \sigma(\mathcal{C} \cap U) \). Hence, this tells us that \( B \in \sigma(\mathcal{C} \cap U) \ \). Since \( B  \) was arbitrary,
+\[  \sigma(\mathcal{C}) \cap U  \subseteq  \sigma(\mathcal{C} \cap U). \]
+\end{proof}
+
+\begin{eg}
+    Let \( \Omega = \{  1,2,3,4,5,6 \}  \), \( \mathcal{C} = \{  \{  1,3,5 \} , \{ 2,4,6 \}  \}   \) and \( u = \{  1,2 \}  \). Our goal is to show that 
+    \[  \sigma(\mathcal{C}\cap u) = \sigma(\mathcal{C}) \cap u. \]
+    Indeed, notice that 
+    \begin{enumerate}
+        \item[(1)] \( {C}_{1} \cap u  = \{  1,3,5 \} \cap \{ 1,2 \}  = \{ 1 \}  \);
+        \item[(2)] \( {C}_{2} \cap u = \{ 2,4,6 \}  \cap \{ 1,2 \}  = \{ 2 \}  \).
+    \end{enumerate}
+    Then we have 
+    \[  \underbrace{\sigma(\mathcal{C} \cap U)}_{\text{\( \sigma- \)algebra on \( u \)}} = \{  \emptyset , \{ 1 \} , \{ 2 \} , \{ 1,2 \}  \}  \]
+    and
+    \[ \underbrace{\sigma(\mathcal{C})}_{\text{\( \sigma \)-algebra on \( \Omega \)}} = \{  \emptyset , \{ 1,3,5 \} , \{ 2,4,6 \} , \{ 1,2,3,4,5,6 \}  \}    \]
+    and 
+    \[  \sigma(\mathcal{C}) \cap u = \{  \emptyset , \{ 1 \} , \{ 2 \} , \{ 1,2 \}  \}. \]
+    Hence, we see that 
+    \[  \sigma(\mathcal{C} \cap u ) = \sigma(\mathcal{C}) \cap u. \]
+
+    \[   \]
+\end{eg}
+
+
+Recall the proof of prop E.1.5 says in its last paragraph 
+\begin{center}
+    "If \( A \in \sigma(\mathcal{C}) \implies A \in \mathcal{G} \)"
+\end{center}
+This implies that \( A \cap U \in \sigma(\mathcal{C} \cap U) \) and so \( A \in \sigma(\mathcal{C} \cap U) \). It follows that \( \sigma(\mathcal{C}) \cap U \subseteq  \sigma(\mathcal{C} \cap U) \). 
+
+\begin{eg}[Simple Counter-Example to the Author's Proof]
+    Let \( \Omega = \{  1,2,3 \}  \) and \( \mathcal{C} = \{  \{ 1 \} , \{ 2 \}  \}   \) and \( U = \{ 2,3 \}  \). Then
+\begin{align*}
+    \sigma(\mathcal{C}) &= \{ \emptyset , \Omega, \{ 1 \} , \{ 2 \} , \{ 2,3\} ,  \{  1,3 \}, \{  3  \}, \{  1,2 \} , \Omega    \}  
+\end{align*}
+This is a \( \sigma- \)algebra on \( \Omega \). Also,
+\begin{align*}
+    \sigma(\mathcal{C} \cap U) &= \sigma(\{  \{ \emptyset, \{ 2 \}  \}  \} ) = \{ \emptyset , \{ 2 \} , \{ 3 \}  , \{ 2,3 \}  \}.
+\end{align*}
+let \( A = \{  1  \} \in \sigma(\mathcal{C}) \). Furthermore, \( A \cap U \in \sigma(\mathcal{C} \cap U) \) since \( A \cap U = \emptyset \). But note that \( A = \{  1  \}  \notin \sigma(\mathcal{C} \cap U) \).
+\end{eg}
+
+\subsection{The Measure Function}
+
+\begin{definition}[Measure Function]
+    Let \( \mathcal{F} \) be an algebra. A \textbf{measure function} \( \mu : \mathcal{F} \to (0,\infty ) \cup \{ \infty  \}  \) that satisfies 
+    \begin{enumerate}
+        \item[(1)] (\textbf{Empty set}) \( \mu(\emptyset) = 0  \)
+        \item[(2)] (\textbf{Countable Additivity}) If \( {E}_{n}  n \in \N  \)  is a sequence of pairwise disjoint events in \( \mathcal{F} \), then
+            \[  \mu \Big(  \bigcup_{ n \in \N }^{   }  {E}_{n} \Big) = \sum_{ n= 1  }^{ \infty  } \mu({E}_{n}). \]
+        \item[(3)] If \( \mathcal{F} \) is a \( \sigma- \)algebra, the triplet \( (\Omega, \mathcal{F}, \mu) \) is a measure space.
+    \end{enumerate}
+\end{definition}
+
+\begin{definition}[Probability Measure]
+    A \textbf{Probability measure} is a measure that satisfies \( \mu(\Omega) = 1  \).
+\end{definition}

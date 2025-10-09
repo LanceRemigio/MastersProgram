@@ -93,3 +93,126 @@ Hence, \( \text{ker}(\pi) = N  \).
     \[  1 N \in \overline{H} \implies N = \text{ker}(\pi) = \pi^{-1}(1N) \subseteq  \pi^{-1}(\overline{H}). \]
 \end{remark}
 
+\begin{eg}[Complete Pre-image of \( Q_8 \)]
+  \( \pi^{-1}(\overline{H}) = \{  1 , -1 , i , - i  \}  \) where   
+  \begin{align*}
+      \pi(i) &= i \langle - 1 \rangle   \\
+      \pi(-1) &= - 1 \langle -1 \rangle = 1 \langle -1 \rangle
+  \end{align*}
+\end{eg}
+
+\subsection{More on Normal Subgroups}
+
+There are a lot of ways to see if a subgroup is normal.  
+
+\begin{remark}[Important]
+    Let \( G  \) be a group. Observe that \( \{  1  \}  \trianglelefteq G  \) and \( G \trianglelefteq G   \) and \( G / \{  1  \}  \cong G  \) and \( G / G \cong \{  1  \}  \).
+\end{remark}
+
+\begin{itemize}
+    \item When \( G  \) is clearly an additive group, we denote left and right cosets \( g  + N  \) and \( N + g  \), respectively where \( N \leq G  \).
+    \item When \( G  \) is abelian, every subgroup is normal; that is, \( N \leq G  \) where 
+        \[  \forall n \in \N  \ \ \ gn g^{-1} = g g^{-1} n = n \in \N \ \ \forall g \in G.  \]
+\end{itemize}
+
+\subsection{More on Cosets/Lagrange's Theorem}
+
+We move away from normal subgroups and just analyze subgroups.
+
+\begin{theorem}[Lagrange's Theorem]
+  If \( G  \) is a finite group, and \( H  \) is a subset of \( G  \), then   
+  \[  | H  | \mid | G | \]
+  and the number of left cosets of \( H  \) in \( G  \) is \( \frac{ | G |  }{  | H |  }  \).
+\end{theorem}
+The idea of the proof of this theorem is as follows: (see problem 18 and 19 from section 1.7 in the book)
+\begin{proof}
+Recall that left cosets form a partition of \( G  \); that is, 
+\[  G = \bigcup_{  g \in G  }^{  }  g H.  \]
+There is a bijection from \( H  \) to \( gH  \) and is defined by \( h \mapsto gh \) and so 
+\[  | H |  = | g H  |. \]
+At this point, we can conclude that \(  | G  |  = k | H |  \) where \( k  \) is the number of distinct left-cosets of \( H  \) in \( G  \). This gives us 
+\[  k = \frac{ | G |   }{  | H |  }. \]
+\end{proof}
+
+\begin{definition}[Index of a Subgroup]
+    If \( G  \) is a group (possibly infinite) and \( H  \) is a subgroup of \( G  \), then the number of distinct left cosets of \( H  \) in \( G  \) is called the \textbf{index of \( H  \) in \( G  \)} which is denoted by \( | G : H  |  \) (or \( [G : H]   \)). 
+\end{definition}
+
+\begin{corollary}[Corollary to Lagrange's Theorem]
+   If \( G  \) is a finite group and \( x \in G  \), then \( | x  |  \mid | G  |  \).
+\end{corollary}
+\begin{proof}
+    We proved that \( | x  |  = | \langle x \rangle  |   \) where \( \langle x \rangle \leq G  \). The rest follows from Lagrange's Theorem. 
+\end{proof}
+
+\begin{remark}
+    For a finite group \( G  \) with \( H \leq G  \), \( | G : H  |  = \frac{ | G |  }{  | H  |  }  \).
+\end{remark}
+
+\begin{eg}
+   Let \( G = \Z  \) and let \( H = 3 \Z  \), then \( |  \Z  : 3 \Z  |  \) is the number of left cosets of \( 3 \Z   \) in \( \Z  \). Recall that 
+   \[  3 \Z =  \{  3x : x \in \Z  \}  \]
+   where 
+   \begin{align*}
+       0 + 3 \Z &= 3 \Z  \\
+       1 + 3 \Z &= \{  1 + 3x : x \in \Z  \}  \\
+       2 + 3 \Z &= \{ 2 + 3x : x \in \Z  \}  \\
+       3 + 3 \Z &= 0 + 3 \Z. 
+   \end{align*}
+   That is, 
+   \[  | \Z : 3\Z  |  = 3 = | \Z / 3 \Z   |.  \]
+\end{eg}
+
+\begin{corollary}
+   If \( G  \) is a group of prime order \( p  \), then \( G  \) is cyclic. 
+\end{corollary}
+\begin{proof}
+Let \( x \in G  \) where \( x \neq 1  \). Then \( | x  |  \mid | G  |  \) since \( | G  |  = p  \) a prime. Hence, \( | x  | \in  \{  1, p \}  \). Since \( x \neq 1  \), we have \( | x  |  \neq 1  \) and so we would need to have \( | x  |  = p  \) and so \( \langle x \rangle = G  \).
+\end{proof}
+
+\begin{eg}
+   A subgroup \( H  \) of a group \( G  \) with index \( | G : H  |  =  2  \), is normal. 
+\end{eg}
+\begin{proof}
+Let \( g \in G - H  \), then \( gH \neq 1H  \). Since \( | G : H  |  = 2  \), there are two distinct left cosets of \( H  \) in \( G  \) and since one of them is \( 1  H  \), the other must be \( g H  \). Similarly, there are only two distinct right cosets of \( H  \) in \( G  \); namely, \( H1   \) and \( Hg  \). Since \( 1 H = H 1  \) and cosets form a partition of \( G  \), we have that \( gH = G - H =  H g  \). Hence, the left and right cosets of \( H  \) are equal and so \( H  \) is normal in \( G  \).
+\end{proof} 
+
+\begin{eg}[Normal Subgroups of is NOT transitive]
+   Note that the relation "is a normal subgroup of" is not transitive. Let \( G = {D}_{8} \). Note that the \( | {D}_{8} |  = 8  \) and \( | \langle s \rangle |  = 2 \), \( | \langle s, r^{2} \rangle  |  = 4  \). Clearly, we have 
+   \[  \langle s \rangle \subseteq  \langle s, r^{2} \rangle \subseteq  {D}_{8}. \]
+   We have 
+   \[  | {D}_{8} : \langle s, r^{2} \rangle  |  = 2  \]
+   and \( | \langle s, r^{2} \rangle : \langle s \rangle  |  = 2  \). Thus, 
+   \[  \langle s \rangle \trianglelefteq \langle s , r^{2} \rangle \trianglelefteq {D}_{8} \]
+   but \( \langle s \rangle  \) is NOT normal in \( {D}_{8} \). Note that \( r s \neq sr  \) but \( rs = s r^{-1} \) where \( r^{2} s  \) is not \( 1  \) and not \( s  \).
+\end{eg}
+
+\begin{definition}[ ]
+    Let \( H,K \leq G  \) where \(  G  \) is a group. Define
+    \[  H K = \{  h k : h \in H, \ k \in K \}. \]
+\end{definition}
+
+\begin{theorem}[Big Theorem of this lecture]
+   If \( H  \) and \( K  \) are finite subgroups of a group, then 
+   \[  | H K |  = \frac{ | H  |  | K  |  }{  |  H \cap K  |  } \]
+   where \( HK  \) need not be a group for the above to hold.
+\end{theorem}
+\begin{proof}
+Notice that \( HK \) is the union of left cosets of \( K  \); that is,  
+\[  HK = \bigcup_{ h \in H  }^{  }  h K.  \]
+Since each coset of \( K  \) has \( | K  |  \) elements, we will count the number of distinct cosets in the above union. We know \( {h}_{1} k = {h}_{2} k  \) for \( {h}_{1}, {h}_{2} \in H  \) if and only if \( {h}_{2}^{-1} {h}_{1} \in  K  \). It follows that   
+\begin{align*}
+    {h}_{1} k = {h}_{2} k &\iff {h}_{2}^{-1} {h}_{1} \in K \cap H  \\
+                          &\iff {h}_{1} (K \cap H) = {h}_{2} (K \cap H).
+\end{align*}
+Thus, the number of distinct cosets of the form \( h K  \) with \( h \in H  \) is the same as the number of distinct cosets of \( K \cap H  \) in \( H  \). Since we have that \( K \cap H  \) is a subgroup of \( H  \), this is \( \frac{ | H  |   }{  | K \cap H  |  } \). Therefore, \( HK  \) consists of \( \frac{ | H  |   }{  | H \cap K  |  }  \) distinct cosets of \( K  \) of which contains \( | K  |  \) elements, it follows that 
+\[  | HK  |  = \frac{ | H  | | K  |   }{  | H \cap K  |  }.  \]
+\end{proof}
+
+\begin{eg}[An example where \( HK \) is not a subgroup]
+    
+\end{eg}
+
+
+
+
