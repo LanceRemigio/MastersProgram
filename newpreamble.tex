@@ -129,17 +129,17 @@
 \declaretheoremstyle[
     headfont=\bfseries\sffamily, bodyfont=\normalfont,
     numbered = no,
-    mdframed={
-        rightline=true, topline=true, bottomline=true,
-    }
+    % mdframed={
+    %     rightline=true, topline=true, bottomline=true,
+    % }
 ]{thmbox}
 
 \declaretheoremstyle[
     headfont=\bfseries\sffamily, bodyfont=\normalfont,
     numbered=no,
-    % mdframed={
-    %     rightline=true, topline=false, bottomline=true,
-    % },
+    mdframed={
+        rightline=true, topline=true, bottomline=true,
+    },
     qed=\qedsymbol
 ]{thmproofbox}
 

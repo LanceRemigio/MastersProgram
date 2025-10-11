@@ -1,0 +1,105 @@
+\documentclass{article}
+\input{../../../../../newpreamble.tex}
+\title{Homework 5 Math 210A}
+\author{Lance Remigio}
+\begin{document}
+\maketitle
+
+\begin{problem}
+    Let \( \varphi: {G}_{1} \to {G}_{2} \) be a group homomorphism.
+    \begin{enumerate}
+        \item[(a)] Show that if \( {N}_{2} \trianglelefteq {G}_{2}  \), then \( \varphi^{-1}({N}_{2}) \trianglelefteq {G}_{1}  \). Deduce that \( \text{ker}(\varphi) \trianglelefteq {G}_{1} \).
+            \begin{proof}
+            Suppose \( {N}_{2} \trianglelefteq {G}_{2} \). Our goal is to show that \( \varphi^{-1}({N}_{2}) \trianglelefteq {G}_{1} \); that is, for all \( g \in {G}_{1} \),  
+            \[  g \varphi^{-1}({N}_{2}) g^{-1} \subseteq \varphi^{-1}({N}_{2}). \tag{*} \]
+            To this end, let \( g \in {G}_{1} \) be arbitrary. To show (*), let \( x \in g \varphi^{-1}({N}_{2}) g^{-1} \) be arbitrary. Then 
+            \[  x = g \tilde{x} g^{-1} \ \ \text{for some} \  \tilde{x} \in \varphi^{-1}({N}_{2}). \]
+            Since \( \tilde{x} \in \varphi^{-1}({N}_{2}) \), it follows that \( \varphi (\tilde{x}) \in {N}_{2}  \). But note that \( {N}_{2} \trianglelefteq {G}_{2} \) and so for all \( g' \in {G}_{2} \), we have  
+            \[  g' {N}_{2} (g')^{-1}  = {N}_{2}. \tag{\( \dagger \)} \]
+            Since \( \varphi  \) is a homomorphism, we see that 
+            \begin{align*}
+                \varphi(x) &= \varphi(g \tilde{x} g^{-1}) 
+                           = \varphi(g) \varphi(\tilde{x}) (\varphi(g))^{-1}    
+            \end{align*}
+            Since \( \varphi(g) \in {N}_{2} \), we have \( \varphi(x) \in {N}_{2} \) from (\( \dagger \)). Thus, \( x \in \varphi^{-1}({N}_{2}) \) and so we conclude that   
+            \[  g \varphi^{-1}({N}_{2})g^{-1} \subseteq  \varphi^{-1}({N}_{2})\]
+            which is our desired result. We see that \( \text{ker}(\varphi) \trianglelefteq {G}_{1} \) because
+            \begin{align*}
+                \text{ker}(\varphi) &= \{  g \in {G}_{1} : \varphi(g) = {1}_{G} \varphi^{-1}({N}_{2}) \}  \\
+                                    &= \{  g \in {G}_{1} : g \varphi^{-1}({N}_{2})  \}  \\
+                                    &= \{  g \in {G}_{1} : g \in \varphi^{-1}({N}_{2}) \} \\ 
+                                    &= \varphi^{-1}({N}_{2}) \\
+                                    &\trianglelefteq {G}_{1}.
+            \end{align*}
+            \end{proof}
+        \item[(b)] Show that if \( {N}_{1} \trianglelefteq {G}_{1} \), then \( \varphi({N}_{1}) \trianglelefteq \varphi({G}_{1}) \). Deduce that any surjective homomorphism will map normal subgroups in the domain to normal subgroups in the codomain.
+            \begin{proof}
+            Suppose that \( {N}_{1} \trianglelefteq {G}_{1} \). To show that \( \varphi({N}_{1}) \trianglelefteq \varphi({G}_{1}) \), we need to show that for all \( g' \in \varphi({G}_{1}) \), 
+            \[ g' \varphi({N}_{1}) (g')^{-1} \subseteq  \varphi({N}_{1}). \tag{*}  \]
+            Let \( g' \in \varphi({G}_{1}) \). To show (*), let \( y \in g' \varphi({N}_{1}) (g')^{-1} \). Then for some \( \tilde{y} \in \varphi({N}_{1})\), we have 
+            \[  y = g' \tilde{y} (g')^{-1}. \]
+            Since \( \tilde{y} \in \varphi({N}_{1})  \), then for some \( \tilde{x} \in {N}_{1} \), we have \(  \tilde{y} = \varphi(\tilde{x}) \). Furthermore, \( g' \in \varphi({G}_{1}) \) implies that there exists some \( \tilde{g} \in  {G}_{1} \) such that \( g' = \varphi(\tilde{g}) \). Since \( \varphi  \) is a homomorphism, it follows that 
+            \begin{align*}
+                y = g' \tilde{y} (g')^{-1} &= \varphi(\tilde{g}) \varphi(\tilde{x}) \varphi(\tilde{g})^{-1} \\
+                                           &= \varphi(\tilde{g}) \varphi(\tilde{x}) \varphi(\tilde{g}^{-1}) \\
+                                           &= \varphi(\tilde{g} \tilde{x} \tilde{g}^{-1}).
+            \end{align*}
+            Notice that \( \tilde{g} \tilde{x} \tilde{g}^{-1} \in \tilde{g} {N}_{1} \tilde{g}^{-1}  \). But since \( {N}_{1} \trianglelefteq {G}_{1} \), we have for all \( g \in G  \), \( g {N}_{1} g^{-1} = {N}_{1} \). In particular, \( \tilde{g} {N}_{1} \tilde{g}^{-1} = {N}_{1} \). Hence,  
+            \( \hat{x} = \tilde{g} \tilde{x} \tilde{g}^{-1} \in {N}_{1}  \). Hence, we can see that \( y \in \varphi({N}_{1}) \) and so we conclude that 
+            \[ g' \varphi({N}_{1}) (g')^{-1} \subseteq  \varphi({N}_{1}).   \]
+            Hence, we conclude that \( \varphi({N}_{1}) \trianglelefteq \varphi({G}_{1}) \).
+            \end{proof}
+    \end{enumerate}
+\end{problem}
+
+\begin{problem} Let \( G  \) be a group with \( N \trianglelefteq G  \).
+    \begin{enumerate}
+        \item[(a)] Suppose \( x \in G  \) with \( |  x  |  = n < \infty   \). Show that \( n \) divides the order of \( x N  \) in \( G / N  \).
+            \begin{proof}
+            
+            \end{proof}
+        \item[(b)] Further show that the order \(  xN  \) in \( G / N  \) is the smallest positive integer \( k  \) such that \( x^{k } \in N  \).
+            \begin{proof}
+            
+            \end{proof}
+        \item[(c)] Show that if \( G  =  \langle x   \rangle  \), then \( G / N  \) is cyclic.
+            \begin{proof}
+            
+            \end{proof}
+    \end{enumerate}
+\end{problem}
+
+\begin{problem}
+    Let \( G  \) with center \( Z(G) \). Recall that \( Z(G) \trianglelefteq G  \).
+    \begin{enumerate}
+        \item[(a)] Prove that if \( G / Z(G) \) is cyclic, then \( G  \) is abelian.
+            \begin{proof}
+
+            \end{proof}
+        \item[(b)] Show that if \( | G  |  = pq  \) where \( p  \) and \( q  \) are primes (not necessarily distinct) then either \( G  \) is abelian or \( Z(G) = \{  {1}_{G} \}  \).
+    \end{enumerate}
+\end{problem}
+
+\begin{problem}[Section 3.2 Problem 5]
+  Let \( H  \) be a subgroup of \( G  \) and fix some element \( g \in G  \).  
+  \begin{enumerate}
+      \item[(a)] Prove that \( g H g^{-1}  \) is a subgroup of \( G  \) of the same order as \( H  \).
+          \begin{proof}
+          
+          \end{proof}
+        \item[(b)] Deduce that if \( n \in \Z^{+} \) and \( H  \) is the unique subgroup of order \( n  \) then \( H \trianglelefteq G  \).
+            \begin{proof}
+            \end{proof}
+  \end{enumerate}
+\end{problem}
+
+\begin{problem}[Section 3.2 Problem 8]
+  Prove that if \( H  \) and \( K  \) are finite subgroups of \( G  \) whose orders are relatively prime then \( H \cap  K = 1  \).  
+  \begin{proof}
+  
+  \end{proof}
+\end{problem}
+
+
+\end{document}
+
