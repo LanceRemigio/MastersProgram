@@ -1,5 +1,7 @@
 \section{Week 7}
 
+
+
 \subsection{Kernel and Image}
 
 \begin{definition}[Kernel and Image]
@@ -154,7 +156,7 @@ You need a subgroup and an element to talk about a coset.
 
 \begin{remark}
    \begin{itemize}
-       \item When we look at a gourp \( G  \), one very natural perspective is to view it as a disjoint union of cosets of a subgroup \( H  \).
+       \item When we look at a group \( G  \), one very natural perspective is to view it as a disjoint union of cosets of a subgroup \( H  \).
         \item This viewpoint organizes the elements of \( G  \) and often makes it easier to extract information about the structure of the group.
         \item In a way, the collection of cosets is simpler and more manageable than the group itself.
    \end{itemize} 
@@ -162,10 +164,123 @@ You need a subgroup and an element to talk about a coset.
 
 \begin{remark}
     \begin{itemize}
-        \item It is tempting to try to make this collection of cosets into a gourp, using the natural operation 
+        \item It is tempting to try to make this collection of cosets into a group, using the natural operation 
             \[  ({g}_{1}H) ({g}_{2}H) := ({g}_{1} {g}_{2}) H.  \]
         However, this does not always work; in general, the operation may be ill-defined.
     \item The question is as follows: \textit{Under what conditions is the above operation well-defined?}
     \end{itemize}
 \end{remark}
 
+\begin{lemma}
+   Let \( G  \) be a group and \( H \) be a subgroup of \( G  \). The following statements are equivalent:
+   \begin{enumerate}
+       \item[(1)] \( \forall g \in G  \), \( \forall h \in H  \), \( g h g^{-1} \in H  \)
+        \item[(2)] \( \forall g \in G  \), \( \forall h \in H \), \( g H g^{-1} = H  \)
+        \item[(3)] \( \forall g \in G  \), \( g H = H g \).
+   \end{enumerate}
+\end{lemma} 
+
+\begin{definition}[Normal Subgroups]
+    In the case that any of the above equivalent conditions holds, we say \( H  \) is a normal subgroup of \( G  \).
+\end{definition}
+
+Notationally, normal subgroups can be represented by \( H \trianglelefteq G  \) . If \( G  \) is abelian, any subgroup of \( G  \) is normal.
+
+\begin{theorem}[ ]
+    Suppose \( G  \) is a group and \( H  \) is a subgroup of \( G  \). The operation 
+    \[  ({g}_{1}H) \cdot ({g}_{2}H) = ({g}_{1}{g}_{2}) \cdot H \]
+    is well-defined on the collection of left cosets of \( H  \) if and only if \( H  \) is a normal subgroup of \( G  \).
+\end{theorem}
+\begin{proof}
+\( (\Longrightarrow) \) Assume that the operation above is well-defined. We want to show that \( H  \) is a normal subgroup of \( G  \). That is, it suffices to show that for all \( g \in G  \) and \( h \in H  \), we have 
+\begin{align*}
+    g H g^{-1 } \in H. 
+\end{align*}
+That is, we want to show that (using the previous result \( aH = b H  \iff b^{-1} a \in H  \)) 
+\[  g^{-1} H  = (gh)^{-1} H.  \]
+That is, we want to show that 
+\[  g^{-1} H = h^{-1} g^{-1} H  \tag{*} \]
+Since the coset operation is well defined, we have
+\begin{align*}
+    g^{-1} H = (1 g^{-1}) H  = (1H) (g^{-1}H) &\underbrace{=}_{1 H  = H = h^{-1} H} (h^{-1} H) (g^{-1} H )  \\
+                                              &= (h^{-1} g^{-1})H.
+\end{align*}
+
+\( (\Longleftarrow) \) Assume that \( H \trianglelefteq G  \). We want to show that the above operation is well-defined. Suppose \( {g}_{1} H = {g}_{1}' H   \) and \( {g}_{2} H = {g}_{2}'  H \). Our goal is to show that
+\[ ({g}_{1}{g}_{2}) = ({g}_{1}' {g}_{2}') H. \tag{*}  \]
+Since \( H  \) is normal, (that is, \( {g}_{1}' H = H {g}_{2}' \))
+\begin{align*}
+    {g}_{1}' {g}_{2}' H  = {g}_{1}' H {g}_{2}' &= {g}_{1} H {g}_{2}' \tag{\( {g}_{1}' H = {g}_{1} H  \)} \\
+                                               &= {g}_{1} {g}_{2}'  H \tag{\( H \trianglelefteq G \implies H {g}_{1}' = {g}_{2}' H  \)} \\
+                                               &= {g}_{1} {g}_{2} H. \tag{\( {g}_{2}' H = {g}_{2} H  \)}
+\end{align*}
+and we are done.
+\end{proof}
+
+\begin{theorem}[Quotient Theorem for Groups]
+    If \( H  \) is a normal subgroup of \( G  \), then the operation 
+    \[  ({g}_{1}H) \cdot ({g}_{2}H ) = ({g}_{1}{h}_{2}) H  \]
+    is well-defined on cosets 
+\end{theorem}
+
+The group of cosets is called the \textbf{quotient group of \( G  \) by \( H  \)}, and is written \( G /  H \).
+
+\begin{remark}
+   The map \( \pi : G \to G / H \) where \( g \mapsto g H  \) is a surjective homomorphism and is called the \textbf{quotient map}. 
+\end{remark}
+
+By studying quotient groups of a group, which is a sense organize the group's elements into simpler chunks, we can again valuable information about the group itself. For example, we can show that if \( G / Z(G) \) is cyclic, then \( G  \) is abelian (where \( Z(G) \) is the center of \( G  \)).
+
+Every time we have a homomorphism and we look at the kernel of said homomorphism, they will always be normal subgroups.
+
+\begin{remark}[Observation]
+   Suppose \( G  \) is a Lie group and \( N \) is a normal subgroup algebraic subgroup of \( G  \). Thus, \( G / N   \) will be a new algebraic group. The question is: 
+   \begin{center}
+        \textit{Can we make \( G / N  \) a Lie group?} 
+   \end{center}
+   It seems reasonable to look for a smooth structure on \( G / N  \) that at least ensures that the quotient map \( \pi : G \to G / N \) is smooth. 
+\end{remark}
+
+What is the kernel of \( \pi  \)? It is 
+\begin{align*}
+    \text{ker}(\pi)   =  \pi^{-1}  \{  {1 }_{G } N  \} &= \{  g \in G : \pi(g) = {1}_{G} N  \}   \\
+                                                       &= \{  g \in G : \pi (g) =  N \}  \\
+                                                       &= \{ g \in G : g N =  N \}  \\
+                                                       &= N. 
+\end{align*}
+(\textbf{very important!})
+
+We can we conclude from this result? If we manage to find a smooth structure on \( G / N  \) that ensures \( \pi : G \to G / N   \) is smooth, then \( N  \) is necessarily a topologically closed subset of \( G  \). If it is not closed, then there is no way to define a smooth structure on the homomorphism \( \pi \).
+
+\begin{theorem}[Quotient Theorem for Lie Groups]
+    Let \( G  \) be a Lie group, \( N \trianglelefteq G  \), and \( N  \) is topologically closed subset of \( G  \). Then \( G /N  \) can be equipped with a smooth structure that turns it into a Lie group such that the quotient map \( \pi : G \to G / N  \) is a surjective smooth map.
+\end{theorem}
+
+\begin{eg}[\( \R / \Z  \)]
+   Note that \( G = (\R , + ) \) is a Lie group and \( N = (\Z , + ) \) is a subgroup of \( G  \). Since \( G  \) is abelian, \( N \trianglelefteq G  \). Now, is \( N  \) a closed subset? Yes, because the complement of \( \Z  \) (that is \(  \R \setminus  \Z  \)) is open, so \( \Z  \) is a closed subset of \( \R  \).    
+   Using the Quotient theorem for Lie groups, we have that \( \R \setminus  \Z   \) is a Lie group.
+
+   As a matter of fact, the mapping 
+   \[  F : \R / \Z \to S^{1} = \text{U}(1)  \ \ x + \Z \mapsto e^{2\pi i x}  \]
+   is a well-defined isomorphism of Lie group. And so,
+   \[  \R / \Z \cong S^{1}. \]
+   Why is this well-defined? Suppose \( x + \Z = y + \Z   \). We need to show that \( e^{2\pi i x } = e^{2 \pi i y } \). We have  
+   \begin{align*}
+       x + \Z = y + \Z &\implies x - y \in \Z  \\
+                       &\implies e^{2\pi i (x - y)} = \cos(2 \pi (x - y)) + i \sin(2 \pi (x - y)) \\ 
+                       &\implies e^{2 \pi i (x -y)} = 1 + i 0 = 1 \\
+                       &\implies e^{2 \pi i x } \cdot e^{- 2\ pi i y } = 1  \\ 
+                       &\implies e^{2\pi i x } = e^{2 \pi i y}.
+   \end{align*}
+   Similarly, we can show that 
+   \[  \R^{n} / \Z^{n} \cong (S^{1}) \times \cdots (S^{1}) \ \ \tag{\( n  \)-dimensional torus} \]
+   mapped by \( ({x}_{1}, \dots, {x}_{n}) + \Z^{n} \mapsto (e^{2\pi i {x}_{1}}, e^{2\pi i {x}_{2}}, \dots, e^{2 \pi i {x}_{n}}) \).
+\end{eg}
+
+\begin{eg}
+   Let \( G = \text{SU}(2) \) be a Lie group, \( N = \{  - I , + I  \}   \) is a normal subgroup of \( \text{SU}(2) \), then 
+   \[  \forall g \in \text{SU}(2) \ \ g(\pm I) g^{-1}  = \pm g g^{-1} = \pm I  \in N \]
+   where \( N  \) is closed \( G  \) (\( N  \) is finite subset of \( G  \)).
+   Hence, \( \text{SU}(2) / \{ - I , I  \}   \) is a Lie group. In fact, 
+   \[  \text{SU}(2) / \{  - I , + I  \}  \cong \text{SO}(3). \]
+\end{eg}

@@ -48,10 +48,13 @@ It is easy to see that \( {g}_{x} \) is linear, and (3) follows from (2) and cor
                 x &\longmapsto {g}_{x}
         \end{align*}
     \item This map is linear and injective and preserves the norm; that is, in terms of mapping the domain to its range, it will be an isomorphism of normed spaces.
+    \item Roughly speaking, this allows us to embed any normed space \( X  \) into the bidual \( X'' \) "faithfully", preserving the geometry of the space. That is, every normed space \( X  \) is a subset of \( X" \).
+    \item This lemma gives us one more step towards our notion of reflexivity. All we need is for our canonical map to be surjective which will be outlined below.
+    \item Conceptually, we can interpret this result as connecting local evaluations \( f(x) \) to the "global structure" of \( X" \).
 \end{itemize}
 
 \begin{lemma}[Canonical Mapping]\label{Canonical Mapping Lemma}
-   The canonical mapping \( C  \) given by (5) is an isomorphism of the normed space \( X  \) onto the normed space \( \R(C) \), the range of \( C  \). 
+    The canonical mapping \( C  \) given by (5) is an isomorphism of the normed space \( X  \) onto the normed space \( \mathcal{R}(C) \), the range of \( C  \). 
 \end{lemma}
 \begin{proof}
 We can see easily see the linearity of \( C  \). Indeed, we have
@@ -83,6 +86,7 @@ This tells us that \( C  \) is an isometry and so it must preserve the norm. Bec
     \item However, the converse does not hold.
     \item Completeness does not necessarily imply reflexivity.
     \item However, the converse does hold which will be outlined below.
+    \item Conceptually, this lemma allows us to say that \( X  \) and \( X" \) are the same as Banach spaces.
 \end{itemize}
 
 \begin{theorem}[Completeness]
@@ -95,7 +99,10 @@ This tells us that \( C  \) is an isometry and so it must preserve the norm. Bec
 \begin{itemize}
     \item An example of a reflexive space is \( \R^{n} \) which follows from example 2.10-5.
     \item For finite dimensions, every linear functional on a general normed space \( X  \) is bounded and so \( X' = X^{*} \) which implies further that 
+    \item Reflexivity allows for infinite dimensional analysis manageable; that is, it restores many of the compactness and duality properties that finite-dimensional analysis so powerful. 
 \end{itemize}
+
+
 
 \begin{theorem}[Finite Dimension]
     Every finite-dimensional normed space is reflexive.
