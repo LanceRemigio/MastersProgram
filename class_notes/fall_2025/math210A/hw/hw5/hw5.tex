@@ -26,7 +26,7 @@
             which is our desired result. We see that \( \text{ker}(\varphi) \trianglelefteq {G}_{1} \) because
             \begin{align*}
                 \text{ker}(\varphi) &= \{  g \in {G}_{1} : \varphi(g) = {1}_{G} \varphi^{-1}({N}_{2}) \}  \\
-                                    &= \{  g \in {G}_{1} : g \varphi^{-1}({N}_{2})  \}  \\
+                                    &= \{  g \in {G}_{1} : g {N}_{2} =  \varphi^{-1} ({N}_{2})  \}  \\
                                     &= \{  g \in {G}_{1} : g \in \varphi^{-1}({N}_{2}) \} \\ 
                                     &= \varphi^{-1}({N}_{2}) \\
                                     &\trianglelefteq {G}_{1}.
@@ -56,15 +56,30 @@
     \begin{enumerate}
         \item[(a)] Suppose \( x \in G  \) with \( |  x  |  = n < \infty   \). Show that \( n \) divides the order of \( x N  \) in \( G / N  \).
             \begin{proof}
-            
+            Our goal is to show that \( n \mid | x N  |  \). Denote \( | x N  | = k   \). By the division algorithm, we can find a unique \( q \in \Z  \) and \( 0 \leq r < n  \) such that  
+            \[  k = n q + r. \tag{*} \]
+            Since \( N \) is a normal subgroup, we know that coset multiplication in \( G / N  \) is well-defined. Hence, we see that 
+            \[ x^{k} = x^{n q  +  r} = (x^{n})^{q} \cdot x^{r} = x^{r}.\]
+            Note that \( r = 0  \) because otherwise if \( r \neq 0   \) such that \( x^{r} = 1  \), then \( r  \) would contradict the minimality of \( n  \). Hence, from (*) we can see that \( | x  |  = n  \) must divide \( k  \). Thus, \( n  \) divides the order of \( x N  \) in \( G / N  \).   
             \end{proof}
         \item[(b)] Further show that the order \(  xN  \) in \( G / N  \) is the smallest positive integer \( k  \) such that \( x^{k } \in N  \).
             \begin{proof}
-            
+                Suppose \( N \neq \{ 1_G  \}  \). Then there exists some \( a \neq 0  \) such that \( x^{a} \in N  \). If \( a < 0  \), then since \( N  \) is a group \( x^{-a} = (x^{a})^{-1} \in N \). This tells us that the set \( \mathcal{P} = \{  b \in \Z^{+} : x^{b} \in N \}  \) is nonempty. Since \( \mathcal{P} \) is a subset of \( \Z  \), the well-ordering property implies that there exists a minimal element \( d  \) such that \( x^{d} \in  N \). In \( G / N  \), this corresponds to 
+    \[  x^{d} N = {1}_{G} N.  \]
+    But since the order of \( xN  \) in \( G / N  \) is unique, this tells us that \( k = d  \). Hence, \( k  \) is the smallest positive integer such that \( x^{k} \in N  \).
             \end{proof}
         \item[(c)] Show that if \( G  =  \langle x   \rangle  \), then \( G / N  \) is cyclic.
             \begin{proof}
-            
+            Since \( G = \langle x  \rangle  \) and \( | x  |  = n  \). Then \( | \langle x  \rangle |  = | G | = n   \).   Our goal is to show that \( \langle x N  \rangle = G / N  \). From parts (a) and (b), we can see that \( | x N  |  = k \) and \( k  \) is the smallest such positive integer such that \( x^{k} \in N  \); that is, \( (xN)^{k} \in G / N  \). Hence, we see that \( \langle x N  \rangle \leq G / N  \). All that remains to show is that \( G / N \leq \langle x N  \rangle\). Let \( t  \) be any positive power of \( xN \). We will show that \( (xN)^{t} \in \langle x N  \rangle \). Using the division algorithm, we can find a unique \( q \in \Z  \) and \( 0 \leq r < k  \) such that 
+                \[  t = k q + r.  \]
+                Since coset multiplication is well-defined in \( G /N  \), we have that 
+                \begin{align*}
+                    (xN)^{t} = x^{t} N  = (x^{kq + r}) N  
+                                        &= \Big(  (x^{k})^{q} \cdot x^{r} \Big) N \\ 
+                                        &= x^{r} N   \tag{\( x^{k} = 1  \) from part (a)} \\
+                                        &= (xN)^{r}. \tag{\( 0 \leq r < k \)}
+                \end{align*}
+                Hence, \( (xN)^{t} \in \langle x N   \rangle  \) and so we have \( \langle x N   \rangle = G / N  \).
             \end{proof}
     \end{enumerate}
 \end{problem}
@@ -74,9 +89,37 @@
     \begin{enumerate}
         \item[(a)] Prove that if \( G / Z(G) \) is cyclic, then \( G  \) is abelian.
             \begin{proof}
-
+          Our goal is to show that \( G  \) is abelian. Suppose \( G / Z(G) \) is cyclic. We need to show that 
+          \[  xy = yx \ \ \forall x,y \in G. \]
+          To this end, let \( x,y \in G  \) be arbitrary. Since \( G / Z(G) \) is cyclic, we must have that \( G / Z(G) \) is abelian. Since \( xy \in G  \) and \( yx \in G  \), we have that (because \( Z(G) \trianglelefteq G  \) and so the coset multiplication is well-defined) 
+          \[  (xy) Z(G) = (x Z(G) )(y Z(G)) = (y Z(G))(x Z(G)) = (yx) Z(G).  \]
+          This tells us that \( (xy)^{-1}(yx) \in Z(G) \) and so we have 
+          \[ (xy)^{-1}(yx)g = g (xy)^{-1}(yx) \ \ \forall g \in G.  \]
+          In particular, if \( g = x^{-1} \), we have 
+          \begin{align*}
+              &(xy)^{-1}(yx) x^{-1} = x^{-1}(xy)^{-1} (yx) \\
+              &\implies y^{-1}x^{-1} y = x^{-1}y^{-1} x^{-1}yx \\    
+              &\implies x(y^{-1} x^{-1} y) = (y^{-1}x^{-1}y)x.
+          \end{align*}
+          Since \( x \in G  \) is arbitrary, we see that \( y^{-1}x^{-1} y \in Z(G) \). If \( g = y  \), then
+          \begin{align*}
+              &y(y^{-1}x^{-1}y) = (y^{-1}x^{-1}y)y \\
+              &\implies x^{-1}y = (y^{-1}x^{-1}y) y \\
+              &\implies x^{-1} = y^{-1}x^{-1}y \\
+              &\implies xy = yx.
+          \end{align*}
+          Hence, \( G  \) must be abelian.
             \end{proof}
         \item[(b)] Show that if \( | G  |  = pq  \) where \( p  \) and \( q  \) are primes (not necessarily distinct) then either \( G  \) is abelian or \( Z(G) = \{  {1}_{G} \}  \).
+            \begin{proof}
+            Suppose \( | G  |  = pq  \) where \( p  \) and \( q  \) are primes. Suppose \( Z(G) \neq \{ {1}_{G} \}  \). Our goal is to show that \( G  \) is abelian. Since \( G  \) is a finite group and \( Z(G) \leq G  \), it follows from Lagrange's Theorem that  
+            \[  | Z(G) | \mid | G |. \]
+            This tells us that \( | Z(G) | \in \{ 1, p, q , pq  \}   \). If \( | Z(G)  |  = 1  \), then we would get a contradiction because we assumed that \( Z(G) \neq 1  \). If \( | Z(G) | = p  \), then 
+            \[  | G / N  |  = \frac{ | G |  }{ | Z(G) |  }  = \frac{ pq  }{ p  } = q. \]
+            Since \( q  \) is prime, \( G / N \) must be a cyclic group of order prime \( q  \). From part (a), \( G  \) must be abelian. Similarly, if \( | Z(G) |  = q  \), then we would get \( | G / N  |  = p   \), and so \( G / N  \) is a cyclic group of order prime \(  p \) and hence \( G  \) is an abelian group. If \( | Z(G) |  = pq = | G |   \) and \( Z(G) \leq G  \), then \( Z(G) = G   \) and we also get that \( G  \) is abelian.
+
+            If \( p  \) and \( q  \) are not distinct, then \( | Z(G) | \in \{ 1, p, p^{2} \}  \). A similar argument will show that \( G  \) will be an abelian group given that \( | G / N |  \) is prime. For the case that \( | Z(G) | = p^{2}  \), then \( Z(G) = G  \) and so \( G  \) is abelian. 
+            \end{proof}
     \end{enumerate}
 \end{problem}
 
@@ -85,7 +128,6 @@
   \begin{enumerate}
       \item[(a)] Prove that \( g H g^{-1}  \) is a subgroup of \( G  \) of the same order as \( H  \).
           \begin{proof}
-          
           \end{proof}
         \item[(b)] Deduce that if \( n \in \Z^{+} \) and \( H  \) is the unique subgroup of order \( n  \) then \( H \trianglelefteq G  \).
             \begin{proof}

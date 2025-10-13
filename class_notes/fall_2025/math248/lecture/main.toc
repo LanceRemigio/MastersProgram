@@ -3,3 +3,8 @@
 \contentsline {section}{\numberline {2}Week 6}{1}{section.2}%
 \contentsline {section}{\numberline {3}Week 7}{7}{section.3}%
 \contentsline {subsection}{\numberline {3.1}Kernel and Image}{7}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}A Common Theme in Mathematics}{7}{subsection.3.2}%
+\contentsline {subsection}{\numberline {3.3}Kernel of a Lie Group Homomorphism}{8}{subsection.3.3}%
+\contentsline {subsection}{\numberline {3.4}Subgroups and Cosets}{8}{subsection.3.4}%
+\contentsline {subsection}{\numberline {3.5}Normal Subgroups}{10}{subsection.3.5}%
+\contentsline {subsection}{\numberline {3.6}Making \( G / N \) a Lie Group}{12}{subsection.3.6}%

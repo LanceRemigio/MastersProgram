@@ -1,7 +1,5 @@
 \section{Week 7}
 
-
-
 \subsection{Kernel and Image}
 
 \begin{definition}[Kernel and Image]
@@ -21,6 +19,8 @@ Both of these sets are subgroups of \(  G  \) and \( H  \), respectively.
     Consider the determinant \( \text{det} : \text{GL}(n, \R ) \to \R^{*}  \) is a homomorphism. Thus,    
     \[  \text{ker}(\text{det}) = \{  A \in \text{GL}(n, \R ) : \text{det} A = 1  \}  = \text{SL}(n,\R). \]
 \end{eg}
+
+\subsection{A Common Theme in Mathematics}
 
 \begin{remark}[Topology]
    If \( X  \) and \( Y  \) are two topological spaces, we may consider them to be the same if there exists a function \( f : X \to Y  \) such that   
@@ -44,6 +44,8 @@ Both of these sets are subgroups of \(  G  \) and \( H  \), respectively.
    \end{enumerate}
    The last remark gives us an explanation of why (ii) is important.
 \end{remark}
+
+\subsection{Kernel of a Lie Group Homomorphism}
 
 \begin{remark}[Fact from Linear Algebra]\label{Fact from Linear Algebra}
     Suppose \( A  \) and \( B  \) are two \( n \times n  \) matrices and \( A  \) is invertible. Then 
@@ -84,6 +86,8 @@ Both of these sets are subgroups of \(  G  \) and \( H  \), respectively.
     Hence, \( DG(x) \) is invertible.
 \end{remark}
 
+\subsection{Subgroups and Cosets}
+
 \begin{definition}[Subgroups and cosets (very important!)]
     Let \( G  \) be a group. Given a subgroup \( H  \) of \( G  \) and \( g \in G  \), the \textbf{left coset} of \( H  \) determined by \( g  \) is the set 
     \[  gH = \{  g h : h \in H  \}. \]
@@ -94,7 +98,7 @@ Both of these sets are subgroups of \(  G  \) and \( H  \), respectively.
 
 You need a subgroup and an element to talk about a coset.
 
-\begin{eg}[\( G = (\R^2, +) , H = \text{y-axis}  \) Very important!]
+\begin{eg}[\( G = (\R^2, +) , H = \text{y-axis}  \) (Very important!)]
     Observe that \( H = \{  (0,y) : y \in \R  \}   \) is a subgroup of \( G = (\R^{2}, + ) \). Let's determine the left cosets of \( H  \).  For all \( (a,b) \in \R^{2} \), we have 
     \begin{align*}
         (a,b) + H &= \{  (a,b ) + (0,y) : y \in \R  \}  = \{  (a,0+y) : y \in \R  \}  \\
@@ -180,6 +184,8 @@ You need a subgroup and an element to talk about a coset.
    \end{enumerate}
 \end{lemma} 
 
+\subsection{Normal Subgroups}
+
 \begin{definition}[Normal Subgroups]
     In the case that any of the above equivalent conditions holds, we say \( H  \) is a normal subgroup of \( G  \).
 \end{definition}
@@ -208,10 +214,10 @@ Since the coset operation is well defined, we have
 
 \( (\Longleftarrow) \) Assume that \( H \trianglelefteq G  \). We want to show that the above operation is well-defined. Suppose \( {g}_{1} H = {g}_{1}' H   \) and \( {g}_{2} H = {g}_{2}'  H \). Our goal is to show that
 \[ ({g}_{1}{g}_{2}) = ({g}_{1}' {g}_{2}') H. \tag{*}  \]
-Since \( H  \) is normal, (that is, \( {g}_{1}' H = H {g}_{2}' \))
+Since \( H  \) is normal, (that is, \( {g}_{2}' H = H {g}_{2}' \) and \( {g}_{1}' = H {g}_{1}' \))
 \begin{align*}
     {g}_{1}' {g}_{2}' H  = {g}_{1}' H {g}_{2}' &= {g}_{1} H {g}_{2}' \tag{\( {g}_{1}' H = {g}_{1} H  \)} \\
-                                               &= {g}_{1} {g}_{2}'  H \tag{\( H \trianglelefteq G \implies H {g}_{1}' = {g}_{2}' H  \)} \\
+                                               &= {g}_{1} {g}_{2}'  H \tag{\( H \trianglelefteq G \implies H {g}_{2}' = {g}_{2}' H  \)} \\
                                                &= {g}_{1} {g}_{2} H. \tag{\( {g}_{2}' H = {g}_{2} H  \)}
 \end{align*}
 and we are done.
@@ -229,12 +235,14 @@ The group of cosets is called the \textbf{quotient group of \( G  \) by \( H  \)
    The map \( \pi : G \to G / H \) where \( g \mapsto g H  \) is a surjective homomorphism and is called the \textbf{quotient map}. 
 \end{remark}
 
-By studying quotient groups of a group, which is a sense organize the group's elements into simpler chunks, we can again valuable information about the group itself. For example, we can show that if \( G / Z(G) \) is cyclic, then \( G  \) is abelian (where \( Z(G) \) is the center of \( G  \)).
+By studying quotient groups of a group which, in a sense, organizes the group's elements into simpler chunks, we can gain valuable information about the group itself. For example, we can show that if \( G / Z(G) \) is cyclic, then \( G  \) is abelian (where \( Z(G) \) is the center of \( G  \)).
 
 Every time we have a homomorphism and we look at the kernel of said homomorphism, they will always be normal subgroups.
 
+\subsection{Making \( G / N  \) a Lie Group}
+
 \begin{remark}[Observation]
-   Suppose \( G  \) is a Lie group and \( N \) is a normal subgroup algebraic subgroup of \( G  \). Thus, \( G / N   \) will be a new algebraic group. The question is: 
+   Suppose \( G  \) is a Lie group and \( N \) is a normal subgroup algebraic subgroup of \( G  \). From this we can construct a new algebraic group \( G / N   \). In the context of Lie Theory, an important question arises: 
    \begin{center}
         \textit{Can we make \( G / N  \) a Lie group?} 
    \end{center}
@@ -250,7 +258,7 @@ What is the kernel of \( \pi  \)? It is
 \end{align*}
 (\textbf{very important!})
 
-We can we conclude from this result? If we manage to find a smooth structure on \( G / N  \) that ensures \( \pi : G \to G / N   \) is smooth, then \( N  \) is necessarily a topologically closed subset of \( G  \). If it is not closed, then there is no way to define a smooth structure on the homomorphism \( \pi \).
+What can we conclude from this result? If we manage to find a smooth structure on \( G / N  \) that ensures \( \pi : G \to G / N   \) is smooth, then \( N  \) is necessarily a topologically closed subset of \( G  \) (recall that if \( \pi  \) is smooth, then it is continuous and preimages of continuous functions of closed sets are closed). If it is not closed, then there is no way to define a smooth structure on the homomorphism \( \pi \).
 
 \begin{theorem}[Quotient Theorem for Lie Groups]
     Let \( G  \) be a Lie group, \( N \trianglelefteq G  \), and \( N  \) is topologically closed subset of \( G  \). Then \( G /N  \) can be equipped with a smooth structure that turns it into a Lie group such that the quotient map \( \pi : G \to G / N  \) is a surjective smooth map.
@@ -261,7 +269,10 @@ We can we conclude from this result? If we manage to find a smooth structure on 
    Using the Quotient theorem for Lie groups, we have that \( \R \setminus  \Z   \) is a Lie group.
 
    As a matter of fact, the mapping 
-   \[  F : \R / \Z \to S^{1} = \text{U}(1)  \ \ x + \Z \mapsto e^{2\pi i x}  \]
+   \begin{align*}
+       F : \R / \Z &\longrightarrow S^{1} = \text{U}(1)  \\ 
+       x + \Z &\longmapsto e^{2\pi i x}  
+    \end{align*}
    is a well-defined isomorphism of Lie group. And so,
    \[  \R / \Z \cong S^{1}. \]
    Why is this well-defined? Suppose \( x + \Z = y + \Z   \). We need to show that \( e^{2\pi i x } = e^{2 \pi i y } \). We have  
@@ -269,11 +280,11 @@ We can we conclude from this result? If we manage to find a smooth structure on 
        x + \Z = y + \Z &\implies x - y \in \Z  \\
                        &\implies e^{2\pi i (x - y)} = \cos(2 \pi (x - y)) + i \sin(2 \pi (x - y)) \\ 
                        &\implies e^{2 \pi i (x -y)} = 1 + i 0 = 1 \\
-                       &\implies e^{2 \pi i x } \cdot e^{- 2\ pi i y } = 1  \\ 
+                       &\implies e^{2 \pi i x } \cdot e^{- 2 \pi i y } = 1  \\ 
                        &\implies e^{2\pi i x } = e^{2 \pi i y}.
    \end{align*}
    Similarly, we can show that 
-   \[  \R^{n} / \Z^{n} \cong (S^{1}) \times \cdots (S^{1}) \ \ \tag{\( n  \)-dimensional torus} \]
+   \[  \R^{n} / \Z^{n} \cong (S^{1}) \times \cdots \times (S^{1}) \ \ \tag{\( n  \)-dimensional torus} \]
    mapped by \( ({x}_{1}, \dots, {x}_{n}) + \Z^{n} \mapsto (e^{2\pi i {x}_{1}}, e^{2\pi i {x}_{2}}, \dots, e^{2 \pi i {x}_{n}}) \).
 \end{eg}
 

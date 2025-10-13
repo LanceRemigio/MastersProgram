@@ -543,11 +543,12 @@ INPUT /usr/local/Cellar/texlive/20240312_3/share/texmf-dist/fonts/tfm/jknappen/e
 INPUT /usr/local/Cellar/texlive/20240312_3/share/texmf-dist/fonts/tfm/jknappen/ec/ecrm0500.tfm
 INPUT /usr/local/Cellar/texlive/20240312_3/share/texmf-dist/fonts/map/pdftex/updmap/pdftex.map
 INPUT /usr/local/Cellar/texlive/20240312_3/share/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc
-INPUT /usr/local/Cellar/texlive/20240312_3/share/texmf-dist/fonts/tfm/jknappen/ec/ecss1000.tfm
 INPUT /usr/local/Cellar/texlive/20240312_3/share/texmf-dist/fonts/tfm/jknappen/ec/ecsl1000.tfm
+INPUT /usr/local/Cellar/texlive/20240312_3/share/texmf-dist/fonts/tfm/jknappen/ec/ecss1000.tfm
 INPUT hw5.aux
 INPUT ./hw5.out
 INPUT ./hw5.out
+INPUT /usr/local/Cellar/texlive/20240312_3/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb
 INPUT /usr/local/Cellar/texlive/20240312_3/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb
 INPUT /usr/local/Cellar/texlive/20240312_3/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb
 INPUT /usr/local/Cellar/texlive/20240312_3/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb

@@ -127,11 +127,11 @@
 ]{thmblueline}
 
 \declaretheoremstyle[
-    headfont=\bfseries\sffamily, bodyfont=\normalfont,
+    headfont=\bfseries\sffamily,
     numbered = no,
-    % mdframed={
-    %     rightline=true, topline=true, bottomline=true,
-    % }
+    mdframed={
+        rightline=true, topline=true, bottomline=true,
+    }
 ]{thmbox}
 
 \declaretheoremstyle[
@@ -142,6 +142,12 @@
     },
     qed=\qedsymbol
 ]{thmproofbox}
+
+\declaretheoremstyle[
+    headfont=\bfseries\sffamily, bodyfont=\normalfont,
+    numbered=no,
+    qed=\qedsymbol
+]{probbox}
 
 \declaretheoremstyle[
     headfont=\bfseries\sffamily\color{NavyBlue!70!black}, bodyfont=\normalfont,
@@ -170,7 +176,7 @@
     name=Proposition]{prop}
 
 \declaretheorem[
-    style = thmbox,
+    style = probbox,
     numbered=yes,
     name =Problem
     ]{problem}
