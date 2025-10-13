@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1760304880.76538 "hw5.tex" "hw5.pdf" "hw5" 1760304888.97702 0
+["pdflatex"] 1760374588.56229 "hw5.tex" "hw5.pdf" "hw5" 1760374596.82063 0
   "../../../../../newpreamble.tex" 1760291988.42837 7644 045b5963cdcb5a08eabc144bb0608fe7 ""
   "/usr/local/Cellar/texlive/20240312_3/share/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc" 1710106625 2971 def0b6c1f0b107b3b936def894055589 ""
   "/usr/local/Cellar/texlive/20240312_3/share/texmf-dist/fonts/map/fontname/texfonts.map" 1710106625 3524 cb3e574dea2d1052e39280babc910dc8 ""
@@ -322,9 +322,9 @@
   "/usr/local/Cellar/texlive/20240312_3/share/texmf-dist/tex/latex/zref/zref-base.sty" 1710106625 20785 f7d1133a287929598a897c93f8f4c44b ""
   "/usr/local/Cellar/texlive/20240312_3/share/texmf-dist/web2c/texmf.cnf" 1739092516.50854 41652 e14926ab86fde7902cad99d9eeaa5ca5 ""
   "/usr/local/Cellar/texlive/20240312_3/share/texmf-var/web2c/pdftex/pdflatex.fmt" 1710106625 8221738 0fe25a98ec26b76f48bc3534ec24a62e ""
-  "hw5.aux" 1760304888.48728 3372 7ec6f875b369d8ce295eb8d4d493ecaf "pdflatex"
-  "hw5.out" 1760304887.46102 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
-  "hw5.tex" 1760304878.78423 11967 03e412fac6efadb0e2b07db18d177d6e ""
+  "hw5.aux" 1760374596.27071 3371 0a8e8e9d7a60477b856632cfdbf8d093 "pdflatex"
+  "hw5.out" 1760374595.24763 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
+  "hw5.tex" 1760374588.04584 16028 f2bc7a8ed6c786992daad4c7b41839ca ""
   (generated)
   "hw5.aux"
   "hw5.log"

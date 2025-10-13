@@ -128,17 +128,44 @@
   \begin{enumerate}
       \item[(a)] Prove that \( g H g^{-1}  \) is a subgroup of \( G  \) of the same order as \( H  \).
           \begin{proof}
+            Let \( g \in G  \). We will prove that \( g H g^{-1} \leq G  \) and that \( | g H g^{-1} |  = | G |  \). Note that \( g H g^{-1}  \) is nonempty because \( {1}_{G} \in g H g^{-1} \). Indeed, since \( H  \) is a subgroup of \( G  \), we know that \( {1}_{G} \in H  \) and so  
+            \[  g {1}_{G} g^{-1} = g g^{-1} = {1}_{G}. \]
+            Hence, \( {1}_{G} \in g H g^{-1} \).
+
+            Now, let \( x,y \in g H g^{-1} \). Then we have 
+            \begin{center}
+                \( x = g {h}_{1} g^{-1} \) and \( y = g {h}_{2} g^{-1} \) for some \( {h}_{1},{h}_{2} \in H  \).
+            \end{center}
+            Then we have 
+            \begin{align*}
+                xy &= (g {h}_{1} g^{-1})(g {h}_{2} g^{-1}) 
+                   = g ({h}_{1} {h}_{2}) {g}^{-1} 
+            \end{align*}
+            We know that \( {h}_{1} {h}_{2} \in H   \) because \( H  \) is a subgroup of \( G  \) and it is closed under multiplication. Hence, \( xy \in g H g^{-1} \). Since \( H  \) is also closed under inverses, we have that \( {h}_{1}^{-1} \in H  \). Therefore, we have  
+            \[  x^{-1} = \big(g ({h}_{1} g^{-1})\big)^{-1} = ({h}_{1}g^{-1})^{-1} g^{-1} = g {h}_{1}^{-1} g^{-1}.  \]
+    Thus, we can see that \( x^{-1} \in g H g^{-1} \) and so \( g H g^{-1}  \) is also closed under inverses. This tells us that \( g H g^{-1} \leq G  \). 
+    
+    To show that \( g H g^{-1} \) and \( H  \) have the same order, we will show that the mapping \( \varphi : H \to g H g^{-1} \) defined by \( \varphi(h) = g h g^{-1} \) for all \( h \in H  \) is bijective. Indeed, we can see that \( \varphi  \) is injective because for \( {h}_{1}, {h}_{2} \in H  \) such that \( \varphi({h}_{1}) = \varphi({h}_{2}) \), we have 
+    \begin{align*}
+        g {h}_{1} g^{-1} &= g {h}_{2} g^{-1} \\
+        g {h}_{1} &= g{h}_{2} \\
+        {h}_{1} &= {h}_{2} 
+    \end{align*}
+    by multiplying by \( g  \) on the right and \( g^{-1} \) on the right and left, respectively. Hence, we see that \( \varphi  \) is an injective map. Also, it is immediate that \( \varphi  \) is surjective. Indeed, for every \( y \in g H g^{-1} \), we see (by definition of \( g H g^{-1} \)) that there exists some \( \hat{h} \in H  \) such that \( y = g \hat{h} g^{-1} =  \varphi(\hat{h}) \). Hence, \( \varphi  \) is a bijective mapping from \( H  \) to \( g H g^{-1} \). Thus, we conclude that \( | H  |  = | g H g^{-1} |  \).  
           \end{proof}
         \item[(b)] Deduce that if \( n \in \Z^{+} \) and \( H  \) is the unique subgroup of order \( n  \) then \( H \trianglelefteq G  \).
             \begin{proof}
-            \end{proof}
+               Because \( | g H g^{-1}  |  = | H  |  \) for all \( g \in G  \) from the previous part and that \( H \) is a unique subgroup of order \( n  \), it must follow that \( g H g^{-1} = H  \) and so \( H \trianglelefteq G  \). Otherwise, if there exists some other subgroup, say \( H' \), of the same order as \( H  \), then \( | H' |  = | H |  = | g H g^{-1} |  \) but necessarily \( H' \not\subseteq  H   \).
+           \end{proof}
   \end{enumerate}
 \end{problem}
 
 \begin{problem}[Section 3.2 Problem 8]
   Prove that if \( H  \) and \( K  \) are finite subgroups of \( G  \) whose orders are relatively prime then \( H \cap  K = 1  \).  
   \begin{proof}
-  
+  Suppose \( H  \) and \( K  \) are finite subgroups of \( G  \) whose orders are relatively prime. Our goal is to show that \( H \cap K  = \{  {1}_{G} \}  \). To this end, it suffices to show that \( | H \cap K  |  = 1   \). Note that if \( H  \) and \( K  \) are trivial subgroups, then result follows immediately and so suppose otherwise. Since \( | H  |   \) and \( | K |  \) are relatively prime, we know that \( (| H | , | K | ) = 1  \). Hence, \( 1 \mid | H  |  \) and \( 1 \mid | K  |  \) and so we have \( 1 \mid | H  | | K |  \). Because \( H  \) and \( K  \) are subgroups of finite order, we have
+  \[  | HK |  = \frac{ | H  |  | K  |   }{  | H \cap K  |  } \iff | HK | | H \cap K  |  = | H  |  | K |.  \]
+  Because \( 1 \mid | H  |  | K |  \), either \( | H K  |  = 1   \) or \( | H \cap K |  = 1  \). If \( | H K  |  = 1  \), then \( | H  |   \) and \( | K  |   \) must both be equal to \( 1  \). However, we assumed that \( H  \) and \( K  \) are non-trivial subgroups of \( G  \) and so they must have more elements other than the identity. Thus, they cannot be both equal to \( 1  \) which is a contradiction. Hence, it must be that \( | H \cap K  |  = 1  \) and so we conclude that \( H \cap K = \{  {1}_{G} \}  \).
   \end{proof}
 \end{problem}
 
