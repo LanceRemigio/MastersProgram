@@ -1,6 +1,6 @@
 # Fdb version 4
-["pdflatex"] 1760229977.87031 "main.tex" "main.pdf" "main" 1760229987.93203 0
-  "../../../../newpreamble.tex" 1760228289.15399 7540 72ca4446bc6765baf1e9a55b685283c7 ""
+["pdflatex"] 1760417808.24918 "main.tex" "main.pdf" "main" 1760417818.53242 0
+  "../../../../newpreamble.tex" 1760291988.42837 7644 045b5963cdcb5a08eabc144bb0608fe7 ""
   "/usr/local/Cellar/texlive/20240312_3/share/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc" 1710106625 2971 def0b6c1f0b107b3b936def894055589 ""
   "/usr/local/Cellar/texlive/20240312_3/share/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1710106625 2900 1537cc8184ad1792082cd229ecc269f4 ""
   "/usr/local/Cellar/texlive/20240312_3/share/texmf-dist/fonts/map/fontname/texfonts.map" 1710106625 3524 cb3e574dea2d1052e39280babc910dc8 ""
@@ -356,13 +356,13 @@
   "/usr/local/Cellar/texlive/20240312_3/share/texmf-dist/tex/latex/zref/zref-base.sty" 1710106625 20785 f7d1133a287929598a897c93f8f4c44b ""
   "/usr/local/Cellar/texlive/20240312_3/share/texmf-dist/web2c/texmf.cnf" 1739092516.50854 41652 e14926ab86fde7902cad99d9eeaa5ca5 ""
   "/usr/local/Cellar/texlive/20240312_3/share/texmf-var/web2c/pdftex/pdflatex.fmt" 1710106625 8221738 0fe25a98ec26b76f48bc3534ec24a62e ""
-  "main.aux" 1760229987.14327 12236 3055e7a85c2662172b90bb7cfba42fb4 "pdflatex"
-  "main.out" 1760229987.18078 1341 ffd6caf5ca746e3808ffcc9fce76e141 "pdflatex"
-  "main.tex" 1760229960.09045 356 dc5a01b965158962b164a8c8f7027176 ""
-  "main.toc" 1760229987.18137 759 fbd0b065b62ebb910dea973c3f1b8605 "pdflatex"
+  "main.aux" 1760417817.78436 12236 3055e7a85c2662172b90bb7cfba42fb4 "pdflatex"
+  "main.out" 1760417817.82324 1341 ffd6caf5ca746e3808ffcc9fce76e141 "pdflatex"
+  "main.tex" 1760234547.74069 356 dc5a01b965158962b164a8c8f7027176 ""
+  "main.toc" 1760417817.82421 759 fbd0b065b62ebb910dea973c3f1b8605 "pdflatex"
   "week5/week5.tex" 1759379189.06665 1006 a9b9f703b07fa5de6c80760d72103aa5 ""
   "week6/week6.tex" 1760032918.4231 15481 c157beea7fbf19343d420175df40168a ""
-  "week7/week7.tex" 1760229923.04571 16982 a446401ab6233ae979aefae0faa56549 ""
+  "week7/week7.tex" 1760417807.74116 16947 1ec82d1691812d32d36e403078c9b5f1 ""
   "week8/week8.tex" 1760229958.99168 0 d41d8cd98f00b204e9800998ecf8427e ""
   (generated)
   "main.aux"

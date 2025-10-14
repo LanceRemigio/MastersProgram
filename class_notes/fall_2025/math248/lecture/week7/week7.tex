@@ -55,7 +55,7 @@ Both of these sets are subgroups of \(  G  \) and \( H  \), respectively.
 \begin{theorem}[Kernel of a Lie Group Homomorphism]
    Let \( G  \) and \( H  \) be Lie groups. Let \( f : G \to H  \) be a Lie group homomorphism. Then 
    \begin{enumerate}
-       \item[(i)] The rank of the derivative of \( f  \) is constant for all points in \( G  \); that is, there exists \( k \in \N  \) such that for all \( x \in G  \), \( D f (x) = k   \).
+       \item[(i)] The rank of the derivative of \( f  \) is constant for all points in \( G  \); that is, there exists \( k \in \N  \) such that for all \( x \in G  \), \( \text{rank}(D f (x)) = k   \).
         \item[(ii)] \( \text{ker}(f) \) is an embedded submanifold of \( G  \) of dimension \( \text{dim}(G) - k  \) (and so it is a Lie subgroup of \( G \)) 
         \item[(iii)] \( \text{Im}(f)  \) can be equipped with a smooth structure that makes it a Lie subgroup of \( H  \).
    \end{enumerate}
@@ -200,7 +200,7 @@ Notationally, normal subgroups can be represented by \( H \trianglelefteq G  \) 
 \begin{proof}
 \( (\Longrightarrow) \) Assume that the operation above is well-defined. We want to show that \( H  \) is a normal subgroup of \( G  \). That is, it suffices to show that for all \( g \in G  \) and \( h \in H  \), we have 
 \begin{align*}
-    g H g^{-1 } \in H. 
+    g h g^{-1 } \in H. 
 \end{align*}
 That is, we want to show that (using the previous result \( aH = b H  \iff b^{-1} a \in H  \)) 
 \[  g^{-1} H  = (gh)^{-1} H.  \]
@@ -213,8 +213,8 @@ Since the coset operation is well defined, we have
 \end{align*}
 
 \( (\Longleftarrow) \) Assume that \( H \trianglelefteq G  \). We want to show that the above operation is well-defined. Suppose \( {g}_{1} H = {g}_{1}' H   \) and \( {g}_{2} H = {g}_{2}'  H \). Our goal is to show that
-\[ ({g}_{1}{g}_{2}) = ({g}_{1}' {g}_{2}') H. \tag{*}  \]
-Since \( H  \) is normal, (that is, \( {g}_{2}' H = H {g}_{2}' \) and \( {g}_{1}' = H {g}_{1}' \))
+\[ ({g}_{1}{g}_{2})H = ({g}_{1}' {g}_{2}') H. \tag{*}  \]
+Since \( H  \) is normal, (that is, \( {g}_{2}' H = H {g}_{2}' \) and \( {g}_{1}' H  = H {g}_{1}' \))
 \begin{align*}
     {g}_{1}' {g}_{2}' H  = {g}_{1}' H {g}_{2}' &= {g}_{1} H {g}_{2}' \tag{\( {g}_{1}' H = {g}_{1} H  \)} \\
                                                &= {g}_{1} {g}_{2}'  H \tag{\( H \trianglelefteq G \implies H {g}_{2}' = {g}_{2}' H  \)} \\
@@ -237,12 +237,12 @@ The group of cosets is called the \textbf{quotient group of \( G  \) by \( H  \)
 
 By studying quotient groups of a group which, in a sense, organizes the group's elements into simpler chunks, we can gain valuable information about the group itself. For example, we can show that if \( G / Z(G) \) is cyclic, then \( G  \) is abelian (where \( Z(G) \) is the center of \( G  \)).
 
-Every time we have a homomorphism and we look at the kernel of said homomorphism, they will always be normal subgroups.
+The kernel of the quotient map will be a normal subgroup of \( G  \).
 
 \subsection{Making \( G / N  \) a Lie Group}
 
 \begin{remark}[Observation]
-   Suppose \( G  \) is a Lie group and \( N \) is a normal subgroup algebraic subgroup of \( G  \). From this we can construct a new algebraic group \( G / N   \). In the context of Lie Theory, an important question arises: 
+   Suppose \( G  \) is a Lie group and \( N \) is a normal algebraic subgroup of \( G  \). From this we can construct a new algebraic group \( G / N   \). In the context of Lie Theory, an important question arises: 
    \begin{center}
         \textit{Can we make \( G / N  \) a Lie group?} 
    \end{center}
@@ -258,7 +258,7 @@ What is the kernel of \( \pi  \)? It is
 \end{align*}
 (\textbf{very important!})
 
-What can we conclude from this result? If we manage to find a smooth structure on \( G / N  \) that ensures \( \pi : G \to G / N   \) is smooth, then \( N  \) is necessarily a topologically closed subset of \( G  \) (recall that if \( \pi  \) is smooth, then it is continuous and preimages of continuous functions of closed sets are closed). If it is not closed, then there is no way to define a smooth structure on the homomorphism \( \pi \).
+What can we conclude from this result? If we manage to find a smooth structure on \( G / N  \) that ensures \( \pi : G \to G / N   \) is smooth, then \( N  \) must be necessarily a topologically closed subset of \( G  \) (recall that if \( \pi  \) is smooth, then it is continuous and preimages of continuous functions of closed sets are closed). If it is not closed, then there is no way to define a smooth structure on the homomorphism \( \pi \).
 
 \begin{theorem}[Quotient Theorem for Lie Groups]
     Let \( G  \) be a Lie group, \( N \trianglelefteq G  \), and \( N  \) is topologically closed subset of \( G  \). Then \( G /N  \) can be equipped with a smooth structure that turns it into a Lie group such that the quotient map \( \pi : G \to G / N  \) is a surjective smooth map.
