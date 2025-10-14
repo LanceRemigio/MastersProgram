@@ -1,0 +1,37 @@
+\section{Monday Lecture}
+
+\begin{prop}[Continuity of a Measure]
+   Any measure \( \mu (\Omega) < \infty  \) satisfies the following properties: 
+   \begin{enumerate}
+       \item[(i)] (Finite additivity): For a finite sequence of disjoint sets \( {E}_{1}, {E}_{2}, \dots, {E}_{k} \)
+            \[  \mu \Big(  \sum_{ i=1  }^{ k  } {E}_{i} \Big) = \sum_{ i=1  }^{ k  } \mu({E}_{i}). \]
+   \end{enumerate}
+\end{prop}
+\begin{proof}
+Suppose we have an \( \mathcal{F}-   \)algebra where \( \mu : \mathcal{F} \to [0,\infty) \cup  \{ \infty  \}  \). If \( {E}_{n} \) where \( n \in \N  \) is a sequence of disjoint sets; that is, \( {E}_{i} \cap {E}_{j} = \emptyset  \) if \( i \neq j  \). Then 
+\[  \mu \Big(  \bigcup_{ i=1  }^{ \infty  }  {E}_{i} \Big) = \sum_{ i=1  }^{ \infty  } \mu({E}_{i}). \]
+Note that in (i), given the above, we can write
+\[  \mu \Big(  \bigcup_{ i= 1  }^{ k }  {E}_{i} \Big) = \mu \Big(  \sum_{ i=1  }^{ k } {E}_{i} \Big) = \sum_{ i=1  }^{ k } \mu({E}_{i}).  \]
+This statement can be easily proven using property (1) of the definition of a measure where all indices \( i \) past \( k \), we can set \( {E}_{i} = \emptyset \). Indeed, we will consider three cases:   
+\begin{enumerate}
+    \item[(1)] \( i \neq j  \) where \( i,j \in \{  1,2,\dots, k  \}  \) implies \( {E}_{i} \cap {E}_{j} = \emptyset \) where \( {E}_{1}, {E}_{2}, \dots, {E}_{k} \) are all disjoint.
+    \item[(2)] \( i \neq j  \) where \( i,j  \in \{  k + 1 , k + 2, \dots  \}  \) implies \( {E}_{i} \cap {E}_{j} = \emptyset \cap \emptyset = \emptyset \).
+    \item[(3)] \( i \in \{  1,2,\dots, k  \}  \) and \( j \in \{  k + 1 , k + 2 , \dots  \}  \) implies \( {E}_{i} \cap {E}_{j} = {E}_{i} \cap \emptyset  = \emptyset\).
+\end{enumerate}
+From (i)-(iii), we have \( {E}_{i}  \) where \( i \in \N  \) is a disjoint sequence of sets. The above proposition includes \( {E}_{n}  \) for \( n \in \N  \) disjoint and 
+\[  \mu\Big(\bigcup_{ i = 1  }^{ \infty  }  {E}_{n}\Big) = \sum_{ i=1  }^{ \infty  } \mu({E}_{n}), \]
+which implied that \( \bigcup_{ i=1  }^{ \infty  }  {E}_{i} \in \mathcal{F} \). Note that 
+because 
+\begin{align*}
+    \mu \Big(  \bigcup_{ i=1  }^{ \infty  }  {E}_{i}  \Big) &= mu \Big(  \bigcup_{ i =1  }^{ \infty  }  {E}_{i} \Big) = \sum_{ i=1  }^{ \infty  } \mu({E}_{i}) \\
+                                                            &= \sum_{ i=1  }^{ k  } \mu({E}_{i}) + \sum_{ i = k + 1  }^{ \infty  } \mu(\emptyset) \\
+                                                            &= \sum_{ i=1  }^{ k  } \mu({E}_{i}) + 0  \\
+                                                            &= \sum_{ i=1  }^{ k  } \mu({E}_{i}).
+\end{align*}
+\end{proof}
+
+Recall that if \( f  \) is continuous, then \( {x}_{n} \to x  \) which implies that \( f({x}_{n}) \to f(x) \).
+
+\begin{prop}[Measure is Continuous from Below]
+    If \( {E}_{n}  \) is a non-decreasing sequence to \( E  \), \( E \in \mathcal{F} \) and \( {E}_{n} \in \mathcal{F} \) for all \( n \in \N \), then \( \mu({E}_{n})  \) converges to \( \mu(E) \) where \( \mu(E) \in \{ \sup E  , \infty   \}  \). 
+\end{prop}

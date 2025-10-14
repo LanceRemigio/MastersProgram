@@ -1405,6 +1405,8 @@ INPUT /usr/share/texlive/texmf-dist/tex/latex/mdframed/mdframed.sty
 INPUT /usr/share/texlive/texmf-dist/tex/latex/thmtools/thm-patch.sty
 INPUT /usr/share/texlive/texmf-dist/tex/latex/mdframed/mdframed.sty
 INPUT /usr/share/texlive/texmf-dist/tex/latex/thmtools/thm-patch.sty
+INPUT /usr/share/texlive/texmf-dist/tex/latex/mdframed/mdframed.sty
+INPUT /usr/share/texlive/texmf-dist/tex/latex/thmtools/thm-patch.sty
 INPUT /usr/share/texlive/texmf-dist/tex/latex/etoolbox/etoolbox.sty
 INPUT /usr/share/texlive/texmf-dist/tex/latex/xifthen/xifthen.sty
 INPUT /usr/share/texlive/texmf-dist/tex/latex/xifthen/xifthen.sty
@@ -1943,6 +1945,11 @@ INPUT /usr/share/texlive/texmf-dist/fonts/tfm/jknappen/ec/ecrm0700.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/jknappen/ec/ecrm0500.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/jknappen/ec/ecss1000.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/jknappen/ec/ecsl1000.tfm
+INPUT ./week8/week8.tex
+INPUT week8/week8.tex
+INPUT ./week8/week8.tex
+INPUT week8/week8.tex
+INPUT week8/week8.tex
 INPUT main.aux
 INPUT ./main.out
 INPUT ./main.out

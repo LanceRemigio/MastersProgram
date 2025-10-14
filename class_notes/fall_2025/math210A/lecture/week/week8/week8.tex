@@ -1,0 +1,97 @@
+\section{Week 8}
+
+Recall that a lot of the problems given in the homework are based on more general theory of the results that we have been going thus far. For instance, one can prove that 
+If \( G  \) is cylic and \( \varphi  \) is a homomorphism from \( G  \) to \( H  \), then \( \varphi(G)  \) is cyclic. Note that \( \pi : G \to G / N  \) where \( g \mapsto gN \)   and \( \pi  \) is a homomorphism. Another problem we can do is prove that if \( G  \) is cyclic, then \( G / N  \) is cyclic. 
+
+For an \( \psi  : G \to H  \) where \( \psi  \) is a group homomorphism. If \( | x  |  =  n < \infty   \), then \( | \psi(x)  | | x  |  \). Because \( \pi  \) is a homomorphism from \( G \to G / N  \). Hence, the homework problem 2 follows immediately.
+
+Last time we saw that for \( H , K \leq G  \) we have 
+\begin{align*}
+    | H K  |  &= \frac{ | K  |  | H  |  }{  | K \cap  H |  }.
+\end{align*}
+Note that \( HK  \) may always be a subgroup of \( G  \).
+
+\begin{eg}
+   Let \( {S}_{3} = G  \) and \( H = \langle (1 \ 2) \rangle \) and \( K = \langle  (2 \ 3) \rangle \). Then 
+   \[  | H K |  = \frac{ | H  |  | K  |   }{ | H \cap K  |  }  = \frac{ 2 \cdot 2  }{ 1  }  = 4.  \]
+   However, we see from Lagrange's theorem that if \( H K \leq G  \), then \( 4 \mid 3!  \) which is a contradiction. We can further deduce that 
+   \[  \langle (1  \ 2 )  , (1 \  3) \rangle = {S}_{3}. \]
+   Since \( 4 \leq | \langle (1  \  2 ) , (2 \ 3) \rangle | \leq 6  \) and must also divide \( 6  \). So, \( (1 \ 2) \) and \( (2 \ 3 ) \) generates all of \( {S}_{3} \).
+\end{eg}
+
+\begin{prop}
+   If \( H, K  \) are subgroups of a group \( G  \), \( H K \leq G  \) if and only if \( HK =KH  \).
+   \textit{Note that \( HK = KH  \) does not indicate that the elements of the set commute with each other. Only that \( h k  \in H K \), we have that \( h k = {k }_{1} {h}_{1}  \) for some \( {h}_{1} \in H  \) and \( {k}_{1} \in K  \)} 
+\end{prop}
+
+\begin{proof}
+Assume that \( HK = KH  \). Our goal is to show that \( HK  \) is a subgroup of \( G  \). Since \( H  \) and \( K  \) are non-empty, then \( HK \neq \emptyset \). It remains to show that given \( a,b \in H K  \) that \( a b^{-1} \in HK \). To this end, let \( a,b  \in H  K  \). Then \( a = {h}_{1} {k}_{1} \) and \( b = {h}_{2} {k }_{2} \). Then 
+\begin{align*}
+    a b^{-1} &= ({h}_{1} {k}_{1}) ({h}_{2} {k}_{2})^{-1} \\
+             &= ({h}_{1} {k}_{1}) ({k}_{2}^{-1} {h}_{2}^{-1}) 
+\end{align*}
+Since \( K \leq G  \), we have \( {k}_{1} {k}_{2}^{-1} = {k}_{3} \in K  \) and \( {h}_{2}^{-1} = {h}_{3} \in H \). This gives that 
+\[ a b^{-1} = {h}_{1} {k}_{3} {h}_{3}. \]
+Since \( H K = K H \), we know that \( {k}_{3} {h}_{3} \in HK \). That is, \( {k}_{3} {h}_{3} = {h}_{4} {k}_{4}  \) for some \( {h}_{4} \in H  \) and \( {k}_{4} \in K  \). So, 
+\[  a b^{-1} = {h}_{1} {h}_{4} {k}_{4} \]
+and letting \( {h}_{1} {h}_{4} = {h}_{5} \) which is in \( H  \) by closure, we have that 
+\[  a b^{-1} = {h}_{5} {k}_{4} \in HK.  \]
+
+Conversely, suppose that \( H K \leq G  \). Our goal is to show that \( HK = K H  \); that is, \( HK \subseteq  KH   \) and \( KH \subseteq  HK \). Since \( K \leq HK  \) and \( H \leq HK  \) and so \( KH \leq HK \) by closure of \( H K  \). To show that \( HK \leq KH  \), let \( hk \in HK \). Since \( HK  \) is a subgroup, then \( hk  \) is the inverse of some element \( a \in HK \). That is, \( h k = a^{-1} = ({h}_{1} {k}_{1})^{-1} = {k}_{1}^{-1} {h}_{1}^{-1} \in KH \). It follows that \( HK  \leq KH \). Furthermore, \( HK = KH \). 
+\end{proof}
+
+
+\begin{eg}
+    Let \( G = {D}_{8}  \), \( H = \langle  r  \rangle \) and \( K  = \langle   s  \rangle \). Notice that \( rs \in H K \) and \( rs = s r^{-1} \in KH  \). By the way, 
+    \[ | H K |  = \frac{ | H  |  | K  |  }{ | H \cap  K |   }  = \frac{ 4 \cdot 2  }{  1  }  = 8.  \] 
+    So, \( HK = {D}_{8}  = KH  \).
+\end{eg}
+
+\begin{corollary}
+If \( H  \) and \( K  \) are subgroups of a group \( G  \) and \( H \leq {N}_{G}(K) \), then \( H K  \) is a subgroup of \( G  \). In particular, if \( K \trianglelefteq G  \), then \( H K  \) is a subgroup of \( G  \) for all \( H \leq G  \). \textit{Note: If \( K \trianglelefteq G  \), then \( {N}_{G}(K) = G  \) and certainly \( H \subseteq  {N}_{G}(K) \)   for any \( H \leq G  \)}
+\end{corollary}
+
+\begin{proof}
+We will prove that \( HK = KH  \). Let \( h \in H  \) and \( k \in K  \). By assumption, we have that \( h \in {N}_{G}(K) \); that is, \( h k h^{-1} \in K  \). Hence, \( h k = h k (h^{-1} h) \) where \( h k h^{-1} \in K  \) and \( h \in H  \). Thus, \( hk \in KH  \). Thus, \( HK \subseteq  KH  \). Similarly, we want to show that \( kh  = h h^{-1} kh  \) where \( h \in H  \) and \( h^{-1} k h  \in  K \) since \( h \in {N}_{G}(K) \) implies that \( h^{-1} \in {N}_{G}(K) \). It follows that \( KH \subseteq  HK  \) and hence \( HK = KH  \).
+\end{proof}
+
+\begin{theorem}[ ]
+    Let \( H,K  \) be subgroups of a group \( G  \) with \( H \leq K \leq G  \). Then the index 
+    \[  | G : H  |  = | G : K  | | K : H  |. \]
+\end{theorem}
+\begin{proof}
+Let \( {g}_{i} \) be a distinct representative for a left coset of \( H  \) in \( G  \) for all \( i \in I  \) where \( I  \) is some indexing set. So, we have  
+\[  \{  {g}_{i} H  :  i \in I  \}  = G / H = \{  g H : g \in G  \}.   \]
+We have \( {g}_{i} H = {g}_{j} H  \) if and only if \( {g}_{i} = {g}_{j} \) (we are counting the elements of \( g H  \) because we don't know if it will be finite or infinte). \textit{At this point we are invoking the axiom of choice.} Let \( \psi : I \times K / H \to G / H  \) by 
+\[  \psi(i, kH) = {g}_{i} kH.  \]
+To see that this is well-defined, let us suppose that \( {k}_{1} H = {k}_{2} H  \) for some \( {k}_{1}  \) and \( {k}_{2}  \) in \( K  \). That is, \( {k }_{1}^{-1} {k}_{2} \in H \). Then \( \psi (i, {k}_{1}H) = {g}_{i} {k}_{1} H  \) and \( \psi(i, {k}_{2} H ) = {g}_{i} {k}_{2} H  \). So, 
+\begin{align*}
+    ({g}_{i} {k}_{1})^{-1} ({g}_{i} {k}_{2}) &= ({k}_{1}^{-1} {g}_{i}^{-1})({g}_{i} {K}_{2}) \\
+                                             &= {k}_{1}^{-1} {k}_{2} \in H 
+\end{align*}
+by assumption. Hence, \( \psi  \) is well-defined. We now show that \( \psi  \) defines a bijection. Suppose that 
+\begin{align*}
+&\psi(i, {k}_{1} H ) = \psi (j, {k}_{2} H ) \\
+&\implies ({g}_{i}{k}_{1}) H = ({g}_{j} {k}_{2}) H \\
+&\implies ({g}_{i} {k}_{1})^{-1} ({g}_{j} {k}_{2}) \in H. 
+\end{align*}
+This implies that \( {k}_{1}^{-1} {g}_{i}^{-1} {g}_{j} {k}_{2} = h   \) (call this (*)) for some \( h \in  H \). This tells us that \( {g}_{i}^{-1} g_{j} = {k}_{1} h {k}_{2}^{-1} \) for some \( h \in H  \). Note that \( H \leq K \leq G  \) and so \( {g}_{i}^{-1} {g}_{j} \in K  \) since \( H \subseteq  K  \). Then \( {g}_{i} K = {g}_{j} K  \). Thus, we have \( {g}_{i} = {g}_{j} \). This further implies that \( i = j  \). Using this in (*) gives 
+\begin{align*}
+    &{k}_{1}^{-1} {h}_{i}^{-1} {g}_{j} {k}_{2} = h  \\
+    &\implies {k}_{1}^{-1} {k}_{2} = h \in H \\
+    &\implies {k}_{1} H = {k}_{2} H.
+\end{align*}
+Hence, we see that \( \varphi  \) is one-to-one. Let \( g H \in G / H  \). Since the left cosets of \( k  \) partition the group \( G  \), we have that \( g \in {g}_{i} K  \). That is, \( g = {g}_{i} k  \) for some \( k \in K  \). Hence, \( \varphi(i, k H ) = {g}_{i} k H = g H  \). Thus, \( \psi  \) is surjective. Hence, 
+\[  \underbrace{| G : H  |}_{G /H }  = \underbrace{| G : K  |}_{I}  \cdot \underbrace{| K : H  |}_{K/H}. \]
+\end{proof}
+
+\begin{theorem}[First Isomorphism Theorem]
+    If \( \varphi : G \to H  \) is a homomorphism of groups, then 
+    \[  \text{ker}(\varphi) \trianglelefteq G, \]
+    and
+    \[  G / \text{ker}(\varphi) \cong \varphi(G). \]
+\end{theorem}
+\begin{proof}
+\textit{Proof is left to the reader.} Take \( \mu: G / \text{ker}(\varphi) \to \varphi(G) \) where \( g K \mapsto \varphi(g) \) and prove that is well-defined and is a bijection. 
+\end{proof}
+
