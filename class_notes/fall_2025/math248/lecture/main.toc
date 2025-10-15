@@ -1,10 +1,18 @@
 \babel@toc {english}{}\relax 
 \contentsline {section}{\numberline {1}Week 5}{1}{section.1}%
-\contentsline {section}{\numberline {2}Week 6}{1}{section.2}%
+\contentsline {section}{\numberline {2}Week 6}{2}{section.2}%
 \contentsline {section}{\numberline {3}Week 7}{7}{section.3}%
 \contentsline {subsection}{\numberline {3.1}Kernel and Image}{7}{subsection.3.1}%
 \contentsline {subsection}{\numberline {3.2}A Common Theme in Mathematics}{7}{subsection.3.2}%
 \contentsline {subsection}{\numberline {3.3}Kernel of a Lie Group Homomorphism}{8}{subsection.3.3}%
-\contentsline {subsection}{\numberline {3.4}Subgroups and Cosets}{8}{subsection.3.4}%
-\contentsline {subsection}{\numberline {3.5}Normal Subgroups}{10}{subsection.3.5}%
+\contentsline {subsection}{\numberline {3.4}Subgroups and Cosets}{9}{subsection.3.4}%
+\contentsline {subsection}{\numberline {3.5}Normal Subgroups}{11}{subsection.3.5}%
 \contentsline {subsection}{\numberline {3.6}Making \( G / N \) a Lie Group}{12}{subsection.3.6}%
+\contentsline {section}{\numberline {4}Week 8}{13}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Conjugate subgroups, Conjugacy Class}{13}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}Review of Linear Algebra}{14}{subsection.4.2}%
+\contentsline {subsection}{\numberline {4.3}Remark about First Isomorphism Theorem}{14}{subsection.4.3}%
+\contentsline {subsection}{\numberline {4.4}Consequence of Yoneda Lemma}{14}{subsection.4.4}%
+\contentsline {subsection}{\numberline {4.5}Second Isomorphism Theorem}{14}{subsection.4.5}%
+\contentsline {subsection}{\numberline {4.6}Third Isomorphism Theorem}{15}{subsection.4.6}%
+\contentsline {subsection}{\numberline {4.7}The Correspondence Theorem}{15}{subsection.4.7}%

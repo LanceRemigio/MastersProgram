@@ -1,0 +1,109 @@
+\section{Week 8}
+
+\subsection{Conjugate subgroups, Conjugacy Class}
+    Let \( G  \) be a group. Recall that for each \( g \in G  \), the map conjugation by \( g  \), \( {C}_{g}: G\to G   h \mapsto g h g^{-1} \) is a homomorphism. 
+    Since \( {C}_{g} : G \to G  \) is a homomorphism, for any subgroup, \( H \leq G  \), \( {C}_{g} (H) \) will be a subgroup of \( G  \). Note that if \( H  \) is a normal subgroup of \( G  \), then 
+    \[  {C}_{g}(H) = g H g^{-1} = H. \ \ \forall g \in G  \]
+    So, 
+    \[  \{ {C}_{g}(H) : g \in G  \}  = H  \]
+    which is just \( H  \). We can use this set as a measure of how our subgroup deviates from being normal. This motivates the following definition.
+
+\begin{definition}[Conjugacy Class]
+    For any subgroup \( H \leq G  \), we define the \textbf{conjugacy class} of \( H  \) as follows:
+    \[  \{  {C}_{g}(H) : g \in G  \}  = \{  g H g^{-1} : g \in G  \}. \]
+\end{definition}
+
+If \( \tilde{H} \in \{  {C}_{g}(H) : g \in G  \}  \), we say that subgroups \( H \) and \( \tilde{H} \) are conjugate.
+
+
+\begin{theorem}[First Isomorphism Theorem]
+    Let \( f : G \to H  \) be a group homomorphism. Then \( \varphi : G / \text{ker}(f)  \to \text{Im}(f) \) where \( g \text{Ker}(f) \mapsto f(g) \).
+\end{theorem}
+
+\begin{eg}[Observation of rotational matrices]
+   \begin{itemize}
+       \item Rotation by an angle \( \theta \) about the origin in the \( xy \)-plane can be described by the matrix 
+           \[ \begin{pmatrix} \cos \theta & - \sin \theta \\ \sin \theta & \cos \theta  \end{pmatrix}.\]
+        \item Rotation by an angle \( \theta  \) about the \( z  \)-axis in the \( xyz \)-space can be described by the matrix
+           \[  {R}_{\theta}^{z} = \begin{pmatrix} \cos \theta & - \sin \theta & 0 \\ \sin \theta & \cos \theta & 0 \\ 0 & 0 & 1  \end{pmatrix}. \]
+   \end{itemize} 
+\end{eg}
+
+\begin{eg}
+Let \( \ell  \) be a directed line that passes through the origin in the \( xyz \)-space. In what follows, we will find a formula for rotation by an angle \( \theta  \) about \( \ell \) (an arbitrary axis). Let \( {e}_{1} = (1, 0, 0) , {e}_{2} = (0,1,0) , {e}_{3} = (0, 0, 1 ) \) be the standard basis. Now, choose a new orthonormal basis \( \{ \hat{{e}_{1}}, \hat{{e}_{2}}, \hat{{e}_{3}} \} \) such that
+\begin{enumerate}
+    \item[(1)] It is right-handed \( (\hat{{e}}_{3} = \hat{{e}}_{1} \times \hat{{e}}_{2}) \)
+    \item[(2)] \( {\hat{e}}_{3} \) lies on \( \ell \) (and points in the same direction as \( \ell \)). Let \( A = P_{\beta \leftarrow \hat{B}}  \) be the change of basis matrix from \( \hat{\beta} \) coordinate to \( \beta  \) coordinates. Suppose \( w  \) is a vector in \( \R^{3} \). We can write \( w = {w}_{1} {e}_{1} + {w}_{2} {e}_{2} + {w}_{3} {e}_{3} \) and \( w = \hat{{w}_{1}} \hat{{e}_{1}} + \hat{{w}_{2}} \hat{{e}_{2}} + \hat{{w}_{3}} \hat{{e}_{3}} \). Recall that 
+        \[  [  w ]_{\beta } = \begin{pmatrix}  {w}_{1} \\ {w}_{2} \\ {w}_{3}  \end{pmatrix} , \ \ [w]_{\hat{\beta}}  = \begin{pmatrix} \hat{{w}_{1}} \\ \hat{{w}_{2}} \\ \hat{{w}_{3}} \end{pmatrix}.\]
+\end{enumerate}
+\end{eg}
+
+\subsection{Review of Linear Algebra}
+
+Suppose \( V  \) and \( W  \) are vector spaces with dimensions \( n  \) and \( m  \), respectively. Suppose \( T  \) is a linear transformation from \( V  \) to \( W  \). 
+
+\begin{remark}[Huge Fact]
+   If we choose a basis \(  \{  {b}_{1}, \dots, {b}_{n} \}  \) for \( V  \) a basis \( \{  {f}_{1}, \dots, {f}_{m} \}  \) for \( W  \), then \( T  \) can be represented by an \( m \times n  \) matrix, denoted by \( M(T) \) in the following sense: 
+   Given any vector \( v = {v}_{1} {b}_{1} + \cdots + {v}_{n} {b}_{n} \) is equal to \( {w}_{1} {f}_{1} + {w}_{2} {f}_{2} + \cdots + {w}_{m} {f}_{m} \) where 
+   \[  \begin{pmatrix} {w}_{1} \\ \vdots \\ {w}_{m} \end{pmatrix}  = M (T) \begin{pmatrix} {v}_{1} \\ \vdots \\ {v}_{n} \end{pmatrix}. \]
+   It can be shown that 
+   \[  M(T) = \begin{pmatrix} T({b}_{1}) & T({b}_{2}) & \cdots & T({b}_{n}) \end{pmatrix}  \]
+   where for each \( 1 \leq i \leq n  \), \( T({b}_{i}) \) will be expressed in terms of the basis in \( \{  {b}_{1}, \dots, {b}_{n} \}  \). 
+
+   Now, suppose \( V  \) is a vector space and \( \{  {b}_{1}, \dots, {b}_{n}  \} \) is one basis for \( V  \) and \( \{ \hat{{b}_{1}}, \dots, \hat{{b}_{n}} \}  \) is a second basis for \( V  \). We may consider the identity map
+   \[  I : V \to V  \ \ I(x) = x  \]
+   and equip the domain with \( \{ {\hat{b}}_{1} , \dots, \hat{{b}_{n}} \}  \) basis, and equip the codomain with \( {b}_{1}, \dots, {b}_{n} \). Then the \( M(I) \) is exactly the change of coordinate matrix \( P_{\beta \leftarrow \hat{\beta}} \).
+\end{remark}
+
+\subsection{Remark about First Isomorphism Theorem}
+
+    Suppose \( G  \) is a group and \( K  \) is a normal subgroup of \( G  \). Then, as we know, the quotient map \( \pi : G \to G / K  \) where \( g \mapsto g k  \) is a surjective homomorphism. The above theorem for groups tells us that any surjective homomorphism with domain \( G  \) is of the above form. That is, if \( f : G \to H  \) is a surjective homomorphism, we have  
+    \[  H \cong G / \text{Ker}(f). \]
+    Hence, your surjective homomorphism is, indeed, \( G \to G / \text{Ker}(f) \). This theorem is giving us a way to construct all homomorphisms with domain \( G  \). In fact, we can make a connection to the following remarkable result from Category Theory.
+
+\subsection{Consequence of Yoneda Lemma}
+
+If you want to understand a mathematical object \( X  \), it suffices to understand all the structure preserving maps with domain \( X  \).
+
+\subsection{Second Isomorphism Theorem}
+
+Let \( G  \) be a group. Let \(  K \trianglelefteq G  \). As we know, the quotient map \( \pi : G \to G / K  \) is a surjective homomorphism. Suppose \( H  \) is a subgroup of \( G  \). What is exactly \( \pi(H) \) (we know that it must be a subgroup of \( G / K  \))? By the correspondence theorem, we know that    
+\[  \pi(H) = (\text{a subgroup of \( G  \) that contains \(  K  \)} ) / K.  \]
+The answer is:
+\[  \pi(H) = HK / K.   \]
+
+
+\begin{theorem}[Second Isomorphism Theorem]
+Let \( G  \) be a group, \( H  \) is a subgroup of \( G  \), \( K  \) is a normal subgroup of \( G  \), then 
+\[  \varphi : HK / K \to H / (H \cap K) , \ \ hk \mapsto h (H \cap K ) \]
+is an isomorphism
+\end{theorem}
+
+\subsection{Third Isomorphism Theorem}
+
+Let \( G  \) be a group, according to the {\hyperref[first isomorphism theorem]{first isomorphism theorem}}, in order to study homomorphisms with domain \( G  \), it suffices to study quotients \( G /N  \) where \( N  \) is a normal subgroup of \( G  \). Will it be helpful now to consider the quotients of \( G / N  \)? No! There will be no new information if you construct the quotients of \( G / N  \).   
+
+\begin{theorem}[Third Isomorphism Theorem]
+       Let \( G  \) be a group, \( K  \) be a normal subgroup of \( G  \), \( N  \) is a subgroup of \( K  \), and \( N  \)  is a normal subgroup of \( G  \). Then
+       \[  \varphi : (G / N) / (K / N) \to G / K ,   \ \  g N (K / N) \mapsto g K  \] is an isomorphism.
+\end{theorem}
+
+\subsection{The Correspondence Theorem}
+
+Let \( G  \) be a group and \( K  \) be a normal subgroup of \( G  \). There are two questions we need to answer. 
+\begin{enumerate}
+    \item[(1)] What are the subgroups of \( G / K \)?
+    \item[(2)] What are the normal subgroups of \( G / K  \)?
+\end{enumerate}
+
+The answer to these questions are the following:
+
+\begin{enumerate}
+    \item[(1)] There is a one-to-one correspondence between the set of all subgroups of \( G  \) that contain \( K  \) and the set of all subgroups of \( G / K  \): 
+        \begin{enumerate}
+            \item[(i)] If \( H \leq G  \) and \( R \leq G / K  \), then \( H / K \leq G / K  \).
+            \item[(ii)] If \( R \leq G / K  \), then \( R = H / K    \) for some \( H \leq G  \) and \( K \subseteq  H  \).
+            \item[(ii)] The above correspondence preserves normality:
+                \[  H / K \trianglelefteq G / K  \iff H \trianglelefteq G , K \subseteq  H.  \]
+        \end{enumerate}
+\end{enumerate}
