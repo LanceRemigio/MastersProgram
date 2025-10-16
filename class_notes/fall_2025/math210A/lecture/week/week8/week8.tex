@@ -1,5 +1,7 @@
 \section{Week 8}
 
+\subsection{Monday}
+
 Recall that a lot of the problems given in the homework are based on more general theory of the results that we have been going thus far. For instance, one can prove that 
 If \( G  \) is cylic and \( \varphi  \) is a homomorphism from \( G  \) to \( H  \), then \( \varphi(G)  \) is cyclic. Note that \( \pi : G \to G / N  \) where \( g \mapsto gN \)   and \( \pi  \) is a homomorphism. Another problem we can do is prove that if \( G  \) is cyclic, then \( G / N  \) is cyclic. 
 
@@ -94,4 +96,92 @@ Hence, we see that \( \varphi  \) is one-to-one. Let \( g H \in G / H  \). Since
 \begin{proof}
 \textit{Proof is left to the reader.} Take \( \mu: G / \text{ker}(\varphi) \to \varphi(G) \) where \( g K \mapsto \varphi(g) \) and prove that is well-defined and is a bijection. 
 \end{proof}
+
+\begin{center}
+    \textit{End of Monday Lecture} 
+\end{center}
+\subsection{Wednesday}
+
+Recall that the main goal for this subject is to be able to classify groups. One way we have been gaining information about a certain group is by multiplying two subgroups together. In general, we are trying to develop tools to be able to better classify certain groups.
+
+\begin{theorem}[First Isomorphism Theorem]
+    If \( \varphi : G \to H  \) is a homomorphism of groups, then 
+    \[  \text{ker}(\varphi) \trianglelefteq G, \]
+    and
+    \[  G / \text{ker}(\varphi) \cong \varphi(G). \]
+\end{theorem}
+\begin{proof}
+\textit{Proof is left to the reader.} Take \( \mu: G / \text{ker}(\varphi) \to \varphi(G) \) where \( g K \mapsto \varphi(g) \) and prove that is well-defined and is a bijection. 
+\end{proof}
+
+\begin{corollary}[17 from book]
+   Let \( \varphi : G \to H  \) be a group homomorphism 
+   \begin{enumerate}
+       \item[(1)] \( \varphi  \) is injective iff \( \text{ker}(\varphi) = 1  \) 
+        \item[(2)] \( |  G : \text{ker}(\varphi) |  \)
+   \end{enumerate}
+\end{corollary}
+
+\begin{theorem}[Second Isomorphism Theorem]
+Let \( G  \) be a group, let \( A  \) and \( B  \) be subgroups of \( G  \). Also assume that \( A  \) is contained in the normalizer \( {N}_{G}(B) \). Then \( AB \leq G  \) and    \( B  \) is normal in \( AB  \), \( A \cap B  \) is normal in \( A  \), and 
+\[  A B / B \cong A / (A \cap B). \]
+\textit{(The second isomorphism theorem is often called the Diamond Isomorphism Theorem)} 
+\end{theorem}
+
+\begin{proof}
+    Since \( A \leq {N}_{G}(B) \) implies \( AB \leq G  \) and \( B \leq  {N}_{G}(B)  \), and \( B \leq AB \), it follows that \( AB \leq {N}_{G}(B) \), and so \( B \trianglelefteq AB \). Since \( B \trianglelefteq AB  \), then \( AB / B  \) is a group. Define \( \varphi : A \to AB / B  \) by \( \varphi(a) = aB  \) for all \( a \in A  \). Let \( {a}_{1}, {a}_{2} \in A  \). Hence, \[ \varphi({a}_{1} {a}_{2}) = ({a}_{1} {a}_{2}) B  = {a}_{1} B {a}_{2} B = \varphi({a}_{1}) \varphi({a}_{2})  \] since \( AB / B  \) is a group. Notice that \( ab B  = aB  \) since \( b \in B  \). That is, for all \( ab B  \in AB /B  \)  
+    \[  ab B = a B. \]
+    Hence, our mapping is surjective. Hence, \( \varphi (A) = AB / B  \). Notice that \begin{align*}
+        \text{ker}(\varphi) &= \{  a \in A : \varphi(a) =  1B \}  \\
+                            &= \{  a \in A : a B = 1 B  \}  \\
+                            &= \{  a \in A : a \in B  \}  \\
+                            &= A \cap B.
+\end{align*}
+Now, we have \( \varphi(A) = AB / B  \) and \( \text{ker}(\varphi) = A \cap B  \). Thus, by the first isomorphism theorem, we have 
+\[ A / \text{ker}(\varphi) \cong \varphi(A) \implies A / (A \cap B) \cong AB / B   \]
+where \( A \cap B \trianglelefteq A \).
+\end{proof}
+
+\begin{theorem}[Third Isomorphism Theorem]
+Let \( G  \) be a group, and let \( H  \) and \( K  \) be normal subgroups of \( G  \) with \( H \leq K  \). Then       
+\[  (G / H) / (K / H) \cong G / K.  \]
+\end{theorem}
+
+\begin{proof}
+    Since \( K \trianglelefteq G  \), we have \( \pi_{H}(K) = \{  k H : k \in K  \}   \), we know that \[ {\pi}_{H}(K) \trianglelefteq \pi_H(G) = G / H.   \]
+    Notice that 
+    \begin{align*}
+    \{  k H : k \in K  \}
+    \end{align*}
+    Now, let's define our mapping \( \varphi : G /  H \longrightarrow G / K  \) by \( g H \mapsto g K  \). Now, we want to show that \( \varphi  \) is well-defined. Suppose that \( {g}_{1} H  = {g}_{2} H  \) if and only if \( {g}_{1} = {g}_{2} h  \) for some \( h \in H  \). Our goal is to show that \( \varphi({g}_{1}H) = \varphi({g}_{2}H) \); that is, we want to show that \( {g}_{1} K = {g}_{2} K  \). Since \( H \leq K  \), so \( h \in K  \) as well; that is, \( {g}_{1} = {g}_{2} h  \) where \( h \in K  \). So, \( {g}_{1} K = {g}_{2} K  \). Hence, \( \varphi({g}_{1}H) = \varphi({g}_{2}H) \) and our mapping is well-defined. Next, we will show that this mapping is a homomorphism. Let \( {g}_{1}H , {g}_{2}H \in G / H  \) and  
+    \[ \varphi({g}_{1}H {g}_{2}H) = \varphi({g}_{1} {g}_{2} H ) = {g}_{1} {g}_{2} K  = ({g}_{1} K) ({g}_{2} K ) = \varphi({g}_{1}H) \varphi({g}_{2}H). \]
+    Hence, \( \varphi  \) is a homomorphism which is clearly surjective. Hence,  
+    \[  \varphi(G / H ) = G / K.  \]
+    Finally, we will show that \( \text{ker}(\varphi) = K /  H \). Indeed, we see that 
+    \begin{align*}
+        \text{ker}(\varphi) &= \{  gH \in G / H  : \varphi(gH) = 1K  \}   \\
+                            &= \{  gH \in G / H : gK  = 1K   \}  \\
+                            &= \{  g H \in G /H  : g \in K  \} \\
+                            &= K / H. 
+    \end{align*}
+    Therefore, by the first isomorphism theorem, 
+    \[  (G / H) / (K / H ) \cong G / K  \]
+    where \( \varphi(G / H ) = G / K  \) and \( \text{ker}(\varphi) = K / H  \).
+\end{proof}
+
+The next theorem tell us that when there is a normal subgroup of \( G  \), there exists a bijection between subgroups of \( G  \) and subgroups of the quotient group.
+
+\begin{theorem}[The Correspondence Theorem]
+Let \( G  \) be a group with \( N \trianglelefteq G  \). Then there is a bijection from \( \{  A \leq G  : N \leq A   \}  \) to the set of all subgroups of \( G /N  \). In particular, every subgroup of \( \overline{G} = G / N  \) is of the form \( A / N = \overline{A}  \) for some subgroup \( A  \) of \( G  \) containing \( N  \). Namely, the complete pre-image of the subgroup of \( G / N  \) under the natural projection from \( G  \) to \( G / N  \). This bijection has the following properties:
+\begin{enumerate}
+    \item[(i)] \( A \leq B  \) if and only if \( \overline{A} \leq \overline{B} \); that is, \( A / N \leq B / N  \).
+    \item[(ii)] If \( A \leq B  \), then \( | B : A  |  = |  B / N  : A / N  |  = | \overline{B } : \overline{A} |. \)
+    \item[(iii)] \( \overline{\langle A , B \rangle} = \langle \overline{A}  ,  \overline{B} \rangle \).
+    \item[(iv)] \( \overline{A \cap B} = \overline{A} \cap \overline{B} \)
+    \item[(v)] \( A \trianglelefteq G  \) if and only if \( \overline{A} \trianglelefteq \overline{G} \) (\( A / N \trianglelefteq G / N \))
+\end{enumerate}
+\end{theorem}
+Every time we have a bar over a group it represents the image of the natural projection. Now, the question is, "how do we construct the bijection form the subgroups of \( G  \) containing \( N  \) to the subgroups of \( G / N  \)?". The answer is the projection map \( \pi : G \to G / N  \). Let \( A \subseteq  G / N  \) where
+\[  \pi(A) = \{  a N : a \in A  \}  \leq G / N.  \]
+That point here is that \( \pi  \) will provide our bijection \textit{this is for you to prove}. One can also prove (ii) on your own. The exam will consists of comp problems, using \( H  \) and \( K  \), and one of the properties from the correspondence theorem.
 

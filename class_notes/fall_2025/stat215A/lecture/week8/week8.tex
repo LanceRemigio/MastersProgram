@@ -1,4 +1,4 @@
-\section{Monday Lecture}
+\subsection{Monday Lecture}
 
 \begin{prop}[Continuity of a Measure]
    Any measure \( \mu (\Omega) < \infty  \) satisfies the following properties: 
@@ -35,3 +35,53 @@ Recall that if \( f  \) is continuous, then \( {x}_{n} \to x  \) which implies t
 \begin{prop}[Measure is Continuous from Below]
     If \( {E}_{n}  \) is a non-decreasing sequence to \( E  \), \( E \in \mathcal{F} \) and \( {E}_{n} \in \mathcal{F} \) for all \( n \in \N \), then \( \mu({E}_{n})  \) converges to \( \mu(E) \) where \( \mu(E) \in \{ \sup E  , \infty   \}  \). 
 \end{prop}
+
+\subsection{Wednesday Lecture}
+
+Redo the following propositions on homework.
+
+\begin{prop}[B.2.5 (Redo some of the details in your proof)]
+   \( \lim_{ x \to y }  f(x) = v  \) if and only if \( \lim_{ n \to \infty  }  x^{(n)}  = y \) and for all \( n \in \N  \), \( x^{(n)} \neq y  \), then  
+   \begin{enumerate}
+       \item[(*)] \( \lim_{ n \to \infty  }  x^{(n)}  = y  \) where \( x^{(n)} \neq y  \) for all \( n \in \N  \) means for all \( \epsilon > 0  \), there exists an \( N \in \N  \) such that for all \( n > N  \) (\( n \in \N  \)), \( d(x^{(n)}, y) < \epsilon \).
+        \item[(*)] If \( \lim_{ x \to y }  f(x) = v  \) means that for all \( \epsilon > 0  \), there exists \( \delta > 0  \) such that if \( {d}_{A}(x,y) < \delta \), then \( {d}_{B}(f(x), v) < \epsilon \).
+   \end{enumerate}
+\end{prop}
+
+\begin{proof}
+\( (\Longrightarrow) \) Since \( \lim_{ x \to y }  f(x) = v  \). Let \( \epsilon > 0  \) be given. Then there exists \( \delta > 0  \) such that if \( {d}_{A}(x,y) < \delta \), then
+\( {d}_{B}(f(x), v) < \epsilon \). Then if \( \lim_{ x \to \infty  }  x^{(n)}  = y  \) (\( x^{(n)} \neq y   \)) for all \( n \in \N  \).
+
+\begin{center}
+ Our goal is to show that for all \( \epsilon > 0  \), there exists an \( N \in \N  \) such that for all \( n > N  \), \( {d}_{B}(f(x^{(n)}), v) < \epsilon \).   
+\end{center}
+  Then for the aforemention \( \delta > 0  \), there exists \( N \in \N  \) if \( n > N  \), \( d(x^{(n)},y) < \delta \), then \( {d}_{B}(f(x^{(n)}), v) < \epsilon \). Since \( \epsilon  \) was arbitrary, for all \( \epsilon > 0  \), there exists an \( N \in \N  \) such that if \( n > N  \), then \( {d}_{B}(f(x^{(n)}), v) < \epsilon \). Hence, \( \lim_{ n \to \infty  }  f(x^{(n)}) = v  \).
+
+  (\( \Longleftarrow \)) Suppose \( \lim_{ n \to \infty  }  x^{(n)} = y  \) where (\( x^{(n)} \neq y  \) for all \( n \in \N \)) and for sake of contradiction \( \lim_{ x \to y }  f(x) \neq v  \); that is, there exists an \( \epsilon > 0  \) such that for all \( \delta > 0  \), there exists an \( x \neq y  \in A  \) such that if \( {d}_{A}(x,y) < \delta \), \( {d}_{B}(f(x), v) \geq \epsilon \). For our fixed \( \epsilon > 0  \), let \( \delta = 1   \). Then there exists an \( {x}_{1} \neq y \in A  \) such that if \( {d}_{A}(x^{(1)}, y) < 1 \), then \( {d}_{B}(f({x}_{1}), v) \geq \epsilon \). Then for \( \delta = \frac{ 1 }{ 2 }   \), there exists an \( {x}_{2} \neq y  \in A  \) such that if \( {d}_{A}(x^{(2)}, y) < \frac{ 1 }{ 2 } \), then \( {d}_{B}(f(x^{(3)}), v) \geq \epsilon \). We continue in this manner until, we have a sequence \( ({x}_{n}) \subseteq  A  \) where \( {x}_{n} \neq y  \) for all \( n \in \N  \) where if \( {d}_{A}(x^{(n)}, v) < \frac{ 1 }{ n }  \), then \( {d}_{B}(f(x^{(n)}), v) \geq \epsilon \).  
+\end{proof}
+
+\begin{prop}
+   Prove that if \( d(x^{(n)},y) < \frac{ 1 }{ n }  \), then \( \lim_{ n \to \infty  }  x^{(n)} = y  \).
+\end{prop}
+
+\begin{prop}[Redo]
+   Let \( f: A \to B  \) and \( g : B \to C  \) be continuous functions on \( A  \) and \( B  \), respectively. Then \( g \circ f : A \o C   \) is continuous on \( A  \).
+\end{prop}
+
+\begin{proof}
+Our goal is to show that \( {B}_{n} \) for \( n \in \N  \) is a disjoint sequence of sets. 
+
+Note that \( {B}_{1} = {E}_{1} \) (\textbf{This is a homework problem}) and \( {B}_{n} = {E}_{n} \setminus  {E}_{n-1} \). Let \( i \neq j  \) where \( i,j \in \{  2,3,\dots \}  \). Without loss of generality, let \( i < j  \). Then our goal is to show that \( {B}_{i} \cap {B}_{j} = \emptyset \). Note that \( {B}_{i} = {E}_{i} \setminus  {E}_{i-1} \) and \( {B}_{j} = {E}_{j} \setminus  {E}_{j-1} \).  Then 
+\begin{align*}
+{B}_{i} \cap {B}_{j} &= ({E}_{i} \cap {E}_{j-1}^{c} ) \cap  ({E}_{j} \cap {E}_{j-1}^{c}) \\ 
+                     &= ({E}_{i} \cap {E}_{j}) \cap ({E}_{i-1}^{c} \cap {E}_{j-1}^{c}). \tag{*}
+\end{align*}
+Since \( {E}_{i} \subseteq  {E}_{j} \), \( {E}_{i} \cap {E}_{j} = {E}_{i} \) and since \( {E}_{i-1} \subseteq {E}_{j-1}    \) implies that \( {E}_{j-1}^{c} \subseteq  {E}_{i-1}^{c}\), and so \( {E}_{i-1}^{c} \cap {E}_{j-1}^{c} = {E}_{j-1}^{c} \). Then we have (*) implies that \( {B}_{i} \cap  {B}_{j} =   {E}_{i} \cap {E}_{j-1}^{c} \). If \( x \in {E}_{i} \cap {E}_{j-1}^{c} \) implies \( x \in {E}_{i} \) and \( x \notin {E}_{j-1} \) but \( {E}_{i} \subseteq  {E}_{j-1} \) (\textbf{Polish the rest of this for homework}). 
+
+\end{proof}
+
+\begin{prop}[(3) Continuity from Above]
+    
+\end{prop}
+
+

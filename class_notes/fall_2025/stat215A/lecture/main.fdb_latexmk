@@ -1,5 +1,5 @@
 # Fdb version 3
-["pdflatex"] 1760389639 "main.tex" "main.pdf" "main" 1760389640
+["pdflatex"] 1760564952 "main.tex" "main.pdf" "main" 1760564953
   "../../../../newpreamble.tex" 1760387488 7644 045b5963cdcb5a08eabc144bb0608fe7 ""
   "/etc/texmf/web2c/texmf.cnf" 1707134123 475 c0e671620eb5563b2130f56340a5fde8 ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
@@ -346,11 +346,11 @@
   "/usr/share/texmf/web2c/texmf.cnf" 1644012257 39432 7155514e09a3d69036fac785183a21c2 ""
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1707134140 4379155 98693266ff65f58d9f98aff394de12d2 ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1710527432 2800297 afe0c47576f94d90ffe47deb078a9141 ""
-  "main.aux" 1760389639 4073 8ff4df1d8d381d088e7271895f091ef2 "pdflatex"
-  "main.out" 1760389639 544 2e12267a03fdbf6ae7feebf506dabe26 "pdflatex"
+  "main.aux" 1760564953 5613 93ab47dadd999233314596d81663264f "pdflatex"
+  "main.out" 1760564953 703 0f02fa47abdcf0826beef93145615205 "pdflatex"
   "main.tex" 1760388558 268 26d47475d9e678c44163b34df85e09d8 ""
   "week7/week7.tex" 1759978898 5514 eec2db7f94aebb080e6984e2c06f56a4 ""
-  "week8/week8.tex" 1760389639 3078 173be008cffdddb5011df1ff2bbca1eb ""
+  "week8/week8.tex" 1760564951 7528 ed31b340307aed60584de30ae257bec4 ""
   (generated)
   "main.aux"
   "main.log"
