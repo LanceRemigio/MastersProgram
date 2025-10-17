@@ -2,8 +2,15 @@
 \input{../../../../../newpreamble.tex}
 \title{Homework 5 Math 210A}
 \author{Lance Remigio}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+
 \begin{document}
 \maketitle
+
+\lhead{Math 210A}
+\chead{Lance Remigio}
+\rhead{\thepage}
 
 \begin{problem}
     Let \( \varphi: {G}_{1} \to {G}_{2} \) be a group homomorphism.
@@ -47,20 +54,24 @@
             Notice that \( \tilde{g} \tilde{x} \tilde{g}^{-1} \in \tilde{g} {N}_{1} \tilde{g}^{-1}  \). But since \( {N}_{1} \trianglelefteq {G}_{1} \), we have for all \( g \in G  \), \( g {N}_{1} g^{-1} = {N}_{1} \). In particular, \( \tilde{g} {N}_{1} \tilde{g}^{-1} = {N}_{1} \). Hence,  
             \( \hat{x} = \tilde{g} \tilde{x} \tilde{g}^{-1} \in {N}_{1}  \). Hence, we can see that \( y \in \varphi({N}_{1}) \) and so we conclude that 
             \[ g' \varphi({N}_{1}) (g')^{-1} \subseteq  \varphi({N}_{1}).   \]
-            Hence, we conclude that \( \varphi({N}_{1}) \trianglelefteq \varphi({G}_{1}) \).
+            Hence, we conclude that \( \varphi({N}_{1}) \trianglelefteq \varphi({G}_{1}) \). 
+
+            Now, let \( \varphi : {G}_{1} \to {G}_{2} \) be a surjective homomorphism, we see that \( \varphi({G}_{1}) = {G}_{2} \). Thus, the above can be written as 
+            \[  \varphi({N}_{1}) \trianglelefteq {G}_{2}. \]
+            Now, if we consider \( \varphi : {N}_{1} \to {N}_{2} \), then \( \varphi({N}_{1}) = {N}_{2} \) and so the above can be written further as 
+            \[  {N}_{2} \trianglelefteq {G}_{2}. \]
+            Hence, any surjective homomorphism will map normal subgroups in the domain to normal subgroups in the codomain.
             \end{proof}
     \end{enumerate}
 \end{problem}
 
 \begin{problem} Let \( G  \) be a group with \( N \trianglelefteq G  \).
     \begin{enumerate}
-        \item[(a)] Suppose \( x \in G  \) with \( |  x  |  = n < \infty   \). Show that \( n \) divides the order of \( x N  \) in \( G / N  \).
+        \item[(a)] Suppose \( x \in G  \) with \( |  x  |  = n < \infty   \). Show that the order of \( xN  \) in \( G / N  \) divides \( n  \).
             \begin{proof}
-            Our goal is to show that \( n \mid | x N  |  \). Denote \( | x N  | = k   \). By the division algorithm, we can find a unique \( q \in \Z  \) and \( 0 \leq r < n  \) such that  
-            \[  k = n q + r. \tag{*} \]
-            Since \( N \) is a normal subgroup, we know that coset multiplication in \( G / N  \) is well-defined. Hence, we see that 
-            \[ x^{k} = x^{n q  +  r} = (x^{n})^{q} \cdot x^{r} = x^{r}.\]
-            Note that \( r = 0  \) because otherwise if \( r \neq 0   \) such that \( x^{r} = 1  \), then \( r  \) would contradict the minimality of \( n  \). Hence, from (*) we can see that \( | x  |  = n  \) must divide \( k  \). Thus, \( n  \) divides the order of \( x N  \) in \( G / N  \).   
+                Since \( | x  |  = n  \), we have \( x^{n} = {1}_{G} \). To show that \( | xN |  \mid n  \), we need to show that \( (xN)^{n} = N  \). Since \( N \trianglelefteq G  \), we know that coset multiplication is well-defined. Hence, we see that (where the statement \( x^{n} N = (xN)^{n} \) can be proven inductively) 
+                \[  (xN)^{n} = x^{n} N  = {1}_{G}N. \]
+                Since the identity in \( G / N  \) is \( N = {1}_{G} N  \), it follows that \( | x N  |  \mid n \) and we are done. 
             \end{proof}
         \item[(b)] Further show that the order \(  xN  \) in \( G / N  \) is the smallest positive integer \( k  \) such that \( x^{k } \in N  \).
             \begin{proof}
@@ -70,16 +81,15 @@
             \end{proof}
         \item[(c)] Show that if \( G  =  \langle x   \rangle  \), then \( G / N  \) is cyclic.
             \begin{proof}
-            Since \( G = \langle x  \rangle  \) and \( | x  |  = n  \). Then \( | \langle x  \rangle |  = | G | = n   \).   Our goal is to show that \( \langle x N  \rangle = G / N  \). From parts (a) and (b), we can see that \( | x N  |  = k \) and \( k  \) is the smallest such positive integer such that \( x^{k} \in N  \); that is, \( (xN)^{k} \in G / N  \). Hence, we see that \( \langle x N  \rangle \leq G / N  \). All that remains to show is that \( G / N \leq \langle x N  \rangle\). Let \( t  \) be any positive power of \( xN \). We will show that \( (xN)^{t} \in \langle x N  \rangle \). Using the division algorithm, we can find a unique \( q \in \Z  \) and \( 0 \leq r < k  \) such that 
-                \[  t = k q + r.  \]
-                Since coset multiplication is well-defined in \( G /N  \), we have that 
+                Since \( | x  |  = n  \), we know that \( | \langle x   \rangle | = n  \). Also, \( | G  |  = | \langle x   \rangle | = n   \) since \(  G = \langle  x \rangle \). Furthermore, notice that \( \pi : G \to G / N  \) is a surjective homomorphism. Our goal is to use the quotient map to show that \( \langle  x N  \rangle = G / N  \). Note that from part (a) and (b), \( | x N  |  \mid  | x  | = n  \) and \( | x N  |  = k  \) is the smallest positive integer such that \( x^{k} \in N  \). Hence,  
                 \begin{align*}
-                    (xN)^{t} = x^{t} N  = (x^{kq + r}) N  
-                                        &= \Big(  (x^{k})^{q} \cdot x^{r} \Big) N \\ 
-                                        &= x^{r} N   \tag{\( x^{k} = 1  \) from part (a)} \\
-                                        &= (xN)^{r}. \tag{\( 0 \leq r < k \)}
+                    \pi(G) = \pi(\langle x \rangle) 
+                           &= \{  \pi({1}_{G}), \pi(x), \pi(x^{2}), \dots, \pi(x^{k-1}) \} \\
+                           &= \{ {1}_{G}N , xN , x^{2}N , \dots, x^{k-1} N  \} \\ 
+                           &=  \{ {1}_{G}N , xN , (xN)^{2}, \dots, (xN)^{k-1} \} \\
+                           &= \langle  xN \rangle.
                 \end{align*}
-                Hence, \( (xN)^{t} \in \langle x N   \rangle  \) and so we have \( \langle x N   \rangle = G / N  \).
+                Thus, \( \pi(G) = \langle  xN \rangle \). But notice that \( \pi  \) is surjective, we have \( \pi(G) = G / N  \). Therefore, \( G / N = \langle  xN \rangle \) and so we conclude that \( G / N = \langle   xN \rangle \) is cyclic.  
             \end{proof}
     \end{enumerate}
 \end{problem}
@@ -101,7 +111,9 @@
               &\implies y^{-1}x^{-1} y = x^{-1}y^{-1} x^{-1}yx \\    
               &\implies x(y^{-1} x^{-1} y) = (y^{-1}x^{-1}y)x.
           \end{align*}
-          Since \( x \in G  \) is arbitrary, we see that \( y^{-1}x^{-1} y \in Z(G) \). If \( g = y  \), then
+          Since \( x \in G  \) was arbitrary, we see that \( y^{-1}x^{-1} y \in Z(G) \). That is,
+          \[  (y^{-1}x^{-1}y)g = g(y^{-1}x^{-1}y) \ \ \forall g \in G. \]
+          In particular, if \( g = y  \), then
           \begin{align*}
               &y(y^{-1}x^{-1}y) = (y^{-1}x^{-1}y)y \\
               &\implies x^{-1}y = (y^{-1}x^{-1}y) y \\
@@ -155,7 +167,7 @@
           \end{proof}
         \item[(b)] Deduce that if \( n \in \Z^{+} \) and \( H  \) is the unique subgroup of order \( n  \) then \( H \trianglelefteq G  \).
             \begin{proof}
-               Because \( | g H g^{-1}  |  = | H  |  \) for all \( g \in G  \) from the previous part and that \( H \) is a unique subgroup of order \( n  \), it must follow that \( g H g^{-1} = H  \) and so \( H \trianglelefteq G  \). Otherwise, if there exists some other subgroup, say \( H' \), of the same order as \( H  \), then \( | H' |  = | H |  = | g H g^{-1} |  \) but necessarily \( H' \not\subseteq  H   \).
+               Because \( | g H g^{-1}  |  = | H  |  \) for all \( g \in G  \) from the previous part and that \( H \) is a unique subgroup of order \( n  \), it must follow that \( g H g^{-1} = H  \) and so \( H \trianglelefteq G  \). Otherwise, if there exists some other subgroup, say \( H' \), of the same order as \( H  \), then \( | H' |  = | H |  = | g H g^{-1} |  \) but necessarily \( H \neq   H' = g H g^{-1}    \).
            \end{proof}
   \end{enumerate}
 \end{problem}
@@ -163,7 +175,7 @@
 \begin{problem}[Section 3.2 Problem 8]
   Prove that if \( H  \) and \( K  \) are finite subgroups of \( G  \) whose orders are relatively prime then \( H \cap  K = 1  \).  
   \begin{proof}
-  Suppose \( H  \) and \( K  \) are finite subgroups of \( G  \) whose orders are relatively prime. Our goal is to show that \( H \cap K  = \{  {1}_{G} \}  \). To this end, it suffices to show that \( | H \cap K  |  = 1   \). Note that if \( H  \) and \( K  \) are trivial subgroups, then result follows immediately and so suppose otherwise. Since \( | H  |   \) and \( | K |  \) are relatively prime, we know that \( (| H | , | K | ) = 1  \). Hence, \( 1 \mid | H  |  \) and \( 1 \mid | K  |  \) and so we have \( 1 \mid | H  | | K |  \). Because \( H  \) and \( K  \) are subgroups of finite order, we have
+  Suppose \( H  \) and \( K  \) are finite subgroups of \( G  \) whose orders are relatively prime. Our goal is to show that \( H \cap K  = \{  {1}_{G} \}  \). To this end, it suffices to show that \( | H \cap K  |  = 1   \). Note that if \( H  \) and \( K  \) are trivial subgroups, then the result follows immediately and so suppose otherwise. Since \( | H  |   \) and \( | K |  \) are relatively prime, we know that \( (| H | , | K | ) = 1  \). Hence, \( 1 \mid | H  |  \) and \( 1 \mid | K  |  \) and so we have \( 1 \mid | H  | | K |  \). Because \( H  \) and \( K  \) are subgroups of finite order, we have
   \[  | HK |  = \frac{ | H  |  | K  |   }{  | H \cap K  |  } \iff | HK | | H \cap K  |  = | H  |  | K |.  \]
   Because \( 1 \mid | H  |  | K |  \), either \( | H K  |  = 1   \) or \( | H \cap K |  = 1  \). If \( | H K  |  = 1  \), then \( | H  |   \) and \( | K  |   \) must both be equal to \( 1  \). However, we assumed that \( H  \) and \( K  \) are non-trivial subgroups of \( G  \) and so they must have more elements other than the identity. Thus, they cannot be both equal to \( 1  \) which is a contradiction. Hence, it must be that \( | H \cap K  |  = 1  \) and so we conclude that \( H \cap K = \{  {1}_{G} \}  \).
   \end{proof}
