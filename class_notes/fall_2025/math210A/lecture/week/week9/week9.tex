@@ -1,0 +1,93 @@
+\section{Week 9}
+
+\textbf{Important theorems} (that will come later):
+
+\begin{theorem}[Cauchy's Theorem]
+   If \( G  \) is a finite group and \(  p \) is a prime dividing the order of \( G  \), then \( G  \) has a element of order \( p  \).
+\end{theorem}
+
+\begin{theorem}[Sylow Theorem]
+    If \( G  \) is a finite group of order \( p^{\alpha } \cdot m  \) where \( p  \) is a prime and \( p   \) does not divide \( m  \), then \( G  \) has a subgroup of order \( p^{\alpha} \) where \( \alpha \in \N \).
+\end{theorem}
+
+In the following, we will relax one of the assumptions found in Cauchy's theorem and assume that it is abelian.
+
+\begin{prop}[21 Dummit and Foote]
+   If \( G  \) is a finite abelian group and \( p  \) is a prime dividing \( | G |   \), then \( G  \) contains an element of order \( p  \).
+\end{prop}
+
+\begin{proof}
+We will use strong induction to prove this result. (we will assume the result holds for all  groups with order is less than \( | G  |  \) and show this implies the result for \( | G  |  \)). Since \( | G  |  > 1  \), there exists an element \( x \in G  \) such that \( x \neq {1}_{G} \). If \( | G  |  = p  \), then we are done by Lagrange's theorem; that is, any group with order prime \( p  \) contains an element of order \( p  \). Assume that \( | G  |  > p  \). Suppose that \( p \mid | x  |  \). Hence,  
+\[  | x  |  = p \cdot n \ \ \text{for some} \ n \in \Z.  \]
+We know that \( | x^{n}  |  = \frac{ | x  |  }{  (| x  | , n )  } = \frac{ p \cdot n   }{ n  }   = p  \). Again, we have an element of order \( p  \) and we are done. We now assume that \( p \not\mid | x  |  \). Let \( \langle  x  \rangle = N  \). Since \( G  \) is abelian, this \( N  \) is normal in \( G  \). Hence, Lagrange's theorem implies that, we can say that 
+\[  | G : N  |  = \Big|   G/ N  \Big| = \frac{ | G  |  }{  | N  |  }.   \]
+Since \( N \neq {1}_{G}  \), we have that 
+\[  \frac{ | G  |  }{  | N  |  }  < |  G  |. \]
+Since \( p \not\mid | N  |  \), we have that \( p \mid |  G /  N  |  \). By our inductive assumption, we can conclude that there exists a \( y N \in G / N  \) such that 
+\[  | y N  |  = p. \]
+Since \( y N \neq 1 N  \), we have \( y \notin N  \) (in order for \( y \in N  \) we would need to raise to \( p  \) in order for it to be the identity). But \( y^{p} \in N  \) since \( (yN)^{p} = y^{p} N  = {1}_{G} N  \). Since \( \langle  y^{p} \rangle \leq N    \), we have that \( \langle  y \rangle \neq \langle  y^{p} \rangle \). That is, \( \langle   y^{p} \rangle < \langle y  \rangle \). Furthermore, \( | y  |  > | y^{p} |  \). We know \( | y^{p} |  = \frac{ | y  |   }{  (| y | , p ) }  \). But since \( p \mid | y  |  \), we have   
+\[  | y^{p} |  = \frac{ | y  |  }{ p  }.  \]
+Thus, \( p \mid | y  |  \) and we are done by our first case. Indeed, suppose for contradiction that \( (| y  | , p ) = 1  \), then from the above \( | y^{p} |  = | y  |  \) but this contradicts the assumption that \( | y^{p} |  < | y  |  \). This completes the induction and every finite abelian group with \( p \mid |  G  |  \) has an element of order \(  p  \).
+\end{proof}
+
+Central to this proof was finding an \( N  \) normal in \( G  \). But what if we can't? The reason is because there are some groups which do not contain a normal subgroups. 
+
+\begin{definition}[Simple Groups]
+   A (finite or infinite) group \( G  \) is called \textbf{simple} if \( | G  |  > 1  \), and the only normal subgroups of \( G  \) are just \( \{ {1}_{G} \}  \) and \( G  \) itself. 
+\end{definition}
+
+\begin{eg}[Simple Groups]
+       \( Z_p \) where \( p  \) is prime.
+\end{eg}
+The most important simple group (for us which will be proved later) is called the \textbf{Alternating group}. Consider \( \sigma \in {S}_{3} \) and take \( \sigma = (1 \ 2 \ 3) \) and so we can write this in a couple of ways:
+           \[  \sigma = (1 \ 3) (1 \ 2) = (1 \ 2)(1 \ 3)(1 \ 2)(1 \ 3). \]
+           Notice that in general for any \( m  \)-cycle in \( {S}_{n} \), we have 
+           \begin{align*} 
+               &({a}_{1} \ {a}_{2} \ \dots \ {a}_{m}) \\
+               &= ({a}_{1} \ {a}_{m}) ({a}_{1} \ {a}_{m-1}) \dots ({a}_{1} \ {a}_{3})({a}_{1} \ {a}_{2}).
+           \end{align*}
+           That is, every \( m-  \)cycle in \( {S}_{n} \) can be written as a product of \( 2 \)-cycles (which are called transpositions). We know that every permutation in \( {S}_{n} \) can be written as a product of disjoint cycles. Hence, every permutation in \( {S}_{n} \) can be written as a product of transpositions; that is, 
+           \[  \langle T  \rangle = {S}_{n} \]
+           where \( T = \{  (i \ j) : 1 \leq i < j \leq n  \}  \). As an example, in \( {S}_{4} \), \( T  \) has the elements 
+           \[  (1 \ 2), (1 \ 3) ,(1 \ 4), (2 \ 3), (2 \ 4), (3 \ 4). \]
+
+\begin{definition}[Even (Odd) cycles]
+    A permutation \( \alpha \in {S}_{n} \) is called \textbf{even} if it can written as a product of an even number of transpositions. Otherwise, \( \alpha  \) is called \textbf{odd}. 
+\end{definition}
+
+Recall 
+\[  (1 \ 2 \ 3 ) = (1 \ 3)(1 \ 2) \]
+and so \( (1 \ 2 \ 3)  \) is even but we also know that 
+\[  ( 1 \ 2 \ 3) = (1 \ 2)(1 \ 3)(1 \ 2)(1 \ 3). \]
+Is this a well-defined definition? That is, can a permutation be both even and odd? The answer is \textbf{NO}. Permutations in \( {S}_{n} \) are either even or odd but not both. 
+
+\begin{definition}[ ]
+   For each \( \sigma \in {S}_{n} \) define 
+   \[  \epsilon (\sigma)  = 
+   \begin{cases}
+       1 &\text{if \( \sigma  \) is even} \\ 
+       -1 &\text{if \( \sigma \) is odd}.
+   \end{cases} \]
+\end{definition}
+
+Notice that \( \epsilon  \) defines a mapping from \( {S}_{n} \) to the multiplicative group \( G = \{  - 1, 1  \}  \) (a subgroup of the quaternion group). Let \( \sigma , \tau \in {S}_{n} \). Assume \( \sigma , \tau  \) are both even or both odd. Then  \( \sigma \tau  \) is an even permutation and so \( \epsilon (\sigma \tau) = 1  \) and \( \epsilon (\sigma) \epsilon (\tau) = 1  \). If one of \( \sigma  \) and \( \tau  \) is even and the other is odd then \( \sigma \tau  \) is odd and so \( \epsilon(\sigma \tau) = -1  \) and \( \epsilon (\sigma) \epsilon(\tau) = -1  \). And so \( \epsilon  \) defines a homomorphism. By the first isomorphism theorem, we have 
+\[  {S}_{n} / \text{ker}(\epsilon) \cong \epsilon({S}_{n}) = \{ 1, -1  \}. \]
+By Lagrange's theorem, 
+\begin{align*}
+    \frac{ | {S}_{n} |   }{  | \text{ker}(\epsilon) |  }  = | \{ 1 , -1  \}  | &\implies \frac{ n!  }{ | \text{ker}(\epsilon) |  }  = 2  \\
+                                                                               &\implies \frac{ n!  }{  2  }  = |  \text{ker}(\epsilon) |.
+\end{align*}
+That is, 
+\begin{align*}
+    \text{ker}(\epsilon) &= \{  \sigma \in {S}_{n} : \epsilon(\sigma)  = 1 \}  \\
+                         &= \{  \sigma \in {S}_{n} : \sigma \ \text{is even} \}. 
+\end{align*}
+
+\begin{definition}[The Alternating Group is the Kernel of Some homomorphism]
+    The alternating group of degree \( n \), denoted by \( {A}_{n} \) is the kernel of homomorphism \( \epsilon  \), but it is more common referred to as the set of all even permutations in \( {S}_{n} \).
+\end{definition}
+
+
+
+
+
