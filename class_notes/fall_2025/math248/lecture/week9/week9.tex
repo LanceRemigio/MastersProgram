@@ -1,0 +1,64 @@
+\section{Week 9}
+
+In mathematics it is often helpful, when studying an object \( X  \) (such as an algebraic structure, a metric space, or a normed space) to identify certain subsets/subobjects/substructures \( E \subseteq  X   \) that are easier to work with or posses nice properties. 
+
+%there is another slide to type here. add later
+
+\begin{eg}[Analysis]
+    \( X = C ([0,1], \R ) \) and \( E = \mathbb{P} \). The following fact is true:
+    \begin{center}
+        \( \forall f \in X  \) there exists \( ({P}_{n}) \subseteq  E   \) such that \( {p}_{n} \to f  \) uniformly.
+    \end{center}
+\end{eg}
+
+\begin{eg}[Linear Algebra]
+   Let \( X = M(n, \R ) \) and \( E =  \) Diagonal \( n \times n  \) real matrices. The connection here is that if \( A \in X  \) has \( n  \) linearly independent eigevectors \( A = P D P^{-1} \) where \( P  \) is invertible and \( D \in E  \). Another connection is that if \( A \in X  \) is symmetric, then \( A = P D P^{T} \) where \( P  \) is orthogonal and \( D \in E  \). (We say that every symmetric matrix is orthogonally diagonalizable)  
+\end{eg}
+
+\begin{eg}[Complex Matrices]
+   Let \( X = M(n,\C) \) and \( E =  \) diagonal \( n \times n  \) matrices in \( X  \). If \( A  \) is unitary (Hermitian) in \( X  \), then \( P D P^{*} = A  \) for some unitary matrix \( P  \) and \( D \in E  \).
+\end{eg}
+
+\begin{remark}[Linear Algebra]
+   If \( A \in M(n,\C ) \), then \( A  \) is unitarily diagonalizable if and only if \( A^{*}A = A A^{*} \) where such matrices are called normal matrices. This tells us that hermitian and unitary matrices are normal in this case.
+\end{remark}
+
+\begin{definition}[Torus Subgroup]
+   Let \( G  \) be a Lie group. A Lie subgroup \( H  \) of \( G  \) is said to be a \textbf{Torus subgroup} of dimension \( k \geq 1  \) if      
+   \[  H \cong T^{k}  \]
+   where \( \cong   \) is a Lie group isomorphism. That is, \( H  \) is a \( k- \)dimensional  Torus subgroup if \( H  \) has dimension \( k  \) and it is compact, connected, and abelian.
+\end{definition}
+
+\begin{definition}[Maximal Torus]
+   Let \( G  \) be a Lie group and \( H  \) be a Torus subgroup of \( G  \). We say that \( H  \) is a \textbf{maximal torus} if \( H  \) is not contained in any larger Torus subgroup of \( G  \).  
+\end{definition}
+
+\begin{eg}[\( \text{SO}(2) = \text{U}(1) = S^1 \)]
+   Clearly, \( \text{SO}(2) \) is its own maximal Torus. 
+\end{eg}
+
+\begin{eg}[\( \text{SO}(3) \)]
+    Note that 
+    \[  H = \Bigg\{ {R}_{\theta}^{z} = \begin{pmatrix} \cos \theta & \sin \theta & 0 \\ \sin \theta & \cos \theta & 0 \\ 0 & 0 & 1  \end{pmatrix} : \theta \in \R   \Bigg\}  \]
+    is a copy of \( \text{SO}(2) = S^{1} = T^{1} \) inside \( \text{SO}(3) \), so it is a Torus subgroup. We claim that \( H  \) is maximal torus in \( \text{SO}(3) \). The reason is as follows:
+    Let \( T  \) be a Torus subgroup of \( \text{SO}(3) \) that contains \( H  \). It suffices to show that \( T = H  \) (and also \( H  \) is maximal). Since any Torus subgroup is abelian =, any \( A \in T  \) commutes with all \( {R}_{\theta}^{z} \in H  \):
+    \begin{center}
+        \( \forall A \in T  \) and \( \forall \theta \in \R  \) \hspace{5mm} \( A {R}_{\theta}^{z} = {R}_{\theta}^{z} A  \). 
+    \end{center}
+    In what follows, we will show that if \( A \in \text{SO}(3) \) satisfies (*), then \( A \in H  \). Let \( {e}_{1}, {e}_{2}, {e}_{3} \) be our standard basis vectors. In order to show that \( A \in \text{SO}(3) \) that satisfies (*) is indeed \( H  \), it suffices to show that: 
+    \begin{enumerate}
+        \item[(1)] \( A |_{({e}_{1}, {e}_{2})-\text{plane}}  \) is a Linear isometry of the \( ({e}_{1}, {e}_{2})  \) plane.
+        \item[(2)] \( \text{det} A > 0   \).
+    \end{enumerate}
+\end{eg} 
+\begin{proof}
+\begin{enumerate}
+    \item[(1)] It is enough to show that \( A {e}_{1} \in ({e}_{1}, {e}_{2})- \)plane and \( A {e}_{2} \in ({e}_{1} , {e}_{2})- \)plane. Let \( A {e}_{1} = {\alpha}_{1} {e}_{1} + {\alpha}_{2} {e}_{2} + {\alpha}_{3} {e}_{3} \). Our goal is to show that \( {\alpha}_{3} = 0  \). Note that, by assumption, \( A  \) commutes with all \( {R}_{\theta}^{z} \), in particular, it commutes with 
+        \[ {R}_{\pi}^{z} = \begin{pmatrix} -1 & 0 & 0 \\ 0 & -1 & 0  \\ 0 & 0 & 1  \end{pmatrix}.  \]
+        Therefore, 
+        \begin{align*}
+            A {R}_{\pi}^{z}({e}_{1}) = {R}_{\pi}^{z} A ({e}_{1}) &\iff A {R}_{\pi}^{z} ({e}_{1}) = A   \\
+        \end{align*}
+\end{enumerate}
+\end{proof}
+

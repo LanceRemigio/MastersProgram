@@ -1973,6 +1973,11 @@ INPUT week8/week8.tex
 INPUT ./week8/week8.tex
 INPUT week8/week8.tex
 INPUT week8/week8.tex
+INPUT ./week9/week9.tex
+INPUT week9/week9.tex
+INPUT ./week9/week9.tex
+INPUT week9/week9.tex
+INPUT week9/week9.tex
 INPUT main.aux
 INPUT ./main.out
 INPUT ./main.out

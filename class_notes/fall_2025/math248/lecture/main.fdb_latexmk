@@ -1,6 +1,6 @@
 # Fdb version 3
-["pdflatex"] 1760660252 "main.tex" "main.pdf" "main" 1760660254
-  "../../../../newpreamble.tex" 1760387488 7644 045b5963cdcb5a08eabc144bb0608fe7 ""
+["pdflatex"] 1761091573 "main.tex" "main.pdf" "main" 1761091575
+  "../../../../newpreamble.tex" 1761058347 7644 045b5963cdcb5a08eabc144bb0608fe7 ""
   "/etc/texmf/web2c/texmf.cnf" 1707134123 475 c0e671620eb5563b2130f56340a5fde8 ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/jknappen/ec/ecbx1000.tfm" 1136768653 3584 2d666ecf6d466d8b007246bc2f94d9da ""
@@ -357,14 +357,15 @@
   "/usr/share/texmf/web2c/texmf.cnf" 1644012257 39432 7155514e09a3d69036fac785183a21c2 ""
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1707134140 4379155 98693266ff65f58d9f98aff394de12d2 ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1710527432 2800297 afe0c47576f94d90ffe47deb078a9141 ""
-  "main.aux" 1760660254 17409 9ee908d661db3cd07318a76f780bb68c "pdflatex"
-  "main.out" 1760660254 3204 d43aa9737fb026c5441f575f3de652c7 "pdflatex"
-  "main.tex" 1760387488 356 dc5a01b965158962b164a8c8f7027176 ""
-  "main.toc" 1760660254 1664 b7638707620401104beb425e2f913911 "pdflatex"
-  "week5/week5.tex" 1759796770 1006 a9b9f703b07fa5de6c80760d72103aa5 ""
-  "week6/week6.tex" 1759877930 15481 c157beea7fbf19343d420175df40168a ""
-  "week7/week7.tex" 1760473579 16947 1ec82d1691812d32d36e403078c9b5f1 ""
-  "week8/week8.tex" 1760660252 13573 9e0bad0ad93bb3765b0f110a502c0336 ""
+  "main.aux" 1761091574 19693 86d66852ebe52d1784be64d214b24697 "pdflatex"
+  "main.out" 1761091574 3281 57f2df0ab626a4353e37a0476e0b7657 "pdflatex"
+  "main.tex" 1761088988 383 96cb0fb13a7586ac50a7233c3205853d ""
+  "main.toc" 1761091574 1727 6e9f2e2b875122b6dc1101dc1cb2da4d "pdflatex"
+  "week5/week5.tex" 1761058347 1006 a9b9f703b07fa5de6c80760d72103aa5 ""
+  "week6/week6.tex" 1761058347 15481 c157beea7fbf19343d420175df40168a ""
+  "week7/week7.tex" 1761058347 16947 1ec82d1691812d32d36e403078c9b5f1 ""
+  "week8/week8.tex" 1761088850 15235 adf4e2bf6ca2e139b7c2bb5ac223985a ""
+  "week9/week9.tex" 1761091573 4468 495cb0de8e659c949c22eaec5a625839 ""
   (generated)
   "main.aux"
   "main.log"

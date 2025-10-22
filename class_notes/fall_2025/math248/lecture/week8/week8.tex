@@ -193,7 +193,19 @@ If \( {G}_{1}  \) and \( {G}_{2} \) are Lie groups, then \( {G}_{1} \times {G}_{
         \item[(2)] compact
         \item[(3)] abelian
     \end{enumerate}
+    Why is \( S^{1} \) closed? We know that \( S^{1} = f^{-1}(1) \) where \( f :\R^{2} \to \R  \), \( f(x,y) = x^{2} + y^{2} \) and that because \( f  \) is continuous, we know that the preimage of the closed set \( \{ 1  \}  \) is closed. Clearly, we also see that \( S^{1} \) is bounded. Since each set is compact, and there are \( k  \) number of them, we see that because there are a finite product of compact sets, we know that the finite product must also be compact. Note that it is also true that a finite product of connected topological spaces is connected.
+
 \end{eg}
+In fact, the only \( k \)-dimensional, where \( k \geq 1  \), Lie group that is compact, connected, and abelian is \( T^{k} \). That is, if \( G  \) is a \( k  \)-dimensional compact connected abelian Lie group, then \( G \cong T^{k} \) (where \( \cong  \) is a Lie group homomorphism). Here are some core ideas of the proof:
+    \begin{enumerate}
+        \item[(1)] Use the fact \( G  \) is abelian to show that the Lie Algebra of \( G  \) is isomorphic to \( \R^{k} \) with \( [x,y] = 0  \).
+        \item[(2)] Use the facts that \( G  \) is compact and connected to show that 
+            \[  \text{exp}: g \to G \ \text{is surjective}. \]
+        \item[(3)] Use the fact that \( G  \) is abelian to show that \( \text{exp}:g \to G   \) is indeed a group homomorphism; that is, \( g / \text{ker}(\text{exp} \cong G  \)
+        \item[(4)] Use the fact that \( G  \) is compact and that \( g / \text{ker}(\text{exp}) \cong \Z^{k} \).
+        \item[(5)] Conclude that 
+            \[ G \cong g / \text{ker}(\text{exp}) \cong \R^{k} / \Z^{k} \cong (S^{1})^{k}  = T^{k}.  \]
+    \end{enumerate}
 
 \begin{center}
    \textit{End of Week 8}  
