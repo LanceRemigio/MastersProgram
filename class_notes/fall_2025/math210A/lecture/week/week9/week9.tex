@@ -88,6 +88,88 @@ That is,
 \end{definition}
 
 
+\subsection{Opening Remarks}
+
+\begin{remark}[An Alternative Proof to Problem 1 (a) on Homework]
+   If \( \varphi : G \to J  \) where \( \varphi  \) is surjective. If \( J  \) is abelian, then any subgroup of \( G  \) which contains \( \text{ker}(\varphi) \) is normal. 
+\end{remark}
+\begin{proof}
+Note that the first isomorphism theorem says that 
+   \[  G / \text{ker}(\varphi)  \cong \varphi(G) \]
+   Also, \( \varphi(G) = J  \) since \( \varphi  \) is surjective. So, \( G / \text{ker}(\varphi) \cong J  \) and hence, \( G / \text{ker}(\varphi) \) is abelian. Since \( J  \) is abelian, every subgroup of \( G / \text{ker}(\varphi) \) is normal. Hence, by the 4th iso theorem every subgroup of \( G  \) containing \( \text{ker}(\varphi) \) is also normal.
+\end{proof}
 
 
+
+\begin{remark}[The Correspondence Theorem]
+  Every subgroup of \( G / N  \) is the image of exactly one subgroup of \( G  \) which contains \( N  \). That is, the subgroup of \( G /N  \) is the image of exactly one subgroup of \( G  \) containing \( N  \), through the natural projection. 
+
+  This is to say that if you have a subgroup of \( G / N \), it is of the form  
+  \[  \pi(A) = \{  a N : a \in A \} \]
+  where \( A \leq G  \) which contains \( N  \). 
+\end{remark}
+
+\subsection{Group Actions}
+
+Let \( G  \) be a group and \( A  \) be a nonempty set. A group action is a mapping \( G \times A \to A  \) denoted as 
+\[  g \cdot a  \ \  \forall g \in G , \ a \in A. \]
+Recall for each \( g \in G  \), there exists a mapping \( \sigma_g : A \to A  \) such that \( g \mapsto g \cdot a  \) which is a permutation or an element of the symmetric group \( {S}_{A} \) on \( A  \). We defined 
+\(  \varphi : G \to {S}_{A} \)
+defined by \( g \mapsto  \sigma_g \) . We proved that this \( \varphi  \) is a homomorphism. We called it the permutation representation of \( G  \) on \( A  \). Recall further the following important facts:
+
+\begin{enumerate}
+    \item[(1)] The kernel of the action is
+        \[  \{ g \in G : g \cdot a = a  \ \ \forall a \in A  \} = \text{ker}(\varphi). \]
+    \item[(2)] Stabilizer of \( a \in A  \) in \( G  \)
+        \[  {G}_{a} = \{  g \in G : g \cdot a = a   \}.  \]
+\item[(3)] \textbf{New Fact:} An action is faithful if its kernel is \( \{ {1}_{G} \}  \).
+\end{enumerate}
+
+\begin{eg}[Faithful Mapping]
+   We know that \( {S}_{n} \) acts on the set \( A = \{  1,2, \dots, n  \}  \) by \( \varphi \cdot i  = \sigma(i) \) for all \( \sigma \in {S}_{n} \) and all \( i \in A  \) where \( \varphi : {S}_{n} \to {S}_{n} \) is the identity map. This is true because \( \sigma(i) = i \) for all \( i \in A  \) and so we have \( \sigma = {1}_{{S}_{n}} \) and so this action is faithful. 
+\end{eg}
+
+Recall that \( | {G}_{i} | = (n-1)! \). In general, we can say that \( \text{ker}(\varphi) = \bigcap_{  a \in A  }^{  }  {G}_{a} \). Given a homomorphism \( \psi : G \to {S}_{A} \) where \( A  \) is a nonempty set and \( G  \) is a group, the mapping defined by 
+\[  g \cdot a = \psi(g)(a) \] is a group action. Indeed, we see that for all \( {g}_{1}, {g}_{2} \in G  \), we have 
+\begin{align*}
+    ({g}_{1} {g}_{2}) \cdot a &= \varphi({g}_{1}{g}_{2})(a) \\
+                              &= (\varphi({g}_{1}) \circ \varphi({g}_{2})(a)) \\
+                              &= \varphi({g}_{1})\Big(\varphi({g}_{2})(a) \Big) \\
+                              &= \varphi({g}_{1})({g}_{2} \cdot a ) \\
+                              &= {g}_{1} \cdot ({g}_{2} \cdot a )
+\end{align*}
+and
+\[  {1}_{G} \cdot a = \varphi({1}_{G})(a) = {1}_{{S}_{A}}(a) = a.   \]
+
+
+Notice that 
+    \begin{align*}
+        \mathcal{O}_a &= \{  b \in A : b \sim a  \}  \\
+                      &= \{  b \in A : b = g \cdot a \ \ \text{for some \( g \in G  \)} \} \\
+                      &= \{  g \cdot a : g \in G  \}.
+    \end{align*}
+
+
+\begin{prop}[Orbit Stabilizer Theorem]
+    Let \( G  \) be a group acting on a nonempty set \( A  \). The relation on \( A  \) defined by \( a \sim b  \) if and only if \( a = g \cdot b  \) for some \( g \in G  \) is an equivalence relation. For each \( a \in A  \), the number of elements in the equivalence class of containing \( a  \) is the index \( | G : {G}_{a} |  \); that is, the number of left-cosets of \( {G}_{a} \) in \( G  \). We denoted the notation for the orbit of \( a  \) as \( \mathcal{O}_a \).    
+\end{prop}
+\begin{proof}
+    To prove the last statement, we need to construct a mapping that is bijective between \( \mathcal{O}_a \) between  
+
+    Let \( \mathcal{O}_a \) be the orbit of \( G  \) containing \( a  \). Let \( b  \in {\mathcal{O}}_{a} \). Then \( b = g \cdot a  \) for some \( g \in G  \). Notice that \( g {G}_{a}  \) is a left-coset of \( {G}_{a} \). Define \( f : {\mathcal{O}}_{a} \to G / {G}_{a} \) by \( b = g \cdot a \longmapsto g {G}_{a} \). Note that we have to be careful here because we might not have a well-defined mapping here. Nevertheless, let us prove that this mapping is onto. Let \( g {G}_{a} \in G / {G}_{a} \). Then \( g \cdot a \in {\mathcal{O}}_{a} \) and \( g \cdot  a  = g {G}_{a} \) and so \(  f \) is surjective. Notice \( f(g \cdot a) = f(h \cdot a) \). Then we have  
+    \begin{align*}
+        &g {G}_{a} = h {G}_{a} \\
+                  &\implies h^{-1} g \in {G}_{a} \\
+                  &\implies (h^{-1} g) \cdot a = a \\
+                  &\implies h  \cdot (h^{-1} g) \cdot a ) = h \cdot a  \\
+                  &\implies (h h^{-1} g ) \cdot a = h \cdot a \\ 
+                  &\implies g \cdot a = h \cdot a.
+    \end{align*}
+    Hence, \( f  \) is injective. But this tells us that \( f  \) is indeed well-defined! Thus, \( f  \) is a bijection from \( {\mathcal{O}}_{a} \) to \( G / {G}_{a} \). Thus, \( | {\mathcal{O}}_{a}  |  = |  G : {G}_{a} |  \). 
+\end{proof}
+
+\begin{eg}
+   Let \( A = \{ 1,2,3 \}  \) and let \( \sigma \in {S}_{n} \). We know that \( {S}_{n} \) acts on \( A = \{  1,2,\dots, n \}  \). Given \( i \in A  \), find \( {\mathcal{O}}_{i} = \{  \sigma(i) : \sigma \in {S}_{n} \} = A   \). What does the Orbit Stabilizer Theorem say in this example? It tells us that 
+   \[  | {\mathcal{O}}_{i} | = | {S}_{n} : {G}_{i}  | \implies n = \frac{ | {S}_{n} |   }{  | {G}_{i} |   } = \frac{ n!  }{ | {G}_{i} |  } \implies | {G}_{i} | = \frac{ n!  }{  n  }  = (n-1)!.  \]
+\end{eg}
 

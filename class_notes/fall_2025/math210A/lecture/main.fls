@@ -1987,6 +1987,11 @@ INPUT week/week8/week8.tex
 INPUT ./week/week8/week8.tex
 INPUT week/week8/week8.tex
 INPUT week/week8/week8.tex
+INPUT ./week/week9/week9.tex
+INPUT week/week9/week9.tex
+INPUT ./week/week9/week9.tex
+INPUT week/week9/week9.tex
+INPUT week/week9/week9.tex
 INPUT main.aux
 INPUT ./main.out
 INPUT ./main.out
