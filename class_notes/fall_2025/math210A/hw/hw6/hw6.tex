@@ -1,0 +1,146 @@
+\documentclass[a4paper]{article}
+\input{../../../../../newpreamble.tex}
+\title{Math 210A: Homework 6}
+\author{Lance Remigio}
+\begin{document}
+
+\begin{problem}
+    Let \( G  \) and \( J  \) be groups and let \( \varphi : G \to H  \) be a group epimorphism (surjective homomorphism)     
+    \begin{enumerate}
+        \item[(a)] Prove that if \( J  \) is abelian, then any subgroup of \( G  \) that contains \( \text{ker}(\varphi) \) is a normal subgroup of \( G  \).
+            \begin{proof}
+Note that the first isomorphism theorem says that 
+   \[  G / \text{ker}(\varphi)  \cong \varphi(G) \]
+   Also, \( \varphi(G) = J  \) since \( \varphi  \) is surjective. So, \( G / \text{ker}(\varphi) \cong J  \) and hence, \( G / \text{ker}(\varphi) \) is abelian. Since \( J  \) is abelian, every subgroup of \( G / \text{ker}(\varphi) \) is normal. Hence, by the 4th iso theorem every subgroup of \( G  \) containing \( \text{ker}(\varphi) \) is also normal.
+            \end{proof}
+        \item[(b)] Suppose \( K \trianglelefteq J  \). Prove that there exists \( H \trianglelefteq G  \) such that \( \text{ker}(\varphi) \subseteq  H  \) and \( G / H  \) is isomorphic to \( J / K  \).
+            \begin{proof}
+            Suppose \( K \trianglelefteq J  \). We will prove that our candidate for \( H  \) will be \( \varphi^{-1}(K) \leq  G  \). Indeed, we can see that \( \varphi^{-1}(K) \) is a subgroup of \( G  \) from homework 2. Now, our goal is to show that \( \varphi^{-1} \trianglelefteq G  \). It suffices to show that for all \( g \in G  \), 
+            \[  g \varphi^{-1}(K) g^{-1} \subseteq  \varphi^{-1}(K). \]
+            To this end, let \( g \in G  \) and let \( x \in g \varphi^{-1}(K) g^{-1} \). Then we have
+            \[  x = g z g^{-1} \ \ \text{for some \( z \in \varphi^{-1}(K) \)}. \]
+            Since \( z \in \varphi^{-1}(K) \), we have \( \varphi(z) \in K \). Then 
+            \begin{align*}
+                \varphi(x) = \varphi(g z g^{-1}) &= \varphi(g) \varphi(z) \varphi(g^{-1}) \\
+                                                 &= \varphi(g) \varphi(z) (\varphi(g))^{-1} \\
+                                                 &= j' \varphi(z) (j')^{-1}.
+            \end{align*}
+            Note that because \( K \trianglelefteq J  \), it follows that for all \( j \in J  \), 
+            \[  j K j^{-1} \subseteq  K. \]
+            In particular, for \( j = j' \) and since \( \varphi(z) \in K  \), we have that \( j' \varphi(z) (j')^{-1} \in K  \). This tells us that \( \varphi(x) \in K  \) and so \( x \in \varphi^{-1}(K) \). Thus, we see that, indeed, \( \varphi^{-1}(K) \trianglelefteq G  \). From part (a), we can see that \( \text{ker}(\varphi) \subseteq  \varphi^{-1}(K)  \). Hence, we can see that our candidate must be \( H = \varphi^{-1}(K) \).
+            Now, our goal is to show that \( G / H \cong J / K  \). We will do this through the First Isomorphism Theorem. Define the mapping 
+            \begin{center}
+            \( \psi : G \to J / K  \) by \( g \mapsto \varphi(g) K   \).
+            \end{center}
+            Indeed, we can see that 
+            \begin{align*}
+                \text{ker}(\psi) &= \{ g \in G : \psi(g) = {1}_{H} K  \} \\
+                                 &= \{ g \in G : \varphi(g) K = {1}_{H}  K  \}  \\
+                                 &= \{  g \in G : \psi(g) \in K \}  \\
+                                 &= \varphi^{-1}(K).
+            \end{align*}
+            Hence, we have \( \text{ker}(\psi) = \varphi^{-1}(K) = H  \). Because \( \varphi  \) is a surjective map, it also follows from our definition of \( \psi  \) that \( \psi  \) must also be surjective. Indeed, for any \( h \in H  \), there exists an \( g \in G  \) such that \( \varphi(g) = h  \). Hence, we have  
+            \[  h K = \varphi(g) K  = \psi(g) \]
+            and so \( \psi(G) = J / K  \).
+            Using the First Isomorphism Theorem, we can see that 
+            \[  G / \text{ker}(\psi) \cong \psi(G) \iff G / H  \cong J / K   \]
+            where \( H = \varphi^{-1}(K)  \).
+
+            \end{proof}
+    \end{enumerate}
+\end{problem}
+
+\begin{problem}
+   Suppose that \( \pi : {\Z}_{30} \to G  \) is an onto homomorphism where \( G  \) is a group of order \( 5  \). Determine, with proof, the kernel of \( \varphi \). 
+\end{problem}
+\begin{proof}
+Observe, by the First Isomorphism Theorem, (because \( \pi  \) is an onto homomorphism) that  
+\[  {\Z}_{30} / \text{ker}(\pi) \cong \pi({\Z}_{30}) \iff {\Z}_{30} / \text{ker}(\pi) \cong G.     \]
+This tells us that, since \( G  \) and \( \Z_{30} \) are finite groups, it follows that 
+\[  | {\Z}_{30} / \text{ker}(\pi) |  = | G  |  \iff \frac{ | {\Z}_{30} |  }{ |  \text{ker}(\pi) |  } = | G  |.   \]
+Since \( | G  |  = 5  \) and \( | {\Z}_{30} | = 30  \), we have from the above that \( | \text{ker}(\varphi) | = 6   \). This tells us that there are six elements of \( {\Z}_{30} \) that gets mapped to the identity \( {1}_{G} \). Since the divisors of \( 30  \) gives us unique cyclic subgroups of \( {\Z}_{30} \), all we need to do is find the subgroup of the same order as \( \text{ker}(\varphi) \). Indeed, this subgroup of order \( 6  \) must be the cyclic subgroup generated by \( \langle  \overline{5} \rangle \). That is, \( \text{ker}(\pi) = \langle  \overline{5} \rangle = \{  \overline{0}, \overline{5}, \overline{10}, \overline{15}, \overline{20}, \overline{25} \}   \).
+\end{proof}
+
+\begin{problem}
+    Suppose that \( | G  |  = p^{2} q  \) where \( p  \) and \( q  \) are primes with \( p > q  \). Show that if \( G  \) has a subgroup \( H  \) of order \( p^{2} \), then \( H  \) is the unique subgroup of order \( p^{2} \) in \( G  \). Deduce that \( G / H  \) is cyclic.
+\end{problem}
+\begin{proof}
+
+\end{proof}
+
+\begin{problem}
+    Suppose that \( H  \) and \( K  \) are subgroups of finite index in a possibly infinite group \( G  \) with \( | G : H  |  = m  \) and \( | G : K  |  = n  \). Prove that \( \text{lcm}(m,n) \leq | G : H \cap K  |  \leq m n  \). Deduce that \( | G : H \cap K  |  = mn  \) when \( m  \) and \( n  \) are relatively prime.
+\end{problem}
+\begin{proof}
+
+\end{proof}
+
+\begin{problem}
+    Prove Theorem 16 and corollary 17 from section 3.3 of the textbook.
+\end{problem}
+
+\begin{theorem}[The First Isomorphism Theorem]
+   If \( \varphi : G \to H  \) is a homomorphism of groups, then \( \text{ker}(\varphi) \trianglelefteq G  \) and \( G / \text{ker}(\varphi) \cong \varphi(G) \). 
+\end{theorem}
+\begin{proof}
+Define \( \mu : G / \text{ker}(\varphi) \to \varphi(G) \) by \( \mu(gK) = \varphi(g)  \) where \( K = \text{ker}(\varphi) \). To see that \( K  \) is normal, let \( g \in G  \) and let \( y \in g K g^{-1} \). Then \( y = g k g^{-1} \) for some \( k \in \text{ker}(\varphi) \). Then \( \varphi(k) = {1}_{H} \) and so 
+\begin{align*}
+    \varphi(y) = \varphi(g k g^{-1}) &= \varphi(g) \varphi(k) \varphi(g^{-1}) \\   
+                                     &= \varphi(g) \varphi(k) (\varphi(g))^{-1} \\
+                                     &= \varphi(g) {1}_{H} (\varphi(g))^{-1} \\
+                                     &= \varphi(g)(\varphi(g))^{-1} \\
+                                     &= {1}_{H}.
+\end{align*}
+Hence, it follows that \( y \in \text{ker}(\varphi) \) and so, \( K = \text{ker}(\varphi) \) must be a normal subgroup.
+In what follows, we will show that \( \mu  \) isomorphism. First, we want to make sure that \( \mu  \) is well-defined. To this end, suppose \( {g}_{1} K = {g}_{2} K   \) where \( {g}_{1}, {g}_{2} \in G  \). This is true if and only if \( {g}_{1}^{-1}{g}_{2} \in \text{ker}(\varphi) \). This implies that \( \varphi({g}_{1}^{-1}) \varphi({g}_{2}) = {1}_{G}  \) which is true if and only if   
+\[  (\varphi({g}_{1}))^{-1} \varphi({g}_{2}) = {1}_{G} \iff \varphi({g}_{2}) = \varphi({g}_{1}) \iff \mu({g}_{2}K) = \mu({g}_{1}K).  \]
+This tells us that \( \mu  \) is well-defined and also that \( \mu  \) is injective.
+Next, we will show that \( \mu  \) is a homomorphism. Indeed, for all \( {g}_{1} K , {g}_{2}  K \in G / K  \), we have that (since \( K  \) is a normal subgroup) 
+\begin{align*}
+    \mu({g}_{1}K {g}_{2}K) &= \mu({g}_{1}{g}_{2}K) \\ 
+                           &= \varphi({g}_{1}{g}_{2})    \\
+                           &= \big( \varphi({g}_{1}) \varphi({g}_{2}) \big)   \\
+                           &= \varphi({g}_{1})  \varphi({g}_{2}) \\
+                           &= \mu({g}_{1}K) \mu({g}_{2}K).
+\end{align*}
+Lastly, we show that \( \mu   \) is surjective. It is clear from the definition that this is the case. Indeed, for any \( y \in \varphi(g)  \), it follows that \( \varphi(g) = y  \) for some \( g \in G  \) and so we have 
+\[  \mu(gK) = \varphi(g) = h.  \]
+Hence, we see from the above argument that \( \mu  \) must be an isomorphism and so we conclude that  
+\[  G / \text{ker}(\varphi) \cong \varphi(G).  \]
+\end{proof}
+
+\begin{corollary}[17]
+   Let \( \varphi : G \to H  \) be a homomorphism of groups. Then 
+   \begin{enumerate}
+       \item[(1)] \( \varphi \) is injective if and only if \( \text{ker}(\varphi) = 1  \).
+        \item[(2)] \( | G : \text{ker}(\varphi) |  = | \varphi(G) | \).
+   \end{enumerate}
+\end{corollary}
+\begin{proof}
+    First, we show (1). Since \( \varphi : G \to H  \) is a homomorphism, it follows from the First Isomorphism Theorem that
+    \begin{align*}
+        G / \text{ker}(\varphi) \cong \varphi(G).
+    \end{align*}
+    If \( \text{ker}(\varphi) = \{ {1}_{G} \}  \), then 
+    \[  G / \text{ker}(\varphi) = G / \{ {1}_{G} \}  \cong G.  \]
+    This holds if and only if
+    \[  G \cong \varphi(G). \]
+    which is true if and only if \( \varphi   \) is injective.
+    Next, we show (2). Indeed, we can see from the First Isomorphism Theorem that (since \( \varphi \) is a homomorphism)
+\begin{align*}
+    G / \text{ker}(\varphi) \cong \varphi(G) &\iff | G / \text{ker}(\varphi) | = | \varphi(G) |  \\
+                                             &\iff | G : \text{ker}(\varphi) |  = | \varphi(G) |.
+\end{align*}
+\end{proof}
+
+
+
+\begin{problem}
+    Let \( G  \) be a group with a normal subgroup \( N  \). Prove that there is a bijection from the subgroups of \( G  \) containing \( N \) onto the subgroup of \( G / N  \).
+\end{problem}
+\begin{proof}
+
+\end{proof}
+
+\end{document}
+

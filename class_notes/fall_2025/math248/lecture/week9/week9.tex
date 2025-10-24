@@ -62,3 +62,46 @@ In mathematics it is often helpful, when studying an object \( X  \) (such as an
 \end{enumerate}
 \end{proof}
 
+Main point of this lecture is that not all Lie groups have a Torus subgroup.
+
+\begin{center}
+    \textit{End of Tuesday Lecture} 
+\end{center}
+
+\begin{remark}
+    We can travel from the Lie Algebra to the Lie group using the \( \text{exp}: \text{Lie}(G) \to G  \) (where \( \text{Lie}(G) \) is a Lie Algebra of the Lie group). This tells us that every compact Lie group has a Torus subgroup. Indeed, if \( x  \) is any nonzero vector in \( \text{Lie}(G) \), then the closure of \( \{ \text{exp}(tx) : t \in \R  \}  \) is a compact connected abelian Lie subgroup of \( G  \). Note that \( H  \) is a subgroup of \( \text{Lie}(G)  \) which is based on the two observations:
+    \begin{enumerate}
+        \item[(1)] \( e^{tx} e^{sx} = e^{(t+s)x} = e^{sx} \cdot e^{tx} \)
+        \item[(2)] \( e^{tx} e^{-tx} = e^{0x} = {1}_{G} \).
+    \end{enumerate}
+    Note that 
+    \begin{enumerate}
+        \item[(1)] If \( H  \) is a subgroup of Lie group \( G  \), then \( \overline{H} \) is also a subgroup of \( G  \). Furthermore, if this is also abelian (which it is), then the closure is also abelian.
+        \item[(2)] Closure of a connected set is connected (in any topological space). 
+        \item[(3)] A closed subset of a compact is compact. 
+    \end{enumerate} 
+    We will prove (1) in this case.
+\end{remark}
+Let \( G  \) be a Lie group. Let \( H  \) be an algebraic subgroup of \( G  \). Then the closure of \( H \), denoted by \( \overline{H} \), is a closed subgroup of \( G  \) (and so it is a Lie subgroup of \( G  \)). Moreover, if \( H  \) is abelian, \( \overline{H} \) is abelian also.
+\begin{proof}
+    Note that clearly, \( \overline{H} \) is closed. It suffices to show that \( \overline{H} \) is closed under multiplication. Suppose \( a  \) and \( b  \) are in \( \overline{H} \). Our goal is to show that \( ab \in \overline{H} \). Note that \( a \in \overline{H} \), there exists a sequence \( ({a}_{n}) \) in \( H  \) such that \( {a}_{n} \to a  \) in \( G  \). Since \( b \in \overline{H} \), there exists a sequence \( ({b}_{n}) \) in \( H  \) such that \( {b}_{n} \to b  \) in \( G  \). Therefore,
+    \[  ({a}_{n}, {b}_{n}) \to (a,b) \ \text{in}  \ G \times G.  \]
+    Let's denote multiplication in \( G  \) by \( m : G \times G \to G  \). We know \( m: G \times G \to G  \) is continuous. Then   
+    \[  m({a}_{n}, {b}_{n}) = m(a,b) \implies {a}_{n}{b}_{n} \to ab \in G.  \]
+    So, \( ab  \) is the limit of a sequence of \( H  \). Thus, \( ab \in \overline{H} \).
+
+    Also, \( \overline{H}   \) contains the inverse of each of its elements. Suppose \( a \in \overline{H} \). Our goal is to show that \( a^{-1} \in \overline{H} \). We have 
+    \[  a \in \overline{H} \implies \ \exists ({a}_{n}) \subseteq H  \ \text{such that} \ {a}_{n} \to a \in G. \]
+    Since inversion is a continuous map, we have  
+    \[  {a}_{n}^{-1} \to a^{-1} \in G.  \]
+    Thus, \( a^{-1}  \) is the limit of a sequence in \( H  \). Thus, \( a^{-1} \in \overline{H} \). 
+
+    Now, we want to prove that \( \overline{H} \) is abelian. Suppose \( a,b \in \overline{H} \). Our goal is to show that \( ab = ba  \). Similarly to what we saw above, there exists \( ({a}_{n}) \subseteq  H  \) such that \( {a}_{n} \to a  \) in \( G  \) and there exists a sequence \( ({b}_{n}) \subseteq H   \) such that \( {b}_{n} \to b  \) in \( G  \). So, we have \( {a}_{n}{b}_{n} \to ab \) and \( {b}_{n}{a}_{n} \to ba  \). Then \( ab  = ba \).
+\end{proof}
+
+\begin{remark}[Fact Used in the Above Proof From Analysis]
+   If \( {z}_{n} \to z  \) and \( f  \) is continuous, then \( f({z}_{n}) \to f(z) \). 
+\end{remark}
+
+
+
