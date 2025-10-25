@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1761284438.71612 "hw6.tex" "hw6.pdf" "hw6" 1761284447.29565 0
+["pdflatex"] 1761284871.54784 "hw6.tex" "hw6.pdf" "hw6" 1761284880.13005 0
   "../../../../../newpreamble.tex" 1760291988.42837 7644 045b5963cdcb5a08eabc144bb0608fe7 ""
   "/usr/local/Cellar/texlive/20240312_3/share/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc" 1710106625 2971 def0b6c1f0b107b3b936def894055589 ""
   "/usr/local/Cellar/texlive/20240312_3/share/texmf-dist/fonts/map/fontname/texfonts.map" 1710106625 3524 cb3e574dea2d1052e39280babc910dc8 ""
@@ -298,9 +298,9 @@
   "/usr/local/Cellar/texlive/20240312_3/share/texmf-dist/tex/latex/zref/zref-base.sty" 1710106625 20785 f7d1133a287929598a897c93f8f4c44b ""
   "/usr/local/Cellar/texlive/20240312_3/share/texmf-dist/web2c/texmf.cnf" 1739092516.50854 41652 e14926ab86fde7902cad99d9eeaa5ca5 ""
   "/usr/local/Cellar/texlive/20240312_3/share/texmf-var/web2c/pdftex/pdflatex.fmt" 1710106625 8221738 0fe25a98ec26b76f48bc3534ec24a62e ""
-  "hw6.aux" 1761284446.76482 3448 cfcb08f221ff9162960e2216988f28b2 "pdflatex"
-  "hw6.out" 1761284445.77768 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
-  "hw6.tex" 1761284437.22163 14933 175d15f62d2fa576b4abfca45751222d ""
+  "hw6.aux" 1761284879.61997 3448 73afddb8fe2b5bbbca690226600a37f2 "pdflatex"
+  "hw6.out" 1761284878.63105 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
+  "hw6.tex" 1761284870.12864 15122 cc7ac65a3c4e14f79529eca6c5666726 ""
   (generated)
   "hw6.aux"
   "hw6.log"

@@ -86,19 +86,20 @@ If \( | H \cap K  | = p^{3}  \), then \( | HK |  = \frac{ p^{4} }{ p^{3}}  = p <
 
 If \( | H \cap K | = p^{4} \), then \( | HK | = \frac{ p^{4}  }{  p^{4}  }  = 1  < p^{4} = | H |  | K | \). But this is also absurd because the number of elements in \( HK  \) must contain more than \( 1  \) element since \( H  \) and \( K  \) are non-trivial subgroups of \( G  \).  Thus, from the above we can say that we must have \( | H \cap K |  = p^{2} \). Hence, \( H = K  \) and so \( H  \) is a unique subgroup of \( G  \) of order \( p^{2} \).
 \end{proof}
-
+In the following problem, we will use the fact that
+\[  \text{lcm}(m,n) = \frac{ mn  }{  \text{gcd}(m,n) }.  \]
 \begin{problem}
     Suppose that \( H  \) and \( K  \) are subgroups of finite index in a possibly infinite group \( G  \) with \( | G : H  |  = m  \) and \( | G : K  |  = n  \). Prove that \[ \text{lcm}(m,n) \leq | G : H \cap K  |  \leq m n  \]. Deduce that \( | G : H \cap K  |  = mn  \) when \( m  \) and \( n  \) are relatively prime.
 \end{problem}
 \begin{proof}
 Suppose \( | G : H  |  = m  \) and \( | G : K |  = n  \). To show the above result, it suffices to show that 
-\[  1 \leq | G : H \cap K  |  \leq \frac{ m n  }{ \text{lcm}(m,n) }. \]
+\[  1 \leq | G : H \cap K  |  \leq \frac{ m n  }{ \text{lcm}(m,n) }. \tag{*} \]
 That is, 
-\[  1 \leq | G : H \cap K  | \leq \text{gcd}(m,n). \]
-Since \(  \)
+\[  1 \leq | G : H \cap K  | \leq \text{gcd}(m,n).  \]
+Since \( H \cap K \leq H \leq G     \) and \( H \cap K \leq K \leq G  \), we have 
 \begin{align*}
-    m = | G : H  | &= | G : G \cap K  | |G \cap K : H  |  \\
-    n = | G : K  | &= | G : G \cap K  | | G \cap K : K  |. 
+    m = | G : H  | &= | G : H \cap K  | |H \cap K : H  |  \\
+    n = | G : K  | &= | G : H \cap K  | |H \cap K : K  |. 
 \end{align*}
 This tells us that \( | G : G \cap K  | \mid m    \) and \( | G \cap K  | \mid n    \). By definition of \( \text{gcd} \), it follows that \( 1 \leq | G : G \cap K  | \leq \text{gcd}(m,n)   \). That is,
 \[  1 \leq | G : H \cap K  | \leq \frac{ m n  }{ \text{lcm}(m,n) }.  \]
@@ -188,6 +189,8 @@ Lastly, we show that \( \Phi \) is surjective. Let \( \overline{J} \leq G / N   
 
 Since \( \Phi  \) is injective and surjective, it follows that \( \Phi  \) is bijective and hence we have our one-to-one correspondence.
 \end{proof}
+
+
 
 \end{document}
 
