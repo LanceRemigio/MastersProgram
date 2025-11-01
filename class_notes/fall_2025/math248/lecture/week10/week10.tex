@@ -1,0 +1,122 @@
+\section{Week 10}
+
+\subsection{Tangent Spaces}
+
+   Let \( M  \) be a smooth manifold. What do we mean by a \textbf{smooth path} in \( M  \)?
+
+\begin{definition}[Smooth Path]
+    A \textbf{smooth path} in \( M  \) is a smooth function \( f : I \to M  \) with \( t \mapsto f(t) \) where \( I \subseteq \R  \) is a nonempty open interval. (We refer to this path as the path \( f  \) or the path \( f(t) \)). 
+\end{definition}
+
+\begin{itemize}
+    \item Each component of the function is a smooth path in \( \R  \).
+    \item Path connected implies continuous paths between two points \( a  \) and \( b  \).
+    \item We can also extend this notion to smooth paths between \( a \) and \( b  \).
+\end{itemize}
+
+\begin{eg}[Examples of Smooth Paths]
+    \begin{itemize}
+        \item \( r: (-1,1) \to \R^{2} \) defined by \( r(t) = (t, t^{2}) \) is a smooth path in \( M  = \R^{2} \).     
+        \item \( A :  (0,\pi) \to \text{SO}(2) \), where 
+            \[  A(t) = \begin{pmatrix} \cos t &  - \sin t \\ \sin t & \cos t \end{pmatrix} \]
+            is a \textbf{smooth path} in \( M= \text{SO}(2) \). Consider the following two situtations: Let \( f: (0, \pi) \to \R^{4} \) where \( t \mapsto (\cos t , -\sin t , \sin t , \cos t) \) and \( A : (0,\pi) \to \text{SO}(2) \) where 
+            \[  t \mapsto \begin{pmatrix} \cos t & - \sin t \\ \sin t & \cos t  \end{pmatrix}.  \]
+            Note from these two examples, the implicit assumption is \( \text{SO}(2) \subseteq  \text{Gl}(2, \R) \subseteq  \R^{4}\).
+            \item (An example of a non-smooth map) Let \( A : (- \pi / 2 , \pi / 2 ) \to \text{SO}(2) \), where 
+            \[  A(t) = \begin{pmatrix} \cos t & - \sin t \\ \sin t & \cos t  \end{pmatrix}  \]
+            is not a smooth path in \( \text{SO}(2) \). (However, it is a continuous path in \( \text{SO}(2) \)).
+    \end{itemize}
+\end{eg}
+
+\begin{theorem}[Manifold Theory (Relating to the 2nd Example Above)]
+    Suppose \( N , M, L  \) are three smooth manifolds. Suppose \( M  \) is an embedded sub-manifold of \( L  \). Suppose \( F : N \to M  \). Then \( F: N \to M  \) is smooth if and only if \( i \circ F : N \to L  \) where \( i  \) is the inclusion map (\( i  : M \to L  \))  
+\end{theorem}
+
+In our example (2), \( N = (0,1) \) and \( M = \text{SO}(2) \) and \( L = \R^{4} \). It is clear that \( A : N \to L  \) is smooth (because each smooth was smooth). So, by the above claim \( A : N \to M  \) is also smooth.
+
+Note that derivative of a path can be thought of in the following way:
+\begin{itemize}
+    \item If \( r(t) = ({r}_{1}(t), {r}_{2}(t), \dots, {r}_{n}(t)) \) is a smooth path in \( \R^{n} \), then 
+        \[  r'(t) = \lim_{ \delta t  \to 0  }  \frac{ r(t + \delta t ) - r(t) }{ \delta t   } = ({r}_{1}'(t), {r}_{2}'(t), \dots, {r}_{n}'(t)). \]
+    % \item If 
+    %     \[  A(t) = \begin{pmatrix} {a}_{11}(t) &  \cdots & {a}_{1k}(t) \\ \vdots &  & \vdots \\   {a}_{k1}(t) &  \cdots &  {a}_{kk}(t) \end{pmatrix}  
+        
+% \]
+% is a smooth path in \( \text{GL}(k, \F)  \) or any of the matrix Lie groups we introduced as a sub-manifold of \( \text{GL}(k, \F) \), then
+% \[  A'(t) = \lim_{ \delta t  \to 0  }  \frac{ A(t + \delta t ) - A(t) }{  \delta t  }  = \begin{pmatrix} {a}_{11}'(t) & \cdots &  {a}_{1k}'(t) \\  \end{pmatrix}  \]
+        
+\end{itemize} 
+
+\begin{remark}
+    Let \( M  \) be an embdedded submanifold of \( \R^{k} \). Let \( p \in M  \). As we know the tangent space to \( M  \) at \( p  \), \( {T}_{p}M \), can be viewed as a vector space associated with \( p \in M  \). What is the precise definition of \( {T}_{p}M \)?  
+\end{remark}
+
+The answer is: There are multiple ways to define \( {T}_{p}M \). Here is one of them
+
+\begin{itemize}
+    \item \( v \in {T}_{p}M \) if and only if there exists a path \( A(t) \) in \( M  \) such that \( A(0)  = p \) and \( A'(0) = p \).
+    \item More precisely, \( v \in {T}_{p}M \) if and only if there exists \( \epsilon > 0  \) and a smooth path \( A : (-\epsilon, \epsilon) \to M  \) such that \( A(0) = p \) and \( A'(0) = v \).
+    \item Note that \( A'(0)  \) is sometimes referred to as the velocity vector of the path \( A(t) \) at the point \( p  \).
+\end{itemize}
+
+Note that \( {T}_{p}M \) consists of the velocity vectors of all smooth paths in \( M  \) through \( p \in M  \).
+
+\begin{eg}
+    Prove that 
+    \begin{enumerate}
+        \item[(1)] \( {T}_{I}(\text{O}(2)) = \{  A \in M(2, \R ) : A^{T} = - A  \}  = \{  \begin{pmatrix}  0 & - \theta  \\ \theta & 0  \end{pmatrix} : \theta \in \R   \}    \).
+        \item[(2)] \( {T}_{I}(\text{SO}(2)) = \{ A \in M(2, \R) : A^{T} = - A  \}  \).
+    \end{enumerate}
+\end{eg}
+
+\begin{proof}
+   Here we will prove (2). The proof of (1) is the same. 
+   \begin{enumerate}
+       \item[(I)] We claim that \( {T}_{I}(\text{SO}(2)) \subseteq  \text{skew}(2, \R) \). Let \( X \in {T}_{I}(\text{SO}(2)) \). This tells us that there exists a smooth path \( A : (- \epsilon, \epsilon ) \to \text{SO}(2) \) such that \( A(0) = I  \) and \( A'(0) = X  \). Note that for all \( t \in (- \epsilon, \epsilon) \) \( A(t) \in \text{SO}(2) \). Then for all \( t \in (-\epsilon, \epsilon) \) \( A(t)^{T} A(t) = I  \). Hence, we have 
+           \begin{align*}
+               \frac{ d }{ dt  }  [ A(t)^{T} A(t) ] = 0 &\implies A'(t)^{T} A(t) + A(t)^{T} A'(t) = 0    .
+           \end{align*}
+           In particular, if \( t = 0  \), we get
+           \begin{align*}
+               &A'(0)^{T} A(0) + A(0)^{T} A'(0) = 0  \\
+               &\implies X^{T}I + I^{T} X = 0 \\ 
+               &\implies X^{T} + X = 0  \\ 
+               &\implies X^{T} =  - X.
+           \end{align*}
+           Hence, \( X \in \text{Skew}(2,\R) \).
+   \end{enumerate}
+\item[(II)] Now, we show that \( \text{Skew}(2,\R) \subseteq  {T}_{I}\text{SO}(2) \). Let \( \begin{pmatrix} 0 & - \theta \\ \theta & 0  \end{pmatrix}  \) be an arbitrary elements of \( \text{Skew}(2,\R) \). We need to show that this matrix is in \( {T}_{I}\text{SO}(2) \). That is, we need to show that there exists a smooth path \( A(t) \) in \( \text{SO}(2) \) such that \( A(0) = I  \) and \( A'(0) = \begin{pmatrix} 0 & - \theta  \\ \theta & 0  \end{pmatrix}  \). Consider the path \( A : (-1,1) \to \text{SO}(2) \) given by 
+    \[  A(t) = \begin{pmatrix} \cos (\theta t ) & - \sin (\theta t ) \\ \sin (\theta t ) & \cos (\theta t) \end{pmatrix}.  \]
+    Notice that, clearly, \( A(0) = I  \). Also, 
+    \[  A'(t) = \begin{pmatrix} - \theta \sin (\theta t ) & - \theta \cos (\theta t ) \\ \theta \cos (\theta t) &  - \theta  \sin (\theta t ) \end{pmatrix}  \]
+    and so we have 
+    \[  A'(0) = \begin{pmatrix} 0 & - \theta \\ \theta & 0  \end{pmatrix}.  \]
+\end{proof}
+
+\begin{remark}
+    \begin{enumerate}
+        \item[(i)] As we saw in part 1 of the proof above, onec an often find a condition that tangent vectors at the identity of a classical matrix Lie group \( G  \) must satisfy by differentiating the defining equation of \( G  \).
+        \item[(ii)] Once this condition is identified, the next question is whether every vector satisfying it actually arises as a tangent vector at the identity. In other words, we need to check whether there exists smooth paths in \( G  \) whose tangent at the identifies matches the condition (this was part 2 of our solution).
+        \item[(iii)] It is at this stage, when constructing smooth paths in \( G  \), that a particularly useful tool, \textbf{the matrix exponential}, comes to our aid.
+    \end{enumerate}
+\end{remark}
+
+\begin{definition}[Matrix Exponential]
+   Let \( A \in M(n,\C)  \). We define the exponential of \( A \), denoted by \( \text{exp}(A)  \) or \( e^{A} \), as follows:
+   \[ \text{exp}(A) = \sum_{ m = 0  }^{ \infty  } \frac{ A^{m} }{ m!  }  = I + A + \frac{ A^{2} }{ 2!} + \cdots  \]
+\end{definition}
+
+\begin{eg}
+   \begin{itemize}
+       \item Let \( D = \begin{pmatrix} 2 & 0 \\ 0 & 3  \end{pmatrix}  \). Compute \( e^{D} \). Recall that if \( D \) is any diagonal matrix, then for every natural number \( m  \), \( D^{m}  \) is just raising the diagonal entries by \( m  \). Then 
+           \begin{align*}
+               e^{D} &= \sum_{ m= 0  }^{ \infty  } \frac{ D^{m} }{ m! }  = \sum_{ m = 0  }^{ \infty  } \frac{ 1 }{ m! }  \begin{pmatrix} 2 & 0 \\ 0 & 3  \end{pmatrix}^{m}   \\
+                     &= \sum_{ m = 0  }^{ \infty  } \frac{ 1 }{ m! }  \begin{pmatrix} 2^{m} & 0 \\ 0 & 3^{m} \end{pmatrix}  \\
+                     &=
+           \end{align*}
+           For the next step, let us be careful when distributing the series in. Note that 
+           \[  \sum_{ m = 0  }^{ \infty  } \frac{ 1 }{ m!  }  \begin{pmatrix} 2^{m} & 0 \\ 0 & 3^{m} \end{pmatrix}  = \lim_{ N \to \infty  }  \sum_{ m = 0  }^{ N  } \frac{ 1 }{ m! }   \]
+
+   \end{itemize} 
+\end{eg}
+
