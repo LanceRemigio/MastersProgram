@@ -1,0 +1,125 @@
+\documentclass{beamer}
+\author{Lance Remigio}
+\title{Supercharging Your \LaTeX \  Workflow with Vim}
+\institute{Sacramento State University}
+\begin{document}
+\maketitle
+
+\begin{frame}
+    \frametitle{What is Vim?}
+    \begin{itemize}
+        \item Vim is an open open sourced, terminal based modal text editor that is keyboard based, light-weight, and highly customizable.  
+        \item It is mainly used by software engineers to produce code. 
+        \item This means no mouse required!
+    \end{itemize}
+    \begin{figure}
+        \includegraphics[scale=0.4]{vim-wojak-meme.jpg}
+    \end{figure}
+\end{frame}
+
+\begin{frame}
+    \frametitle{What do you mean by Open Source?} 
+    Software that is freely available and may be redistributed and modified.
+\end{frame}
+
+\begin{frame}
+    \frametitle{What is \LaTeX?} 
+    \begin{itemize}
+        \item It is a high-quality typesetting system used for the production of technical and scientific documentation.
+        \item It is the de-facto standard for communication and publication of scientific and scholarly articles.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}
+    \frametitle{What Do You Mean by Modal?} 
+ \begin{itemize}
+     \item Vim operates in different modes where each keystroke (or combination of keystrokes) executes different functions based on the current mode that you are in.  
+     \item There are three modes: 
+         \begin{itemize}
+             \item \textbf{Normal Mode (Command Mode):} This is the default mode of Vim. Keystrokes in this mode are meant for navigating around a file, manipulate text, and execute certain actions on text. You use "hjkl" to move around a file.
+             \item \textbf{Insert Mode:} This is the mode where you type in text into your file just as if you were typing on any other text-editor. To enable insert mode, you just have to "i". 
+             \item \textbf{Command-Line Mode:} This mode allows you to execute more complex commands like saving files, quitting vim, and running external programs. To enter the command-line mode, press ":".
+         \end{itemize}
+ \end{itemize}  
+\end{frame}
+
+\begin{frame}
+    \frametitle{Examples of Common Commands} 
+    \begin{itemize}
+        \item Normal mode:
+            \begin{itemize}
+                \item "cc" deletes a line and puts you into insert mode.
+                \item "di(" deletes any text that is wrap around in parentheses.
+                \item "ci[" deletes any text inside a set of brackets and puts you into insert mode.   
+            \end{itemize}
+        \item Command-line Mode:
+            \begin{itemize}
+                \item ":w" writes the file (save) 
+                \item ":q" quit vim
+                \item ":wq" writes the file and quits out of vim.
+            \end{itemize}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Why Do I Care?} 
+ Vim being entirely keyboard based is perfect for optimizing the workflow of typesetting latex documents.
+\end{frame}
+
+\begin{frame}
+\frametitle{Problems Commonly Found in Modern Text-editors} 
+    \begin{itemize}
+        \item In most text-editors or IDE's, navigation revolves around the mouse which can be extremely inefficient.
+        \item In IDE's, there are lots of potential for distraction due to the abundance of features available to you which may be overwhelming. 
+        \item Most programs have a large amount of "bloat" that will slow your program when latex files get large.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Problems Commonly Found Modern Text-Editors (Cont.)}
+         \begin{itemize}
+             \item If you are using an online-based text editor, like overleaf, server crashes may halt your work and may  even get rid of your work altogether.
+         \end{itemize}
+    \begin{figure}
+        \includegraphics[scale=0.2]{vim-pepe-meme.png}
+    \end{figure}
+\end{frame}
+
+\begin{frame}
+    \frametitle{What Are The Advantages?}
+    \begin{itemize}
+        \item Vim is lightweight and does not require any sophisticated hardware to be able to run properly. It doesn't even require the internet to run!   
+        \item There is no "GUI" needed to access the editor. You just need to use the terminal.
+        \item It is entirely local which may ease the fear of having your files tampered with with if you are using an online-based editor.
+        \item It is barebones by design which means it is not distracting when you open it up initially. However, do not confuse this with not having a lot features! It does have a lot of it, you just have to uncover it yourself.
+        \item Since it is entirely keyboard based, you do not have to lift your hand off the keyboard to navigate a file which is HUGE. 
+    \end{itemize}
+\end{frame}
+
+\begin{frame}
+    \frametitle{What Does Opening Up Vim Look Like?} 
+\end{frame}
+
+
+\begin{frame}
+    \frametitle{The Most Annoying Thing with \LaTeX} 
+    \begin{itemize}
+        \item With \LaTeX, all of the code produced involve typing "\textbackslash" which is cumbersome to type out every single time.
+        \item We can easily avoid this nuisance by creating "snippets" of all our commonly typed text. 
+        \item These snippets along with our 
+    \end{itemize}     
+
+\end{frame}
+
+\begin{frame}
+    \frametitle{Examples of Commonly Typed Text} 
+    \begin{itemize}
+        \item 
+    \end{itemize}
+\end{frame}
+
+
+
+
+\end{document}
+
