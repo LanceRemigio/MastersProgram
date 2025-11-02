@@ -1,4 +1,17 @@
 \documentclass{beamer}
+\usepackage{xcolor,xparse}
+\usepackage{listings}
+\definecolor{mygray}{rgb}{0.8,0.8,0.8}
+\lstset{%
+basicstyle=\ttfamily,
+breaklines = true,
+backgroundcolor=\color{mygray},
+}
+\usepackage{realboxes}
+
+\DeclareDocumentCommand{\clist}{v}{%
+    \Colorbox{mygray}{\csname lstinline\endcsname!#1!}%
+}
 \author{Lance Remigio}
 \title{Supercharging Your \LaTeX \  Workflow with Vim}
 \institute{Sacramento State University}
@@ -9,7 +22,7 @@
     \frametitle{What is Vim?}
     \begin{itemize}
         \item Vim is an open open sourced, terminal based modal text editor that is keyboard based, light-weight, and highly customizable.  
-        \item It is mainly used by software engineers to produce code. 
+        \item It is mainly used by software engineers to produce code or  
         \item This means no mouse required!
     \end{itemize}
     \begin{figure}
@@ -36,7 +49,7 @@
      \item Vim operates in different modes where each keystroke (or combination of keystrokes) executes different functions based on the current mode that you are in.  
      \item There are three modes: 
          \begin{itemize}
-             \item \textbf{Normal Mode (Command Mode):} This is the default mode of Vim. Keystrokes in this mode are meant for navigating around a file, manipulate text, and execute certain actions on text. You use "hjkl" to move around a file.
+             \item \textbf{Normal Mode (Command Mode):} This is the default mode of Vim. Keystrokes in this mode are meant for navigating around a file, manipulate text, and execute certain actions on text. Using the keys "hjkl" navigate the cursor around a file.
              \item \textbf{Insert Mode:} This is the mode where you type in text into your file just as if you were typing on any other text-editor. To enable insert mode, you just have to "i". 
              \item \textbf{Command-Line Mode:} This mode allows you to execute more complex commands like saving files, quitting vim, and running external programs. To enter the command-line mode, press ":".
          \end{itemize}
@@ -79,10 +92,12 @@
     \frametitle{Problems Commonly Found Modern Text-Editors (Cont.)}
          \begin{itemize}
              \item If you are using an online-based text editor, like overleaf, server crashes may halt your work and may  even get rid of your work altogether.
+            \item Having your work stored locally in your machine helps prevents any chance of losing your work and any frustration that may come from it. 
          \end{itemize}
     \begin{figure}
         \includegraphics[scale=0.2]{vim-pepe-meme.png}
     \end{figure}
+            
 \end{frame}
 
 \begin{frame}
@@ -91,22 +106,23 @@
         \item Vim is lightweight and does not require any sophisticated hardware to be able to run properly. It doesn't even require the internet to run!   
         \item There is no "GUI" needed to access the editor. You just need to use the terminal.
         \item It is entirely local which may ease the fear of having your files tampered with with if you are using an online-based editor.
-        \item It is barebones by design which means it is not distracting when you open it up initially. However, do not confuse this with not having a lot features! It does have a lot of it, you just have to uncover it yourself.
-        \item Since it is entirely keyboard based, you do not have to lift your hand off the keyboard to navigate a file which is HUGE. 
     \end{itemize}
 \end{frame}
 
 \begin{frame}
-    \frametitle{What Does Opening Up Vim Look Like?} 
+    \frametitle{What Are The Advantages (Cont.)}
+    \begin{itemize}
+        \item It is barebones by design which means it is not distracting when you open it up initially. However, do not confuse this with not having a lot features! It does have a lot of it, you just have to uncover it yourself.
+        \item Since it is entirely keyboard based, you do not have to lift your hand off the keyboard to navigate a file which is HUGE. 
+        \end{itemize}
 \end{frame}
-
 
 \begin{frame}
     \frametitle{The Most Annoying Thing with \LaTeX} 
     \begin{itemize}
         \item With \LaTeX, all of the code produced involve typing "\textbackslash" which is cumbersome to type out every single time.
         \item We can easily avoid this nuisance by creating "snippets" of all our commonly typed text. 
-        \item These snippets along with our 
+        \item These snippets along with the keyboard centric workflow of vim makes for an extremely fast and efficient workflow.
     \end{itemize}     
 
 \end{frame}
@@ -114,10 +130,30 @@
 \begin{frame}
     \frametitle{Examples of Commonly Typed Text} 
     \begin{itemize}
-        \item 
+        \item  For inline math, type \Colorbox{mygray}{\lstinline|\\( \\)|}.  
+        \item Fractions, type \Colorbox{mygray}{\lstinline|\\frac\{\}\{\}|}  
+        \item Kind of environments like \Colorbox{mygray}{\lstinline|\\begin\{...\} ... \\end\{...\}|}
     \end{itemize}
 \end{frame}
 
+\begin{frame}
+    \frametitle{What Is A Snippet?}
+    \begin{itemize}
+        \item A snippet is a short reusable piece of text or code that can be triggered by entering a combination of keystrokes.
+        \item These pieces of text are stored in a separate file that is executed every time you hit keystrokes corresponding to the text that you want expanded out.
+        \item These snippets are triggered either manually or automatically.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Difference Between Autocomplete and Snippets}
+\end{frame}
+
+
+\begin{frame}
+    \frametitle{Structure Of A Snippet}
+    
+\end{frame}
 
 
 
