@@ -1,6 +1,8 @@
 \documentclass{beamer}
-\usepackage{xcolor,xparse}
+\usepackage{dirtree}
 \usepackage{listings}
+\lstset{basicstyle=\ttfamily, frame=single}
+\usepackage{xcolor,xparse}
 \definecolor{mygray}{rgb}{0.8,0.8,0.8}
 \lstset{%
 basicstyle=\ttfamily,
@@ -8,10 +10,22 @@ breaklines = true,
 backgroundcolor=\color{mygray},
 }
 \usepackage{realboxes}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
 
 \DeclareDocumentCommand{\clist}{v}{%
     \Colorbox{mygray}{\csname lstinline\endcsname!#1!}%
 }
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=cyan,
+    pdftitle={Overleaf Example},
+    pdfpagemode=FullScreen,
+    }
+
 \author{Lance Remigio}
 \title{Supercharging Your \LaTeX \  Workflow with Vim}
 \institute{Sacramento State University}
@@ -19,20 +33,22 @@ backgroundcolor=\color{mygray},
 \maketitle
 
 \begin{frame}
-    \frametitle{What is Vim?}
+    \frametitle{What is the goal of this talk?}
     \begin{itemize}
-        \item Vim is an open open sourced, terminal based modal text editor that is keyboard based, light-weight, and highly customizable.  
-        \item It is mainly used by software engineers to produce code or  
-        \item This means no mouse required!
+        \item The goal is to convert you into using vim for speeding up your workflow with \LaTeX. 
+        \item If not converted immediately, then I will influence you to explore vim and its many interesting aspects.  
+        \item While we may not have enough time to cover every aspect of vim (because it will take hours if not weeks/months to have a proper working setup), at the very least, I will convince you just how much faster of a workflow it really is compared to most text-editors/IDE's out there. 
     \end{itemize}
-    \begin{figure}
-        \includegraphics[scale=0.4]{vim-wojak-meme.jpg}
-    \end{figure}
 \end{frame}
 
 \begin{frame}
-    \frametitle{What do you mean by Open Source?} 
-    Software that is freely available and may be redistributed and modified.
+    \frametitle{Resources}
+    Below are some of the resources I used to create the workflow that I currently have:
+    \begin{itemize}
+        \item \href{https://ejmastnak.com/tutorials/vim-latex/intro/}{Ej Mastnak: A Guide To Supercharged Mathematical Typesetting} 
+        \item \href{https://castel.dev/post/lecture-notes-1/}{Gilles Castel: How I'm Able To Take Notes In Mathematics Lectures Using Latex and Vim} 
+        \item \href{https://www.youtube.com/watch?v=w7i4amO_zaE&t=8s}{The Primagean: 0 to LSP: Neovim From Scratch}
+    \end{itemize}
 \end{frame}
 
 \begin{frame}
@@ -43,15 +59,27 @@ backgroundcolor=\color{mygray},
     \end{itemize}
 \end{frame}
 
+
+\begin{frame}
+    \frametitle{What is Vim?}
+    \begin{itemize}
+        \item Vim is an open open sourced, terminal based modal text editor that is keyboard based, light-weight, and highly customizable.  
+        \item It is mainly used by software engineers to produce code without the use of a mouse!  
+    \end{itemize}
+    \begin{figure}
+        \includegraphics[scale=0.4]{vim-wojak-meme.jpg}
+    \end{figure}
+\end{frame}
+
 \begin{frame}
     \frametitle{What Do You Mean by Modal?} 
  \begin{itemize}
      \item Vim operates in different modes where each keystroke (or combination of keystrokes) executes different functions based on the current mode that you are in.  
      \item There are three modes: 
          \begin{itemize}
-             \item \textbf{Normal Mode (Command Mode):} This is the default mode of Vim. Keystrokes in this mode are meant for navigating around a file, manipulate text, and execute certain actions on text. Using the keys "hjkl" navigate the cursor around a file.
-             \item \textbf{Insert Mode:} This is the mode where you type in text into your file just as if you were typing on any other text-editor. To enable insert mode, you just have to "i". 
-             \item \textbf{Command-Line Mode:} This mode allows you to execute more complex commands like saving files, quitting vim, and running external programs. To enter the command-line mode, press ":".
+             \item \textbf{Normal Mode (Command Mode):} This is the default mode of Vim. Keystrokes in this mode are meant for navigating around a file, manipulate text, and execute certain actions on text. Using the keys \Colorbox{mygray}{\lstinline|hjkl|} navigate the cursor around a file.
+             \item \textbf{Insert Mode:} This is the mode where you type in text into your file just as if you were typing on any other text-editor. To enable insert mode, you just have to press \Colorbox{mygray}{\lstinline|i|}.  
+             \item \textbf{Command-Line Mode:} This mode allows you to execute more complex commands like saving files, quitting vim, and running external programs. To enter the command-line mode, \Colorbox{mygray}{\lstinline|:|}.
          \end{itemize}
  \end{itemize}  
 \end{frame}
@@ -61,15 +89,15 @@ backgroundcolor=\color{mygray},
     \begin{itemize}
         \item Normal mode:
             \begin{itemize}
-                \item "cc" deletes a line and puts you into insert mode.
-                \item "di(" deletes any text that is wrap around in parentheses.
-                \item "ci[" deletes any text inside a set of brackets and puts you into insert mode.   
+                \item \Colorbox{mygray}{\lstinline|cc|} deletes a line and puts you into insert mode.
+                \item  \Colorbox{mygray}{\lstinline|di(|} deletes any text that is wrap around in parentheses.
+                \item \Colorbox{mygray}{\lstinline|ci[|} deletes any text inside a set of brackets and puts you into insert mode.   
             \end{itemize}
         \item Command-line Mode:
             \begin{itemize}
-                \item ":w" writes the file (save) 
-                \item ":q" quit vim
-                \item ":wq" writes the file and quits out of vim.
+                \item \Colorbox{mygray}{\lstinline|:w|} writes the file (save) 
+                \item  \Colorbox{mygray}{\lstinline|:q|} quit vim
+                \item \Colorbox{mygray}{\lstinline|:wq|} writes the file and quits out of vim.
             \end{itemize}
     \end{itemize}
 \end{frame}
@@ -91,8 +119,8 @@ backgroundcolor=\color{mygray},
 \begin{frame}
     \frametitle{Problems Commonly Found Modern Text-Editors (Cont.)}
          \begin{itemize}
-             \item If you are using an online-based text editor, like overleaf, server crashes may halt your work and may  even get rid of your work altogether.
-            \item Having your work stored locally in your machine helps prevents any chance of losing your work and any frustration that may come from it. 
+             \item If you are using an online-based text editor, like overleaf, server crashes may halt your work and may  even get rid of it altogether.
+            \item Having your work stored locally in your machine helps prevents any potential of losing your work, losing time and gaining frustration that may come from it. 
          \end{itemize}
     \begin{figure}
         \includegraphics[scale=0.2]{vim-pepe-meme.png}
@@ -103,9 +131,9 @@ backgroundcolor=\color{mygray},
 \begin{frame}
     \frametitle{What Are The Advantages?}
     \begin{itemize}
-        \item Vim is lightweight and does not require any sophisticated hardware to be able to run properly. It doesn't even require the internet to run!   
+        \item Vim is lightweight and does not require any sophisticated hardware to be able to run properly. It doesn't even require the internet!   
         \item There is no "GUI" needed to access the editor. You just need to use the terminal.
-        \item It is entirely local which may ease the fear of having your files tampered with with if you are using an online-based editor.
+        \item It is entirely local which may ease the fear of having your files tampered with if you are using an online-based editor.
     \end{itemize}
 \end{frame}
 
@@ -118,7 +146,7 @@ backgroundcolor=\color{mygray},
 \end{frame}
 
 \begin{frame}
-    \frametitle{The Most Annoying Thing with \LaTeX} 
+    \frametitle{The Most Annoying Aspect of \LaTeX} 
     \begin{itemize}
         \item With \LaTeX, all of the code produced involve typing "\textbackslash" which is cumbersome to type out every single time.
         \item We can easily avoid this nuisance by creating "snippets" of all our commonly typed text. 
@@ -126,6 +154,15 @@ backgroundcolor=\color{mygray},
     \end{itemize}     
 
 \end{frame}
+\begin{frame}
+    \frametitle{What Is A Snippet?}
+    \begin{itemize}
+        \item A snippet is a short reusable piece of text or code that can be triggered by entering a combination of keystrokes.
+        \item These pieces of text are stored in a separate file that is executed every time you hit keystrokes corresponding to the text that you want expanded out.
+        \item These snippets are triggered either manually or automatically.
+    \end{itemize}
+\end{frame}
+
 
 \begin{frame}
     \frametitle{Examples of Commonly Typed Text} 
@@ -137,24 +174,108 @@ backgroundcolor=\color{mygray},
 \end{frame}
 
 \begin{frame}
-    \frametitle{What Is A Snippet?}
+    \frametitle{Difference Between Autocomplete and Snippets}
+    For experienced programmers, there may be some confusion between \textbf{autocomplete} and \textbf{snippets}.  
     \begin{itemize}
-        \item A snippet is a short reusable piece of text or code that can be triggered by entering a combination of keystrokes.
-        \item These pieces of text are stored in a separate file that is executed every time you hit keystrokes corresponding to the text that you want expanded out.
-        \item These snippets are triggered either manually or automatically.
+        \item \textbf{Autocomplete} is a feature of most IDE's/text-editors that predicts what you want to type, presents options to you in some kind of a dropdown menu, and inserts the desired text that you have selected. 
+        \item In contrast, a \textbf{snippet} is already a written chunk of code or text that gets expanded based on certain action that triggers said text or code. 
     \end{itemize}
 \end{frame}
 
 \begin{frame}
-    \frametitle{Difference Between Autocomplete and Snippets}
+    \frametitle{Just How Much Faster Is Vim At Notetaking Compared to Most Editors?}
+    Answer: Much much faster
 \end{frame}
 
 
 \begin{frame}
-    \frametitle{Structure Of A Snippet}
-    
+    \frametitle{Setup}
+    That's great in all, but when are you going to show us how to set up these snippets?
 \end{frame}
 
+\begin{frame}
+    \frametitle{What You Need To Setup Vim and \LaTeX}
+    \begin{itemize}
+        \item A working computer with either Windows, Mac OS, or Linux. (Out of all three of these, Mac OS is by far the easiest to setup and Windows being the hardest).
+        \item Vim or Neovim (Obviously)
+        \item Some knowledge on how to navigate directories in a terminal and install dependencies.
+        \item Install the following dependencies: 
+            \begin{itemize}
+                \item \textbf{A PDF viewer:} There are plenty of them out there. The one I use is called \href{https://pwmt.org/projects/zathura/}{Zathura}. 
+                \item \textbf{Tex-live:} Contains the needed packages and systems to be able to compile documents. 
+                \item \textbf{Git:} For being able to download plugins created by other software developers to use in your setup. 
+            \end{itemize}
+        \item Time, Patience, and the desire to tinker.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}
+    \frametitle{What You Need To Setup Vim and \LaTeX (Cont.)}
+    Once you have Neovim installed, you will need to set up a config file and write some code to configure Neovim to write latex files. You can set up keybindings, settings, and plugins all in one file if you want. However, if you want to have a more organized structure to your Neovim setup, I recommend to set it up in the following way:
+\end{frame}
+
+\begin{frame}
+    \frametitle{What You Need To Setup Vim and \LaTeX (Cont.)}
+\dirtree{%
+.1 ~/.config/nvim/.
+.2 init.lua.
+.2 lua/.
+.3 packer.lua.
+.3 plugins/.
+.4 colorscheme.lua.
+.4 lsp.lua.
+.4 telescope.lua.
+.4 \ldots\ (other plugin configurations).
+.3 settings.lua.
+.3 keymaps.lua.
+.3 \ldots\ (other Lua modules for configuration).
+.2 after/.
+.3 plugin/.
+.4 \ldots\ (optional, for overriding plugin settings or loading after plugins).
+}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Main Plugins to Install}
+    \begin{itemize}
+        \item  \href{https://github.com/lervag/vimtex}{Vimtex} (Filetype and syntax plugin for Neovim/Vim)
+        \item  \href{https://github.com/L3MON4D3/LuaSnip}{Luasnip} (Snippet Engine) 
+        \item \href{https://github.com/nvim-telescope/telescope.nvim}{Telescope} (Filebrowser)
+    \end{itemize}
+    Optional:
+    \begin{itemize}
+        \item Language Server Protocol: \href{https://github.com/mason-org/mason-lspconfig.nvim}{LSP}  
+        \item  \href{https://github.com/tree-sitter/tree-sitter}{Tree-sitter} (Syntax Highlighter)
+    \end{itemize}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Snippets}
+Assuming that you have already you have your neovim setup configured and ready to go, it is now time to setup your snippets!
+\end{frame}
+
+\begin{frame}
+    \frametitle{Location of Snippets}
+    It is usually stored in a directory called "LuaSnip" and within this directory, you will name all your latex snippets as \Colorbox{mygray}{\lstinline|tex.lua|}.
+\end{frame}
+
+\begin{frame}[fragile]
+    \frametitle{Structure of Snippet}
+    \begin{lstlisting}
+       snippet(
+            {
+                 trig = "mm",
+                 snippetType = "autosnippet"
+            }, 
+            fmta(
+                 [[\(<>\)]], {i(1)}
+            ), 
+            {
+                 condition = in_mathzone
+            }
+       )
+    \end{lstlisting}
+\end{frame}
 
 
 \end{document}

@@ -1,0 +1,15 @@
+\frametitle{Structure of Snippet}
+    \begin{lstlisting}
+       snippet(
+            {
+                 trig = "mm",
+                 snippetType = "autosnippet"
+            },
+            fmta(
+                 [[\(<>\)]], {i(1)}
+            ),
+            {
+                 condition = in_mathzone
+            }
+       )
+    \end{lstlisting}
