@@ -1992,6 +1992,11 @@ INPUT week/week9/week9.tex
 INPUT ./week/week9/week9.tex
 INPUT week/week9/week9.tex
 INPUT week/week9/week9.tex
+INPUT ./week/week11/week11.tex
+INPUT week/week11/week11.tex
+INPUT ./week/week11/week11.tex
+INPUT week/week11/week11.tex
+INPUT week/week11/week11.tex
 INPUT main.aux
 INPUT ./main.out
 INPUT ./main.out

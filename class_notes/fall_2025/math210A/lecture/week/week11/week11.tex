@@ -1,0 +1,118 @@
+\section{Week 11}
+
+\subsection{Caley's Theorem}
+
+Last time we discussed \( G  \) acting on itself by left-multiplication which is a special case of \( G  \) acting on the cosets of a subgroup \( H  \) by left-multiplication; that is, \( g \cdot aH  = (ga)H \) for all \( g \in G  \) and all \( a H  \in G/ H   \). We will prove some things using the permutation representation of \( g  \) acting on the cosets of a subgroup \( H \). That is, 
+\[  \varphi : G \to {S}_{G / H } \]
+defined by \( \psi(g) = \sigma_{g} \) where \( {\sigma}_{g}(xH) = g \cdot xH =  (gx)H  \) is a homomorphism. 
+
+\begin{theorem}[ ]
+    Let \( G  \) and be a group and \( H \leq G  \). Let \( G  \) act on \( A = G / H  \) by left multiplication. Let \( {\pi}_{H} : G \to {S}_{G /H}  \) be the associated permutation representation afforded by this action. Then 
+    \begin{enumerate}
+        \item[(1)] \( G  \) acts transitively on \( A  \); that is, for any \( aH , b H \in A  \), there exist a \( g \in G  \) such that  
+            \[  b H= g \cdot a H  \]
+        \item[(2)] \( {G}_{1H} = H  \).
+        \item[(3)] The kernel of the action (\( \text{ker}({\pi}_{H}) \)) is 
+            \[  \bigcap_{  x \in G  }^{  }  x H x^{-1}  \]
+            and the kernel of \( \pi_{H}  \) is the largest normal subgroup of \( G  \) contained in \( H  \).
+    \end{enumerate}
+\end{theorem}
+\begin{proof}
+\begin{enumerate}
+    \item[(a)] To see that \( G  \) acts transitively on \( A  \), let \( a H , b H \in A  \). Then let \( g = b a^{-1}  \) and so 
+        \begin{align*}
+           g \cdot a H  &= (b a^{-1})\cdot aH  \\
+                        &= (b a^{-1}) aH \\
+                        &= b (a^{-1}a) H  \\
+                        &= b H. 
+        \end{align*}
+    \item[(b)] Note that 
+        \begin{align*}
+            {G}_{1H} &= \{  g \in G : g \cdot 1 H  = 1 H  \}  \\
+                     &= \{  g \in G : (g1)H = H  \}  \\
+                     &= \{  g \in G : g H  = H  \} \\
+                     &= \{  g \in G  : 1^{-1} g \in H  \}  \\
+                     &= \{  g \in G  : g \in H  \}  \\
+                     &= H. 
+        \end{align*}
+    \item[(c)] By definition, 
+        \begin{align*}
+            \text{ker}({\pi}_{H}) &= \{  g \in G : {\pi}_{H}(g) = {1}_{{S}_{G /H}} \}   \\
+                                  &= \{  g \in G : g \cdot x H = x h \ \forall xH \in A  \} \\
+                                  &= \{  g \in G  : g x H = x H \ \forall x \in G   \} \\ 
+                                  &= \{  g \in G : x^{-1} g x \in H  \ \forall x \in G  \}  \\
+                                  &= \{  g \in G : g \in x H x^{-1} \forall x \in G  \}  \\
+                                  &= \bigcap_{ g \in G  }^{  } x H x^{-1}. 
+    \end{align*}
+\end{enumerate}
+Observe that  \( \text{ker}({\pi}_{H}) \trianglelefteq G  \) and \( \text{ker}({\pi}_{H}) \leq H  \). Let \( N \trianglelefteq G  \) such that \( N \leq H  \) if and only if \( x N x^{-1} \subseteq  x H x^{-1} \). Then 
+\[  N = x N x^{-1} \leq x H x^{-1} \ \ \forall  x \in G. \]
+Hence, 
+\[  N \leq \bigcap_{  x \in G  }^{  }  x H x^{-1} = \text{ker}({\pi}_{H}). \]
+
+\end{proof}
+
+\begin{theorem}[Caley's Theorem]
+   Every group is isomorphic to a subgroup of some symmetric group. In particular, if \( | G  |  = n < \infty \), then \( G  \) is isomorphic to a subgroup of \( {S}_{n} \). 
+\end{theorem}
+\begin{proof}
+Let \( H  = \{  1  \}  \) and by the first iso theorem, we have that 
+\[  G / \text{ker}({\pi}_{H}) \cong {\pi}_{H}(G) \leq {S}_{G}. \]
+Since \( \text{ker}({\pi}_{H}) \leq H  \), we have 
+\[  \text{ker}({\pi}_{H}) \leq \{  1 \} \implies \( \text{ker}({\pi}_{H}) = 1  \).  \]
+Hence, 
+\[   G \cong  G / \text{ker}({\pi}_{H}) \cong {\pi}_{H}(G).  \]
+where \( {\pi}_{H}(G) \leq {S}_{G} \).
+\end{proof}
+
+The permutation representation of this action when \( H = \{  1  \}  \) is called the left regular representation of \( G  \). 
+
+\begin{corollary}[Classifying Groups]
+   If \( G  \) is a finite group of order \( n  \in \n  \) and \( p  \) is the smallest prime dividing \( n  \), then any subgroup of index \( p  \) is normal in \( G  \). 
+\end{corollary}
+\begin{proof}
+Suppose \( H \leq G  \) and \( | G : H  |  = p  \). Let \( {\pi}_{H}  \) be the permutation representation afforded by \( G  \) acting on the left cosets of \( H  \) by left-multiplication. Let \( K = \text{ker}({\pi}_{H}) \) and \( | H : K  |  = k  \). Notice that \( k \mid | H  |  \) (by Lagrange's Theorem) and so \( k \mid | G  |  \). Then by our tower laws, we see that
+\begin{align*}
+    | G : K  | &=| G : H  | | H : K  | = p k.  
+\end{align*}
+Since \( H  \) has \( p  \) cosets in \( G  \), 
+\[  \pi_{H} : G \to {S}_{p}. \]
+By the first isomorphism theorem, 
+\[  G / K \cong {\pi}_{H}(G) \leq {S}_{p}. \]
+This implies that \( pk = | G :  K | = \frac{  | G  |  }{ | K  |  }    \). Hence, 
+\[  pk  = | {\pi}_{H}(G) |  \]
+and so 
+\[ p k \mid | {S}_{p} | \implies pk \mid p^{!} \implies k \mid (p-1)!. \]
+However, since \( k \mid | G  |  \) any prime factor of \( k  \).  However, since \( k \mid | G  |  \) any prime factors of \( k  \) would be larger than or equal to \( p  \), so \( k = 1  \) minimality of \( p  \). Indeed, suppose otherwise. Then \( q \mid k   \) implies \( q \mid | G  |  \) and \( q \mid (p-1)! \). But this tells us that since \( | H : K  |  = k  \), we have \( | H : K  |  = 1  \) and so \( H = K  \). Hence, \( H = K \trianglelefteq G  \).
+\end{proof}
+
+\begin{eg}
+    Given a group \( G  \) of order \( 15  \) by Cauchy's Theorem, we know that \( G  \) contains a subgroup of order \( 5  \), and by the previous corollary, we know that subgroup is normal. Since its index must be \( 3  \) which is the smallest prime dividing \( 15 \).
+\end{eg}
+
+\subsection{Groups Acting on Themselves}
+
+Groups acting on themselves by conjugation (class equation). Let \( G  \) be a group acting on itself by conjugation. Define \( g \cdot a =  g a g^{-1} \) for all \( g \in G  \) and all \( a \in G  \). We proved that this is a group action.
+
+\begin{definition}[ ]
+    We say \( a,b \in G  \) are conjugate in \( G  \) if there exists a \( g \in G  \) such that 
+    \[  b = g a g^{-1}; \]
+    that is, \( a,b  \) are conjugate in \( G  \) if and only if \( a,b \in {\mathcal{O}}_{x}  \) for some \( x \in G  \).
+Recall that 
+\[  {\mathcal{O}}_{x} = \{  g \cdot x : g \in G  \} = \{ g x g^{-1} : g\in  G    \}. \]
+The orbits of \( G  \) acting on itself by conjugation are called the \textbf{conjugacy classes} of \( G  \).
+\end{definition}
+
+\begin{eg}
+   \begin{itemize}
+       \item If \( G  \) is abelian, then \( G  \) acting on itself by conjugation is the  \textbf{trivial action}; that is, \( g \cdot a = g a g^{-1} = a  \) for all \( a \in G  \)  and \( g \in G  \).  
+   \end{itemize} 
+\end{eg}
+This tells us that the conjugacy class of \( a  \) in \( G \) is
+\begin{align*}
+    \{  g a g^{-1 } : g \in G  \} &= \{ a \in g \in G  \}  \\
+                                  &= \{  a  \}.
+\end{align*}
+More generally, for \( G  \) acting on itself where \( G   \) is not assumed to be abelian, the conjugacy class of some \( g \in G  \) is just \( \{  g  \}  \) if and only if \( g  \in Z(G)  \).
+
+
