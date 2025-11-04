@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1762141739.28288 "talk.tex" "talk.pdf" "talk" 1762141746.45868 0
+["pdflatex"] 1762237363.65444 "talk.tex" "talk.pdf" "talk" 1762237371.88439 0
   "/usr/local/Cellar/texlive/20240312_3/share/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc" 1710106625 2971 def0b6c1f0b107b3b936def894055589 ""
   "/usr/local/Cellar/texlive/20240312_3/share/texmf-dist/fonts/map/fontname/texfonts.map" 1710106625 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/local/Cellar/texlive/20240312_3/share/texmf-dist/fonts/map/pdftex/updmap/pdftex.map" 1710106625 5472554 f7861620179a71a79d4bd86251f559d0 ""
@@ -224,13 +224,17 @@
   "/usr/local/Cellar/texlive/20240312_3/share/texmf-dist/tex/latex/xkeyval/xkeyval.sty" 1710106625 4937 4ce600ce9bd4ec84d0250eb6892fcf4f ""
   "/usr/local/Cellar/texlive/20240312_3/share/texmf-dist/web2c/texmf.cnf" 1739092516.50854 41652 e14926ab86fde7902cad99d9eeaa5ca5 ""
   "/usr/local/Cellar/texlive/20240312_3/share/texmf-var/web2c/pdftex/pdflatex.fmt" 1710106625 8221738 0fe25a98ec26b76f48bc3534ec24a62e ""
-  "talk.aux" 1762141746.06069 3657 326d769d85856df1c882340b683ed8bf "pdflatex"
-  "talk.nav" 1762141746.0972 2504 f282411faecc54988344dd4ba00e9875 "pdflatex"
-  "talk.out" 1762141743.94946 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
-  "talk.tex" 1762141737.64186 12534 1ebb0adcbbfba8039bab9df03cea0b99 ""
-  "talk.vrb" 1762141745.9863 345 c8e2d4bce093799b2806060c1040d326 "pdflatex"
+  "el_snippet.png" 1762233862.16071 215201 00bd5c3ef5e985887f035262a18e40be ""
+  "lua_expandable_trigger.png" 1762233235.92595 232874 ad7c743fb28956227718d48045d99f98 ""
+  "pycharm_ide.png" 1762230611.19331 910100 bbe930f99c9de09c37cbf6944d0e67ce ""
+  "talk.aux" 1762237371.44888 4818 5c40b980d75c025f092afd1c39303a55 "pdflatex"
+  "talk.nav" 1762237371.46826 3341 7d73de7ff642878dd6c36c12ea38837e "pdflatex"
+  "talk.out" 1762237368.32687 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
+  "talk.tex" 1762237363.54076 16592 ab4b45e7da18cb7214edb4709d49bb29 ""
+  "talk.vrb" 1762237370.93642 121 ab6ac101cdafc59f155acc0dcb546c5b "pdflatex"
   "vim-pepe-meme.png" 1762062234.58168 463667 577c129a33cbe863de3de30e95cbdf7e ""
   "vim-wojak-meme.jpg" 1762062292.22573 51396 544689db9e0343d2b49cae51ad593033 ""
+  "vscode_ide.png" 1762230998.87821 581752 b7c746efd3437d1c704723ab27b3d408 ""
   (generated)
   "talk.aux"
   "talk.log"

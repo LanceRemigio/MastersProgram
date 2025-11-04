@@ -1,15 +1,4 @@
-\frametitle{Structure of Snippet}
-    \begin{lstlisting}
-       snippet(
-            {
-                 trig = "mm",
-                 snippetType = "autosnippet"
-            },
-            fmta(
-                 [[\(<>\)]], {i(1)}
-            ),
-            {
-                 condition = in_mathzone
-            }
-       )
-    \end{lstlisting}
+\frametitle{Anatomy of Snippet}
+    \begin{figure}
+        \includegraphics[scale=0.25]{el_snippet.png}
+    \end{figure}

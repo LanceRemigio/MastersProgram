@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024/Homebrew) (preloaded format=pdflatex 2025.1.26)  2 NOV 2025 19:48
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024/Homebrew) (preloaded format=pdflatex 2025.1.26)  3 NOV 2025 22:22
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -791,39 +791,55 @@ File: ot1mathkerncmss.fd 2020/01/31 Fontinst v1.933 font definitions for OT1/mat
 <vim-wojak-meme.jpg, id=127, 433.62pt x 433.62pt>
 File: vim-wojak-meme.jpg Graphic file (type jpg)
 <use vim-wojak-meme.jpg>
-Package pdftex.def Info: vim-wojak-meme.jpg  used on input line 72.
+Package pdftex.def Info: vim-wojak-meme.jpg  used on input line 73.
 (pdftex.def)             Requested size: 173.44492pt x 173.44492pt.
- [5
 
- <./vim-wojak-meme.jpg>]
-LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 85.
- (/usr/local/Cellar/texlive/20240312_3/share/texmf-dist/tex/latex/base/t1cmtt.fd
-File: t1cmtt.fd 2023/04/13 v2.5m Standard LaTeX font definitions
-) [6
+Overfull \vbox (21.20172pt too high) detected at line 73
+ []
+
+[5
+
+ <./vim-wojak-meme.jpg>] [6
 
 ] [7
 
-] [8
+]
+LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 103.
+ (/usr/local/Cellar/texlive/20240312_3/share/texmf-dist/tex/latex/base/t1cmtt.fd
+File: t1cmtt.fd 2023/04/13 v2.5m Standard LaTeX font definitions
+) [8
 
 ] [9
 
+] [10
+
+] [11
+
 ]
-<vim-pepe-meme.png, id=257, 642.4pt x 620.3175pt>
+<pycharm_ide.png, id=307, 1261.71375pt x 739.76375pt>
+File: pycharm_ide.png Graphic file (type png)
+<use pycharm_ide.png>
+Package pdftex.def Info: pycharm_ide.png  used on input line 145.
+(pdftex.def)             Requested size: 252.33827pt x 147.95012pt.
+ [12
+
+ <./pycharm_ide.png>]
+<vscode_ide.png, id=335, 1266.7325pt x 703.62875pt>
+File: vscode_ide.png Graphic file (type png)
+<use vscode_ide.png>
+Package pdftex.def Info: vscode_ide.png  used on input line 153.
+(pdftex.def)             Requested size: 253.34201pt x 140.72325pt.
+ [13
+
+ <./vscode_ide.png>]
+<vim-pepe-meme.png, id=364, 642.4pt x 620.3175pt>
 File: vim-pepe-meme.png Graphic file (type png)
 <use vim-pepe-meme.png>
-Package pdftex.def Info: vim-pepe-meme.png  used on input line 129.
+Package pdftex.def Info: vim-pepe-meme.png  used on input line 168.
 (pdftex.def)             Requested size: 128.47772pt x 124.0613pt.
- [10
+ [14
 
- <./vim-pepe-meme.png>] [11
-
-] [12
-
-] [13
-
-] [14
-
-] [15
+ <./vim-pepe-meme.png>] [15
 
 ] [16
 
@@ -843,10 +859,50 @@ Package pdftex.def Info: vim-pepe-meme.png  used on input line 129.
 
 ] [24
 
+] [25
+
+] [26
+
+] [27
+
+] [28
+
+] [29
+
 ]
 \openout4 = `talk.vrb'.
 
- (./talk.vrb) [25
+ (./talk.vrb
+<el_snippet.png, id=779, 1258.7025pt x 687.56876pt>
+File: el_snippet.png Graphic file (type png)
+<use el_snippet.png>
+Package pdftex.def Info: el_snippet.png  used on input line 3.
+(pdftex.def)             Requested size: 314.67485pt x 171.89177pt.
+
+Overfull \hbox (7.38498pt too wide) in paragraph at lines 3--4
+ [] 
+ []
+
+) [30
+
+ <./el_snippet.png>] [31
+
+]
+<lua_expandable_trigger.png, id=832, 1260.71pt x 685.56125pt>
+File: lua_expandable_trigger.png Graphic file (type png)
+<use lua_expandable_trigger.png>
+Package pdftex.def Info: lua_expandable_trigger.png  used on input line 328.
+(pdftex.def)             Requested size: 315.17673pt x 171.3899pt.
+
+Overfull \hbox (7.88686pt too wide) in paragraph at lines 328--328
+ [] 
+ []
+
+[32
+
+ <./lua_expandable_trigger.png>] [33
+
+] [34
 
 ]
 \tf@nav=\write6
@@ -867,18 +923,18 @@ Package rerunfilecheck Info: File `talk.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 24022 strings out of 474116
- 457486 string characters out of 5734122
- 1979187 words of memory out of 5000000
- 45822 multiletter control sequences out of 15000+600000
+ 24082 strings out of 474116
+ 458399 string characters out of 5734122
+ 1948187 words of memory out of 5000000
+ 45864 multiletter control sequences out of 15000+600000
  578281 words of font info for 91 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 128i,14n,123p,399b,1416s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 128i,14n,123p,529b,1416s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/Cellar/texlive/20240312_3/share/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/Cellar/texlive/20240312_3/share/texmf-dist/fonts/type1/public/cm-super/sfss0800.pfb></usr/local/Cellar/texlive/20240312_3/share/texmf-dist/fonts/type1/public/cm-super/sfss1000.pfb></usr/local/Cellar/texlive/20240312_3/share/texmf-dist/fonts/type1/public/cm-super/sfss1095.pfb></usr/local/Cellar/texlive/20240312_3/share/texmf-dist/fonts/type1/public/cm-super/sfss1440.pfb></usr/local/Cellar/texlive/20240312_3/share/texmf-dist/fonts/type1/public/cm-super/sfsx1000.pfb></usr/local/Cellar/texlive/20240312_3/share/texmf-dist/fonts/type1/public/cm-super/sfsx1095.pfb></usr/local/Cellar/texlive/20240312_3/share/texmf-dist/fonts/type1/public/cm-super/sftt1000.pfb></usr/local/Cellar/texlive/20240312_3/share/texmf-dist/fonts/type1/public/cm-super/sftt1095.pfb>
-Output written on talk.pdf (25 pages, 862151 bytes).
+Output written on talk.pdf (34 pages, 2298328 bytes).
 PDF statistics:
- 724 PDF objects out of 1000 (max. 8388607)
- 664 compressed objects within 7 object streams
- 51 named destinations out of 1000 (max. 500000)
- 53 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 964 PDF objects out of 1000 (max. 8388607)
+ 885 compressed objects within 9 object streams
+ 69 named destinations out of 1000 (max. 500000)
+ 73 words of extra memory for PDF output out of 10000 (max. 10000000)
 

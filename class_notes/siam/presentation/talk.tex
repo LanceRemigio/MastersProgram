@@ -35,15 +35,15 @@ backgroundcolor=\color{mygray},
 \begin{frame}
     \frametitle{What is the goal of this talk?}
     \begin{itemize}
-        \item The goal is to convert you into using vim for speeding up your workflow with \LaTeX. 
-        \item If not converted immediately, then I will influence you to explore vim and its many interesting aspects.  
-        \item While we may not have enough time to cover every aspect of vim (because it will take hours if not weeks/months to have a proper working setup), at the very least, I will convince you just how much faster of a workflow it really is compared to most text-editors/IDE's out there. 
+        \item The goal is to convert you into using vim for speeding up your \LaTeX \ workflow. 
+        \item If not converted immediately, then at least you will explore more of vim and its many interesting aspects and decide for yourself if it is something worth pursuing.  
+        \item While we may not have enough time to cover every aspect of vim (because it will take hours if not weeks/months to have a proper working setup), at the very least, I will get you to agree on just how much faster of a workflow it really is compared to most text-editors/IDE's out there. 
     \end{itemize}
 \end{frame}
 
 \begin{frame}
     \frametitle{Resources}
-    Below are some of the resources I used to create the workflow that I currently have:
+    Below are some of the resources I used to create the workflow that I currently have are:
     \begin{itemize}
         \item \href{https://ejmastnak.com/tutorials/vim-latex/intro/}{Ej Mastnak: A Guide To Supercharged Mathematical Typesetting} 
         \item \href{https://castel.dev/post/lecture-notes-1/}{Gilles Castel: How I'm Able To Take Notes In Mathematics Lectures Using Latex and Vim} 
@@ -63,13 +63,31 @@ backgroundcolor=\color{mygray},
 \begin{frame}
     \frametitle{What is Vim?}
     \begin{itemize}
-        \item Vim is an open open sourced, terminal based modal text editor that is keyboard based, light-weight, and highly customizable.  
-        \item It is mainly used by software engineers to produce code without the use of a mouse!  
+        \item Vim is an open sourced, terminal based modal text editor that is keyboard based, light-weight, and highly customizable.  
+        \item It is primarily used by software engineers to produce code without the use of a mouse!  
+        \item But this doesn't mean that software engineers are the only people that use vim.
     \end{itemize}
     \begin{figure}
         \includegraphics[scale=0.4]{vim-wojak-meme.jpg}
     \end{figure}
 \end{frame}
+
+\begin{frame}
+    \frametitle{What Are Some Ways That People Use Vim?}
+    Other than programmers using it to write code, here are some ways that people might use vim:
+    \begin{itemize}
+        \item Write scripts for movies. 
+        \item  Journal or creative writing
+        \item Take notes during medical school
+    \end{itemize}
+    For us, we will primarily concern ourselves with writing math lecture notes.
+\end{frame}
+
+\begin{frame}
+    \frametitle{Steep Learning Curve}
+    Note that a lot of what you are about to see is a result of a large amount of time spent not only in setting up the editor, but also learning and being fluent with the key-binds and features of Vim. It cannot be emphasized enough that it takes A LOT of time to get used to an editor that is keyboard-centered. So, be patient when you are first setting up the editor and, expect and get used to the frustration when setting up your workflow. This effort will pay off tremendously in the long run. 
+\end{frame}
+
 
 \begin{frame}
     \frametitle{What Do You Mean by Modal?} 
@@ -92,6 +110,8 @@ backgroundcolor=\color{mygray},
                 \item \Colorbox{mygray}{\lstinline|cc|} deletes a line and puts you into insert mode.
                 \item  \Colorbox{mygray}{\lstinline|di(|} deletes any text that is wrap around in parentheses.
                 \item \Colorbox{mygray}{\lstinline|ci[|} deletes any text inside a set of brackets and puts you into insert mode.   
+                \item \Colorbox{mygray}{\lstinline|gg|} takes to the top of the file
+                \item \Colorbox{mygray}{\lstinline|G|} takes you to the bottom of the file
             \end{itemize}
         \item Command-line Mode:
             \begin{itemize}
@@ -115,6 +135,25 @@ backgroundcolor=\color{mygray},
         \item Most programs have a large amount of "bloat" that will slow your program when latex files get large.
     \end{itemize}
 \end{frame}
+
+\begin{frame}
+    \frametitle{Example}
+    Pycharm
+    \begin{figure}
+        \includegraphics[scale=0.2]{pycharm_ide.png}
+    \end{figure}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Examples (Cont.)}
+    VS Code (Visual Studio Code)
+    \begin{figure}
+        \includegraphics[scale=0.2]{vscode_ide.png}
+    \end{figure}
+\end{frame}
+
+
+
 
 \begin{frame}
     \frametitle{Problems Commonly Found Modern Text-Editors (Cont.)}
@@ -175,7 +214,7 @@ backgroundcolor=\color{mygray},
 
 \begin{frame}
     \frametitle{Difference Between Autocomplete and Snippets}
-    For experienced programmers, there may be some confusion between \textbf{autocomplete} and \textbf{snippets}.  
+    For those who are familiar with text-editors/IDE's, there may be some confusion between \textbf{autocomplete} and \textbf{snippets}.  
     \begin{itemize}
         \item \textbf{Autocomplete} is a feature of most IDE's/text-editors that predicts what you want to type, presents options to you in some kind of a dropdown menu, and inserts the desired text that you have selected. 
         \item In contrast, a \textbf{snippet} is already a written chunk of code or text that gets expanded based on certain action that triggers said text or code. 
@@ -184,7 +223,11 @@ backgroundcolor=\color{mygray},
 
 \begin{frame}
     \frametitle{Just How Much Faster Is Vim At Notetaking Compared to Most Editors?}
-    Answer: Much much faster
+    Answer: Much much faster. Blazingly fast.
+\end{frame}
+
+\begin{frame}
+    \frametitle{Demo}
 \end{frame}
 
 
@@ -199,11 +242,11 @@ backgroundcolor=\color{mygray},
         \item A working computer with either Windows, Mac OS, or Linux. (Out of all three of these, Mac OS is by far the easiest to setup and Windows being the hardest).
         \item Vim or Neovim (Obviously)
         \item Some knowledge on how to navigate directories in a terminal and install dependencies.
-        \item Install the following dependencies: 
+        \item The following dependencies are: 
             \begin{itemize}
-                \item \textbf{A PDF viewer:} There are plenty of them out there. The one I use is called \href{https://pwmt.org/projects/zathura/}{Zathura}. 
-                \item \textbf{Tex-live:} Contains the needed packages and systems to be able to compile documents. 
-                \item \textbf{Git:} For being able to download plugins created by other software developers to use in your setup. 
+                \item \textbf{A pdf viewer:} There are plenty of them out there. The one I use is called \href{https://pwmt.org/projects/zathura/}{Zathura}. 
+                \item \textbf{tex-live:} Contains the packages necessary for basic features to function and compile documents. 
+                \item \textbf{Git:} For being able to download plugins created by other software developers to use in your setup. One of these being the main plugin called \textbf{vimtex}.
             \end{itemize}
         \item Time, Patience, and the desire to tinker.
     \end{itemize}
@@ -244,7 +287,7 @@ backgroundcolor=\color{mygray},
     \end{itemize}
     Optional:
     \begin{itemize}
-        \item Language Server Protocol: \href{https://github.com/mason-org/mason-lspconfig.nvim}{LSP}  
+        \item Language Server Protocol: \href{https://github.com/mason-org/mason-lspconfig.nvim}{LSP}  (Needed for code completion)
         \item  \href{https://github.com/tree-sitter/tree-sitter}{Tree-sitter} (Syntax Highlighter)
     \end{itemize}
 \end{frame}
@@ -256,26 +299,49 @@ Assuming that you have already you have your neovim setup configured and ready t
 
 \begin{frame}
     \frametitle{Location of Snippets}
-    It is usually stored in a directory called "LuaSnip" and within this directory, you will name all your latex snippets as \Colorbox{mygray}{\lstinline|tex.lua|}.
+    It is usually stored in a directory called "LuaSnip" and within this directory, you will create a file named \Colorbox{mygray}{\lstinline|tex.lua|} where you will store all of your snippets.
 \end{frame}
 
 \begin{frame}[fragile]
-    \frametitle{Structure of Snippet}
-    \begin{lstlisting}
-       snippet(
-            {
-                 trig = "mm",
-                 snippetType = "autosnippet"
-            }, 
-            fmta(
-                 [[\(<>\)]], {i(1)}
-            ), 
-            {
-                 condition = in_mathzone
-            }
-       )
-    \end{lstlisting}
+    \frametitle{Anatomy of Snippet}
+    \begin{figure}
+        \includegraphics[scale=0.25]{el_snippet.png}
+    \end{figure}
 \end{frame}
+
+\begin{frame}
+    \frametitle{Structure of Snippet (Cont.)} 
+    \begin{itemize}
+        \item The variable \Colorbox{mygray}{\lstinline|trig|} represents the keystrokes needed to trigger the snippet.
+        \item \Colorbox{mygray}{\lstinline|snippetType|} specifies whether your snippet will expand either automatically or manually.
+        \item \Colorbox{mygray}{\lstinline|[[ \ \ \   ]]|} Inside these set of brackets will contain the text that, when the corresponding keystroke is applied, will be expanded out onto the screen.  
+        \item \Colorbox{mygray}{\lstinline|\{ \ \ \ \}|} will contain the nodes for the editor to jump to and from in order for the user to type in text needed to fill the empty space that the cursor occupies. 
+        \item \Colorbox{mygray}{\lstinline|Condition|} specifies whether the snippet will expand in math mode or not.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Code for Expanding Snippet}
+    \begin{figure}
+        \includegraphics[scale=0.25]{lua_expandable_trigger.png}
+    \end{figure}
+\end{frame}
+
+\begin{frame}
+    \frametitle{How I Use Snippets}
+    My main purpose for using snippets is to be able to write lecture notes as my professors are writing on the board. We want a set up that is extremely fast (even faster than writing on paper) at doing this. The best practice for this is to set most of your snippets as auto expandable and set the keystroke to something that is optimized for your fingers to press conveniently fast. This is done by setting the \Colorbox{mygray}{\lstinline|snippetType|} variable to \Colorbox{mygray}{\lstinline|"autosnippet"|}.    
+\end{frame}
+
+\begin{frame}
+    \frametitle{Final Remarks}
+    \begin{itemize}
+        \item As you progress through your mastery of this editor and setting up your workflow to fit your needs, you might be tempted to get sucked in to this mentality of needing to "optimize" your workflow as much as you can. While this is a worthwhile pursuit, it is important to realize that sometimes having a functional set up that is not necessarily perfect that gets work done is more valuable than spending all of your time tinkering to get that "perfect" setup and getting nothing done. 
+        \item All in all, if you are into tinkering, then vim is the perfect place for a time sink for you to explore in all of its grand features.   
+    \end{itemize}
+\end{frame}
+
+
+
 
 
 \end{document}
