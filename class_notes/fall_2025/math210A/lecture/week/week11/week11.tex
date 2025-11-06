@@ -59,7 +59,7 @@ Hence,
 Let \( H  = \{  1  \}  \) and by the first iso theorem, we have that 
 \[  G / \text{ker}({\pi}_{H}) \cong {\pi}_{H}(G) \leq {S}_{G}. \]
 Since \( \text{ker}({\pi}_{H}) \leq H  \), we have 
-\[  \text{ker}({\pi}_{H}) \leq \{  1 \} \implies \( \text{ker}({\pi}_{H}) = 1  \).  \]
+\[  \text{ker}({\pi}_{H}) \leq \{  1 \} \implies  \text{ker}({\pi}_{H}) = 1  .  \]
 Hence, 
 \[   G \cong  G / \text{ker}({\pi}_{H}) \cong {\pi}_{H}(G).  \]
 where \( {\pi}_{H}(G) \leq {S}_{G} \).
@@ -68,7 +68,7 @@ where \( {\pi}_{H}(G) \leq {S}_{G} \).
 The permutation representation of this action when \( H = \{  1  \}  \) is called the left regular representation of \( G  \). 
 
 \begin{corollary}[Classifying Groups]
-   If \( G  \) is a finite group of order \( n  \in \n  \) and \( p  \) is the smallest prime dividing \( n  \), then any subgroup of index \( p  \) is normal in \( G  \). 
+   If \( G  \) is a finite group of order \( n  \in \N  \) and \( p  \) is the smallest prime dividing \( n  \), then any subgroup of index \( p  \) is normal in \( G  \). 
 \end{corollary}
 \begin{proof}
 Suppose \( H \leq G  \) and \( | G : H  |  = p  \). Let \( {\pi}_{H}  \) be the permutation representation afforded by \( G  \) acting on the left cosets of \( H  \) by left-multiplication. Let \( K = \text{ker}({\pi}_{H}) \) and \( | H : K  |  = k  \). Notice that \( k \mid | H  |  \) (by Lagrange's Theorem) and so \( k \mid | G  |  \). Then by our tower laws, we see that
@@ -110,9 +110,97 @@ The orbits of \( G  \) acting on itself by conjugation are called the \textbf{co
 \end{eg}
 This tells us that the conjugacy class of \( a  \) in \( G \) is
 \begin{align*}
-    \{  g a g^{-1 } : g \in G  \} &= \{ a \in g \in G  \}  \\
+    \{  g a g^{-1 } : g \in G  \} &= \{ a :  g \in G  \}  \\
                                   &= \{  a  \}.
 \end{align*}
 More generally, for \( G  \) acting on itself where \( G   \) is not assumed to be abelian, the conjugacy class of some \( g \in G  \) is just \( \{  g  \}  \) if and only if \( g  \in Z(G)  \).
+\begin{eg}
+    If \( | G  |   > 1  \), then \( G  \) does not act transitively on itself by conjugation. (If transitive, there is only one orbit) The conjugacy class of \( {1}_{G} \) is just \( \{  {1}_{G} \}  \). That is, 
+    \[  \{  g 1 g^{-1} : g \in G  \} = \{  1 : g \in G  \}  = \{ 1  \}. \]
+\end{eg}
+
+Note that also the action of conjugation can be generalized to \( G  \) acting on \( \mathcal{P}(G) \) by
+\[  g \cdot S = g S g^{-1} \ \forall g \in G ,\ S \in \mathcal{P}(G) \]
+where \( \mathcal{P} \) is the power set of \( G \). 
+
+\begin{definition}[Conjugate]
+    Two subsets \( S  \) and \( T  \) of \( G  \) are called \textbf{conjugate} in \( G  \) if there exists a \( g \in G  \) such that \( S = g T g^{-1} \). 
+\end{definition}
+
+\begin{lemma}[Result Needed to Prove Class Equation (Prop 6)]
+The number of conjugates of a subset \( S  \) in a group \( G  \) is \( | G : {N}_{G}(S) |  \). In particular, the number of conjugates of an element \( s \in G  \) is \( | G : {C}_{G}(s) |  \).    
+\end{lemma}
+\begin{proof}
+Let \( S \subseteq  G  \). Using Orbit-stabilizer theorem, we know that the conjugacy class of \( S  \) equals \( | G : {G}_{s} |  \). For this particular action,  
+\begin{align*}
+    {G}_{s} &= \{  g \in G : g \cdot S = S  \}  \\
+            &= \{  g \in G : g S g^{-1} = S  \} \\
+            &= {N}_{G}(S).
+\end{align*}
+The second statement follows from 
+\begin{align*}
+    {N}_{G}(\{ s \} ) &= \{  g \in G : g \{ s  \}  g^{-1} = \{ s \}  \}  \\
+                      &= \{  g \in G : g s g^{-1} = s  \}  \\
+                      &= {C}_{G}(\{ s \}).
+\end{align*}
+That is, \( {N}_{G}(s) = {C}_{G}(s) \).
+\end{proof}
+
+\begin{theorem}[The Class Equation]
+   Let \( G  \) be a finite group and let \( {g}_{1}, {g}_{2}, \dots , {g}_{r} \) be representatives of distinct distinct conjugacy classes of \( G  \) not contained in \( Z(G) \). Then  
+   \[  | G  |  = | Z(G) |  + \sum_{ i=1  }^{ r } | G : {C}_{G}({g}_{i}) |. \]
+\end{theorem}
+\begin{proof}
+We claim that \( z \in G \) has conjugacy class \( \{  z  \}  \) if and only if \( z \in Z(G) \). You can show this in your free time. Let 
+\[  Z(G) = \{  1, {z}_{2}, {z}_{3}, \dots, {z}_{m} \}.  \]
+Let \( {k}_{1}, {k}_{2}, \dots, {k}_{r} \) be the conjugacy classes of \( G  \) not contained in \( Z(G) \) and let \( {g}_{i} \) be a representative of \( {k}_{i} \) (element of) for each \( i  \). Then the full set of conjugacy classes is \[ \{ 1 \} , \{ {z}_{2} \}, \dots, \{ {z}_{m} \}, {k}_{1}, {k}_{2}, \dots, {k}_{r}. \]
+Since these partition \( G  \), we have 
+\begin{align*}
+    | G  |  &= \sum_{ i=1  }^{ m } 1 + \sum_{ i=1  }^{ r } | {K}_{i} |  \\
+            &= | Z(G) |  + \sum_{ i=1  }^{ r  } | G : {C}_{G}({g}_{i}) | 
+\end{align*}
+by the previous proposition.
+\end{proof}
+
+\begin{eg}
+   \begin{enumerate}
+       \item[(1)] If \( G  \) is abelian of order \( n  \), then the class equation tells us nothing; that, is
+           \[  | G  |  = | Z(G) |. \]
+        \item[(2)] Calculate the class equation of \( {Q}_{8} \). Note that in any group \( \langle  x  \rangle \leq {C}_{G}(x) \). We know that \( i \notin Z(G) \) (to see this compute \( i \) and \( j  \) together in different order). We also know that \( | \langle  i \rangle |  = 4  \) which implies that \( | {Q}_{8} : \langle  i  \rangle |  = 2  \). Also, we know that \( i \notin Z({Q}_{8}) \). This implies that the \( {C}_{{Q}_{8}}(i) < {Q}_{8}  \) (proper subgroup of \( {Q}_{8} \)). (Recall that \( {C}_{G}(x)  = G \iff x \in Z(G) \)). So, we have 
+            \begin{align*}
+                2 = | {Q}_{8} : \langle  i \rangle | &= | {Q}_{8} : {C}_{{Q}_{8}}(i)  |  | {C}_{{Q}_{8}}(i) : \langle i   \rangle    |
+            \end{align*}
+            If \( | {Q}_{8} : {C}_{{Q}_{8}} |  = 1  \), then \( {Q}_{8} = {C}_{{Q}_{8}}(i) \) is a contradiction because we know that \( i \notin Z(G) \). Thus, \( | {C}_{{Q}_{8}}(i) : \langle  i   \rangle |  = 1  \) and \( | {Q}_{8} : {C}_{{Q}_{8}}(i) | = 2  \). Thus, see that \( {C}_{{Q}_{8}} = \langle  i \rangle \). Now, it follows that the conjugacy class of \( i  \) contains an index of \( 2  \) elements, namely, \( i  \) and \( - i  \). Similarly, we can perform the same process to find all the conjugacy classes of \( {Q}_{8} \), 
+            \[  \{  1  \} , \{  - 1  \} , \{  \pm i  \} , \{  \pm j  \} , \{  \pm k  \}. \]
+            Thus, the class equation of \( {Q}_{8} \) is
+            \begin{align*}
+                | \{ 1  \}  |  + | \{  - 1  \}  |  + | \{  \pm i  \}   |  + | \{  \pm j  \}  |  + | \{  \pm k \}  |  =  2 + 2  +2 + 2 &= 8  \\
+            \end{align*}
+   \end{enumerate} 
+\end{eg}
+
+\begin{theorem}[ ]
+    If \( p  \) is a prime and \( P  \) is a group of order \( p^{\alpha} \) with \( \alpha \geq 1  \). Then \( P  \) has a non-trivial center; that is, \( Z(P) \neq \{ {1 }_{P} \}   \) or \( | Z(P) |  > 1  \). 
+\end{theorem}
+
+\begin{proof}
+    By the class equation, 
+    \[ | P  |  = | Z(P)    |  + \sum_{ i =1  }^{ r  } | P : {C}_{P}({g}_{i}) |  \]
+    where \( {g}_{1}, {g}_{2}, \dots, {g}_{r} \) are representatives of the distinct non-central conjugacy classes. By definition, \( {C}_{P}({g}_{i}) \neq P  \). (Note that \( {C}_{P}({g}_{i}) = P  \) if and only if \( {g}_{i} \in Z(G) \)) for \( i = 1,2, \dots, r  \). So, \( p  \) divides the \[ | P : {C}_{P}({g}_{i}) | = \frac{ | P |  }{  | {C}_{P}({g}_{i}) |  } = \frac{ p^{\alpha} }{  | {C}_{p}({g}_{i}) |  } = p^{\beta}    \]
+    where \( 0  < \beta \leq \alpha \). Since \( p  \) also divides \( |  P  |   \) it follows that 
+    \[  p \mid \Big(  | P  |  - \sum_{ i=1  }^{ r } | P : {C}_{P}({g}_{i}) |  \Big) \]
+    equivalently, we have \( p \mid | Z(P) |  \). Hence, it follows that \( Z(G)  \) is non-trivial.
+\end{proof}
+
+\begin{corollary}
+    If \( | P  | = p^{2} \) where \( p  \) is a prime, then \( P  \) is abelian. More precisely, \( P \cong {Z}_{p^{2}}  \) or \( P \cong {Z}_{p} \times {Z}_{p} \). 
+\end{corollary}
+\begin{proof}
+Since \( Z(P) \neq 1  \) from the previous theorem, it follows that \( | Z(P) |  \in \{  p, p^{2} \}  \) and so we have 
+\[  |  P / Z(P) | \in \{  1, p  \}.   \]
+In either case, \( P   \) is abelian (see result from one of homeworks; that is, \( G / Z(G) \) implies that  G  is abelian). By the above, \( P  \) is abelian. If \( P  \) has an element of order \( p^{2} \). If \( P  \) has an element of order \( p^{2} \), \( P  \) is cyclic and isomorphic to \( {Z}_{p^{2}} \). If \( P \) contains no elements of order \( p^{2} \), then every non-identity element of \( P \) has order \( p  \). Let \( x \in P  \) such that \( x \neq 1  \) and \( y \in P - \langle  x  \rangle \) (\( y \neq 1  \) since \( 1 \in \langle  x \rangle \)). Notice that \( x  \) and \( y  \) both have order \( p  \). Since \( | \langle x , y \rangle |  > | \langle x   \rangle | = p  \), we have \( | \langle x , y \rangle |  = p^{2} \); that is, \( \langle x , y \rangle = P  \). Note since \( P  \) is abelian, \( \langle x  ,  y  \rangle = \{  x^{a} y^{b } : a,b \in \Z \}  \). Also, since \( | x  |  = | y  |  = p  \), \( \langle x  \rangle \times \langle y  \rangle  \cong {Z}_{p} \times {Z}_{p} \). Defining a map from \( {Z}_{p} \times {Z}_{p} \) to \( P  \) by \( (x^{a}, y^{b}) \mapsto x^{a} y^{b} \) gives an isomorphism. Hence, \( {Z}_{p} \times {Z}_{p} \cong P  \).
+\end{proof}
+
+
 
 
