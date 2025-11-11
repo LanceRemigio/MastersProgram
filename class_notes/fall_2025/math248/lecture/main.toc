@@ -10,14 +10,20 @@
 \contentsline {subsection}{\numberline {3.6}Making \( G / N \) a Lie Group}{12}{subsection.3.6}%
 \contentsline {section}{\numberline {4}Week 8}{13}{section.4}%
 \contentsline {subsection}{\numberline {4.1}Conjugate subgroups, Conjugacy Class}{13}{subsection.4.1}%
-\contentsline {subsection}{\numberline {4.2}Review of Linear Algebra}{14}{subsection.4.2}%
+\contentsline {subsection}{\numberline {4.2}Review of Linear Algebra}{15}{subsection.4.2}%
 \contentsline {subsection}{\numberline {4.3}Remark about First Isomorphism Theorem}{15}{subsection.4.3}%
-\contentsline {subsection}{\numberline {4.4}Consequence of Yoneda Lemma}{15}{subsection.4.4}%
-\contentsline {subsection}{\numberline {4.5}Second Isomorphism Theorem}{15}{subsection.4.5}%
+\contentsline {subsection}{\numberline {4.4}Consequence of Yoneda Lemma}{16}{subsection.4.4}%
+\contentsline {subsection}{\numberline {4.5}Second Isomorphism Theorem}{16}{subsection.4.5}%
 \contentsline {subsection}{\numberline {4.6}Third Isomorphism Theorem}{16}{subsection.4.6}%
 \contentsline {subsection}{\numberline {4.7}The Correspondence Theorem}{16}{subsection.4.7}%
 \contentsline {subsection}{\numberline {4.8}Simple Groups}{16}{subsection.4.8}%
 \contentsline {subsection}{\numberline {4.9}Direct Product of Groups}{17}{subsection.4.9}%
 \contentsline {section}{\numberline {5}Week 9}{18}{section.5}%
-\contentsline {section}{\numberline {6}Week 10}{20}{section.6}%
-\contentsline {subsection}{\numberline {6.1}Tangent Spaces}{20}{subsection.6.1}%
+\contentsline {section}{\numberline {6}Week 10}{21}{section.6}%
+\contentsline {subsection}{\numberline {6.1}Tangent Spaces}{21}{subsection.6.1}%
+\contentsline {section}{\numberline {7}Week 11}{23}{section.7}%
+\contentsline {subsection}{\numberline {7.1}Opening Remarks with Exponential of a Matrix}{23}{subsection.7.1}%
+\contentsline {subsection}{\numberline {7.2}Review of Eigenvectors}{24}{subsection.7.2}%
+\contentsline {subsection}{\numberline {7.3}Computing Exponential of Matrices}{25}{subsection.7.3}%
+\contentsline {subsection}{\numberline {7.4}Operations of Tangent Space at the identity of a Lie Group}{26}{subsection.7.4}%
+\contentsline {subsection}{\numberline {7.5}Lie Algebras}{28}{subsection.7.5}%

@@ -1,0 +1,173 @@
+{
+  "main": {
+    "id": "f9e6343920984b4f",
+    "type": "split",
+    "children": [
+      {
+        "id": "d9d36ac9459b50b7",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "082bc7a7bbeebf6c",
+            "type": "leaf",
+            "state": {
+              "type": "pdf",
+              "state": {
+                "file": "class_notes/fall_2025/math210A/lecture/main.pdf"
+              },
+              "icon": "lucide-file-text",
+              "title": "main"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "9d6663ffaacc32a8",
+    "type": "split",
+    "children": [
+      {
+        "id": "32919947b9b72eef",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "df594bc8c6ce646c",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "Files"
+            }
+          },
+          {
+            "id": "7715ac09bca111a4",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "Search"
+            }
+          },
+          {
+            "id": "573d63b907bd7ec4",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "Bookmarks"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "f258fa5c400c376b",
+    "type": "split",
+    "children": [
+      {
+        "id": "880d7c2d39fba31d",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "2920553cafc113a3",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "class_notes/fall_2025/math210A/lecture/main.pdf",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "Backlinks for main"
+            }
+          },
+          {
+            "id": "2c327eb8689a0fae",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "class_notes/fall_2025/math210A/lecture/main.pdf",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "Outgoing links from main"
+            }
+          },
+          {
+            "id": "e48945ceb1ab7afe",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "Tags"
+            }
+          },
+          {
+            "id": "6045225f99e9be1e",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "class_notes/fall_2025/math210A/lecture/main.pdf",
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "Outline of main"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false,
+      "bases:Create new base": false
+    }
+  },
+  "active": "082bc7a7bbeebf6c",
+  "lastOpenFiles": [
+    "class_notes/fall_2025/math299/exercises/main.pdf"
+  ]
+}

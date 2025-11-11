@@ -1,6 +1,6 @@
 # Fdb version 3
-["pdflatex"] 1737438874 "week11.tex" "week11.pdf" "week11" 1737438876
-  "../../../../../newpreamble.tex" 1734385499 7402 fb187629a6abefac56465e1769f14d39 ""
+["pdflatex"] 1762299272 "week11.tex" "week11.pdf" "week11" 1762299273
+  "../../../../../newpreamble.tex" 1761058347 7644 045b5963cdcb5a08eabc144bb0608fe7 ""
   "/etc/texmf/web2c/texmf.cnf" 1707134123 475 c0e671620eb5563b2130f56340a5fde8 ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/jknappen/ec/ecbx1000.tfm" 1136768653 3584 2d666ecf6d466d8b007246bc2f94d9da ""
@@ -251,7 +251,6 @@
   "/usr/share/texlive/texmf-dist/tex/latex/needspace/needspace.sty" 1364856750 852 0e34dbb72efc69fa07602405ad95585e ""
   "/usr/share/texlive/texmf-dist/tex/latex/ocg-p/ocg-p.sty" 1357948868 15333 f5a3085837e67efb87a41312f526332d ""
   "/usr/share/texlive/texmf-dist/tex/latex/ocgx/ocgx.sty" 1355174694 2890 ea0e5dade35fc4dbff106ff20fdb6b7b ""
-  "/usr/share/texlive/texmf-dist/tex/latex/parskip/parskip.sty" 1615762720 4288 94714aa7f535440f33181fec52a31963 ""
   "/usr/share/texlive/texmf-dist/tex/latex/pdflscape/pdflscape.sty" 1575674318 6575 25396d208d8f2b9395d06ef315d5886c ""
   "/usr/share/texlive/texmf-dist/tex/latex/pdfpages/pdfpages.sty" 1643492961 54508 3fd4fcb0ce463ba481db9f80ae95dad2 ""
   "/usr/share/texlive/texmf-dist/tex/latex/pdfpages/pppdftex.def" 1643492961 6591 1d9fd5a4927982c154f0f69ebbcad9c3 ""
@@ -314,9 +313,9 @@
   "/usr/share/texmf/web2c/texmf.cnf" 1644012257 39432 7155514e09a3d69036fac785183a21c2 ""
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1707134140 4379155 98693266ff65f58d9f98aff394de12d2 ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1710527432 2800297 afe0c47576f94d90ffe47deb078a9141 ""
-  "week11.aux" 1737438875 13160 233d6f105a720ff598c70a1071fd64f5 "pdflatex"
-  "week11.out" 1737438875 2100 6517ebb2c6dd75cc14c5599c8d3fd698 "pdflatex"
-  "week11.tex" 1737438872 39239 a5e71bbe7f9b723b7248673aef1cb40b ""
+  "week11.aux" 1762299273 13205 08fc21aba3614134291fc855c23ceddb "pdflatex"
+  "week11.out" 1762299273 2100 6517ebb2c6dd75cc14c5599c8d3fd698 "pdflatex"
+  "week11.tex" 1762299271 39272 67ae9ae45d55c21bed2935c1e5f8f6f7 ""
   (generated)
   "week11.aux"
   "week11.log"
