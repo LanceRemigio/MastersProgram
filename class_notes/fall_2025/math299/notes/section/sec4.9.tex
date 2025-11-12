@@ -1,0 +1,48 @@
+\begin{definition}[Convergence of Sequences of Operators]
+    Let \( X  \) and \( Y  \) be normed spaces. A sequence \( ({T}_{n}) \) of operators \( {T}_{n} \in B(X,Y) \) is said to be:
+    \begin{enumerate}
+        \item[(1)] \textbf{Uniformly Operator Convergent} if \( ({T}_{n}) \) converges in the norm on \( B(X,Y) \);
+        \item[(2)] \textbf{Strongly Operator Convergent} if \( ({T}_{n}x) \) converges strongly in \( Y  \) for every \( x \in X  \);
+        \item[(3)] \textbf{Weakly Operator Convergent} if \( ({T}_{n}x) \) converges weakly in \( Y \) for every \( x \in X  \).
+    \end{enumerate}
+\end{definition}
+
+Furthermore ,from (1) through (3), we can say that there exist an operator \( T : X \to Y  \) such that 
+\begin{enumerate}
+    \item[(1)] \( \|{T}_{n} - T \| \to 0 \) (In this case, \( T  \) is called the uniform limit of \( {T}_{n} \))
+    \item[(2)] \( \|{T}_{n}x  - Tx\| \to 0  \) for all \( x \in X  \) (\( T  \) is called the strong limit of \( {T}_{n} \))
+    \item[(3)] \( | f({T}_{n}x) - f(Tx) |  \to 0  \) for all \( x \in X  \) and all \( f \in Y' \) (\( T  \) is called the weak operator limit).
+\end{enumerate}
+
+\begin{definition}[Strong and Weak* Convergence of a Sequence of Functionals]
+   Let \( ({f}_{n}) \) be a sequence of bounded linear functionals on a normed space \( X  \). Then: 
+   \begin{enumerate}
+       \item[(a)] \textit{Strong Convergence} of \( ({f}_{n}) \) means that there is an \( f \in X' \) such that \( \|{f}_{n} - f \| \to 0  \). This is written 
+           \[  {f}_{n} \to f. \]
+        \item[(b)] \textit{Weak* Convergence}  of \( ({f}_{n}) \) means that there is an \( f \in X' \) such that \( {f}_{n}(x) \to f(x) \) for all \( x \in X  \). This is written 
+            \[  {f}_{n} \xrightarrow{w^{*}} f.   \]
+        \( f \) in (a) and (b) is called the \textbf{strong limit} and \textbf{weak* limit} of \( ({f}_{n}) \), respectively.
+   \end{enumerate}
+\end{definition}
+
+\begin{lemma}[Strong Operator Convergence]
+    Let \( {T}_{n} \in B(X,Y) \) where \( X  \) is a Banach space and \( Y  \) a normed space. If \( ({T}_{n}) \) is strongly operator convergent with limit \( T  \), then \( T \in B(X,Y) \).
+\end{lemma}
+
+\begin{theorem}[Strong Operator Convergence]
+A sequence \( ({T}_{n}) \) of operators \( {T}_{n} \in B(X,Y) \), where \( X  \) and \( Y  \) are Banach spaces, is strongly operator convergent if and only if: 
+\begin{enumerate}
+    \item[(A)] The sequence \( (\|{T}_{n}\|) \) is bounded
+    \item[(B)] The sequence \( ({T}_{n}x) \) is Cauchy in \( Y \) for every \( x  \) in a total subset \( M  \) of \( X  \).
+\end{enumerate}
+
+
+\end{theorem}
+
+\begin{corollary}
+    A sequence \( ({f}_{n}) \) of bounded linear functionals on a Banach space \( X  \) is weak* convergent, the limit being a bounded linear functional on \( X  \), if and only if: 
+    \begin{enumerate}
+        \item[(A)] The sequence \( (\|{f}_{n}\|) \) is bounded.
+        \item[(B)] The sequence \( ({f}_{n}(x))  \) is Cauchy for every \( x  \) in a total subset \( M  \) of \( X  \).
+    \end{enumerate}
+\end{corollary}
