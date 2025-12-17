@@ -1,0 +1,97 @@
+\section{Week 13}
+
+\subsection{Automorphisms}
+
+Let \( G  \) be a group and consider \( {S}_{G} \), not all of the permutations in \( {S}_{G} \) preserve algebraic information about \( G \). We consider the class of permutations of \( G  \) which are isomorphisms. Consider an isomorphism. Let's call the mapping \( \varphi : G \to G  \). Since \( \varphi  \) is a bijection, \( \varphi  \) is a permutation of \( G  \). That is, \( \varphi \in {S}_{G} \). Since \( \varphi  \) is an isomorphism, it also preserves the operation of \( G  \) when it maps by definition.  
+
+\begin{definition}[ ]
+    Let \( G  \) be a group. An isomorphism from \( G  \) onto itself is called an \textbf{automorphism of \( G  \)}. The set of all automorphisms of \( G  \) is denoted as \( \text{Aut}(G) \).
+\end{definition}
+
+\begin{remark}
+   \begin{enumerate}
+       \item[(1)] \( \text{Aut}(G) \) form a group with respect to composition. 
+        \item[(2)] \( \text{Aut}(G) \leq {S}_{G} \) 
+        \item[(3)] A special kind of automorphism is \textbf{conjugation}.
+   \end{enumerate} 
+\end{remark}
+
+\begin{prop}[Proposition 13 from the book]
+    Let \( H \trianglelefteq G  \). 
+    \begin{enumerate}
+        \item[(1)] \( G  \) acts on \( H  \) by conjugation (\( g \cdot h = g h g^{-1} \) for all \( g \in G  \) and \( h \in H  \) is a group action);
+        \item[(2)] For \( g \in G  \), the mapping \( {\varphi}_{g} : H \to H  \) such that \( {\varphi}_{g}(h) = g h g^{-1} \) for all \( h \in H  \) is an automorphism of \( H  \);
+        \item[(3)] \( G / {C}_{G}(H) \cong K \leq \text{Aut}(H) \).
+    \end{enumerate}
+\end{prop}
+
+\begin{proof}
+\begin{enumerate}
+    \item[(1)] Defining the action as in the statement, we note that the two axioms of a group action follow immediately from the operation in \( G  \) (specifically the identity of \( G  \) and associativity. To see that this defines a map from \( G \times H  \) to \( H  \). Note that \( H \trianglelefteq G  \) and so \( g h g^{-1} \in H   \) for all \( g \in G  \) and \( h \in H  \).   
+    \item[(2)] We need to show that \( {\varphi}_{g} : H \to H  \) defined by \( {\varphi}_{g}(h) = g h g^{-1}\) is a bijection. Since \( H \trianglelefteq G  \), \( g H g^{-1} = H  \) and hence, \( h \mapsto g h g^{-1} \) is a bijection from \( H  \) to \( H  \). (3.2 Problem 5 from Dummit and Foote)
+Note that \( {h}_{1}, {h}_{2} \in H  \) by closure and so \( {\varphi}_{g}  \) is an automorphism of \( H  \). Further for \( {h}_{1}, {h}_{2} \in H \),
+        \[  {\varphi}_{g}({h}_{1}) {\varphi}_{g}({h}_{2})  = g {h}_{1} (g^{-1} g ) {h}_{2} g^{-1}  =  g {h}_{1} {h}_{2} g^{-1} = {\varphi}_{g}({h}_{1}{h}_{2}). \]
+
+    \item[(3)]      Letting \( \psi  \) be the permutation representation of \( G  \) acting on \( H  \) via conjugation, we see that 
+    \[  \psi: G \to {S}_{H} \]
+    defined by \( \psi(g) = {\varphi}_{g} \)
+    where \( {\varphi}_{g}(h) = g h g^{-1} \). By the first isomorphism theorem, we have  
+    \[  G / \text{ker}(\psi) \cong \psi(G) \leq {S}_{H}. \]
+    Since \( \psi(g) \) is an automorphism of \( H  \) for all \( g \in G  \), we have that 
+    \[  \psi(G) \leq \text{Aut}(G). \]
+    Lastly, the kernel of \( \psi  \) is equal to
+    \begin{align*}
+        \text{ker}(\varphi) &= \{  g \in G : \psi(g) = {1}_{{S}_{H}} \}  \\
+                            &= \{ g \in G : {\varphi}_{g}(h) = h \ \forall h \in H  \} \\ 
+                            &= \{  g \in G : g h g^{-1} = h \ \forall h \in H  \} \\
+                            &= {C}_{G}(H).
+    \end{align*}
+\end{enumerate}
+\end{proof}
+
+\begin{corollary}
+    If \( K \leq G  \), then \( K \cong g K g^{-1} \) and conjugate elements and conjugate subgroups have the same order.  
+\end{corollary}
+\begin{proof}
+If we let \( H = G  \), then \( {\varphi}_{g} : G \to G  \) is an isomorphism so the result follows. 
+\end{proof}
+
+\begin{corollary}
+    For any \( H \leq G  \), we have 
+    \(  {N}_{G}(H) / {C}_{G}(H)  \)
+    is isomorphic ot a subgroup of \( \text{Aut}(H) \). In particular, \( G / Z(G) \cong K \leq \text{Aut}(G)  \).
+\end{corollary}
+\begin{proof}
+We know that \( H \trianglelefteq {N}_{G}(H) \). Letting \( G  \) be \( {N}_{G}(H) \) in our first theorem gives us the first statement. For the second statement, when \( H = G  \) in our initial theorem. We have \( G / Z(G) \cong K \leq \text{Aut}(G) \) since \( {C}_{G}(G) = Z(G) \).
+\end{proof}
+
+\begin{definition}[Inner Automorphisms]
+    Let \( G  \) be a group and \( g \in G  \). Conjugation by \( g  \) (\( {\varphi}_{g} \)) is called an \textbf{inner automorphism of \( G  \)}.
+The subgroup of \( \text{Aut}(G) \) consisting of all inner automorphisms of \( G \) is denoted \( \text{Inn}(G) \).
+\end{definition}
+
+Note that \( \text{Inn}(G) = \{  {\varphi}_{g} : g \in G  \}  \) where \( {\varphi}_{g}(x) = g x g^{-1}\) for all \( x \in G  \). By our 2nd corollary, we have that 
+\[  G / Z(G) \cong \psi(G) = \{ {\varphi}_{g} : g \in G \} = \text{Inn}(G). \]
+
+\begin{eg}
+    \begin{enumerate}
+        \item[(1)] A group is abelian if and only if every inner automorphism is trivial (if \( g x g^{-1} = x  \) for all \( x,g \in G  \))
+        \item[(2)] Let \( G = {D}_{8} \) and \( Z({D}_{8} ) = \{  1, r^{2} \}  = \langle  r^{2} \rangle \) where 
+            \[  {D}_{8} / Z({D}_{8}) = {D}_{8} / \langle  r^{2} \rangle \cong \text{Inn}({D}_{8}). \]
+            If we remember our lattice tree for \( {D}_{8} \). Since \( | {D}_{8} / \langle  r^{2} \rangle |  =  4  \), we know that  
+            \[  {D}_{8}/ \langle  r^{2} \rangle \cong {V}_{4} \ \text{or} \ {Z}_{4}. \]
+            But we know that \( {D}_{8} / \langle  r^{2} \rangle \) is not cyclic and so it must be isomorphic to \( {V}_{4}  \) (the Klein \( 4  \) group).
+        \item Let \( G = {Q}_{8}  \) and \( Z({Q}_{8}) = \{  \pm 1  \}  \) and we can perform a similar process to the previous example with the same structure as the Klein group.
+        \item Since \( Z({S}_{n}) \) where \( n \geq 3  \), the class equation says that 
+        \[  | {S}_{n} |  = | Z(G) |  + \sum (\text{conjugacy class not in the center}). \]
+    \end{enumerate}
+    Recall that the conjugates of \( {S}_{n} \) are just its cycle types.
+    The only element of \( {S}_{n} \) which has no other conjugates is the identity and so \( Z({S}_{n}) = {1}_{{S}_{n}} \). Then from our theorem 
+    \[  {S}_{n} / Z({S}_{n}) \cong \text{Aut}({S}_{n}). \]
+\end{eg}
+
+Let \( | G  |  =  n \) and suppose \( G  \) is a cyclic group. Then we know that there is some element \( x  \) whose order is \( n  \). Now, suppose \( a \in \Z - \{ 0  \}  \), then we have further that 
+\[  | x^{a} |  = \frac{ n  }{ (n,a) }  \]
+and so the cyclic subgroup generated by \( x^{a} \) has order \( \frac{ n  }{ (n,a) }  \).Consider the following statement: If \( | G  |  = n < \infty   \), then for each positive integer \( a  \), there is a unique subgroup of \( G  \) of order \( a \). This subgroup is the cyclic group \( \langle  x^{d} \rangle  \) where \( d = \frac{ n }{ a }  \). 
+
+Prove that if \( | G  |  = 231 = 3 \cdot 7 \cdot 11  \), then \( | Z (G) |  \geq 11  \).

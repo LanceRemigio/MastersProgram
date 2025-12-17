@@ -77,6 +77,81 @@ Then
 
 Note that from this we see that each cycle type generates some kind of equivalence class. The goal of next lecture is to show that \( {A}_{n} \) is a simple group.
 
+\subsection{Looking at the Conjugacy Class of \( {S}_{5} \)}
+Last time we learned that each conjugacy class in \( {S}_{n} \) consists of all elements in \( {S}_{n} \) with the same cycle type. Let's look at \( {S}_{5} \). What are the conjugacy classes of \( {S}_{5} \)? All elements with cycle type. Let's identify them. 
+
+Say, we have \( 1, 1, 1, ,1 ,1  \) corresponds to the representative \( {1}_{{S}_{5}} \). If it is a 5 cycle, then we have \( (1 \ 2 \ 3 \ 4 \ 5) \) as a representative. We can do the same process for all the other cycle types in \( {S}_{5} \).    
+
+What are the number of elements in the conjugacy class of \( 1  \)? There are \( 1  \) one of them, namely, the identity \( {1}_{{S}_{5}} \). For \( 1 , 1 , 1, 2  \), the number of elements in ht conjugacly classes is \( 1 0 \) because   
+\[  \frac{ 5 \cdot 4  }{ 2 }  = 10 \]
+and for \( 1,2, 3 \), the number of elements in the conjugacy classes is  
+\[  \frac{ 5 \cdot 4 \cdot 3  }{ 3 } = 2 0.   \]
+We can do a similar process for the rest of the cycle types in \( {S}_{5} \). 
+
+We can use the number of elements in a conjugacy class to find the centralizer of an element in \( {S}_{5} \). Let \( \sigma = (1 \ \ 2 \ 3) \). Denote the conjugacy class of \( \sigma \) as \( {K}_{\sigma} \) which has \[ | {K}_{\sigma} |  = 20 = | G : {C}_{{S}_{5}}(\sigma) | = \frac{ | {S}_{5} | }{ | {C}_{{S}_{5}}(\sigma) |  }  = \frac{ 5 !  }{ | {C}_{{S}_{5}} (\sigma)|  }.    \] 
+This tells us that 
+\[ \frac{ 5!  }{  20  }  = | {C}_{{S}_{5}}(\sigma) | \implies 3! = | {C}_{{S}_{5}} (\sigma) |.     \]
+Thus, we see that \( | {C}_{{S}_{5}}(\sigma) |  = 6  \).
+
+Note that we know \( \langle  \sigma \rangle \leq {C}_{{S}_{5}}(\sigma) \). We know that
+\[  {C}_{{S}_{5}}(\sigma) = \{  1, \sigma , \sigma^{2} \}  \]
+We also know that disjoint cycles commute so \( (4 \ 5) \) commutes with \( \sigma \). Then 
+\[  {C}_{{S}_{5}}(\sigma) = \{  1 , \sigma, \sigma^{2} , (4 \ 5) , (4 \ 5) \sigma, (4 \ 5) \sigma^{2}  \}.  \]
+Find \( {C}_{{S}_{5}}((1 \ 2 \ 3 \ 4 \ 5)) \) in \( {S}_{5} \).
+
+% fill this out later
 
 
+More generally, for \( \sigma  \) an \( m  \)-cycle in \( {S}_{n} \), we have \( {K}_{\sigma}  \) has
+\[  \frac{ n(n-1) \cdots (n - (m - 1))  }{ m  } = \frac{ n!  }{ m (n - m)! }   \]
+where \( m  \) is the number of representations of the \( m  \)-cycle. So, we have that 
+\[  \frac{ | {S}_{n} |   }{ | {C}_{{S}_{n}}(\sigma) |  }  = \frac{ n!  }{ m (n-m)! }. \]
+This tells us further that 
+\[  | {C}_{{S}_{n}}(\sigma) |  = m (n -m )! \]
+Note that there are \( m \) elements in \( \langle  \sigma \rangle \) and there are \( (n-m)! \) elements of \( {S}_{n} \) which fix \( 1, 2, 3, \dots, m  \). We can look at this in the following way: for \( n > m  \), the first spot past \( m  \), you will have \(  n - m \) choices to fix \( 1, 2, 3, \dots, m  \). For \(  m + 1  \), you will have \(  (n -m ) -  1  \) choices to fix the elements of the \( m  \) cycle. Generalize this until you get to \( n - 1  \), then we have we will only have \( 2 \) choices and so by the time we get to \( n  \), we will only have one choice left to make.
 
+
+So, \( {C}_{{S}_{n}}(\sigma) \) consists of \( \sigma^{i} \tau  \) where \( j = 0 , \dots, m - 1  \) and \( \tau  \) is a permutation that is disjoint from \( \sigma \). Since there are \( m (n-m)! \)  elements of this form they make up all elements of \( {C}_{{S}_{n}}(\sigma) \).
+
+\subsection{Proving that the Alternating Group is Simple}
+
+We will prove hat \( {A}_{5} \) is simple, bu we need a general fact. Here it is:
+\begin{prop}[A normal subgroup is the union of its conjugacy classes]
+    For any group \( G  \) and \( H \trianglelefteq G  \), we have 
+    \[  H = \bigcup_{ h \in H  }^{   }  {K}_{h}. \]
+    That is \( H  \) is the union of a collection of conjugacy classes.
+\end{prop}
+\begin{proof}
+Let \( h \in H  \). Then \( h  \) is in exactly one conjugacy class, namely, \({K}_{h} \). Hence,   
+\[  h \in \bigcup_{ h \in H  }^{  }  {K}_{k }. \]
+Thus, 
+\[  H \subseteq  \bigcup_{ h \in H  }^{  }  {K}_{h}. \]
+Let \( k \in {K}_{h} \) for some \( h \in H  \). Then \( k = g h g^{-1} \) for some \( g \in G  \). Since \( H  \) is normal in \( G  \), \( k \in H  \). Thus 
+\[  H = \bigcup_{  h \in H  }^{   }  {K}_{h}. \]
+\end{proof}
+
+The consequence of this fact is: If \( |  H  | = n  < \infty   \), then 
+\[  | H  |  = |{K}_{1}| + |{K}_{2}| + \cdots + |{K}_{j}| \]
+where the \( {K}_{i} \) as a collection of conjugacy classes of \( G  \). Now let's prove that \( {A}_{5} \) is simple. We will do this by finding the order of all conjugacy classes and show they cannot add up to any divisor of the \( | {A}_{5} | = \frac{ 5 !  }{  2  }  = 60   \) except \( | {A}_{5} |   \) and \( 1  \).     
+
+Let's look at the representatives of \( {S}_{5}  \); namely, \( 1  \), \( (1 \ 2)  \), \( (1 \ 2 \ 3 \ 4) \), \( (1 \ 2 \ 3 \ 4 \ 5) \), \( (1 \ 2 ) (3 \ 4) \). Note that \( 1 \ 2  \), \( (1 \ 2 \ 3) \) and \( (1 \ 2 ) ( 3 \ 4 \ 5) \) are odd. Let's start finding the size of the conjugacy classes of \(  1 , (1 \ 2 \ 3) \), and \( ( 1 \ 2 \ 3 \ 4 \ 5) \) in \( {A}_{5} \). Note that  
+\[  {K}_{1} = \{ 1  \}.  \]
+\[ | {K}_{(1 \ 2 \ 3 )}   |  = \frac{ | {A}_{5} |    }{  | {C}_{{A}_{5}}((1 \ 2 \ 3)) |  }  = \frac{ \frac{ 5!  }{  2  }  }{ 3 }  \]
+where 
+\[  {C}_{{A}_{5}} = \{ 1 , (1 \ 2 \ 3), (1 \  2 \ 3 )^{2},  \}  \]
+but note that \( (1 \ 2 \ 3)^{2} ( 4 \ 5), (4 \ 5), (1 \ 2 \ 3 )(4 \ 5)  \) are not in \( {A}_{5} \) because they are odd.
+Hence, we see that \( | {K}_{(1 \ 2 \ 3)} |  = 2 0 \). All \( 3  \) cycles in \( {A}_{5} \) are conjugate of each other. Now, let's look at \[ | {K}_{(1 \ 2 \ 3 \ 4 \ 5)  } |  = \frac{ | {A}_{5} |   }{ | {C}_{{A}_{5}}((1 \ 2 \ 3 \ 4 \ 5)) |  }.  \]
+Since all powers of a \( 5  \)-cycle are even, we have 
+\[  | {C}_{{A}_{5}}(1 \ 2 \ 3 \ 4 \ 5) |  = 5.  \]
+This gives us 
+\[  | {K}_{(1 \ 2 \ 3 \ 4 \ 5)} | = \frac{ \frac{ 5!  }{  2  }  }{  5 }.  \]
+Notice there are \( 2 4  \) \( 5 \)-cycles in \( {A}_{5} \). Thus, there must be a \( 5- \)cycle \( \sigma \) such that \( \sigma  \) is not conjugate to \( (1 \ 2 \ 3 \ 4  \ 5) \). Another example is \( ( 1 \ 2 \ 5 \ 3 \ 4) \). The exact same calculation gives that \( | {K}_{\sigma} | = 12  \). Lastly, let's figure the size of \( {K}_{(1 \ 2 )( 3 \ 4)} \). We know that \( |{K}_{(1 \ 2)(3 \ 4)} | = \frac{ | {A}_{5} |  }{ | {C}_{{A}_{5}} ((1 \ 2 )(3 \ 4)) |  }  \). Notice that \( {C}_{{A}_{5}}((1 \ 2 )(3 \ 4)) \) is a \textbf{group} and  
+\[  {C}_{{A}_{5}}((1 \ 2)(3 \ 4)) \subseteq  {C}_{{S}_{5}}((1 \ 2)(3 \ 4)). \]
+Thus, 
+\[  {C}_{{A}_{5}}((1 \ 2)(3 \ 4)) \leq {C}_{{S}_{5}}((1 \ 2)(3 \ 4)) \]
+which implies its order divides \( 8  \).
+
+This implies that all cycle types \( 1 , 2, 2  \) in \( {S}_{5} \) are conjugate as \( | {K}_{(1 \ 2)(3 \ 4)} = 15 |  \). So a normal subgroup of \( {A}_{5} \) must have order \( 1  \). The sum of a collection \( 1, 20, 12, 12, 15  \) but none of these sums divide except \( 1  \) and \( 60  \). Thus, \( {A}_{5} \) is simple.
+
+
+Can you explain the following argument to cayley's theorem, Thus, \(k \mid \frac{ p!  }{  p  }  = (p-1)! \). But all prime divisors of \( (p-1)! \) are less than \( p  \) and by the minimality of \( p  \), every prime divisor of \(  k  \) is greater than or equal to \( p  \). This forces \( k = 1  \), so \( H = K \trianglelefteq G  \). Here is is assumed that \( p  \) is the smallest prime dividing \(  | G  |  \).
