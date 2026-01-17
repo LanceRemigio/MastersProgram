@@ -27,3 +27,4 @@
 \contentsline {subsection}{\numberline {7.3}Computing Exponential of Matrices}{25}{subsection.7.3}%
 \contentsline {subsection}{\numberline {7.4}Operations of Tangent Space at the identity of a Lie Group}{26}{subsection.7.4}%
 \contentsline {subsection}{\numberline {7.5}Lie Algebras}{28}{subsection.7.5}%
+\contentsline {subsection}{\numberline {7.6}Main Properties Of The Exponential}{28}{subsection.7.6}%

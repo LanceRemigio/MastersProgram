@@ -1,0 +1,25 @@
+\begin{definition}[Convergences of Sequences of Operators]
+    Let \( X  \) and \( Y  \) be normed spaces. A sequence \( ({T}_{n}) \) of operators \( {T}_{n} \in B(X,Y) \) is said to be:
+    \begin{enumerate}
+        \item[(1)] \textbf{Uniformly Operator Convergent} if \( ({T}_{n}) \) converges in the norm on \( B(X,Y) \)
+        \item[(2)] \textbf{Strongly Operator Convergent} if \( ({T}_{n}x) \) converges strongly in \( Y  \) for every \( x \in X  \).
+        \item[(3)] \textbf{Weakly Operator Convergent} if \( ({T}_{n}x) \) converges weakly in \( Y  \) for every \( x \in X  \).
+    \end{enumerate}
+\end{definition}
+
+The above tells us that there exists an operator \( T: X \to Y  \) such that 
+\begin{itemize}
+    \item[(1)] \( \|{T}_{n} - T \| \longrightarrow 0  \) (Uniform)
+    \item[(2)] \( \|{T}_{n}x - Tx\| \longrightarrow 0  \) for all \( x \in X  \) (Strong Operator Convergence)
+    \item[(3)] \( | f({T}_{n}x) - f(Tx) | \longrightarrow 0   \) for all \( x \in X  \) and all \( f \in Y' \) (Weak Operator Convergence)
+\end{itemize}
+
+\begin{definition}[Strong and Weak* Convergence of a Sequence of Funcionals]
+   Let \( ({f}_{n}) \) be a sequence of bounded linear functionals on a normed space \( X  \). Then:
+   \begin{enumerate}
+       \item[(a)] \textbf{Strong Convergence} of \( ({f}_{n}) \) means that there is an \( f \in X' \) such that \( \|{f}_{n} - f\| \longrightarrow 0  \). This is written
+           \[  {f}_{n} \longrightarrow f.  \]
+        \item[(b)] \textbf{Weak* Convergence} of \( ({f}_{n}) \) means that there is an \( f \in X' \) such that  \( {f}_{n}(x) \longrightarrow f(x) \) for all \( x \in X  \). This is written 
+            \[  {f}_{n} \overset{w*}{\longrightarrow} f. \]
+   \end{enumerate}
+\end{definition}

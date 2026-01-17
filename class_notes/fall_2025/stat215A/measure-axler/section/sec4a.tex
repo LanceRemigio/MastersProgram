@@ -1,0 +1,33 @@
+\subsection{Markov's Inequality}
+
+\begin{prop}[Markov's Inequality]
+   Suppose \( (X,\mathcal{S}, \mu) \) is a measure space and \( h \in \mathcal{L}^{1}(\mu) \). Then 
+   \[  \mu(\{ x \in X : | h(x) |  \geq c  \} ) \leq \frac{ 1 }{ c }  \|h\|_1 \]
+   for every \( c  >0  \).
+\end{prop}
+
+\begin{definition}[3 Times A Bounded Open Interval]
+   Suppose \( I  \) is a bounded nonempty open interval of \( \R  \). Then \( 3 * I  \) denotes the open interval with the same center as \( I  \) and three times the length of \( I  \).  
+\end{definition}
+
+\begin{lemma}[Vitali Covering Lemma]
+   Suppose \( {I}_{1}, \dots, {I}_{n}  \) is a list of bounded nonempty open intervals of \( \R  \). Then there exists a disjoint sublist \(  {I}_{{k}_{1}} , \dots, {I}_{{k}_{m}} \) such that  
+   \[ {I}_{1} \cup \cdots \cup {I}_{n} \subseteq  (3 * {I}_{{k}_{1}}) \cup \cdots \cup (3 * {I}_{{k}_{m}}).\]
+\end{lemma}
+
+\subsection{Hardy-Littlewood Maximal Inequality}
+
+\begin{definition}[Hardy-Littlewood Maximal Function]
+    Suppose \( h : \R \to \R  \) is a Lebesgue measurable function. Then the Hardy-Littlewood maximal function of \( h  \) is the function \( h^{*} : \R \to [0.\infty ] \) defined by
+    \[  h^{*}(b) = \sup_{t > 0} \frac{ 1 }{ 2t }  \int_{ b-t }^{ b + t } | h |.   \]
+\end{definition}
+
+\begin{prop}[Hardy-Littlewood Inequality]
+   Suppose \( h \in \mathcal{L}^{1}(\R) \). Then  
+   \[  | \{ b \in \R : h^{*}(b) > c \}  | \leq \frac{ 3 }{ c }  \|h\|_1 \]
+   for every \( c >  0  \).
+\end{prop}
+
+
+
+

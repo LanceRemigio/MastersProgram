@@ -1,0 +1,14 @@
+\babel@toc {english}{}\relax 
+\contentsline {problem}{Problem 1}{2}{problem.1}%
+\contentsline {problem}{Problem 2}{2}{problem.2}%
+\contentsline {problem}{Problem 3}{2}{problem.3}%
+\contentsline {problem}{Problem 4}{3}{problem.4}%
+\contentsline {problem}{Problem 5}{4}{problem.5}%
+\contentsline {problem}{Problem 6}{4}{problem.6}%
+\contentsline {problem}{Problem 7}{5}{problem.7}%
+\contentsline {problem}{Problem 8}{5}{problem.8}%
+\contentsline {problem}{Problem 9}{6}{problem.9}%
+\contentsline {problem}{Problem 10}{7}{problem.10}%
+\contentsline {problem}{Problem 11}{7}{problem.11}%
+\contentsline {problem}{Problem 12}{9}{problem.12}%
+\contentsline {problem}{Problem 13}{10}{problem.13}%

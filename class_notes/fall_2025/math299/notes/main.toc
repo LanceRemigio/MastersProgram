@@ -4,4 +4,17 @@
 \contentsline {subsection}{\numberline {1.2}Applications}{2}{subsection.1.2}%
 \contentsline {section}{\numberline {2}Hahn-Banach Theorem}{3}{section.2}%
 \contentsline {subsection}{\numberline {2.1}What is the Hahn-Banach Theorem?}{3}{subsection.2.1}%
-\contentsline {section}{\numberline {3}Hahn-Banach Theorem for Complex Vector Spaces and Normed Spaces}{4}{section.3}%
+\contentsline {section}{\numberline {3}Hahn-Banach Theorem for Complex Vector Spaces and Normed Spaces}{5}{section.3}%
+\contentsline {section}{\numberline {4}Adjoint Operator}{5}{section.4}%
+\contentsline {subsection}{\numberline {4.1}The Adjoint Operator}{5}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}Equivalent Norms}{6}{subsection.4.2}%
+\contentsline {subsection}{\numberline {4.3}Relation Between Adjoint Operator and Hilbert-Adjoint Operator}{7}{subsection.4.3}%
+\contentsline {subsection}{\numberline {4.4}Key Differences Between Adjoints and Hilbert-Adjoint}{8}{subsection.4.4}%
+\contentsline {section}{\numberline {5}Reflexive Spaces}{8}{section.5}%
+\contentsline {subsection}{\numberline {5.1}Review}{8}{subsection.5.1}%
+\contentsline {subsection}{\numberline {5.2}Canonical Mapping}{8}{subsection.5.2}%
+\contentsline {section}{\numberline {6}Uniform Boundedness Theorem}{12}{section.6}%
+\contentsline {section}{\numberline {7}Strong and Weak Convergence}{12}{section.7}%
+\contentsline {section}{\numberline {8}Convergence of Sequences of Operators and Functionals}{13}{section.8}%
+\contentsline {section}{\numberline {9}Open Mapping Theorem}{14}{section.9}%
+\contentsline {section}{\numberline {10}Closed Linear Operators/Closed Graph Theorem}{14}{section.10}%

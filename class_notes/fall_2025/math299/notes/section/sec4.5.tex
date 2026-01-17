@@ -1,0 +1,115 @@
+\subsection{The Adjoint Operator}
+
+\begin{itemize}
+    \item From the Hahn-Banach Theorem, we can see that for every bounded linear operator \( T: X \to Y  \) on a normed space \( X  \), we can make sense of and associate an adjoint operator \( T^{\times} \) of \( T  \). 
+    \item This helps us solve equations in physics and other applications.
+    \item For this section, we will look at some of its properties and how it is related to the Hilbert-adjoint operator \( T^{*} \) defined in earlier sections of this book. \textbf{Note:} When we refer to the Adjoint Operator of \( T  \), we are not referring to the Hilbert-adjoint Operator of \( T  \). These two concepts are distinct from each other. 
+    \item To this end, let us first consider a bounded linear operator \( T : X \to Y  \), where \( X  \) and \( Y  \) are normed spaces.
+\end{itemize}
+
+Let \( g  \) be any bounded linear functional on \( Y  \). Since \( g  \) is defined on all of \( Y  \), we can set \( y = Tx  \) and obtain a functional \( f  \) such that 
+\begin{equation}  f(x) = g(Tx) \ \ \forall x \in X. \tag{1}  \end{equation}
+\begin{itemize}
+    \item Notice that \( f  \) is linear since \( g  \) and \( T  \) are linear. 
+    \item \( f  \) is bounded since \( g  \) and \( T  \) are both bounded. That is, 
+        \[  | f(x) |  = | g (Tx) |  \leq \|g \| \| Tx \| \leq \|g \| \|T \| \|x \|.    \]
+        Taking the supremum over all \( x \in X  \) where \( \|x \| = 1  \), we obtain
+        \[  \|f\| \leq \|g \| \|T\|. \tag{2} \]
+        Thus, (2) tells us that \( f \in X' \), where \( X' \) is the dual  space of \( X  \). 
+    \item (1) tells us that \( f  \) is an operator defined from \( Y' \) into \( X' \). This is precisely the \textbf{adjoint operator} of \( T \) which will be defined more explicitly below. 
+\end{itemize}
+
+\begin{definition}[Adjoint Operator \( T^{\times} \)]
+    Let \( T : X \to Y  \) be a bounded linear operator, where \( X  \) and \( Y  \) are normed spaces. Then the \textbf{adjoint operator} \( T^{\times}: Y' \to X' \) of \( T  \) is defined by
+    \[  f(x) = (T^{\times}g)(x) = g(Tx) \ \ \forall g \in Y'. \]
+\end{definition}
+
+We will see in the next theorem that the adjoint operator \( T^{\times} \) of \( T  \) will have the same norm as the operator itself. To do this, we will need {\hyperref[4.3-3]{Theorem 4.3-3}} (a result that followed from the Hahn-Banach Theorem) to establish this property.
+
+\subsection{Equivalent Norms}
+
+\begin{theorem}[Norm Of The Adjoint Operator (4.5-2)]
+    The adjoint operator \( T^{\times}  \) is linear and bounded, and 
+    \[  \|T^{\times}\| = \|T\|. \tag{5}\]
+\end{theorem}
+\begin{proof}
+The operator \( T^{\times} \) is linear since its domain \( Y' \) is a vector space. Thus, we obtain
+\begin{align*}
+    (T^{\times}(\alpha {g}_{1} + \beta {g}_{2}))(x) &= (\alpha {g}_{1} + \beta {g}_{2})(Tx) \\
+                                                    &= \alpha {g}_{1} (Tx) + \beta {g}_{2}(Tx) \\
+                                                    &= \alpha (T^{\times}{g}_{1})(x) + \beta (T^{\times} {g}_{2})(x).
+\end{align*}
+We will prove (5) from (4). That is, we will show that \( \|T^{\times}\| \leq \|T\| \) and \( \|T^{\times}\| \geq \|T\| \). For \( f = T^{\times} g  \), we can use (2) to write
+\[  \|T^{\times} g \| = \|f\| \leq \|g\| \|T\|. \]
+Taking the supremum over all \( g \in Y' \) of norm one, we obtain 
+\[  \|T^{\times}\| \leq \|T\| \]
+proving the first inequality. To get the other inequality, we will use Theorem 4.3-3. That is, for every \( {x}_{0} \neq 0  \) in \( X  \), there exists a \( {g}_{0} \in Y' \) such that 
+\[  \|{g}_{0}\| = 1  \ \ \text{and} \ \ {g}_{0}(T {x}_{0}) = \|T {x}_{0}\|. \]
+Notice, by definition, that \( {g}_{0}(T {x}_{0}) = (T^{\times} {g}_{0})({x}_{0}) \). Setting \( {f}_{0} = T^{\times}{g}_{0} \), we obtain
+\begin{align*}
+    \|T {x}_{0} \| = {g}_{0}(T {x}_{0}) &= {f}_{0}({x}_{0}) \\
+                                    &\leq \|{f}_{0}({x}_{0})\| \\
+                                        &\leq \|{f}_{0}\| \|{x}_{0}\| \\
+                                        &= \|T^{\times} {g}_{0}\| \|{x}_{0}\| \\
+                                        &\leq \|T^{\times}\| \|{g}_{0}\| \|{x}_{0}\|.
+\end{align*}
+Since \( \|{g}_{0}\| = 1  \), we further have
+\[  \|T {x}_{0} \| \leq \|T^{\times}\| \|{x}_{0}\| \]
+which holds for \( {x}_{0} = 0  \) since \( T 0 = 0  \). Also, we have
+\[  \|T {x}_{0} \| \leq \|T \| \|{x}_{0}\| \]
+where \( \|T\| \) is the least upper bound by definition and \( \|T^{\times}\|  \) is an upper bound of \( \|T {x}_{0}\| \). Hence, \( \|T^{\times}\| \geq \|T\| \) giving us the second inequality. Thus, we conclude that \( \|T^{\times}\| = \|T\| \).
+\end{proof}
+
+\begin{eg}[Adjoint of a Linear Operator in \( \R^n \)]
+  Given a linear operator \( T: \R^{n} \to \R^{n} \), the matrix representation \( {T}_{E} = ({\tau}_{jk})  \), its adjoint is just the transpose of \( {T}_{E} \) where \( E = \{  {e}_{1}, \dots, {e}_{n} \}   \) is a basis for \( \R^{n} \) whose elements are arranged in an order that is fixed. Let \( x = ({\xi}_{1}, \dots, {\xi}_{n}) \) and \( y = ({\eta}_{1} ,\dots, {\eta}_{n}) \) be two column vectors in \( \R^{n} \). Let \( F = \{  {f}_{1}, \dots, {f}_{n} \}   \) be the dual basis for the dual of \( \R^{n} \). Given that every linear functional \( g   \) in the dual of \( \R^{n} \) has the representation, 
+  \[  g = {\alpha}_{1} {f}_{1} + \cdots + {\alpha}_{n} {f}_{n},  \]
+ the formula for such an adjoint is given by   
+  \[  {T}_{E}^{\times} g (x) = g ({T}_{E}x) = \sum_{ k=1  }^{ n  } {\beta}_{k} {\xi}_{k} \ \ \text{where} \ \ {\beta}_{k} = \sum_{ k=1  }^{ n } {\tau}_{jk} {\alpha}_{j}. \]
+
+  This tells us that for every linear operator \( T  \) from \( \R^{n} \) to \( \R^{n} \) with matrix representation \( {T}_{E} \), the adjoint operator \( T^{\times} \) is the transpose of \( {T}_{E} \). The same result holds if \( T  \) is a linear operator from \( \C^{n} \) to \( \C^{n} \). 
+\end{eg}
+
+Below are some properties of the adjoint operator:
+
+\begin{itemize}
+    \item For every \( S,T \in B(X,Y) \), we have \( (S+T)^{\times} = S^{\times} + T^{\times} \).
+    \item \( (\alpha T)^{\times} = \alpha T^{\times} \). 
+    \item Let \( X,Y,Z  \) be normed spaces and \( T \in B(X,Y) \) and \( S \in B(Y,Z) \). Then the adjoint operator of \( ST \) is
+        \[  (ST)^{\times} = T^{\times} S^{\times}. \]
+    \item \( (T^{\times})^{-1} = (T^{-1})^{\times} \).
+\end{itemize}
+
+\subsection{Relation Between Adjoint Operator and Hilbert-Adjoint Operator}
+
+If \( X  \) and \( Y  \) are both Hilbert spaces, then we can express the Hilbert-adjoint operator \( T^{*} \) of a linear operator \( T  \) on a Hilbert space in terms of the adjoint operator \( T^{\times} \) of \( T  \).
+
+Let \( X = {H}_{1} \) and \( Y = {H}_{2} \) where \( {H}_{1} \) and \( {H}_{2} \) are two Hilbert spaces. Consider \( T: {H}_{1} \to {H}_{2} \) and \( {T}_{\times}: {H}_{2}' \to {H}_{1}' \) and recall that the adjoint \( T^{\times} \) is defined by 
+\begin{align*}
+    T^{\times} g &= f \tag{a} \\
+    g(Tx) &= f(x) \tag{b}
+\end{align*}
+where \( f \in {H}_{1}' \) and \( g \in {H}_{2}' \).  Now that we have two Hilbert spaces \( {H}_{1} \) and \( {H}_{2} \) to work with, we can express each linear functional \( f  \) and \( g  \) from \( {H}_{1} \) and \( {H}_{2} \), respectively, via the Riesz representation; that is, we can find \( {x}_{0} \in {H}_{1} \) and \( {y}_{0} \in {H}_{2} \) such that  
+\begin{align*}
+    f(x) &= \langle x , {x}_{0} \rangle \\
+    g(y) &= \langle y , {y}_{0} \rangle.
+\end{align*}
+
+Furthermore, we see that \( {x}_{0} \) and \( {y}_{0}  \) are uniquely determined by \( f  \) and \( g  \) (using Theorem 3.8-1), respectively, thereby giving us the following operators \( {A}_{1} : {H}_{1}' \to {H}_{1} \) and \( {A}_{2} : {H}_{2}' \to {H}_{2} \) defined by \( {A}_{1} f = {x}_{0} \) and \( {A}_{2} g = {y}_{0} \). From the same theorem, \( {A}_{1} \) and \( {A}_{2} \) are both:
+\begin{enumerate}
+    \item[(a)] bijections;
+    \item[(b)] isometries because \( \|{A}_{1}f\| = \|{x}_{0}\| = \|f\| \) and \( \|{A}_{2}g\| = \|{y}_{0}\| = \|g\| \);
+    \item[(c)] conjugate linear.
+\end{enumerate}
+Composing \( {A}_{2}^{-1}, T^{\times},   \) and \( {A}_{1} \) together, we define
+\[ {A}_{1} T^{\times} {A}_{2}^{-1} : {H}_{2} \to {H}_{1} \ \ \text{by} \ \ {A}_{1}T^{\times} {A}_{2}^{-1} {y}_{0} = {x}_{0}. \]
+Our claim is that \( T^{*} = {A}_{1} T^{\times} {A}_{2}^{-1} \). Since we are able to take advantage of the Riesz representations of each linear functional from their respective duals, it follows that 
+\[  \langle Tx , {y}_{0} \rangle = g(Tx) = f(x) = \langle x , {x}_{0} \rangle = \langle x  ,  ({A}_{1} T^{\times} {A}_{2} )  {y}_{0} \rangle. \]
+Since \( \langle Tx  , {y}_{0} \rangle = \langle x  , T^{*} {y}_{0} \rangle \), we conclude that \( {A}_{1} T^{\times} {A}_{2}^{-1} = T^{*} \).
+
+\subsection{Key Differences Between Adjoints and Hilbert-Adjoint}
+
+\begin{itemize}
+    \item The Hilbert-adjoint \( T^{*} \) is defined directly on the spaces \( X  \) and \( Y  \) whereas the adjoint \( T^{\times} \) is defined on the duals of \( X  \) and \( Y \), respectively.
+    \item For \( \alpha \in \F  \), we have \( (\alpha T)^{\times} = \alpha T^{\times} \) whereas \( (\alpha T^{*}) = \overline{\alpha} T^{*} \).
+    \item For finite dimensional Euclidean spaces, the adjoint \( T^{\times} \) represents the transpose the matrix representation of \( T  \) and the Hilbert-adjoint \( T^{*} \) represents the conjugate transpose of the same matrix. 
+\end{itemize}

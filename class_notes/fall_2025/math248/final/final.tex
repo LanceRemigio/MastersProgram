@@ -1,0 +1,338 @@
+\documentclass{article}
+\input{../../../../newpreamble.tex}
+\title{Math 248 Final Exam}
+\usepackage{yfonts}
+\author{Lance Remigio}
+\begin{document}
+\maketitle
+\tableofcontents
+\newpage
+
+\begin{problem}\addcontentsline{toc}{problem}{Problem 1}
+    Let \( A = ({a}_{ij}) \) and \( B = ({b}_{ij}) \) be matrices in \( M(n,\C) \). Prove that 
+    \[  \text{tr}(A^{T}B) = \sum_{ i,j = 1  }^{ n  } {a}_{ij} {b}_{ij}. \]
+\end{problem}
+\begin{proof}
+    Note that \( (A^{T})_{ij} = {A}_{ji} \) for all \( 1 \leq i \leq n  \) and \( 1 \leq j \leq n  \) and that 
+    \[  (A^{T} B)_{ij} = \sum_{ k=1  }^{ n } {A}_{ik}^{T} {B}_{kj} \]
+    and by definition of trace, we have 
+    \begin{align*}
+        \text{tr}(A^{T}B) &= \sum_{ i=1  }^{ n } (A^{T}B)_{ii} \\
+                          &= \sum_{ i=1  }^{ n } \sum_{ j=1  }^{ n } {A}_{ij}^{T} {B}_{ji} \\
+                          &= \sum_{ i=1  }^{ n } \sum_{ j=1  }^{ n } {A}_{ji} {B}_{ji} \\
+                          &= \sum_{ i,j = 1  }^{ n  } {A}_{ji} {B}_{ji}.
+    \end{align*}
+    By relabeling the indices, we obtain
+    \[ \text{tr}(A^{T}B) = \sum_{ i,j = 1  }^{ n  } {A}_{ji} {B}_{ji}. \]
+\end{proof}
+
+\begin{problem}\addcontentsline{toc}{problem}{Problem 2}
+    Let \( A,B \in M(n,\C) \). Prove that 
+    \[  \text{tr}(AB) = \text{tr}(BA). \]
+\end{problem}
+\begin{proof}
+    Note that \( (AB)_{ij} = \sum_{ k=1  }^{ n } {A}_{ik} {B}_{kj} \) for all \( 1 \leq i \leq n  \) and \( 1 \leq j \leq n  \). Then we obtain 
+    \begin{align*}
+        \text{tr}(AB) &= \sum_{ i=1  }^{ n } (AB)_{ii} = \sum_{ i=1  }^{ n } \Big[ \sum_{ j=1  }^{ n } {A}_{ij} {B}_{ji} \Big] \\
+                      &= \sum_{ i=1  }^{ n } \Big[\sum_{ j=1  }^{ n } {B}_{ji} {A}_{ij} \Big] \\
+                      &= \sum_{ j=1  }^{ n } (BA)_{j j } \\
+                      &= \text{tr}(BA).
+    \end{align*}
+\end{proof}
+
+\begin{problem}\addcontentsline{toc}{problem}{Problem 3}
+    Prove that \( {T}_{I}(U(n))  = \text{skew}(n,\C) \).
+\end{problem}
+\begin{proof}
+Note that \( U(n) = \{  A \in M(n,\C) : A^{*} A = I   \} \subseteq \text{GL}(n,\C)    \).Our goal is to show that \( {T}_{I}(U(n)) \subseteq \text{skew}(n,\C)  \) and \( \text{skew}(n,\C) \subseteq {T}_{I}(U(n))  \). Let \( X \in {T}_{I}(U(N)) \) be arbitrary. Then there exists a smooth path \( A : (- \epsilon, \epsilon) \to U(n) \) such that \( A(0) = I  \) and \( A'(0) = X  \). Then for all \( t \in (- \epsilon , \epsilon ) \), we have \( A(t) \in U(n) \) which by definition implies that 
+\[  [A(t)]^{*}  A(t) = I.  \]
+Differentiating both sides, we obtain
+\begin{align*}
+    \frac{ d }{ dt  } [A(t)^{*} A(t)] = 0 &\implies A'(t)^{*} A(t) + A(t)^{*} A'(t) = 0  .
+\end{align*}
+In particular, for \( t = 0  \), we have 
+\begin{align*}
+    A'(0)^{*} A(0) + A(0)^{*} A'(0) = 0  &\implies X^{*} I  + I^{*} X = 0  \\
+                                         &\implies X^{*} + X = 0  \\
+                                         &= X^{*} = -X. 
+\end{align*}
+Hence, we have \( X^{*} = -X  \) and so we have \( x \in \text{skew}(n,\C)  \). Thus, we obtain our first containment.
+
+On the other hand, let \( X \in \text{skew}(n,\C)  \). Define the path \( A(t) = e^{tX} \). Clearly, we see that 
+\begin{center}
+    \( A(0) = I  \) and \( A'(0) =  X \).
+\end{center}
+We need to show that 
+\[  A(t)^{*} A(t) = I  \]
+in order for \( A(t) \) to be a path in \( U(n) \). Since \( e^{X^{*}} = (e^{X})^{*}  \) and \( (tX)^{*} = - t X  \) for all \( X \in M(n,\C) \), we obtain 
+\begin{align*}
+    A(t)^{*} A(t) &= (e^{tX})^{*} (e^{tX})  \\
+                  &= e^{(tX)^{*}} e^{tX} \\
+                  &= e^{-tX} e^{tX} \\
+                  &= e^{-tX + tX} \\
+                  &= e^{O} \\
+                  &= I.
+\end{align*}
+Thus, \( X \in \text{skew}(n,\C)  \) which gives is our second containment.
+\end{proof}
+
+\begin{problem}\addcontentsline{toc}{problem}{Problem 4}
+    Let \( A = ({a}_{ij}) \in M(2,\C) \) be an upper triangular matrix. Prove that \( \text{exp}(A)  \) is also upper triangular, and that the diagonal entries of \( \text{exp}(A)   \) are \( e^{{a}_{11}}  \) and \( e^{{a}_{22}} \).
+\end{problem}
+\begin{proof}
+    Note that \( A = \displaystyle \begin{pmatrix} {a}_{11} & {a}_{12} \\ 0 & {a}_{22} \end{pmatrix}  \). Once can easily show, via induction, that 
+    \[ A^{n} = \begin{pmatrix} {a}_{11}^{n} & {a}_{12}^{n} \\ 0 & {a}_{22}^{n} \end{pmatrix}. \]
+    Since \( M(2,\R) \cong \R^{4} \), we can write
+    \begin{align*}
+        \text{exp}(A) = \sum_{ k=1  }^{ \infty  } \frac{ A^{k} }{ k! } &= \lim_{ n \to \infty  }  \sum_{ k=1  }^{ n } \frac{ 1 }{ k! }  \begin{pmatrix} {a}_{11}^{k} & {a}_{12}^{k} \\ 0 & {a}_{22}^{k} \end{pmatrix}  \\
+                                                                       &= \lim_{ n \to \infty  }  \sum_{ k=1  }^{ n } \begin{pmatrix} \frac{ {a}_{11}^{k} }{ k! }  & {a}_{12}^{k} \\ 0 & \frac{ {a}_{22}^{k} }{ k! }  \end{pmatrix}  \\
+                                                                       &= \lim_{ n \to \infty  }   \begin{pmatrix} \sum_{ k=1  }^{ n } \frac{ {a}_{11}^{k} }{ k! }  & {a}_{12}^{k} \\ 0 & \sum_{ k=1  }^{ n } \frac{ {a}_{22}^{k} }{ k! }  \end{pmatrix}   \\
+                                                                       &= \begin{pmatrix} \sum_{ k=1  }^{ \infty  } \frac{ {a}_{11}^{k} }{ k!  }  & {a}_{12}^{k} \\ 0 & \sum_{ k=1  }^{ \infty  } \frac{ {a}_{22}^{k} }{ k! }  \end{pmatrix}.
+    \end{align*}
+\end{proof}
+
+\begin{problem}\addcontentsline{toc}{problem}{Problem 5}
+    In HW3, you proved that 
+    \begin{center}
+        \( B^{+}(2,\R) =  \) the collection of all \( 2 \times 2  \) upper triangular matrices with positive diagonal entries
+    \end{center}
+    is a subgroup of \( \text{GL}(2,\R)    \) that is topologically closed in \( \text{Gl}(2,\R)  \) (and hence a Lie subgroup of \( \text{GL}(2,\R)  \)). Prove that 
+    \begin{center}
+        \( \text{Lie}(B^{+}(2,\R)) =   \) the space of all \( 2 \times 2  \) upper triangular matrices. 
+    \end{center}
+\end{problem}
+\begin{proof}
+Let \( X  \) be an arbitrary upper triangular matrix. Define \( X  \) in the following way:
+\[  X = \begin{pmatrix} {x}_{11} & {x}_{12} \\ {x}_{21} & {x}_{22} \end{pmatrix} = \begin{pmatrix} {x}_{11} & {x}_{12} \\ 0 & {x}_{22} \end{pmatrix}. \]
+Let \( t \in \R  \). Our goal is to show that \( e^{tX} \in B^{+}(2,\R) \). This will imply that \( \textfrak{g} \). From the previous problem, we have 
+\[  e^{tX} = \begin{pmatrix} e^{t {x}_{11}} & {x}_{12}^{n} \\ 0 & e^{t {x}_{22}}  \end{pmatrix}  \]
+where \( n  \) is some integer. The above matrix is clearly upper triangular with positive diagonal entries. Hence, \( e^{tX}  \in B^{+}(2,\R) \) and so \( X \in \textfrak{g} = \text{Lie}(B^{+}(2,\R))  \). Hence, we conclude that 
+\begin{center}
+    \( \text{Lie}(B^{+}(2,\R)) =   \) the space of all \( 2 \times 2  \) upper triangular matrices.
+\end{center}
+\end{proof}
+
+\begin{problem}\addcontentsline{toc}{problem}{Problem 6}
+    Let \( F: M(n,\R) \to \R  \) be defined by \( F(A) = \text{det} A  \). Since \( {T}_{A}M(n,\R) \equiv M(n,\R) \) and \( T_{F(A)} \R \equiv \R  \) for each \( A \in M(n,\R) \), the derivative \( d {F}_{A} \) can be viewed as a linear map from \( M(n,\R)  \) to \( \R  \). Prove that 
+    \[  \forall X \in M(n,\R) \ \ d {F}_{A} = \text{tr}(\text{adj}(A) X ).  \]
+\end{problem}
+\begin{proof}
+Let \( F(A) = \text{det}(A)  \) and let \( X \in M(n,\R) \). Let \( \gamma:  (-\epsilon, \epsilon) \to {T}_{A}M(n,\R) \) such that \( \gamma(0) = A  \) and \( \gamma'(0) = X  \) and let \( \beta: (-\epsilon, \epsilon) \to {T}_{F(A)} \R \) defined by \( \beta(t) = F(\gamma(t)) \). Since \( \gamma(t) \) is a smooth path in \( {T}_{A}M(n,\R) \), it follows from the main properties of the exponential that 
+\[  \frac{ d }{ dt } [\text{det}(\gamma(t))] = (\text{det}(\gamma(t))) \text{tr}([\gamma^{-1}(t) \cdot \gamma'(t)]). \tag{\( \dagger \)}\]
+Evaluating \( \dagger \) at \( t = 0  \), we obtain
+\begin{align*}
+    D {F}_{A}X = \beta'(0) &= \frac{ d }{ dt } \Big|_{t = 0} F(\gamma(t)) \\
+                           &= \text{det}(\gamma(0)) \text{tr}[\gamma^{-1}(0) \cdot \gamma'(0)] \\
+                           &= \text{det}(A) \text{tr}[A^{-1} \cdot X] \\
+                           &= \text{det}(A) \text{tr}\Big[ [\text{det} A]^{-1} \text{adj}(A) \cdot X  \Big] \\
+                           &= \text{det}(A) \cdot \text{det}(A)^{-1} \text{tr}[\text{adj}(A) X  ] \\
+                           &= \text{tr}[\text{adj}(A) X  ].
+\end{align*}
+Thus, we conclude that
+    \[  \forall X \in M(n,\R) \ \ d {F}_{A} = \text{tr}(\text{adj}(A) X ).  \]
+\end{proof}
+
+\begin{problem}\addcontentsline{toc}{problem}{Problem 7}
+    Let \( F: \text{GL}(n,\R) \to M(n,\R)   \) be defined by \( F(A)  = A^{-1} \). Since \( {T}_{A}\text{GL}(n,\R) \equiv M(n,\R)   \) and \( {T}_{F(A)} M(n,\R) \equiv M(n,\R) \), for each \( A \in \text{GL}(n,\R) \), the derivative \( d {F}_{A} \) can be viewed as a linear map from \( M(n,\R) \). Prove that 
+    \[  \forall X \in M(n,\R) \ \ d {F}_{A}(X) = - A^{-1} X A^{-1}. \]
+\end{problem}
+\begin{proof}
+    Let \( X \in M(n,\R) \). Let \( \gamma : (-\epsilon, \epsilon) \to {T}_{A} \text{GL}(n,\R)   \) be a smooth path such that \( \gamma(0) = A  \) and \( \gamma'(0) = X \) and let \( \beta : (-\epsilon, \epsilon) \to {T}_{F(A)} M(n,\R) \) be defiend by \( F \circ \gamma  \) i.e \( \beta(t) = [\gamma(t)]^{-1} \). Since \( \text{GL}(n,\R)   \) is a matrix Lie group, we have \( \beta'(t) = - \gamma^{-1}(t) \gamma'(t) \gamma^{-1}(t) \) where \( D {F}_{A}(X) = \beta'(0) \). Hence, we have that 
+    \[  \beta'(0) = - \gamma^{-1}(0) \gamma'(0) \gamma^{-1}(0) = -A^{-1}X A^{-1}. \]
+    Hence, 
+    \[ D {F}_{A}(X) = - A^{-1} X A^{-1} \ \ \forall X \in M(n,\R). \]
+\end{proof}
+
+\begin{problem}\addcontentsline{toc}{problem}{Problem 8}
+    Let \( {G}_{1}  \) and \( {G}_{2} \) be two matrix Lie groups, and let \( F: {G}_{1} \to {G}_{2} \) be a Lie group homomorphism. Let \( e  \) denote the identity element of \( {G}_{1} \), and let \( d {F}_{e} : \textfrak{g}_1 \to \textfrak{g}_2 \) be the induced Lie Algebra homomorphism. Prove that 
+    \[  \forall t \in \R, \forall X \in \textfrak{g}_1 \ \ F(\text{exp}_{{G}_{1}}(tX)) = \text{exp}_{{G}_{2}}(t d{F}_{e} (X))  \]
+    and, in particular,
+    \[  \forall x \in {\textfrak{g}}_{1} \ \ F \circ \text{exp}_{{G}_{1}} = \text{exp}_{{G}_{2}} \circ d {F}_{e}(X).  \]
+\end{problem}
+
+\begin{proof}
+    Define \( {\gamma}_{X}(t) = F(\text{exp}_{{G}_{1}}(tX)) \). To show that \( F(\text{exp}_{{G}_{1}}(tX) ) = \text{exp}_{{G}_{2}}(t d {F}_{e}(X))  \), it suffices to show the following four properties: 
+    \begin{enumerate}
+        \item[(i)] \( {\gamma}_{X}  \) is smooth 
+        \item[(ii)] For all \( s,t \in \R  \), \( {\gamma}_{X}(s+t) = {\gamma}_{X}(s) {\gamma}_{X}(t) \)
+        \item[(iii)] \( {\gamma}_{X}(0) = I  \)
+        \item[(iv)] \( {\gamma}_{X}'(0) = d {F}_{e}(X) \)
+    \end{enumerate}
+    
+    (i) Since \( F: {G}_{1} \to {G}_{2} \) is a Lie group homomorphism, we know that \( F  \) is also a smooth map. Clearly, \( \text{exp}_{{G}_{1}}  \) is also a smooth map from \( {\textfrak{g}}_{1} \to {G}_{1} \) and so their composition \( F \circ \text{exp}_{{G}_{1}}    \) must also be a smooth map from \( {\textfrak{g}}_{1} \to {G}_{2} \). Hence, \( {\gamma}_{X} \) is smooth.
+
+    (ii) Let \( x \in \textfrak{g} \) and let \( s,t \in \R  \). Since \( F  \) is a Lie group homomorphism, we have that 
+    \begin{align*}
+        (F \circ \text{exp}_{{G}_{1}} )\Big(  (s+t) X  \Big) &= F\Big({\text{exp} }_{{G}_{1}}(sX + tX)\Big) \\
+                                                             &= F\Big(\text{exp}_{{G}_{1}}(sX) {\text{exp}}_{{G}_{1}}(tX) \Big) \\
+                                                             &= F({\text{exp}}_{{G}_{1}}(sX)) F({\text{exp}}_{{G}_{1}}(tX)) \\
+                                                             &= (F \circ {\text{exp}}_{{G}_{1}}(sX)) (F \circ {\text{exp}}_{{G}_{1}}(tX)).
+    \end{align*}
+    Hence, we see that 
+    \[ (F \circ {\text{exp}}_{{G}_{1}})\Big( (t+s)X \Big) = (F \circ {\text{exp}}_{{G}_{1}})(tX) (F \circ {\text{exp}}_{{G}_{1}}(sX)). \]
+    Thus, we obtain
+    \[  {\gamma}_{X}(t+s) = {\gamma}_{X}(t) {\gamma}_{X}(s). \]
+
+    (iii) Since \( F  \) is a Lie group homomorphism, we have  
+    \begin{align*}
+        {\gamma}_{X}(O) &= (F \circ {\text{exp}}_{{G}_{1}})(OX) \\
+                        &= F({\text{exp}}_{{G}_{1}}(O)) \\
+                        &= F(I) \\
+                        &= I. 
+    \end{align*}
+
+    (iv) Observe that 
+    \begin{align*}
+        {\gamma}_{X}'(O) &= \frac{ d }{ dt  }  \Big|_{t = 0} \Big(F \circ {\text{exp}}_{{G}_{1}} (tX)\Big) \\
+                         &= \frac{ d }{ dt  }  \Big|_{t = 0 } F\Big({\text{exp}}_{{G}_{1}}(tX)\Big) \\
+                         &= d {F}_{e}(X)
+    \end{align*}
+    where \( {\text{exp}}_{{G}_{1}}(tX)  \) is a smooth path such that \( {\text{exp}}_{{G}_{1}}(O) = I  \) and \( \displaystyle \frac{ d }{ dt  } \Big|_{t = 0} \text{exp}(tX) = X   \). From properties (i) through (iv), it follows that \( {\gamma}_{X}(t) = {\text{exp}}_{{G}_{2}}(tX) \), and so we conclude that 
+    \[  F \circ {\text{exp}}_{{G}_{1}}(tX) = {\text{exp}}_{{G}_{2}}(t d {F}_{e}(X)) \]
+    for all \( t \in \R  \) and \( x \in {\textfrak{g}}_{1} \). In particular, we have for \( t = 1  \), for all \( x \in {\textfrak{g}}_{1} \), 
+    \[  F \circ {\text{exp}}_{{G}_{1}}(X) = {\text{exp}}_{{G}_{2}}(d {F}_{e}X). \]
+\end{proof}
+
+\begin{problem}\addcontentsline{toc}{problem}{Problem 9}
+    Let \( {G}_{1} \) and \( {G}_{2} \) be two matrix Lie groups, and let \( F: {G}_{1} \to {G}_{2} \) be a Lie group homomorphism. Let \( e  \) denote the identity element of \( {G}_{1} \). Prove that the differential \( d {F}_{e} : {\textfrak{g}}_{1} \to {\textfrak{g}}_{2} \) preserves the Lie Bracket; that is, prove that  
+    \[  \forall X,Y \in {\textfrak{g}}_{1} \ \ d {F}_{e}([X,Y]) = [d {F}_{e} X , d {F}_{e} Y ]. \]
+\end{problem}
+\begin{proof}
+    Let \( X,Y \in {\textfrak{g}}_{1} \). Define \( \gamma(s) =  e^{tX} e^{sY} e^{-tX} \). Then we obtain
+\begin{align*}
+    [d {F}_{e} X , d {F}_{e} Y ] &= \frac{ d }{ dt  } \Big|_{t = 0} [ e^{t d {F}_{e} X } d {F}_{e} Y e^{-t d {F}_{e}X}] \\
+                                 &= \frac{ d }{ dt } \Big|_{t = 0} \Big[ F(e^{tX}) d {F}_{e} Y F(e^{-tX}) \Big] \tag{Naturality of Exponent Map} \\
+                                 &= \frac{ d }{ dt }  \Big|_{t = 0} F(e^{tX}) \frac{ d }{ ds } \Big( \Big|_{s = 0} F(e^{sY}) \Big) F(e^{-tX}) \\
+                                 &= \frac{ d }{ dt } \Big|_{t = 0} \frac{ d }{ ds } \Big|_{s = 0} F(e^{tX}) F(e^{sY}) F(e^{-tX}) \tag{\( F  \) is a Lie group homomorphism} \\
+                                 &= \frac{ d }{ dt } \Big|_{t = 0} \frac{ d }{ ds } \Big|_{s = 0} F(e^{tX} e^{sY} e^{-tX}) \\
+                                 &= \frac{ d }{ dt } \Big|_{t = 0} d {F}_{e}(e^{tX} Y e^{-tX}) \\
+                                 &=  d {F}_{e} \Big(  \frac{ d }{ dt } \Big|_{t = 0} e^{tX} Y e^{-tX} \Big) \tag{\( d {F}_{e} \) is a linear operator} \\
+                                 &= d {F}_{e}([X,Y]).
+\end{align*}
+Thus, we conclude that 
+\[  [d {F}_{e}X , d {F}_{e} Y ] = d {F}_{e}([X,Y]). \]
+\end{proof}
+
+\begin{problem}\addcontentsline{toc}{problem}{Problem 10}
+    Prove that \( \text{SL}(n,\C)   \) is path connected.
+\end{problem}
+\begin{proof}
+To show that \( \text{SL}(n,\C)   \) is path connected, we need to show that there exists a continuous curve connecting an arbitrary element \( A \in \text{GL}(n,\C^{+})   \) to the identity \( I  \).
+    Indeed, define \( \gamma: \text{GL}(n,\C^{+})  \to \text{SL}(n,\C)  \) by
+    \[  A \longmapsto \begin{pmatrix}  \frac{ {a}_{11} }{ \text{det}A  }  & \cdots & \frac{ {a}_{1n} }{ \text{det}A } \\ {a}_{21} & \ddots &  \\ \vdots  &  \   & \vdots \\ {a}_{n1} & \cdots & {a}_{nn}      \end{pmatrix}.  \]
+    Note that for each \( A \in \text{GL}(n,\C^{+})  \), we have \( \text{det}f(A) = 1   \) and so \( \gamma \) is well-defined. Also, note that \( \gamma \) is surjective. That is, for all \( B \in \text{SL}(n,\C)  \), \( \gamma(B) = B  \). Now, entries of \( \gamma(B) \) are rational functions of entries of \( B  \) (which are continuous). Since \( \gamma \) is 
+    \begin{enumerate}
+        \item[(1)] well-defined
+        \item[(2)] surjective
+        \item[(3)] The entries of \( \gamma(B) \) are entries of \( B  \)
+    \end{enumerate}
+    which are continuous functions as well. Now, we see that \( \text{SL}(n,\C) = \gamma(\text{GL}(n,\C) )   \) is path-connected.
+\end{proof}
+
+\begin{theorem}[ ]
+    The determinant of a block diagonal matrix is the product of the determinants of its diagonal blocks.
+\end{theorem}
+
+\begin{theorem}[ ]
+    Given a matrix \( R \in \text{SO}(n)  \), we can decompose \( R  \) as \( R = A M A^{T} \), where \( A \in O(n) \) and \( M  \) is a block diagonal matrix with each block either a \( 2 \times 2  \) rotation matrix or \( 1 \). 
+\end{theorem}
+
+
+\begin{problem}\addcontentsline{toc}{problem}{Problem 11}
+    Suppose \( M  \) is an \( n \times n  \) block diagonal matrix with each block either a \( 2 \times 2  \) rotation matrix or \( 1  \).
+\end{problem}
+\begin{enumerate}
+    \item[(11-1)]  Prove that \( M \in \text{SO}(n)   \).
+    \begin{proof}
+        Recall that \( \text{SO}(n) = \{ A \in M(n,\R) : A^{T} A = I \ \text{with} \ \text{det}A = 1  \}   \). Suppose \( M  \) is an \( n \times n  \) block diagonal matrix with each block either a \( 2 \times 2  \) rotation matrix or \( 1  \); that is, for each \( {M}_{i} \) (block matrix along the diagonal of \( M \)) either 
+        \[ {M}_{i} = \begin{pmatrix} \cos {\theta}_{i} & - \sin {\theta}_{i} \\ \sin \theta_i & \cos \theta_i  \end{pmatrix} \ \text{or} \ {M}_{i} = \begin{pmatrix} 1 & 0 \\ 0 & 1  \end{pmatrix}  \tag{\( 1 \leq i \leq n \)} \]
+        where \( {\theta}_{i} \in \R  \). In either case, we see that \( \text{det} {M}_{i} = 1  \). Since the determinant of a block diagonal matrix is the product of determinants of each \( {M}_{i} \), it follows that 
+        \[  \text{det}M = \prod_{i=1}^{n} \text{det}({M}_{i})  = 1 \cdot 1 \cdot \ \cdots \ \cdot 1 = 1. \]
+        Also, notice that the transpose of \( M  \) is just the transpose of its diagonal block matrices. If \( {M}_{i} = I  \), then clearly \({M}_{i}^{T} {M}_{i} = I \). If \( {M}_{i} = \displaystyle \begin{pmatrix} \cos {\theta}_{i} & - \sin \theta_i \\ \sin {\theta}_{i} & \cos {\theta}_{i} \end{pmatrix}  \), then
+        \begin{align*}
+            {M}_{i}^{T} {M}_{i} &= \begin{pmatrix} \cos {\theta}_{i} & - \sin {\theta}_{i} \\ \sin {\theta}_{i} & \cos {\theta}_{i} \end{pmatrix} \begin{pmatrix} \cos {\theta}_{i} & \sin {\theta}_{i} \\ - \sin \theta_i & \cos \theta_i \end{pmatrix}  \\
+                                &= \begin{pmatrix} \cos^{2} \theta + \sin^{2} \theta & 0 \\ 0 & \cos^{2}\theta + \sin^{2} \theta \end{pmatrix}  \\
+                                &= \begin{pmatrix} 1 & 0 \\ 0 & 1  \end{pmatrix} \\
+                                &= I.
+        \end{align*}
+        Hence, for all \( 1 \leq i \leq n  \), \( {M}_{i}^{T} {M}_{i} = I  \) and so \( M^{T} M = I  \). Thus, \( M^{T}M = I  \) and \( \text{det} M = 1   \). Thus, \( M \in \text{SO}(n)  \).
+    \end{proof}
+    \item[(11-2)] Let \( n \geq 2  \). Prove that \(\text{SO}(n)  \) is path connected.
+        \begin{proof}
+            Let \( M \in \text{SO}(n)   \) as in \( (11-1) \). To show that \( \text{SO}(n)   \) is path connected, we need to find a continuous curve contained in \( \text{SO}(n)  \) that connects \( M  \) to the identity \( I  \). Indeed, define \( \gamma: [0,1] \to \text{SO}(n)  \) by
+            \[  \Gamma(t) = A \gamma(t) A^{T} \]
+            with 
+            \[  \gamma(t) = \begin{pmatrix} {\gamma}_{1}(t) &  & \\ & {\gamma}_{2}(t) & &  \\  & & \ddots  &  \\ & & & & {\gamma}_{n}(t) \end{pmatrix}  \]
+            and \( {\gamma}_{i}: [0,1] \to \text{SO}(2)   \) defined by
+            \[  {\gamma}_{i}(t) = \begin{pmatrix} \sin (1-t){\theta}_{i} & - \sin (1-t) {\theta}_{i} \\ \sin (1-t) {\theta}_{i} & \cos  (1-t) {\theta}_{i} \end{pmatrix}.  \tag{\( 1 \leq i \leq n  \)} \]
+            Notice that each \( {\gamma}_{i}  \) is continuous since each entry is clearly a continuous function and that \( \Gamma(0) = M  \) and \( \Gamma(1) = I  \) since for all \( 1 \leq i \leq n  \) either
+            \[  {\gamma}_{i}(0) = \begin{pmatrix} \cos {\theta}_{i} & - \sin {\theta}_{i} \\ \sin {\theta}_{i} & \cos {\theta}_{i}  \end{pmatrix} \ \ \text{or} \ \ {\gamma}_{i}(1) = I.   \]
+            Hence, it follows from the above that \( \text{SO}(n)   \) is path-connected.
+        \end{proof} 
+\end{enumerate}
+
+In your proof of the following problem, you may use the following fact:
+\begin{theorem}[ ]
+   Given a symmetric matrix \( A \in M(n,\R) \), we can decompose \( A  \) as \( A = P D P^{T} \), where \( P \in O(n) \) and \( D  \) is a diagonal matrix whose diagonal entries are the eigenvalues of \( A  \). 
+\end{theorem}
+
+\begin{problem}\addcontentsline{toc}{problem}{Problem 12}
+    Note that from (11-1) \( M \in \text{SO}(n)   \) can be decomposed in the following way:
+        \[ M = A R A^{T} \]
+        where \( A \in O(n) \) and \( R  \) is a block diagonal matrix with each block either \( 2 \times 2  \) rotation matrix or \( 1 \).
+\end{problem}
+\begin{enumerate}
+    \item[(a)] Explain why \( \text{SPD}(n,\R)   \) is a subset of \( \text{GL}(n,\R)  \).
+        \begin{solution}
+            Note that for every \( A \in \text{SPD}(n,\R)   \), \( A  \) is diagonalizable; that is, 
+            \[  A = P D P^{-1} \]
+            where \( P  \) is invertible and \( D  \) is diagonal matrix with entries being the eigenvalues \( {\lambda}_{1}, \dots, {\lambda}_{n}  \) of \( A  \). Since \( A  \) is symmetric, we have \( {\lambda}_{i} \in \R  \) for all \( 1 \leq i \leq n  \). Also, \( {\lambda}_{i} > 0  \) because \( A  \) is positive-definite. Hence, 
+            \begin{align*}
+                \text{det}A &= \text{det}(P D P^{-1}) \\
+                            &= \text{det}(D) \\
+                            &= \prod_{i=1}^{n} {\gamma}_{i} \\
+                            &>0.
+            \end{align*}
+            Thus, \( \text{det} A > 0  \) and so \( A \in \text{GL}(n,\R)  \). Therefore, \( \text{SPD}(n,\R) \subseteq  \text{GL}(n,\R)   \).
+        \end{solution}
+    \item[(b)] \( \text{SPD}(n,\R)   \) is NOT a subgroup of \( \text{GL}(n,\R)  \).
+        \begin{proof}
+            We will show that \( \text{SPD}(n,\R)   \) is not closed under multiplication. Consider the following \( 2 \times 2  \) matrices \( A = \begin{pmatrix} 1 & 2 \\ 2 & 5 \end{pmatrix}  \) and \( \begin{pmatrix} 1 & - 1 \\ -1 & 2 \end{pmatrix} = B  \). It is immediate that both \( A  \) and \( B  \) are symmetric positive definite. Now, observe that 
+            \begin{align*}
+                AB  &= \begin{pmatrix} 1 & 2 \\ 2 & 5  \end{pmatrix} \begin{pmatrix} 1 & -1 \\ -1 & 2  \end{pmatrix}  \\
+                    &= \begin{pmatrix} - 1 & 3 \\ -3 & 8  \end{pmatrix}.
+            \end{align*}
+        Notice that \( \text{det}(AB) < 0 \) and \( AB \) is clearly not symmetric. Hence, \( AB \notin \text{SPD}(n,\R)  \) and so \( \text{SPD}(n,\R)  \) is not closed under matrix multiplication. 
+        \end{proof}
+    \item[(c)] Prove that \( \text{SPD}(n,\R)  \) is a path-connected subset of \( \text{GL}(n,\R)  \).
+        \begin{proof}
+        Let \( A \in \text{SPD}(n,\R)  \). With the theorem given, we can decompose \( A  \) as 
+        \[  A = P D P^{T} \]
+        where \( P \in O(n) \) and \( D  \) is diagonal with the diagonal entries are the eivenvalues of \( A  \). Define \( \Gamma: [0,1] \to \text{SPD}(n,\R)  \) by
+        \[  \gamma(t) = P \begin{pmatrix} (1-t){\lambda}_{1} + t &  & \\ & (1-t){\lambda}_{2} + t  & &  \\  & & \ddots  &  \\ & & & & (1-t){\lambda}_{n} + t  \end{pmatrix} P^{-1} \tag{\( \forall t \in [0,1] \)}  \]
+        where \( {\lambda}_{1}, {\lambda}_{2}, \dots, {\lambda}_{n}  \) are the eigenvalues of \( A  \) (\( {\lambda}_{i} > 0 \in \R \) since \( A \in \text{SPD}(n,\R)  \) ) each diagonal entry of \( \Gamma(t) \) is a continuous function. Hence, \( \Gamma(t) \) is a continuous curve connecting \( A \in \text{SPD}(n,\R)  \) to \( I \in \text{SPD}(n,\R)  \). 
+        \end{proof}
+\end{enumerate}
+
+You may use the following fact to prove the following problem.
+
+\begin{theorem}[ ]
+    Given a matrix \( A \in \text{GL}(n,\R)^{+}   \), we can decompose \( A  \) as \( A = SQ  \) where \( S \in \text{SPD}(n,\R)     \) and \( Q \in \text{SO}(n)  \).
+\end{theorem}
+
+\begin{problem}\addcontentsline{toc}{problem}{Problem 13} 
+    Prove \( G = \text{GL}(n,\R)^{+}   \) is path-connected.
+\end{problem}
+\begin{proof}
+    Let \( A \in \text{GL}(n,\R)^{+}  \). Then by the given theorem, \( A = SQ \) with \( S \in \text{SPD}(n,\R)  \) and \( Q \in \text{SO}(n)  \). Since \( S \in \text{SPD}(n,\R)  \), we can decompose \( S  \) as \( S = P D P^{T} \) where \( P \in O(n) \) and \( D  \) is a diagonal matrix whose diagonal entries are the eigenvalues \( {\lambda}_{1}, {\lambda}_{2}, \dots, {\lambda}_{n} \) of \( S  \). Since \( \text{SPD}(n,\R)  \) is path, we can connect \( S  \) to \( I  \) by the following continuous curve \( {\Gamma}_{1} : [0,1] \to \text{SPD}(n,\R)  \) defined by  
+    \[ \forall t \in [0,1] \ \ \ {\Gamma}_{1}(t) = P \begin{pmatrix} (1-t){\lambda}_{1} + t &  & \\ & (1-t){\lambda}_{2} + t  & &  \\  & & \ddots  &  \\ & & & & (1-t){\lambda}_{n} + t  \end{pmatrix} P^{T}.   \]
+    Notice that with this curve \( {\Gamma}_{1}(0) = S  \) and \( {\Gamma}_{1}(1) = I  \). Likewise, we can decompose \( Q  \) as \( Q = A M A^{T} \) with \( A \in O(n) \) and \(  M  \) is a block diagonal matrix with each block either a \( 2 \times 2  \) rotation matrix or \( 1  \). Since \( \text{SO}(n)   \) is path-connected, we can define a continuous curve \( {\Gamma}_{2} ; [0,1] \to \text{SO}(n)  \) by  
+    \[  \forall t \in [0,1] \ \ \ {\Gamma}_{2}(t) = A \gamma(t) = \begin{pmatrix} {\gamma}_{1}(t) &  & \\ & {\gamma}_{2}(t) & &  \\  & & \ddots  &  \\ & & & & {\gamma}_{n}(t) \end{pmatrix} A^{T}  
+  \]
+  with some of the diagonal entries being
+  \[  {\gamma}_{i}(t) = \begin{pmatrix} \cos (1-t) {\theta}_{i} & - \sin (1-t) {\theta}_{i} \\ \sin (1-t) {\theta}_{i} & \cos (1-t) {\theta}_{i} \end{pmatrix}   \]
+  and some being equal to \( 1  \). Notice further that \( {\Gamma}_{2}(0) = Q  \) and \( {\Gamma}_{2}(1) = I  \). Now, notice further that \( {\Gamma}_{1} {\Gamma}_{2} (0) = SQ = A  \) and \( {\Gamma}_{1} {\Gamma}_{2} (0) = I  \). Also, since \( {\Gamma}_{1} \) and \( {\Gamma}_{2} \) are continuous, it follows that \( {\Gamma}_{1} {\Gamma}_{2}  \) is also continuous (where \( \Gamma: [0,1] \to \text{GL}(n,\R)^{+}  \) defined by \( \Gamma(t) = {\Gamma}_{1} {\Gamma}_{2} (t)  \) for all \( t \in [0,1] \)). Hence, we see that \( \text{GL}(n,\R)^{+}   \) is path-connected.
+          \end{proof}
+
+\end{document}
+

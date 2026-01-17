@@ -1,0 +1,36 @@
+\begin{theorem}[Lebesgue Differentiation Theorem, First Version]
+    Suppose \( f \in \mathcal{L}^{1}(\R) \). Then
+    \[  \lim_{ t \to 0 }  \frac{ 1 }{ 2t }  \int_{ b-t }^{ b + t }  | f - f(b) |   = 0  \]
+    for almost every \( b \in \R  \).
+\end{theorem}
+
+\begin{definition}[Derivative]
+    Suppose \( g : I \to \R  \) is a function defined on an open interval \( I  \) of \( \R  \) and \( b \in I \). The \textbf{derivative} of \( g  \) at \( b  \), denoted \( g'(b) \), is defined by
+    \[  g'(b) = \lim_{ t \to 0 }  \frac{ g(b+t) - g(b) }{ t  }  \]
+    if the limit above exists, in which case \( g  \) is called \textbf{differentiable} at \( b \).
+\end{definition}
+
+\begin{theorem}[Fundamental Theorem of Calculus]
+    Suppose \( f \in \mathcal{L}^{1}(\R) \). Define \( g : \R \to \R  \) by 
+    \[  g(x) = \int_{ - \infty  }^{ x  } f. \]
+    Suppose \( b \in \R  \) and \( f  \) is continuous at \( b  \). Then \( g  \) is differentiable at \( b  \) and \( g'(b) = f(b) \).
+\end{theorem}
+
+\begin{theorem}[Lebesgue Differentiation Theorem, second version]
+    Suppose \( f \in \mathcal{L}^{1}(\R) \). Define \( g : \R \to \R  \) by
+    \[  g(x) = \int_{ -\infty  }^{ x  }  f. \]
+    Then \( g'(b) = f(b) \) for almost every \( b \in \R  \).
+\end{theorem}
+
+\begin{prop}[No Set Constitutes Exactly Half of Each Interval]
+    There does not exist a Lebesgue measurable set \( E \subseteq [0,1]  \) such that 
+    \[  | E \cap [0,b] |  = \frac{ b }{ 2 } \]
+    for all \( b \in [0,1] \).
+\end{prop}
+
+\begin{prop}[\( \mathcal{L}^1  \) function equals its local average almost everywhere]
+   Suppose \( f \in \mathcal{L}^{1}(\R)  \). Then  
+   \[  f(b) = \lim_{ t  \to 0  }  \frac{ 1 }{ 2t }  \int_{ b - t  }^{  b + t  }  f   \]
+   for almost every \( b \in \R  \).
+\end{prop} 
+

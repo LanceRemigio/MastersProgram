@@ -1,0 +1,21 @@
+\begin{definition}[Category]
+    A subset \( M  \) of a metric space \( X  \) is said to be 
+    \begin{enumerate}
+        \item[(a)] \textbf{rare} (or \textbf{nowhere dense}) in \( X  \) if its closure \( \overline{M} \) has no interior points,
+        \item[(b)] \textbf{meager} (or \textbf{of the first category}) in \( X  \) if \( M  \) is the union of countably many sets each of which is rare in \( X  \), 
+        \item[(c)] \textbf{nonmeager} (or of the \textbf{second category}) in \( X  \) if \( M  \) is not meager in \( X  \).
+    \end{enumerate}
+\end{definition}
+
+\begin{theorem}[Baire's Category Theorem (Complete Metric Spaces)]
+   If a metric space \( X \neq \emptyset \) is complete, it is nonmeager in itself. Hence, if \( X \neq \emptyset \) is complete and  
+   \[  X = \bigcup_{ k=1  }^{ \infty  }  {A}_{k} \]
+   where \( {A}_{k} \) is closed, then at least one \( {A}_{k} \) contains a nonempty open subset.
+\end{theorem}
+
+\begin{theorem}[Uniform Boundedness Theorem]
+    Let \( ({T}_{n}) \) be a sequence of bounded linear operators \( {T}_{n} : X \to Y  \) from a Banach Space \( X  \) into a normed space \( Y  \) such that \( (\|{T}_{n}x\|) \) is bounded for every \( x \in X \), say, 
+    \[  \|{T}_{n}x\| \leq {c}_{x} \ \ \ \forall n \in \N, \]
+    where \( {c}_{x} \) is a real number. Then the sequence of the norms \( \|{T}_{n}\| \) is bounded, that is, there is a \( c  \) such that 
+    \[  \|{T}_{n}\| \leq c.  \]
+\end{theorem}

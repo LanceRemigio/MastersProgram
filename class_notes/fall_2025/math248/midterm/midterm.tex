@@ -1,0 +1,455 @@
+\documentclass[a4paper]{article}
+\input{../../../../newpreamble.tex}
+\title{Math 248 Midterm}
+\author{Lance Remigio}
+\begin{document}
+\maketitle
+
+\begin{problem}
+   Let \( n \in \N  \) and \( I  \) be a non-empty open interval in \( \R  \). Let \( A : I \to M(n,\C ) \) and \( B : M(n,\C) \) be smooth paths. 
+\end{problem}
+\begin{enumerate}
+    \item Prove that \( [A(t)]' = [A'(t)]^{T} \).
+        \begin{proof}
+        To show the above result, we need to show that 
+        \[  (A^{T})'_{ij}(t) = (A')^{T}_{ij}(t) \ \ \forall 1 \leq i,j \leq n.  \]
+    Since \( (A^{T})_{ij} = {A}_{ji} \), we obtain that 
+    \begin{align*}
+        (A^{T})'_{ij} &= \lim_{ \Delta t  \to 0  }  \frac{ (A^{T})_{ij}  (t + \Delta t) - (A^{T})_{ij}  }{ \Delta t} \\
+                      &= \lim_{\Delta t \to  0} \frac{ {A}_{ji}(t + \Delta t ) - {A}_{ji}(t)  }{  \Delta t  }  \\
+                      &= {A}_{ji}'(t)  \\
+                      &= ({A}_{ij})^{T}(t)
+    \end{align*}
+       \end{proof}
+    \item  Prove that \( [A(t)B(t)]' = A'(t)B(t) + A(t) B'(t) \).
+\begin{proof}
+We have that 
+    \begin{align*}
+        [A(t) B(t)]' &= \lim_{ \Delta t  \to 0  } \frac{ A(t + \Delta t ) B(t + \Delta t) - A(t) B(t) }{ \Delta t  }  \\
+                     &= \lim_{ \Delta t  \to 0  } \Big[ B(t + \Delta t ) \frac{ A(t + \Delta t ) - A(t) }{ \Delta t  }  + A(t) \frac{ B(t+ \Delta t ) - B(t) }{ \Delta t  } \Big] \\
+                     &= B(t) \lim_{ \Delta t  \to 0  }  \frac{ A(t + \Delta t  ) - A(t) }{  \Delta t  }  + A(t) \lim_{ \Delta t  \to 0  }  \frac{ B(t+ \Delta t) - B(t) }{  \Delta t  } \\
+                     &= B(t) A'(t) + A(t) B'(t).
+    \end{align*}
+    \end{proof}
+    \item  Prove that if, in addition, \( A(t) \) is invertible for all \( t  \), then 
+    \[  [A^{-1}(t)]' = -A^{-1}(t) A'(t) A^{-1}(t). \]
+    \begin{proof}
+        Note that since \( A(t) \) is invertible for all \( t  \), it follows that \( A A^{-1} = I  \). Using part (2), we have \( [A(t) A^{-1}(t)]' = 0  \). Differentiating, we see that 
+        \begin{align*}
+            A'(t) A^{-1}(t) + A(t) [A^{-1}(t)]' = 0 &\implies A(t) [A^{-1}(t)]' = - A'(t) A^{-1}(t) \\
+                                                    &\implies (A^{-1})'(t) = A^{-1}(t) (- A'(t)) A^{-1}(t).
+        \end{align*}
+        That is, 
+        \begin{align*}
+            (A^{-1})'(t) &= A^{-1}(t) (- A'(t)) A^{-1}(t) \\
+                         &= - A^{-1}(t) A'(t) A^{-1}(t).
+        \end{align*}
+        Hence, we conclude that  
+        \[  (A^{-1})'(t) = - A^{-1}(t) A'(t) A^{-1}(t). \]
+    \end{proof}
+\end{enumerate}
+
+\begin{problem}
+   \begin{enumerate}
+       \item Explain why \( E = [3,5) \) is a closed and bounded subset of the metric space \( X = (1,5) \).
+        \item Explain why \( E = [3,5) \) is not a compact subset of the metric space \( X = (1,5) \).
+        \item Explain why the following argument is faulty. "\( O(n)  \) is compact because it is a closed subset of \( \text{GL}(n,\R)  \) and is bounded."
+   \end{enumerate} 
+\end{problem}
+
+\begin{solution}
+\begin{enumerate}
+    \item  \( E  \) is closed since \( [3,5) = [3,6] \cap (1,5) \) where \( [3,6] \) is closed and bounded set in \( \R  \).
+    \item \( E = [3,5) \) is not compact in \( X  \) because \( E  \) is NOT closed in \( \R  \) (that is, \( 5 \notin E  \)). Hence, \( E  \) cannot be compact in \( X = (1,5) \) by fact 1.
+    \item This argument is faulty because in general if \( X = \R^{k} \), then we cannot guarantee that a set being closed and bounded in \( X  \) will be compact in \( X  \). In particular, \( O(n) \) being closed and bounded in \( \text{GL}(n,\R)  \) does not imply that it is a compact set in \( \text{GL}(n,\R)  \) since \( \text{GL}(n,\R) \neq \R^{k} \). Furthermore, \( \text{GL}(n,\R)   \) is not even a compoact set in \( \R^{n^{2}} \) as we have proven in class and so the fact 
+        \begin{center}
+            "closed subsets of compact sets are compact"
+        \end{center}
+        cannot be used to make such a statement.
+\end{enumerate}
+\end{solution}
+
+\begin{problem}
+    Let \( V  \) be an \( n- \)dimensional vector space. Suppose \( T : V \to  V \) is a linear transformation. As we know, once we equip \( V  \) with a basis, we can represent \( T  \) by a matrix. Let \( \mathcal{B} \) and \( \mathcal{C} \) be two bases for \( V  \). Denote the matrix of \( T  \) relative to the basis \( \mathcal{B} \) by \( {A}_{\mathcal{B}} \) and the matrix of \( T  \) relative to the basis \( \mathcal{C } \) by \( {A}_{\mathcal{C}} \). Thus, for every \( \mathbf{x} \in V \), we have 
+    \begin{align*}
+        [T(\mathbf{x})]_{\mathcal{B}} & {A}_{\mathcal{B}} [\mathbf{x}]_{\mathcal{B}}, \\
+        [T(\mathbf{x})]_{\mathcal{C}} &= {A}_{\mathcal{C}} [\mathbf{x}]_{\mathcal{C}}.
+    \end{align*}
+    Prove that 
+    \[  {\mathcal{A}}_{\mathcal{C}} = P_{\mathcal{C} \leftarrow \mathcal{B} } {\mathcal{A}}_{\mathcal{B}} \Big( {P}_{\mathcal{C} \leftarrow \mathcal{B}}  \Big)^{-1}. \]
+\end{problem}
+\begin{proof}
+    Let \( [\mathbf{x}]_{\mathcal{C}} \in \R^{n} \) be arbitrary. Then we have 
+    \begin{align*}
+        {P}_{\mathcal{C} \leftarrow \mathcal{B}} {A}_{\mathcal{B}} \Big( ({P}_{\mathcal{C} \leftarrow \mathcal{B}})^{-1} [\mathbf{x}]_{\mathcal{C}} \Big) &= {P}_{\mathcal{C } \leftarrow \mathcal{B}} {\mathcal{A}}_{\mathcal{B}} \Big( {P}_{\mathcal{B} \leftarrow \mathcal{C}} [\mathbf{x}]_{\mathcal{C}}  \Big) \\
+                                                                                                                                                          &= {P}_{\mathcal{C} \leftarrow \mathcal{B}} ({\mathcal{A}}_{\mathcal{B}} [\mathbf{x}]_{\mathcal{B}} ) \\
+                                                                                                                                                          &= {P}_{\mathcal{C} \leftarrow \mathcal{B}} [T(\mathbf{x})]_{\mathcal{B}} \\
+                                                                                                                                                          &= [T(\mathbf{x})]_{\mathcal{C}} \\
+                                                                                                                                                          &= {\mathcal{A}}_{\mathcal{C}} [\mathbf{x}]_{\mathcal{C}}.
+    \end{align*}
+    Hence, we have
+    \[{P}_{\mathcal{C} \leftarrow  \mathcal{B}} {\mathcal{A}}_{\mathcal{B}} \Big(  ({P}_{\mathcal{C} \leftarrow \mathcal{B}})^{-1} [\mathbf{x}]_{\mathcal{C}} \Big) = {\mathcal{A}}_{\mathcal{C}} [\mathbf{x}]_{\mathcal{C}}.\]
+    Multiplying \( [\mathbf{x}]_{\mathcal{C}}^{-1} \) on both sides, we obtain that 
+    \[ {\mathcal{A}}_{\mathcal{C}} = {P}_{\mathcal{C} \leftarrow \mathcal{B}} {\mathcal{A}}_{\mathcal{B}} ({P}_{\mathcal{C} \leftarrow \mathcal{B}} )^{-1}. \]
+\end{proof}
+
+\begin{problem}
+    Let \( N = \displaystyle \begin{pmatrix}  - 1 &  - 1 &  -1 \\ 0 & 0 & 0 \\ 1 & 1 & 1  \end{pmatrix}  \)
+    \begin{enumerate}
+        \item Prove that \( N  \) is nilpotent.
+            \begin{proof}
+            We have 
+            \begin{align*}
+                N^{2} &= \begin{pmatrix} -1 & - 1 & - 1 \\ 0 & 0  & 0 \\ 1 & 1 & 1  \end{pmatrix}^{2}  \\
+                      &=  \begin{pmatrix} -1 & - 1 & - 1 \\ 0 & 0  & 0 \\ 1 & 1 & 1  \end{pmatrix} \begin{pmatrix} -1 & - 1 & - 1 \\ 0 & 0  & 0 \\ 1 & 1 & 1  \end{pmatrix} \\
+                      &= \begin{pmatrix}  0 & 0 & 0 \\ 0 & 0 & 0 \\ 0 & 0 & 0  \end{pmatrix} \\
+                      &= O.
+            \end{align*}
+            Thus, \( N \) is nilpotent with \( k = 2  \) such that \( N^{2} = O  \).
+            \end{proof}
+        \item Compute \( \text{exp}(N) \).
+            \begin{solution}
+            Note that for all \( k \geq 2  \), \( A^{k} = O  \). Using the definition of the matrix exponential, we obtain 
+            \begin{align*}
+                \text{exp}(N)  = \sum_{ m = 0  }^{ \infty  } \frac{ N^{m} }{ m!  }  &= \frac{ N^{0} }{  0!  }  + \frac{ N^{1} }{ 1! }  + \frac{ N^{2} }{ 2! } + 0 + 0 + \cdots  \\
+            &= I + N  \\
+            &= \begin{pmatrix} 1 & 0 & 0 \\ 0 & 1 & 0  \\ 0 & 0 & 1  \end{pmatrix}  + \begin{pmatrix} -1 & -1 & -1 \\ 0 & 0 & 0 \\ 1 & 1 & 1  \end{pmatrix}  \\
+            &= \begin{pmatrix} 0 & - 1 & -1 \\ 0 & 1 & 0 \\ 1 & 1 & 2  \end{pmatrix}. 
+            \end{align*}
+            \end{solution}
+    \end{enumerate}
+\end{problem}
+
+\begin{problem}
+    Let \( \theta \in \R  \). Find the exponential of the matrix \( X = \displaystyle \begin{pmatrix} 0 & - \theta & 0 \\ \theta & 0 & 0 \\ 0 & 0 & 0    \end{pmatrix}.  \)
+\end{problem}
+
+\begin{solution}
+Let \( {\lambda}_{1} = i \theta  \), \( {\lambda}_{2} = - i \theta  \) and \( {\lambda}_{3}  = 0  \). Observe that 
+\begin{align*}
+    x \begin{pmatrix} 1 \\ i \\ 0  \end{pmatrix}  &= \begin{pmatrix} 0 & - \theta & 0 \\ \theta & 0 & 0 \\ 0 & 0 & 0    \end{pmatrix} \begin{pmatrix} 1 \\ i \\ 0  \end{pmatrix} = \begin{pmatrix}  - i \theta \\ \theta \\ 0  \end{pmatrix}  = i \theta \begin{pmatrix} 1 \\ i \\ 0  \end{pmatrix}     \\
+    x \begin{pmatrix}  i \\ 1 \\ 0  \end{pmatrix} &=  \begin{pmatrix} 0 & - \theta & 0 \\ \theta & 0 & 0 \\ 0 & 0 & 0    \end{pmatrix} \begin{pmatrix} i \\ 1 \\ 0  \end{pmatrix}  = - i \theta \begin{pmatrix} - \theta \\ i \theta  \\ 0  \end{pmatrix} = - i \theta \begin{pmatrix}  i \\ 1 \\ 0  \end{pmatrix}  \\
+    x \begin{pmatrix}  0 \\ 0 \\ 1  \end{pmatrix} &= \begin{pmatrix} 0 & - \theta & 0 \\ \theta & 0 & 0 \\ 0 & 0 & 0    \end{pmatrix} \begin{pmatrix}  0 \\ 0 \\ 1  \end{pmatrix}  = \begin{pmatrix}  0 \\ 0 \\ 0  \end{pmatrix}  = 0 \begin{pmatrix}  0 \\ 0 \\ 1  \end{pmatrix}.  
+\end{align*}
+Then we see that \( P = \displaystyle \begin{pmatrix} 1 &  i & 0 \\ i & 1 & 0 \\ 0 & 0 & 1  \end{pmatrix}  \) and  \( P^{-1} = \displaystyle \begin{pmatrix}  1/2 & i/2 & 0 \\ -i/2 & 1/2 & 0 \\ 0 & 0 & 1  \end{pmatrix}.   \)
+Furthermore, we obtain
+\begin{align*}
+    P^{-1} D P &=  \begin{pmatrix} 1 &  i & 0 \\ i & 1 & 0 \\ 0 & 0 & 1  \end{pmatrix} \begin{pmatrix} - i \theta & 0 & 0 \\ 0 & i \theta & 0  \\ 0 & 0 & 0  \end{pmatrix} \begin{pmatrix}  1/2 & i/2 & 0 \\ -i/2 & 1/2 & 0 \\ 0 & 0 & 1  \end{pmatrix}   \\
+               &= \begin{pmatrix} - i \theta & - \theta & 0 \\ \theta & i \theta & 0  \\ 0 & 0 & 0  \end{pmatrix}  \begin{pmatrix} 1/2 & -i/2 & 0 \\ - i /2 & 1/2 & 0 \\ 0 & 0 & 1  \end{pmatrix} \\
+               &= \begin{pmatrix} 0 & - \theta & 0 \\ \theta & 0 & 0  \\ 0 & 0 & 0  \end{pmatrix} \\ 
+               &= X. 
+\end{align*}
+Hence, we have 
+\begin{center}
+    \( X = P^{-1} D P  \) where \( D = \displaystyle \begin{pmatrix} - i \theta & 0 & 0 \\ 0 & i \theta &  0 \\ 0 & 0 & 0   \end{pmatrix}  \).
+\end{center}
+Since \( e^{X} = P e^{D} P^{-1} \), we obtain that 
+\begin{align*}
+    e^{X} &= P e^{D} P^{-1} \\
+          &= \begin{pmatrix} i & 1 & 0 \\ 1 & i & 0 \\ 0 & 0 & 1  \end{pmatrix}  \begin{pmatrix} e^{-i \theta } & 0 & 0 \\ 0 & e^{i \theta} & 0  \\  0 & 0 & 1  \end{pmatrix} \begin{pmatrix} 1/2 & -i/2 & 0 \\ -i/2 & 1/2 & 0 \\ 0 & 0 & 1  \end{pmatrix}  \\ 
+          &= \begin{pmatrix} i e^{-i \theta} & e^{i \theta} & 0 \\ e^{-i \theta} & i e^{i \theta} & 0 \\ 0 & 0 & 1  \end{pmatrix} \begin{pmatrix}  1/2 & - i / 2 & 0 \\ -i /2 & 1/2 & 0 \\ 0 & 0 & 1  \end{pmatrix} \\
+          &= \begin{pmatrix} \frac{ e^{-i \theta} - e^{i \theta} }{  2  }  & \frac{ - i e^{-i \theta} +  i e^{i \theta}  }{  2  }  & 0 \\ \frac{ i e^{-i \theta} - i e^{i \theta} }{  2  }  &  \frac{ e^{- i \theta} + e^{i \theta} }{  2  }  & 0  \\ 0 & 0 & 1  \end{pmatrix} \\
+          &= \begin{pmatrix} \frac{ e^{-i \theta} - e^{i \theta} }{  2  }  & \frac{ - ( i e^{i \theta} -   e^{-i \theta})  }{  2i  }  & 0 \\ \frac{  e^{i \theta} -  e^{-i \theta} }{  2i  }  &  \frac{ e^{- i \theta} + e^{i \theta} }{  2  }  & 0  \\ 0 & 0 & 1  \end{pmatrix} \\
+          &= \begin{pmatrix}  \cos \theta & - \sin \theta & 0 \\ \sin \theta & \cos \theta & 0 \\ 0 & 0 & 1  \end{pmatrix}. 
+\end{align*}
+Hence, we have that 
+\[ e^{X} = P e^{D} P^{-1} = \begin{pmatrix} \cos \theta & - \sin \theta & 0 \\ \sin \theta & \cos \theta & 0 \\ 0 & 0 & 1  \end{pmatrix}.  \]
+\end{solution}
+
+
+
+\begin{problem}
+    Let \( A \in O(n) \) and \( B \in M(n,\R)  \). Prove that \( \text{exp}(A B A^{T})  = A \text{exp}(B) A^{T}.\)
+\end{problem}
+\begin{proof}
+    One can prove via induction that \( \text{exp}(A B A^{T}) = \displaystyle \sum_{ m=0  }^{ \infty  } \frac{ (A B A^{T})^{m} }{ m! }  \). Using this fact, we obtain 
+    \begin{align*}
+        \text{exp}(A B A^{T}) = \sum_{ m= 0  }^{ \infty  } \frac{ (A B A^{T})^{m}  }{  m!  } &= \sum_{ m= 0  }^{ \infty  } \frac{ A B^{m} A^{T} }{ m!  }   \\
+                                                                                             &= \sum_{ m=0  }^{ \infty  } A \frac{ B^{m} }{ m!  }  A^{T} \\
+                                                                                             &= A \sum_{ m=0  }^{ \infty  } \frac{ B^{m} }{ m! }  A^{T} \\
+                                                                                             &= A \text{exp}(B) A^{T}.
+    \end{align*}
+    Now, we conclude that 
+    \[  \text{exp}(A B A^{T}) = A \text{exp}(B) A^{T}. \]
+\end{proof}
+
+\begin{problem}
+    Let \( G  \) be any of the matrix Lie groups that we have introduced as embedded submanifolds of \( \text{GL}(n,\F)  \). Prove that \( {T}_{I}G  \) is a linear subspace of \( \R^{k} \) where \( k = n^{2} \) if \( \mathbb{F} = \R  \) and \( k = 2 n^{2} \) if \( \F = \C  \). 
+\end{problem}
+\begin{proof}
+It suffices to show that \( {T}_{I}G \) is closed under addition and scalar multiplication.
+\begin{enumerate}
+    \item[(i)] \( {T}_{I}G \) is closed under addition. 
+
+        Let \( X,Y \in {T}_{I}G \). Then there exists smooth paths \( {f}_{1}(t), {f}_{2}(t) \in G  \) such that \( {f}_{1}(0) = I  \), \( {f}_{1}'(0) = X  \), \( {f}_{2}(0) = I  \), and \( {f}_{2}'(0) = X  \). Define \( {f}_{3}(t) = {f}_{1}(t) {f}_{2}(t) \). Then notice that  
+        \[  {f}_{3}'(t) = {f}_{1}'(t) {f}_{2}(t) + {f}_{2}'(t) {f}_{1}(t) \]
+        and so
+        \begin{align*}
+            {f}_{3}'(0) &= {f}_{1}'(0) {f}_{2}(0) + {f}_{2}'(0) {f}_{1}(0) \\
+                        &= XI + YI \\
+                        &= X + Y. 
+        \end{align*}
+        Thus, \( {f}_{3}'(0) = X +  Y \) and clearly \( {f}_{3}(0) = I  \) since 
+        \[  {f}_{3}(0) = {f}_{1}(0) {f}_{2}(0) = II = I.  \]
+        Therefore, we have \( X + Y \in {T}_{I}G \).
+    \item[(ii)] \( {T}_{I} G  \) is closed under scalar multiplication.
+
+        Let \( \alpha \in \F  \) and let \( X \in {T}_{I}G \). Then there exists a smooth path \( f(t) \) in \( G  \) such that \( f(0) = I  \) and \( f'(0) = X  \). Define \( g(t) = f(\alpha t) \). Using the chain rule, we get
+        \[  g'(t) = f'(\alpha t) \cdot \alpha \implies g'(0) = \alpha \cdot f'(0) = \alpha X  \]
+        and \( g(0) = f(\alpha \cdot 0 ) = f(0) = I  \). Hence, we see that \( \alpha X \in {T}_{I}G \).
+\end{enumerate}
+\end{proof}
+
+
+
+
+\begin{problem}
+    Let \( \F  \) denote either \( \R  \) or \( \C  \). Prove that the \textit{commutator bracket} \( [A,B] = AB - BA \) defines a Lie Bracket n the vector space \( M(n,\F) \). (Thus, \( M(n,\F)  \) equipped with this Lie Bracket is a Lie algebra, often denoted by \( \mathfrak{g} \mathfrak{l}(n, \F) \)).
+\end{problem}
+\begin{proof}
+\begin{enumerate}
+    \item[(i)] Let \( \alpha , \lambda \in \F  \) and let \( A, B , C  \in M(n,\F) \). Then
+        \begin{align*}
+            [\alpha A + \lambda B , C ]  &= (\alpha A + \lambda B ) C - C (\alpha A + \lambda B ) \\
+                                         &= \alpha (AC) + \lambda (BC) - C (\alpha A ) - C (\lambda B ) \\
+                                         &= \alpha (AC) + \lambda (BC) - \alpha (CA) - \lambda (CB) \\
+                                         &= \alpha [AC - CA ] + \lambda [BC - CB] \\
+                                         &= \alpha[A,C] + \lambda [B,C] \\
+        \end{align*}
+        Thus, we obtain
+        \[  [\alpha A + \lambda B, C ] = \alpha [A,C] + \lambda [B,C]. \]
+        A similar argument shows linearity in the second component. 
+    \item[(ii)] Observe that 
+        \[ [A,B] = AB - BA = - (BA - AB) = - [B,A]. \]
+    \item[(iii)] Let \( X,Y,Z  \in M(n,\F) \). Note that 
+        \begin{align*}
+            [X, [Y,Z]] &= X[Y,Z] - [Y,Z] X  \\
+                       &= X(YZ - ZY) - (YZ -ZY) X  \\
+                       &= X(YZ) - X(ZY) - (YZ)X + (ZY)X 
+        \end{align*}
+        Then we have 
+        \begin{align*}
+            [Y,[Z,X]] &= Y(ZX) - Y(XZ) - (ZX)Y + (XZ)Y \\
+            [Z,[X,Y]] &= Z(XY) - Z(YX) - (XY)Z + (YX)Z.
+        \end{align*}
+        Then we have 
+        \begin{align*}
+            &[X,[Y,Z]] + [Z,[X,Y]] + [Y, [Z,X]]  \\
+            &= X(YZ) - (XY)Z + (YX)Z - Y(XZ) + (XZ)Y - X(ZY) \\
+            &+Y(ZX) - (YZ)X + (ZY)X - Z(YX) + (ZX)Y - (ZX)Y \\
+            &= 0.
+        \end{align*}
+        Hence, \( [\cdot, \cdot ] \) satisfies the Jacobi Identity. Thus, we conclude that \( [A,B] = AB - BA \) defines a Lie Bracket on \( M(n,\F) \) where \( \F = \R  \) or \( \C  \).
+\end{enumerate}
+\end{proof}
+
+\begin{problem}
+    Let \( V  \) be a finite-dimensional real or complex vector space. Let \( \text{End}(V)  \) denote the vector space of all linear transformations from \( V  \) to  \( V  \). Prove that the \textit{commutator bracket} \( [f,g] = f \circ g - g \circ  f \) defines a Lie Bracket on the vector space \( \text{End}(V)  \). (Thus, \( \text{End}(V)   \) equipped with this Lie Bracket is a Lie Algebra, often denoted by \( \mathfrak{g} \mathfrak{l}(V) \) and called the \textit{general linear algebra of \( V \)}.) 
+\end{problem}
+\begin{proof}
+Let \( \alpha , \beta \in \F  \) and let \( f,g,h \in \text{End}(V)  \). 
+\begin{enumerate}
+    \item[(i)] (Bilinearity) For all \( x \in V  \), we have 
+\begin{align*}
+    [\alpha f + \beta g , h ](x) &= (\alpha f + \beta g ) \circ h (x) - (h \circ \alpha f + \beta g ) (x) \\ g
+                                 &= (\alpha f + \beta g ) (h(x)) - h((\alpha f + \beta g )(x)) \\
+                                 &= \alpha f (h(x)) + \beta g (h(x)) - h((\alpha f)(x) + (\beta g)(x)) \\
+                                 &= \alpha f (h(x)) + \beta g (h(x)) - h(\alpha f (x)) - h(\beta  g(x)) \\
+                                 &= \alpha f(h(x)) + \beta g(h(x)) - \alpha h(f(x)) - \beta h(g(x)) \\
+                                 &= \alpha (f \circ h)(x) + \beta(g \circ h)(x) - \alpha (h \circ f)(x) - \beta (h \circ g)(x) \\
+                                 &= \alpha [f \circ h - h \circ f](x) + \beta[g \circ h - h \circ g](x) \\
+                                 &= \alpha [f,h](x) + \beta [g,h](x).
+\end{align*}
+Hence, we conclude that
+\[  [\alpha f , \beta g , h ] = \alpha [f,h] + \beta [g,h]. \]
+A similar argument shows bilinearity for the second component.
+    \item[(ii)] (Skew-symmetric) Let \( f,g \in \text{End}(V)  \). Then 
+        \[  [f,g] = f \circ g - g \circ f  =  - (g \circ f - f \circ g) = -[g,f]. \]
+    \item[(iii)] Let \( f,g,h \in \text{End}(V)  \). Our goal is to show that
+        \[  [f,[g,h]] + [h,[f,g]] + [g,[h,f]] = 0  \]
+        Note that 
+        \begin{align*}
+            [f,[g,h]]  &= f \circ [g,h] - [g,h] \circ f \\
+                       &= f \circ (g \circ h - h \circ g) - (g \circ h - h \circ g) \circ f \\
+                       &= f \circ (g \circ h) - f \circ (h \circ g) - (g \circ h) \circ + (h \circ g) \circ f.
+        \end{align*}
+        Similarly, we have that 
+        \begin{align*}
+            [h,[f,g]] &= h \circ [f,g] - [f,g] \circ h \\
+                      &= h \circ [f \circ g - g \circ f] - [f \circ g  - g \circ f  ] \circ  h \\
+                      &= h \circ (f \circ g) - h \circ (g \circ f) - (f \circ g) \circ h  + (g \circ f) \circ h
+        \end{align*}
+        and
+        \begin{align*}
+            [g, [h,f]] &= g \circ [h,f] - [h,f] \circ g  \\
+                       &= g \circ [h \circ f - f \circ h] - [h \circ f - f \circ h] \circ g \\
+                       &= g \circ (h \circ f) - g \circ (f \circ h) - (h \circ f) \circ g + (f \circ h) \circ g.
+        \end{align*}
+        Then cancelling like terms and collecting, we arrive at 
+        \[  [f,[g,h]] + [h,[f,g]] + [g,[h,f]]  = 0. \]
+\end{enumerate}
+Hence, we conclude from above that \( [f,g] = f \circ g - g \circ f \) is a Lie Bracket on \( \text{End}(V)  \).
+\end{proof}
+
+\begin{problem}
+    Let \( G  \) be any of the matrix Lie groups that we have introduced as embedded submanifolds of \( \text{GL}(n,\F)  \). We know that \( {T}_{I}G \) is a vector space of matrices. Prove that if \( X,Y \in {T}_{I}G \), then \( [X,Y] = XY - Y X  \in {T}_{I}G \) and hence \( [X,Y] = XY- Y X \) is a Lie Bracket on \( {T}_{I}G \). (The space \( {T}_{I}G \) equipped with this Lie Bracket is the Lie Algebra of \( G  \), denoted by \( \text{Lie}(G)  \) or \( \mathfrak{g} \)).
+\end{problem}
+\begin{proof}
+    Suppose \( X,Y \in {T}_{I}G \). Our goal is to show that \( [X,Y] \in {T}_{I}G \). Since \( X,Y \in {T}_{I}G \), there exists smooth paths \( A(t)  \) and \( B(t) \) such that  
+    \[ A(0) = I  \ \ \text{and} \ \ B(0) = I  \]
+    and
+    \[  A'(0) = X  \ \ \text{and} \ \ B'(0) = Y.  \]
+    Define \( {C}_{S}(t) = A(s) B(t) A^{-1}(S) \) is also a smooth path in \( {T}_{I}G \). Hence, we see that for all \( s  \), \( {C}_{s}'(0) = {T}_{I}G \). Now, if we let \( V(s) = {C}_{s}'(0)   \), then \( V(s)   \) is a path inside \( {T}_{I}G \). Thus, in particular \( V'(0) = {T}_{I}G \). That is, 
+    \begin{align*}
+    &\frac{ d }{ ds }  \Big|_{s = 0} \Big[ \frac{ \partial  }{  \partial t  }  \Big|_{t = 0} A(s) B(t) A^{-1}(s) \Big] \in {T}_{I}G   \\
+    &= \frac{ d }{ ds }  \Big|_{s = 0 } \Big[ A(s) B'(0) A^{-1}(s) \Big] \\
+    &= A'(0) B'(0) A^{-1}(0) + A(0) B'(0) (A^{-1}(0))' \\
+    &= A'(0) B'(0) A^{-1}(0) + A(0) B'(0) [-A(0) A'(0) A^{-1}(0)] \\
+    &= XY I + I Y [-I X I^{-1}] \\
+    &= XY - YX \\
+    &= [X,Y].
+    \end{align*}
+    Hence, it follows that \( [X,Y] \in {T}_{I}G \).
+\end{proof}
+
+\begin{problem}
+    Consider the linear transformation \( T: \R^{3} \to \R^{3} \) defined by
+    \[  T(x,y,z) = (2x, x + 2y - z, x+ 3y - 2z). \]
+    \begin{enumerate}
+        \item Find the matrix of \( T  \) with respect to the standard basis \( \mathcal{E} = \{ {e}_{1}, {e}_{2}, {e}_{3} \}  \) of \( \R^{3} \).
+        \item Verify that the following vectors are eigenvectors of \( T  \): 
+            \[  {v}_{1} = (1,1,1), \ \ {v}_{2} = (0,1,1) \ \ {v}_{3} = (0,1,3).  \]
+        \item Let \( \mathcal{B}  = \{  {v}_{1}, {v}_{2}, {v}_{3} \}  \) be this basis of eigenvectors. Compute the matrix of \( T  \) with respect to \( \mathcal{B} \) and verify that is diagonal. (\textbf{Hint:} Use \( [T]_{\mathcal{B}} = P^{-1} [T]_{\mathcal{E}} P     \)) with the change of basis matrix \( P = P_{\mathcal{E} \leftarrow \mathcal{B}} = \begin{pmatrix} {v}_{1} & {v}_{2} & {v}_{3} \end{pmatrix}  \).
+    \end{enumerate}
+\end{problem}
+
+\begin{solution}
+\begin{enumerate}
+    \item Given \( {e}_{1} = (1,0,0), {e}_{2} = (0,1,0), {e}_{3} = (0,0,1) \), we have
+        \begin{align*}
+            &(x,y,z) = x {e}_{1} + y{e}_{2} + z {e}_{3} \\
+            &\implies T(x,y,z) = 2 x {e}_{1} + (x+ 2y - z) {e}_{2} + (x + 3y - 2z) {e}_{3}.
+        \end{align*}
+        Furthermore, we have 
+        \begin{align*}
+            T({e}_{1}) &= T(1,0,0) = (2,1,1) \\
+            T({e}_{2}) &= T(0,2,3) = (0,2,3) \\
+            T({e}_{3}) &= T(0,0,1) = (0,-1,-2).
+        \end{align*}
+        Using the above, we obtain the matrix representation of \( T  \) with respect to \( \mathcal{E} \):
+        \[  [T]_{\mathcal{E}} = \begin{pmatrix}  2 & 0 & 0 \\ 1 & 2 & -1 \\ 1 & 3 & -2  \end{pmatrix}.   \]
+\end{enumerate}
+\end{solution}
+
+
+
+
+\begin{lemma}
+    For any \( v \in L  \) where \( L  \) is a Lie Algebra, \( [v,v] = 0  \). 
+\end{lemma}
+\begin{proof}
+    Let \( v \in L  \). By the Skew-symmetric property of \( [\cdot, \cdot] \), it follows that 
+    \[  [v,v] = - [v,v] \implies 2[v,v] = 0 \implies [v,v] = 0.   \]
+\end{proof}
+
+\begin{problem}
+    A Lie Algebra is said to be \textit{abelian} if
+    \[  \forall x ,y \in L  \ \ [x,y] = 0.  \]
+    Prove that every one-dimensional Lie Algebra is abelian.
+\end{problem} 
+\begin{proof}
+    Let \( L  \) be a one-dimensional Lie Algebra. Our goal is to show that for all \( x,y \in L  \), \( [x,y] = 0 \). Let \( x,y \in L  \) be arbitrary. Since \( L  \) is a one-dimensional Lie Algebra, \( L  \) is a one-dimensional vector space. Let \( \beta = \{ v  \}  \) be a basis for \( L  \). Then \( x = {\alpha}_{1} v  \) and \( y = {\alpha}_{2} v  \) for some \( {\alpha}_{1} \) and \( {\alpha}_{2} \) in \( \F  \). Using the scaling property of the first and second component of the Lie Bracket, it follows that 
+    \[ [x,y] = [{\alpha}_{1}v, {\alpha}_{2} v  ] = {\alpha}_{1} {\alpha}_{2} [v,v] = {\alpha}_{1} {\alpha}_{2} \cdot 0 = 0.   \] 
+    Hence, we see that \( L  \) is abelian.
+\end{proof}
+
+\begin{problem}
+    Recall that a Lie Algebra is a set equipped with three extra structures: addition and scalar multiplication (giving it the structure of a vector space), and a bilinear operation called the Lie Bracket. With this in mind, how should one define a \textit{Lie Algebra Homomorphism} -- a structure-preserving map between two Lie Algebras?
+\end{problem}
+\begin{definition}[Lie Algebra Homomorphism]
+    Let \( \mathfrak{g} \) and \( \mathfrak{h} \) be two Lie Algebras over \( \F  \) with Lie Brackets \( [\cdot, \cdot]  \) and \( [\cdot, \cdot]' \), respectively. We say that the mapping \( \varphi : \mathfrak{g} \to \mathfrak{h} \) is a \textbf{Lie Algebra Homomorphism} if \( \varphi  \) is a linear map (i.e for all \( x,y \in \mathfrak{g}  \), for all \( \alpha \in \F  \) \( \varphi(\alpha x + y) = \alpha \varphi(x) + \varphi(y) \).) such that
+    \[  \varphi([x,y]) = [\varphi(x), \varphi(y)]' \ \ \forall x,y \in \mathfrak{g}.\]
+\end{definition}
+
+\begin{problem}
+    Let \( L  \) be a real or complex Lie Algebra. For each \( x \in L  \), define a linear map: 
+    \[ {\text{ad} }_{x} : L \to L  \ \ \ {\text{ad} }_{x}(y) = [x,y].\]
+\end{problem}
+\begin{enumerate}
+    \item Show that for every \( x \in L  \), the map \( {\text{ad} }_{x}: L \to L  \) is linear.
+        \begin{proof}
+            Let \( x \in  L \). Then by Bilinearity of \( [\cdot, \cdot] \), we have for all \( {y}_{1}, {y}_{2} \in L  \), we have 
+            \begin{align*}
+                {\text{ad}}_{x}({y}_{1} + {y}_{2}) &= [x, {y}_{1} + {y}_{2}] \\
+                                                   &= [x, {y}_{1}] + [x, {y}_{2}] \\
+                                                   &= {\text{ad} }_{x}({y}_{1}) + {\text{ad} }_{{y}_{2}}.
+            \end{align*}
+            Hence, we have 
+            \[ {\text{ad} }_{x}({y}_{1} + {y}_{2}) = {\text{ad} }_{x}({y}_{1}) + {\text{ad} }_{x}({y}_{2}). \tag{1} \]
+            Now, let \( \alpha \in \F  \). Then for all \( y \in L  \), we have
+            \[ \text{ad}_{x} (\alpha y) = [x, \alpha y ] = \alpha [x,y] = \alpha \text{ad}_x(y).   \]
+            Thus, 
+            \[ \text{ad}_x(\alpha y) = \alpha \cdot \text{ad}_x(y). \tag{2}  \]
+            Now, it follows from (1) and (2) that \( \text{ad}_x : L \to L  \) is linear.
+        \end{proof}
+    \item Define \( \text{ad}: L \to \mathfrak{g} \mathfrak{l} (L)  \ \ \ x \mapsto \text{ad}_x   \). 
+    Prove that \( \text{ad}  \) is a linear map and that it preserves the Lie Bracket 
+    \[ \forall x,y \in L \ \ \ [\text{ad}_x , \text{ad}_{y}    ]  = \text{ad}_{[x,y]}, \]
+    where the bracket on the left-hand side is the commutator bracket in \( \mathfrak{g} \mathfrak{l} (L) \), and the bracket on the right-hand side is the Lie Bracket of \( L  \).
+    \begin{proof}
+    We will prove the following properties:
+    \begin{enumerate}
+        \item[(1)] \( \text{ad}: L \to \mathfrak{gl}(L)    \) defined by \( x \mapsto \text{ad}_x  \) is linear
+        \item[(2)] \( \forall x,y \in L  \) \( [\text{ad}_x, \text{ad}_y   ] = \text{ad}_{[x,y]}  \).
+    \end{enumerate}
+    (1) Let \( x,y \in L  \). Then for all \( z \in L  \), we have 
+    \begin{align*}
+        [\text{ad}(x +y) ](z) = \text{ad}_{x + y}(z) &= [x+ y, z ]      \\
+                                                     &= [x,z] + [y,z] \\
+                                                     &= \text{ad}_x(z) + \text{ad}_y(z).  
+    \end{align*}
+    Then we see that 
+    \[ \text{ad}(x+y) = \text{ad}(x) + \text{ad}(y)      \]
+    since \( z \in L  \) is arbitrary. Now, let \( \alpha \in \F  \). Then we have for all \( z \in L  \), 
+    \begin{align*}
+        [\text{ad}(\alpha x ) ](z) = \text{ad}_{\alpha x } (z) = [\alpha x , z ] &= \alpha [x,z]  \\
+                                                                                 &= \alpha \text{ad}_x(z). 
+    \end{align*}
+    Hence, we see that \( \text{ad}: L \to \mathfrak{gl}(L)  \) is linear.
+
+    (2) Let \( x,y \in L  \). Then for all \( z \in L  \), it follows that 
+    \begin{align*}
+        [\text{ad}_x , \text{ad}_y  ](z) &= (\text{ad}_x \circ \text{ad}_y - \text{ad}_y  \circ \text{ad}_x    )(z) \\
+                                         &= (\text{ad}_x \circ \text{ad}_y  )(z) - (\text{ad}_y \circ \text{ad}_x)(z) \\
+                                         &= \text{ad}_x([y,z]) - \text{ad}_y([x,z]) \\  
+                                         &= [x,[y,z]] - [y,[x,z]].
+    \end{align*}
+    It suffices to show that 
+    \[  \text{ad}_{[x,y]}(z) =   [[x,y], z] - [[x,y], z ]. \]
+    We proceed to use the Jacobi-identity. That is,
+    \begin{align*}
+        &[y,[x,z]] + [z,[y,x]] + [x,[z,y]] = 0  \\
+        &\implies [z,[y,x]] + [x,[z,y]] = - [y,[x,z]] \\
+        &\implies [z, -[x,y]] + [x, [z,y]] = - [y,[x,z]] \\
+        &\implies -[-[x,y], z] + [x,[z,y]] = - [y, [x,z]] \\
+        &\implies [[x,y],z] + [x, - [y,z]] = - [ y, [x,z]] \\
+        &\implies [[x,y], z] - [x, [y,z]] = -[y, [x,z]].
+    \end{align*}
+    Thus, we have that for all \( z \in L  \), 
+    \begin{align*}
+        [\text{ad}_x, \text{ad}_y] &k= [x, [y,z]] + [[x,y], z] - [x, [y,z]] \\
+                                   &= [[x,y],z]   \\
+                                   &= \text{ad}_{[x,y]}(z) 
+    \end{align*}
+    Thus, we conclude that 
+    \[ [\text{ad}_x , \text{ad}_y   ] = \text{ad}_{[x,y]}(z).  \]
+    
+
+
+
+    \end{proof}
+\end{enumerate}
+
+
+\end{document}
+

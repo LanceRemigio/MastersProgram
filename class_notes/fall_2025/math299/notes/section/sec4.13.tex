@@ -1,0 +1,27 @@
+\begin{definition}[Closed Linear Operator]
+    Let \( X  \) and \( Y  \) be normed spaces and \( T : D(T) \to Y  \) a linear operator with domain \( D(T) \subseteq  X  \). Then \( T  \) is called a \textbf{linear operator} if its graph  
+    \[  \mathcal{G}(T) = \{ (x,y) : x \in D(T)  ,  y = Tx \}  \]
+    is closed in the normed space \( X \times Y  \), where the two algebraic operations of a vector space in \( X \times Y  \) are defined as usual, that is, 
+    \begin{align*}
+        ({x}_{1}, {y}_{1}) + ({x}_{2}, {y}_{2}) &= ({x}_{1} + {x}_{2} , {y}_{1} + {y}_{2}) \\
+        \alpha (x,y) &= (\alpha x , \alpha y)
+    \end{align*}
+    and the norm on \( X \times Y  \) is defined by
+    \[  \|(x,y)\|  = \|x \| + \|y\|. \]
+\end{definition}
+
+\begin{theorem}[Closed Graph Theorem]
+    Let \( X  \) and \( Y  \) be Banach spaces and \( T: D(T) \to Y  \) a closed linear operator, where \( D(T) \subseteq  X  \). Then if \( D(T) \) is closed in \( X  \), the operator \( T  \) is bounded.
+\end{theorem}
+
+\begin{theorem}[Closed Linear Operator]
+    Let \( T : D(T) \to Y  \) be a linear operator, where \( D(T) \subseteq X  \) and \( X  \) and \( Y  \) are normed spaces. Then \( T  \) is closed if and only if it has the following property. If \( {x}_{n} \to x  \), where \( {x}_{n} \in D(T) \), and \( T {x}_{n} \to y  \), then \( x \in D(T) \) and \( Tx = y  \).
+\end{theorem}
+
+\begin{lemma}[Closed Operator]
+    Let \( T: D(T) \to Y  \) be a bounded linear operator with domain \( D(T) \subseteq X  \), where \( X  \) and \( Y  \) are normed spaces. Then:
+    \begin{enumerate}
+        \item[(a)] If \( D(T)  \) is a closed subset of \( X  \), then \( T  \) is closed.
+        \item[(b)] If \( T  \) is closed and \( Y  \) is complete, then \( D(T)  \) is closed subset of \( X  \)
+    \end{enumerate} 
+\end{lemma}

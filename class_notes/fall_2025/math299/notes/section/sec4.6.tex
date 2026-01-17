@@ -1,0 +1,159 @@
+\subsection{Review}
+\begin{itemize}
+    \item Recall that the dual space of a normed space \( X  \) is the set of all continuous linear functionals that map elements from the normed space into some scalar field \( \F  \). That is, 
+        \[ X' = \{ f : X \to \F : \text{\( f \) is a continuous linear functional}  \}  \]
+    \item The double dual on the other hand is the set of all continuous linear functionals that map elements of the dual (which are itself the set of all continuous linear functionals) to the same scalar field \( \F \). In set notation, we have
+        \[  X'' = \{ F: X' \to \F : \text{\( F  \) is a continuous linear functional} \}.  \]
+    \item There is a natural way of relating a normed space with its double dual . This is done through the \textbf{canonical mapping} \( C  : X \to X'' \) which is defined by \( x \mapsto g_x \) where \( {g}_{x} \in X'' \). That is,
+        \[  {g}_{x}(f) = f(x)  \ \ f \in X'  . \tag{1}\]
+        Keep in mind here that the element \( x \in X  \) is fixed and gets evaluated by some element \( f  \) in the dual space \( X' \).
+    \item If \( f  \) is bounded, then \( {g}_{x} \) above will also be bounded.
+\end{itemize} 
+
+\subsection{Canonical Mapping}
+
+\begin{lemma}[Norm of \( g_x \)]\label{4.6-2} 
+   For every fixed \( x  \) in a normed space \( X  \), the functional \( {g}_{x}  \) defined by (1) is a bounded linear functional on \( X' \), so that \( {g}_{x} \in X'' \), and has the norm   
+   \[  \|{g}_{x}\| = \|x\|. \]
+\end{lemma}
+
+\begin{proof}
+    First, we show that \( {g}_{x} \) is linear. For all \( {f}_{1}, {f}_{2} \in X' \) and for all \( \alpha \in \F  \), we have 
+    \begin{align*}
+        {g}_{x}(\alpha {f}_{1} + {f}_{2}) &= (\alpha {f}_{1} + {f}_{2})(x) \\
+                                          &= (\alpha {f}_{1})(x) + {f}_{2}(x) \\
+                                          &= \alpha {f}_{1}(x) + {f}_{2}(x) \\
+                                          &= \alpha {g}_{x}({f}_{1}) + {g}_{x}({f}_{2}).
+    \end{align*}
+    Using {\hyperref[4.3-4]{Corollary 4.3-4}}, we get that 
+    \[  \|{g}_{x}\| = \sup_{\substack{f \in X' \\ f \neq 0 }} \frac{ | {g}_{x}(f) |  }{ \|f\| }  = \sup_{\substack{f \in X' \\ f \neq 0 }} \frac{ | f(x) |  }{ \|f\| }  = \|x\|.  \]
+\end{proof}
+
+\begin{definition}[Canonical Mapping]
+    For every \( x \in X  \), there exists a unique bounded linear functional \( {g}_{x} \in X'' \) given by the mapping \( C: X \to X'' \) by \( x \mapsto {g}_{x} \) which is called the \textbf{canonical mapping} of \( X  \) into \( X'' \).  
+\end{definition}
+
+\begin{lemma}[Canonical Mapping]
+  The canonical mapping \( C  \) given above is an isomorphism of the normed space \( X  \) onto the normed space \( R(C) \), the range of \( C  \).   
+\end{lemma}
+
+\begin{proof}
+    First, we prove that \( C  \) is linear. Let \( \alpha, \beta \in \F  \) and \( x,y \in X  \). Then
+    \[  {g}_{\alpha x + \beta y} (f) = f(\alpha x + \beta y) = \alpha f(x) + \beta f(y) = \alpha {g}_{x}(f) + \beta {g}_{y}(f). \]
+    In particular, we see that \( {g}_{x} - {g}_{y} = {g}_{x-y} \). Indeed, for all \( f \in X' \), we have 
+    \begin{align*}
+        ({g}_{x} - {g}_{y})(f) &= {g}_{x}(f) - {g}_{y}(f)  \\
+                               &= f(x) - f(y) \\
+                               &= f(x-y) \tag{\( f \) is linear} \\
+                               &= {g}_{x-y}(f).
+    \end{align*}
+    Hence, from the lemma at the beginning of this section, we have 
+    \[ \|{g}_{x} - {g}_{y}\|= \|{g}_{x-y}\| = \|x-y\| \]
+    which proves that \( C \) is an isometry and that \( C  \) is injective as a result. Hence, \( C  \) is bijective (surjectivity is readily seen from the above equality). 
+\end{proof}
+
+\begin{definition}[Embeddable]
+    We say that a normed space \( X  \) is \textbf{embeddable} in a normed space \( Z  \) if \( X  \) is isomorphic with a subspace of \( Z  \). (This is an isomorphism of normed spaces that preserves the norm defined on \( X  \))
+\end{definition}
+
+Note that \( C  \) is not always onto; that is, its range in general is a proper subspace of \( X'' \). When \( C  \) is onto, we say that \( X  \) is \textbf{reflexive}.
+
+\begin{definition}[Reflexivity]
+    A normed space \( X  \) is said to be \textbf{reflexive} if 
+    \[  R(C) = X'' \]
+    where \( C: X \to X'' \) is the canonical mapping that was defined previously.
+\end{definition}
+\begin{itemize}
+    \item Given a reflexive space \( X  \), we have \( X \cong X''  \) by {\hyperref[4.6-2]{lemma 4.6-2}}. 
+    \item Note that the converse of the above does not necessarily hold.
+\end{itemize}
+
+\begin{theorem}[Completeness]
+    If a normed space \( X  \) is reflexive, it is complete (hence a Banach space).
+\end{theorem}
+\begin{proof}
+    Since \( X'' \) is the dual space of \( X' \), it is complete by {\hyperref[2.10-4]{Theorem 2.10-4}}. Reflexivity of \( X  \) implies that \( R(C) = X'' \). Completeness of \( X  \) now follows that of {\hyperref[4.6-2]{lemma 4.6-2}}. Indeed, let \( ({x}_{n})  \) be a Cauchy sequence in \( X \). First, we will prove that \( {g}_{{x}_{n}}  \) is also a Cauchy sequence in \( X'' \). Indeed, we see this from {\hyperref[4.6-2]{lemma 4.6-2}}; that is,  
+    \[  \|{g}_{{x}_{n}} - {g}_{{x}_{m}}\| = \|{g}_{{x}_{n} - {x}_{m}}\| = \|{x}_{n} - {x}_{m}\| \longrightarrow 0 \ \text{as} \ n,m \longrightarrow \infty.  \]
+    Since \( X'' \) is complete, there exists a \( {g}_{x} \in X'' \) (via the canonical map \( x \mapsto {g}_{x} \)) such that \( {g}_{{x}_{n}} \to {g}_{x} \). That is, 
+    \[  \|{x}_{n} - x\| = \|{g}_{{x}_{n} - x}\| = \|{g}_{{x}_{n}} - {g}_{x}\| \longrightarrow 0 \ \text{as} \ n,m \longrightarrow \infty. \]
+\end{proof}
+
+ It follows from the fact that \( X  \) is a finite dimensional space that \( X  \) will be reflexive. An immediate example of this is \( \R^{n} \).
+
+ \begin{theorem}[Finite Dimension]
+     Every finite dimensional normed space is reflexive.
+ \end{theorem}
+
+ \begin{theorem}[Hilbert Space]
+     Every Hilbert space \( H  \) is reflexive.
+ \end{theorem}
+\begin{proof}
+    We will show that the canonical map \( C: H \to H'' \) is surjective, by showing that for every \( g \in H'' \), there exists an \( x \in H  \) such that \( Cx = g  \).
+
+    Define \( A : H' \to H  \) by \( Af = z  \), where \( z  \) is given by the Riesz representation \( f(x) = \langle x , z \rangle \) by {\hyperref[3.8-1]{Theorem 3.8-1}}. Note that \( z  \) depends on \( f  \) and is uniquely determined by \( f  \) and has norm \( \|z\| = \|f\| \). We see that \( A  \) is bijective, isometric, and conjugate linear. Note that \( H' \) has the inner product \( \langle {f}_{1} ,  {f}_{2} \rangle_{1} = \langle A {f}_{2} ,  A {f}_{1} \rangle \) verified back in section 3.1. 
+
+    Now, let's begin the proof by letting \( g \in H'' \) be arbitrary. Using the Riesz's representation, we get that 
+    \[  g(f) = \langle f  ,  {f}_{0} \rangle_1 = \langle A {f}_{0} ,  A f  \rangle. \tag{*} \]
+    Earlier we said that \( f(x) = \langle x , z \rangle  \) where \( z = A f  \). In particular, set \( A {f}_{0} = x  \), and so we have 
+    \[ \langle A {f}_{0} ,  A f  \rangle = \langle x  , z \rangle = f(z). \tag{**} \]
+    Now, (*) and (**) implies that \( g(f) = f(x) \) where \( g = C x   \) by definition of the Canonical map. Thus, \( C  \) must be surjective (that is, \( R(C) = H'' \)) and so \( H  \) is reflexive
+\end{proof}
+
+
+
+\begin{lemma}[Existence of a Functional]
+   Let \( Y  \) be a proper closed subspace of a normed space \( X  \). Let \( {x}_{0} \in X - Y  \) be arbitrary and  
+   \[  \delta = \inf_{\tilde{y} \in Y} \|\tilde{y} - {x}_{0}\| \]
+   the distance from \( {x}_{0}  \) to \( Y  \). Then there exists an \( \tilde{f} \in X' \) such that 
+   \[  \|\tilde{f}\| = 1 \ \ \ \tilde{f}(y) = 0 \ \forall y \in Y \ \ \ \tilde{f}({x}_{0})=  \delta. \]
+\end{lemma}
+
+ \begin{proof}
+    Consider the subspace \( Z = \text{span}(Y \cup \{ {x}_{0} \} ) \) and define a bounded linear functional \( f  \) on \( Z  \) by 
+    \[  f(z) = f(y + \alpha {x}_{0}) = \alpha \delta \]
+    where \( z = y + \alpha {x}_{0} \) is the unique representation of every element \( z  \) in \( Z  \). First, we show that \( f  \) is indeed linear. Let \( u,v \in Z \) and \( t \in \F \). Then we have  
+    \[  u = {y}_{1} + {\alpha}_{1} {x}_{0} \ \text{and} \ v = {y}_{2} + {\alpha}_{2} {x}_{0} \]
+    for some \( {y}_{1}, {y}_{2} \in Y  \) and \( {\alpha}_{1} , {\alpha}_{2} \in \F  \).
+    Then we have 
+    \begin{align*}
+        f(tu + v) &= f(t ({y}_{1} + {\alpha}_{1}{x}_{0}) + ({y}_{2} + {\alpha}_{2} {x}_{0}))   \\
+                  &= f((t {y}_{1} + {y}_{2}) + (t {\alpha}_{1} + {\alpha}_{2}) {x}_{0}) \\
+                  &= (t {\alpha}_{1} + {\alpha}_{2}) \delta \\
+                  &= t {\alpha}_{1} \delta + {\alpha}_{2} \delta \\
+                  &= t f(u) + f(v).
+    \end{align*}
+    Also, since \( Y  \) is closed, we have \( \delta > 0  \) so that \( f \neq 0  \). Now, \( \alpha = 0  \) gives \( f(y) = 0  \) for all \( y \in Y \). If \( \alpha = 1  \) and \( y = 0  \), we have \( f({x}_{0}) = \delta \). Now, we will show that \( f  \) is bounded on \( Z  \). Indeed, we will show that \( \|f\| = 1  \). Since \( Y  \) is a subspace, we know that \( -(1/\alpha)y \in Y \). We obtain from this the following result: 
+    \begin{align*}
+        | f(z) |  = | \alpha \delta |  &= | \alpha |  \delta \\
+                                       &= | \alpha | \Big\| - \frac{ 1 }{ \alpha }  y - {x}_{0} \Big\| \\
+                                       &= \|y + \alpha {x}_{0}\| \\
+                                       &= \|z\|.
+    \end{align*}
+    Hence, \( | f(z) |  \leq \|z\| \) and so 
+    \[  \frac{ | f(z) |  }{ \|z\| }  \leq  1 \implies \|f\| \leq 1 \]
+    where \( \|f\| = \sup_{\|z\|\neq0} \frac{ |f(z)| }{ \|z\| } \). Now, we need to show that \( \|f\| \geq 1  \). Indeed, using the definition of the infimum, we can find a sequence \( ({y}_{n}) \) such that \( \|{y}_{n} - {x}_{0}\| \to \delta \). Define \( {z}_{n} = {y}_{n} - {x}_{0} \). With this representation, we find \( f({z}_{n}) = - \delta \) with \( \alpha = -1  \). Hence, 
+    \[  \|f\| = \sup_{\substack{z \in Z \\ z \neq 0}} \frac{ | f(z) |  }{ \|z\| }  \geq \frac{ | f({z}_{n}) |  }{ \|{z}_{n}\| }  = \frac{ \delta }{ \|{z}_{n}\| } = \frac{ \delta }{  \|{z}_{n}\| }  \longrightarrow \frac{ \delta   }{  \delta }  = 1  \]
+    since \( \|{z}_{n}\| \to \delta \). Thus, \( \|f\| \geq 1  \) so that \( \|f\| = 1  \). Using the Hahn-Banach theorem for normed spaces, it follows that we can extend \( f  \) to \( X  \) without changing the norm.
+ \end{proof}
+
+\begin{theorem}[Separability]
+    If the dual space \( X' \) of a normed space \( X  \) is separable, then \( X  \) itself is separable.
+\end{theorem} 
+\begin{proof}
+Suppose \( X' \) is separable. Then the unit sphere \( U' = \{ f : \|f\| = 1  \} \subseteq  X'  \) also contains a countable dense subset \( ({f}_{n}) \). Since \( {f}_{n} \in U' \), it follows that  
+\[  \|{f}_{n}\| = \sup_{\|x\| = 1} | {f}_{n}(x) |  = 1.  \]
+Using the definition of the supremum, there exists a sequence \( ({x}_{n}) \) in \( X  \) with norm \( 1  \) such that \( | {f}_{n}(x) |  \geq \frac{ 1 }{ 2 }  \). 
+
+Let \( Y = \overline{\text{span}({x}_{n})}  \). Note that \( Y  \) is separable because \( Y \) contains a dense subset, namely, the set of all linear combinations of the \( {x}_{n}'s \) with coefficients whose real and imaginary parts are rational.  
+
+We need to show that \( Y = X  \). Suppose for contradiction that \( Y \neq X  \). Then since \( Y  \) is closed, we know (by {\hyperref[4.67]{Lemma 4.6-7}}) that there exists an \( \tilde{f} \in X' \) with \( \|\tilde{f}\| =1  \) and \( \tilde{f}(y) = 0  \) for all \( y \in Y  \). Since \( {x}_{n} \in Y  \) for all \( n \in \N \), we have \( \tilde{f}({x}_{n}) = 0  \) and so
+\begin{align*}
+    \frac{ 1 }{ 2 }  \leq | {f}_{n}({x}_{n}) |  &= | {f}_{n}({x}_{n}) - \tilde{f}({x}_{n}) |  \\
+                                                &= | ({f}_{n}-\tilde{f})({x}_{n}) |  \\
+                                                &= \|{f}_{n} - \tilde{f}\| \|{x}_{n}\|
+\end{align*}
+where \( \|{x}_{n}\| = 1  \). Thus, \( \|{f}_{n} - f\| \geq \frac{ 1 }{ 2 }  \), but note that we assume that \( ({f}_{n}) \) is dense in \( U' \) where \( \tilde{f} \) is in \( U' \) which is a contradiction. Hence, \( Y = X  \) and we are done.
+\end{proof}
+
+
+

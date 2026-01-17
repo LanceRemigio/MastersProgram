@@ -1,6 +1,5 @@
 \section{Week 11}
 
-
 \subsection{Opening Remarks with Exponential of a Matrix}
 
 \begin{remark}
@@ -210,3 +209,47 @@ When we equip \( {T}_{e}G  \) with this Lie bracket is called the Lie algebra of
 
 One way to create a Lie Algebra is to start with a Lie group and look at the tangent space at the identity of the Lie group and define a Lie Bracket on it.
 
+\subsection{Main Properties Of The Exponential}
+
+\begin{prop}[Properties]
+   Let \( X  \) and \( Y  \) be in \( M(n,\C) \). Then we have the following: 
+   \begin{enumerate}
+       \item[(1)] \( e^{O} = I  \);
+       \item[(2)] \( (e^{X})^{*} = e^{(X^{*})} \);
+       \item[(3)] If \( XY = YX \), then \( e^{X+Y} = e^{X} e^{Y} = e^{Y} e^{X} \);
+        \item[(4)] \( e^{X} \) is invertible and \( (e^{X})^{-1} = e^{-X} \);
+        \item[(5)] \( e^{(\alpha + \beta)X} = e^{\alpha X} e^{\beta X} \) for all \( \alpha, \beta \in \C \);
+        \item[(6)] \( \text{det}(e^{X}) = e^{\text{trace}(X)} \);
+        \item[(7)] The map \( t \mapsto e^{tX}  \) is a smooth path in \( M(n,\C) \) and
+            \[ \frac{ d }{ dt  }  (e^{tX}) = X e^{tX} = e^{tX} X  \]
+            In particular, \( \displaystyle \frac{ d }{ dt  } \Big|_{t=0}  e^{tX} = X  \).
+        \item[(8)] If \( t \mapsto A(t)  \) is a smooth path in \( GL(n,\C) \), then 
+            \[  \frac{ d }{ dt } \Big[\text{det}A(t)\Big] = (\text{det}A(t)) \text{trace}[A^{-1}(t) \cdot A'(t)]. \]
+   \end{enumerate}
+\end{prop}
+\begin{proof}
+    \begin{enumerate}
+        \item[(1)] Observe that 
+            \begin{align*}
+                e^{O} &= \sum_{ m=0 }^{ \infty  } \frac{ O^{m} }{ m! } = I + O + \frac{ O^{2} }{ 2! }  + \frac{ O^{3} }{ 3! }  + \cdots  = I.
+            \end{align*}
+        \item[(2)] Observe that 
+            \begin{align*}
+                (e^{X})^{*} &= \Big(  \sum_{ m=0 }^{ \infty  } \frac{ x^{m} }{ m! }  \Big)^{*} \\
+                            &= \Bigg(  \lim_{ N \to \infty  }  \sum_{ m=0 }^{ N } \frac{ X^{m} }{ m!  }  \Bigg)^{*} \\
+                            &= \lim_{ N \to \infty  } \Big(  \sum_{ m=0 }^{ N } \frac{ X^{m} }{ m! }  \Big)^{*}  \\
+                            &= \lim_{ N \to \infty  } \Big(  \sum_{ n=0 }^{ N } \Big( \frac{ X^{m} }{ m! }  \Big)^{*} \Big) \\
+                            &= \lim_{ N \to \infty  } \Big(  \sum_{ m=0 }^{ N } \frac{ (X^{*})^{m} }{ m! }  \Big) \\
+                            &= \sum_{ m=0 }^{ \infty  }\frac{ (X^{*})^{m} }{ m! }  \\
+                            &= e^{(X^{*})}.
+            \end{align*}
+            Note that the limit above can be interchanged because the complex conjugate \(  *: M(n,\C) \to M(n,\C) \) is a continuous function. Also, the second to last equality holds because for any \( A,B \in M(n,\C) \), we have \( (AB)^{*} = B^{*}A^{*} \) implies \( (X^{m})^{*} = (X^{*})^{m} \).
+        \item[(3)] It suffices to show that \( e^{X+Y} = e^{X} e^{Y} \) since then we would have \( e^{Y+X} = e^{Y} e^{X} \) and so \( e^{Y+X} = e^{X+Y} = e^{X} e^{Y} \). But the way we show the above is the same way done for showing that \( e^{x+y} = e^{x} e^{y} \) for \( x,y \in \R  \).
+        \item[(4)] From part (3), we see that \( X  \) and \( -X \) commute with one another. Thus, we have  
+            \[ e^{X} e^{-X} = e^{X + (-X)} = e^{O} = I.  \]
+            Hence, \( e^{X} \) is invertible and its inverse is \( e^{-X} \).
+        \item[(5)] Using part (3) again, we see that 
+            \[ e^{\alpha X} e^{\beta X} = e^{\alpha X + \beta X} = e^{(\alpha + \beta)X}. \]
+        \item[(6)]
+    \end{enumerate}
+\end{proof}
