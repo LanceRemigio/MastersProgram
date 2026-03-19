@@ -1,0 +1,227 @@
+\documentclass[a4paper]{article}
+\input{../../../../../newpreamble.tex}
+\title{Math 210B: Homework 1}
+\author{Lance Remigio}
+\begin{document}
+\maketitle
+
+\begin{problem}[Algebra Comp Fall 2021 Rings]
+   Let \( R  \) be a commutative ring with unity. An element \( a \in R  \) is called \textbf{nilpotent} if \( a^{n} = 0  \) for some \( n \in \N  \) that can depend on \( a  \). Let \( N \subseteq  R \) be the subset of all nilpotent elements of \( R  \). 
+   \begin{enumerate}
+       \item[(a)] Prove that \(  N \) is an ideal of \( R  \).
+           \begin{proof}
+           First, we show that \( N  \) is an additive subgroup of \( R  \). Note that \( N \neq \emptyset  \) because \( 0^{n} = 0  \) for any \( n \in \N \). Now, let \( x,y \in N  \) be arbitrary. Our goal is to show that \( x + (-y) \in N \) using the Binomial Theorem. Since \( x \in N  \) and \( y \in N  \), it follows that \( x^{n} = 0  \) and \( y^{m} = 0  \) for some \( n,m \in \N \), respectively. Then we have
+           \begin{align*}
+               (x + (-y))^{nm} &= (x - y)^{nm} = \sum_{ k =0  }^{ nm } \begin{pmatrix} \begin{pmatrix} n \\ k  \end{pmatrix}  x^{n-k} y^{k} \end{pmatrix}  \\
+                                              &= \begin{pmatrix} nm \\ 0  \end{pmatrix}  x^{nm} y^{0} + \begin{pmatrix} nm \\ 1  \end{pmatrix}  x^{nm - 1} y^{1} + \begin{pmatrix} nm  \\ 2  \end{pmatrix}  x^{nm - 2} y^{2} + \cdots \\  
+                                              &+ \begin{pmatrix} nm \\ nm - 1  \end{pmatrix} x^{1} y^{nm -1} + \begin{pmatrix} nm \\ nm \end{pmatrix}  x^{0} y^{nm} \\
+                                              &= \begin{pmatrix} nm \\ 0  \end{pmatrix}  (x^{n})^{m} y^{0} + \begin{pmatrix} nm \\ 1  \end{pmatrix}  (x^{n})^{m} \cdot x^{-1} + \begin{pmatrix} nm \\ 2  \end{pmatrix}  x^{nm} \cdot x^{-2} \cdot y^{2} \\
+                                              &+ \cdots + \begin{pmatrix} nm \\ nm - 1  \end{pmatrix}  x^{1} \cdot (y^{m})^{n} \cdot y^{-1} + \begin{pmatrix} nm \\ 2  \end{pmatrix} x^{0}  (y^{m})^{n} \\
+                                              &= 0 + 0 + 0 + \cdots + 0 + 0 \\
+                                              &= 0.
+           \end{align*}
+           This tells us that \( (x + (-y))^{nm}   = 0 \) and so \( x + (-y) \in N  \). Thus, we conclude that \( N  \) is an additive subgroup of \( R  \).
+
+           Now, we prove that \( N  \) is closed under multiplication. Let \( r \in R  \). Our goal is to show that for all \( r \in R  \), 
+           \begin{enumerate}
+               \item[(i)] \( rN \subseteq N  \),
+                \item[(ii)] \( Nr \subseteq N  \).
+           \end{enumerate}
+           Let \( r \in R  \) be arbitrary. 
+
+           (i) Let \( y \in r N  \). Then \( y = rx  \) for some \( x \in N  \). Since \( x \in N  \), \( x^{n} = 0  \) for some \( n \in \N  \). Since \( R  \) is a commutative ring, it can be shown via induction that for any \( k \in \N  \), \( (rs)^{k} = r^{k} s^{k} \) for all \( r,s \in R  \). In particular, we get that 
+           \[  y^{n} = (rx)^{n} = r^{n} x^{n} = r^{n} \cdot 0_R = 0_R. \]
+           Thus, it follows that \( y \in N \). 
+
+           (ii) Similarly, let \( y \in Nr \). Then \( y = zr \) for some \( z \in N  \). Since \( z \in N  \), there exists an \( m \in \N  \) such that \( z^{m} = 0  \). Then 
+           \[  y^{m} = (zr)^{m} = z^{m} r^{m} = {0}_{R} \cdot r^{m}  = {0}_{R}.\]
+           Thus, it follows that \( y \in N  \). Since \( N \) is closed under left and right multiplication, it follows that \( N \) must be an ideal of \( R  \).
+           \end{proof}
+        \item[(b)] Prove that the quotient ring \( R / N  \) contains no nonzero elements nilpotent elements.
+            \begin{proof}
+            Suppose for contradiction that \( R / N  \) contains nonzero nilpotent elements. That is, there exists at least one \( r + N \in R / N  \) where \( r + N \neq {0}_{R}  + N  \) such that \( (r + N)^{n} = {0}_{R} + N  \) for some \( n \geq 1  \). One can prove via induction that   
+            \[  (r + N)^{n} = r^{n} + N.  \]
+            Since \( (r+N)^{n} = {0}_{R} + N  \), \( r^{n} \in N  \) and so for some \( m \in \N  \), \( (r^{n})^{m} = {0}_{R} \). Furthermore, we see that 
+            \[  (r^{n})^{m} + N = (r^{n} + N )^{m} = ({0}_{R} + N)^{m} = {0}_{R} + N. \]
+            But this tells us that \( (r^{n} + N)^{m} = {0}_{R} + N  \) which is a zero nilpotent element of \( R / N  \), a contradiction.
+            \end{proof}
+   \end{enumerate}
+\end{problem}
+
+
+\begin{problem}[Section 7.2 Problem 17]
+   Let \( R  \) and \( S  \) be nonzero rings with identity and denote their respective identities by \( {1}_{R} \) and \( {1}_{S} \). Let \( \varphi : R \to S  \) be a nonzero homomorphism of rings.
+   \begin{enumerate}
+       \item[(a)] Prove that if \( \varphi({1}_{R}) \neq {1}_{S} \), then \( \varphi({1}_{R}) \) is a zero divisor in \( S  \). Deduce that if \( S  \) is an integral domain then every ring homomorphism from \( R  \) to \( S  \) sends the identity of \( R  \) to the identity of \( S  \). 
+           \begin{proof}
+           Our goal is to show that \( \varphi({1}_{R}) \) is a zero divisor in \( S  \). That is, we need to find a \( s \in S  \) that is nonzero such that either \( \varphi({1}_{R})\cdot s = {0}_{S} \) or \( s \cdot \varphi({1}_{R}) = {0}_{S} \). Since \( \varphi({1}_{R}) \neq {1}_{S} \), define \( s = \varphi({1}_{R}) - {1}_{S} \neq {0}_{S} \). Then observe that 
+           \begin{align*}
+               \varphi({1}_{R}) [\varphi({1}_{R}) - {1}_{S}] &= [\varphi({1}_{R})]^{2} - \varphi({1}_{R}) \\
+                                                             &= \varphi({1}_{R}^{2}) - \varphi({1}_{R}) \\
+                                                             &= \varphi({1}_{R}) - \varphi({1}_{R}) \\
+                                                             &= {0}_{S}.
+           \end{align*}
+           Hence, we conclude that \( \varphi({1}_{R}) \) is a zero divisor of \( S  \).
+
+           We proceed to prove the next result via contrapositive. That is, we want to show that \( S  \) is NOT an integral domain. To this end, we need to show that there exists an element \( s  \) in \( S  \) such that \( s \) is a zero divisor. From our assumption, there exists a ring homomorphism \( \psi : R \to S \) such that \( \psi({1}_{R}) \neq {1}_{S} \). Then by our previous result, \( \psi({1}_{R})  \) is a zero divisor in \( S  \); that is, \( s = \psi({1}_{R}) \neq 0  \). Hence, \( S  \) is not an integral domain.
+           \end{proof}
+        \item[(b)] Prove that if \( \varphi({1}_{R}) = {1}_{S} \), then \( \varphi(u)  \) is a unit in \( S  \) and that \( \varphi(u^{-1}) = \varphi(u)^{-1} \) for each unit \( u  \) of \( R  \).
+            \begin{proof}
+            Let \( u  \) be a unit in \( R  \). By definition, there exists a \( v \in R \) such that \( uv  = vu = {1}_{R} \). Since \( \varphi: R \to  S  \) is a homomorphism, it follows that 
+            \begin{align*}
+                &\varphi(uv) = \varphi({1}_{R}) = {1}_{S} \\
+                &\implies \varphi(u) \varphi(v) = {1}_{S} \\
+                &\implies \varphi(u) = [\varphi(v)]^{-1} 
+            \end{align*}
+            and
+            \begin{align*}
+                &\varphi(vu) = \varphi({1}_{R}) = {1}_{S} \\
+                &\implies \varphi(v)\varphi(u) = {1}_{S} \\
+                &\implies \varphi(u) = [\varphi(v)]^{-1}.
+            \end{align*}
+            This tells us that we must have \( [\varphi(v)]^{-1} = [\varphi(u)]^{-1}  \).
+            \end{proof}
+   \end{enumerate}
+\end{problem}
+
+\begin{problem}[Problem 18 Section 7.3]
+   \begin{enumerate}
+       \item[(a)] If \( I  \) and \( J  \) are ideals of \( R  \), prove that \( I \cap J  \) is also an ideal of \( R  \).
+           \begin{proof}
+               First, we show that \( I \cap J  \) is an additive subgroup of \( R  \). Since \( I  \) and \( J  \) are ideals of \( R  \), it follows that \( I  \) and \( J  \) are also additive subgroups. From 210A, we know that \( I \cap J  \) must also be an additive subgroup. 
+           Our goal is to show that for all \( r \in R  \)
+           \begin{enumerate}
+               \item[(i)] \( r (I \cap J) \subseteq I \cap J  \)
+                \item[(ii)] \( (I\cap J) r  \subseteq I \cap J  \)
+           \end{enumerate}
+           Let \( r \in R  \) be arbitrary.
+        
+           (i) Let \( y \in r (I \cap J) \). Then for some \( x \in I \cap J  \), \( y = rx \). Then \( x \in I  \) and \( x \in J  \) which implies that 
+           \[  y = rx \in rI \ \text{and} \ y = rx \in rJ.  \]
+           Since \( I \) and \( J  \) are ideals, it follows that \( rI \subseteq I  \) and \( rJ \subseteq J \). Hence, \( y \in I  \) and \( y \in J  \), implying that \( y \in I \cap J \). This tells us that \( r(I \cap J) \subseteq I \cap J \). 
+
+           (ii) Similarly, let \( y \in (I \cap J) r  \). Then for some \( z \in I \cap J  \), \( y = z r \). Since \( z \in  I \cap J  \), it follows that \( z \in I  \) and \( z \in J  \). This tells us that \( y \in I r  \) and \( z \in J r \).Since \( I  \) and \( J  \) are ideals, we have that \( Ir \subseteq I  \) and \( Jr \subseteq J \). Thus, we have 
+           \[  y \in Ir \cap Jr \subseteq I \cap J \implies y \in I \cap J.   \]
+           Therefore, \( (I \cap J) r \subseteq I \cap J \).
+
+           Thus, (i) and (ii) imply that \( I  \cap J \) must also be an ideal of \( R  \).
+           \end{proof}
+        \item[(b)] Prove that the intersection of an arbitrary nonempty collection of ideals is again an ideal.
+            \begin{proof}
+                Let \( \{ {I}_{\alpha} \}_{\alpha \in \Lambda}  \) be an arbitrary collection of ideals. Denote the arbitrary intersection as 
+                \[  I = \bigcap_{ \alpha \in \Lambda }^{  }  {I}_{\alpha}. \]
+                First, we show that \( I  \) is an additive group. Since each \( {I}_{\alpha} \) is an additive subgroup,it follows that each \( {I}_{\alpha} \neq \emptyset  \) and for all \( x,y \in {I}_{\alpha} \), \( x + (-y) \in {I}_{\alpha} \) for all \( \alpha \in \Lambda \). Hence, \( I \neq \emptyset  \) and that \( x + (-y) \in {I}_{\alpha}\), implying that \( I  \) is an additive group.
+                We need to show that for all \( r \in R  \), 
+                \begin{enumerate}
+                    \item[(i)] \( r I \subseteq I \),
+                    \item[(ii)] \( Ir \subseteq I \).
+                \end{enumerate}
+
+                (i) Let \( y \in rI \). Then for some \( x \in I  \), \( y = rx  \). Since \( I = \bigcap_{ \alpha \in \Lambda  }^{  } {I}_{\alpha} \), it follows that \( x \in {I}_{\alpha} \) for all \( \alpha \in \Lambda \). Thus, \( y \in r {I}_{\alpha}  \) for all \( \alpha \in \Lambda \). Since each \( {I}_{\alpha} \) is an ideal, we have \( r {I}_{\alpha} \subseteq {I}_{\alpha} \) for all \( \alpha \in \Lambda \). Then it follows that \( y \in {I}_{\alpha} \) for all \( \alpha \in \Lambda \). Thus, \( y \in I \) and so \( rI \subseteq I \).
+
+                (ii) Let \( y \in Ir \). Then for some \(  z \in I \), \( y = zr \). Since \( I = \bigcap_{ \alpha \in \Lambda  }^{  } {I}_{\alpha} \), it follows that \( z \in {I}_{\alpha}  \) for all \( \alpha \in \Lambda \). Thus, \( y \in {I}_{\alpha}r  \) for all \( \alpha \in \Lambda \). Since each \( {I}_{\alpha} \) is an ideal, we have \(  {I}_{\alpha}r \subseteq {I}_{\alpha} \) for all \( \alpha \in \Lambda \). Then it follows that \( y \in {I}_{\alpha} \) for all \( \alpha \in \Lambda \). Hence, \( y \in I  \) and so \( Ir \subseteq I  \).  
+
+                Now, (i) and (ii) implies that \( I \) must be an ideal of \( R  \). Thus, the arbitrary intersection of ideals must also be an ideal. 
+            \end{proof}
+   \end{enumerate} 
+\end{problem}
+
+\begin{problem}
+    Let \( \varphi : R \to S  \) be a ring homomorphism.
+    \begin{enumerate}
+        \item[(a)] Prove that if \( J  \) is an ideal of \( S  \), then \( \varphi^{-1}(J) \) is an ideal of \( R  \). Apply this to the special case when \( R  \) is a subring of \( S  \) and \( \varphi  \) is the inclusion homomorphism to deduce that if \( J  \) is an ideal of \( S  \), then \( J \cap R  \) is an ideal of \( R  \).
+            \begin{proof}
+            Note that since \( J  \) is an additive subgroup of \( S  \), it follows from one of our homeworks from last semester that \( \varphi^{-1}(J)  \) is an additive subgroup of \( R  \). Now, we need to show that \( \varphi^{-1}(J) \) is closed under multiplication. To this end, we need to show that for all \( r \in R  \), 
+            \begin{enumerate}
+                \item[(i)] \( r \varphi^{-1}(J) \subseteq \varphi^{-1}(J) \),
+                \item[(ii)] \( \varphi^{-1}(J) r \subseteq \varphi^{-1}(J) \)
+            \end{enumerate}
+            (i) Let \( y \in r \varphi^{-1}(J) \). Then for some \( x \in \varphi^{-1}(J) \), \( y = rx \). Since \( x \in \varphi^{-1}(J) \), we have \( \varphi(x) \in J \). Thus,
+            \[  \varphi(y) = \varphi(rx) = \varphi(r) \varphi(x) \in \varphi(r) J. \]
+            Since \( J  \) is an ideal, we have \( \varphi(r) J \subseteq J \). Hence, \( \varphi(y) \in J  \) implying that \( y \in \varphi^{-1}(J) \). Thus,  
+           \( r \varphi^{-1}(J) \subseteq \varphi^{-1}(J) \). 
+
+           (ii) Similarly, let \( y \in \varphi^{-1}(J) r  \). Then for some \( v \in \varphi^{-1}(J) \), we have \( y = vr \). Since \( v \in \varphi^{-1}(J)  \), it follows that \( \varphi(x) \in J \). Thus, 
+           \[  \varphi(y) = \varphi(vr) = \varphi(v) \varphi(r) \in J \varphi(r).  \]
+           Since \( J  \) is an ideal, it follows that \( J \varphi(r) \subseteq J  \). Hence, \( \varphi(y) \in J  \) and so \( y \in \varphi^{-1}(J) \). This tells us that 
+           \( \varphi^{-1}(J) r \subseteq \varphi^{-1}(J). \)
+
+           Suppose \( \varphi  \) is the inclusion map. That is, \( \varphi(x) = x  \) for all \( x \in R  \) and \( R \subseteq S  \). We need to show that for all \( r \in R  \), we have \( r(J \cap R ) \subseteq J \cap R  \) and \( (J \cap R ) r \subseteq J \cap R  \).
+
+           (i) Let \( y \in r ( J \cap R ) \) be arbitrary. By definition, we have that \( y = rx  \) for some \( x \in J \cap R  \). Thus, \( x \in J  \) and \( x \in R  \). Using \( \varphi \), it follows that \( x = \varphi(x) \in J  \), and so \( x \in \varphi^{-1}(J)  \). Since \( \varphi^{-1}(J) \) is an ideal, it follows that \( r \varphi^{-1}(J) \subseteq \varphi^{-1}(J)  \). By the inclusion map, we have 
+           \[ \varphi(y) = \varphi(rx) = rx \in r \varphi^{-1}(J) \subseteq \varphi^{-1}(J) \implies y = \varphi(y) \in J. \]
+           Since \( x \in R  \) and \( x \in J  \), it follows that \( x \in J \cap R  \). So, we have \( y \in J \cap R  \) and so \( r(J \cap R) \subseteq J \cap R \).
+
+           (ii) Let \( y \in (J \cap R) r  \). Then \( y = z r  \) for some \( z \in J \cap R  \). Now, \( z \in J \cap R  \) implies that \( z \in J  \) and \( z \in R  \). Note that by definition of the inclusion map, 
+           \[  \varphi(z) = z \in J \implies z \in \varphi^{-1}(J). \]
+           Since \( \varphi^{-1}(J) \) is an ideal, it follows that \( \varphi^{-1}(J) r \subseteq \varphi^{-1}(J) \). Thus, \( y \in \varphi^{-1}(J) r \subseteq \varphi^{-1}(J)  \). Thus, \( y \in \varphi^{-1}(J) \) which implies that \( \varphi(y) \in J  \) and so \( y \in J  \) (by definition of the inclusion map). Since \( z \in J \cap R  \), it follows that \( y \in R  \). Thus, \( y \in J \cap R  \) and so \( (J \cap R ) r \subseteq J \cap R  \). 
+
+           Now, (i) and (ii) imply that \( J \cap R  \) is an ideal of \( R  \). 
+            \end{proof}
+        \item[(b)] Prove that if \( \varphi \) is surjective and \( I  \) is an ideal of \( R  \), then \( \varphi(I) \) is an ideal of \( S  \). Give an example where this fails if \( \varphi  \) is not surjective.
+            \begin{proof}
+            Since \( I  \) is an ideal of \( R  \), we know that, since \( \varphi  \) is a surjective homomorphism, \( \varphi(I) \) is also a additive subgroup of \( S  \). Now, we will show that \( \varphi(I) \) is closed under multiplication. Our goal is to show that for all \( s \in S  \),  
+            \begin{enumerate}
+                \item[(i)] \( s \varphi(I) \subseteq \varphi(I) \),
+                \item[(ii)] \( \varphi(I) s \subseteq \varphi(I) \).
+            \end{enumerate}
+            Let \( s \in S  \) be arbitrary. Let \( y \in s \varphi(I) \). Then             \( y = sv  \) for some \( v \in \varphi(I) \). Since \( v \in \varphi(I) \), there exists a \( u \in I  \) such that \( v = \varphi(u) \). Since \( s \in S  \) and \( \varphi   \) is surjective, it follows that there exists a \( t \in R  \) such that \( \varphi(t) = s  \). Then
+            \[  y = sv = \varphi(s) \varphi(u) = \varphi(tu) \implies y = \varphi(tu). \]
+            Since \( I \) is an ideal, it follows that \( t I \subseteq  I  \). Thus, \( ut \in tI \) implies that \( ut \in I  \). This tells us that \( y \in \varphi(I) \) and so \( s \varphi(I) \subseteq \varphi(I) \). 
+
+            Now, let \( y \in \varphi(I) s \). Then \( y = ws  \) for some \( w \in \varphi(I) \). Since \( w \in \varphi(I) \), there exists a \( z \in I  \) such that \( \varphi(z) = w  \). Since \( s \in S  \) and \( \varphi  \) is surjective, there exists \( t \in R  \) such that \( \varphi(t) = s  \). Thus,
+            \[  y = ws = \varphi(z) \varphi(t) = \varphi(zt). \]
+
+            Now, we claim that \( zt \in I  \). Notice that \( zt \in I t \). Since \( I  \) is an ideal, we have \( It \subseteq I  \), implying that \( zt \in I  \). Hence, \( y \in \varphi(I) \) and so \( \varphi(I) s \subseteq \varphi(I) \). 
+
+            Now, (i) and (ii) imply that \( \varphi(I) \) is an ideal in \( S  \).
+            \end{proof}
+    \end{enumerate}
+\end{problem}
+
+\begin{problem}[Exercise 26 from 7.3]
+   The \textbf{characteristic} of a ring \( R  \) is the smallest positive integer \( n  \) such that \( 1 + 1 + \cdots + 1 = 0  \) (\( n  \) times) in \( R  \); if no such integer exists the characteristic of \( R  \) is said to be \( 0  \). 
+   \begin{enumerate}
+       \item[(a)] Given that the map \( \Z \to R  \) defined by
+           \[  k \longmapsto 
+           \begin{cases}
+               1 + 1 + \cdots + 1 \ (k \ \text{times}) &\text{if} \ k > 0 \\ 
+               0 &\text{if} \ k = 0 \\
+               -1 -1 - 1 \cdots - 1 (k \text{times}) &\text{if} \ k < 0 
+           \end{cases}  \]
+           is a ring homomorphism, prove that its kernel is \( n \Z  \), where \( n \) is the characteristic of \( R  \).
+           \begin{proof}
+               Notice that 
+           \begin{align*}
+               \text{ker}(\varphi) &= \{ k \in \Z : \varphi(k) = 0  \}  \\
+                                   &= \{ k \in \Z : \underbrace{1 + 1 + \cdots + 1}_{k \ \text{times}}  = 0  \}  \\
+                                   &= \{ k \in \Z : k = 0  \}  \\
+                                   &= \{ k \in \Z : n k  = 0  \} \tag{in \( \Z / n /\Z  \)}  \\
+                                   &= \{ nk : k \in \Z  \}  \\
+                                   &= n \Z.
+           \end{align*}
+           \end{proof}
+       \item[(b)] Determine the characteristics of the rings \( \Q , \Z[x], \Z/ n \Z [x] \).
+           \begin{solution}
+            \( \Q  \) is characteristic zero, \( \Z[x]  \) is characteristic zero since \( \Z  \) is characteristic zero, and \( \Z / n /Z  \) is characteristic \( n  \).
+           \end{solution}
+        \item[(c)] Prove that if \( p  \) is a prime and if \( R  \) is a commutative ring of characteristic \( p  \), then \( (a+b)^{p} = a^{p} + b^{p} \) for all \( a,b \in R  \).
+            \begin{proof}
+            By the Binomial Theorem and the fact that \(  p  \) is the characteristic of \( R  \), it follows that  
+            \begin{align*}
+                &(a + b)^{p} = \sum_{ k=0  }^{ p  } \begin{pmatrix} p \\ k  \end{pmatrix} a^{k} b^{p-k} \\
+                            &= \begin{pmatrix} p \\ 0  \end{pmatrix}  a^{0} b^{p} + \begin{pmatrix} p \\ 1  \end{pmatrix} a b^{p-1} + \begin{pmatrix} p \\ 2   \end{pmatrix} a^{2} b^{p-2} + \cdots + \begin{pmatrix} p \\ p - 1  \end{pmatrix} a^{p-1} b^{1}  + \begin{pmatrix} p \\ p  \end{pmatrix}  a^{p} b^{0}  \\
+                            &= b^{p} + \underbrace{(pa) b^{p-1} + \frac{ p (p-1) }{ 2 } a^{2} b^{p-2} + \cdots + p a^{p-1} b^{1}}_{0} + a^{p} \tag{\( R  \) has characteristic \( p \)}  \\
+                            &= b^{p} + a^{p}  \\
+                            &= a^{p} + b^{p} \tag{addition is commutative}
+            \end{align*}
+            Thus, we conclude that 
+            \[  (a + b)^{p} = a^{p} + b^{p}. \]
+            \end{proof}
+   \end{enumerate}
+\end{problem}
+
+
+
+\end{document}
+

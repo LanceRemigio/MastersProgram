@@ -1,0 +1,211 @@
+\documentclass[a4paper]{article}
+\input{../../../../../newpreamble.tex}
+\title{Homework 1}
+\author{Lance Remigio}
+\begin{document}
+\maketitle
+\lhead{Math 220 Homework 1}
+\chead{Lance Remigio}
+\rhead{\thepage}
+\begin{problem}[Examples Of Metric Spaces]
+   Prove that the following are metric spaces 
+   \begin{enumerate}
+       \item[(i)] \( (\R^{n}, {d}_{\infty })  \) where \( {d}_{\infty }(x,y) = \max_{1 \leq i \leq n} | {x}_{i} - {y}_{i} |  \) for all \( x,y \in \R^{n} \). 
+           \begin{proof}
+               Notice that for all \( x,y \in \R^{n} \), \( {d}_{\infty }(x,y) \geq 0  \) (that is, \( \max_{1 \leq i \leq n } | {x}_{i} - {y}_{i} |  \geq 0  \)) because \( | {x}_{i} - {y}_{i} |  \geq 0  \) for all \( 1 \leq i \leq n  \). 
+            \begin{enumerate}
+                \item[(I)] Let \( x,y \in \R^{n} \) be such that \( {d}_{\infty }(x,y) = 0  \). Then this holds if and only if
+                    \begin{align*}
+                        \max_{1 \leq i \leq n } | {x}_{i} - {y}_{i} | = 0  &\iff | {x}_{i} - {y}_{i} |  = 0  \ \ \forall 1 \leq i \leq n  \\
+                                                                           &\iff {x}_{i} = {y}_{i} \ \ \forall  1 \leq i \leq n \\
+                                                                           &\iff x = y.                    
+                    \end{align*}
+            \item[(II)] Observe that for all \( x,y \in \R^{n} \), we have 
+                \[  {d}_{\infty }(x,y) = \max_{1 \leq i \leq n} | {x}_{i} - {y}_{i} |  = \max_{1 \leq i \leq n } | {y}_{i} - {x}_{i} |  = {d}_{\infty }(y,x). \]
+            \item[(III)] Let \( x,y,z \in \R^{n} \). Observe that for all \( 1 \leq i \leq n  \) 
+                \begin{align*}
+                    | {x}_{i} - {z}_{i} | &\leq | {x}_{i} - {y}_{i} | + | {y}_{i} - {z}_{i} |   \\
+                                          &\leq \max_{1 \leq i \leq n } | {x}_{i} - {y}_{i} |  + \max_{1 \leq i \leq n} | {y}_{i} - {z}_{i} |. 
+                \end{align*}
+                Thus, 
+                \[  | {x}_{i} - {z}_{i} |  \leq \max_{1 \leq i \leq n } | {x}_{i}- {y}_{i} |  + \max_{1 \leq i \leq n} | {y}_{i} - {z}_{i} |. \tag{1}  \]
+                Notice that the right-hand side above is an upper bound for the set 
+                \[  \{ 1 \leq i \leq n : | {x}_{i} - {z}_{i} |  \}. \]
+                Thus, (1) implies that 
+                \[  \max_{1 \leq i \leq n} | {x}_{i} - {z}_{i} | \leq \max_{1 \leq i \leq n } | {x}_{i}- {y}_{i} |  + \max_{1 \leq i \leq n} | {y}_{i} - {z}_{i} |.  \]
+                By definition of \( {d}_{\infty } \), we obtain 
+                \[  {d}_{\infty }(x,z) \leq {d}_{\infty }(x,y) + {d}_{\infty }(y,z). \]
+
+            \end{enumerate}
+            From (I) - (III), we can conclude that \( (\R^{n}, {d}_{\infty })  \) is a metric space.
+           \end{proof}
+       \item[(ii)] \( (C([a,b]), {d}_{\infty }) \) where \( {d}_{\infty }(f,g) = \sup_{t \in [a,b]} | f(t) - g(t) |  \) for all  \( f,g \in C([a,b]) \).
+           \begin{proof}
+               Notice that for all \( t \in [a,b]  \), \( | f(t) - g(t) |  \geq 0  \) and so 
+               \[ \sup_{t \in [a,b]} | f(t) - g(t) |  \geq 0 \implies {d}_{\infty} (f,g) \geq 0.  \]
+               \begin{enumerate}
+                   \item[(I)] Let \( f,g \in  C([a,b]) \) be such that \( {d}_{\infty}(f,g) = 0  \). This holds if and only if
+                       \begin{align*}
+                           \sup_{t \in [a,b]} | f(t) - g(t) |  = 0 &\iff | f(t) - g(t) |  = 0 \ \ \forall t \in [a,b] \\
+                                                                   &\iff f(t) = g(t) \ \ \forall t \in [a,b] \\
+                                                                   &\iff f = g.
+                       \end{align*}
+                   \item[(II)] Observe that for all \( f,g \in C([a,b]) \), we have   
+                       \[ {d}_{\infty }(f,g) = \sup_{t \in [a,b]} | f(t) - g(t) |  = \sup_{t \in [a,b]} | g(t) - f(t) |  = {d}_{\infty }(g,f). \]
+                   \item[(III)] Let \( f,g,h \in C([a,b]) \). Using the triangle inequality on the standard metric \( | \cdot |  \) of \( \R  \), we get that for all \( t \in [a,b] \)
+                       \begin{align*}
+                           | f(t) - g(t)  |  &\leq | f(t) - h(t) |  + | h(t) - g(t) |  \\  
+                                             &\leq \sup_{t \in [a,b]}| f(t) - h(t) |  + \sup_{t \in [a,b]} | h(t) - g(t) |  \\
+                                             &= {d}_{\infty}(f,h) + {d}_{\infty }(h,g).
+                       \end{align*}
+
+                       Thus, we get
+                       \[  | f(t) - g(t) | \leq {d}_{\infty }(f,h) + {d}_{\infty }(h,g). \]
+                       Since the right-hand side of the above inequality is an upper bound for the set 
+                       \[  \{ t \in [a,b] : | f(t) - g(t) |  \} \]
+                    we get that 
+                    \[  \sup_{t \in [a,b}| f(t) - g(t) |  \leq {d}_{\infty }(f,h) + {d}_{\infty }(h,g);  \]
+                    that is, 
+                    \[  {d}_{\infty }(f,g) \leq {d}_{\infty}(f,h) + {d}_{\infty }(h,g). \]
+                    From (I) - (III), we can conclude that \( (C([a,b]), {d}_{\infty })  \) is a metric space.
+               \end{enumerate}
+           \end{proof}
+   \end{enumerate}
+\end{problem}
+
+\begin{problem}[Examples of Open Sets in Metric Spaces]
+   \begin{enumerate}
+       \item[(i)] Let \( X \neq \emptyset  \) and \( d  \) be the discrete metric on \( X  \). Prove that any subset of \( X  \) is open.
+           \begin{proof}
+           Let \( A  \) be any subset of \( X  \). Our goal is to show that for all \( a \in A  \), there exists an \( {r}_{a} > 0  \) such that \( {B}_{{r}_{a}}(a) \subseteq A \). To this end, let \( a \in A  \).  Define \( r  = 1  \) which is clearly positive. Now, we claim that \( {B}_{{r}_{a}}(a) \subseteq  A  \). Let \( x \in  {B}_{{r}_{a}}(a) \) be arbitrary. By definition of the discrete metric, if \( d(a,x) = 1  \), then we have \( 1 < 1  \) which is a contradiction. The only other case for which \( d(x,a) < 1  \) is when \( d(a,x) = 0  \). But this tells us that \( x = a  \) and so \( x \in A  \). Hence, \( {B}_{{r}_{a}}(a) \subseteq A \) and so \( A  \) must be an open set. 
+           \end{proof}
+       \item[(ii)] Prove that \( \{ ({x}_{1}, {x}_{2}) \in \R^{2} : 0 < {x}_{1} < 1  \}  \) is open in \( (\R^{2}, {d}_{\infty })  \) where \( {d}_{\infty }(x,y) = \max_{i=1,2} | {x}_{i} - {y}_{i} |  \) for all \( x,y \in \R^{2} \).
+           \begin{proof}
+           Set \( A =  \{ ({x}_{1}, {x}_{2}) \in \R^{2} : 0 < {x}_{1} < 1  \}   \). To show that \( A  \) is open, we need to show that for all \( ({x}_{1}, {x}_{2}) \in A  \), there exists \( \delta > 0  \) such that \( {B}_{\delta}\big( ({x}_{1}, {x}_{2}) \big) \). Let \( ({x}_{1}, {x}_{2}) \in A  \). Define \( \delta = \min \{  1 - {x}_{1}, {x}_{1} \}  \). Since \( 0 < {x}_{1} < 1   \), we know that \( 1 - {x}_{1} > 0  \) and \( {x}_{1} > 0  \) and so \( \delta > 0 \). From here, we claim that \( {B}_{\delta}\big( ({x}_{1}, {x}_{2}) \big) \subseteq A  \). To this end, let \( ({y}_{1}, {y}_{2}) \in {B}_{\delta}\big( ({x}_{1}, {x}_{2}) \big) \). Then we have 
+        \begin{align*}
+            {d}_{\infty } \Big( ({x}_{1}, {x}_{2}), ({y}_{1}, {y}_{2}) \Big) < \delta &\iff \max_{i = 1,2} | {x}_{i} - {y}_{i} | < \delta.
+        \end{align*}
+        This tells us that 
+        \[ | {x}_{1} - {y}_{1} |  \leq \max_{i = 1,2} | {x}_{i} - {y}_{i} |  < \delta \implies | {x}_{1} - {y}_{1}  | < \delta. \]
+        Then we get
+        \[ {x}_{1} - \delta < {y}_{1} < {x}_{1} + \delta.  \]
+        Since \( \delta < {x}_{1} \) and \( \delta < 1 - {x}_{1} \), we get that 
+        \[  0 = {x}_{1} - {x}_{1} < {x}_{1} - \delta < {y}_{1} < {x}_{1} + \delta < {x}_{1} + (1- {x}_{1}) = 1. \]
+        Thus, we have \( 0 < {y}_{1} < 1  \) and so \( ({y}_{1}, {y}_{2}) \in A  \). Therefore, \( {B}_{\delta}\big( ({x}_{1}, {x}_{2})  \big) \subseteq A  \) and so \( A  \) is open.
+           \end{proof}
+        \item[(iii)] Prove that \( \{ ({x}_{1}, {x}_{2}) \in \R^{2} : {x}_{2} > 0  \}   \) is open in \( (\R^{2}, {d}_{1}) \) where \( {d}_{1}(x,y) = \sum_{ i=1  }^{ 2 } | {x}_{i} - {y}_{i} |   \) for all \( x,y \in \R^{2} \).
+            \begin{proof}
+            Set \( A = \{  ({x}_{1}, {x}_{2}) \in \R^{2} : {x}_{2} > 0  \}  \). Our goal is to show that for all \( ({x}_{1}, {x}_{2}) \in A  \), there exists a \( \delta > 0  \) such that \( {B}_{\delta}\big( ({x}_{1}, {x}_{2}) \big) \subseteq  A  \). Define \( \delta = {x}_{2} \). To this end, let \( ({y}_{1}, {y}_{2}) \in {B}_{\delta}\big(({x}_{1},{x}_{2})\big) \). To show that \( ({y}_{1}, {y}_{2}) \), we need to show that \( {y}_{2} > 0  \). We get that  
+            \begin{align*}
+                ({y}_{1}, {y}_{2}) \in {B}_{\delta}\big(({x}_{1}, {x}_{2})\big) &\iff {d}_{1}\big(({x}_{1}, {x}_{2}), ({y}_{1}, {y}_{2})\big) < \delta \\
+                                                                                &\iff \sum_{ i=1  }^{ 2 } | {x}_{i} - {y}_{i} | < \delta \\
+                                                                                &\iff | {x}_{1} - {y}_{1}  |  + | {x}_{2} - {y}_{2} |  < \delta.
+            \end{align*}
+            Since \( | {x}_{2} - {y}_{2} |  \leq | {x}_{1} - {y}_{1} |  + | {x}_{2} - {y}_{2} |  \), we have \( | {x}_{2} - {y}_{2}  | < \delta \) and so 
+            \begin{align*}
+                {x}_{2} - \delta < {y}_{2} < {x}_{2} + \delta &\implies {y}_{2} > {x}_{2} - \delta = {x}_{2} - {x}_{2} = 0.   \\
+                                                              &\implies {y}_{2} > 0.
+        \end{align*}
+        Hence, we get that \( ({y}_{1}, {y}_{2}) \in A  \) and so \( A  \) is open.
+            \end{proof}
+   \end{enumerate} 
+\end{problem}
+
+\begin{problem}
+   Determine whether the following sets are open and prove your claims. 
+   \begin{enumerate}
+       \item[(i)] \( \{ ({x}_{1}, {x}_{2}) \in \R^{2} : {x}_{2} \leq 1  \}   \) in \( (\R^{2}, {d}_{\infty })  \) where \( {d}_{\infty }(x,y) = \max_{i = 1,2} | {x}_{i} - {y}_{i} |   \) for all \( x,y \in \R^{2} \).
+           \begin{proof}
+           We claim that the set above is not open. Consider the point \( (0,1) \). Note that for all \( r > 0  \), \( 1 + r > 1  \). Hence, \( {B}_{r}\big(({x}_{1}, {x}_{2})\big) \not\subseteq \{ ({x}_{1}, {x}_{2}) \in \R^{2} : {x}_{2} \leq 1  \}  \). Thus, \( \{ ({x}_{1}, {x}_{2}) \in \R^{2} : {x}_{2} \leq 1  \}  \) is not an open set in \( \R^{2} \).
+           \end{proof}
+        \item[(ii)] \(  \displaystyle \bigcap_{ n \in \N  }^{  }  \Big( \frac{ 1 }{ n^{2}  }  , 2  \Big) \) in \( \R  \) equipped with the Euclidean metric.
+            \begin{proof}
+            We claim that the intersection above is open. That is, we claim that 
+            \[  \bigcap_{ n \in \N  }^{  }  \Big( \frac{ 1 }{ n^{2} } , 2  \Big) = (1,2) \]
+            where \( (1,2) \) is an open set. We proceed via double inclusion. 
+
+            Let \( x \in \bigcap_{ n \in \N  }^{  }  \Big( \frac{ 1 }{ n^{2} } , 2  \Big) \). Then for all \( n \in \N  \), \( x \in \Big( \frac{ 1 }{ n^{2} }  , 2  \Big) \). In particular, for  \( n = 1  \), \( x \in (1 , 2 ) \). Hence, we conclude that 
+            \[  \bigcap_{ n \in \N  }^{}   \Big( \frac{ 1 }{ n^{2} } , 2  \Big) \subseteq (1,2). \tag{1}  \]
+            Let \( x \in (1,2) \). Since for all \( n \in \N  \) \( \frac{ 1 }{ n^{2} < 1  }  \), we obtain
+            \[  \frac{ 1 }{ n^{2} }  < 1 < x < 2  \]
+            which implies that \( x \in \Big( \frac{ 1 }{ n^{2} } , 2  \Big) \). Thus, we get
+            \[  (1,2) \subseteq \bigcap_{ n \in \N  }^{  }  \Big( \frac{ 1 }{ n^{2} }  ,2  \Big). \tag{2} \]
+            Now, (1) and (2) imply that \( \bigcap_{ n \in \N  }^{  }  \Big( \frac{ 1 }{ n^{2} } , 2  \Big) \) is indeed an open set in \( \R  \).
+            \end{proof}
+   \end{enumerate}
+\end{problem}
+
+\begin{problem}[In a Metric Space, open balls are open indeed]
+    Let \( (X,d) \) be a metric space, \( {x}_{0} \in X  \), \( r > 0  \). Prove that \( {B}_{r}({x}_{0}) \) is open.
+\end{problem}
+\begin{proof}
+Our goal is to show that for all \( x \in {B}_{r}({x}_{0}) \), there exists a \( {r}_{x} > 0  \) such that \( {B}_{{r}_{x}}(x) \subseteq {B}_{r}({x}_{0}) \). To this end, let \( x \in {B}_{r}({x}_{0})  \) be arbitrary. Consider the radius \( {r}_{x} = r - d(x, {x}_{0}) \). Since \( x  \) lies inside \( {B}_{r}({x}_{0}) \), it follows that \( d(x,{x}_{0}) < r  \). Otherwise, \( {r}_{x} < 0  \) which will be a contradiction. Thus, \( {r}_{x}  \) must be strictly positive. 
+
+From here, we claim that \( {B}_{{r}_{x}}(x) \subseteq {B}_{r}({x}_{0}) \). To this end, let \( y \in {B}_{{r}_{x}}(x) \)  be arbitrary. Our goal is to show that \( d(y,{x}_{0}) < r  \) in order for \( y \in  {B}_{r}({x}_{0}) \). By the triangle inequality and the definition of \( {r}_{x} \), we obtain
+\begin{align*}
+    d(y,{x}_{0}) &\leq d(y,x) + d(x,{x}_{0}) \\
+                 &<  {r}_{x} + d(x,{x}_{0}) \\
+                 &= (r - d(x, {x}_{0})) + d(x,{x}_{0}) \\
+                 &= r.
+\end{align*}
+Indeed, we get that \( y \in {B}_{r}({x}_{0}) \) and so we conclude that \( {B}_{r}({x}_{0}) \) is an open set.
+\end{proof}
+
+\begin{problem}[Equivalent Metrics]
+    Let \( X \neq \emptyset  \). We say that two metrics \( {d}_{1} \) and \( {d}_{2} \) on \( X  \) are \textbf{equivalent} if there exist constants \( c,C > 0\) such that 
+    \[  c {d}_{2}(x,y) \leq {d}_{1}(x,y) \leq C {d}_{2}(x,y) \]
+    for all \( x,y \in X  \).
+    \begin{enumerate}
+        \item[(i)] Assume that \( {d}_{1} \) and \( {d}_{2} \) are equivalent metrics on \( X \neq \emptyset \) and let \( A \subseteq X  \). Prove that \( A  \) is open in \( (X,{d}_{2}) \) if and only if \( A  \) is open in \( (X,{d}_{1}) \).
+            \begin{proof}
+                \(  (\Longleftarrow) \) Suppose \( A  \) is open in \( (X,{d}_{1}) \). Our goal is to show that \( A  \) is an open set in \( (X, {d}_{2}) \). To this end, we need to show that for all \( x \in A  \), there exists a \( {\delta}_{x} > 0  \) such that \( {B}_{{\delta}_{x}}(x) \subseteq A  \). Let \( x \in A  \) be arbitrary. Since \( A  \) is open in \( (X,{d}_{1}) \), it follows that there exists an \( \hat{\delta_x} > 0  \) such that \( {B}_{\hat{\delta_x}}(x) \subseteq A   \) with respect to \( {d}_{1} \). Since \( {d}_{1} \) and \( {d}_{2}  \) are equivalent metrics, there exists constants \( c , C  > 0  \) such that 
+                \[  c {d}_{2}(x,y) \leq {d}_{1}(x,y) \leq C {d}_{2}(x,y). \tag{*} \]
+    Define \( {\delta}_{x} = \frac{ \hat{\delta}_x }{C}  \). Notice that \( {\delta}_{x} > 0 \) because \( {\hat{\delta}}_{x} > 0  \) and \( C > 0  \). To show that \( {B}_{{\delta}_{x}})(x) \subseteq A  \), it suffice to show that 
+    \[  {B}_{\delta_x}(x) \subseteq {B}_{{\hat{\delta}}_{x}}(x).  \]
+    To this end, let \( y \in {B}_{{\delta}_{x}}(x)  \) be arbitrary. Then using our definition of \( {\delta}_{x} \) and(*), it follows that   
+    \[  {d}_{1}(x,y) \leq C {d}_{2}(x,y) < C \cdot \frac{ \hat{\delta}_x }{ C }  = \hat{\delta}_x. \]
+    Hence, we conclude that \( y \in {B}_{\hat{\delta}_x}(x) \) and so we conclude that \( A  \) is open in \( (X,{d}_{2}) \). 
+    \( (\Longrightarrow) \) Suppose \( A  \) is open in \( (X,{d}_{2}) \). Let \( x \in A  \). Our goal is to show that there exists a \( {\delta}_{x} > 0  \) such that \( {B}_{{\delta}_{x}}(x) \subseteq A \) with respect to \( {d}_{1} \). Since \( A  \) is open in \( (X,{d}_{2}) \), there exists a \( {\hat{\delta}}_{x} > 0  \) such that \( {B}_{\hat{\delta}_x}(x) \subseteq A   \) with respect to \( {d}_{2} \). Define \( {\delta}_{x} = c \hat{\delta}_x  \). We know that this is strictly positive because \( {\hat{\delta}}_{x}  > 0  \) and \( c > 0  \). To show our result, it suffices to show that 
+    \[  {B}_{{\delta}_{x}}(x) \subseteq {B}_{{\hat{\delta}}_{x}}(x). \]
+Indeed, if let \( y \in {B}_{{\delta}_{x}}(x)  \) be arbitrary, then using (*), it follows that
+    \[  {d}_{2}(x,y) \leq \frac{ 1 }{ c }  {d}_{1}(x,y) < \frac{ 1 }{ c }  \cdot {\delta}_{x} = \frac{ 1 }{ c }  \cdot c \hat{\delta}_x = \hat{\delta}_x. \]
+    Then \( y \in {B}_{\hat{\delta}_x}(x) \) and so \( A  \) is open in \( {d}_{1} \).
+
+            \end{proof}
+        \item[(ii)] Let \( d  \) be a metric on \( X \neq \emptyset  \) and for \( \lambda > 0  \) define the function \( {d}_{\lambda}(x,y) = \lambda d(x,y) \) for all \( x,y \in X   \). Prove that \( {d}_{\lambda}  \) is a metric on \( X  \) that is equivalent to \( d  \). 
+            \begin{proof}
+            First, we show that \( {d}_{\lambda} \) is also a metric on \( X \neq \emptyset \). Notice that for all \( x,y \in X  \), \( {d}_{\lambda}(x,y) \geq 0 \) because \( \lambda > 0  \) and \( d(x,y) \geq 0  \).
+            \begin{enumerate}
+                \item[(i)] Let \( x,y \in X  \) be such that \( {d}_{\lambda}(x,y) = 0  \). Using the definition of \( {d}_{\lambda}  \) and the nondegeneracy of \( d \), we obtain
+                    \begin{align*}
+                        {d}_{\lambda}(x,y) = 0 &\iff \lambda d(x,y) = 0  \\
+                                               &\iff d(x,y) = 0  \\                    
+                                               &\iff x = y.  
+                    \end{align*}
+                \item[(ii)] For all \( x,y \in X  \), we can use the symmetric property of \( d  \) to get 
+                    \[  {d}_{\lambda}(x,y) = \lambda d(x,y) = \lambda d(y,x) = {d}_{\lambda}(y,x). \]
+                \item[(iii)] Let \( x,y,z \in X  \). Using the triangle inequality of \( d  \), we get that 
+                    \begin{align*}
+                        {d}_{\lambda}(x,z) &= \lambda d(x,z) \leq \lambda [d(x,y) + d(y,z)] \\
+                                           &= \lambda d(x,y) + \lambda d(y,z) \\
+                                           &= {d}_{\lambda}(x,y) + {d}_{\lambda}(y,z).
+                    \end{align*}
+            \end{enumerate}
+            Hence, we conclude that \( {d}_{\lambda} \) is indeed a metric on \( X  \).
+
+            For \( {d}_{\lambda}  \) and \( d  \) being equivalent, notice that if \( \lambda > 1  \), then
+            \[  \frac{ 1 }{ \lambda^{2} } \cdot  {d}_{\lambda}(x,y) = \frac{ 1 }{ \lambda^{2} } \cdot \lambda d(x,y) = \frac{ 1 }{ \lambda } \cdot  d(x,y) \leq d(x,y) \leq \lambda d(x,y) = {d}_{\lambda}(x,y). \]
+            Thus, we get that 
+            \[  \frac{ 1 }{ \lambda^{2} } \cdot  {d}_{\lambda}(x,y) \leq d(x,y) \leq 1 \cdot {d}_{\lambda}(x,y). \]
+            where \( {c}_{1} = \frac{ 1 }{ \lambda^{2} }   \) and \( {c}_{2} = 1  \).
+
+            On the other hand, if \( 0 < \lambda < 1  \), then we have
+            \[  {d}_{\lambda}(x,y) = \lambda d(x,y) \leq d(x,y) = \frac{ \lambda }{ \lambda }  d(x,y) \leq \frac{ 1 }{ \lambda^{2} }  \lambda d(x,y) = \frac{ 1 }{ \lambda^{2} }  {d}_{\lambda}(x,y) \]
+            with \( {c}_{1} = 1  \) and \( {c}_{2} = \frac{ 1 }{ \lambda^{2} }  \).
+            Hence, we find that \( {d}_{\lambda} \) and \( d  \) are equivalent metrics.
+            \end{proof}
+    \end{enumerate}
+\end{problem}
+
+\end{document}
+

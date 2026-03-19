@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1768632120.90028 "midterm.tex" "midterm.pdf" "midterm" 1768632123.69794 0
+["pdflatex"] 1768984839.81171 "midterm.tex" "midterm.pdf" "midterm" 1768984842.29142 0
   "../../../../newpreamble.tex" 1767926733.95983 7512 5789ea007b8d590e3819a4e099dccfb1 ""
   "/etc/texmf/web2c/texmf.cnf" 1765926080.88566 475 c0e671620eb5563b2130f56340a5fde8 ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
@@ -336,9 +336,9 @@
   "/usr/share/texmf/web2c/texmf.cnf" 1741904018 41538 c016915c1d51223b6dbbfe27341748a8 ""
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1765938932 5467255 9a64d1b40e0b893fc5588ecce9d8accf ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1765939023 3348326 1da0c190cce2e4f907cc7bf5ef839815 ""
-  "midterm.aux" 1768632123.55466 7080 9bc0c03cd31034fae11b891e14d1ae66 "pdflatex"
-  "midterm.out" 1768632122.4701 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
-  "midterm.tex" 1768632116.22642 30319 f90c226ad051673472de71f37080048e ""
+  "midterm.aux" 1768984842.18224 8618 d149d23d156ea03d789225f910cd2615 "pdflatex"
+  "midterm.out" 1768984841.14208 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
+  "midterm.tex" 1768885121.45459 35345 76aceef23c98105e07afab1d5015ba2c ""
   (generated)
   "midterm.aux"
   "midterm.log"

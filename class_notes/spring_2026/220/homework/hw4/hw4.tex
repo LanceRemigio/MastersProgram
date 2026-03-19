@@ -1,0 +1,60 @@
+\documentclass[a4paper]{article}
+\input{../../../../../newpreamble.tex}
+\title{Math 220: Homework 4}
+\author{Lance Remigio}
+\begin{document}
+\maketitle
+
+\begin{problem}[Closure and Boundary of Balls in a Metric Space]
+   Let \( (X,d) \) be a metric space, \( x \in X  \), \( r > 0  \). 
+   \begin{enumerate}
+       \item[(i)] Prove that \( \overline{{B}_{r}(x)} \subseteq \{ y \in X : d(y,x) \leq r  \}  \).
+           \begin{proof}
+               Let \( z \in \overline{{B}_{r}(x)} \) be arbitrary. Then by definition of \( \overline{{B}_{r}(x)} \), it follows that either \( z \in {B}_{r}(x)  \) or \( z \in D({B}_{r}(x)) \). Suppose \( z \in {B}_{r}(x) \). Since \( {B}_{r}(x) \subseteq \{ y \in X : d(y,x) \leq r  \}  \), it follows that \( z \in \{ y \in X : d(y,x) \leq r  \}  \) and we are done. Now, suppose \( z \in D({B}_{r}(x)) \). Then it follows by definition that \( z  \) is a limit point of \( {B}_{r}(x) \); that is, for all open sets \( U  \), \( U \cap ({B}_{r}(x) \setminus  \{ z \} ) \neq \emptyset \). Suppose for contradiction that \( z \notin \{ y \in X : d(y,x) \leq r  \}  \). Thus, \( d(z,x) > r  \) and so clearly \( z \notin {B}_{r}(x) \). Also, since \( z \in {B}_{r}(x) \), it also follows that \( {B}_{r}(x) \setminus  \{ z  \}  = {B}_{r}(x) \). 
+Hence, we see that
+              \begin{center}
+                    for all open sets \( U  \), \( U \cap {B}_{r}(x) \neq \emptyset \).
+              \end{center}
+               However, since \( X  \) is a metric space, we know that it must satisfy the Hausdorff property. Since \( x  \) and \( z  \) are two distinct points in \( X  \), there must exists another open set \( V  \) such that \( z \in V  \) (some open ball with center \( z  \) in this case) where \( V \cap {B}_{r}(x) = \emptyset \). But this contradicts our assumption that \( U \cap {B}_{r}(x) \neq \emptyset \) for all open sets \( U  \) in \( X  \). Thus, \( z \in \{ y \in X : d(y,x) \leq r  \}  \) and we are done.
+           \end{proof}
+        \item[(ii)] Is it true that \( \overline{{B}_{r}(x)} = \{ y \in X : d(y,x) \leq r  \}  \). Give a proof or counterexample, as appropriate.
+            \begin{solution}
+            We will show a counterexample. Let \( X  \) be the discrete metric space. By definition, we see that  
+            \[  {B}_{r}(x) = \{  y \in X : d(y,x) < r  \}.  \]
+            Inside the discrete metric space, \( {B}_{r}(x) \) is also a closed set. Hence, \( {B}_{r}(x) = \overline{{B}_{r}(x)} \). However,
+            \[  \overline{{B}_{r}(x)} = {B}_{r}(x) \neq \{ y \in X : d(y,x) \leq r  \}. \]
+            \end{solution}
+\item[(iii)] Prove that \( \partial {B}_{r}(x) \subseteq \{ y \in X : d(y,x) = r  \}.  \)
+    \begin{proof}
+        Let \( z \in \partial {B}_{r}(x) \). Since \( \partial {B}_{r}(x) = \overline{{B}_{r}(x)} \cap \overline{[{B}_{r}(x)]^{c}} \), it follows that \( z \in \overline{{B}_{r}(x)} \) and \( z \in \overline{[{B}_{r}(x)]^{c}} \). Since \( \overline{[{B}_{r}(x)]^{c}} = \big[\text{int}({B}_{r}(x))\big]^{c} \), it follows that 
+        \begin{center}
+            \( z \in \overline{{B}_{r}(x)}  \) and \( z \in \big[\text{int}({B}_{r}(x))\big]^{c} \).
+        \end{center}
+        Also, \( \overline{{B}_{r}(x)} = {B}_{r}(x) \cup D({B}_{r}(x)) \). Hence, either \( z \in {B}_{r}(x) \) or \( z \in D({B}_{r}(x)) \), and \( z \in \big[\text{int}({B}_{r}(x))\big]^{c} \). However, since \( z \in \big[ \text{int}({B}_{r}(x))\big]^{c} \), it follows that \(z \notin \text{int}({B}_{r}(x)) \). That is,\begin{center}
+             For all open sets in \( U  \) containing \( z  \), \( U \cap {B}_{r}(x) = \emptyset \). 
+        \end{center}
+        Hence, \( U \subseteq [{B}_{r}(x)]^{c} \). Hence, \( z \in [{B}_{r}(x)]^{c} \) and so by definition, \( d(x,z) \geq r  \). This forces \( z \in D({B}_{r}(x)) \), otherwise if we assume that \( z \in {B}_{r}(x) \), then we will get a contradiction. Hence, \( z  \) is a limit point of \( {B}_{r}(x) \). That is, for all open sets \( U  \) in \( X  \) containing \( z  \), we have     
+        \[  U \cap ({B}_{r}(x) \setminus  \{ z \} ) \neq \emptyset. \]
+        Since \( X  \) is a metric space, the above translates to (in terms of open balls) as 
+        \begin{center}
+            For all \( \epsilon > 0  \), \( {B}_{\epsilon}(z) \cap ({B}_{r}(x) \setminus \{ z \} ) \neq \emptyset \).
+        \end{center}
+        Since \( z \notin {B}_{r}(x)  \), we get that \( {B}_{r}(x) \setminus  \{ z  \}  = {B}_{r}(x) \). Hence, the above can be re-written as
+        \begin{center}
+            For all \( \epsilon > 0  \), \( {B}_{\epsilon}(z) \cap {B}_{r}(x) \neq \emptyset \).
+        \end{center}
+        In particular, for \( \epsilon = r > 0  \), it follows that \( {B}_{r}(z) \cap {B}_{r}(x) \neq \emptyset  \). The only option here would be to have \( d(x,z) = r  \) and so we are done. 
+
+    \end{proof}
+\item[(iv)] Is it true that \( \partial {B}_{r}(x)  = \{  y \in X : d(y,x) = r  \} \). Give a proof or counterexample, as appropriate.
+    \begin{solution}
+    Let \( X  \) be the discrete metric space. Note that the only element that is not in \( \{ y \in X : d(y,x) = r  \}  \) is \( x  \) itself because if it was, then \( d(y,x) = 0  \) would imply that \( r = 0 \) contradicting the \( r > 0 \). Hence, \( \{ y \in X : d(y,x) = r  \} = X \setminus  \{ x  \}  \). But \( \partial {B}_{r}(x) = \emptyset \) and so clearly
+    \[ \partial {B}_{r}(x) \neq X \setminus  \{ x  \} = \{ y \in X : d(y,x) = r  \}.    \]
+\end{solution}
+   \end{enumerate}
+\end{problem}
+
+
+
+\end{document}
+

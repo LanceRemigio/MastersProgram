@@ -1,0 +1,179 @@
+\subsection{Ring Homomorphisms and Quotient Rings}
+
+\begin{definition}[Ring Homomorphisms, Ring Isomorphisms, and Kernel]
+    Let \( R  \) and \( S  \) be rings. 
+    \begin{enumerate}
+        \item[(1)] A \textbf{ring homomorphism} is a map \( \varphi: R \to S  \) satisfying
+            \begin{enumerate}
+                \item[(i)] \( \varphi(a + b) = \varphi(a) + \varphi(b) \) for all \( a,b \in R  \). (This is regarded as the group homomorphism for additive groups)
+                \item[(ii)] \( \varphi(ab) = \varphi(a) \varphi(b) \) for all \( a,b\in R  \). That is, \( \varphi \) is multiplicative.
+            \end{enumerate}
+        \item[(2)] The \textbf{kernel} of the ring homomorphism \( \varphi \), denoted by \( \text{ker}(\varphi)  \) is
+            \[  \text{ker}(\varphi)  = \{ x \in R : \varphi(x) = {0}_{s} \}  \]
+            where \( {0}_{s} \) is additive identity. 
+        \item[(3)] A bijective ring homomorphism is called an \textbf{isomorphism}.
+    \end{enumerate}
+\end{definition}
+
+\begin{eg}
+    Define \( \varphi: \Z \to \Z / 2 \Z  \) by 
+    \[  \varphi(x) = 
+    \begin{cases}
+        0 &\text{if} \ x \ \text{is even} \\
+        1 &\text{if} \  x \ \text{is odd}.
+    \end{cases} \]
+    It is relatively straightforward to check that this satisfies both (i) and (ii) in the definition above.
+\end{eg}
+
+\begin{prop}[Proposition 5 from Dummit and Foote]
+   Let \( R  \) and \( S  \) be rings and let \( \varphi: R \to S  \) be a homomorphism. 
+   \begin{enumerate}
+       \item[(1)] The \textbf{image} of \( \varphi  \) is a subring of \( S  \).
+       \item[(2)] The \textbf{kernel} of \( \varphi  \) is a subring of \( R  \).
+   \end{enumerate}
+   Furthermore, if \( \alpha \in \text{ker}(\varphi)  \) and \( r \in R  \), then \( r \alpha \in \text{ker}(\varphi)  \) and \( \alpha r \in \text{ker}(\varphi)  \) (we call this the absorptive property of \( \text{ker}(\varphi)  \)).
+\end{prop}
+
+\subsection{Ideals and Quotient Rings}
+
+Note that since \( R  \) is a ring and its additive structure is forced to be abelian by the distributive and associative ring axioms, it follows that every subgroup of \( R  \) is a normal subgroup. That is, when adding two cosets together (with \( I  \) as our additive normal subgroup of \( R  \)), we get that for any \(  x + I, y + I \in   R / I  \)
+\[  (x+ I) + (y + I ) = (x + y) + I.  \]
+This tells us that \( R / I  \) has a group structure. However, is it possible to make \( R / I  \) into a ring? Of course! The extra structure that we need here is for \( I  \) to be an ideal.
+
+\begin{definition}[Ideals]
+    Let \( R  \) be a ring, let \( I  \) be a subset of \( R  \) and let \( r \in R  \). 
+    \begin{enumerate}
+        \item[(1)] \( rI = \{ ra : a \in I \}  \) and \( Ir = \{ a r : a \in I  \}  \)
+        \item[(2)] A subset \( I  \) is a \textbf{left ideal} of \( R  \) if 
+            \begin{enumerate}
+                \item[(i)] \( I \) is a subring of \( R  \)
+                \item[(ii)] \( I \) is closed under left-multiplication by elements from \( R  \) i.e \( rI \subseteq I   \) for all \( r \in R  \).
+                    Similarly, \( I \) is a \textbf{right ideal} if (i) holds and \( I  \) is closed under right-multiplication by elements of \( R  \) i.e \( Ir \subseteq I  \).
+                    
+        \item[(3)] A subset \( I \) that is both a left and right ideal is called an \textbf{ideal} (more specifically, a two-side ideal) of \( R  \). 
+            \end{enumerate}
+    \end{enumerate}
+\end{definition}
+
+\begin{eg}
+    The subring defined by \( I = \{  p(x) \in \Z [x] : p(x) = 0 \ \text{or} \ \text{deg}(p(x)) \geq 2 \}  \) is an ideal in \( \Z[x] \).
+
+    It is clear that \( I  \) is additive subgroup of \( \Z[x] \). Let \( f(x)  \) be a polynomial in \( \Z[x] \) and \( g(x) \in I \). Then we have 
+    \[  f(x) = \sum_{ i = 0  }^{ n } {a}_{i} x^{i}  \ \text{and} \ \sum_{ i=1  }^{ n  } {b}_{i} x^{i} \]
+    where \( {b}_{0} = 0 \) and \( {b}_{1} = 0  \). Note that the constant term of \( f(x) q(x)  \) is \( {a}_{0}{b}_{0} = {a}_{0} 0 = 0  \) and the linear term is \( {a}_{1} {b}_{0} + {a}_{0} {b}_{1} = {a}_{1} 0 + {a}_{0} 0 = 0  \).
+\end{eg}
+
+\begin{prop}[Proposition 5 from Dummit and Foote]
+   Coset multiplication in \( R / I \) is well-defined if and only if \( I \) is an ideal. 
+\end{prop}
+
+\begin{prop}[Proposition 6 from Dummit and Foote]
+    Let \( R \) be a ring and let \( I  \) be an ideal of \( R  \). Then the (additive) quotient group \( R / I \) is a ring under the binary operations:
+    \begin{center}
+        \( (r+ I) + (s+I) = (r+s)+ I \ \text{and} \ (r+I)(s+I) = (rs) +  I   \) for all \( r,s \in R  \). 
+    \end{center}
+    If \( I  \) is any subgroup of \( R  \) satisfying the above operations, then \( I  \) is an ideal of \( R  \).
+\end{prop}
+
+\begin{definition}[Quotient Ring]
+    When \( I \) is an ideal of \( R  \), the ring \( R /I  \) with the operations defined in the previous proposition is called the \textbf{quotient ring of \( R  \) by \( I  \)} .
+\end{definition}
+
+\begin{theorem}[First Isomorphism Theorem]
+    \begin{enumerate}
+        \item[(1)] If \( \varphi: R \to S  \) is a homomorphism of rings, then the kernel of \( \varphi  \) is an ideal of \( R  \), the image of \( \varphi  \) is a subring of \( S  \) and 
+            \[  R /\text{ker}(\varphi) \cong \varphi(R). \]
+        \item[(2)] If \( I  \) is any ideal of \( R  \), then the map \( R \to R / I  \) defined by \( r \mapsto r + I  \) is a surjective ring homomorphism with kernel \( I  \). In this case,  
+            \begin{center}
+                \( I \) is an ideal if and only if \( I  \) is the kernel of some ring homomorphism.
+            \end{center}
+    \end{enumerate}
+\end{theorem}
+
+\begin{eg}
+   \begin{enumerate}
+       \item[(1)] Let \( R  \) be a ring. The trivial ideals of \( R  \) are \( R  \) itself and \( \{  0  \}  \) (the zero ideal).
+        \item[(2)] Last semester (when studying cyclic groups) we proved that the only subgroups of \( \Z  \) were of the form \( n\Z  \) where \( n \geq 0  \). This tells us that al the ideals of \( \Z  \) must be of the same form. It is a straightforward exercise to show that \( n\Z  \) (\( n \geq 0  \)) is an ideal of \( \Z  \). 
+   \end{enumerate}
+\end{eg}
+
+\begin{eg}
+   Let \( A  \) be a ring and \( X \) be a nonempty set and let \( R  \) be a ring of all functions from \( X  \) to \( A  \). For each \( c  \), we can define a mapping \( {E}_{c} : R \to A  \) by \( {E}_{c}(f) = f(c) \) (This is called the evaluation map). It follows that for any \( f,g \in R  \), we have 
+   \[ {E}_{c}((f+g)(x)) = (f+g)(c) = f(c) + g(c) = {E}_{c}(f(x)) + {E}_{c}(g(x)) \]
+   and
+   \[  {E}_{c}\Big( (fg)(x) \Big) = (fg)(c) = f(c)g(c)  = {E}_{c}(f(x)) {E}_{c}(g(x)).\]
+   Also,
+   \begin{align*}
+       \text{ker}({E}_{c}) &= \{ f \in R : {E}_{c}(f) = 0  \}  \\
+                           &= \{ f \in R : f(c) = 0 \}.
+   \end{align*}
+   Using the first isomorphism theorem, we obtain
+   \[  R / \text{ker}({E}_{c}) \cong {E}_{c}(R).  \tag{*}\]
+   Let \( a \in A  \). Notice that \( h(x) = a  \) (the constant function) gives that \( {E}_{c}(h(x)) = h(c) = a  \). Thus, we can say that \( {E}_{c} \) is surjective and that (*) can be re-written to
+   \[  R / \text{ker}({E}_{c}) \cong A.  \]
+\end{eg}
+
+\begin{theorem}[The Last Three Isomorphism Theorems]
+    \begin{enumerate}
+        \item[(1)] \textbf{(The Second Isomorphism Theorem)} Let \( A  \) be a subring and let \( B  \) be an ideal of \( R  \). Then \( A + B  \) is a subring of \( R  \), \( A \cap B  \) is an ideal of \( A  \), and  
+            \[  (A + B) / B  \cong A / (A \cap B). \]
+        \item[(2)] \textbf{(The Third Isomorphism Theorem for Rings)}
+            Let \( I  \) and \( J  \) be ideals of \( R  \) with \( I \subseteq J  \). Then \( J / I  \) is an ideal of \( R / I \) and \[ (R/ I) / (J / I) \cong R / J.  \]
+        \item[(3)] \textbf{(The Fourth or Lattice Isomorphism Theorem for Rings)} Let \( I  \) be an ideal of \( R  \). There exists a one-to-one correspondence between the set of subrings \( A  \) of \( R  \) that contain \( I  \) and the set of subrings of \( R / I  \). That is,
+            \begin{center}
+                \( A  \) is an ideal in \( R  \) that contains \( I  \) if and only if \( A / I  \) is an ideal of \( R / I  \). 
+            \end{center}
+    \end{enumerate}
+\end{theorem}
+
+\begin{definition}[Sum, Product, Powers of Ideals]
+    \begin{enumerate}
+        \item[(1)] Define the \textbf{sum} of \( I  \) and \( J  \) by \( I + J  = \{  a + b : a \in I , b \in J  \}  \).
+        \item[(2)] Define the \textbf{product} of \( I  \) and \( J  \), denoted by \( IJ  \), to be the set of all finite sums of elements of the form \( ab  \) with \( a \in I  \) and  \( b \in J  \). 
+        \item[(3)] For all \( n \geq 1   \), define the \textbf{nth power of \( I  \)}, denoted by \( I^{n} \), to be the set of all finite sums of elements of the form \( {a}_{1}{a}_{2} \dots {a}_{n} \) with \( {a}_{i} \in I  \) for all \( i  \). Equivalently, \( I^{n} \) is defined inductively by defining \( I^{1} = I \) and \( I^{n} = I I^{n-1} \) for \( n = 2,3,\dots \).
+    \end{enumerate}
+\end{definition}
+
+\begin{itemize}
+    \item \( I + J  \) is the smallest ideal containing both \( I  \) and \( J  \).
+    \item \( IJ \) is contained in \( I \cap J \).
+\end{itemize}
+
+\begin{corollary}
+    If \( R  \) is a field, then any nonzero ring homomorphism from \( R  \) into another ring \( S  \) in an injection.
+\end{corollary}
+
+\begin{definition}[Maximal Ideal]
+    An ideal \( M  \) is a ring is called a \textbf{maximal ideal} if it is proper (that is, \( M \neq S  \)) and the only ideals which contain \( M  \) are \( S  \) and itself; that is, for any ideal \( K \leq R  \), if \( M \leq K \leq R  \), then \( M = K  \) or \( K = R  \).
+\end{definition}
+
+\begin{prop}
+    In a ring with identity, every proper ideal is contained in a maximal ideal.
+\end{prop}
+
+\begin{prop}
+    Assume \( R  \) is commutative. The ideal \( M  \) is a maximal ideal if and only if \( R / M \) is a field.
+\end{prop}
+
+\begin{eg}
+    What are the maximal ideals in \( \Z  \)? We know all subrings of \( \Z  \) are of the form in \( n\Z  \) for \( n \geq 0  \). It is straightforward to show that \( n\Z  \) is an ideal. The maximal ideals are those ideals such that \( \Z / n \Z  \) is a field. We know that \( \Z / n \Z \) is a field if and only if \( n  \) is prime; that is, \( n \Z  \) is a maximal ideal if and only if \( p  \) is prime. 
+\end{eg}
+
+\begin{definition}[Prime Ideals]
+    Assume \( R  \) is commutative ring. An ideal \( P  \) is a prime ideal if \( P \neq R  \) and if \( ab \in  P  \), then \( a \in P  \) or \( b \in P  \).
+\end{definition}
+
+\begin{remark}[Motivation for Prime Ideals]
+    Look at \( \Z  \). Suppose \( n\Z  \) (\( n \geq 0  \)) is a prime ideal of \( \Z  \). Then if \( ab \in n \Z  \), we have that \( a \in n \Z  \) or \( b \in n\Z  \). Hence, if we say that \( a \in (n) \), then this is just \( a = n x  \) for some \( x \in \Z  \); that is, we are saying that \( n \mid a  \).
+
+    Equivalently, we can say that if \( n \mid ab \), then either \( p \mid a  \) or \(  p \mid b  \). Prime ideals reflect this kind of a behavior.
+\end{remark}
+
+\begin{prop}
+    Assume \( R  \) is commutative. The ideal \( P  \) is a prime ideal in \( R  \) if and only if \( R / P  \) is an integral domain. 
+\end{prop}
+
+\begin{corollary}
+    Every maximal ideal is a prime ideal when our ring is commutative.
+\end{corollary}
+

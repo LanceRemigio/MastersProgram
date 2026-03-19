@@ -1,0 +1,269 @@
+\subsection{Topology}
+
+\begin{definition}[Topology]
+   Let \( X  \) be a nonempty set. A \textbf{topology} on \( X  \) is a collection of subsets of \( X  \) such that  
+   \begin{enumerate}
+       \item[(i)] \( \emptyset, X  \in \mathcal{T} \)
+        \item[(ii)] If \( {A}_{1}, {A}_{2} \in \mathcal{T} \), then \( {A}_{1} \cap {A}_{2} \in \mathcal{T} \)
+        \item[(iii)] If \( \{ {A}_{i} \}_{i \in I} \), then \( \bigcup_{ i \in I  }^{  }  {A}_{i} \in \mathcal{T} \).
+   \end{enumerate}
+   The pair \( (X,\mathcal{T}) \) is called \textbf{Topological Space} and the sets in the collection \( \mathcal{T} \) are called \textbf{open sets}.
+\end{definition}
+
+\begin{remark}
+  \begin{itemize}
+      \item Here we declare the sets in the topological space to be open without any mention to a metric.
+      \item Note that (ii) is written in two sets but by induction we can extend to a finite intersection. That is, if \( {A}_{1}, {A}_{2}, \dots, {A}_{n} \in \mathcal{T} \), then \( \bigcap_{ i =  1  }^{ n  }  {A}_{i} \in \mathcal{T} \).  
+  \end{itemize}  
+
+\end{remark}
+
+\begin{eg}
+    Let \( X  \) be a nonempty set. The following are topologies on \( X  \).
+    \begin{enumerate}
+        \item[(a)] The \textbf{indiscrete} or \textbf{trivial} topology \( \mathcal{T} = \{  \emptyset , X  \}  \).
+        \item[(b)] The \textbf{discrete topology} \( \mathcal{T} = \mathcal{P}(X) \) (all the subsets of \( X  \)).
+        \item[(c)] The \textbf{cofinite} topology \( \mathcal{T} = \{  A \subseteq X : X \setminus  A \ \text{is finite}  \} \cup \{ \emptyset \} \) (All the subsets of \( X  \) whose complements are finite).
+    \end{enumerate}
+\end{eg}
+
+\begin{proof} \textbf{(Cofinite Topology)}
+Clearly, the empty set \( \emptyset  \) is in \( \mathcal{T} \) and \( X = X \setminus \emptyset \in \mathcal{T}  \) is a finite set. 
+
+Let \( {A}_{1} \) and \( {A}_{2} \) in \( \mathcal{T} \). This means that \( {A}_{1}^{c} \) and \( {A}_{2}^{c} \) is finite where \( {A}_{i}^{c} = X \setminus  {A}_{i}  \). Our goal is to show that \( {A}_{1} \cap {A}_{2} \) in \( \mathcal{T} \). Then note that by De-Morgan's Laws, we have   
+\[  ({A}_{1} \cap {A}_{2})^{c} = {A}_{1}^{c} \cup {A}_{2}^{c} \]
+which is finite because the union of two finite sets is finite. Thus, \( {A}_{1} \cap {A}_{2}  \) is in \( \mathcal{T} \).
+
+Note that \( {A}_{i}^{c} \in \mathcal{T} \) for all \( i \in I \) is finite. By De-Morgan's Laws, it follows that 
+\[  \Big( \bigcup_{ i \in I  }^{  }  {A}_{i} \Big)^{c} = \bigcap_{ i \in I  }^{  }  {A}_{i}^{c} \]
+which is also finite as the intersection of finite sets given \( {A}_{i}^{c} \) is finite. Thus, \( \bigcup_{  \in I  }^{   }  {A}_{i} \in \mathcal{T} \) and so we conclude that \( \mathcal{T} \) is a topology.
+\end{proof}
+
+\begin{remark}
+    \begin{itemize}
+        \item Putting a cofinite topology on the real line will give you unbounded sets.
+        \item Also, an open set in one topology might not be open in another topology.
+        \item There could be cases where (ii) and (iii) are equivalent to each other.
+    \end{itemize}
+
+\end{remark}
+
+\begin{eg}
+    Let \( X \neq \emptyset  \). If \( d  \) is a metric on \( X  \), then the collection of all sets that are open according to the definition we gave in a metric space is a topology on \( X  \). More precisely the topology is
+    \[  \mathcal{T} = \{  A \subseteq X : \forall x \in X , \exists r > 0 \ \text{such that} \ {B}_{r}(x) \subseteq A \}.  \]
+    This is called the \textbf{topology induced by the metric} \( d \).
+\end{eg}
+
+\begin{remark}
+    The converse may not always be true. That is, some topologies may not arise from a metric.
+\end{remark}
+
+\begin{definition}[Metrizable Topological Spaces]
+    We say that a topological space \( (X,\mathcal{T}) \) is \textbf{metrizable} if there exist a metric on \( X  \) that induces the topology \( T  \).
+\end{definition}
+
+\begin{eg}
+    \begin{itemize}
+    \item The discrete topological space denoted by \( \mathcal{T} = \mathcal{P}(X) \) is \textbf{metrizable} because we can induce the open sets by the discrete metric \( d  \). That is, every set with respect to the discrete metric is open. Note that this is shown in exercise 2 of homework 1.
+    \item The real line with the cofinite topology is not \textbf{metrizable} because you can only exclude finitely many points.  
+    \end{itemize}
+\end{eg}
+
+\begin{definition}[Finer or Coarser]
+   Let \( {\mathcal{T}}_{1} \) and \( \mathcal{T}_2 \) be two topologies on a nonempty set \( X  \). If \( {\mathcal{T}}_{1} \subseteq {\mathcal{T}}_{2} \), we say that \( \mathcal{T}_2 \) is \textbf{finer} than \( \mathcal{T}_1 \) (or that \( {\mathcal{T}}_{1}  \) is \textbf{coarser} than \( {\mathcal{T}}_{2} \)).
+\end{definition}
+
+\begin{remark}[Finer or Coarser]
+   We can think of our notion finer or coarser as which set has more open sets. If one set has more open sets than the other, then we call that set "finer". On the other hand, we call the set that has less open sets to be coarser.  
+\end{remark}
+
+
+\begin{remark}[Relationship between continuity and number of open sets]
+   The more open sets that a domain of a function has than the codomain, the more likely that the function will be continuous. Otherwise, it is less likely that a function will be continuous.
+\end{remark}
+
+\begin{eg}
+    The coarsest topology is the indiscrete topology and the finest topology is the discrete topology.
+\end{eg}
+
+
+\begin{problem}
+    Let \( X = \{ a,b,c  \}  \). Determine which of the following are topologies on \( X  \). Compare those that are two by two to determine which are finer or coarser.
+\end{problem}
+
+\begin{enumerate}
+    \item[(a)] \( {\mathcal{T}}_{1} = \{  \emptyset ,  X , \{ a  \}  \}  \) \textbf{Topology}
+    \item[(b)] \( {\mathcal{T}}_{2} = \{  \emptyset ,  X , \{ a  \}, \{ b \}   \}  \) \textbf{Not a Topology}
+    \item[(c)] \( {\mathcal{T}}_{3} = \{  \emptyset ,  X , \{ a , b  \}   \}  \) \textbf{Topology}
+    \item[(d)] \( {\mathcal{T}}_{4} = \{  \emptyset ,  X , \{ a  \}, \{ a,b \} , \{ a,b,c \}   \}  \) \textbf{Topology}
+\end{enumerate}
+\( {\mathcal{T}}_{1} \) and \( {\mathcal{T}}_{2} \) are not comparable. \( \mathcal{T}_4  \) is finer than \( \mathcal{T}_1  \). \( \mathcal{T}_4 \) is finer than \( \mathcal{T}_3 \).
+The order of fineness goes as follows:
+\[   {\mathcal{T}}_{3} \subseteq {\mathcal{T}}_{4}. \]
+\begin{eg}[Homework Exercise]
+    The collection \( \mathcal{T} = \{  (-\infty , x ) : x \in \R  \} \cup \{ \emptyset, \R  \}  \) is a topology on \( \R  \). We see that \( \mathcal{T} \) is strictly coarser than the Euclidean topology. To see this, it suffices to observe that any set of the form \( (-\infty , x ) \) where \( x \in \R  \) is open in the Euclidean Topology. Sets of the form \( (x,\infty )  \) are open in the Euclidean Topology but not in \( \mathcal{T} \).
+\end{eg}
+
+\begin{eg}[Non-example]
+   Determine if \( \mathcal{T} = \{  (a,b) : a,b \in \R , a < b  \} \cup \{ \emptyset , \R  \}  \) is a topology on \( \R  \). If it is, determine whether it is comparable to the Euclidean one. Is it finer or coarser to the Eulidean topology? 
+
+   \textbf{Ans:} This is not a topology because if we take the disjoint union of two open intervals, then the resulting set will not be a single interval. That is, if we take \( (1,2)  \) and \( (2,3) \) on the number line, then the union of these two intervals will not be of the form \( (a,b) \) described in the set \( \mathcal{T} \).
+\end{eg}
+
+\subsection{Basis for Topological Spaces}
+
+\begin{definition}[Basis]
+    Let \( (X,\mathcal{T}) \) be a topological space. A \textbf{basis} for \( \mathcal{T} \) is a collection of open sets \( \mathcal{B} \subseteq \mathcal{T} \) such that every open set in \( \mathcal{T} \) can be written as a union of elements of \( \mathcal{B} \).
+\end{definition}
+
+\begin{remark}
+    We can rewrite the condition given in the above definition in the following way: 
+    \begin{center}
+    Let \( (X,\mathcal{T}) \) be a topological space. A collection \( \mathcal{B} \) of subsets of \( X  \) is a basis for \( \mathcal{T} \) if and only if for all \( A \in \mathcal{T} \) and for all \( x \in A  \), there exists a \( B \in \mathcal{B} \) such that \( x \in B \subseteq A  \).
+    \end{center}
+\end{remark}
+
+This gives us the building blocks which are open sets using fewer sets to build new open sets. 
+
+\begin{eg}
+   \begin{enumerate}
+       \item[(a)] If \( (X,\mathcal{T}) \) is a topological space, then \( \mathcal{T} \) is basis for \( \mathcal{T} \). That is, \( \mathcal{T} \) is a basis for itself.
+        \item[(b)] In a metric space, the collection of all open balls is a basis for the topology induced by the metric.
+        \item[(c)] If \( X  \) is a nonempty set, the collection of all singletons \( \mathcal{B} = \{  \{ x  \}  : x \in X  \}  \) is a basis for the discrete topology on \( X  \).
+   \end{enumerate} 
+\end{eg}
+
+\begin{remark}
+    Note that a basis may not necessarily be topological spaces.
+\end{remark}
+
+\begin{proof}
+    (\textbf{of (b)}) Let \( (X,d) \) be a metric space. We claim that 
+    \[  \mathcal{B} = \{  {B}_{r}(x) : x \in X , r > 0  \}  \]
+    is a basis by the topology induced by the metric. By a homework exercise, we see that \( \mathcal{B} \subseteq  \mathcal{T} \).
+
+    Let \( A \in \mathcal{T} \); that is, \( A  \) is open with respect to definition of a metric space. Let \( x \in A  \). By definition of open set in a metric space, there exists an \( r > 0  \) such that \( {B}_{r}(x) \subseteq A \). Consider \( B = {B}_{r}(x) \in \mathcal{B} \) and note that \( x \in B = {B}_{r}(x) \subseteq A \). This shows that \( \mathcal{B} \) is a basis for \( \mathcal{T} \), by definition. 
+\end{proof}
+
+\begin{proof}
+    (\textbf{of (c)}) Let \( A \in \mathcal{T} \), so \( A \subseteq X  \). Note that \( A = \bigcup_{ x \in A  }^{  }  \{  x  \}  \) and so \( \mathcal{B} \) is a basis of \( \mathcal{T} \).
+\end{proof}
+
+
+\begin{prop}
+    Let \( X  \) be a nonempty set and \( \mathcal{B} \) be a collection of subsets of \( X  \) satisfying the following conditions
+    \begin{enumerate}
+        \item[(1)] \( \bigcup_{ B \in \mathcal{B} }^{  } B  = X \)
+        \item[(2)] For all \( A,B \in \mathcal{B} \), the intersection \( A \cap B  \) can be written as a union of elements of \( \mathcal{B} \).
+    \end{enumerate}
+    Then there exists a unique topology \( \mathcal{T} \) on \( X  \) for which \( \mathcal{B} \) is a basis.
+\end{prop}
+
+With this proposition, we can identify whether a collection of sets is a basis for a unique topology if it satisfies the above properties. Before we started with a topology and identifying whether a collection of sets gives a basis for said topology. This is in a sense a converse of that statement.
+
+\begin{proof}
+    Define \( \mathcal{T}  \) to be the collection of all subsets of \( X  \) that can be written as unions of elements of \( \mathcal{B} \). We now prove that \( \mathcal{T} \) is a topology. By (1), \( X \in \mathcal{ T } \). Also, \( \emptyset \in \mathcal{T} \) as the union of the empty family of sets. Next, consider two elements \( {A}_{1} \) and \( {A}_{2} \) in \( \mathcal{T} \). Then \( {A}_{1} = \bigcup_{ i \in I  }^{  }  {B}_{i} \) and \( {A}_{2} = \bigcup_{ j\in J  }^{  }  {C}_{j} \) where \( \{ B\}_{i \in I}  \) and \( {\{ {C}_{j} \} }_{j \in J }  \) are subsets \( \mathcal{B} \). Then 
+    \begin{align*}
+        {A}_{1} \cap {A}_{2} &= \Big(  \bigcup_{ i \in I  }^{   }  {B}_{i} \Big) \cap \Big( \bigcup_{ j \in J  }^{  }  {C}_{j} \Big)  \\
+                             &= \bigcup_{ i \in I , j \in J  }^{  }  ({B}_{i} \cap {C}_{j}).
+    \end{align*}
+    Since \( {B}_{i} \cap {B}_{j} \) can be written as a union of elements of \( \mathcal{B} \) for all \( i \in I  \) and \( j \in J  \), it follows that \( {A}_{1} \cap {A}_{2}  \) is in \( \mathcal{T} \).
+
+    Next, consider some family of sets in \( \mathcal{T} \) denoted by \( \{ {A}_{i} \}_{i \in I} \). Then for all \( i \in I  \), \( {A}_{i} \) can be written as a union of elements of \( \mathcal{B} \). Thus, so can \( \bigcup_{  i \in I  }^{  }  {A}_{i} \). We conclude that \( \mathcal{T} \) is a topology on \( X  \) and by definition of basis, \( \mathcal{B} \) is a basis for \( \mathcal{T} \) and so \( \mathcal{T} \) is a unique.
+
+\end{proof}
+
+\begin{corollary}
+    Given \( X \neq \emptyset  \), \( \mathcal{B} \) is the collection of subsets of \( X  \), if
+    \begin{enumerate}
+        \item[(i)] \( \bigcup_{ B \in \mathcal{B} }^{  }  B = X  \)
+        \item[(ii)] For all \( A, B \in \mathcal{B} \), \( A \cap B = \emptyset  \) or \( A \cap B \in \mathcal{B} \),
+    \end{enumerate}
+    then \( \mathcal{B} \) is the basis for a unique topology on \( X  \).
+\end{corollary}
+
+\begin{proof}
+
+\end{proof}
+
+
+\begin{remark}
+    Note that, as usual, condition \( 2  \) can be replaced with the equivalent condition 
+    \begin{center}
+        For all \( A,B \in \mathcal{B} \), for all \( x \in A \cap B  \), there exists \( C \in \mathcal{B} \) such that \( x \in C \subseteq A \cap B  \).
+    \end{center}
+\end{remark}
+
+\begin{prop}
+   Let \( X  \) be a nonempty set and let \( \mathcal{B} \) and \( \mathcal{B}' \) be bases for the topologies \( \mathcal{T} \) and \( \mathcal{T}' \), respectively. We have that  
+   \[  \mathcal{T} \subseteq  \mathcal{T}' \iff \forall  x \in X, \forall B \in \mathcal{B} \ \text{that contain \( x \), there exists \( B' \in \mathcal{B}' \) such that \( x \in B' \subseteq B \)}. \]
+\end{prop}
+
+This proposition gives us a way to compare two topologies using their respective bases. Note that the right-hand side of the implication, we can re-write it in the following way:
+\begin{center}
+    For all \( B \in \mathcal{B} \), for all \( x \in B \), there exists a \( B' \in \mathcal{B}' \) such that \( x \in B' \subseteq B \).
+\end{center}
+That is,
+\begin{center}
+    For any \( B \in \mathcal{B} \) can be written as a union of elements of \( \mathcal{B}' \).
+\end{center}
+This tells us that any basis element from \( \mathcal{B} \) can expressed a elements from the basis of \( \mathcal{T}' \) using \( \mathcal{B}' \).
+
+\begin{proof}
+    \( (\Longrightarrow) \)Assume \( \mathcal{T} \subseteq \mathcal{T}' \). Let \( B \in \mathcal{B} \). Since \( \mathcal{B} \subseteq \mathcal{T} \subseteq  \mathcal{T}' \), then \( B \in \mathcal{T}' \). Thus, \( B \) can be written as elements of \( \mathcal{B}' \) since \( \mathcal{B}' \) is a basis for \( \mathcal{T}' \).
+
+    \( (\Longleftarrow) \) Suppose any \( B \in \mathcal{B} \) can be written as a union of elements of \( \mathcal{B}' \). Let \( A \in \mathcal{T} \). Since \( \mathcal{B} \) is a basis for \( \mathcal{T} \), it follows that \( A  \) can be written as a union of elements of \( \mathcal{B} \). Since every element of \( \mathcal{B} \) can be written as a union of elements in \( \mathcal{B}' \), it follows that \( A  \) must be in \( \mathcal{T}' \). Thus, \( \mathcal{T} \subseteq \mathcal{T}' \).
+\end{proof}
+
+\begin{eg}
+   For \( x = ({x}_{1}, {x}_{2}) \in \R^{2} \) and \( r > 0  \) define 
+   \[  {D}_{r}(x) = {D}_{r}({x}_{1}, {x}_{2}) = \{  ({y}_{1}, {y}_{2}) \in \R^{2} :  ({y}_{1} - {x}_{1})^{2} + ({y}_{2} - {x}_{2})^{2} < r^{2} \}\]
+   and
+   \[  {Q}_{r}(x) = {Q}_{r}({x}_{1}, {x}_{2}) = \{ ({y}_{1}, {y}_{2}) \in \R^{2} : \max \{  | {y}_{1} - {x}_{1} | , | {y}_{2} - {x}_{2} |  \} < r  \}.  \]
+   Consider the following collections of subsets of the plane
+   \[  \mathcal{B} = \{ {D}_{r}(x) : x \in \R^{2}, r > 0  \} \ \text{and} \ \mathcal{R} = \{  {Q}_{r}(x) : x \in \R^{2}, r > 0  \}.  \]
+   Then \( \mathcal{B} \) and \( \mathcal{R} \) are bases for the same topology on \( \R^{2} \). Which topology is it?
+\end{eg}
+
+Note that these are not topologies on \( \R^{2} \) because the union of two disjoint elements are not in either \( \mathcal{B} \) or \( \mathcal{R} \). However, they are bases for the same topology! How do we know this? We can use the previous proposition to do this.
+
+\begin{prop}
+    We claim that the two bases \( \mathcal{B} \) and \( \mathcal{R} \) generate the same topology (namely, the Euclidean Topology denoted \( {\mathcal{T}}_{E} \)).
+\end{prop}
+\begin{proof}
+Prove this using the previous proposition and proving that \( {\mathcal{T}}_{E} = \mathcal{T} \).
+\end{proof}
+
+
+\begin{eg}
+    On \( \R  \) consider the following collections of sets:
+    \[  \mathcal{B}_E = \{  (a,b) : a < b  \} , \ \ {\mathcal{B}}_{L} = \{  [a,b) : a < b  \} , \ \ {\mathcal{B}}_{K} = \mathcal{B} \cup \{ (a,b) \setminus  K  : a < b \}  \]
+    where \( K = \{  \frac{ 1 }{ n }  : n \in \N  \}  \). We have that \( {\mathcal{B}}_{E }, {\mathcal{B}}_{L},  \) and \( {\mathcal{B}}_{E} \) are bases for three distinct topologies on \( \R  \) respectively called the (standard) Euclidean topology \( \mathcal{T}_E \), the lower limit topology \( {\mathcal{T}}_{L} \), and the \( K \)-topology \( \mathcal{T}_K \). The lower limit and the \( K \)-topology are each strictly finer than the Euclidean one, and are not comparable.
+\end{eg}
+
+\begin{proof}(\( \mathcal{B}_L  \) is a basis on the Euclidean Topology )
+    we see that 
+\[  \bigcup_{ a < b , a,b \in \R  }^{  }  [a,b) = \R  \]
+Note that for \( {a}_{1}, {b}_{1}, {a}_{2}, {b}_{2} \in \R  \) with \( {a}_{1} < {b}_{1} \) and \( {a}_{2} < {b}_{2} \), we have that either 
+\[  [{a}_{1}, {b}_{1}) \cap [{a}_{2}, {b}_{2}) = \emptyset  \]
+or 
+\[  [{a}_{1}, {b}_{1}) \cap [{a}_{2}, {b}_{2}) \in {\mathcal{B}}_{L}. \]
+Hence, \( {\mathcal{B}}_{L} \) is a basis for the topology called the \textbf{lower limit topology} and we denote it by \( {\mathcal{T}}_{L} \).
+\end{proof}
+We now show that \( {\mathcal{T}}_{E} \subseteq {\mathcal{T}}_{L} \)
+\begin{proof}
+    Let \( x \in \R  \) and let \( (a,b) \in {\mathcal{B}}_{E} \) such that \( x \in (a,b) \). Consider \( [x,b) \in {\mathcal{B}}_{L} \). Clearly, \( x \in [x,b) \subseteq (a,b) \). By proposition 2, we have \( {\mathcal{T}}_{E} \subseteq {\mathcal{T}}_{L} \).
+\end{proof}
+
+Alternatively, we can prove that we can write any set in the Eulidean topology in terms of the basis elements of \( \mathcal{B}_L  \); that is, we can write something like
+\[  (a,b) = \bigcup_{ n \in \N , n > \frac{ 1 }{  b - a  }   }^{  }  \Big[a + \frac{ 1 }{ n }, b \Big) \]
+
+Furthermore, these two topologies are strictly finer. It is easy to see this by taking any half open interval of \( {\mathcal{T}}_{L} \). Clearly, half open intervals are not open with respect to the Euclidean Topology. Showing that \( {\mathcal{T}}_{K} \) is strictly finer than the Euclidean Topology is similar. Recall that for two topologies to be non comparable, those topologies cannot be a subset of the other.
+\begin{problem}
+    \begin{enumerate}
+        \item[(1)] Prove that \( \mathcal{B} = \{ (p,q) : p < q  \in \Q  \}  \) is a basis for the Euclidean topology on \( \R  \).
+        \item[(2)] Prove that \( \mathcal{B} = \{ (p,q) : p < q  \in \Q  \}  \) is not a basis for the lower limit topology on \( \R  \).
+    \end{enumerate}
+\end{problem}
+
+

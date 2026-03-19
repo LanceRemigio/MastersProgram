@@ -1,0 +1,139 @@
+\documentclass[a4paper]{article}
+\input{../../../../../newpreamble.tex}
+\title{Math 220: Homework 2}
+\author{Lance Remigio}
+\begin{document}
+\maketitle
+
+\lhead{Math 220: Homework 2}
+\chead{Lance Remigio}
+\rhead{\thepage}
+
+\begin{problem}[Examples of Topologies]
+    \begin{enumerate}
+        \item[(i)] Prove that \( \mathcal{T} = \{  (-\infty , x ) : x \in \R \}  \cup \{ \emptyset, \R  \}    \) is a topology on \( \R  \).
+            \begin{proof}
+            Clearly, we see that \( \emptyset, \R  \) by definition of \( \mathcal{T} \). 
+            Let \( {A}_{1}, {A}_{2} \in \mathcal{T} \). If \( {A}_{1} = \emptyset  \) and \( {A}_{2} = \emptyset  \), then \( {A}_{1} \cap {A}_{2} = \emptyset \in \mathcal{T} \). If \( {A}_{1} = \R  \) and \( {A}_{2} = \emptyset  \), then again \( {A}_{1} \cap {A}_{2} = \emptyset \in \mathcal{T} \) (same conclusion if we switch roles). If \( {A}_{1} = \R  \) and \( {A}_{2} = \R   \), then \( {A}_{1} \cap {A}_{2} = \R \in \mathcal{T} \). Otherwise, \( {A}_{1} = (-\infty , {x}_{1}) \) and \( {A}_{2} = (- \infty  , {x}_{2} ) \) for some \( {x}_{1} \) and \( {x}_{2}  \) in \( \R  \). Then take \( x = \min \{  {x}_{1}, {x}_{2} \}  \) and so  
+            \[  {A}_{1} \cap {A}_{2} = (-\infty , {x}_{1}) \cap (-\infty , {x}_{2}) = (- \infty , x). \]
+            Indeed, without loss of generality, assume that \( {x}_{1} < {x}_{2} \). Then notice that \( {A}_{1} \subseteq {A}_{2} \) and so \( {A}_{1} \cap {A}_{2} = {A}_{1} =  (-\infty , {x}_{1} ) \) where \( {x}_{1} = \min \{ {x}_{1}, {x}_{2} \} = x   \).
+            This tells us that \( {A}_{1} \cap {A}_{2} \in \mathcal{T}  \).
+
+            Let \( \{ {A}_{i} \}_{i \in I} \) be an arbitrary collection of sets in \( \mathcal{T} \). We have three cases to consider; that is, either for all \( i \in I  \), \( {A}_{i} = \emptyset \) or \( {A}_{i} = \R  \) for some \( i \in I  \). Otherwise, for all \( i \in \N  \), \( {A}_{i} = (-\infty , {a}_{i})  \) where \( {a}_{i} \in \R  \).
+            If \( {A}_{i} = \emptyset  \) for all \( i \in I \), then \( \bigcup_{ i \in I  }^{  }  {A}_{i} = \emptyset   \). Since \( \emptyset \in \mathcal{T} \) by the first case, it follows that \( \bigcup_{ i \in I  }^{  } {A}_{i} \in \mathcal{T} \).
+
+            If \( {A}_{i} = \R  \) for at least one \( i \in I  \), then \( \bigcup_{ i \in I  }^{  }  {A}_{i} = \R  \). Again, since \( \R \in \mathcal{T} \) by our first case, it follows that \( \bigcup_{ i \in I  }^{  }  {A}_{i} \in \mathcal{T} \).  
+
+            If \( {A}_{i} = (-\infty , {a}_{i} ) \) where \( {a}_{i} \in \R  \). Consider the set of right endpoints of each interval \( \{ {a}_{i} : i \in I  \}  \). Here we will consider two cases; that is, either \( \{ {a}_{i} : i \in I  \}  \) is unbounded or bounded. If this set is unbounded, then \( a = \sup_{i \in I} {a}_{i} = \infty  \), and so  
+            \[  \bigcup_{ i \in I  }^{  }  {A}_{i} = (-\infty , + \infty) = \R.   \]
+            If this set is bounded, then \( a = \sup_{i \in I} {a}_{i} \) exists and we claim that  
+            \[  \bigcup_{ i \in I  }^{  }  {A}_{i} = (-\infty , a). \]
+            Indeed, we proceed to prove this via double inclusion. 
+
+            Let \( x \in \bigcup_{ i \in I  }^{  }  {A}_{i} \), then there exists \( j \in I  \) such that \( x \in {A}_{j} = (- \infty , {a}_{j}) \) for some \( {a}_{j} \in \R  \). By definition of \( a  \), it follows that \( a \geq {a}_{j} \) implying that \( x \in (-\infty , a ) \). Thus, we get that \( \bigcup_{ i \in I  }^{  } {A}_{i} \subseteq (-\infty , a ) \). 
+            
+            Let \( x \in (-\infty , a) \). Then \( x < a = \sup_{i \in I} {a}_{i}  \). Let \( \epsilon = a - x > 0  \) since \( x < a  \). By the \( \epsilon  \) characterization of the supremum, it follows that there exists an \( \ell \in I  \) such that 
+            \[ {a}_{\ell} > a - \epsilon = a - (a - x) = x.  \]
+            This tells us that \( x < {a}_{\ell} \) and so \( x \in (-\infty , {a}_{\ell}) \subseteq \bigcup_{ i \in I  }^{  }  (-\infty , {a}_{i})  \). Hence, we see that \( (-\infty , a ) \subseteq \bigcup_{ i \in I  }^{  }  (- \infty , {a}_{i}) = \bigcup_{ i \in I  }^{  } {A}_{i} \).
+            Hence, we conclude that \( \bigcup_{ i \in I  }^{  }  {A}_{i} \in \mathcal{T} \) and so the arbitrary union of sets in \( \{ {A}_{i} \}_{i \in I} \) is in \( \mathcal{T} \) is contained in \( \mathcal{T} \).
+
+            Thus, we conclude that \( \mathcal{T} \) is a topology on \( \R  \).
+\end{proof}
+        \item[(ii)] Prove that \( \mathcal{T} = \{  {O}_{n} : n \in \N  \} \cup \{ \emptyset, \N \}   \) where \( {O}_{n} = \{  k \in \N : k \geq n  \}  \) is a topology on \( \N  \).
+            \begin{proof}
+            Clearly, \( \emptyset, \N  \) are in \( \mathcal{T} \) by definition of \( \mathcal{T} \).
+
+            Let \( {A}_{1}, {A}_{2} \in \mathcal{T} \). Let us consider a few cases. If \( {A}_{1} = \emptyset  \) and \( {A}_{2} = \emptyset  \), then \( {A}_{1} \cap {A}_{2} = \emptyset \in \mathcal{T} \). If one of the \( {A}_{i}'s \) is empty, then \( {A}_{1} \cap {A}_{2} = \emptyset \mathcal{T} \). If \( {A}_{1} = \N  \) and \( {A}_{2} = \N  \), then \( {A}_{1} \cap {A}_{2} = \N \in \mathcal{T} \). 
+            Now, suppose that \( {A}_{1} = {O}_{n} \) and \( {A}_{2} = {O}_{m} \) for some \( m, n \in \N \). Take \( N = \max \{ m, n \}  \) and notice that 
+            \[  {O}_{n} \cap {O}_{m} = {O}_{N} \in \mathcal{T}  \]
+            which tells us that \({A}_{1} \cap {A}_{2} \in \mathcal{T} \). 
+
+            Indeed, without loss of generality, assume that \( m > n  \). Since \( {O}_{m} \subseteq {O}_{n} \) (since for every \( k \in {O}_{m} \), we have \( k \geq m > n \)), we have that \( {O}_{m} \cap {O}_{n} = {O}_{m} = {O}_{N} \) where \(N = \max \{ n,m  \} = m\). 
+
+
+            Assume that \(  \{  {A}_{i} \}_{i \in I} \) is an arbitrary collection of sets in \( \mathcal{T} \). We will consider three cases; that is, either \( {A}_{i} = \emptyset \) for all \( i \in I  \), \( {A}_{i} = I  \) for some \( i \in I  \), or \( {A}_{i} = {O}_{{n}_{i}} \) for all \( i \in I \).
+           
+            If \( {A}_{i} = \emptyset  \) for all \( i \in I \), then it follows that \( \bigcup_{ i \in I  }^{  }  {A}_{i} = \emptyset \). 
+
+            If there exists at least one \( j \in I \) such that \( {A}_{j} = \N  \), then the union will be \( \N  \) which is in \( \mathcal{T} \). 
+
+            Otherwise, suppose \( {A}_{i} \) is in \( \{ {O}_{n} : n \in \N \}  \) for all \( i \in I \). Then by definition, \( {A}_{i} = {O}_{{n}_{i}} \) where \( {n}_{i} \in \N \). If we consider the set of positive integers \( S = \{ {n}_{i} : i \in I \} \subseteq \N  \), then the well-ordering property tells us that there exists a minimum for this set; namely, \( {n}_{0} = \min S \). Hence, we can write 
+            \[  \bigcup_{ i \in I }^{  }  {A}_{i} = \bigcup_{ i \in I }^{  } {O}_{{n}_{i}} = {O}_{{n}_{0}} \tag{*} \]
+            which is in \( \mathcal{T} \). Indeed, notice that \( {O}_{{n}_{0}} \subseteq \bigcup_{ i \in I  }^{  }  {O}_{{n}_{i}} \) since \( {O}_{{n}_{0}}  \) is one of the sets in the union. On the other hand, if \( k \in \bigcup_{ i \in I }^{  }  {O}_{{n}_{i}} \), then there exists an \( \ell \in I  \) such that \( k \in {O}_{{n}_{\ell}} \). Thus, \( k \geq {n}_{\ell} \). Using the fact that \( {n}_{0} = \min S \), it follows that \( {n}_{\ell } \geq {n}_{0} \) and so \( k \in {O}_{{n}_{0}} \). Thus,     
+            \[  \bigcup_{ i \in I  }^{  } {O}_{{n}_{i}} \subseteq {O}_{{n}_{0}}, \]
+            implying (*) from above.
+
+            Thus, it follows that \( \mathcal{T} \) is a topology on \( \N \).
+            \end{proof}
+    \end{enumerate}
+\end{problem}
+
+\begin{problem}[Intersections and Unions of Topologies]
+   \begin{enumerate}
+       \item[(i)] Let \( \{ {\mathcal{T}}_{\alpha} \}_{\alpha \in \Lambda} \) be a family of topologies on a nonempty set \( X  \). Prove that \( \bigcap_{ \alpha \in \Lambda }^{  }  {\mathcal{T}}_{\alpha} \) is a topology on \( X  \).
+           \begin{proof}
+               Notice that \( \emptyset , X \in {T}_{\alpha} \) for all \( \alpha \in \Lambda \). Then we have \( \emptyset, X \in \bigcap_{ \alpha \in \Lambda }^{  } {\mathcal{T}}_{\alpha} \)
+
+               Let \( {A}_{1}, {A}_{2} \in \bigcap_{ \alpha \in \Lambda  }^{   }  {\mathcal{T}}_{\alpha} \). Thus, for all \( \alpha \in \Lambda \), \( {A}_{1}, {A}_{2} \in {\mathcal{T}}_{\alpha} \). Since each \( {\mathcal{T}}_{\alpha} \) is a topology, we have \( {A}_{1} \cap {A}_{2} \in {\mathcal{T}}_{\alpha}  \) for all \( \alpha \in \Lambda \). Hence, we have \( {A}_{1} \cap {A}_{2} \in \bigcap_{ \alpha \in \Lambda }^{  } {\mathcal{T}}_{\alpha} \). 
+
+               Now, let \( \{ {A}_{\omega} \}_{\omega \in \Omega} \) be a collection of open sets in \( \bigcap_{ \alpha \in \Lambda }^{  }  {\mathcal{T}}_{\alpha} \). Then for all \( \omega \in \Omega \), \( \mathcal{A}_{\omega} \in {\mathcal{T}}_{\alpha}  \) for all \( \alpha \in \Lambda \). That is \( \{ {A}_{\omega} \}_{\omega \in \Omega} \) is a collection of open sets in \( {\mathcal{T}}_{\alpha} \) for all \( \alpha \in \Lambda \). Thus, for all \( \alpha \in \Lambda \), \( \bigcup_{ \omega \in \Omega }^{  }  {A}_{\omega}  \in {\mathcal{T}}_{\alpha} \) since each \( {\mathcal{T}}_{\alpha} \) is a topology. Thus, \( \bigcup_{ \omega \in \Omega }^{  }  {A}_{\omega} \in \bigcap_{ \alpha \in \Lambda }^{  }  {\mathcal{T}}_{\alpha} \).
+               Hence, we conclude that \( \bigcap_{ \alpha \in \Lambda }^{  } {\mathcal{T}}_{\alpha} \) must be a topology on \( X  \).
+           \end{proof}
+        \item[(ii)] Is it true that the union of two topologies on \( X  \) is a topology on \( X  \)? Give a proof or a counterexample, as appropriate.
+            \begin{proof}
+            Let \( X = \{  a, b , c  \}  \). Define the following topologies \( {\mathcal{T}}_{1} = \{  X , \emptyset , \{ a  \} \}  \) and \( {\mathcal{T}}_{2} = \{  X ,\emptyset , \{  b  \}  \}  \). Then 
+            \[  {\mathcal{T}}_{1} \cup {\mathcal{T}}_{2} = \{  X , \emptyset, \{ a  \} , \{  b  \}  \}. \]
+            Note that the union above is not a topology because \( \{ a,b \}  =  \{ a  \}  \cup \{ b  \} \not\in {\mathcal{T}}_{1} \cup {\mathcal{T}}_{2} \). 
+            \end{proof}
+   \end{enumerate} 
+\end{problem}
+
+\begin{problem}[Hausdorff condition and Metrizability]
+    A topological space \( X  \) is \textbf{Hausdorff} if for all \( x,y \in X  \), \( x \neq y  \), there exists open sets \( U  \) and \( V  \) such that \( x \in U  \), \( y \in V  \), and \( U \cap V = \emptyset \). (This means that any two distinct points are contained in two disjoint open sets).
+\end{problem}
+\begin{enumerate}
+    \item[(i)] Prove that, if a topological space is metrizable, then it is Hausdorff.
+        \begin{proof}
+        Let \( x,y \in X  \) be distinct. Since \( X  \) is metrizable, there exists a metric \( d  \) such that \( d  \) induces the following topology on \( X  \)
+        \[  \mathcal{T} = \{  A \subseteq  X : \forall x \in X , \ \exists r > 0 \ \text{such that} \ {B}_{r}^{d}(x) \subseteq A  \}. \]
+        Define \( r = \frac{ 1 }{ 2 }  \cdot d(x,y) \). Since \( x \neq y  \), it follows that \( d(x,y) > 0  \) and so \( r > 0  \). Define \( {B}_{r}^{d}(x) = U  \) and \( {B}_{r}^{d}(y) = V  \). Notice that \( x \in  U   \) and \( y \in V  \) by definition of those balls being centered at \( x  \) and \( y  \), respectively.
+
+        We claim that \( U \cap V = \emptyset  \). It suffices to show that \( U \subseteq V^{c} \). Notice that  
+        \[  V^{c} = [{B}_{r}^{d}(y)]^{c} = \{ z \in X : d(y,z) \geq r  \}. \]
+        To this end, let \( t \in U  \) be arbitrary. Our goal is to show that \[ d(t,y) \geq r.  \]
+        By the triangle inequality, we get that 
+        \begin{align*}
+            &d(y,x) \leq d(y,t) + d(t,x) \\
+            &\implies d(y,t) \geq d(y,x) - d(t,x).
+        \end{align*}
+        Thus, we have that 
+        \begin{align*}
+            d(y,t) &\geq d(y,x) - d(t,x) \\
+                   &> d(y,x) - \frac{ 1 }{ 2 }  d(y,x) \\
+                   &= \frac{ 1 }{ 2 } \cdot  d(y,x) \\
+                   &= r.  
+        \end{align*}
+        Hence, we see that indeed \( d(y,t) \geq r  \) and so we get that \( t \in V^{c} \) and so \( U \cap V = \emptyset \). Therefore, \( X  \) is Hausdorff.
+        \end{proof}
+
+    \item[(ii)] Prove that an indiscrete topological space that contains at least two points is not metrizable.
+        \begin{proof}
+        Suppose for contradiction that the indiscrete topological space \( \mathcal{T} \)that contains at least two points IS metrizable. By definition, it follows that there exists a metric \( d  \) such that it induces \( \mathcal{T} \). Using part (i), \( X  \) is Hausdorff. That is, for all \( x,y \in X  \) distinct, there exists open sets \( U \) and \( V  \) in \( \mathcal{T} \) such that \( x \in U  \), \( y \in V  \), and \( U \cap V = \emptyset \). Since \( U,V \in \mathcal{T} \), it follows that \( U \in \{ \emptyset, X  \}  \) and \( V \in \{ \emptyset, X  \}  \). This tells us that either \( U = \emptyset  \) or \( U = X  \) and \( V = \emptyset  \) or \( V = X  \).
+
+        If \( U = \emptyset  \) and \( V = \emptyset  \), then we have a contradiction since \( x \in U   \) and \( y \in V  \). 
+        If \( U = \emptyset  \) and \( V = X  \), then we have another contradiction since \( x \in U  \). 
+        If \( U = X   \) and \( V = \emptyset  \), then we have another contradiction since \( y \in V  \). 
+        If \( U = X  \) and \( V = X  \), then we have another contradiction since \( \emptyset =  U \cap V = X \cap X = X   \) which tells us that \( X = \emptyset \) which is a contradiction since \(X \neq \emptyset \).
+        Thus, it follows that \( \mathcal{T} \) cannot be metrizable.
+        \end{proof}
+    \item[(iii)] Prove that an infinite set endowed with the cofinite topology is not metrizable.
+        \begin{proof}
+         Suppose for contradiction that \( \mathcal{T} \) is metrizable. Then there exists a metric \( d  \) that induces \( \mathcal{T} \). By part (i), for all \( x,y \in X  \) that are distinct, there exists \( U  \) and \( V  \) are in \( \mathcal{T} \) such that \( x \in U  \), \( y \in V  \), and \( U \cap V = \emptyset \).
+         Since \( U \) and \( V  \) in \( \mathcal{T} \), it follows from De-Morgan's Laws that 
+         \[  X = X \cap X = X \cap \emptyset^{c} =  X \setminus  \emptyset = X \setminus  (U \cap V) = (X \setminus U) \cup (X \setminus  V ).  \]
+         Thus, the union above is finite because the complements of \( U  \) and \( V \) are finite. But this tells us that \( X  \) is finite which contradicts the assumption that \( X  \) is infinite. Hence, \( \mathcal{T} \) must not be metrizable.
+        \end{proof}
+\end{enumerate}
+
+\end{document}
+

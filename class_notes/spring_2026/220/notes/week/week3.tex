@@ -1,0 +1,245 @@
+\subsection{Neighborhoods and Interior}
+
+\begin{definition}[Neighborhood System]
+   Let \( (X,\mathcal{T}) \) be a topological space and \( x \in X  \). A \textbf{neighborhood} of \( x  \) is a subset of \( X  \) such that there exists \( A \in \mathcal{T} \) such that \( x \in A \subseteq U  \). The family of all neighborhoods of \( x  \) is called the \textbf{neighborhood system} of \( x  \) and is denoted by \( \mathcal{N}(x) \); that is,  
+   \[  \mathcal{N}(x) = \{  U \subseteq X : U \ \text{is a neighborhood of \( x  \)} \}  \]
+\end{definition}
+
+\begin{problem}
+    Consider \( \R  \) with the Euclidean topology and \( x \in \R  \).
+    \begin{enumerate}
+        \item[(i)] Give an example of a neighborhood of \( x  \) that is open and one that is not open.
+            \begin{solution}
+                \( (x - \epsilon, x + \epsilon) \) is an open neighborhood of \( x  \) with respect to the Euclidean Topology  and on the other hand, \( [x- \epsilon, x + \epsilon] \) is not an open neighborhood of \( x  \).
+            \end{solution}
+        \item[(ii)] Give an example of a subset of \( \R  \) containing \( x  \) that is not a neighborhood of \( x  \).
+            \begin{solution}
+                We have \( [x, x + 1) \), \( [x, x+ 1) \), and \( \{ x  \}  \).
+            \end{solution}
+    \end{enumerate}
+\end{problem}
+
+\begin{prop}
+    Let \( X  \) be a topological space and \( A \subseteq X  \). We have that \( A  \) is open if and only if for all \( x \in A  \), we have \( A \in \mathcal{N}(x) \).
+\end{prop}
+\begin{proof}
+\textit{Left to the reader.} \( \Longrightarrow  \) \textit{This is trivial.}
+\( \Longleftarrow \)  Use the definition and apply the union and the union of open sets is open.
+\end{proof}
+
+\begin{definition}[Interior Point and Interior of a Set]
+ Let \( X  \) be a topological space, \( A \subseteq  X  \), and \( x \in X  \).
+   \begin{itemize}
+       \item We say that \( x  \) in an \textbf{interior point} of \( A  \) if \( A \in \mathcal{N}(x) \); that is, there exists an open set \( U  \) such that \( x \in U \subseteq A  \).
+        \item The \textbf{interior} of \( A  \) is defined as
+            \[  \mathring{A} = \text{int}(A) = \{  x \in X : x \ \text{is an interior point of \( A  \)} \}.  \]
+   \end{itemize} 
+\end{definition}
+
+\begin{remark}
+    Let \( (X,\mathcal{T}) \) be a topological space and \( A \subseteq X  \). Then, 
+    \begin{itemize}
+        \item \( \mathring{A} \subseteq A  \),
+        \item If \( \mathcal{B} \) is a basis for \( \mathcal{T} \), then \( x \in \mathring{A} \) if and only if there exists \( B \in \mathcal{B} \) such that \( x \in B \subseteq  A  \).
+    \end{itemize}
+    This allows us to verify if a point in the interior just by using the basis of \( \mathcal{T} \) instead of checking every open set. This makes it easier to check these properties because we are working with fewer sets.
+\end{remark}
+
+\begin{prop}
+    Let \( X  \) be a topological space and \( A \subseteq X  \). We have that \( A  \) is open if and only if \( A = \mathring{A} \).
+\end{prop}
+
+\begin{proof}
+    By the observation, \( A = \mathring{A} \) if and only if \( A \subseteq \mathring{A} \). Suppose \( A  \) is open. Then, \( A  \) is open if and only if for all \( x \in A  \), \( A  \) is a neighborhood of \( x  \) by proposition 1. Since \( A \in \mathcal{N}(x) \), for all \( x \in A  \), \( x \in \mathring{A} \) by definition of interior point. Hence, \( A \subseteq \mathring{A} \).
+\end{proof}
+
+What is the relevance of all of this? Notice that we declared that a set being open as an axiom. This proposition gives us a more deeper insight into what it means to be open.  
+
+
+\begin{prop}
+    Let \( X  \) be a topological space and \( A \subseteq X  \). The interior of \( A  \) is the largest open set contained in \( A  \). Equivalently, 
+    \[  \mathring{A} = \bigcup_{ U \ \text{is open}, U \subseteq A  }^{  } U. \]
+\end{prop}
+\begin{proof}
+    We proceed via double inclusion to prove the result. Denote by \( \mathcal{A} = \{  U \subseteq A : \text{\( U  \) is open} \}  \) Let \( x \in \mathring{A}  \). By defintion there exists an open set \( U  \) such that \( x \in U \subseteq A  \). Therefore, \( U \in \mathcal{A}  \) and so \( x \in \bigcup_{ U \in \mathcal{A} }^{  } U  \). This shows that the interior \( \mathring{A} \subseteq \bigcup_{ U \in \mathcal{A} }^{  } U  \). 
+
+    Now, let \( x \in \bigcup_{ U \in \mathcal{A} }^{  } U  \). Then for some open set \( U \subseteq A  \), \( x \in U  \). By definition, this tells us that \( x  \) is an interior point of \( A  \). Hence, \( x \in \mathring{A} \). Thus, \( \bigcup_{ U \in \mathcal{A} }^{  } U \subseteq \mathring{A} \).
+\end{proof}
+
+
+\begin{problem}
+    For \( a < b  \) in \( \R  \), consider \( A = (a,b) \), \( B = [a,b) \), \( C = [a,b] \), and \( D = \Q  \). Find the interior of \( A,B,C,D  \) as subsets of \( \R  \) endowed with 
+    \begin{enumerate}
+        \item[(i)] The Euclidean Topology,
+            \begin{solution}
+                \( A  \) itself is the interior because \( A  \) is open. \( A  \) is the interior of \( B \), \( A  \) is the interior of \( C \), then \( \mathring{D} = \emptyset \). We see this by contradiction. Suppose \( \mathring{Q} \neq \emptyset \). Then there exists an \( x \in \mathring{\Q} \). Then there exists an \( r > 0  \) such that \( x \in (x - r , x + r) \subseteq \Q  \). But this cannot be the case since this open set contains irrational points that are clearly not in \( \Q  \). Thus, a contradiction.
+            \end{solution}
+        \item[(ii)] The lower limit topology,
+            \begin{solution}
+                \begin{itemize}
+                    \item Since \( B \) is open, then \( \mathring{B} = B = [a,b) \).
+                    \item Recall that the lower limit topology is finer than the Euclidean topology (again because it has more open sets than the Euclidean topology), since \( A  \) is open in the Euclidean topology, it is also open in the lower limit topology.
+      Thus, \( \mathring{A} = A = (a,b) \).
+                    \item We claim that \( \mathring{C} = [a,b)  \). 
+
+                        Let \( x \in C \). We will consider two cases; that is, if \( a \leq x < b  \). We need to find a \( U  \) such that \( x \in U \subseteq [a,b) \). Indeed, define \( U  = [x,b) \). Since \( x \in U  \) and \( U  \) is open with respect to our topology, it follows that \( x \in \mathring{C} \). Suppose now that \( x = b  \). Then this is not an interior point because there is no open set that contains \( b  \) is contained in \( [a,b) \); that is, for all sets \( U \in \mathcal{T} \), \( x \in U \not\subseteq [a,b)  \); that is, no interval of the form \( [c,d)  \) with \( c \leq x < d  \) is not contained in \( C  \) and we are done. 
+                    \item Note that the interior of \( \Q  \) is just empty again.
+                \end{itemize}
+            \end{solution}
+        \item[(iii)] The cofinite topology.
+            \begin{solution}
+                \textit{Left to reader.}   
+            \end{solution}
+    \end{enumerate}
+\end{problem}
+
+\begin{remark}
+    Sets whose complements are finite have empty interiors.
+\end{remark}
+
+\subsection{Closed Sets and Closure}
+
+\begin{definition}[Closed]
+    Let \( X  \) be a topological space. A subset \( C  \) of \( X  \) is \textbf{closed} if its complement \( X \setminus  C  \) is open.
+\end{definition}
+
+\begin{eg}
+    \begin{enumerate}
+        \item[(i)] The sets \( [a,\infty) , (- \infty , a ] , [a,b]  \) for \( a,b \in \R  \) with \( a < b  \) are closed in \( \R  \) equipped with the Euclidean topology.
+    \begin{itemize}
+        \item \( \R \setminus  [a,+\infty) \) is open and so \( [a,+ \infty) \) is closed.
+        \item \( R \setminus  (-\infty , a ]  = (a,\infty) \) is open, and so \( (-\infty  a ]  \) is closed.
+        \item  \( \R \setminus  [a,b] = (-\infty , a) \cup (b,+\infty ) \) is open, so \( [a,b) \) is closed.
+    \end{itemize}
+        \item[(ii)] The sets \( [a,b] , (a,b]  \) for \( a,b \in \R  \) with \( a < b  \) are NOT closed in \( \R  \) equipped with the Euclidean topology.
+        \item[(iii)] In a metric space, singletons are closed. \textit{proof left to reader.} 
+    \end{enumerate}
+\end{eg}
+
+\begin{problem}
+    Which of the sets in the previous example (part i) and ii)) are closed in \( \R  \) equipped with the lower limit topology?
+    \textbf{ans:} The first and the third example. 
+
+    We can actually write the these examples in terms of a union of open sets in the lower limit topology; that is, 
+    \[  [a,\infty)^{c} = (-\infty , a ) = \bigcup_{ n \in \N  }^{  }  [a-n, a) \]
+    so \( [a,\infty)^{c} \) is open, and so \( [a,\infty)   \) is closed.
+
+    Also, we see that the second example is closed. Note 
+    \[  (-\infty , a]^{c} = (a,\infty ) = \bigcup_{ n \in \N  }^{  }  \Big[a + \frac{ 1 }{ n }  , a + n \Big).  \]
+
+    Note also that 
+    \[  [a,b)^{c} = \underbrace{(-\infty , a )}_{\text{open}} \cup \underbrace{[b,\infty ]}_{\text{open}} \]
+    so \( [a,b)^{c} \) is open and thus \( [a,b)  \) is closed.
+
+    However, we see that \( (a,b]^{c} = (-\infty , a] \cup (b,+\infty )   \) not open (\textbf{hint:} look at \( a  \)). 
+
+\end{problem}
+
+\begin{problem}
+    Which of the following sets are closed in \( \R^{2} \) equipped with the Euclidean topology?
+\end{problem}
+\begin{enumerate}
+    \item[(i)] \( \{ ({x}_{1}, {x}_{2}) \in \R^{2} : {x}_{2} \leq  1  \}  \)
+
+        Just show that the complement is open.
+    \item[(ii)] \( \{ 0  \}  \times \R  \)
+        
+        Note that \( B^{c} = \{ ({x}_{1}, {x}_{2}) \in \R^{2} : {x}_{1} \neq 0  \}  = \{  ({x}_{1} , {x}_{2}) \in \R^{2} : {x}_{1} > 0  \}  \cup \{ ({x}_{1} , {x}_{2}) \in \R^{2} : {x}_{1} < 0  \}  \) which are relatively easy to show that both sets are open. 
+
+        Alternatively, since we already know that singletons and the metric space are closed sets, then the finite product of closed sets is closed.
+\end{enumerate}
+
+\begin{prop}
+    Let \( X  \) be a topological space. We have that 
+    \begin{enumerate}
+        \item[(i)] \( \emptyset  \) and \( X  \) are closed;
+        \item[(ii)] If \( {C}_{1} \) and \( {C}_{2} \) are closed, then \( {C}_{1} \cup {C}_{2} \) is closed;
+        \item[(iii)] If \( \{ {C}_{i} \}_{i \in I }  \) is a collection of closed sets, then \( \bigcap_{  i \in I  }^{  }  {C}_{i} \) is closed.
+\end{enumerate}
+\begin{remark}
+    Condition (ii) is equivalent to ii'): if \( {C}_{1}, {C}_{2}, \dots, {C}_{n} \) are closed, then \( {C}_{1} \cup {C}_{2} \cup \cdots \cup {C}_{n} \) is closed.
+\end{remark}
+\end{prop}
+\begin{proof}
+\textit{left to the reader.} 
+\end{proof}
+
+\begin{definition}[Points of Closure (adherent point)]
+    \begin{itemize}
+        \item We say that \( x  \) is a \textbf{point of closure} (or an \textbf{adherent point}) of \( A  \) if
+            \[  \forall N \in \mathcal{N}(x), \ \text{we have} \ N \cap A \neq \emptyset.  \]
+        \item The \textbf{closure} of \( A  \) is defined as
+            \[  \overline{A} = \{ {x}_{0} \in X : {x}_{0} \ \text{is a closure point of \( A  \)} \}. \]
+    \end{itemize}
+\end{definition}
+
+\begin{remark}
+    We can express these ideas in terms of neighborhoods to open sets and to basis elements (assuming that a basis exists for the topology).
+\end{remark}
+
+Let's prove the third observation.
+
+\begin{proof}
+\( (\Longrightarrow) \) Let \( x \in \overline{A} \). Let \( b \in \mathcal{B} \) such that \( x \in B \). Recall that \( B \) is open (by definition of a basis), of \( B \in \mathcal{N}(x) \). By definition of point of closure, we get that \( B \cap A \neq \emptyset  \).
+
+\( (\Longleftarrow) \) 
+\end{proof}
+
+\begin{remark} Let \( (X,\mathcal{T}) \) be a topological space and \( A \subseteq X  \). Then 
+   \begin{itemize}
+       \item \( A \subseteq \overline{A} \).
+        \item \( x \in \overline{A }  \) if and only if \( U \cap A \neq \emptyset  \) for every open set \( U  \) such that \( x \in U  \). 
+        \item If \( \mathcal{B} \) is a basis for \( \mathcal{T} \), then \( x \in \overline{A}\) if and only if \( B \cap A \neq \emptyset  \) for all \( B \in \mathcal{B} \) such that \( x \in B \).
+   \end{itemize} 
+\end{remark}
+
+\begin{prop}
+    Let \( X  \) be a topological space and \( A \subseteq X  \). We have that 
+    \begin{center}
+        \( A  \) is closed if and only if \( A = \overline{A} \).
+    \end{center}
+\end{prop}
+
+\begin{prop}
+    Let \( X  \) be a topological space and \( A \subseteq X  \). The closure of \( A  \) is the smallest closed set containing \( A  \). Equivalently, 
+    \[  \overline{A} = \bigcap_{ C \in \Omega }^{  } C \]
+    where \( \Omega = \{  A \subseteq C : \text{\( C \) is a closed set} \}  \).
+\end{prop}
+
+\begin{problem}
+    For \( a < b \in \R  \) consider \( A = (a,b) \), \( B = [a,b) \), \( C = [a,b] \), and \( D = \Q  \). Find the closure of \( A , B , C , D  \) as subsets of \( \R  \) endowed with
+    \begin{enumerate}
+        \item[(i)] The Euclidean Topology,
+        \item[(ii)] The lower limit topology,
+        \item[(iii)] The cofinite topology.
+    \end{enumerate}
+\end{problem}
+
+\begin{definition}[Dense]
+    Let \( X  \) be a topological space and \( A \subseteq X   \). We say that \( A  \) is \textbf{dense} in \( X  \) if \( \overline{A} = X  \).
+\end{definition}
+
+\begin{eg}
+    \begin{enumerate}
+        \item[(i)] The set of rationals \( \Q  \) in \( \R  \) equipped with the Euclidean topology (and with the lower limit topology).
+        \item[(ii)] More in general, for \( n \in \N  \), the set \( \Q^{n}  \) is dense in \( \R^{n} \) equipped with the Euclidean topology.
+        \item[(iii)] The set of irrationals \( \R \setminus  \Q  \) is dense in \( \R  \) equipped with the Euclidean topology.
+    \end{enumerate}
+\end{eg}
+
+\begin{prop}
+    Let \( (X,\mathcal{T}) \) be a topological space and \( A \subseteq X  \). We have that 
+    \begin{enumerate}
+        \item[(i)] \( A  \) is dense in \( X  \) if and only if \( A \cap U \neq \emptyset \) for all nonempty \( U \in \mathcal{T} \);
+        \item[(ii)] If \( \mathcal{B} \) is basis for \( \mathcal{T} \), \( A  \) is dense in \( X  \), if and only if \( A \cap B \neq \emptyset \) for all nonempty \( B \in \mathcal{B} \).
+    \end{enumerate}
+\end{prop}
+\begin{proof}
+    \begin{enumerate}
+        \item[(i)] Assume that \( A  \) is dense in \( X  \); that is, \( \overline{A} = X  \). Let \( \emptyset \neq U \in \mathcal{T} \). Then there exists \( x \in U  \). By assumption, \( x \in \overline{A} \). Since \( U  \) is open and \( x \in U  \), then \( U \in \mathcal{N}(x) \) so \( U \cap A \neq \emptyset \), by definition of closure.
+        Conversely, assume that \( A \cap U \neq \emptyset \) for all \( U \in \mathcal{T} \), \( U \neq \emptyset \). Let \( x \in X  \). Consider an open set \( U  \) containing \( x  \). By assumption, \( U \cap A \neq \emptyset \), so \( x \in \overline{A} \). This shows that \( X \subseteq \overline{A} \). Since \( \overline{A} \subseteq X  \), we conclude that \( \overline{A} = X  \) and so \( A  \) must be dense in \( X  \).
+        \item[(ii)] \textit{Left to reader as an exercise.} 
+    \end{enumerate}
+\end{proof}
+
+

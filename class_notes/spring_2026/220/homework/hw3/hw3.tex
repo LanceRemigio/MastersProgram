@@ -1,0 +1,147 @@
+\documentclass[a4paper]{article}
+\input{../../../../../newpreamble.tex}
+\title{Math 220: Homework 3}
+\author{Lance Remigio}
+\begin{document}
+\maketitle
+
+\lhead{Math 220: Homework 3}
+\chead{Lance Remigio}
+\rhead{\thepage}
+
+\begin{problem}[Examples and nonexamples of bases]
+   \begin{enumerate}
+       \item[(i)] Prove that \( \mathcal{B} = \{ (p,q) : p < q \in \Q  \}  \) is a basis for the Euclidean topology on \( \R  \).
+           \begin{proof}
+               Let \( (a,b) \in {\mathcal{T}}_{E}  \) and let \( x \in (a,b) \). Since \( \Q  \) is dense in \( \R  \), there exists \( p \) and \( q  \) in \( \Q  \) such that \( a  < p < x < q < b \), implying that \( x \in (p,q) \subseteq (a,b) \). Since \( (p,q) \in \mathcal{B} \) and \( (a,b) \) is an arbitrary element of \( {\mathcal{T}}_{E} \), it follows that \( \mathcal{B} \) is a basis for the Euclidean Topology \( {\mathcal{T}}_{E} \).   
+           \end{proof}
+       \item[(ii)] Prove that \( \mathcal{B}' = \{  [p,q) : p < q \in \Q  \}  \) is not a basis for the lower limit topology on \( \R  \).
+           \begin{proof}
+               Suppose for contradiction that \( \mathcal{B}' \) is a basis for the lower limit topology. Define \( a = \sqrt{ 3 }  \) and \( b = \sqrt{ 3 }  + 1  \). Then we see that \( [a,b) \) is an element of the lower limit topology. Since \( \mathcal{B}' \) is a basis for \( {\mathcal{T}}_{L} \), there exists \( B' \in \mathcal{B}' \) such that \( a \in  B' \subseteq [a,b)  \) where \( B' = [p,q) \) for some \( p,q \in \Q  \). Since \( a \in [p,q) \), it follows that \( p \leq a  \). Since \( [p,q) \subseteq [a,b) \), it follows that \( a \leq p  \) which tells us that \( p = a  \). But now \( p  \) is an irrational number which is a contradiction. Hence, \( \mathcal{B}' \) cannot be a basis for the lower limit topology.     
+           \end{proof}
+        \item[(iii)] Is \( \mathcal{B}' \) from the previous point the basis for a topology on \( \R  \)? Prove your claim.
+            \begin{proof}
+            We claim that \( \mathcal{B}'  \) from the previous part is the basis for the topology on \( \R  \). That is, we want to show that 
+            \begin{enumerate}
+                \item[(I)] \( \bigcup_{ B \in \mathcal{B}' }^{  } B = \R  \)
+                \item[(II)] For all \( A,B \in \mathcal{B} \), \( A \cap B  \) can be written as a union of elements of \( \mathcal{B}' \).
+            \end{enumerate}
+            Starting with (I), we see that it suffices to show that \( \R \subseteq \bigcup_{ B \in \mathcal{B}' }^{  } B  \). To this end, let \( x \in \R  \). Since \( \Q  \) is dense in \( \R  \), there exists \( p,q \in \Q  \) such that \( p < x < q  \). That is, \( x \in (p,q) \subseteq [p,q)  \). Since \( [p,q) \subseteq \bigcup_{ B \in \mathcal{B}' }^{  }  B  \), it follows that \( x \in \bigcup_{ B \in \mathcal{B}' }^{  }  B  \). Thus, it follows that \( \R  \) is a subset of the union of elements of \( \mathcal{B}' \). That is, 
+            \[  \bigcup_{ B \in \mathcal{B}' }^{  } B = \R. \]
+           
+            (II) Let \( A,B \in \mathcal{B} \) be arbitrary. Our goal is to show that \( A \cap B \in \mathcal{B} \). Since \( A,B \in \mathcal{B} \), it follows that \( A = [{p}_{1}, {q}_{1}) \) and \( B = [{p}_{2}, {q}_{2}) \) where \( {p}_{1}, {p}_{2}, {q}_{1}, {q}_{2} \in \Q  \). Let \( x \in A \cap B  \). Set \( m = \max \{ {p}_{1}, {q}_{1} \}  \) and \( \ell = \min \{ {p}_{2}, {q}_{2} \}  \). Then we get that \( x \in [m, \ell) \subseteq A \cap B \). Since \( m  \) and \( \ell  \) are in \( \Q  \), it follows that \( [m,\ell) \) is an element of \( \mathcal{B}' \). Implying that \( A \cap B \) can be written in terms of a union of elements from \( \mathcal{B}' \) and we are done. 
+
+            Thus, (I) and (II) imply that \( \mathcal{B}' \) is a basis for a topology on \( \R  \).
+
+            
+            \end{proof}
+        \item[(iv)] Is the family \( \mathcal{B}'' = \{  [a,b] : a,b \in \R , a< b \}  \)the basis for a topology on \( \R  \)? Prove your claim.
+            \begin{proof}
+                The family above is not a basis for a topology on \( \R  \). Suppose for a contradiction that it is. Then \( A = [0,1] \) and \( B = [1,2] \). Then \( A \cap B  = \{ 1 \}   \). Since \( \mathcal{B}'' \) is a basis for a topology on \( \R  \), then there exists \( [c,d] \in \mathcal{B}'' \) such that \( 1 \in [c,d] \subseteq A \cap B = \{ 1 \}  \). But this would imply that \( \{ 1 \}  \) contains more than one point which is absurd. Hence, \( \mathcal{B}'' \) cannot be a basis for a topology on \( \R  \).
+            \end{proof}
+   \end{enumerate} 
+\end{problem}
+\vspace{5mm}
+\begin{problem}[The \( K-\)topology on \( \R  \)]
+   Let  
+   \[  {\mathcal{B}}_{K} = \{  (a,b) : a,b \in \R , a < b  \}  \cup \{ (a,b) \setminus  K : a,b \in \R , a < b \} \]
+   where \( K = \{  1/n : n \in \N  \}  \).
+   \begin{enumerate}
+       \item[(i)] Prove that \( {\mathcal{B}}_{K } \) is the basis for a topology on \( \R  \). We will call this topology the \( K- \)topology and denote it by \( {\mathcal{T}}_{K} \).
+           \begin{proof}
+           We will show that 
+           \begin{enumerate}
+               \item[(I)] \( \bigcup_{ B \in \mathcal{B} }^{  }  B = \R  \)
+                \item[(II)] For all \( A,B \in {\mathcal{B}}_{K} \), for all \( x \in A \cap B  \), there exists a \( C \in {\mathcal{B}}_{K} \) such that \( x \in C \subseteq A \cap B  \).
+
+           \end{enumerate}
+           Starting with (I), let \( x \in \R  \). Then 
+           \[  x \in (x-1, x +1) \subseteq \bigcup_{ x \in \R  }^{  }  (x - 1, x + 1) = \R  \]
+           where \( (x -1 , x + 1) \) is in \( \mathcal{B}_K \).
+           Hence, \( \bigcup_{ B \in {\mathcal{B}}_{K}  }^{  }  B  = \R  \).
+
+          Next, we will show that \( {\mathcal{B}}_{K} \) satisfies (II). Let \( A,B \in {\mathcal{B}}_{K} \) be arbitrary and let \( x \in A \cap B \). We will consider three cases; that is,  
+          \begin{enumerate}
+              \item[(1)] \( A, B \in \{ (a,b) : a,b \in \R , a < b  \}  \)
+                \item[(2)] \( A \in \{ (a,b) : a,b \in \R , a < b  \}  \) and \( B \in \{ (a,b) \setminus  K  : a,b \in \R , a < b  \}  \)
+                \item[(3)] \( A,B \in \{ (a,b) \setminus  K  : a,b \in \R , a < b  \}  \).
+          \end{enumerate}
+          (1) Suppose \( A,B \in \{ (a,b) : a,b \in \R , a < b \}  \), then we get that \( A = ({a}_{1}, {b}_{1}) \) and \( B = ({a}_{2}, {b}_{2}) \) for some \( {a}_{1}, {a}_{2}, {b}_{1}, {b}_{2} \in \R  \). Let \( m = \max \{ {a}_{1}, {a}_{2} \}  \) and \( \ell = \min \{ {b}_{1}, {b}_{2} \}  \). Let \( x \in A \cap B  \). Define \( C =  (m,\ell)  \). Then it follows that \( x \in C = (m , \ell) \subseteq A \cap B  \). Hence, we see that \( A \cap B  \) can be written as a union of elements in \( {\mathcal{B}}_{K} \).
+
+          Suppose that (2) holds. Then \( A = ({a}_{1}, {b}_{1}) \) and \( B = ({a}_{2}, {b}_{2}) \setminus  K  \). Note that  
+          \[  A \cap B = A \cap (B \setminus  K) = (A \cap B) \setminus  K.  \]
+          Using the same \( m \) and \( \ell  \) from (1), it follows that \( ({a}_{1}, {b}_{1}) \cap ({a}_{2}, {b}_{2}) = (m, \ell)  \). Choosing \( \epsilon = \frac{ 1 }{ 2 }  \min \{ x - m , \ell - x  \}  \), it follows that \( (x-  \epsilon, x + \epsilon) \subseteq (m,\ell) \). Define \( C = (x- \epsilon, x + \epsilon) \setminus  K  \) which is in \( {\mathcal{B}}_{K} \). Then \( x \in C \subseteq (m,\ell) \subseteq A \cap B \) and we are done.
+
+          (3) Suppose \( A,B \in \{ (a,b) \setminus  K : a,b \in \R , a < b  \} \). Then \( A = ({a}_{1}, {b}_{1}) \setminus  K   \) and \( B = ({a}_{2}, {b}_{2}) \setminus  K  \).  Then we have         
+          \begin{align*}
+              A \cap B &= \Big( ({a}_{1}, {b}_{1}) \setminus  K  \Big) \cap \Big( ({a}_{2}, {b}_{2}) \setminus  K  \Big) \\
+                       &= \Big[({a}_{1}, {b}_{1}) \cap ({a}_{2}, {b}_{2}) \Big] \setminus  K \\ 
+                       &= (m,\ell) \setminus  K. 
+          \end{align*}
+          Using the same choice of \( \epsilon  \) as in the previous case, we can define \( C = (x- \epsilon, x + \epsilon) \setminus  K    \) which is a subset of \( A \cap B \). Hence, \( x \in C \subseteq A \cap B  \) and we are done.
+        Now, (I) and (II) imply that \( {\mathcal{B}}_{K} \) is a basis for sometopology on \( \R  \). 
+           \end{proof}
+        \item[(ii)] Prove that \( {\mathcal{T}}_{K}  \) is strictly finer than the Euclidean Topology.
+            \begin{proof}
+                Note that \( (a,b) \in {\mathcal{T}}_{E} \) is also in \( {\mathcal{T}}_{K} \) since \( (a,b)  \) is in \( \mathcal{B}_{K} \) (basis for \( {\mathcal{T}}_{K} \)). However, \( (0,1) \setminus  K \notin {\mathcal{T}}_{E} \) is not open with respect to \( {\mathcal{T}}_{E} \) since every neighborhood of \( 1/n \) contains points of \( K  \); that is, \( (0,1) \setminus  K   \) fails to contain a Euclidean interval around any \( 1/n \). Hence, we see that \( {\mathcal{T}}_{K} \) is strictly finer than the Euclidean Topology.
+            \end{proof}
+        \item[(iii)] Prove that \( {\mathcal{T}}_{K }  \) and the lower limit topology
+             are not comparable.
+             \begin{proof}
+                 Our goal is to find an open set in \( {\mathcal{T}}_{L} \) that is not in \( {\mathcal{T}}_{K} \) and an open set in \( {\mathcal{T}}_{K} \) that is not in \( {\mathcal{T}}_{L} \).  
+
+                 Notice that \( (0,1) \setminus  K  \) is open with respect to the \( K- \)topology but not open in the lower limit topology because any neighborhood \( [x,x+r) \) (for any \( r > 0 \)) around \( 0  \) will contain points of the form \( 1/n \). Hence, \( (0,1) \setminus  K   \) cannot be in \( {\mathcal{T}}_{L} \).
+                
+                 Lastly, we have \( [0,1) \) is open with respect to the lower limit topology \( {\mathcal{T}}_{L} \). Consider \( x = 0  \) and notice that every neighborhood around \( 0  \) in the \( K \)-topology must have points that are less than \( 0  \). That is, every neighborhood with (neighborhoods in the form \( (a,b)   \) or \( (a,b) \setminus  K  \) ) with respect to the \( K \)-topology that contain \( 0  \) will not be completely contained in \( [0,1) \). Thus, \( [0,1) \) is not in \( \mathcal{T}_K \).  
+                 Thus, we conclude that the \( K \)-topology and the lower limit topology are not comparable.
+
+             \end{proof}
+   \end{enumerate}
+\end{problem}
+
+\begin{problem}[A set is open if and only if it is a neighborhood of all its points]
+   Let \( X  \) be a topological space and \( A \subseteq X  \). Prove that \( A  \) is open if and only if \( A \in \mathcal{N}(x) \) for all \( x \in A  \). 
+\end{problem}
+\begin{proof}
+\( (\Longrightarrow) \) Let \( x \in A  \) be arbitrary. Since \( A  \) is open, set \( U = A  \) such that \( x \in A \subseteq U \) (since \( A  \) is contained within itself). By definition, this tells us that \( A \in \mathcal{N}(x) \). 
+
+\( (\Longleftarrow) \) Suppose \( A \in \mathcal{N}(x) \) for all \( x \in A  \). Our goal is to show that \( A  \) is an open set. By assumption, for all \( x \in A  \), there exists \( {U}_{x}  \) such that \( x \in {U}_{x} \subseteq A  \). Since \( {U}_{x} \subseteq A   \) for all \( x \in A  \), it follows that  
+\[  \bigcup_{ x \in A  }^{  }  {U}_{x} \subseteq A.  \]
+But we also have that \( A \subseteq  \bigcup_{ x \in A  }^{  }  {U}_{x}  \) (since for all \( x \in A  \), \( x \in {U}_{x} \) and \( {U}_{x} \) is a subset of the union \( \bigcup_{ x \in A  }^{  }  {U}_{x} \) ) and so we conclude that  
+\[  \bigcup_{ x \in A  }^{  }  {U}_{x} = A. \]
+Since \( {U}_{x} \) is open for all \( x \in A  \) and the arbitrary union of open sets is open, it follows that \( A  \) must also be open. 
+\end{proof}
+
+\begin{problem}[Examples of interiors of sets]
+  \begin{enumerate}
+      \item[(i)] It can be shown that \( {\mathcal{B}}_{R} = \{ (a,b] : a,b \in \R , a < b \}  \) is the basis for a topology on \( \R  \) called the \textbf{upper limit topology}. In this topology, find the interior of the sets \( A = (a,b)  \) and \( B = [a,b] \) where \( a,b \in \R  \), \( a < b  \). Prove the claims.
+          \begin{proof}
+              We claim that \( \mathring{A} = A  \) and \( \mathring{B} = (a,b] \). 
+
+              Starting with the first claim, we know that \(  A \) is open with respect to the Euclidean topology. That is, for any \( x \in A  \), we can find a \( \delta > 0  \) such that \( (x- \delta, x + \delta) \subseteq (a,b) \). But note that \( (x - \delta, x + \delta] \subseteq (a,b) = A   \) and so every point in \( (a,b) \) in an interior point with respect to the upper limit topology. Hence, \( \mathring{A} = A  \).
+
+              With the second claim, we notice that \( (a,b] \subseteq [a,b]  \) is the largest open set in the upper limit topology that is contained in \( [a,b] \) since if we add \(  a \) into the set, then \( [a,b] \) will no longer be open with respect to the upper limit topology (that is, any neighborhood around \( a  \) will not be contained in \( [a,b] \)). Hence, it follows that \( \mathring{B} =  (a,b] \).
+          \end{proof}
+          \begin{enumerate}
+              \item[(ii)] In \( \R  \) equipped with the cofinite topology, find the interio of the following sets: \( A = (a,b) \), \( B = (a,\infty ),  C = (-\infty , a) \cup (a,\infty )  \), where \( a,b \in \R  \), \( a < b  \). Prove your claims.
+                  \begin{proof}
+                      Recall that in the cofinite topology, any set whose complement is finite must be an open set. We claim that \( \mathring{A} = \emptyset  \), \( \mathring{B} = \emptyset \) and \( \mathring{C} = C  \).  
+
+                      Starting with our first claim. We see that \( A^{c} = (-\infty , a] \cup [b,+\infty)    \) is an infinite set because \( (-\infty , a]  \) and \( [b,+\infty) \) are infinite sets. Hence, the largest open set that is contained in \( A  \) must be the empty set \( \emptyset \). Hence, \( \mathring{A} = \emptyset \).
+
+                      Next, we see that \( B^{c} = [(a, + \infty)]^{c} = (-\infty , a]  \) is also an infinite set. Hence, \( \mathring{B} = \emptyset \).
+
+                      Finally, we see that \( C^{c} \) is a finite set because 
+                        \begin{align*}
+                            C^{c} &= [(-\infty , a) \cup (a,+\infty )]^{c} \\
+                                  &= (-\infty , a)^{c} \cap (a, + \infty )^{c} \\
+                                  &= [a,+\infty ] \cap (-\infty , a] \\
+                                  &= \{ a \}.
+                        \end{align*}
+                        Hence, it follows that \( C \in \mathcal{T} \) and so \( C = \mathring{C} \).
+                  \end{proof}
+          \end{enumerate}
+  \end{enumerate}  
+\end{problem}
+\end{document}
+

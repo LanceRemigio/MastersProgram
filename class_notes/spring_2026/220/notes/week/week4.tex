@@ -1,0 +1,18 @@
+\begin{definition}[Limit Point, Derived/Set of Limit Points]
+    Let \( X  \) be a topological space, \( A \subseteq X  \), \( x \in X  \).  
+\begin{itemize}
+    \item We say that \( x  \) is a \textbf{limit point} (or \textbf{accumulation point}) of \( A  \) if 
+        \[  x \in \overline{A \setminus  \{ x  \} }. \]
+    \item The \textbf{derived} of \( A  \) is defined as 
+        \[  \mathcal{D}(A) = A' = \{ x \in X : \text{\( x  \) is a limit point of \( A  \)} \}  \]
+\end{itemize}
+\end{definition}
+
+\begin{remark}
+   \begin{itemize}
+       \item \( x \in \mathcal{D}(A)  \) if and only if \( U \cap (A \setminus  \{ x  \} ) \neq \emptyset \) for every open set \( U  \) such that \( x \in U  \).
+        \item If \( \mathcal{B}  \) is basis for \( \mathcal{T} \), then \( x \in \mathcal{D}(A) \) if and only if \( B \cap (A \setminus \{ x \} ) \neq \emptyset \) for all \( B \in \mathcal{B} \) such that \( x \in B  \).
+        \item \( \mathcal{D}(A) \subseteq \overline{A} \) and equality does not necessarily hold.
+        \item \( \overline{A} = A \cup \mathcal{D}(A) \).
+   \end{itemize} 
+\end{remark}

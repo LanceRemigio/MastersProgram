@@ -1,0 +1,156 @@
+\documentclass[a4paper]{article}
+\input{../../../../../newpreamble.tex}
+\title{Math 210B: Homework 2}
+\author{Lance Remigio}
+\begin{document}
+\maketitle
+
+\lhead{Math 210B: Homework 2}
+\chead{Lance Remigio}
+\rhead{\thepage}
+
+\begin{problem}[Spring 2022 Ring Problem 1]
+   Let \( R  \) be a commutative ring with identity \( 1  \). An element \( e  \) of \( R  \) is called \textbf{idempotent} if \( e^{2} = e  \). Let \( e \) and \( f  \) be nonzero idempotents of \( R  \) with \( e + f = 1  \) and \( ef = 0  \).
+   \begin{enumerate}
+       \item[(a)] Show that the ideals \( (e) \) and \( (f) \) of \( R  \) are in fact rings with identity different than \( 1  \).
+           \begin{proof}
+                We show that \( (e) \) does indeed define a ring. To do this, we want to show that \( (e) \) is a subring of \( R  \) and so the ring structure of \((e) \) will follow.  
+                First, we show that \( (e) \) is closed under addition. Let \( x,y \in (e) \). Then \( x = {r}_{1} e  \) and \( y = {r}_{2} e  \) for some \( {r}_{1}, {r}_{2} \) in \( R  \). Then
+                \begin{align*}
+                    x + (-y) &= {r}_{1} e + (- {r}_{2} e) \\
+                             &= {r}_{1} e - {r}_{2} e \\
+                             &= ({r}_{1} - {r}_{2}) e. 
+                \end{align*}
+                Since \( R  \) is a ring \( {r}_{1} - {r}_{2} \in R  \). Hence, \( x + (-y) \in (e) \). 
+                Now, we want to show that \( (e) \) is closed under multiplication. Let \( x,y \in (e) \). Then for some \( {r}_{1}  \) and \( {r}_{2} \) in \( R  \), it follows that \( x = {r}_{1} e  \) and \( y = {r}_{2} e  \). Since \( R  \) is commutative and \( e^{2} = e  \), it follows that 
+                \begin{align*}
+                    xy = ({r}_{1} e) ({r}_{2} e) &= ({r}_{1}{r}_{2}) e^{2}  \\ 
+                                                 &= ({r}_{1}{r}_{2})e.
+                \end{align*}
+                Since \( R \) is closed under multiplication, it follows that \( {r}_{1} {r}_{2} \in R  \) and so \( xy \in (e) \). Thus, we have that \( (e) \) is a ring. Showing that \( (f) \) is a ring follows similarly with \( f  \) in place of \( e  \). We claim that the identity for \( (e) \) and \( (f) \) will be \( 1 + f  \) and \( 1 + e   \), respectively. Indeed, if \( x \in (e) \) is arbitrary, then \( x = r e  \) for some \( r \in R  \). Then   
+                \[ (1 + f)x = (1+ f)(re) = re  +f(re) = re + r(ef) = re + 0 = re. \]
+                Since \( R  \) is a commutative ring, it follows that \( (1 + f)x = x(1 +f) \). Thus, we get that 
+                \[  (1+e)x = x(1+e) = x. \]
+                Similarly, we see that if \( x \in (f) \) is arbitrary, then \( x = r f  \) for some \( r \in R  \). Then   
+                \[ (1 + e)x = (1+ e)(rf) = rf  +e(rf) = re + r(ef) = rf + 0 = rf. \]
+                Since \( R  \) is a commutative ring, it follows that \( (1 + e)x = x(1 +e) \).
+            \end{proof}
+        \item[(b)] Prove that \( (e) \times (f) \) and \( R  \) are isomorphic.
+            \begin{proof}
+            Define \( \varphi : R \to (e) \times (f) \) by \( \varphi(r) = (re,rf) \). First, we show that \( \varphi  \) is a ring homomorphism. Let \( {r}_{1}, {r}_{2} \in R  \). Then
+            \begin{align*}
+                \varphi({r}_{1} + {r}_{2}) &= (({r}_{1} + {r}_{2})e, ({r}_{1} + {r}_{2}) f)  \\
+                                           &= ({r}_{1} e + {r}_{2} e, {r}_{1} f + {r}_{2} f ) \\
+                                           &= ({r}_1 e, {r}_{1}f) + ({r}_{2} e, {r}_{2} f ) \\
+                                           &= \varphi({r}_{1}e, {r}_{1} f) + \varphi({r}_{2}e, {r}_{2} f).   
+            \end{align*}
+            Hence, \( \varphi  \) is additive.
+            Now, we show that \( \varphi  \) is multiplicative.
+            Then    
+            \begin{align*}
+                \varphi({r}_{1}{r}_{2}) &= (({r}_{1}{r}_{2})e, ({r}_{1}{r}_{2})f ) \\
+                                        &= (({r}_{1} {r}_{2}) e^{2}, ({r}_{1}{r}_{2})f^{2}) \\
+                                        &= (({r}_{1}e) ({r}_{2} e) ({r}_{1}f)({r}_{2}f)) \\
+                                        &= ({r}_{1}e, {r}_{1}f) \cdot ({r}_{1}f, {r}_{2}f) \\
+                                        &= \varphi({r}_{1}) \cdot \varphi({r}_{2}).
+            \end{align*}
+
+            Note that since \( f  \) and \( e  \) are nonzero idempotents, it follows that 
+            \begin{align*}
+                \text{ker}(\varphi) &= \{ r \in R : \varphi(r) = 0_{(e) \times (f)} \}  \\
+                                    &= \{ r \in R : (re, rf) = ({0}_{R}, {0}_{R}) \}  \\
+                                    &= \{ r \in R : re = {0}_{R} \ \text{and} \ rf = {0}_{R} \}  \\
+                                    &= \{ r \in R : r = {0}_{R} \} \\
+                                    &= \{ {0}_{R} \}.
+            \end{align*}
+            Hence, it follows that \( \varphi \) is injective. Now, we show that \( \varphi  \) is surjective. Let \( ({r}_{1}e, {r}_{2}f) \in (e) \times (f) \). Since \( ef = {0}_{R}  \) and \( e + f  =  {1}_{R}\), define \( r = {r}_{1} f + {r}_{2} f  \). Then we have 
+            \begin{align*}
+                \varphi(r) &= \varphi({r}_{1}f + {r}_{2}f)  \\
+                           &= (({r}_{1}e + {r}_{2}f)e, ({r}_{1}e + {r}_{2}f) f ) \\
+                           &= ({r}_{1}e^{2} + {r}_{2} (fe) , {r}_{1} (ef) + {r}_{2} f^{2}) \\
+                           &= ({r}_{1}e + 0, 0 + {r}_{2}f) \\
+                           &= ({r}_{1}e, {r}_{2}f). 
+            \end{align*}
+            Hence, it follows that \( \varphi  \) is surjective. Now, we conclude that \( \varphi  \) is bijective homomorphism and so \( (e) \times (f) \cong R  \).
+
+            \end{proof}
+   \end{enumerate}
+\end{problem}
+
+\begin{problem}[Spring 2020 Rings Problem 1]
+    Let \( R  \) be a commutative ring with unity, and let \( P  \) be a prime ideal in \( R  \).
+    \begin{enumerate}
+        \item[(a)] If \( I  \) and \( J  \) are ideals in \( R  \) with \( I \cap J \subseteq P \), show that one of \( I  \) or \( J  \) is a subset of \( P  \).
+            \begin{proof}
+               We want to show that either \( I \subseteq P  \) or \( J \subseteq J \). Let \( x \in I  \) and \( y \in I  \) be arbitrary. Now, since \( I  \) and \( J  \) are ideals (and the fact that \( R  \) is commutative), it follows that both \( xy \in Iy \subseteq I   \) and \( yx \in Jy \subseteq J   \) where \( x y = yx  \). Hence, \( xy = yx \in I \cap J  \). Since \( I \cap J \subseteq  P  \), it follows that \( xy \in P  \). But this tells us that either \( x \in P  \) or \( y \in P  \) since \( P  \) is a prime ideal. This tells us that either \( I \subseteq  P  \) or \( J \subseteq P  \).
+            \end{proof}
+        \item[(b)] If \( R  \) is finite, then explain why \( R / P \).
+            \begin{solution}
+            Since \( R  \) is finite and \( P  \) is a prime ideal, it follows that \( R / P  \) is a finite integral domain. Thus, we see that \( R /P  \) must be a field by corollary to proposition \( 2  \).
+            \end{solution}
+    \end{enumerate}
+\end{problem}
+
+\begin{problem}[Problem 5 Section 7.4]
+    Prove that if \( M  \) is an ideal such that \( R / M \) is a field then \( M  \) is maximal ideal.
+\end{problem}
+\begin{proof}
+Our goal is to show that \( M  \) is a maximal ideal; that is, we want to show that for all ideals \( K \leq R  \), if \( M \leq K \leq R  \), then either \( K =  M \) or \( K = R  \). Let \( K \leq R  \) be an arbitrary ideal. Since \( M  \) is an ideal and \( R / M  \) is a field, it follows that \( R / M   \) is a commutative division ring by definition. Thus, the only ideals of \( R / M  \) are \( \overline{0}  \) and \( R / M  \) itself. Hence, \( K / M = \overline{0} \) or \( K / M = R / M  \). Thus, we have \( K = M  \) or \( K  = R  \). Thus, \( M  \) is maximal in \( R \).  
+\end{proof}
+
+\begin{problem}[Problem 7 Section 7.4]
+    Let \( R   \) be a commutative ring with \( 1  \). Prove that the principal ideal generated by \( x  \) in the polynomial ring \( R[x] \) is a prime ideal if and only if \( R  \) is an integral domain. Prove that \( (x) \) is a maximal ideal if and only if \( R  \) is a field.
+\end{problem}
+\begin{proof}
+    Since \( (x)  \) is a prime ideal and \( (x) \subseteq R[x]  \), it follows that \( R[x] / (x) \) is an integral domain. To show that \( R  \) is an integral domain, it suffices to show that  
+    \[  R[x] / (x) \cong R  \]
+    via the first isomorphism theorem for rings. Define \( \varphi: R[x] \to R  \) by \( \varphi(f(x)) = {a}_{0} \) where 
+    \[  f(x) = {a}_{0} + {a}_{1} x + {a}_{2}x^{2} + \cdots + {a}_{n} x^{n}. \]
+    We will show that \( \varphi  \) is a ring homomorphism, \( (x) = \text{ker}(\varphi)  \), and \( \varphi(R[x]) = R  \). First, we show that \( \varphi  \) is additive and multiplicative. Indeed, for any \( f(x), g(x) \in R[x] \), we have that   
+    \[ \varphi(f(x) + g(x)) = {a}_{0} + {b}_{0} = \varphi(f(x))  +\varphi(g(x)).  \]
+    where \( f(x) \) is defined as before and 
+    \[  g(x) = {b}_{0} + {b}_{1}x + {b}_{2}x^{2} + \cdots  + {b}_{n}x^{n}. \]
+    Since multiplication is defined in the following way for polynomials 
+    \[  \sum_{ i = 0  }^{  k } {a}_{i} {b}_{k-i}, \]
+    it follows that 
+    \[  \varphi(f(x)g(x)) = {a}_{0}{b}_{0} = \varphi(f(x)) \varphi(g(x)). \]
+    Thus, we conclude that \( \varphi  \) is a ring homomorphism. Now, we show that \( \text{ker}(\varphi) = (x) \). Indeed, we see that 
+    \begin{align*}
+        \text{ker}(\varphi)  &= \{ f(x) \in R[x] : \varphi(f(x)) = {0}_{R} \}  \\
+                             &= \{ f(x) \in R[x] : {a}_{0} = {0}_{R} \}  \\
+                             &= \{ f(x) \in R[x] : {a}_{1}x + {a}_{2} x^{2} + \cdots + {a}_{n} x^{n} \}  \\
+                             &= \{ f(x) \in R[x] : x ({a}_{1} + {a}_{2} x + \cdots + {a}_{n} x^{n-1}) \} \\
+                             &= \{ f(x) \in R[x] : x g(x) \ \text{for some} \ g(x) \in R[x]  \} \\ 
+                             &= (x).
+    \end{align*}
+    It is relatively straightforward to see that \( \varphi(R[x]) = R  \) because for any \( r \in R  \), we can define a polynomial \( f(x)  = r  \) to be the constant polynomial and so \( \varphi(f(x)) = r  \). Thus, the first isomorphism theorem tells us that 
+    \[  R[x] / \text{ker}(\varphi)  \cong \varphi(R[x]) \implies R[x] / (x) \cong R.   \]
+    Now, since \( R[x]/ (x) \) is an integral domain, it also follows that \( R  \) is an integral domain. That is, \( (x) \) is a prime ideal if and only if \( R[x] / (x) \) is a field if and only if \( R  \) is an integral domain.
+\end{proof}
+
+\begin{problem}[Problem 37]
+   A commutative ring \( R  \) is called a \textbf{local ring} if it has a unique maximal ideal. Prove that if \( R  \) is a local ring with maximal ideal \( M  \), then every element of \( R - M  \) is a unit. Prove conversely that if \(  R \) is a commutative ring with \( 1  \) in which the set of nonunits forms an ideal \( M  \), then \( R  \) is a local ring with unique maximal ideal \( M \).
+\end{problem}
+\begin{proof}
+    (\textbf{My attempt}) Let \( r \in R - M  \). Our goal is to show that \( r  \) is a unit; that is, there exists an \( s \in R  \) such that \( rs = sr = {1}_{R} \). Since \( M  \) is maximal ideal and \( R  \) is a commutative ring, \( M \subseteq R  \), we have that \( R / M  \) is a field, and so \( R / M  \) is a commutative division ring. That is, there exists \( s + M \in R / M  \) such that 
+    \[  (r+ M)(s + M) = {1}_{R} + M.   \]
+    Note that since \( r \in R - M  \), we have that \( r \notin M  \) and so we have that \( r + M \neq {0}_{R} +  M \). Now, we get that 
+    \begin{align*}
+        (r+ M) (s + M) &= {1}_{R} +  M \\
+        (rs) + M  &= {1}_{R} + M.
+    \end{align*}
+    Thus, we get that \( rs - {1}_{R} \in M  \). \textbf{Now, I wanted to show that \( rs - {1}_{R} = {0}_{R} \), but I wasn't sure how to go about doing that.}
+
+    \( (\Longleftarrow) \) Suppose that \( M  \) is the ideal containing all of the non-units of \( R  \). Our goal is to show that \( R  \) is a local ring; that is, \( R  \) contains a unique maximal ideal. We claim that \( M  \) is the unique maximal ideal we are looking for. First, we show that \( M  \) is maximal in \( R  \). To do this, we need to show that for all \( K \leq R  \), if \( M \leq K \leq R   \), then either \( K = M  \) or \( M =R  \). To this end, let \( K \leq R  \) be any ideal in \( R  \). Let \( x \in K  \). Then either \( x  \) is a unit or \( x  \) is a non-unit of \( R  \). If \( x  \) is a unit, then \( x \in R  \) since \( K \leq R  \). Since \( R  \) is a commutative ring, it follows that \( K = R   \). If \( x  \) is a non-unit, then \( x \in M  \) and so \( K \leq M  \). But we already assumed that \( M \leq K  \) and so we conclude that \( M = K  \). Thus, we find that \( M  \) is indeed a maximal ideal of \( R  \).
+
+    To show that \( M  \) is the unique ideal, it suffices to consider another maximal ideal \( M' \) that contains the non-units of \( R  \). Since \( M' \) is maximal, we have (by definition) \( M \leq M' \leq R  \), then either \( M = M' \) or \( M' = R  \). If \( M = M' \), then \( M  \) is unique. If \( M' = R \), then \( M \leq M'  \), but since \( M  \) is maximal it follows that \( M = M' \), implying that \( M  \) is unique. Hence, in either case, we find that \( M  \) is the unique maximal ideal of \( R  \).
+\end{proof}
+
+\begin{proof}
+    \textbf{(A proof of the forwards direction from the internet)} Let \( r \in R - M  \) be arbitrary. Suppose for contradiction that \( r \) is NOT a unit. Then \( (r) \neq R  \) and so let \( M' \) be a maximal ideal containing \( (r) \) via Zorn's Lemma. Since \( R  \) only maximal ideal, \( M= M' \). But then this would imply that \( r \in M  \) and so a contradiction. Thus, \( r  \) must be a unit. 
+\end{proof}
+\end{document}
+
+Let \( R  \) be a commutative ring and \( p(x) = {a}_{n} x^{n} + {a}_{n-1} x^{n-1} + \cdots + {a}_{1} x + {a}_{0} \). 
+
+Show that \( p(x) \) is a unit in \( R[x] \) if and only if \( {a}_{0} \) is a unit in and \( {a}_{1}, {a}_{2}, \dots, {a}_{n} \) are nilpotent elements in \( R  \).

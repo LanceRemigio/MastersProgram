@@ -1,0 +1,184 @@
+\documentclass[a4paper]{article}
+\input{../../../../../newpreamble.tex}
+\title{210B Homework 0}
+\author{Lance Remigio}
+\begin{document}
+\maketitle
+
+\begin{problem}
+    Let \( G  \) be a group, \( N \trianglelefteq G    \), and assume that the quotient group \( G / N  \) is cyclic. If \( N \subseteq Z(G) \), prove that \( G  \) is abelian. Here \( Z(G) \) denotes the center of \( G  \).
+\end{problem} 
+\begin{proof}
+Suppose \( N \subseteq Z(G) \). Since \( N \leq G  \), we know that the left-cosets of \( N  \) in \( G  \) partition \( G  \). That is, 
+\[  G = \bigcup_{ g \in G  }^{  }  g N. \tag{*}  \]
+Since \( G / N  \) is cyclic, it follows that there exists an element \( z \in G  \) such that \( \langle z N  \rangle = G  \). Then (*) can be written in the following way:
+\[  G = \bigcup_{ n \in \N  }^{  } (zN)^{n} = \bigcup_{ n \in \N  }^{  }  z^{n} N.  \]
+Now, let \( x,y \in G  \). Then for some \( i,j \in \N  \), \( x \in z^{i} N  \) and \( y \in z^{j} N  \). Then for some \( {n}_{1} \) and \( {n}_{2} \) in \( \N  \), it follows that
+\[  x = z^{i} {n}_{1} \ \text{and} \ y = z^{j} {n}_{2}. \]
+Since \( N \leq Z(G) \), we have \( {n}_{1}, {n}_{2} \in Z(G) \); that is, \( {z}_{1}  \) and \( {z}_{2} \) commute with every element of \( G  \). Namely, \( {z}_{1} \) and \( {z}_{2}  \) commute with every element of \( G  \). Namely, \( {z}_{1} \) and \( {z}_{2} \) commute with \( z^{i} \) and \( z^{j} \). Hence, after some rearrangements
+\[  x y = (z^{i} {n}_{1})(z^{j}{n}_{2}) = (z^{j} {n}_{2}) (z^{i} {n}_{1}) = yx.  \]
+Thus, we get that \( xy = yx  \) and so \( G  \) is abelian.
+\end{proof}
+
+\begin{problem}
+    Let \( G  \) be a group and let \( H  \) be a subgroup of \( G  \). Let \( {N}_{G}(H) \), \( {C}_{G}(H) \) and \( \text{Aut}(H)  \) be the normalizer of \( H  \) in \( G  \), the centralizer of \( H  \) in \( G  \), and the group of automorphisms of \( H \), respectively.
+\begin{enumerate}
+    \item[(a)] For \( g \in {N}_{G}(H)  \), prove that \( {\varphi}_{g}(x) = g x g^{-1} \) is an automorphism of \( H  \).
+        \begin{proof}
+        Our goal is to show that \( {\varphi}_{g} \) is a 
+        \begin{enumerate}
+            \item[(i)] homomorphism and a
+            \item[(ii)] bijection
+        \end{enumerate}
+        
+        (i) Let \( {x}_{1}, {x}_{2} \in H \) be arbitrary. Then we have 
+        \begin{align*}
+            {\varphi}_{g}({h}_{1}{h}_{2}) &= g ({h}_{1} {h}_{2}) g^{-1} \\
+                                          &= (g {h}_{1} g^{-1})(g {h}_{2} g^{-1}) \\
+                                          &= {\varphi}_{g}({h}_{1}) {\varphi}_{g}({h}_{2}).
+        \end{align*}
+        Hence, we conclude that \( {\varphi}_{g} \) is a homomorphism.
+
+        (ii) Notice that \( {\varphi}_{g}(H) = gH g^{-1} \). Since \( g \in {N}_{G}(H) \), it follows that \( g H g^{-1} = H  \) and so \( {\varphi}_{g}(H) = H  \). Thus, we get that \( {\varphi}_{g} \) is a bijection from \( H  \) to \( H  \).
+        \end{proof}
+    \item[(b)] Prove that \( {N}_{G}(H) / {C}_{G}(H) \) is isomorphic to a subgroup of \( \text{Aut}(H)  \).
+        \begin{proof}
+            Note that the automorphism proven in (a) represents the action of \( G  \) on \( H  \) by conjugation; that is, \( g \cdot h = g h g^{-1} \) for all \( g \in G  \) and \( h \in H  \). It is straightforward to prove that the above is indeed an action on \( H  \). Now, consider the permutation representation \[ \psi:  G \to {S}_{H}  \ \ g \mapsto {\varphi}_{g}. \tag{*} \]
+            Notice that since \( {\varphi}_{g} \) is a homomorphism, it also follows that \( \psi  \) is a homomorphism. From the First Isomorphism Theorem, it follows that  
+            \[  G / \text{ker}(\psi) \cong \psi(G) \leq \text{Aut}(H). \tag{**}    \]
+            Furthermore, we have 
+            \begin{align*}
+                \text{ker}(\psi)  &= \{ g \in G : \psi(g)(h) = h \ \ \forall h \in H  \}  \\
+                                  &= \{ g \in G : {\varphi}_{g}(h) = h \ \ \forall h \in H  \}  \\
+                                  &= \{ g \in G : g h g^{-1} = h  \ \ \forall h \in H  \}  \\
+                                  &= {C}_{G}(H).
+            \end{align*}
+            Notice further that since \( {\varphi}_{g} \) is an automorphism from (a), it follows that for all \( g H g^{-1} = H  \) which means that \( H  \) must be a normal subgroup of \( G  \). Letting \( {N}_{G}(H) = G  \) (since \( g H g^{-1} = H  \)), we can rewrite (**) in the following way:
+            \[  {N}_{G}(H) \setminus  {C}_{G}(H) \cong \psi(G) \leq \text{Aut}(H) \]
+            and we are done.
+        \end{proof}
+\end{enumerate}
+\end{problem}
+
+\begin{problem}
+    Let \( p  \) and \( q  \) be distinct odd primes with \( p < q  \). Suppose \( p  \) does not divide \( q - 1  \). 
+    \begin{enumerate}
+        \item[(a)] Prove that a group of order \( p^{2} q  \) must be abelian.
+            \begin{proof}
+                Let \( | G  |  = p^{2} q  \). Using Sylow's Theorem, we will analyze the number of sylow-\( p \)  and sylow-\( q \) subgroups  denoted by \( {n}_{q} \) and \( {n}_{p} \). Let us start with \( {n}_{p} \). Indeed, we have \( {n}_{p} \equiv 1 (\text{mod}  \ p) \) and \( {n}_{p} \mid q  \). That is, we have \( {n}_{p} \in \{ 1 , q  \}  \). If \( {n}_{p} = q  \), then \( q \equiv 1 (\text{mod} \ p) \). This tells us that \( q - 1 \equiv 0 (\text{mod} \  p)  \) and so \( p  \) divides \( q - 1  \) which is a contradiction. Thus, it follows that \( {n}_{p} = 1  \) and so we conclude that \( P  \) is the unique normal subgroup of order \( p^{2}  \).
+
+                Now, consider \( {n}_{q} \). Then we have \( {n}_{q} \equiv 1 (\text{mod} \ q ) \) and \( {n}_{q} \mid p^{2} \). This tells us that \( {n}_{q} \in \{ 1, p , p^{2} \}  \). If \( {n}_{q} = p  \), then we get 
+                \[  p \equiv 1 (\text{mod} \ q) \implies p - 1 \equiv 0 (\text{mod} \ q) \]
+                which tells us that \( q \mid p - 1  \) and so \( q < p - 1 < p  \) which is a contradiction. If \( {n}_{q} = p^{2} \), then we have 
+                \begin{align*}
+                    p^{2} \equiv 1 (\text{mod} \ q) &\implies p^{2} - 1 \equiv 0 (\text{mod} \ q) \\
+                                                    &\implies (p - 1)(p + 1) \equiv 0 (\text{mod} \ q ).
+                \end{align*}
+                This tells us that \( q \mid p - 1  \) and \( q \mid p + 1  \).
+                But note that since \( p  \) and \( q  \) are odd primes such that \( q > p + 1  \), it follows that \( q \not\mid p + 1  \). Furthermore, if \( q \mid p - 1  \), then we have \( q < p  \) which tells us that \( q \not\mid p - 1  \). Since \( q \not\mid p + 1  \) and \( q \not\mid p - 1  \), we have a contradiction. So, it follows that \( {n}_{q} = 1  \) and so \( Q  \) must be the unique Sylow-\( q \) subgroup of order \( q  \). 
+
+                Because \( P  \) and \( Q  \) are normal subgroups of \( G  \), we have that \( PQ \leq G  \) and \( P \cap Q = {1}_{G} \) since \( p  \) and \( q  \) are relatively prime. This subsequently tells us that
+        \[  | PQ |  = \frac{ | P | | Q |  }{ | P \cap  Q  |  }  = \frac{ | P |  | Q |  }{ 1  }  = | P  |  | Q  | = p^{2} q = | G | \]
+        and \( PQ \leq G  \). Thus, we get that \( G = PQ  \). Since \( P \cap Q = {1}_{G} \) and \( G = PQ  \), it follows that for every \( a \in P  \) and \( b \in Q  \), \( ab  = ba  \). Now, we need to show that \( G  \) is abelian. To this end, let \( x,y \in G  \) be arbitrary. Then for some \( {x}_{1}, {x}_{2} \in P  \) and \( {y}_{1}, {y}_{2} \in Q  \), we have \( x = {x}_{1} {y}_{1} \) and \( y = {x}_{2} {y}_{2} \). Then it follows that (after some rearrangement)
+        \begin{align*}
+            xy = ({x}_{1}{y}_{1})({x}_{2} {y}_{2}) = ({x}_{2} {y}_{2})({x}_{1} {y}_{1}) = yx.
+        \end{align*}
+        Thus, we conclude that \( xy = yx  \) and so we have that \( G  \) is abelian.
+            \end{proof}
+        \item[(b)] Give an example of a group order \( p^{2} q  \) for each possible isomorphism class.
+            \begin{solution}
+                Let \( p = 5  \) and \( q = 7  \). Note that \( 5 \not\mid 7 - 1 = 6  \) and \( p < q  \). From (a), we can see that \( G = PQ \cong P \times Q \cong \Z_{p^{2}} \times {\Z}_{q} \). Now we have the following isomorphism classes 
+                \begin{align*}
+                    G &\cong {\Z}_{5^{2}} \times {\Z}_{7} \\
+                      &\cong {\Z}_{5} \times {\Z}_{5} \times {\Z}_{7}.
+                \end{align*}
+            \end{solution}
+    \end{enumerate}
+\end{problem}
+
+\begin{problem}
+    \begin{enumerate}
+        \item[(a)] Let \( G  \) be a group and \( g  \) be an element in \( G  \) with order \( n  \). If \( k  \) is a non-zero integer, prove that the order of \( g^{k}  \) is \( \displaystyle \frac{ n  }{  \text{gcd}(n,k) }  \).
+            \begin{proof}
+                Denote \( d = \text{gcd} (n,k)  \) and notice that there exists \( {q}_{1}, {q}_{2} \in \Z^{+} \) such that 
+                \[  n = d {q}_{1} \ \text{and} \ n = d {q}_{2}. \tag{*} \]
+                Furthermore, denote \( | g^{k}  |  = a  \).
+                To show the above result, it suffices to show that 
+                \[  a \mid \frac{ n }{ d } \ \  \  \text{and} \  \  \ \frac{ n }{ d }  \mid a. \tag{\( \dagger \)}  \]
+            We will first show that \( a \mid \frac{ n }{ d } \). Notice from (*) that 
+            \[  (g^{k})^{\frac{ n }{ d }} = g^{\frac{ nk }{ d }} = g^{\frac{ n(d {q}_{2})  }{ d } } = g^{n {q}_{2}} = (g^{n})^{{q}_{2}} = {1}_{G}. \]
+            Thus, it follows that \( a \mid \frac{ n }{ d }   \).
+
+            Now, we will show that \( \frac{ n }{ d }  \mid  a  \). Here denote \( \ell = \frac{ n }{ d }  \). We proceed by using the division algorithm to write
+            \[  a = \ell q + r \ \ \text{for some} \ q \in \Z^{+} \ \text{and} \ 0 \leq r < a.   \]
+       Then we can see that (since the order of \( g  \) is \(  n \))
+            \begin{align*}
+                (g^{k})^{a} = (g^{k})^{\ell} &= (g^{k})^{\ell q} \cdot (g^{k})^{r} \\
+                                             &=(g^{k})^{\frac{ n }{ d } q } \cdot (g^{k})^{r} \\      
+                                             &= g^{n q {q}_{2}} \cdot (g^{k})^{r} \\ 
+                                             &= (g^{n})^{q {q}_{2}} \cdot (g^{k})^{r} \\
+                                             &= 1 \cdot (g^{k})^{r}.
+            \end{align*}
+            Thus, we have
+            \[  (g^{k})^{a - r} = 1.  \]
+            Notice that we need \( r = 0 \) otherwise \( r \neq 0  \) would contradict the minimality of \( a  \) (the order of \( g^{k} \)). Thus, we conclude that \( \frac{ n }{ d }  \mid a  \). Hence, we have 
+            \[  | g^{k} |  = \frac{ n }{ \text{gcd}(n,k) }.  \]
+
+            \end{proof}
+        \item[(b)] Assume \( G  \) is a cyclic group of order \( 60  \). Let \( g  \) denote a generator of \( G  \). Find all integers \( k \in \{ 1,2, \dots, 60 \}  \) such that \( g^{k}  \) has order \(  6  \).
+            \begin{proof}
+                Using part (a), we get that 
+                \[  | g^{k} |  = \frac{ 60 }{ \text{gcd}(k,60) }  = 6. \]
+                Using the above, we obtain 
+                \begin{align*} 
+                    60 =  \text{gcd}(k,60) &\iff 10 = \text{gcd}(k,60) \ \text{where} \ k \in \{ 1,2,\dots,60 \}. 
+                \end{align*}
+                This tells us that 
+                \[  10 = \text{gcd}(10m,60) \implies 10 = 10 \text{gcd}(m,60) \implies 1 = \text{gcd}(m,6) \ \text{where} \ 1 \leq m \leq 6. \]
+                The only choices of \( m  \) for which the above holds is when either \( m = 1 \) or \( m = 5 \); that is, either \( k = 10 \) or \( k = 50  \).
+            \end{proof}
+    \end{enumerate}
+\end{problem}
+
+\begin{problem}
+    Let \( G  \) be a group of order \( 345 = 3 \cdot 5 \cdot 23 \).
+    \begin{enumerate}
+        \item[(a)] Prove that \( G  \) has a cyclic subgroup of order \( 3 \cdot 23 = 69 \) and a cyclic subgroup of order \( 5 \cdot 23 = 115 \).
+            \begin{proof}
+                We will start by show that there exists a cyclic subgroup of order \( 3 \cdot 23 = 69 \). Consider the number of sylow \( 3 \)-subgroups of \( G  \) denoted by \( {n}_{3}  \). By Sylow's Theorem, it follows that \( {n}_{3} \equiv 1 (\text{mod} \ 3) \) and \( {n}_{3} \mid 5 \cdot 23 \). This tells us that \( {n}_{3} = 5  \), \( {n}_{3} = 23  \), or \( {n}_{3} = 1  \). If \( {n}_{3} = 5  \), then 
+                \[  5 \equiv 2 (\text{mod} \ 3) \not\equiv 1 (\text{mod} \ 3) \implies {n}_{3} \neq 5. \]
+                Likewise, if \( {n}_{3} = 23 \), then we find that 
+                \[  23 \equiv 2 (\text{mod} \ 3) \not\equiv 1 (\text{mod} \ 3) \implies {n}_{3} \neq 23. \]
+                Thus, the only option we have is for \( {n}_{3} = 1  \). This tells us that \( {P}_{3} \) is the unique Sylow \( 3 \)-subgroup of order \( 3  \). 
+
+                Next, let us look at the number of Sylow \( 23 \)-subgroups \( {n}_{23}  \). Similarly, we will prove that \( {n}_{23} = 1  \). Using Sylow's Theorem, it follows that \( {n}_{23} \equiv 1 (\text{mod} \ 23) \) and \( {n}_{23} \mid 3 \cdot 5 \). Thus, \( {n}_{23} \in \{ 1,3,5 \} \). If \( {n}_{23} = 3  \), then  
+                \[  3 \equiv 3 (\text{mod} \ 23) \not\equiv 1 (\text{mod} \ 23) \implies {n}_{23} \neq 3.  \]
+                Likewise, if \( {n}_{23}  = 5  \), then
+                \[  5 \equiv 5 (\text{mod} \ 23) \not\equiv 1 (\text{mod} \ 23). \]
+                This tells us that \( {n}_{23} = 1 \) and so \( {P}_{23} \) is the unique subgroup of order \( 23 \) which is normal in \( G  \). 
+                Since \( {P}_{3} \) and \( {P}_{23} \) are normal subgroups of \( G  \), it follows that \( {P}_{3} {P}_{23} \leq G  \) and that \( {P}_{3} \cap {P}_{23} = {1}_{G} \). Next, notice that 
+                \[ | {P}_{23} {P}_{3} |  = \frac{ | {P}_{23} | | {P}_{3} |  }{ | {P}_{23} \cap {P}_{3} |   }  = \frac{ | {P}_{23} | | {P}_{3} |  }{ {1}_{G} }  = | {P}_{23} |  | {P}_{3} |  = 23 \cdot 3  \]
+                and that (since \( 23 \) and \( 3  \) are relatively prime) 
+                \[  {P}_{23}{P}_{3} \cong {P}_{23} \times {P}_{3} \cong {\Z}_{23} \times {\Z}_{3} \cong {\Z}_{23 \cdot 3}.   \]
+                Notice that \( {\Z}_{23 \cdot 3} \) is a cyclic subgroup which tells us that \( {P}_{23} {P}_{3} \) also has to be a cyclic subgroup of the same order.
+
+                Now, let us prove that \( G  \) has a cyclic subgroup of order \( 5 \cdot 23 \). Let us look at the number of Sylow \( 5 \)-subgroups denoted by \( {n}_{5} \). Using Sylow's Theorem, it follows that \( {n}_{5} \equiv 1 (\text{mod} \ 5) \) and that \( {n}_{5} \mid 3 \cdot 23 \). This tells us that \( {n}_{5} \in \{  1,3,23 \}  \). We will show that \( {n}_{5} = 1  \). Indeed, if \({n}_{5} = 3 \), then we get 
+                \[  3 \equiv 3 (\text{mod} \ 5) \not\equiv 1 (\text{mod} \ 5) \implies {n}_{5} \neq 3.  \]
+                Also, if \( {n}_{5} = 23 \), then
+                \[  23 \equiv 3 (\text{mod} \ 5) \not\equiv (\text{mod} \ 5) \implies {n}_{5} \neq 23. \]
+                This tells us that \( {n}_{5} = 1  \) and so \( {P}_{5} \) is the unique Sylow \( 5 \)-subgroup of order \( 5 \). Since we already know that \( {P}_{23} \) is the unique Sylow \( 23 \)-subgroup of order \( 23 \), it follows that \( {P}_{23} {P}_{5} \) is a subgroup of \( G  \) and that 
+                \[  | {P}_{23} {P}_{5} |  = \frac{ | {P}_{23}  | | {P}_{5} |   }{ | {P}_{23} \cap {P}_{5} |     }  = | {P}_{23} | | {P}_{5} |  = 23 \cdot 5  \]
+                since \( {P}_{23} \cap {P}_{5} = {1}_{G}  \). Now, we have 
+                \[  {P}_{23}{P}_{5} \cong {P}_{23} \times {P}_{5} \cong {\Z}_{23} \times {\Z}_{5} \cong {\Z}_{23 \cdot 5} \]
+                since \( 23  \) and \(  5 \) are relatively prime. Since \( {\Z}_{23 \cdot 5} \) is a cyclic subgroup of \( G  \), it follows that \( {P}_{23} {P}_{5} \) is also a cyclic subgroup of \( G  \) of order \( 23 \cdot 5 \) and we are done.
+            \end{proof}
+        \item[(b)] Prove that every Sylow \( p \)-subgroup of \( G  \) is a normal subgroup of \( G  \).
+            \begin{proof}
+            \textbf{I wasn't sure whether \( p  \) refers to one of the primes making up the order of \( G  \) or that we need to prove the result more generally.} From part (a), we have \( p = 3,5,23 \) and we have shown that in each instance, we obtain a unique Sylow \( p \)-subgroup which is normal in \( G  \).
+            \end{proof}
+    \end{enumerate} 
+\end{problem}
+
+
+\end{document}
+

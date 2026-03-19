@@ -1,0 +1,182 @@
+\documentclass[a4paper]{article}
+\input{../../../../../newpreamble.tex}
+\title{Analysis 2022 Comprehensive Exam}
+\author{Lance Remigio}
+\begin{document}
+\maketitle
+\section{230A}
+\begin{problem}
+   Prove that if \( X  \) is a complete metric space with no isolated points, then \( X  \) must be uncountable. 
+\end{problem}
+\begin{proof}
+Suppose for contradiction that \( X  \) is NOT uncountable. Since \( X  \) is a complete metric space, it follows that \( X  \) must be infinite. Our goal is to construct a nested sequence of closed balls 
+\[ \overline{B}_{{r}_{1}}({y}_{1}) \supseteq \overline{B}_{{r}_{2}} \supseteq \overline{B}_{{r}_{3}}({y}_{3}) \supseteq \cdots \]
+so that 
+\begin{enumerate}
+    \item[(1)] \( {r}_{n} \to  0 \);
+    \item[(2)] Each closed ball \( \overline{B}_{{r}_{n}}({y}_{n}) \) contains at least two points; 
+    \item[(3)] Each \( \overline{B}_{{r}_{n}}({y}_{n})  \) does not contain \( {x}_{n} \) for all \( n \in \N \).
+\end{enumerate}
+
+We proceed to construct the above sets via induction. Since \( X \neq \emptyset \), pick a \( {y}_{1} \in X  \). Since \( X \) does not contain any isolated points, we can pick another \( {y}_{2} \in X  \) such that \( d({y}_{1}, {y}_{2}) < {r}_{1} \) where \( {r}_{1} \) is small enough. If \( {x}_{1} \notin {B}_{{r}_{1}}({y}_{1})  \), then we are done. Otherwise, take \( {r}_{2} = {r}_{1} / 2  \) so that \( {x}_{1} \notin {B}_{{r}_{2}}({y}_{1}) \). Additionally, we see that \( {x}_{1} \notin {B}_{{r}_{2}}({y}_{2}) \). This is possible because a non-singleton ball contains points other than \( {x}_{1} \). Since \( X  \) does not contain isolated points, there exists \( {y}_{3} \in X  \) such that \( d({y}_{2}, {y}_{3}) < {r}_{2} \). If \( {x}_{2} \notin {B}_{{r}_{2}}({y}_{2}) \), then we are done. Otherwise, let \( {r}_{3} = \frac{ {r}_{2} }{  2 } = \frac{ {r}_{1} }{  2^{2} } \) so that \( {x}_{2} \notin {B}_{{r}_{3}({y}_{3})} \).
+
+Inductively, suppose \( \overline{B}_{{r}_{n-1}}({y}_{n-1}) \) is constructed such that \( {r}_{n-1} = \frac{ {r}_{1} }{  2^{n-1} }  \) and \( {x}_{n-1} \notin \overline{B}_{{r}_{n-1}}({y}_{n-1}) \). Since \( \overline{B}_{{r}_{n-1}}({y}_{n-1}) \) is not a singleton, we can choose another point \( {y}_{n} \in X  \) such that \( d({y}_{n}, {y}_{n-1}) < {r}_{n-1} \). Again, if \( {x}_{n} \notin \overline{B}_{{r}_{n-1}}({y}_{n}) \), then we are done. Otherwise, take \( {r}_{n} = \frac{ {r}_{n} }{ 2 }  = \frac{ {r}_{1} }{ 2^{n} }  \) so that \( {x}_{n} \notin \overline{B}_{{r}_{n}}({y}_{n}) \) and in turn, \( {x}_{n} \notin \overline{B}_{{r}_{n-1}}({y}_{n}) \). Thus, we obtain a nested sequence of closed balls where
+\[ \overline{B}_{{r}_{1}}({y}_{1}) \supseteq \overline{B}_{{r}_{2}} \supseteq \overline{B}_{{r}_{3}}({y}_{3}) \supseteq \cdots \]
+so that 
+\begin{enumerate}
+    \item[(1)] \( {r}_{n} \to  0 \);
+    \item[(2)] Each closed ball \( \overline{B}_{{r}_{n}}({y}_{n}) \) contains at least two points; 
+    \item[(3)] Each \( \overline{B}_{{r}_{n}}({y}_{n})  \) does not contain \( {x}_{n} \) for all \( n \in \N \).
+\end{enumerate}
+
+Observe that for all \( m > n  \), we get that 
+\[  d({y}_{n}, {y}_{m}) \leq \text{diam}(\overline{B}_{{r}_{n}}({y}_{n})) \leq 2 {r}_{n} \to 0.   \]
+This tells us that \( \text{diam}(\overline{B}_{{r}_{n}}({y}_{n})) \to 0   \), implying that \( ({y}_{n}) \) is a Cauchy sequence of \( X  \). Thus, \( {y}_{n} \to y  \) for some \( y \in X  \) since \( X  \) is a complete metric space. By the above construction, it follows that 
+\[  y \in \bigcap_{ n=1  }^{ \infty  }  \overline{B}_{{r}_{n}} ({y}_{n}). \]
+However, notice that \( y \in \overline{B}_{{r}_{n}}({y}_{n}) \) implies that \( y \neq {x}_{n} \) for all \( n \in \N  \). This implies that \( y  \) does not appear in any of the \( {x}_{n} \)'s inside \( X  \) which is a contradiction. Thus, it follows that \( X  \) must be uncountable.
+
+
+\end{proof}
+
+\begin{problem}
+    Every compact metric space is separable.
+\end{problem}
+\begin{proof}
+Let \( X  \) be a compact metric space. Our goal is to show that \( X  \) is separable; that is, we need to find a countable dense subset of \( X  \). Indeed, consider the following collection of open balls of radius \( 1/n \)
+\[  \mathcal{U} = \{ {B}_{1/n}(x):x \in X \}.   \]
+Notice that \( \mathcal{U} \) forms an open cover of \( X  \). Since \( X  \) is compact, there exists \( {x}_{1}, {x}_{2}, \dots, {x}_{n_k} \in X   \) such that  
+\[  X  = \bigcup_{ k = 1  }^{ n } {B}_{1/n}({x}_{{m}_{k}}). \tag{*} \]
+Now, consider the following countable union of these finite subsets of \( X  \)
+\[  D = \bigcup_{ k \in \N  }^{  } \{ {x}_{1}, {x}_{2}, \dots, {x}_{{m}_{k}}\}.  \]
+Notice that the set above is countable because each set in the union is countable. We claim that \( D  \) above is a dense subset of \( X  \); that is, \( \overline{D} = X  \). Let \( p \in X  \). To show that, \( p \in \overline{D}\), it suffices to take any open ball \( {B}_{r}(p) \) (with \( r > 0 \)) such that \( {B}_{r}(p) \cap D \neq \emptyset \). Indeed, since \( r > 0  \), we can find an \( n \in \N \) large enough such that \( \frac{ 1 }{ n }  < r  \). From (*), it follows that \( p \in \bigcup_{ i= 1  }^{m} {B}_{1/n}({x}_{i}) \); that is, \( p \in {B}_{1/n}({x}_{i}) \) for some \( 1 \leq i \leq {m}_{n} \). That is,   
+\[  d({x}_{i}, p) < \frac{ 1 }{ n }  < r. \]
+But this tells us that \( {x}_{i} \in B(p,r)  \); that is, \( {B}_{r}(p) \cap D \neq \emptyset \) (since \( {x}_{i} \in D  \)). Thus, it follows that \( p \in \overline{D} \) and we are done.
+\end{proof}
+
+\begin{problem}
+    Let \( X  \) be a metric space, prove that, if for all \( x,y \in X  \), there exists a connected set \( C \subseteq X   \) such that \( x,y \in C  \), then \( X  \) is connected.
+\end{problem}
+\begin{proof}
+Consider the contrapositive of the above statement
+\begin{center}
+    "If \( X  \) is NOT connected, then there exists \( x,y \in X  \) such that there is no connected set \( C \subseteq X   \) such that \( x,y \in C  \)."
+\end{center}
+Suppose \( X  \) is NOT connected. Our goal is to show that there exists \( x,y \in X  \) such that there is no connected set \( C \subseteq X   \) such that \( x,y \in C  \). Suppose for contradiction that there exists a connected set \( C \subseteq X  \) such that \( x,y \in C  \). Since \( X  \) is NOT connected, there exists two nonempty open sets \( U \) and \( V  \) in \( X  \) such that \( U \cap V = \emptyset \). Take \( x \in U  \) and \( y \in V  \) since \( U \) and \( V  \) are nonempty sets. Since \( U \cap V = \emptyset \), we have \( x \notin V  \) and \( y \notin U  \). Consider the subspace topology on \( C  \) inherited from \( X  \). Note that \( C \cap U  \) and \( C \cap V \) are open sets in this subspace. Denote these two sets as \( U' \) and \( V' \), respectively. Notice that \( U' \cup V' = C  \) and that \( U' \cap V' = \emptyset \) since \( U \cap V = \emptyset \). However, this tells that \( C  \) is a disconnected subset of \( X  \) containing \( x  \) and \( y  \). Thus, it follows that there exists no connected subset of \( X  \) that contains \( x  \) and \( y  \).
+\end{proof}
+
+\begin{problem}
+  \begin{enumerate}
+      \item[(a)] Let \( X  \) be a compact metric space and \( A  \) be an infinite subset of \( X  \). Prove that the set of limit points of \( A  \) is not empty.
+          \begin{proof}
+          Suppose for contradiction that the set of limit points \( A' \) of \( A  \) is empty. Then   
+          \[  \overline{A} = A \cup A' = A \cup \emptyset = A,  \]
+          implying that \( A  \) is a closed set. Since \( A  \) is a closed subset of \( X  \) and \( X  \) is compact, it follows that \( A  \) is also a compact set. Now, since every \( a \in A  \), \( a \in \overline{A} \), it follows that for all \( r > 0  \), \( {B}_{r}(a) \cap A = \{ a  \}  \). Since \( \{ {B}_{r}(a) \}_{a \in A }  \) forms an open cover of \( A  \) and \( A  \) is compact, we can find \( {a}_{1}, {a}_{2}, \dots, {a}_{n} \in A  \) such that 
+          \[  A \subseteq \bigcup_{ i = 1  }^{ n }  {B}_{r}({a}_{i}). \]
+          Now, notice that 
+          \[  A \subseteq \Big(\bigcup_{ i=1  }^{ n }  {B}_{r}(a) \Big) \cap A = \bigcup_{ i = 1  }^{ n }  [{B}_{r}({a}_{i}) \cap A ] = \bigcup_{ i=1  }^{ n }  \{ {a}_{i} \}  = \{ {a}_{i} : 1 \leq i \leq n \},   \]
+          implying that \( A  \) is a finite set of \( X  \) which is a contradiction. Hence, it must be that \( A' \neq \emptyset \).
+
+          \end{proof}
+      \item[(b)] Provide a counterexample to the above statement if the compactness assumption is removed.
+          \begin{solution}
+          Suppose that \( X  = \R  \) and \( A = \N \subseteq \R   \) which is clearly infinite but \( \N' = \emptyset \) since there are no natural numbers contained in each open ball centered at each \( n \in \N \). 
+          \end{solution}
+  \end{enumerate}  
+\end{problem}
+
+\section{230B}
+
+\begin{problem}
+    Let \( \alpha: [a,b] \to \R  \) be continuous and increasing on \( [a,b] \). Prove that if \( f: [a,b] \to \R  \) is decreasing, then \( f  \) is Riemann-Stieltjes integrable on \( [a,b] \) with respect to \( \alpha \). 
+\end{problem}
+\begin{proof}
+    Our goal is to show that for all \( \epsilon > 0  \), there exists a partition \( {P}_{\epsilon}  \) of \( [a,b] \) such that 
+    \[  U(f,\alpha, P) - L(f,\alpha, P ) < \epsilon. \]
+    Let \( \epsilon > 0  \) be given. Since \( \alpha  \) is a continuous function on a compact interval \( [a,b] \), we know that \( \alpha  \) must be uniformly continuous on \( [a,b] \). That is, with our given \( \epsilon  \), there exists a \( \delta_{\epsilon} > 0  \) such that if \( | x - y  |  < {\delta}_{\epsilon} \) for all \( x,y \in [a,b] \), we have
+    \[  | \alpha(x) - \alpha(y) |  < \frac{ \epsilon }{ [f(b) - f(a)]  + 1 }.  \]
+    Define the partition \( P  \) of \( [a,b] \) such that \( \|P\| = \max_{1 \leq i \leq n} ({x}_{i} - {x}_{i-1}) < {\delta}_{\epsilon}  \). Since \( f  \) is a decreasing sequence of functions on \( [a,b] \), we know that 
+    \begin{align*}
+        f({x}_{i-1}) &= \max_{x \in [{x}_{i-1}, {x}_{i}]} f(x) = {M}_{i}, \\
+        f({x}_{i}) &= \min_{x \in [{x}_{i-1}, {x}_{i}]} f(x) = {m}_{i}.
+    \end{align*}
+    This tells us that 
+    \[ f(b) \leq f({x}_{i}) \leq f({x}_{i-1}) \leq f(a) \implies f({x}_{i-1}) - f({x}_{i}) \leq f(a) - f(b).  \tag{1} \]
+    Using (1) and our constructed partition \( P  \) of \( [a,b] \), we know that 
+    \begin{align*}
+        U(f,\alpha, P) - L(f,\alpha, P ) &= \sum_{ i=1  }^{ n } ({M}_{i} - {m}_{i}) \Delta {\alpha}_{i} \\
+                                         &= \sum_{ i=1  }^{ n } (f({x}_{i-1}) - f({x}_{i})) \Delta {\alpha}_{i} \\
+                                         &\leq  [f(a) - f(b)] \sum_{ i=1  }^{ n }  \Delta {\alpha}_{i} \\
+                                         &= [f(a) -f(b)] (\alpha(b) - \alpha(a)) \\
+                                         &< [f(a) - f(b)] \cdot \frac{ \epsilon }{ [f(a) - f(b)] + 1  } \\ 
+                                         &<  ([f(a) - f(b) ] + 1 )  \cdot \frac{ \epsilon }{ [f(a) - f(b)] +  1  } \\
+                                         & < \epsilon.
+    \end{align*}
+    Thus, it follows that \( f  \) is Riemann-Stieltjes integrable over \( [a,b]  \) with respect to \( \alpha \).
+
+
+\end{proof}
+
+
+
+\begin{problem}
+    Let \( f : [0,1] \to \R  \) be continuous. Prove that  
+    \[  \lim_{ n \to \infty  } \int_{ 0 }^{ 1 }  f(x^{n})  \ dx = f(0). \]
+\end{problem}
+\begin{proof}
+Our goal is to show that for all \( \epsilon > 0  \), there exists \( {N}_{\epsilon}  \in \N \) such that for all \( n > {N}_{\epsilon} \)
+\[  \Big| \int_{ 0 }^{ 1 }  f(x^{n})  \ dx - f(0) \Big| < \epsilon. \tag{*}  \] 
+Let \( \epsilon > 0  \) be given. Note that if \( x = 1  \), then the integral reduces to \( f(1)  \) and since \( f  \) is continuous on a compact interval, we know that \( f  \) is uniformly continuous and so \( | f(1) - f(0) |  < \epsilon \) for any \( n \in \N \). Assume that \( 0 \leq x < 1  \). Then \( x^{n} = {a}_{n}  \) is a sequence in \( [0,1] \) that converges to \( 0 \). Since \( f  \) is continuous on \( [0,1] \), it follows that \( f(x^{n}) \to f(0) \). That is, with our given \( \epsilon  \), there exists an \( {N}_{\epsilon} \in \N \) such that 
+\[  | f(x^{n}) - f(0) |  < \epsilon. \]
+From the left hand side of (*) and supposing that \( n > {N}_{\epsilon}  \), we get that 
+\begin{align*}
+    \Big| \int_{ 0 }^{ 1 } f(x^{n})   \ dx - f(0) \Big| &= \Big| \int_{ 0 }^{ 1 } f(x^{n}) \ dx - \int_{ 0 }^{ 1 }  f(0) \ dx  \Big|  \\
+                                                        &= \Big| \int_{ 0 }^{ 1 }  (f(x^{n}) - f(0)) \ dx \Big| \\
+                                                        &\leq \int_{ 0 }^{ 1 }  | f(x^{n}) - f(0) |  \ dx \\
+                                                        &< \epsilon \int_{ 0 }^{ 1 }   \ dx \\
+                                                        &= \epsilon
+\end{align*}
+which is our desired result.
+\end{proof}
+
+\begin{problem}
+    Let \( \{ {f}_{n} \}_{n \in \N} \) be a sequence of continuous functions defined on \( [a,b] \).
+    \begin{enumerate}
+        \item[(a)] Prove that if \( \{ {f}_{n} \}_{n \in \N} \) converges uniformly to \( f  \) on \( [a,b] \), then \( f  \) is continuous on \( [a,b] \).
+            \begin{proof}
+                Let \( c \in [a,b] \) be arbitrary. Our goal is to show that for all \( \epsilon > 0  \), there exists a \( {\delta}_{\epsilon} > 0  \) such that if \( | x - c  |  < \delta  \), then \( | f(x) -f (c)  |  < \epsilon \). Since \( ({f}_{n}) \) converges uniformly to \( f  \), with our given \( \epsilon  \), we can find an \( {N}_{\epsilon} \in \N  \) such that for all \( n > {N}_{\epsilon} \),
+                \[  | {f}_{n}(x) - f(x)  |  < \frac{ \epsilon }{  4  }   \]
+                for all \( x \in [a,b] \). Since \( ({f}_{n}) \) is also a sequence of continuous functions, it follows that for all \( n \in \N \), there exists a \( \delta_{n} > 0  \) such that if \( | x - c  |  < \delta_n  \), then
+                \[  | {f}_{n}(x) - {f}_{n}(c) |  < \frac{ \epsilon }{ 4 }.  \]
+                In particular, for \( N = {N}_{\epsilon} + 1  \), there exists an \( {\delta}_{N} > 0  \) such that if \( | x - c  |  < {\delta}_{N} \), we get 
+                \[  | {f}_{N}(x) - {f}_{N}(c) |. \]
+                Using this same \( \delta = {\delta}_{N} \), if \( | x - c  |  < \delta \), then using the triangle inequality, we get that 
+                \begin{align*}
+                    | f(x) - f(c) | &\leq | f(x) - {f}_{N}(x)  | + | {f}_{N}(x) - {f}_{N}(c) |  + | {f}_{N}(c) - f(c) |   \\
+                                    &< \frac{ \epsilon }{ 4  }  + \frac{ \epsilon }{ 4 }  + \frac{ \epsilon }{ 4 }  + \frac{ \epsilon }{ 4 } \\
+                                    &=\epsilon.
+                \end{align*}
+                Thus, \( f  \) is continuous at \( c \in [a,b] \).
+            \end{proof}
+        \item[(b)] Is it true that if \( \{ {f}_{n} \}_{n  \in \N} \) converges pointwise to \( f  \) on \( [a,b] \), then \( f  \) is continuous on \( [a,b] \)? If it is true prove it, otherwise provide a counterexample.
+            \begin{solution}
+                This is false. Take \( [a,b] = [0,1] \) and consider the following sequence of functions
+            \[  {f}_{n}(x) = 
+            \begin{cases}
+                1 &\text{if} \ x \in [0,1/2] \\
+                1 - n (x - \frac{ 1 }{ 2 } ) &\text{if} \ x \in [\frac{ 1 }{ 2 }  , \frac{ 1 }{ 2 }  + \frac{ 1 }{ n }] \\
+                0 &\text{if} \ x \in [\frac{ 1 }{ 2 }  + \frac{ 1 }{ n }  , 1 ]
+            \end{cases}  \]
+            which is continuous on \( [0,1] \) but whose pointwise limit given by
+            \[  f(x) = 
+            \begin{cases}
+                1 &\text{if} \ x \in [0,\frac{ 1 }{ 2 }] \\
+                0 &\text{if} \ x \in [\frac{ 1 }{ 2 } , 1 ]
+            \end{cases} \]
+        is clearly not a continuous function on \( [0,1] \).
+            \end{solution}
+    \end{enumerate}
+\end{problem}
+
+
+\end{document}
+
