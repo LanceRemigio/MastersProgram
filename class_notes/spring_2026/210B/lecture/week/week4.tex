@@ -1,0 +1,108 @@
+
+In the next few lectures, we will be going over three types of integral domains:
+
+\begin{enumerate}
+    \item[(1)] Euclidean Domains
+    \item[(2)] Principal Ideal Domains
+    \item[(3)] Unique Factorization Domains 
+\end{enumerate}
+
+\subsection{Euclidean Domains}
+
+Euclidean Domains are integral domains with a division algorithm
+
+\begin{eg}
+   \begin{enumerate}
+        \item[(i)] \( \Z \) is Euclidean Domain
+       \item[(ii)] \( F[x] \) polynomials with coefficients in a field are a Euclidean Domain 
+        \item[(iii)] Any field is a Euclidean Domain.
+        \item[(iv)] \( \{ a + b i : a,b \in \Z  \}  \) (set of Gaussian Integers)
+   \end{enumerate} 
+\end{eg}
+
+\begin{definition}[Notion of Order]
+    Any function \( N: R \to \N \cup \{ 0  \}  \) (where \( R  \) is a ring) is called a \textbf{norm} on the ring \( R \). If \( N(a) > 0  \) for all \( a \in R  \) with \( a \neq 0  \), we call \( N \) a positive norm.
+\end{definition}
+
+\begin{definition}[Euclidean Domain]
+    The integral domain \( R  \) is said to be a \textbf{Euclidean Domain} if there is a norm on \( R  \) such that for any \( a,b \in R  \) with \( b \neq 0 \), there exists \( q,r \in R  \) such that 
+    \[  a = qb + r  \]
+    with \( r = {0}_{R}  \) or \( N(r) , N(b) \).
+\end{definition}
+
+This division algorithm gives us a Euclidean algorithm; that is, repeated division of some \( a,b  \) in a Euclidean Domain.
+Given \( a,b \in \R  \) (\( R  \) is a Euclidean Domain) with \( b \neq 0  \) such that 
+\[  a = {q}_{0}b + {r}_{0} \]
+where \( {r}_{0} = 0  \) or \( N({r}_{0}) < N(b) \) (We can repeat this process inductively). Thus,   
+\begin{align*}
+     b  &= {q}_{1} {r}_{0} + {r}_{1} \\
+     {r}_{0} &= {q}_{2} {r}_{1} + {r}_{2},
+\end{align*}
+and continuing on, we have
+\begin{align*}
+    {r}_{n-2} &= {q}_{n} {r}_{n-1} + {r}_{n}  \\
+    {r}_{n-1} &= {q}_{n+1} {r}_{n}
+\end{align*}
+where \( {r}_{n} = 0  \) or \( N({r}_{n}) \leq N({r}_{n-1}) \). Since the codomain of the norm is \( \N \cup \{ 0  \}  \) created a decreasing sequence of numbers and that domain is \( \N \cup \{ 0  \}  \), it follows that the sequence must terminate with some remainder or \( 0  \); that is,
+\[  N(b) > N({r}_{0}) > N({r}_{1} > \cdots > N({r}_{n-1}) > N({r}_{n})  \]
+Note that \( {r}_{n} \) is the gcd of \( a \) and \( b  \). But what does it mean to have a gcd in a general Euclidean Domain?
+
+\begin{eg}[Norms on Different Euclidean Domains]
+    \begin{enumerate}
+        \item[(i)] \( \Z  \) \textbf{Norm:} \( N(x) = | x  |  \) 
+        \item[(ii)] \( \F[x]  \)  \textbf{Norm:} \( N(f(x)) = \text{deg}(f(x))    \)
+        \item[(iii)] Any field \( \F  \) \textbf{Norm:} anything works i.e \( N(x) = 0  \) for all \( x \in F  \) with \( N(x) = 420 \).  
+        \item[(iv)] Gaussian Integers \( \mathcal{G}  = \{ a + bi : a,b \in \Z  \}  \) \textbf{Norm:} \( N(a + bi) = a^{2}+ b^{2} \). 
+    \end{enumerate}
+\end{eg}
+
+Next,we show that any Euclidean Domain is a Principal Ideal Domain.
+
+\begin{prop}
+    Every Ideal in a Euclidean Domain is a principal ideal. More precisely, if \( I \) is any nonzero ideal in the Euclidean Domain \( R  \), then \( I = (d)  \) where \( d \) is any nonzero element of \( I \) with minimum norm. (that is, any nonzero element in the ideal minimum norm.)    
+\end{prop}
+
+\begin{proof}
+If \( I  \) is the zero ideal, then \( I = (0) \). Suppose \( I \neq 0  \). Then let \( d \neq 0  \) in \( I  \) with minimal norm (such a \( d \) exists since the set \( \{ N(a) : a \in I  \}\) is a nonempty set of integers bounded below, so there exists a minimal norm attained by an element of \( I \)). Clearly, \( (d) \subseteq I  \); that is, any principal ideal is contained in \( I  \).  
+
+Next, we will show that \( I \subseteq (d) \). Let \( a \in  I \) and use the division algorithm to write 
+\[  a = qd + r    \]
+where \( q,r \in R   \) and \( r = 0  \) or \( N(r) < N(d) \). Then
+\[  r = a - qd. \]
+Since \( I \) is an ideal, \( q \in R  \), and \( d \in I  \) with \( qd \in I  \). Further, \( a \in I  \) since \( I \) is an additive group \( a - qd \in I  \) so that \( r \in I   \). Note that \( N(r) < N(d) \) contradicts the minimality of \( N(d) \). Hence, the only option is that \( r = 0  \). Thus, \( a= qd  \) and so \( a \in (d) \). Therefore, \( I \subseteq (d)   \) and so it follows that \( I = (d) \).
+\end{proof}
+
+\subsection{Number Theory In A Ring}
+
+\begin{definition}[GCD In A Ring]
+    Let \( R  \) be a commutative ring and \( a,b \in R  \) with \( n \neq 0   \). 
+    \begin{enumerate}
+        \item[(1)] The element \( b  \) is said to divide \( a \) if there exists \( r \in R  \) such that \(a = br \) (\( b \mid a  \))
+        \item[(2)] The gcd of \( a \) and \( b  \) is a nonzero element of \( R  \) such that   
+            \begin{enumerate}
+                \item[(i)] \( d \mid a  \) and \( d \mid b     \)
+                \item[(ii)] If \( d' \mid a   \) and \( d' \mid b  \), then \( d' \mid d  \).
+            \end{enumerate}
+    \end{enumerate}
+\end{definition}
+
+We take this notion to division in ideals.  
+
+\begin{definition}[GCD Using Ideal Notation]
+    We say that the ideal \( I \) is generated by \( (a,b) \), then \( d= \text{gcd} (a,b)    \) if      
+    \begin{enumerate}
+        \item[(i)]  \( a \in (d) \) and \( b \in (d) \); that is, \( I \subseteq (d) \);
+        \item[(ii)] If \( a \in (d') \) and \( b \in (d') \), then \( d \in (d') \); that is, \( I \subseteq (d') \), then \( (d) \subseteq (d') \).        
+    \end{enumerate}
+\end{definition}
+
+\begin{prop}
+    If \( a,b  \) are nonzero elements of the commutative ring \( R  \) such that the ideal generated by \( a \) and \( b  \) is a principal ideal \( (d) \), then \( d \) is a gcd of \( a \) and \( b  \).  
+\end{prop}
+
+\begin{proof}
+Suppose \( I = (a,b) = (d) \), then \( a \in (d) \) and \( b \in (d) \) and so \( d \mid a  \) and \( d \mid b  \). Let \( d' \in R  \) such that \( (a,b) \subseteq (d')\). Then \( a \in (d') \) and \( b \in (d') \).  
+  
+\end{proof}
+
+

@@ -10,8 +10,7 @@
        \item[(i)] Prove that \( f  \) is continuous if and only if \( f^{-1}(C)  \) is closed for all closed sets \( C  \) in \( Y  \).
            \begin{proof}
                \( (\Longrightarrow) \) Suppose \( f  \) is continuous. Let \( C  \) be a closed set in \( Y  \). Our goal is to show that \( f^{-1}(C)  \) is closed in \( X  \). Since \( C  \) is closed in \( Y  \), it follows that its complement \( C^{c} \) is open in \( Y  \). Since \( f \) is continuous, it preimage \( f^{-1}(U) \) where \( U = C^{c} \) is open in \( X  \). This tells us that \( [f^{-1}(U)]^{c} \) is closed in \( X  \). Since \( [f^{-1}(U)]^{c} = f^{-1}(U^{c})  = f^{-1}(C) \), it follows that \( f^{-1}(C) \) is closed in \( X  \). 
-
-               \( (\Longleftarrow) \) Suppose that for all closed sets \( C  \) in \( Y  \), \( f^{-1}(C) \) is closed in \( X  \). Our goal is to show that \( f \) is continuous; that is, we want to show that for all open sets \( U  \) in \( Y  \), \( f^{-1}(U) \) is open in \( X  \). To this end, let \( U  \) be an open set in \( Y  \). This tells us that \( U^{c} = V  \) is a closed set in \( Y  \). Then \( f^{-1}(V) \) is closed in \( X  \) by assumption. That is, \( [f^{-1}(V)]^{c} \) is open in \( X  \). Since 
+\( (\Longleftarrow) \) Suppose that for all closed sets \( C  \) in \( Y  \), \( f^{-1}(C) \) is closed in \( X  \). Our goal is to show that \( f \) is continuous; that is, we want to show that for all open sets \( U  \) in \( Y  \), \( f^{-1}(U) \) is open in \( X  \). To this end, let \( U  \) be an open set in \( Y  \). This tells us that \( U^{c} = V  \) is a closed set in \( Y  \). Then \( f^{-1}(V) \) is closed in \( X  \) by assumption. That is, \( [f^{-1}(V)]^{c} \) is open in \( X  \). Since 
                \[  [f^{-1}(V)]^{c} = f^{-1}(V^{c}) = f^{-1}(U), \]
                it follows that \( f^{-1}(U) \) is open in \( X  \) which is our desired result.
            \end{proof}
@@ -24,17 +23,22 @@
                 \begin{align*}
                     f(\overline{A}) \subseteq \overline{f(A)} &\implies \overline{A} \subseteq f^{-1}(\overline{f(A)}) \\
                                                               &\implies \overline{f^{-1}(C)} \subseteq f^{-1} \Big[ \overline{f (f^{-1}(C))}\Big] \\
-                                                              &\implies \overline{f^{-1}(C)} \subseteq f^{-1}(\overline{C}).
+                                                              &\implies \overline{f^{-1}(C)} \subseteq f^{-1}(\overline{C}) \\
+                                                              &\implies \overline{f^{-1}(C)} \subseteq f^{-1}(C) \tag{\( \overline{C} = C \) since \( C  \) is closed in \( Y \)}
                 \end{align*}
-                Thus, we conclude that \( f^{-1}(C) \) is closed in \( X  \).
+                Since \( \overline{f^{-1}(C)} \subseteq  f^{-1}(C) \) and \( f^{-1}(C) \subseteq \overline{f^{-1}(C)} \), we have \( \overline{f^{-1}(C)} = f^{-1}(C) \) and so we conclude that \( f^{-1}(C) \) is closed in \( X  \). Thus, \( f \) is continuous using part (i).
            \end{proof}
        \item[(iii)] Prove that if, \( f  \) is continuous and \( A  \) is dense in \( X  \), then \( f(A) \) is dense in \( f(X) \).
            \begin{proof}
-           Our goal is to show that \( \overline{f(A)} = f(X) \); that is, we want to show that \( f(X) \subseteq  \overline{f(A)} \) and \( \overline{f(A)} \subseteq f(X) \). Starting with the first inclusion, we observe that since \( f  \) is continuous and \( A  \) is dense in \( X  \) (i.e \( \overline{A} = X  \)), it follows from part (ii) that 
-           \[  f(X) = f(\overline{A}) \subseteq \overline{f(A)} \implies f(X) \subseteq \overline{f(A)}. \tag{1} \]
-           Now, we need to show that \( \overline{f(A)} \subseteq f(X) \). Since \( f^{-1}(\overline{f(A)}) \subseteq X  \). Taking the image under \( f \), it follows that \( \overline{f(A)} \subseteq f(X) \) (2). 
-
-           From (1) and (2), it follows that \( \overline{f(A)} = f(X)  \).
+           Our goal is to show that \( \overline{f(A)}^{f(X)} = f(X) \); that is, we want to show that \( f(X) \subseteq  \overline{f(A)}^{f(X)} \) and \( \overline{f(A)}^{f(X)} \subseteq f(X) \). Starting with the first inclusion, we observe that since \( f  \) is continuous and \( A  \) is dense in \( X  \) (i.e \( \overline{A} = X  \)), it follows from part (ii) that (using a proposition proven in class)
+           \begin{align*}  
+               f(X) = f(\overline{A}) \subseteq \overline{f(A)}^{Y} &\implies f(X) \subseteq \overline{f(A)}^{Y} \\ 
+                                                                    &\implies f(X) \subseteq \overline{f(A)}^{Y} \cap f(X) \\
+                                                                    &\implies f(X) \subseteq \overline{f(A)}^{f(X)}.
+           \end{align*}
+           Now, the other inclusion follows immediately because, via the same proposition stated before, we have  
+           \[ \overline{f(A)}^{f(X)} = \overline{f(A)}^{Y} \cap f(X) \subseteq f(X).  \]
+           Hence, it follows that \( \overline{f(A)}^{f(X)} = f(X) \) and we conclude that \( f(A) \) is dense in \( f(X) \).
            \end{proof}
    \end{enumerate}
 \end{problem}
@@ -44,18 +48,18 @@
        \item[(i)] Let \( {\mathcal{T}}_{L} \) be the lower limit topology and \( {\mathcal{T}}_{E} \) be the Euclidean topology on \( \R  \). Prove that \( f: (\R , {\mathcal{T}}_{L}) \to (\R , {\mathcal{T}}_{E}) \) is continuous if and only if for every \( x \in \R  \) and \( \epsilon > 0  \), there exists \( \delta > 0  \) such that \( | f(x) - f(y) |  < \epsilon  \) for all \( y \in [x,x+\delta) \).
            \begin{proof}
                \( (\Longrightarrow) \) Suppose \( f \) is continuous. Our goal is to show that for all \( x \in \R  \) and \( \epsilon > 0  \), there exists a \( \delta > 0  \) such that \( | f(x) - f(y) |  < \epsilon  \) for all \( y \in [x,x+\delta) \); that is, we need to show that for all \( x \in \R  \) and \( \epsilon > 0 \), there exists a \( \delta > 0 \) such that  
-               \[  [x,x+\delta) \subseteq f^{-1}({B}_{\epsilon}(f(x)). \]
-               Let \( x \in \R  \) and \( \epsilon > 0  \) be given. Now, consider the open ball \( {B}_{\epsilon}(f(x)) \) and notice that \( x \in f^{-1}({B}_{\epsilon}(f(x))) \). Since \( {B}_{\epsilon}(f(x)) \) is an open set in \( (\R, {\mathcal{T}}_{E}) \) and \( f  \) is continuous, we know that \( f^{-1}({B}_{\epsilon}(f(x))) \) is open in \( (\R , {\mathcal{T}}_{L}) \). Since \( x \in f^{-1}({B}_{\epsilon}(f(x)))  \), there exists an open set \( U' \in {\mathcal{T}}_{L} \) containing \( x  \) such that \( x \in U' \subseteq  f^{-1}({B}_{\epsilon}(f(x))) \). Since \( U' \in {\mathcal{T}}_{L} \), we know that \( U' = [a,b) \) for some \( a,b \in \R \). Since \( x \in U' \), define \( \delta = \frac{ 1 }{ 2 }  (b - x) \) (this is strictly positive because \( x \in [a,b) \); that is, \( a \leq x < b \implies b - x > 0  \) ). Thus, we see that \( [x, x + \delta) \subseteq U' \subseteq f^{-1}({B}_{\epsilon}(f(x)) \) and so we conclude that  
-               \[  [x,x+\delta) \subseteq f^{-1}({B}_{\epsilon}(f(x)). \]
+               \[  [x,x+\delta) \subseteq f^{-1}({B}_{\epsilon}(f(x))). \]
+               Let \( x \in \R  \) and \( \epsilon > 0  \) be given. Now, consider the open ball \( {B}_{\epsilon}(f(x)) \) and notice that \( x \in f^{-1}({B}_{\epsilon}(f(x))) \). Since \( {B}_{\epsilon}(f(x)) \) is an open set in \( (\R, {\mathcal{T}}_{E}) \) and \( f  \) is continuous, we know that \( f^{-1}({B}_{\epsilon}(f(x))) \) is open in \( (\R , {\mathcal{T}}_{L}) \). Since \( x \in f^{-1}({B}_{\epsilon}(f(x)))  \), there exists a basis element \( U' \) containing \( x  \) in \( {\mathcal{T}}_{L} \) such that \( x \in U' \subseteq  f^{-1}({B}_{\epsilon}(f(x))) \). Since \( U' \) is a basis element, \( U' = [a,b) \) for some \( a,b \in \R \). Since \( x \in U' \), define \( \delta = \frac{ 1 }{ 2 }  (b - x) \) (this is strictly positive because \( x \in [a,b) \); that is, \( a \leq x < b \implies b - x > 0  \) ). Thus, we see that \( [x, x + \delta) \subseteq U' \subseteq f^{-1}({B}_{\epsilon}(f(x))) \) and so we conclude that  
+               \[  [x,x+\delta) \subseteq f^{-1}({B}_{\epsilon}(f(x))). \]
 
-               \( (\Longleftarrow) \) Conversely, we will show that \( f  \) is continuous. Suppose that for all \( x \in \R  \) and \( \epsilon > 0  \), there exists a \( \delta > 0  \) such that \( [x , x + \delta) \subseteq f^{-1}({B}_{\epsilon}(f(x)) \). To show that \( f  \) is continuous, we need to show that for all open sets \( U  \) in \( (\R, {\mathcal{T}}_{E}) \), \( f^{-1}(U) \) is open in \( (\R, {\mathcal{T}}_{L}) \). 
+               \( (\Longleftarrow) \) Conversely, we will show that \( f  \) is continuous. Suppose that for all \( x \in \R  \) and \( \epsilon > 0  \), there exists a \( \delta > 0  \) such that \( [x , x + \delta) \subseteq f^{-1}({B}_{\epsilon}(f(x))) \). To show that \( f  \) is continuous, we need to show that for all open sets \( U  \) in \( (\R, {\mathcal{T}}_{E}) \), \( f^{-1}(U) \) is open in \( (\R, {\mathcal{T}}_{L}) \). 
 
                To this end, let \( U  \) be an open set with respect to \( {\mathcal{T}}_{E} \). Let \( x \in f^{-1}(U) \) be arbitrary. Then \( f(x) \in U \), by definition. Since \( U  \) is open in \( {\mathcal{T}}_{E} \), there exists an \( \epsilon > 0  \) such that \( {B}_{\epsilon}(f(x)) \subseteq U  \) with respect to the standard metric on \( \R  \). By assumption, since \( x \in \R  \) and \( \epsilon > 0  \),
                \begin{center}
-               there exists a \( \delta > 0  \) such that \( [x, x + \delta) \subseteq f^{-1}({B}_{\epsilon}(f(x)) \).  
+               there exists a \( \delta > 0  \) such that \( [x, x + \delta) \subseteq f^{-1}({B}_{\epsilon}(f(x))) \).  
                \end{center}
-               Since \( [x,x+ \delta) \in {\mathcal{T}}_{L} \) (\( [x, x + \delta) \) is open with respect to the Lower Limit Topology) containing \( x  \), it follows that 
-               \[  x \in [x,x + \delta) \subseteq f^{-1}({B}_{\epsilon}(f(x)) \subseteq f^{-1}(U) \implies x \in [x , x + \delta) \subseteq f^{-1}(U). \]
+               Since \( [x,x+ \delta) \in {\mathcal{T}}_{L} \) (that is, \( [x, x + \delta) \) is open with respect to the Lower Limit Topology) contains \( x  \), it follows that 
+               \[  x \in [x,x + \delta) \subseteq f^{-1}({B}_{\epsilon}(f(x)) ) \subseteq f^{-1}(U) \implies x \in [x , x + \delta) \subseteq f^{-1}(U). \]
                Thus, this implies that \( f^{-1}(U) \) is open in \( {\mathcal{T}}_{L} \) and so \( f \) is continuous.
            \end{proof}
        \item[(ii)] Is \( f : (\R, {\mathcal{T}}_{L}) \to (\R, \mathcal{T}_{E}) \), \( f(x) = \displaystyle 
@@ -64,7 +68,23 @@
        0 & \text{if} \ x < 0
        \end{cases} \   \) continuous?
        \begin{solution}
-           We claim that \( f  \) is continuous. Notice that \( f  \) is continuous for all \( x \in \R \) that is non-zero. It suffices to check that \( f  \) is continuous at \( 0 \in \R   \). We can see this because for all \( \epsilon > 0 \), we can define \( \delta  = 1  \) such that \( [0,1) \subseteq f^{-1}({B}_{\epsilon}(f(0)) = f^{-1}({B}_{\epsilon}(1)) \). That is, \( f  \) is continuous at \( 0  \).
+           We claim that \( f \) is continuous. We will show that for all \( U \in \mathcal{T}_{E} \), the preimage under \( f^{-1}(U) \) is open with respect to the lower limit topology. Indeed, let \( U  \) be an open set in \( {\mathcal{T}}_{E} \). Since the image under \( f  \) only consists of either \( 1  \) or \(  0  \), we will consider four cases:
+           \begin{enumerate}
+               \item[(1)] Both \( 0  \) and \( 1  \) are not in \( U  \);
+                \item[(2)] \( 0 \in U \) but \( 1 \notin U  \);
+                \item[(3)] \( 0 \notin U  \) and \( 1 \in U  \);
+                \item[(4)] \( 0 \in U  \) and \( 1 \in U \).
+           \end{enumerate}
+           Starting with (1), we notice that there is no \( x \in \R  \) such that \( f(x) \in U  \) and so \( f^{-1}(U) = \emptyset \) which is clearly in \( \mathcal{T}_{L} \).  
+           
+           Assuming (2), we notice that \( f(x) = 0  \) if and only if \( x < 0  \). Thus, the preimage of \( U  \) under \( f  \) is \( f^{-1}(U) = (-\infty , 0 ) \) which can be written as a union of basis elements of \( \mathcal{T}_{L} \) in the following way:
+           \[  (-\infty , 0) = \bigcup_{ n = 1  }^{ \infty   } [-n, 0) \]
+           which is clearly open since \( [-n,0) \) are open for all \( n \in \N  \) with respect to the Lower Limit Topology. Thus, \( f^{-1}(U) \) is open.
+            
+           Assuming (3), we notice \( f(x) = 1  \) if and only if \( x \geq 0  \). Thus, \( f^{-1}(U) = [0,\infty) \) which is in \( \mathcal{T}_L \). Thus, \( f^{-1}(U) \) is open and so \( f \) is continuous.
+
+           Lastly, assume (4). We observe that since both \( 1  \) and \( 0  \) are in \( U  \), it follows that the preimage under \( f  \) of \( U  \) is just \( \R  \) itself which is contained in \( \mathcal{T}_L \). Thus, \( f^{-1}(U) = \R  \) is open in \( {\mathcal{T}}_{L} \).
+           Thus, in all four cases, we get that \( f^{-1}(U) \) is open in \( \mathcal{T}_{L} \) and so we conclude that \( f \) is continuous.
        \end{solution}
    \item[(iii)] Is \( f: (\R, {\mathcal{T}}_{E}) \to (\R, {\mathcal{T}}_{L}) \), \( f(x) = 
    \begin{cases}
@@ -72,7 +92,14 @@
        0 & \text{if} \ x < 0
    \end{cases}  \) \ continuous?
    \begin{solution}
-       No, because there does not exists an open set \( U \) in \( {\mathcal{T}}_{L} \) such that under the preimage of \( f  \), \( f^{-1}(U) \) is not open in \( \mathcal{T}_{E} \). For example, take \( U = [0,\epsilon) \) for any \( \epsilon > 0  \) in \( {\mathcal{T}}_{L} \). Then \( f^{-1}(U) \) is not open because \( [0,\epsilon) \) is not open with respect to the Euclidean topology. 
+       We claim that this function is not continuous. Take the open set \( [1,2) \) with respect to the Lower Limit Topology and observe that its pre-image under \( f  \) will be  
+       \begin{align*}
+           f^{-1}[1,2) &= \{ x \in \R : f(x) \in [1,2) \}  \\
+                       &= \{ x \in \R : 1 \leq f(x) < 2  \}  \\
+                       &= \{ x \in \R : x \geq 0  \} \\
+                       &= [0,+\infty)
+       \end{align*}
+       which is not open with respect to the Euclidean Topology since \( 0  \) is not an interior point of \( [0,+\infty ) \).
    \end{solution}
    \end{enumerate} 
 \end{problem}
@@ -111,6 +138,10 @@
     \end{enumerate}
 \end{problem}
 
+\begin{remark}
+   In the next problem, whenever I mention an open set in \( \R^{n}  \) where \( n \in \N \), I am assuming with respect to the Euclidean Topology on \( \R^{n} \). 
+\end{remark}
+
 \begin{problem}[Open and Closed Sets Via Continuous Functions]
    \begin{enumerate}
        \item[(i)] Prove that \( \{ x \in \R : \cos x > \sin x  \}   \) is open in \( \R \).
@@ -126,13 +157,31 @@
            \end{proof}
         \item[(ii)] Show that \( \{ (x,y) \in \R^{2} : x > y , \ x^{2} + y^{2} < 1  \}  \) is open in \( \R^{2} \).
             \begin{proof}
-            Define \( f(x,y) = x^{2} + y^{2} \) where \( f: \R^{2} \to \R \). Notice that \( f \) is continuous because \( x^{2} \) and \( y^{2} \) are polynomials in \( \R \) which are continuous and that the sum of these two continuous functions is continuous. Thus, \( f \) is continuous on \( \R^{2} \). Now, consider the open set \( (-\infty , 1 )  \) in \( \R \). Since \( f  \) is continuous, we know that its preimage \( f^{-1}(-\infty , 1 ) \) is open in \( \R^{2} \). Then
+                First, note that the set above can be written as an intersection of the following two sets
+                \begin{enumerate}
+                    \item[(a)] \( \{ (x,y) \in \R^{2} : x > y \}  \),
+                    \item[(b)] \( \{ (x,y) \in \R^{2} : x^{2} + y^{2} < 1  \}  \).
+                \end{enumerate}
+                Thus, our goal is to show that the sets in (a) and (b) are open so that we can conclude that their intersection (because a finite intersection of open sets is open) is open.
+
+                (a) Define \( f(x,y) = x - y  \) where \( f: \R^{2} \to \R \). Since \( x  \) and \( y  \) are polynomials in \( \R  \) which are continuous, it follows that their difference \( f(x,y) \) is also continuous. Consider the open set \( (0,+\infty ) \) in \( \R \). Then it follows that 
+                \begin{align*}
+                   f^{-1}(0,+\infty )  &= \{ (x,y) \in \R^{2} : f(x,y) \in (0,+\infty ) \}  \\
+                                       &= \{ (x,y) \in \R^{2} : f(x,y) > 0 \}  \\
+                                       &= \{ (x,y) \in \R^{2} : x - y > 0 \} \\
+                                       &= \{ (x,y) \in \R^{2} : x > y  \}.
+                \end{align*}
+            Since \( f \) is continuous and \( (0,+\infty ) \) is open in \( \R \), it follows that \( f^{-1}(0,+\infty ) \) is open in \( \R^{2} \). That is, \( \{ (x,y) \in \R^{2} : x > y \}   \) is open in \( \R^{2} \). 
+
+                (b) Define \( f(x,y) = x^{2} + y^{2} \) where \( f: \R^{2} \to \R \). Notice that \( f \) is continuous because \( x^{2} \) and \( y^{2} \) are polynomials in \( \R \) which are continuous and that the sum of these two continuous functions is continuous. Thus, \( f \) is continuous on \( \R^{2} \). Now, consider the open set \( (-\infty , 1 )  \) in \( \R \). Since \( f  \) is continuous, we know that its preimage \( f^{-1}(-\infty , 1 ) \) is open in \( \R^{2} \). Then
             \begin{align*}
                 f^{-1}(-\infty , 1) &= \{ (x,y) \in \R^{2} : f(x,y) \in (-\infty , 1) \}  \\
                                     &= \{ (x,y) \in \R^{2} : f(x,y) < 1  \}  \\
                                     &= \{ (x,y) \in \R^{2} : x^{2} + y^{2} < 1  \}.
             \end{align*}
             Hence, \( \{ (x,y) \in \R^{2} : x^{2} + y^{2} < 1  \}  \) is open in \( \R^{2} \).
+ 
+            Now, the intersection of the sets in (a) and (b) are open and so the original set \( \{ (x,y) \in \R^{2} : x > y , x^{2} + y^{2} < 1  \}  \) are open in \( \R^{2} \). 
             \end{proof}
         \item[(iii)] Prove that \( \{ (x,y,z) \in \R^{3} : 4 \leq  x^{2} + y^{2} + z^{2} \leq 6 \}  \) is closed in \( \R^{3} \).
             \begin{proof}
@@ -151,7 +200,9 @@
    Assume the hypothesis of the pasting lemma. Show that if \( {A}_{i} \) is closed for all \( i \in I  \) and \( I  \) is finite, then \( f  \) is continuous. 
 \end{problem}
 \begin{proof}
-    Let \( U  \) be closed in \( Y  \) and let \( \{ {A}_{i} \}_{i \in I} \) be a finite cover of \( X  \). Our goal is to show that \( f^{-1}(U) \) is open in \( X  \). Notice that 
+    Let \( U  \) be closed in \( Y  \) and let \( \{ {A}_{i} \}_{i \in I} \) be a finite cover of \( X  \); that is,
+            \[  \bigcup_{ i = 1  }^{ n }  {A}_{i} = X. \]
+    Our goal is to show that \( f^{-1}(U) \) is closed in \( X  \). Notice that 
 \begin{align*}
     f^{-1}(U) = f^{-1}(U) \cap X &= f^{-1}(U) \cap \Big( \bigcup_{ i=1  }^{ n }  {A}_{i} \Big)  \\
                                  &= \bigcup_{ i= 1  }^{ n  }  [f^{-1}(U) \cap {A}_{i}].
@@ -165,9 +216,9 @@ Note that since \( f(x) = {f}_{i}(x)  \) for all \( x \in {A}_{i} \), we get tha
 \end{align*}
 Then we get that 
 \[  f^{-1}(U) = \bigcup_{ i=1  }^{ n }  f^{-1}_i (U). \]
-Since each \( {f}_{i} \) is continuous on \( {A}_{i} \) for all \( 1 \leq i \leq n  \), and \( U  \) is a closed set in \( Y  \), it follows that \( f^{-1}_i(U) \) is closed for all \( 1 \leq i \leq n  \). Since a finite union of closed sets is closed, it follows that 
+Since each \( {f}_{i} \) is continuous on each \( {A}_{i} \) and \( U \) is a closed set in \( Y \),  it follows that \( {f}_{i}^{-1}(U) \) is closed in \( {A}_{i} \). Since each \( {A}_{i} \) is closed in \( X  \), it follows that \( {f}_{i}^{-1}(U) \) is closed in \( X  \) for all \( 1 \leq i \leq n  \). Since a finite union of closed sets is closed, it follows that 
 \[  f^{-1}(U) = \bigcup_{ i= 1  }^{ n }  f^{-1}_i(U) \]
-is a closed set and so we conclude that \( f \) is continuous.
+is a closed set in \( X  \) and so we conclude that \( f \) is continuous.
 \end{proof}
 
 \begin{problem}
@@ -176,18 +227,17 @@ is a closed set and so we conclude that \( f \) is continuous.
            \begin{enumerate}
                \item[(a)] \( A  \) is open in \( X \) if and only if the inclusion \( i \) is open.
                    \begin{proof}
-                       Let \( \mathcal{T} \) be a topological space on \( X  \) and let \( \mathcal{T} |_{A} \) be the subspace topology endowed from \( X  \). 
-                       \( (\Longrightarrow) \) Suppose \( A  \) is open. Our goal is to show that the inclusion map \( i  \) is open; that is, \( i(U) \in \mathcal{T} \) for all \( U \in \mathcal{T} |_{A}  \). Let \( U \in \mathcal{T} |_{A} \) be arbitrary (that is, \( U  \) is open in \( A  \)). We want to show that \( i(U)  \) is open in \( X  \). To this end, let \( y \in i(U) \) be arbitrary. Then there exists an \( x \in U  \) such that \( i (x) = y  \). But \( U  \) is open in \( A  \), so there exists an open set \( V  \) in \( X  \) such that \( U = V \cap A  \). But \( A  \) is open in \( X  \), so we have that \( U \) is open in \( X  \). Since \( x \in U  \) and \( U  \) is open in \( X  \), there exists an open set \( W  \) in \( X  \) containing \( x  \) such that \( x \in W \subseteq U \). Since \( i(x) = y  \), by definition of the inclusion map, \( i(x)  = x \) and so \( x =y  \). Now, note that \( W \subseteq U  \) implies that \( i(W) \subseteq i(U) \) since \( x \in W  \). However, \( i(W) = W  \) since \( W  \) is open in \( X  \), and so we get that    
-                       \[  i(x) \in i(W) \subseteq i(U) \implies y \in W \subseteq i(U). \]
-                       This tells us that \( i(U) \) is open in \( X  \) and so \( i  \) is open. 
- 
+                       Let \( \mathcal{T} \) be a topology on \( X  \) and let \( \mathcal{T} |_{A} \) be the subspace topology endowed from \( X  \). 
+                      
+                       \( (\Longrightarrow) \) Suppose \( A  \) is open. Our goal is to show that the inclusion map \( i  \) is open; that is, \( i(U) \in \mathcal{T} \) for all \( U \in \mathcal{T} |_{A}  \). Let \( U \in \mathcal{T} |_{A} \) be arbitrary (that is, \( U  \) is open in \( A  \)). We want to show that \( i(U)  \) is open in \( X  \). Since \( U \) is open in \( A  \), there exists an open set \( V  \) in \( X  \) such that \( U = V \cap A  \). Since \( A  \) and \( V \) are open in \( X  \), it follows that \( U  \) must be open because a finite intersection of open sets is open. Thus, \( i(U) = U  \) implies that \( i(U) \) must be open in \( X  \). 
+
                        \( (\Longleftarrow) \) Suppose that \( i  \) is open. Then \( i \) is open if and only if for all \( U \in \mathcal{T} |_{A}  \), \( i(U) \in \mathcal{T} \). In particular, \( A \in \mathcal{T} |_{A} \), and so \( i(A) \in \mathcal{T} \). But note that \( i(A) = A  \) and so \( A \in \mathcal{T} \). Thus, it follows that \( A  \) is open in \( X  \).                    
                    \end{proof}
                 \item[(b)] \( A  \) is closed in \( X  \) if and only if the inclusion \( i \) is closed.
                     \begin{proof}
-                        \( (\Longrightarrow) \) Suppose \( A  \) is closed in \( X  \). Our goal is to show that \(  i  \) is closed; that is, we need to show that for all closed sets \( V \) in \( A  \), \( i(V) \) is closed in \( X  \). To this end, let \( V  \) be a closed set in \( A  \). Then there exists an closed set \( U  \) in \( X  \) such that \( V = U \cap A  \) is closed in \( X  \) (since the finite intersection of two closed sets is closed). This tells us that \( V^{c}  \) is open in \( X  \). Set \( W = V^{c} \). Then \( i \) is open from part (a); that is, for all \( B \in \mathcal{T} |_{W} \), \( i(B) \in \mathcal{T} \). Since \( W \in \mathcal{T} |_{W} \), it follows that \( i(W) \in \mathcal{T} \). Then \( i(V^{c}) \in \mathcal{T} \) and so \( [i(V)]^{c} \in \mathcal{T} \). That is, \( i(V) \) is closed in \( X  \).
+                        \( (\Longrightarrow) \) Suppose \( A  \) is closed in \( X  \). Let \( U  \) be a closed set in \( A  \). Then there exists a closed set \( V  \) in \( X  \) such that \( U = V \cap A  \). However, \( A \) and \( V  \) are both closed in \( X  \) which implies that \( U = V \cap A   \) is closed because the finite intersection of closed sets is closed. Thus, \( i(U) =  U \) is closed in \( X  \) which is our desired result.                         
 
-                        \( (\Longleftarrow) \) Suppose that \( i  \) is closed. That is, for all closed sets \( V \) in \( A  \), \( i(V) \) is closed in \( X  \). Since \( A  \)itself is closed in its subspace topology, it follows that \( i(A) \) is closed in \( X  \). But by definition \( i(A) = A  \) and so \( A  \) is closed in \( X  \).
+                        \( (\Longleftarrow) \) Suppose that \( i  \) is closed. That is, for all closed sets \( V \) in \( A  \), \( i(V) \) is closed in \( X  \). Since \( A  \) itself is closed in its subspace topology, it follows that \( i(A) \) is closed in \( X  \). But by definition \( i(A) = A  \) and so \( A  \) is closed in \( X  \).
 
                     \end{proof}
            \end{enumerate}
@@ -195,9 +245,14 @@ is a closed set and so we conclude that \( f \) is continuous.
            \[  f: \R^{n} \to \R^{n+k} \ \ f({x}_{1}, {x}_{2}, \dots, {x}_{n}) = ({x}_{1}, {x}_{2}, \dots, {x}_{n}, 0 , 0 , \dots, 0) \]
            is not open.
            \begin{proof}
-               Construct the open ball \( {B}_{\epsilon}(0) \) centered at \( 0  \) with an arbitrary radius \( \epsilon  \) in \( \R^{n} \). The image of this ball under \( f  \) is \[  f({B}_{\epsilon}(0)) = \{ ({x}_{1}, {x}_{2}, \dots, {x}_{n}, 0, 0, \dots , 0 ) : x \in {B}_{\epsilon}(0) \}. \] 
-               Note that there does not exists an open ball in \( \R^{n+k} \) containing \( 0  \) that is completely contained in the above image. We can see this by taking any point with \( k  \)-th component that is non-zero. It will be contained in the open ball, but not in the image because one of the \( k \)th components past \( n  \) is non-zero. Hence, \( f  \) is not an open map. 
-           \end{proof}
+               Equip \( \R^{n} \) and \( \R^{n+k} \) with the Euclidean Topology. Since \( \R^{n}  \) and \( \R^{n+k} \) are metrizable topological spaces, we can equip both of them with the Euclidean norm \( \|\cdot\| \). Define the open ball \( U = {B}_{\epsilon}(0) \) centered at \( 0  \) with an arbitrary radius \( \epsilon > 0   \) in \( \R^{n} \) which is clearly open with respect to the Euclidean Topology on \( \R^{n} \). The image of this ball under \( f  \) is \[  f(U) = \{ ({x}_{1}, {x}_{2}, \dots, {x}_{n}, 0, 0, \dots , 0 ) \in \R^{n+k} : ({x}_{1}, {x}_{2}, \dots, {x}_{n}) \in {B}_{\epsilon}(0) \}. \] 
+              We claim that \( 0 \in f(U) \) is not an interior point of \( f(U) \), implying that \( f(U)  \) is not open in \( \R^{n+k} \). Let \( r > 0  \), and consider the ball \( {B}_{r}(0) \subseteq \R^{n+k} \). Notice that this ball contains points that have at least one \( i \)-th component where \( i > n  \) that is non-zero. In particular, take the following point  
+               \[  y = (0, \dots, 0, \dots, 0, r/2, 0, \dots, 0) \in {B}_{r}(0). \]
+            We see that this point is contained in \( {B}_{r}(0) \) since  
+            \[  \| y - 0  \| = \Big( \sum_{ i=1  }^{ n + k } | {y}_{i} - 0 |^{2}  \Big)^{1/2} = \Big| \frac{ r }{ 2 }  -  0  \Big| = \frac{ r }{ 2 }  < r   \]
+            but not contained in \( f(U) \) because it contains some \( k  \)-th coordinate that is non-zero where \( k > n  \) (namely, from the above \( {y}_{k} = \frac{ r }{ 2 }  \)).      
+               Hence, there does not exists an open ball centered at \(  0 \) that is contained in \( f(U) \). Therefore, \( f(U) \) is not open in \( \R^{n+k} \) and so \( f \) is not an open map. 
+    \end{proof}
    \end{enumerate} 
 \end{problem}
 

@@ -1,0 +1,28 @@
+\documentclass[a4paper]{article}
+\input{../../../../../../newpreamble.tex}
+\title{The Class Equation and Cauchy's Theorem}
+\begin{document}
+\maketitle
+
+\begin{problem}
+    Let \( G  \) be a finite group. Prove that if there exists a prime \( p \) such that \( p \mid | G: {C}_{G}(g) |  \) for every \( g \notin Z(G) \), then \( G  \) is not simple.
+\end{problem}
+\begin{proof}
+Suppose for contradiction that \( G \) is simple; that is, the only normal subgroups that \( G  \) has are either \( G  \) itself or \( \{ {1}_{G}  \}  \). Recall the class equation;
+\[  | G |  = | Z(G) |  + \sum_{ i=1  }^{ r  } | G : {C}_{G}({g}_{i}) | \tag{*}  \] where for all \( 1 \leq i \leq r  \), \( {g}_{i} \notin Z(G) \) are representatives of distinct non-trivial conjugacy classes. Notice that 
+\begin{align*}
+    p \mid | G : {C}_{G}({g}_{i}) | &\implies \exists {q}_{i} \in \Z^{+} \ \text{such that} \ | G: {C}_{G}(g) |  = pq   \\
+                                    &\implies \frac{ | G |  }{ | {C}_{G}(g) |  }  = pq \\
+                                    &\implies | G | = p (q | {C}_{G}(g) | ) \\
+                                    &\implies p \mid | G |.
+\end{align*}
+From (*), it follows that since \( p \mid | G |  \) and \( p \mid | G : {C}_{G}({g}_{i}) |  \) for all \( 1 \leq i \leq r  \), we have that \( p \mid | Z(G) |  \). This tells us that \( Z(G) \neq \{ {1}_{G} \}  \) and so \( Z(G) = G  \) implies that \( G  \) is abelian. Since \( G  \) is abelian, every subgroup of \( G  \) is normal. In particular, since \( p \mid | G |  \), there exists an element \( x \in G  \) of order \( p  \). That is, \( \langle x   \rangle  \) is a cyclic subgroup of order \( p  \) that is normal in \( G  \) which is clearly not \( G  \) nor \( \{ e \}  \) and so a contradiction. Thus, \( G  \) must NOT be simple.
+\end{proof}
+
+\begin{problem}
+    Let \( G \) be a non-abelian group with exactly three conjugacy classes. Prove that \( G \cong {S}_{3} \).
+\end{problem}
+
+
+\end{document}
+
